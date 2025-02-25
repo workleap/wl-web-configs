@@ -118,7 +118,9 @@ Then, open the newly created file and `export` the webpack configuration by usin
 import { defineBuildConfig } from "@workleap/webpack-configs";
 import { swcConfig } from "./swc.build.js";
 
-export default defineBuildConfig(swcConfig);
+export default defineBuildConfig(swcConfig, {
+    publicPath: "auto"
+});
 ```
 
 ### `swc.build.js`
