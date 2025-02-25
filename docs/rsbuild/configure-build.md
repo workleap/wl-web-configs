@@ -135,7 +135,9 @@ Then, open the newly created file and `export` the Rsbuild configuration by usin
 ```ts rsbuild.build.ts
 import { defineBuildConfig } from "@workleap/rsbuild-configs";
 
-export default defineBuildConfig();
+export default defineBuildConfig({
+    assetPrefix: "auto"
+});
 ```
 
 ## Use predefined options
@@ -182,7 +184,7 @@ export default defineBuildConfig({
 > This option is the Rsbuild equivalent of webpack [publicPath](../webpack/configure-dev.md#publicpath) option.
 
 - **Type**: `string`
-- **Default**: `${https ? "https" : "http"}://${host}:${port}`
+- **Default**: `http://localhost:8080`
 
 Set Rsbuild [output.assetPrefix](https://rsbuild.dev/config/output/asset-prefix) option.
 
@@ -190,7 +192,7 @@ Set Rsbuild [output.assetPrefix](https://rsbuild.dev/config/output/asset-prefix)
 import { defineBuildConfig } from "@workleap/rsbuild-configs";
 
 export default defineBuildConfig({
-    assetPrefix: "http://dev-host:8080"
+    assetPrefix: "http://host:8080"
 });
 ```
 
@@ -497,8 +499,9 @@ To view the default build configuration of `@workleap/rsbuild-configs`, have a l
 transformer(config: RsbuildConfig, context: RsbuildConfigTransformerContext) => RsbuildConfig
 ```
 
-```ts !#3-10,16 rsbuild.build.ts
-import { defineBuildConfig, type RsbuildConfig, type RsbuildConfigTransformer } from "@workleap/rsbuild-configs";
+```ts !#4-11,17 rsbuild.build.ts
+import { defineBuildConfig, type RsbuildConfigTransformer } from "@workleap/rsbuild-configs";
+import type { RsbuildConfig } from "@rsbuild/core";
 
 const forceNamedChunkIdsTransformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
     config.output = {
@@ -518,8 +521,9 @@ export default defineBuildConfig({
 
 Generic transformers can use the `context` parameter to gather additional information about their execution context, like the `environment` they are operating in.
 
-```ts !#4 transformer.ts
-import type { RsbuildConfig, RsbuildConfigTransformer } from "@workleap/rsbuild-configs";
+```ts !#5 transformer.ts
+import type { RsbuildConfigTransformer } from "@workleap/rsbuild-configs";
+import type { RsbuildConfig } from "@rsbuild/core";
 
 export const transformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
     if (context.environment === "build") {

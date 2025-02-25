@@ -241,8 +241,9 @@ To view the default Storybook configuration of `@workleap/rslib-configs`, have a
 transformer(config: RslibConfig, context: RslibConfigTransformerContext) => RslibConfig
 ```
 
-```ts !#3-10,13 rslib.config.ts
-import { defineStorybookConfig, type RslibConfig, type RslibConfigTransformer } from "@workleap/rslib-configs";
+```ts !#4-11,14 rslib.config.ts
+import { defineStorybookConfig, type RslibConfigTransformer } from "@workleap/rslib-configs";
+import type { RslibConfig } from "@rslib/core";
 
 const useInlineStylesTransformer: RslibConfigTransformer = (config: RslibConfig) => {
     config.output = {
@@ -262,8 +263,9 @@ export default defineStorybookConfig({
 
 Generic transformers can use the `context` parameter to gather additional information about their execution context, like the `environment` they are operating in.
 
-```ts !#4 transformer.ts
-import type { RslibConfig, RslibConfigTransformer } from "@workleap/rslib-configs";
+```ts !#5 transformer.ts
+import type { RslibConfigTransformer } from "@workleap/rslib-configs";
+import type { RslibConfig } from "@rslib/core";
 
 export const transformer: RslibConfigTransformer = (config: RslibConfig) => {
     if (context.environment === "storybook") {

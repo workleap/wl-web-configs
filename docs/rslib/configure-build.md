@@ -380,8 +380,9 @@ To view the default build configuration of `@workleap/rslib-configs`, have a loo
 transformer(config: RslibConfig, context: RslibConfigTransformerContext) => RslibConfig
 ```
 
-```ts !#3-13,16 rslib.build.ts
-import { defineBuildConfig, type RslibConfig, type RslibConfigTransformer } from "@workleap/rslib-configs";
+```ts !#4-14,17 rslib.build.ts
+import { defineBuildConfig, type RslibConfigTransformer } from "@workleap/rslib-configs";
+import type { RslibConfig } from "@rslib/core";
 
 const forceNamedChunkIdsTransformer: RslibConfigTransformer = (config: RslibConfig) => {
     config.tools = config.tools ?? {};
@@ -404,8 +405,9 @@ export default defineBuildConfig({
 
 Generic transformers can use the `context` parameter to gather additional information about their execution context, like the `environment` they are operating in.
 
-```ts !#4 transformer.ts
-import type { RslibConfig, RslibConfigTransformer } from "@workleap/rslib-configs";
+```ts !#5 transformer.ts
+import type { RslibConfigTransformer } from "@workleap/rslib-configs";
+import type { RslibConfig } from "@rslib/core";
 
 export const transformer: RslibConfigTransformer = (config: RslibConfig) => {
     if (context.environment === "build") {

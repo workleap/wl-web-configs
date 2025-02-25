@@ -534,8 +534,9 @@ To view the default development configuration of `@workleap/rsbuild-configs`, ha
 transformer(config: RsbuildConfig, context: RsbuildConfigTransformerContext) => RsbuildConfig
 ```
 
-```ts !#3-13,16 rsbuild.dev.ts
-import { defineDevConfig, type RsbuildConfig, type RsbuildConfigTransformer } from "@workleap/rsbuild-configs";
+```ts !#4-14,17 rsbuild.dev.ts
+import { defineDevConfig, type RsbuildConfigTransformer } from "@workleap/rsbuild-configs";
+import type { RsbuildConfig } from "@rsbuild/core";
 
 const forceNamedChunkIdsTransformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
     config.tools = config.tools ?? {};
@@ -558,8 +559,9 @@ export default defineDevConfig({
 
 Generic transformers can use the `context` parameter to gather additional information about their execution context, like the `environment` they are operating in.
 
-```ts !#4 transformer.ts
-import type { RsbuildConfig, RsbuildConfigTransformer } from "@workleap/rsbuild-configs";
+```ts !#5 transformer.ts
+import type { RsbuildConfigTransformer } from "@workleap/rsbuild-configs";
+import type { RsbuildConfig } from "@rsbuild/core";
 
 export const transformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
     if (context.environment === "dev") {
