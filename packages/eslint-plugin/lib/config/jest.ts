@@ -14,6 +14,11 @@ const config: Linter.Config = {
                 commonjs: true,
                 jest: true
             },
+            settings: {
+                jest: {
+                    version: "detect"
+                }
+            },
             extends: ["plugin:jest/recommended"],
             rules: {
                 // Prefer spies to allow for automatic restoration

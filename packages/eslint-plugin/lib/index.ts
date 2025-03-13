@@ -8,6 +8,7 @@ const plugin: ESLint.Plugin = {
         // Parts
         core: require("./config/core"),
         jest: require("./config/jest"),
+        vitest: require("./config/vitest"),
         mdx: require("./config/mdx"),
         react: require("./config/react"),
         storybook: require("./config/storybook"),
