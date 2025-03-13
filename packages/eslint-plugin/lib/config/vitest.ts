@@ -7,7 +7,10 @@ const config: Linter.Config = {
         {
             files: [...testFiles, ...reactTestFiles],
             plugins: ["@vitest"],
-            extends: ["plugin:@vitest/legacy-recommended"]
+            extends: ["plugin:@vitest/legacy-recommended"],
+            rules: {
+                "@vitest/no-commented-out-tests": "off"
+            }
         }
     ]
 };

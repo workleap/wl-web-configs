@@ -21,9 +21,9 @@ const config: Linter.Config = {
             },
             extends: ["plugin:jest/recommended"],
             rules: {
-                // Prefer spies to allow for automatic restoration
+                // Prefer spies to allow for automatic restoration.
                 "jest/prefer-spy-on": "error",
-                // Gives better failure messages for array checks
+                // Gives better failure messages for array checks.
                 "jest/prefer-to-contain": "error"
             }
         }
