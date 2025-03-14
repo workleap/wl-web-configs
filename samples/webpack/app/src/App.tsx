@@ -23,16 +23,7 @@ const router = createBrowserRouter([
             }
         ]
     }
-], {
-    future: {
-        v7_relativeSplatPath: false,
-        v7_startTransition: false,
-        v7_fetcherPersist: false,
-        v7_normalizeFormMethod: false,
-        v7_partialHydration: false,
-        v7_skipActionErrorRevalidation: false
-    }
-});
+]);
 
 export function App() {
     return (

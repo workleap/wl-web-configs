@@ -24,12 +24,12 @@
         "typecheck": "tsc"
     },
     "devDependencies": {
-        "@typescript-eslint/parser": "8.20.0",
+        "@typescript-eslint/parser": "8.26.1",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/tsup-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0",
-        "tsup": "8.3.5",
+        "tsup": "8.4.0",
         "typescript": "5.5.4"
     }
 }

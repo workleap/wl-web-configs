@@ -6,6 +6,7 @@ const config: Linter.Config = {
         "plugin:@workleap/core",
         "plugin:@workleap/typescript",
         "plugin:@workleap/jest",
+        "plugin:@workleap/vitest",
         "plugin:@workleap/testing-library",
         "plugin:@workleap/mdx",
         "plugin:@workleap/package-json",

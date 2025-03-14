@@ -19,6 +19,7 @@ If the default [by project type configurations](default.md/#available-configurat
 | :icon-mark-github: [react](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/react.ts) | Rules for [React](https://react.dev/) files. |
 | :icon-mark-github: [jsx-a11y](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/jsx-a11y.ts) | Rules for testing accessibility in [React](https://react.dev/) files. |
 | :icon-mark-github: [jest](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/jest.ts) | Rules for [Jest](https://jestjs.io/) files. |
+| :icon-mark-github: [vitest](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/vitest.ts) | Rules for [Vitest](https://vitest.dev/) files. |
 | :icon-mark-github: [testing-library](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/testing-library.ts) | Rules for Jest files using [Testing Library](https://testing-library.com/). |
 | :icon-mark-github: [storybook](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/storybook.ts) | Rules for [Storybook](https://storybook.js.org/) story files. |
 | :icon-mark-github: [mdx](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/mdx.ts) | Rules for [MDX](https://mdxjs.com/) files (used for Storybook MDX stories). |

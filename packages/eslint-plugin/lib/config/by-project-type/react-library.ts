@@ -8,6 +8,7 @@ const config: Linter.Config = {
         "plugin:@workleap/react",
         "plugin:@workleap/jsx-a11y",
         "plugin:@workleap/jest",
+        "plugin:@workleap/vitest",
         "plugin:@workleap/testing-library",
         "plugin:@workleap/storybook",
         "plugin:@workleap/mdx",
