@@ -1,5 +1,11 @@
 # @workleap/eslint-plugin
 
+## 3.3.0
+
+### Minor Changes
+
+- [#239](https://github.com/workleap/wl-web-configs/pull/239) [`cb935c1`](https://github.com/workleap/wl-web-configs/commit/cb935c12efbb5b136216efe5236b4dc4e89438cd) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Added rules for Vitest.
+
 ## 3.2.6
 
 ### Patch Changes
