@@ -1,7 +1,8 @@
+import { test } from "vitest";
 import type { RuleSetRule, RuleSetUseItem, Configuration as WebpackConfig } from "webpack";
 import { matchLoaderName, matchTest, removeModuleRules } from "../../src/transformers/moduleRules.ts";
 
-test("when a matching module rule is found in the rules array, remove the module rule", () => {
+test.concurrent("when a matching module rule is found in the rules array, remove the module rule", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -27,7 +28,7 @@ test("when a matching module rule is found in the rules array, remove the module
     expect((config.module?.rules![1] as RuleSetRule).type).toBe("asset/resource");
 });
 
-test("when a matching module rule is found in a \"oneOf\" prop, remove the module rule", () => {
+test.concurrent("when a matching module rule is found in a \"oneOf\" prop, remove the module rule", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -57,7 +58,7 @@ test("when a matching module rule is found in a \"oneOf\" prop, remove the modul
     expect(((config.module?.rules![1] as RuleSetRule).oneOf![0] as RuleSetRule).type).toBe("asset/resource");
 });
 
-test("when a matching module rule is found in a \"use\" prop, remove the module rule", () => {
+test.concurrent("when a matching module rule is found in a \"use\" prop, remove the module rule", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -93,7 +94,7 @@ test("when a matching module rule is found in a \"use\" prop, remove the module 
     expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[])[0].loader).toBe("esbuild-loader");
 });
 
-test("when multiple matching module rules are found within the same parent, remove all the module rules", () => {
+test.concurrent("when multiple matching module rules are found within the same parent, remove all the module rules", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -123,7 +124,7 @@ test("when multiple matching module rules are found within the same parent, remo
     expect((config.module?.rules![1] as RuleSetRule).type).toBe("asset/resource");
 });
 
-test("when multiple matching module rules are found in the rules array and a \"oneOf\" prop, remove all the module rules", () => {
+test.concurrent("when multiple matching module rules are found in the rules array and a \"oneOf\" prop, remove all the module rules", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -161,7 +162,7 @@ test("when multiple matching module rules are found in the rules array and a \"o
     expect((config.module?.rules![2] as RuleSetRule).oneOf!.length).toBe(0);
 });
 
-test("when multiple matching module rules are found in the rules array and a \"use\" prop, remove all the module rules", () => {
+test.concurrent("when multiple matching module rules are found in the rules array and a \"use\" prop, remove all the module rules", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -197,7 +198,7 @@ test("when multiple matching module rules are found in the rules array and a \"u
     expect(((config.module?.rules![2] as RuleSetRule).use as RuleSetUseItem[]).length).toBe(0);
 });
 
-test("when no matching module rule is found, throw an error", () => {
+test.concurrent("when no matching module rule is found, throw an error", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [

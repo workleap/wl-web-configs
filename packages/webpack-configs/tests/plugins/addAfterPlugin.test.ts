@@ -1,3 +1,4 @@
+import { test } from "vitest";
 import type { Configuration } from "webpack";
 import { addAfterPlugin, matchConstructorName } from "../../src/transformers/plugins.ts";
 
@@ -19,7 +20,7 @@ class Plugin3 {
     }
 }
 
-test("when a matching plugin is found in the plugins array, add after the plugin", () => {
+test.concurrent("when a matching plugin is found in the plugins array, add after the plugin", ({ expect }) => {
     const newPlugin = new Plugin3();
 
     const config: Configuration = {
@@ -35,7 +36,7 @@ test("when a matching plugin is found in the plugins array, add after the plugin
     expect(config.plugins![2]).toBe(newPlugin);
 });
 
-test("when no matching plugin is found, throw an error", () => {
+test.concurrent("when no matching plugin is found, throw an error", ({ expect }) => {
     const newPlugin = new Plugin3();
 
     const config: Configuration = {

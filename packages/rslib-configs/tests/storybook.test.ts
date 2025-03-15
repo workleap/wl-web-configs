@@ -1,9 +1,10 @@
 import type { RsbuildPlugin, SourceMap } from "@rsbuild/core";
 import type { RslibConfig } from "@rslib/core";
+import { test, vi } from "vitest";
 import type { RslibConfigTransformer } from "../src/applyTransformers.ts";
 import { defineStorybookConfig } from "../src/storybook.ts";
 
-test("when additional plugins are provided, append the provided plugins at the end of the plugins array", () => {
+test.concurrent("when additional plugins are provided, append the provided plugins at the end of the plugins array", ({ expect }) => {
     const plugin1: RsbuildPlugin = {
         name: "plugin-1",
         setup: () => {}
@@ -27,7 +28,7 @@ test("when additional plugins are provided, append the provided plugins at the e
     expect(result.plugins![pluginsCount - 1]).toBe(plugin2);
 });
 
-test("when sourceMap is false, the output.sourceMap option is false", () => {
+test.concurrent("when sourceMap is false, the output.sourceMap option is false", ({ expect }) => {
     const result = defineStorybookConfig({
         sourceMap: false
     });
@@ -35,7 +36,7 @@ test("when sourceMap is false, the output.sourceMap option is false", () => {
     expect(result.output?.sourceMap).toBeFalsy();
 });
 
-test("when sourceMap is an object, the output.sourceMap option is the object", () => {
+test.concurrent("when sourceMap is an object, the output.sourceMap option is the object", ({ expect }) => {
     const sourceMap: SourceMap = {
         js: false,
         css: false
@@ -48,7 +49,7 @@ test("when sourceMap is an object, the output.sourceMap option is the object", (
     expect(result.output?.sourceMap).toBe(sourceMap);
 });
 
-test("when react is false, the react plugin is not included", () => {
+test.concurrent("when react is false, the react plugin is not included", ({ expect }) => {
     const result = defineStorybookConfig({
         react: false
     });
@@ -58,8 +59,8 @@ test("when react is false, the react plugin is not included", () => {
     expect(plugin).toBeUndefined();
 });
 
-test("when react is a function, the function is executed", () => {
-    const fct = jest.fn();
+test.concurrent("when react is a function, the function is executed", ({ expect }) => {
+    const fct = vi.fn();
 
     defineStorybookConfig({
         react: fct
@@ -68,7 +69,7 @@ test("when react is a function, the function is executed", () => {
     expect(fct).toHaveBeenCalledTimes(1);
 });
 
-test("when svgr is false, the svgr plugin is not included", () => {
+test.concurrent("when svgr is false, the svgr plugin is not included", ({ expect }) => {
     const result = defineStorybookConfig({
         svgr: false
     });
@@ -78,8 +79,8 @@ test("when svgr is false, the svgr plugin is not included", () => {
     expect(plugin).toBeUndefined();
 });
 
-test("when svgr is a function, the function is executed", () => {
-    const fct = jest.fn();
+test.concurrent("when svgr is a function, the function is executed", ({ expect }) => {
+    const fct = vi.fn();
 
     defineStorybookConfig({
         svgr: fct
@@ -88,7 +89,7 @@ test("when svgr is a function, the function is executed", () => {
     expect(fct).toHaveBeenCalledTimes(1);
 });
 
-test("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rslib config", () => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rslib config", ({ expect }) => {
     const entryTransformer: RslibConfigTransformer = (config: RslibConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -105,7 +106,7 @@ test("when a transformer is provided, and the transformer update the existing co
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
 });
 
-test("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rslib config", () => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rslib config", ({ expect }) => {
     const entryTransformer: RslibConfigTransformer = (config: RslibConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -122,7 +123,7 @@ test("when a transformer is provided, and the transformer returns a new configur
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
 });
 
-test("when multiple transformers are provided, all the transformers are applied on the webpack config", () => {
+test.concurrent("when multiple transformers are provided, all the transformers are applied on the webpack config", ({ expect }) => {
     const entryTransformer: RslibConfigTransformer = (config: RslibConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -148,8 +149,8 @@ test("when multiple transformers are provided, all the transformers are applied 
     expect(result.output!.distPath!.js).toBe("a-custom-dist-path-in-a-tranformer");
 });
 
-test("transformers context environment is \"storybook\"", () => {
-    const mockTransformer = jest.fn();
+test.concurrent("transformers context environment is \"storybook\"", ({ expect }) => {
+    const mockTransformer = vi.fn();
 
     defineStorybookConfig({
         transformers: [mockTransformer]

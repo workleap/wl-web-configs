@@ -2,6 +2,7 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import type { Config as SwcConfig } from "@swc/core";
 import { defineDevConfig as defineSwcConfig } from "@workleap/swc-configs";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import { describe, test, vi } from "vitest";
 import type { Configuration, RuleSetRule } from "webpack";
 import type { ClientConfiguration, ServerConfiguration } from "webpack-dev-server";
 import { defineDevConfig, defineDevHtmlWebpackPluginConfig, defineFastRefreshPluginConfig } from "../src/dev.ts";
@@ -13,7 +14,7 @@ const DefaultSwcConfig = defineSwcConfig({
     chrome: "116"
 });
 
-test("when an entry prop is provided, use the provided entry value", () => {
+test.concurrent("when an entry prop is provided, use the provided entry value", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         entry: "./a-new-entry.ts"
     });
@@ -21,7 +22,7 @@ test("when an entry prop is provided, use the provided entry value", () => {
     expect(result.entry).toBe("./a-new-entry.ts");
 });
 
-test("when https is enabled, the dev server is configured for https", () => {
+test.concurrent("when https is enabled, the dev server is configured for https", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         https: true
     });
@@ -29,7 +30,7 @@ test("when https is enabled, the dev server is configured for https", () => {
     expect((result.devServer?.server as ServerConfiguration).type).toBe("https");
 });
 
-test("when https is disabled, the dev server is not configured for https", () => {
+test.concurrent("when https is disabled, the dev server is not configured for https", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         https: false
     });
@@ -37,7 +38,7 @@ test("when https is disabled, the dev server is not configured for https", () =>
     expect(result.devServer?.server).toBeUndefined();
 });
 
-test("when https is enabled, the public path starts with https", () => {
+test.concurrent("when https is enabled, the public path starts with https", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         https: true
     });
@@ -45,7 +46,7 @@ test("when https is enabled, the public path starts with https", () => {
     expect(result.output?.publicPath).toMatch(/^https:/);
 });
 
-test("when https is disabled, the public path starts with http", () => {
+test.concurrent("when https is disabled, the public path starts with http", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         https: false
     });
@@ -53,7 +54,7 @@ test("when https is disabled, the public path starts with http", () => {
     expect(result.output?.publicPath).toMatch(/^http:/);
 });
 
-test("when an host is provided, the dev server host is the provided host value", () => {
+test.concurrent("when an host is provided, the dev server host is the provided host value", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         host: "a-custom-host"
     });
@@ -61,7 +62,7 @@ test("when an host is provided, the dev server host is the provided host value",
     expect(result.devServer?.host).toBe("a-custom-host");
 });
 
-test("when an host is provided, the public path include the provided host value", () => {
+test.concurrent("when an host is provided, the public path include the provided host value", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         host: "a-custom-host"
     });
@@ -69,7 +70,7 @@ test("when an host is provided, the public path include the provided host value"
     expect(result.output?.publicPath).toMatch(/a-custom-host/);
 });
 
-test("when a port is provided, the dev server port is the provided port value", () => {
+test.concurrent("when a port is provided, the dev server port is the provided port value", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         port: 1234
     });
@@ -77,7 +78,7 @@ test("when a port is provided, the dev server port is the provided port value", 
     expect(result.devServer?.port).toBe(1234);
 });
 
-test("when a port is provided, the public path include the provided port", () => {
+test.concurrent("when a port is provided, the public path include the provided port", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         port: 1234
     });
@@ -85,7 +86,7 @@ test("when a port is provided, the public path include the provided port", () =>
     expect(result.output?.publicPath).toMatch(/1234/);
 });
 
-test("when a public path is provided, use the provided public path", () => {
+test.concurrent("when a public path is provided, use the provided public path", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         publicPath: "http://my-dev-host.com/"
     });
@@ -93,7 +94,7 @@ test("when a public path is provided, use the provided public path", () => {
     expect(result.output?.publicPath).toBe("http://my-dev-host.com/");
 });
 
-test("when cache is enabled, the cache configuration is included", () => {
+test.concurrent("when cache is enabled, the cache configuration is included", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         cache: true
     });
@@ -101,7 +102,7 @@ test("when cache is enabled, the cache configuration is included", () => {
     expect(result.cache).toBeDefined();
 });
 
-test("when cache is disabled, the cache prop is false", () => {
+test.concurrent("when cache is disabled, the cache prop is false", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         cache: false
     });
@@ -109,7 +110,7 @@ test("when cache is disabled, the cache prop is false", () => {
     expect(result.cache).toBeFalsy();
 });
 
-test("when additional module rules are provided, append the provided rules at the end of the module rules array", () => {
+test.concurrent("when additional module rules are provided, append the provided rules at the end of the module rules array", ({ expect }) => {
     const newModuleRule1 = {
         test: /\.svg/i,
         type: "asset/inline"
@@ -133,7 +134,7 @@ test("when additional module rules are provided, append the provided rules at th
     expect(result.module?.rules![rulesCount - 1]).toBe(newModuleRule2);
 });
 
-test("when additional plugins are provided, append the provided plugins at the end of the plugins array", () => {
+test.concurrent("when additional plugins are provided, append the provided plugins at the end of the plugins array", ({ expect }) => {
     class Plugin1 {
         apply() {
             console.log("I am plugin 1!");
@@ -162,7 +163,7 @@ test("when additional plugins are provided, append the provided plugins at the e
     expect(result.plugins![pluginsCount - 1]).toBe(newPlugin2);
 });
 
-test("when htmlWebpackPlugin is \"false\", no html-webpack-plugin instance is added to the plugin array", () => {
+test.concurrent("when htmlWebpackPlugin is \"false\", no html-webpack-plugin instance is added to the plugin array", ({ expect }) => {
     const config = defineDevConfig(DefaultSwcConfig, {
         htmlWebpackPlugin: false
     });
@@ -172,7 +173,7 @@ test("when htmlWebpackPlugin is \"false\", no html-webpack-plugin instance is ad
     expect(result).toBeUndefined();
 });
 
-test("when htmlWebpackPlugin is \"true\", an html-webpack-plugin instance is added to the plugin array", () => {
+test.concurrent("when htmlWebpackPlugin is \"true\", an html-webpack-plugin instance is added to the plugin array", ({ expect }) => {
     const config = defineDevConfig(DefaultSwcConfig, {
         htmlWebpackPlugin: true
     });
@@ -182,7 +183,7 @@ test("when htmlWebpackPlugin is \"true\", an html-webpack-plugin instance is add
     expect(result).toBeDefined();
 });
 
-test("when fast refresh is disabled, dev server hot module reload is enabled", () => {
+test.concurrent("when fast refresh is disabled, dev server hot module reload is enabled", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         fastRefresh: false
     });
@@ -190,7 +191,7 @@ test("when fast refresh is disabled, dev server hot module reload is enabled", (
     expect(result.devServer?.hot).toBeTruthy();
 });
 
-test("when fast refresh is enabled, add the fast refresh plugin", () => {
+test.concurrent("when fast refresh is enabled, add the fast refresh plugin", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         fastRefresh: true
     });
@@ -198,7 +199,7 @@ test("when fast refresh is enabled, add the fast refresh plugin", () => {
     expect(result.plugins?.some(x => x!.constructor.name === ReactRefreshWebpackPlugin.name)).toBeTruthy();
 });
 
-test("when fast refresh is disabled, do not add the fast refresh plugin", () => {
+test.concurrent("when fast refresh is disabled, do not add the fast refresh plugin", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         fastRefresh: false
     });
@@ -206,7 +207,7 @@ test("when fast refresh is disabled, do not add the fast refresh plugin", () => 
     expect(result.plugins?.some(x => x!.constructor.name === ReactRefreshWebpackPlugin.name)).toBeFalsy();
 });
 
-test("when fast refresh is enabled, enable swc fast refresh", () => {
+test.concurrent("when fast refresh is enabled, enable swc fast refresh", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         fastRefresh: true
     });
@@ -216,7 +217,7 @@ test("when fast refresh is enabled, enable swc fast refresh", () => {
     expect(((swcLoader?.moduleRule as RuleSetRule).options as SwcConfig).jsc?.transform?.react?.refresh).toBeTruthy();
 });
 
-test("when fast refresh is disabled, disable swc fast refresh", () => {
+test.concurrent("when fast refresh is disabled, disable swc fast refresh", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         fastRefresh: false
     });
@@ -226,7 +227,7 @@ test("when fast refresh is disabled, disable swc fast refresh", () => {
     expect(((swcLoader?.moduleRule as RuleSetRule).options as SwcConfig).jsc?.transform?.react?.refresh).toBeFalsy();
 });
 
-test("when css modules is enabled, include css modules configuration", () => {
+test.concurrent("when css modules is enabled, include css modules configuration", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         cssModules: true
     });
@@ -241,7 +242,7 @@ test("when css modules is enabled, include css modules configuration", () => {
     expect(((cssLoader?.moduleRule as RuleSetRule).options as any).importLoaders).toBe(1);
 });
 
-test("when css modules is disabled, do not include css modules configuration", () => {
+test.concurrent("when css modules is disabled, do not include css modules configuration", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         cssModules: false
     });
@@ -251,7 +252,7 @@ test("when css modules is disabled, do not include css modules configuration", (
     expect((cssLoader?.moduleRule as RuleSetRule).options).toBeUndefined();
 });
 
-test("when the overlay option is not provided and fast refresh is disabled, the devserver overlay option is undefined", () => {
+test.concurrent("when the overlay option is not provided and fast refresh is disabled, the devserver overlay option is undefined", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         fastRefresh: false
     });
@@ -259,7 +260,7 @@ test("when the overlay option is not provided and fast refresh is disabled, the 
     expect(result.devServer!.client).toBeUndefined();
 });
 
-test("when fast refresh is enabled, the devserver overlay option is false", () => {
+test.concurrent("when fast refresh is enabled, the devserver overlay option is false", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         fastRefresh: true
     });
@@ -267,7 +268,7 @@ test("when fast refresh is enabled, the devserver overlay option is false", () =
     expect((result.devServer!.client as ClientConfiguration).overlay).toBeFalsy();
 });
 
-test("when the overlay is disabled, the devserver overlay option is false", () => {
+test.concurrent("when the overlay is disabled, the devserver overlay option is false", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         overlay: false
     });
@@ -275,7 +276,7 @@ test("when the overlay is disabled, the devserver overlay option is false", () =
     expect((result.devServer!.client as ClientConfiguration).overlay).toBeFalsy();
 });
 
-test("the provided swc config object is set as the swc-loader options", () => {
+test.concurrent("the provided swc config object is set as the swc-loader options", ({ expect }) => {
     const config = DefaultSwcConfig;
 
     const result = defineDevConfig(config);
@@ -285,7 +286,7 @@ test("the provided swc config object is set as the swc-loader options", () => {
     expect((swcLoader?.moduleRule as RuleSetRule).options).toBe(config);
 });
 
-test("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the webpack config", () => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the webpack config", ({ expect }) => {
     const entryTransformer: WebpackConfigTransformer = (config: Configuration) => {
         config.entry = "a-custom-value-in-a-transformer";
 
@@ -299,7 +300,7 @@ test("when a transformer is provided, and the transformer update the existing co
     expect(result.entry).toBe("a-custom-value-in-a-transformer");
 });
 
-test("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the webpack config", () => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the webpack config", ({ expect }) => {
     const entryTransformer: WebpackConfigTransformer = () => {
         return {
             entry: "a-custom-value-in-a-transformer"
@@ -313,7 +314,7 @@ test("when a transformer is provided, and the transformer returns a new configur
     expect(result.entry).toBe("a-custom-value-in-a-transformer");
 });
 
-test("when multiple transformers are provided, all the transformers are applied on the webpack config", () => {
+test.concurrent("when multiple transformers are provided, all the transformers are applied on the webpack config", ({ expect }) => {
     const entryTransformer: WebpackConfigTransformer = (config: Configuration) => {
         config.entry = "a-custom-value-in-a-transformer";
 
@@ -334,8 +335,8 @@ test("when multiple transformers are provided, all the transformers are applied 
     expect(result.devtool).toBe("custom-module-source-map-in-a-tranformer");
 });
 
-test("transformers context environment is \"dev\"", () => {
-    const mockTransformer = jest.fn();
+test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
+    const mockTransformer = vi.fn();
 
     defineDevConfig(DefaultSwcConfig, {
         transformers: [mockTransformer]
@@ -344,8 +345,8 @@ test("transformers context environment is \"dev\"", () => {
     expect(mockTransformer).toHaveBeenCalledWith(expect.anything(), { environment: "dev", verbose: false });
 });
 
-test("when the verbose option is true, the transformers context verbose value is \"true\"", () => {
-    const mockTransformer = jest.fn();
+test.concurrent("when the verbose option is true, the transformers context verbose value is \"true\"", ({ expect }) => {
+    const mockTransformer = vi.fn();
 
     defineDevConfig(DefaultSwcConfig, {
         verbose: true,
@@ -357,7 +358,7 @@ test("when the verbose option is true, the transformers context verbose value is
 
 // TODO: The test do not pass on UNIX system becase of \\, fix this later,
 // eslint-disable-next-line jest/no-commented-out-tests
-// test("by default, an svgr rule is added and the assets loader do not handle .svg files", () => {
+// test.concurrent("by default, an svgr rule is added and the assets loader do not handle .svg files", ({ expect }) => {
 //     const result = defineDevConfig(SwcConfig);
 
 //     const svgrRule = findModuleRule(result, matchLoaderName("@svgr\\webpack"));
@@ -367,7 +368,7 @@ test("when the verbose option is true, the transformers context verbose value is
 //     expect((assetsRule?.moduleRule as RuleSetRule).test).toEqual(/\.(png|jpe?g|gif)$/i);
 // });
 
-test("when the svgr option is false, do not add the svgr rule", () => {
+test.concurrent("when the svgr option is false, do not add the svgr rule", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         svgr: false
     });
@@ -377,7 +378,7 @@ test("when the svgr option is false, do not add the svgr rule", () => {
     expect(svgrRule).toBeUndefined();
 });
 
-test("when the svgr option is false, add .svg to the default assets rule", () => {
+test.concurrent("when the svgr option is false, add .svg to the default assets rule", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         svgr: false
     });
@@ -388,7 +389,7 @@ test("when the svgr option is false, add .svg to the default assets rule", () =>
 });
 
 describe("defineDevHtmlWebpackPluginConfig", () => {
-    test("merge the default options with the provided options", () => {
+    test.concurrent("merge the default options with the provided options", ({ expect }) => {
         const result = defineDevHtmlWebpackPluginConfig({
             filename: "a-custom-filename"
         });
@@ -397,7 +398,7 @@ describe("defineDevHtmlWebpackPluginConfig", () => {
         expect(result.template).toMatch(/index.html/);
     });
 
-    test("when a template value is provided, override the default template option", () => {
+    test.concurrent("when a template value is provided, override the default template option", ({ expect }) => {
         const result = defineDevHtmlWebpackPluginConfig({
             template: "a-custom-template-file-path"
         });
@@ -407,7 +408,7 @@ describe("defineDevHtmlWebpackPluginConfig", () => {
 });
 
 describe("defineFastRefreshPluginConfig", () => {
-    test("merge the default options with the provided options", () => {
+    test.concurrent("merge the default options with the provided options", ({ expect }) => {
         const result = defineFastRefreshPluginConfig({
             exclude: "a-custom-exclude"
         });

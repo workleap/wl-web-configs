@@ -1,7 +1,8 @@
+import { test } from "vitest";
 import type { RuleSetRule } from "webpack";
 import { matchAssetModuleType } from "../../src/transformers/moduleRules.ts";
 
-test("when the module rule asset module type match type, return true", () => {
+test.concurrent("when the module rule asset module type match type, return true", ({ expect }) => {
     const moduleRule: RuleSetRule = {
         type: "asset/resource"
     };
@@ -11,7 +12,7 @@ test("when the module rule asset module type match type, return true", () => {
     expect(matcher(moduleRule, 0, [])).toBeTruthy();
 });
 
-test("when the module rule asset module type doesn't match the type, return false", () => {
+test.concurrent("when the module rule asset module type doesn't match the type, return false", ({ expect }) => {
     const moduleRule: RuleSetRule = {
         type: "asset/resource"
     };

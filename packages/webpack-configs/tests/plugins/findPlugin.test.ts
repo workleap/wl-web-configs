@@ -1,4 +1,5 @@
 import type { Configuration } from "mini-css-extract-plugin";
+import { test } from "vitest";
 import { findPlugin, matchConstructorName } from "../../src/transformers/plugins.ts";
 
 class Plugin1 {
@@ -19,13 +20,13 @@ class Plugin3 {
     }
 }
 
-test("when the webpack configuration doesn't have a plugins section, return undefined", () => {
+test.concurrent("when the webpack configuration doesn't have a plugins section, return undefined", ({ expect }) => {
     const result = findPlugin({}, matchConstructorName("anything"));
 
     expect(result).toBeUndefined();
 });
 
-test("when the matching plugin is the first of the array, return the plugin", () => {
+test.concurrent("when the matching plugin is the first of the array, return the plugin", ({ expect }) => {
     const target = new Plugin1();
 
     const config: Configuration = {
@@ -47,7 +48,7 @@ test("when the matching plugin is the first of the array, return the plugin", ()
     expect(match).toBe(target);
 });
 
-test("when the matching plugin is the last of the array, return the plugin", () => {
+test.concurrent("when the matching plugin is the last of the array, return the plugin", ({ expect }) => {
     const target = new Plugin3();
 
     const config: Configuration = {
@@ -69,7 +70,7 @@ test("when the matching plugin is the last of the array, return the plugin", () 
     expect(match).toBe(target);
 });
 
-test("when there are no matching plugin, return undefined", () => {
+test.concurrent("when there are no matching plugin, return undefined", ({ expect }) => {
     const config: Configuration = {
         plugins: [
             new Plugin1(),
@@ -83,7 +84,7 @@ test("when there are no matching plugin, return undefined", () => {
     expect(result).toBeUndefined();
 });
 
-test("throw an error when multiple module plugins are found", () => {
+test.concurrent("throw an error when multiple module plugins are found", ({ expect }) => {
     const config: Configuration = {
         plugins: [
             new Plugin1(),
@@ -96,7 +97,7 @@ test("throw an error when multiple module plugins are found", () => {
     expect(() => findPlugin(config, matchConstructorName(Plugin1.name))).toThrow();
 });
 
-test("when a plugin is undefined, do not throw", () => {
+test.concurrent("when a plugin is undefined, do not throw", ({ expect }) => {
     const config: Configuration = {
         plugins: [
             new Plugin1(),

@@ -1,9 +1,10 @@
 import type { EsParserConfig, Config as SwcConfig, TsParserConfig } from "@swc/core";
+import { describe, test, vi } from "vitest";
 import type { SwcConfigTransformer } from "../src/applyTransformers.ts";
 import { defineJestConfig } from "../src/jest.ts";
 
 describe("typescript parser", () => {
-    test("when react is true, the react transform configuration is included", () => {
+    test.concurrent("when react is true, the react transform configuration is included", ({ expect }) => {
         const result = defineJestConfig({
             parser: "typescript",
             react: true
@@ -12,7 +13,7 @@ describe("typescript parser", () => {
         expect(result.jsc?.transform?.react).toBeDefined();
     });
 
-    test("when react is true, tsx parsing is enabled", () => {
+    test.concurrent("when react is true, tsx parsing is enabled", ({ expect }) => {
         const result = defineJestConfig({
             parser: "typescript",
             react: true
@@ -21,7 +22,7 @@ describe("typescript parser", () => {
         expect((result.jsc?.parser as TsParserConfig).tsx).toBeTruthy();
     });
 
-    test("when react is false, the react transform configuration is not included", () => {
+    test.concurrent("when react is false, the react transform configuration is not included", ({ expect }) => {
         const result = defineJestConfig({
             parser: "typescript",
             react: false
@@ -30,7 +31,7 @@ describe("typescript parser", () => {
         expect(result.jsc?.transform?.react).toBeUndefined();
     });
 
-    test("when react is false, tsx parsing is disabled", () => {
+    test.concurrent("when react is false, tsx parsing is disabled", ({ expect }) => {
         const result = defineJestConfig({
             parser: "typescript",
             react: false
@@ -41,7 +42,7 @@ describe("typescript parser", () => {
 });
 
 describe("ecmascript parser", () => {
-    test("when react is true, the react transform configuration is included", () => {
+    test.concurrent("when react is true, the react transform configuration is included", ({ expect }) => {
         const result = defineJestConfig({
             parser: "ecmascript",
             react: true
@@ -50,7 +51,7 @@ describe("ecmascript parser", () => {
         expect(result.jsc?.transform?.react).toBeDefined();
     });
 
-    test("when react is true, jsx parsing is enabled", () => {
+    test.concurrent("when react is true, jsx parsing is enabled", ({ expect }) => {
         const result = defineJestConfig({
             parser: "ecmascript",
             react: true
@@ -59,7 +60,7 @@ describe("ecmascript parser", () => {
         expect((result.jsc?.parser as EsParserConfig).jsx).toBeTruthy();
     });
 
-    test("when react is false, the react transform configuration is not included", () => {
+    test.concurrent("when react is false, the react transform configuration is not included", ({ expect }) => {
         const result = defineJestConfig({
             parser: "ecmascript",
             react: false
@@ -68,7 +69,7 @@ describe("ecmascript parser", () => {
         expect(result.jsc?.transform?.react).toBeUndefined();
     });
 
-    test("when react is false, jsx parsing is disabled", () => {
+    test.concurrent("when react is false, jsx parsing is disabled", ({ expect }) => {
         const result = defineJestConfig({
             parser: "ecmascript",
             react: false
@@ -78,7 +79,7 @@ describe("ecmascript parser", () => {
     });
 });
 
-test("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the swc config", () => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the swc config", ({ expect }) => {
     const minifyTransformer: SwcConfigTransformer = (config: SwcConfig) => {
         config.minify = true;
 
@@ -92,7 +93,7 @@ test("when a transformer is provided, and the transformer update the existing co
     expect(result.minify).toBeTruthy();
 });
 
-test("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the swc config", () => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the swc config", ({ expect }) => {
     const minifyTransformer: SwcConfigTransformer = () => {
         return {
             minify: true
@@ -106,7 +107,7 @@ test("when a transformer is provided, and the transformer returns a new configur
     expect(result.minify).toBeTruthy();
 });
 
-test("when multiple transformers are provided, all the transformers are applied on the swc config", () => {
+test.concurrent("when multiple transformers are provided, all the transformers are applied on the swc config", ({ expect }) => {
     const minifyTransformer: SwcConfigTransformer = (config: SwcConfig) => {
         config.minify = true;
 
@@ -127,8 +128,8 @@ test("when multiple transformers are provided, all the transformers are applied 
     expect(result.sourceMaps).toBeTruthy();
 });
 
-test("transformers context environment is \"dev\"", () => {
-    const mockTransformer = jest.fn();
+test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
+    const mockTransformer = vi.fn();
 
     defineJestConfig({
         transformers: [mockTransformer]
@@ -137,7 +138,7 @@ test("transformers context environment is \"dev\"", () => {
     expect(mockTransformer).toHaveBeenCalledWith(expect.anything(), { environment: "jest" });
 });
 
-test("when a baseUrl is provided, the baseUrl value is added to the configuration", () => {
+test.concurrent("when a baseUrl is provided, the baseUrl value is added to the configuration", ({ expect }) => {
     const result = defineJestConfig({
         baseUrl: "./src"
     });
@@ -145,7 +146,7 @@ test("when a baseUrl is provided, the baseUrl value is added to the configuratio
     expect(result.jsc?.baseUrl).toBe("./src");
 });
 
-test("when a paths is provided, the paths value is added to the configuration", () => {
+test.concurrent("when a paths is provided, the paths value is added to the configuration", ({ expect }) => {
     const paths = {
         "@/*": ["*"]
     };
