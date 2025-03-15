@@ -1,9 +1,10 @@
 import type { RsbuildPlugin, SourceMap } from "@rsbuild/core";
 import type { RslibConfig } from "@rslib/core";
+import { test, vi } from "vitest";
 import type { RslibConfigTransformer } from "../src/applyTransformers.ts";
 import { defineBuildConfig } from "../src/build.ts";
 
-test("when an entry prop is provided, the source.entry option is the provided value", () => {
+test.concurrent("when an entry prop is provided, the source.entry option is the provided value", ({ expect }) => {
     const result = defineBuildConfig({
         entry: {
             index: "./a-new-entry.ts"
@@ -14,7 +15,7 @@ test("when an entry prop is provided, the source.entry option is the provided va
     expect(result.source?.entry!.index).toBe("./a-new-entry.ts");
 });
 
-test("when a syntax prop is provided, the lib.syntax option is the provided value", () => {
+test.concurrent("when a syntax prop is provided, the lib.syntax option is the provided value", ({ expect }) => {
     const result = defineBuildConfig({
         syntax: "es2015",
         tsconfigPath: "./build.json"
@@ -23,11 +24,11 @@ test("when a syntax prop is provided, the lib.syntax option is the provided valu
     expect(result.lib[0]?.syntax).toBe("es2015");
 });
 
-test("when bundle is false and the tsconfigPath option is not provided, throw an error", () => {
+test.concurrent("when bundle is false and the tsconfigPath option is not provided, throw an error", ({ expect }) => {
     expect(() => defineBuildConfig({ bundle: false })).toThrow(/When the "bundle" option is "false", a "tsconfigPath" option must be provided./);
 });
 
-test("when bundle is false, the default source.entry option is \"./src/**\"", () => {
+test.concurrent("when bundle is false, the default source.entry option is \"./src/**\"", ({ expect }) => {
     const result = defineBuildConfig({
         bundle: false,
         tsconfigPath: "./build.json"
@@ -36,11 +37,11 @@ test("when bundle is false, the default source.entry option is \"./src/**\"", ()
     expect(result.source?.entry?.index).toBe("./src/**");
 });
 
-test("when bundle is true and the tsconfigPath option is not provided, do not throw an error", () => {
+test.concurrent("when bundle is true and the tsconfigPath option is not provided, do not throw an error", ({ expect }) => {
     expect(() => defineBuildConfig({ bundle: true })).not.toThrow();
 });
 
-test("when bundle is true, the lib.bundle option is true", () => {
+test.concurrent("when bundle is true, the lib.bundle option is true", ({ expect }) => {
     const result = defineBuildConfig({
         bundle: true
     });
@@ -48,7 +49,7 @@ test("when bundle is true, the lib.bundle option is true", () => {
     expect(result.lib[0]?.bundle).toBeTruthy();
 });
 
-test("when bundle is true, the default source.entry option is [\"./src/index.ts\", \"./src/index.js\"]", () => {
+test.concurrent("when bundle is true, the default source.entry option is [\"./src/index.ts\", \"./src/index.js\"]", ({ expect }) => {
     const result = defineBuildConfig({
         bundle: true
     });
@@ -56,7 +57,7 @@ test("when bundle is true, the default source.entry option is [\"./src/index.ts\
     expect(result.source?.entry?.index).toEqual(["./src/index.ts", "./src/index.js"]);
 });
 
-test("when dts is false, the lib.dts option is true", () => {
+test.concurrent("when dts is false, the lib.dts option is true", ({ expect }) => {
     const result = defineBuildConfig({
         dts: false,
         tsconfigPath: "./build.json"
@@ -65,7 +66,7 @@ test("when dts is false, the lib.dts option is true", () => {
     expect(result.lib[0]?.dts).toBeFalsy();
 });
 
-test("when a target is provided, the output.target option is the provided value", () => {
+test.concurrent("when a target is provided, the output.target option is the provided value", ({ expect }) => {
     const result = defineBuildConfig({
         target: "node",
         tsconfigPath: "./build.json"
@@ -74,7 +75,7 @@ test("when a target is provided, the output.target option is the provided value"
     expect(result.output?.target).toBe("node");
 });
 
-test("when a dist path is provided, the output.distPath option is the provided value", () => {
+test.concurrent("when a dist path is provided, the output.distPath option is the provided value", ({ expect }) => {
     const result = defineBuildConfig({
         distPath: {
             js: "./dist-path"
@@ -85,7 +86,7 @@ test("when a dist path is provided, the output.distPath option is the provided v
     expect(result.output?.distPath?.js).toBe("./dist-path");
 });
 
-test("when additional plugins are provided, append the provided plugins at the end of the plugins array", () => {
+test.concurrent("when additional plugins are provided, append the provided plugins at the end of the plugins array", ({ expect }) => {
     const plugin1: RsbuildPlugin = {
         name: "plugin-1",
         setup: () => {}
@@ -110,7 +111,7 @@ test("when additional plugins are provided, append the provided plugins at the e
     expect(result.plugins![pluginsCount - 1]).toBe(plugin2);
 });
 
-test("when sourceMap is false, the output.sourceMap option is false", () => {
+test.concurrent("when sourceMap is false, the output.sourceMap option is false", ({ expect }) => {
     const result = defineBuildConfig({
         sourceMap: false,
         tsconfigPath: "./build.json"
@@ -119,7 +120,7 @@ test("when sourceMap is false, the output.sourceMap option is false", () => {
     expect(result.output?.sourceMap).toBeFalsy();
 });
 
-test("when sourceMap is an object, the output.sourceMap option is the object", () => {
+test.concurrent("when sourceMap is an object, the output.sourceMap option is the object", ({ expect }) => {
     const sourceMap: SourceMap = {
         js: false,
         css: false
@@ -133,7 +134,7 @@ test("when sourceMap is an object, the output.sourceMap option is the object", (
     expect(result.output?.sourceMap).toBe(sourceMap);
 });
 
-test("when react is false, the react plugin is not included", () => {
+test.concurrent("when react is false, the react plugin is not included", ({ expect }) => {
     const result = defineBuildConfig({
         tsconfigPath: "./build.json"
     });
@@ -143,7 +144,7 @@ test("when react is false, the react plugin is not included", () => {
     expect(plugin).toBeUndefined();
 });
 
-test("when react is true, the react plugin is included", () => {
+test.concurrent("when react is true, the react plugin is included", ({ expect }) => {
     const result = defineBuildConfig({
         react: true,
         tsconfigPath: "./build.json"
@@ -154,8 +155,8 @@ test("when react is true, the react plugin is included", () => {
     expect(plugin).toBeDefined();
 });
 
-test("when react is a function, the function is executed", () => {
-    const fct = jest.fn();
+test.concurrent("when react is a function, the function is executed", ({ expect }) => {
+    const fct = vi.fn();
 
     defineBuildConfig({
         react: fct,
@@ -165,7 +166,7 @@ test("when react is a function, the function is executed", () => {
     expect(fct).toHaveBeenCalledTimes(1);
 });
 
-test("when svgr is false, the svgr plugin is not included", () => {
+test.concurrent("when svgr is false, the svgr plugin is not included", ({ expect }) => {
     const result = defineBuildConfig({
         tsconfigPath: "./build.json"
     });
@@ -175,7 +176,7 @@ test("when svgr is false, the svgr plugin is not included", () => {
     expect(plugin).toBeUndefined();
 });
 
-test("when svgr is true, the svgr plugin is included", () => {
+test.concurrent("when svgr is true, the svgr plugin is included", ({ expect }) => {
     const result = defineBuildConfig({
         svgr: true,
         tsconfigPath: "./build.json"
@@ -186,8 +187,8 @@ test("when svgr is true, the svgr plugin is included", () => {
     expect(plugin).toBeDefined();
 });
 
-test("when svgr is a function, the function is executed", () => {
-    const fct = jest.fn();
+test.concurrent("when svgr is a function, the function is executed", ({ expect }) => {
+    const fct = vi.fn();
 
     defineBuildConfig({
         svgr: fct,
@@ -197,7 +198,7 @@ test("when svgr is a function, the function is executed", () => {
     expect(fct).toHaveBeenCalledTimes(1);
 });
 
-test("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rslib config", () => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rslib config", ({ expect }) => {
     const entryTransformer: RslibConfigTransformer = (config: RslibConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -215,7 +216,7 @@ test("when a transformer is provided, and the transformer update the existing co
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
 });
 
-test("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rslib config", () => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rslib config", ({ expect }) => {
     const entryTransformer: RslibConfigTransformer = () => {
         return {
             lib: [],
@@ -235,7 +236,7 @@ test("when a transformer is provided, and the transformer returns a new configur
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
 });
 
-test("when multiple transformers are provided, all the transformers are applied on the webpack config", () => {
+test.concurrent("when multiple transformers are provided, all the transformers are applied on the webpack config", ({ expect }) => {
     const entryTransformer: RslibConfigTransformer = (config: RslibConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -262,8 +263,8 @@ test("when multiple transformers are provided, all the transformers are applied 
     expect(result.output!.distPath!.js).toBe("a-custom-dist-path-in-a-tranformer");
 });
 
-test("transformers context environment is \"build\"", () => {
-    const mockTransformer = jest.fn();
+test.concurrent("transformers context environment is \"build\"", ({ expect }) => {
+    const mockTransformer = vi.fn();
 
     defineBuildConfig({
         transformers: [mockTransformer],

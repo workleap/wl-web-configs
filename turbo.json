@@ -46,7 +46,7 @@
         "//#knip": {},
         "@rsbuild-sample/app#test": {
             "dependsOn": ["@workleap/swc-configs#build", "@rsbuild-sample/rslib-lib#build"],
-            "outputs": ["node_modules/.cache/jest/**"]
+            "outputs": ["node_modules/.cache/vitest/**"]
         },
         "@webpack-sample/app#test": {
             "dependsOn": ["@workleap/swc-configs#build", "@webpack-sample/tsup-lib#build"],
@@ -54,7 +54,7 @@
         },
         "test": {
             "dependsOn": ["@workleap/swc-configs#build"],
-            "outputs": ["node_modules/.cache/jest/**"]
+            "outputs": ["node_modules/.cache/vitest/**"]
         }
     }
 }

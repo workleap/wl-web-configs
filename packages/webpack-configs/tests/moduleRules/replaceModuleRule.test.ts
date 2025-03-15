@@ -1,7 +1,8 @@
+import { test } from "vitest";
 import type { RuleSetRule, RuleSetUseItem, Configuration as WebpackConfig } from "webpack";
 import { matchLoaderName, matchTest, replaceModuleRule } from "../../src/transformers/moduleRules.ts";
 
-test("when a matching module rule is found in the rules array, replace the module rule", () => {
+test.concurrent("when a matching module rule is found in the rules array, replace the module rule", ({ expect }) => {
     const newRule: RuleSetRule = {
         test: /\.(ts|tsx)/i,
         loader: "swc-loader"
@@ -28,7 +29,7 @@ test("when a matching module rule is found in the rules array, replace the modul
     expect(config.module!.rules![0]).toBe(newRule);
 });
 
-test("when a matching module rule is found in a \"oneOf\" prop, replace the module rule", () => {
+test.concurrent("when a matching module rule is found in a \"oneOf\" prop, replace the module rule", ({ expect }) => {
     const newRule: RuleSetRule = {
         test: /\.(ts|tsx)/i,
         loader: "swc-loader"
@@ -59,7 +60,7 @@ test("when a matching module rule is found in a \"oneOf\" prop, replace the modu
     expect((config.module?.rules![1] as RuleSetRule).oneOf![0]).toBe(newRule);
 });
 
-test("when a matching module rule is found in a \"use\" prop, replace the module rule", () => {
+test.concurrent("when a matching module rule is found in a \"use\" prop, replace the module rule", ({ expect }) => {
     const newRule: RuleSetUseItem = {
         loader: "swc-loader"
     };
@@ -94,7 +95,7 @@ test("when a matching module rule is found in a \"use\" prop, replace the module
     expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[])[0]).toBe(newRule);
 });
 
-test("when no matching module rule is found, throw an error", () => {
+test.concurrent("when no matching module rule is found, throw an error", ({ expect }) => {
     const newRule: RuleSetRule = {
         test: /\.(ts|tsx)/i,
         loader: "swc-loader"

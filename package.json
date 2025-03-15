@@ -40,8 +40,10 @@
         "clean": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf dist storybook-static .turbo .rslib public/mockServiceWorker.js node_modules/.cache",
         "reset": "pnpm clean && pnpm reset:modules",
         "reset:modules": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf node_modules pnpm-lock.yaml",
-        "list-outdated-deps": "pnpm outdated -r --format list !eslint !@types/eslint !@stylistic/eslint-plugin-ts !typescript",
-        "update-outdated-deps": "pnpm update -r --latest !eslint !@types/eslint !@stylistic/eslint-plugin-ts !typescript"
+        "list-outdated-deps": "pnpm outdated -r --filter=!@webpack-sample/* --format list !eslint !@types/eslint !@stylistic/eslint-plugin-ts",
+        "update-outdated-deps": "pnpm run --sequential \"/^update-outdated-deps:.*/\"",
+        "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !eslint !@types/eslint !@stylistic/eslint-plugin-ts",
+        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !eslint !typescript"
     },
     "devDependencies": {
         "@changesets/changelog-github": "0.5.1",

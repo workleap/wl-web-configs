@@ -1,13 +1,14 @@
+import { test } from "vitest";
 import type { RuleSetRule, RuleSetUseItem, Configuration as WebpackConfig } from "webpack";
 import { findModuleRules, matchAssetModuleType, matchLoaderName } from "../../src/transformers/moduleRules.ts";
 
-test("when the webpack configuration doesn't have a module section, return undefined", () => {
+test.concurrent("when the webpack configuration doesn't have a module section, return undefined", ({ expect }) => {
     const result = findModuleRules({}, matchAssetModuleType("asset/resource"));
 
     expect(result).toBeUndefined();
 });
 
-test("when the webpack configuration doesn't have a rule section, return undefined", () => {
+test.concurrent("when the webpack configuration doesn't have a rule section, return undefined", ({ expect }) => {
     const config: WebpackConfig = {
         module: {}
     };
@@ -17,7 +18,7 @@ test("when the webpack configuration doesn't have a rule section, return undefin
     expect(result).toBeUndefined();
 });
 
-test("when multiple matching rules are found in the rules array, return the module rules", () => {
+test.concurrent("when multiple matching rules are found in the rules array, return the module rules", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -51,7 +52,7 @@ test("when multiple matching rules are found in the rules array, return the modu
     expect((result![1].moduleRule as RuleSetRule).test?.toString()).toBe(/\.svg/i.toString());
 });
 
-test("when multiple matching rules are found in a \"oneOf\" prop, return the module rules", () => {
+test.concurrent("when multiple matching rules are found in a \"oneOf\" prop, return the module rules", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -89,7 +90,7 @@ test("when multiple matching rules are found in a \"oneOf\" prop, return the mod
     expect((result![1].moduleRule as RuleSetRule).test?.toString()).toBe(/\.svg/i.toString());
 });
 
-test("when multiple matching rules are found in a \"use\" prop, return the module rules", () => {
+test.concurrent("when multiple matching rules are found in a \"use\" prop, return the module rules", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -133,7 +134,7 @@ test("when multiple matching rules are found in a \"use\" prop, return the modul
     expect((result![1].moduleRule as RuleSetUseItem).loader).toBe("swc-loader");
 });
 
-test("when multiple matching rules are found in the rules array and a \"oneOf\" prop, return the module rules", () => {
+test.concurrent("when multiple matching rules are found in the rules array and a \"oneOf\" prop, return the module rules", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -171,7 +172,7 @@ test("when multiple matching rules are found in the rules array and a \"oneOf\" 
     expect((result![1].moduleRule as RuleSetRule).test?.toString()).toBe(/\.svg/i.toString());
 });
 
-test("when multiple matching rules are found in the rules array and a \"use\" prop, return the module rules", () => {
+test.concurrent("when multiple matching rules are found in the rules array and a \"use\" prop, return the module rules", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -213,7 +214,7 @@ test("when multiple matching rules are found in the rules array and a \"use\" pr
     expect((result![1].moduleRule as RuleSetUseItem).loader).toBe("swc-loader");
 });
 
-test("when there are no matching rule, return an empty array", () => {
+test.concurrent("when there are no matching rule, return an empty array", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -242,7 +243,7 @@ test("when there are no matching rule, return an empty array", () => {
     expect(result?.length).toBe(0);
 });
 
-test("when a module rule is undefined, do not throw", () => {
+test.concurrent("when a module rule is undefined, do not throw", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -265,7 +266,7 @@ test("when a module rule is undefined, do not throw", () => {
     expect(() => findModuleRules(config, matchAssetModuleType("asset/inline"))).not.toThrow();
 });
 
-test("when an undefined module rule is nested in a \"oneOf\" prop, do not throw", () => {
+test.concurrent("when an undefined module rule is nested in a \"oneOf\" prop, do not throw", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [

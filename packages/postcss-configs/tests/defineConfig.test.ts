@@ -1,9 +1,10 @@
+import { test } from "vitest";
 import { defineConfig, type PostcssConfigTransformer } from "../src/index.ts";
 
 // NOTE: Since the provided configs are transformed into a PostcssEnv plugin instance, we cannot test the resulting config options.
 // Therefore, only the transformers are tested.
 
-test("when a transformer is provided, the transformer is applied on the tsup config", () => {
+test.concurrent("when a transformer is provided, the transformer is applied on the tsup config", ({ expect }) => {
     const weirdPluginsTransformer: PostcssConfigTransformer = config => {
         config.plugins = [false, false, false];
 
@@ -20,7 +21,7 @@ test("when a transformer is provided, the transformer is applied on the tsup con
     expect((result.plugins as false[])[2]).toBe(false);
 });
 
-test("when multiple transformers are provided, all the transformers are applied on the webpack config", () => {
+test.concurrent("when multiple transformers are provided, all the transformers are applied on the webpack config", ({ expect }) => {
     const weirdPluginsTransformer: PostcssConfigTransformer = config => {
         config.plugins = [false, false, false];
 

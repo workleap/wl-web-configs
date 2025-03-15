@@ -1,13 +1,14 @@
+import { test } from "vitest";
 import type { RuleSetRule, Configuration as WebpackConfig } from "webpack";
 import { findModuleRule, matchAssetModuleType, matchLoaderName } from "../../src/transformers/moduleRules.ts";
 
-test("when the webpack configuration doesn't have a module section, return undefined", () => {
+test.concurrent("when the webpack configuration doesn't have a module section, return undefined", ({ expect }) => {
     const result = findModuleRule({}, matchAssetModuleType("asset/resource"));
 
     expect(result).toBeUndefined();
 });
 
-test("when the webpack configuration doesn't have a rule section, return undefined", () => {
+test.concurrent("when the webpack configuration doesn't have a rule section, return undefined", ({ expect }) => {
     const config: WebpackConfig = {
         module: {}
     };
@@ -17,7 +18,7 @@ test("when the webpack configuration doesn't have a rule section, return undefin
     expect(result).toBeUndefined();
 });
 
-test("when the matching rule is the first rule of the rules array, return the matching rule", () => {
+test.concurrent("when the matching rule is the first rule of the rules array, return the matching rule", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -49,7 +50,7 @@ test("when the matching rule is the first rule of the rules array, return the ma
     expect(match.type).toBe("asset/inline");
 });
 
-test("when the matching rule is the last rule of the rules array, return the matching rule", () => {
+test.concurrent("when the matching rule is the last rule of the rules array, return the matching rule", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -81,7 +82,7 @@ test("when the matching rule is the last rule of the rules array, return the mat
     expect(match.type).toBe("asset/inline");
 });
 
-test("when the matching rule is nested in a \"oneOf\" prop and is the first rule of the array, return the matching rule", () => {
+test.concurrent("when the matching rule is nested in a \"oneOf\" prop and is the first rule of the array, return the matching rule", ({ expect }) => {
     const oneOfRule: RuleSetRule = {
         oneOf: [
             {
@@ -122,7 +123,7 @@ test("when the matching rule is nested in a \"oneOf\" prop and is the first rule
     expect(match.type).toBe("asset/inline");
 });
 
-test("when the matching rule is nested in a \"oneOf\" prop and is the last rule of the array, return the matching rule", () => {
+test.concurrent("when the matching rule is nested in a \"oneOf\" prop and is the last rule of the array, return the matching rule", ({ expect }) => {
     const oneOfRule: RuleSetRule = {
         oneOf: [
             {
@@ -163,7 +164,7 @@ test("when the matching rule is nested in a \"oneOf\" prop and is the last rule 
     expect(match.type).toBe("asset/inline");
 });
 
-test("when the matching rule is nested in a \"use\" prop and is the first rule of the array, return the matching rule", () => {
+test.concurrent("when the matching rule is nested in a \"use\" prop and is the first rule of the array, return the matching rule", ({ expect }) => {
     const tsModuleRule = {
         test: /\.(ts|tsx)/i,
         use: [
@@ -204,7 +205,7 @@ test("when the matching rule is nested in a \"use\" prop and is the first rule o
     expect(match.loader).toBe("swc-loader");
 });
 
-test("when the matching rule is nested in a \"use\" prop and is the last rule of the array, return the matching rule", () => {
+test.concurrent("when the matching rule is nested in a \"use\" prop and is the last rule of the array, return the matching rule", ({ expect }) => {
     const tsModuleRule = {
         test: /\.(ts|tsx)/i,
         use: [
@@ -245,7 +246,7 @@ test("when the matching rule is nested in a \"use\" prop and is the last rule of
     expect(match.loader).toBe("swc-loader");
 });
 
-test("when the matching rule is nested in a \"oneOf\" prop then in a \"use\" prop, return the matching rule", () => {
+test.concurrent("when the matching rule is nested in a \"oneOf\" prop then in a \"use\" prop, return the matching rule", ({ expect }) => {
     const tsRule = {
         test: /\.(ts|tsx)/i,
         use: [
@@ -292,7 +293,7 @@ test("when the matching rule is nested in a \"oneOf\" prop then in a \"use\" pro
     expect(match.loader).toBe("swc-loader");
 });
 
-test("when there are no matching rule, return undefined", () => {
+test.concurrent("when there are no matching rule, return undefined", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -320,7 +321,7 @@ test("when there are no matching rule, return undefined", () => {
     expect(result).toBeUndefined();
 });
 
-test("throw an error when multiple module rules are found", () => {
+test.concurrent("throw an error when multiple module rules are found", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -347,7 +348,7 @@ test("throw an error when multiple module rules are found", () => {
     expect(() => findModuleRule(config, matchAssetModuleType("asset/inline"))).toThrow();
 });
 
-test("when a module rule is undefined, do not throw", () => {
+test.concurrent("when a module rule is undefined, do not throw", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -370,7 +371,7 @@ test("when a module rule is undefined, do not throw", () => {
     expect(() => findModuleRule(config, matchAssetModuleType("asset/inline"))).not.toThrow();
 });
 
-test("when an undefined module rule is nested in a \"oneOf\" prop, do not throw", () => {
+test.concurrent("when an undefined module rule is nested in a \"oneOf\" prop, do not throw", ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [

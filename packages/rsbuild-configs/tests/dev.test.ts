@@ -1,8 +1,9 @@
 import type { RsbuildConfig, RsbuildPlugin, SourceMap } from "@rsbuild/core";
+import { test, vi } from "vitest";
 import type { RsbuildConfigTransformer } from "../src/applyTransformers.ts";
 import { defineDevConfig } from "../src/dev.ts";
 
-test("when an entry prop is provided, the source.entry option is the provided value", () => {
+test.concurrent("when an entry prop is provided, the source.entry option is the provided value", ({ expect }) => {
     const result = defineDevConfig({
         entry: {
             index: "./a-new-entry.ts"
@@ -12,7 +13,7 @@ test("when an entry prop is provided, the source.entry option is the provided va
     expect(result.source?.entry!.index).toBe("./a-new-entry.ts");
 });
 
-test("when https is true, the server option is configured with a self signed certificate", () => {
+test.concurrent("when https is true, the server option is configured with a self signed certificate", ({ expect }) => {
     const result = defineDevConfig({
         https: true
     });
@@ -21,7 +22,7 @@ test("when https is true, the server option is configured with a self signed cer
     expect(result.plugins?.find(x => (x as RsbuildPlugin).name === "rsbuild:basic-ssl")).toBeDefined();
 });
 
-test("when https is true, the asset prefix option include \"https\"", () => {
+test.concurrent("when https is true, the asset prefix option include \"https\"", ({ expect }) => {
     const result = defineDevConfig({
         https: true
     });
@@ -29,7 +30,7 @@ test("when https is true, the asset prefix option include \"https\"", () => {
     expect(result.dev?.assetPrefix).toMatch(/(https)/i);
 });
 
-test("when https is a certificate, the server option is configured with the provided certificate", () => {
+test.concurrent("when https is a certificate, the server option is configured with the provided certificate", ({ expect }) => {
     const cert = {
         key: "foo",
         cert: "bar"
@@ -42,7 +43,7 @@ test("when https is a certificate, the server option is configured with the prov
     expect(result.server?.https).toBe(cert);
 });
 
-test("when https is a certificate, the dev.assetPrefix option include \"https\"", () => {
+test.concurrent("when https is a certificate, the dev.assetPrefix option include \"https\"", ({ expect }) => {
     const result = defineDevConfig({
         https: {
             key: "foo",
@@ -53,7 +54,7 @@ test("when https is a certificate, the dev.assetPrefix option include \"https\""
     expect(result.dev?.assetPrefix).toMatch(/(https)/i);
 });
 
-test("when https is false, the dev.assetPrefix option doesn't include \"https\"", () => {
+test.concurrent("when https is false, the dev.assetPrefix option doesn't include \"https\"", ({ expect }) => {
     const result = defineDevConfig({
         https: false
     });
@@ -61,7 +62,7 @@ test("when https is false, the dev.assetPrefix option doesn't include \"https\""
     expect(result.dev?.assetPrefix).not.toMatch(/(https)/i);
 });
 
-test("when https is false, the basic-ssl plugin is not included", () => {
+test.concurrent("when https is false, the basic-ssl plugin is not included", ({ expect }) => {
     const result = defineDevConfig({
         https: false
     });
@@ -69,7 +70,7 @@ test("when https is false, the basic-ssl plugin is not included", () => {
     expect(result.plugins?.find(x => (x as RsbuildPlugin).name === "rsbuild:basic-ssl")).toBeUndefined();
 });
 
-test("when https is false, the server.https option is undefined", () => {
+test.concurrent("when https is false, the server.https option is undefined", ({ expect }) => {
     const result = defineDevConfig({
         https: true
     });
@@ -77,7 +78,7 @@ test("when https is false, the server.https option is undefined", () => {
     expect(result.server?.https).toBeUndefined();
 });
 
-test("when an host is provided, the server.host option is the provided host value", () => {
+test.concurrent("when an host is provided, the server.host option is the provided host value", ({ expect }) => {
     const result = defineDevConfig({
         host: "a-custom-host"
     });
@@ -85,7 +86,7 @@ test("when an host is provided, the server.host option is the provided host valu
     expect(result.server!.host).toBe("a-custom-host");
 });
 
-test("when an host is provided, the dev.assetPrefix option include the provided host value", () => {
+test.concurrent("when an host is provided, the dev.assetPrefix option include the provided host value", ({ expect }) => {
     const result = defineDevConfig({
         host: "a-custom-host"
     });
@@ -93,7 +94,7 @@ test("when an host is provided, the dev.assetPrefix option include the provided 
     expect(result.dev?.assetPrefix).toMatch(/a-custom-host/);
 });
 
-test("when a port is provided, the server.port option is the provided port value", () => {
+test.concurrent("when a port is provided, the server.port option is the provided port value", ({ expect }) => {
     const result = defineDevConfig({
         port: 1234
     });
@@ -101,7 +102,7 @@ test("when a port is provided, the server.port option is the provided port value
     expect(result.server?.port).toBe(1234);
 });
 
-test("when a port is provided, the dev.assetPrefix option include the provided port", () => {
+test.concurrent("when a port is provided, the dev.assetPrefix option include the provided port", ({ expect }) => {
     const result = defineDevConfig({
         port: 1234
     });
@@ -109,7 +110,7 @@ test("when a port is provided, the dev.assetPrefix option include the provided p
     expect(result.dev?.assetPrefix).toMatch(/1234/);
 });
 
-test("when an asset prefix is provided, the dev.assetPrefix option is the provided value", () => {
+test.concurrent("when an asset prefix is provided, the dev.assetPrefix option is the provided value", ({ expect }) => {
     const result = defineDevConfig({
         assetPrefix: "http://my-dev-host.com/"
     });
@@ -117,7 +118,7 @@ test("when an asset prefix is provided, the dev.assetPrefix option is the provid
     expect(result.dev?.assetPrefix).toBe("http://my-dev-host.com/");
 });
 
-test("when additional plugins are provided, append the provided plugins at the end of the plugins array", () => {
+test.concurrent("when additional plugins are provided, append the provided plugins at the end of the plugins array", ({ expect }) => {
     const plugin1: RsbuildPlugin = {
         name: "plugin-1",
         setup: () => {}
@@ -141,7 +142,7 @@ test("when additional plugins are provided, append the provided plugins at the e
     expect(result.plugins![pluginsCount - 1]).toBe(plugin2);
 });
 
-test("when html is false, the html option is undefined", () => {
+test.concurrent("when html is false, the html option is undefined", ({ expect }) => {
     const result = defineDevConfig({
         html: false
     });
@@ -149,7 +150,7 @@ test("when html is false, the html option is undefined", () => {
     expect(result.html).toBeUndefined();
 });
 
-test("when html is a function, the html option match the function return value", () => {
+test.concurrent("when html is a function, the html option match the function return value", ({ expect }) => {
     const html = {
         title: "foo"
     };
@@ -163,7 +164,7 @@ test("when html is a function, the html option match the function return value",
     expect(result.html).toBe(html);
 });
 
-test("when lazyCompilation is true, the dev.lazyCompilation option is true", () => {
+test.concurrent("when lazyCompilation is true, the dev.lazyCompilation option is true", ({ expect }) => {
     const result = defineDevConfig({
         lazyCompilation: true
     });
@@ -171,7 +172,7 @@ test("when lazyCompilation is true, the dev.lazyCompilation option is true", () 
     expect(result.dev?.lazyCompilation).toBeTruthy();
 });
 
-test("when lazyCompilation is false, the dev.lazyCompilation option is false", () => {
+test.concurrent("when lazyCompilation is false, the dev.lazyCompilation option is false", ({ expect }) => {
     const result = defineDevConfig({
         lazyCompilation: false
     });
@@ -179,7 +180,7 @@ test("when lazyCompilation is false, the dev.lazyCompilation option is false", (
     expect(result.dev?.lazyCompilation).toBeFalsy();
 });
 
-test("when hmr is true, the dev.hmr option is true", () => {
+test.concurrent("when hmr is true, the dev.hmr option is true", ({ expect }) => {
     const result = defineDevConfig({
         hmr: true
     });
@@ -187,7 +188,7 @@ test("when hmr is true, the dev.hmr option is true", () => {
     expect(result.dev?.hmr).toBeTruthy();
 });
 
-test("when hmr amd fastRefresh are false, the dev.hmr option is false", () => {
+test.concurrent("when hmr amd fastRefresh are false, the dev.hmr option is false", ({ expect }) => {
     const result = defineDevConfig({
         hmr: false,
         fastRefresh: false
@@ -196,7 +197,7 @@ test("when hmr amd fastRefresh are false, the dev.hmr option is false", () => {
     expect(result.dev?.hmr).toBeFalsy();
 });
 
-test("when hmr is false and fastRefresh is true, the dev.hmr option is true", () => {
+test.concurrent("when hmr is false and fastRefresh is true, the dev.hmr option is true", ({ expect }) => {
     const result = defineDevConfig({
         hmr: false,
         fastRefresh: true
@@ -205,7 +206,7 @@ test("when hmr is false and fastRefresh is true, the dev.hmr option is true", ()
     expect(result.dev?.hmr).toBeTruthy();
 });
 
-test("when fastRefresh is true, the react plugin enable fast refresh", () => {
+test.concurrent("when fastRefresh is true, the react plugin enable fast refresh", ({ expect }) => {
     let isEnabled = false;
 
     const result = defineDevConfig({
@@ -223,7 +224,7 @@ test("when fastRefresh is true, the react plugin enable fast refresh", () => {
     expect(isEnabled).toBeTruthy();
 });
 
-test("when fastRefresh is true and the overlay is disable, disable the fast refresh overlay", () => {
+test.concurrent("when fastRefresh is true and the overlay is disable, disable the fast refresh overlay", ({ expect }) => {
     let isOverlayDisabled = false;
 
     const result = defineDevConfig({
@@ -242,7 +243,7 @@ test("when fastRefresh is true and the overlay is disable, disable the fast refr
     expect(isOverlayDisabled).toBeTruthy();
 });
 
-test("when fastRefresh is true, disable the client overlay", () => {
+test.concurrent("when fastRefresh is true, disable the client overlay", ({ expect }) => {
     const result = defineDevConfig({
         fastRefresh: true
     });
@@ -250,7 +251,7 @@ test("when fastRefresh is true, disable the client overlay", () => {
     expect(result.dev?.client?.overlay).toBeFalsy();
 });
 
-test("when sourceMap is false, the output.sourceMap option is false", () => {
+test.concurrent("when sourceMap is false, the output.sourceMap option is false", ({ expect }) => {
     const result = defineDevConfig({
         sourceMap: false
     });
@@ -258,7 +259,7 @@ test("when sourceMap is false, the output.sourceMap option is false", () => {
     expect(result.output?.sourceMap).toBeFalsy();
 });
 
-test("when sourceMap is an object, the output.sourceMap option is the object", () => {
+test.concurrent("when sourceMap is an object, the output.sourceMap option is the object", ({ expect }) => {
     const sourceMap: SourceMap = {
         js: false,
         css: false
@@ -271,7 +272,7 @@ test("when sourceMap is an object, the output.sourceMap option is the object", (
     expect(result.output?.sourceMap).toBe(sourceMap);
 });
 
-test("when overlay is false, the dev.client.overlay option is false", () => {
+test.concurrent("when overlay is false, the dev.client.overlay option is false", ({ expect }) => {
     const result = defineDevConfig({
         overlay: false
     });
@@ -279,7 +280,7 @@ test("when overlay is false, the dev.client.overlay option is false", () => {
     expect(result.dev?.client?.overlay).toBeFalsy();
 });
 
-test("when overlay is false, react plugin fast refresh overlay is disabled", () => {
+test.concurrent("when overlay is false, react plugin fast refresh overlay is disabled", ({ expect }) => {
     let isOverlayDisabled = false;
 
     defineDevConfig({
@@ -294,7 +295,7 @@ test("when overlay is false, react plugin fast refresh overlay is disabled", () 
     expect(isOverlayDisabled).toBeTruthy();
 });
 
-test("when writeToDisk is true, the dev.writeToDisk option is true", () => {
+test.concurrent("when writeToDisk is true, the dev.writeToDisk option is true", ({ expect }) => {
     const result = defineDevConfig({
         writeToDisk: true
     });
@@ -302,7 +303,7 @@ test("when writeToDisk is true, the dev.writeToDisk option is true", () => {
     expect(result.dev?.writeToDisk).toBeTruthy();
 });
 
-test("when react is false, the react plugin is not included", () => {
+test.concurrent("when react is false, the react plugin is not included", ({ expect }) => {
     const result = defineDevConfig({
         react: false
     });
@@ -312,8 +313,8 @@ test("when react is false, the react plugin is not included", () => {
     expect(plugin).toBeUndefined();
 });
 
-test("when react is a function, the function is executed", () => {
-    const fct = jest.fn();
+test.concurrent("when react is a function, the function is executed", ({ expect }) => {
+    const fct = vi.fn();
 
     defineDevConfig({
         react: fct
@@ -322,7 +323,7 @@ test("when react is a function, the function is executed", () => {
     expect(fct).toHaveBeenCalledTimes(1);
 });
 
-test("when svgr is false, the svgr plugin is not included", () => {
+test.concurrent("when svgr is false, the svgr plugin is not included", ({ expect }) => {
     const result = defineDevConfig({
         svgr: false
     });
@@ -332,8 +333,8 @@ test("when svgr is false, the svgr plugin is not included", () => {
     expect(plugin).toBeUndefined();
 });
 
-test("when svgr is a function, the function is executed", () => {
-    const fct = jest.fn();
+test.concurrent("when svgr is a function, the function is executed", ({ expect }) => {
+    const fct = vi.fn();
 
     defineDevConfig({
         svgr: fct
@@ -342,7 +343,7 @@ test("when svgr is a function, the function is executed", () => {
     expect(fct).toHaveBeenCalledTimes(1);
 });
 
-test("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rsbuild config", () => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rsbuild config", ({ expect }) => {
     const entryTransformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -359,7 +360,7 @@ test("when a transformer is provided, and the transformer update the existing co
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
 });
 
-test("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rsbuild config", () => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rsbuild config", ({ expect }) => {
     const entryTransformer: RsbuildConfigTransformer = () => {
         return {
             source: {
@@ -377,7 +378,7 @@ test("when a transformer is provided, and the transformer returns a new configur
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
 });
 
-test("when multiple transformers are provided, all the transformers are applied on the webpack config", () => {
+test.concurrent("when multiple transformers are provided, all the transformers are applied on the webpack config", ({ expect }) => {
     const entryTransformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -403,8 +404,8 @@ test("when multiple transformers are provided, all the transformers are applied 
     expect(result.output!.distPath!.js).toBe("a-custom-dist-path-in-a-tranformer");
 });
 
-test("transformers context environment is \"dev\"", () => {
-    const mockTransformer = jest.fn();
+test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
+    const mockTransformer = vi.fn();
 
     defineDevConfig({
         transformers: [mockTransformer]
@@ -413,8 +414,8 @@ test("transformers context environment is \"dev\"", () => {
     expect(mockTransformer).toHaveBeenCalledWith(expect.anything(), { environment: "dev", verbose: false });
 });
 
-test("when the verbose option is true, the transformers context verbose value is \"true\"", () => {
-    const mockTransformer = jest.fn();
+test.concurrent("when the verbose option is true, the transformers context verbose value is \"true\"", ({ expect }) => {
+    const mockTransformer = vi.fn();
 
     defineDevConfig({
         verbose: true,

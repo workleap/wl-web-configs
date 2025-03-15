@@ -1,3 +1,4 @@
+import { test } from "vitest";
 import type { Configuration } from "webpack";
 import { matchConstructorName, removePlugin } from "../../src/transformers/plugins.ts";
 
@@ -19,7 +20,7 @@ class Plugin3 {
     }
 }
 
-test("when a matching plugin is found in the plugins array, remove the plugin", () => {
+test.concurrent("when a matching plugin is found in the plugins array, remove the plugin", ({ expect }) => {
     const config: Configuration = {
         plugins: [
             new Plugin1(),
@@ -34,7 +35,7 @@ test("when a matching plugin is found in the plugins array, remove the plugin", 
     expect(config.plugins![1]!.constructor.name).toBe(Plugin3.name);
 });
 
-test("when no matching plugin is found, throw an error", () => {
+test.concurrent("when no matching plugin is found, throw an error", ({ expect }) => {
     const config: Configuration = {
         plugins: [
             new Plugin1(),

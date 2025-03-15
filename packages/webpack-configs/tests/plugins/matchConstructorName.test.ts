@@ -1,3 +1,4 @@
+import { test } from "vitest";
 import { matchConstructorName } from "../../src/transformers/plugins.ts";
 
 class Plugin1 {
@@ -6,13 +7,13 @@ class Plugin1 {
     }
 }
 
-test("when the plugin constructor name match name, return true", () => {
+test.concurrent("when the plugin constructor name match name, return true", ({ expect }) => {
     const matcher = matchConstructorName(Plugin1.name);
 
     expect(matcher(new Plugin1(), 0, [])).toBeTruthy();
 });
 
-test("when the plugin constructor name doesn't match name, return false", () => {
+test.concurrent("when the plugin constructor name doesn't match name, return false", ({ expect }) => {
     const matcher = matchConstructorName("anything");
 
     expect(matcher(new Plugin1(), 0, [])).toBeFalsy();
