@@ -58,7 +58,7 @@
         "retypeapp": "3.6.0",
         "syncpack": "13.0.3",
         "turbo": "2.4.4",
-        "typescript": "5.5.4"
+        "typescript": "5.8.2"
     },
     "engines": {
         "node": ">=22.0.0",

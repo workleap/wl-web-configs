@@ -24,7 +24,6 @@ export default {
             "dependencyTypes": ["prod", "dev"],
             "dependencies": ["typescript"],
             "packages": ["@webpack-sample/*"],
-            "label": "packages should have a single version across the repository"
         },
         {
             "dependencyTypes": ["prod", "dev"],

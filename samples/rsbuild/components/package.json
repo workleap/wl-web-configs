@@ -21,8 +21,8 @@
         "react-dom": "*"
     },
     "devDependencies": {
-        "@rsbuild/core": "1.2.18",
-        "@storybook/react": "8.6.4",
+        "@rsbuild/core": "1.2.19",
+        "@storybook/react": "8.6.5",
         "@testing-library/react": "16.2.0",
         "@types/react": "19.0.10",
         "@types/react-dom": "19.0.4",
@@ -32,13 +32,13 @@
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0",
-        "identity-obj-proxy": "3.0.0",
         "happy-dom": "17.4.4",
+        "identity-obj-proxy": "3.0.0",
         "prettier": "3.5.3",
         "react": "19.0.0",
         "react-dom": "19.0.0",
-        "stylelint": "16.15.0",
-        "typescript": "5.5.4",
+        "stylelint": "16.16.0",
+        "typescript": "5.8.2",
         "vitest": "3.0.8"
     }
 }

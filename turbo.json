@@ -54,7 +54,7 @@
         },
         "test": {
             "dependsOn": ["@workleap/swc-configs#build"],
-            "outputs": ["node_modules/.cache/vitest/**"]
+            "outputs": ["node_modules/.cache/vitest/**", "node_modules/.cache/jest/**"]
         }
     }
 }
