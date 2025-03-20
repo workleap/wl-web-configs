@@ -5,7 +5,7 @@ const config: Linter.Config = {
         {
             files: ["package.json"],
             plugins: ["package-json"],
-            extends: ["plugin:package-json/recommended"],
+            extends: ["``plugin:package-json``/legacy-recommended"],
             parser: "jsonc-eslint-parser",
             rules: {
                 "package-json/order-properties": "off",
