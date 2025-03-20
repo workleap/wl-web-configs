@@ -1,16 +1,20 @@
 {
-    "version": "1.0.0",
+    "version": "0.2.0",
     "configurations": [
       {
         "type": "node",
         "request": "launch",
-        "name": "Jest: current file",
-        "program": "${workspaceFolder}/node_modules/.bin/jest",
-        "args": ["${fileBasenameNoExtension}", "--config", "jest.config.ts"],
+        "name": "Debug Vitest Test (Current File)",
+        "runtimeExecutable": "pnpm",
+        "args": [
+          "run",
+          "test",
+          "--",
+          "${file}"
+        ],
+        "cwd": "${fileDirname}",
         "console": "integratedTerminal",
-        "windows": {
-          "program": "${workspaceFolder}/node_modules/jest/bin/jest"
-        }
+        "internalConsoleOptions": "neverOpen"
       }
     ]
   }
