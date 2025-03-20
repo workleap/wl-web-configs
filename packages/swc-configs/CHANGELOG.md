@@ -1,5 +1,11 @@
 # @workleap/swc-configs
 
+## 2.2.5
+
+### Patch Changes
+
+- [#242](https://github.com/workleap/wl-web-configs/pull/242) [`e165cb4`](https://github.com/workleap/wl-web-configs/commit/e165cb447e699e19f06d41532216e36c09d7b945) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Updated dependencies.
+
 ## 2.2.4
 
 ### Patch Changes
