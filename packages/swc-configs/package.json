@@ -54,7 +54,7 @@
     "devDependencies": {
         "@rsbuild/core": "1.2.19",
         "@rslib/core": "0.5.4",
-        "@swc/core": "1.11.9",
+        "@swc/core": "1.11.11",
         "@swc/helpers": "0.5.15",
         "@swc/jest": "0.2.37",
         "@typescript-eslint/parser": "8.26.1",
@@ -63,6 +63,6 @@
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0",
         "typescript": "5.8.2",
-        "vitest": "3.0.8"
+        "vitest": "3.0.9"
     }
 }

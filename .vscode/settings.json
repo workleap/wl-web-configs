@@ -42,5 +42,6 @@
         "javascript",
         "javascriptreact",
         "yaml"
-    ]
+    ],
+    "vitest.disableWorkspaceWarning": true
 }

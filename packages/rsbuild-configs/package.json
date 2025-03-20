@@ -54,6 +54,6 @@
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0",
         "typescript": "5.8.2",
-        "vitest": "3.0.8"
+        "vitest": "3.0.9"
     }
 }
