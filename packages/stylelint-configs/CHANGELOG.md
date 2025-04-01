@@ -1,5 +1,11 @@
 # @workleap/stylelint-config
 
+## 2.0.5
+
+### Patch Changes
+
+- [#244](https://github.com/workleap/wl-web-configs/pull/244) [`038d794`](https://github.com/workleap/wl-web-configs/commit/038d794458289e344502a56fd563c71e8d6dd0f8) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Updated dependencies
+
 ## 2.0.4
 
 ### Patch Changes

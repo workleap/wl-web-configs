@@ -2,7 +2,7 @@
     "name": "@workleap/postcss-configs",
     "author": "Workleap",
     "description": "Workleap's recommended PostCSS configurations",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "license": "Apache-2.0",
     "publishConfig": {
         "access": "public",

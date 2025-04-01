@@ -1,5 +1,11 @@
 # @workleap/tsup-configs
 
+## 3.0.9
+
+### Patch Changes
+
+- [#244](https://github.com/workleap/wl-web-configs/pull/244) [`038d794`](https://github.com/workleap/wl-web-configs/commit/038d794458289e344502a56fd563c71e8d6dd0f8) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Updated dependencies
+
 ## 3.0.8
 
 ### Patch Changes
