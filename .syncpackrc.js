@@ -6,31 +6,41 @@ export default {
     "dependencyTypes": ["prod", "dev"],
     "semverGroups": [
         {
+            "packages": ["@workleap/*"],
+            "dependencyTypes": ["prod", "peer"],
             "range": "^",
-            "dependencyTypes": ["prod"],
-            "dependencies": ["**"],
-            "packages": ["@workleap/**"]
+            "label": "Packages should use ^ for dependencies and peerDependencies."
         },
         {
+            "packages": ["@workleap/*"],
+            "dependencyTypes": ["dev"],
             "range": "",
-            "dependencyTypes": ["prod", "dev"],
-            "dependencies": ["**"],
-            "packages": ["**"],
-            "label": "packages version should be pinned"
+            "label": "Packages should pin devDependencies."
         },
+        {
+            "packages": ["@rsbuild-sample/*", "@webpack-sample/*", "@storybook-sample/*"],
+            "dependencyTypes": ["prod", "dev"],
+            "range": "",
+            "label": "Samples should pin dependencies and devDependencies."
+        },
+        {
+            "packages": ["workspace-root"],
+            "dependencyTypes": ["dev"],
+            "range": "",
+            "label": "Workspace root should pin devDependencies."
+        }
     ],
     "versionGroups": [
         {
-            "dependencyTypes": ["prod", "dev"],
-            "dependencies": ["typescript"],
             "packages": ["@webpack-sample/*"],
+            "dependencies": ["typescript"],
+            "dependencyTypes": ["prod", "dev"]
         },
         {
+            "packages": ["**"],
             "dependencyTypes": ["prod", "dev"],
             "preferVersion": "highestSemver",
-            "dependencies": ["**"],
-            "packages": ["**"],
-            "label": "packages should have a single version across the repository"
+            "label": "Packages and Samples should have a single version across the repository"
         }
     ]
 };

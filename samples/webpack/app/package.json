@@ -21,20 +21,20 @@
     "dependencies": {
         "@webpack-sample/components": "workspace:*",
         "@webpack-sample/tsup-lib": "workspace:*",
-        "react": "19.0.0",
-        "react-dom": "19.0.0",
-        "react-router": "7.4.0"
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "react-router": "7.4.1"
     },
     "devDependencies": {
-        "@swc/core": "1.11.11",
+        "@swc/core": "1.11.13",
         "@swc/helpers": "0.5.15",
         "@swc/jest": "0.2.37",
         "@testing-library/react": "16.2.0",
         "@types/jest": "29.5.14",
-        "@types/node": "22.13.10",
+        "@types/node": "22.13.14",
         "@types/react": "19.0.12",
         "@types/react-dom": "19.0.4",
-        "@typescript-eslint/parser": "8.26.1",
+        "@typescript-eslint/parser": "8.29.0",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/postcss-configs": "workspace:*",
@@ -53,12 +53,12 @@
         "nodemon": "3.1.9",
         "postcss": "8.5.3",
         "prettier": "3.5.3",
-        "stylelint": "16.16.0",
+        "stylelint": "16.17.0",
         "ts-node": "10.9.2",
         "typescript": "5.5.4",
         "webpack": "5.98.0",
         "webpack-cli": "6.0.1",
-        "webpack-dev-server": "5.2.0"
+        "webpack-dev-server": "5.2.1"
     },
     "msw": {
         "workerDirectory": "public"

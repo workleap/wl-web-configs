@@ -48,8 +48,8 @@
         "stylelint-prettier": "^5.0.3"
     },
     "devDependencies": {
-        "@types/node": "22.13.10",
-        "@typescript-eslint/parser": "8.26.1",
+        "@types/node": "22.13.14",
+        "@typescript-eslint/parser": "8.29.0",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0",

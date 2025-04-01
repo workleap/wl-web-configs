@@ -1,5 +1,5 @@
 {
-    "name": "wl-web-configs",
+    "name": "workspace-root",
     "author": "Workleap",
     "description": "Common configurations for building web apps and libraries at Workleap",
     "private": true,
@@ -48,12 +48,12 @@
     "devDependencies": {
         "@changesets/changelog-github": "0.5.1",
         "@changesets/cli": "2.28.1",
-        "@typescript-eslint/parser": "8.26.1",
+        "@typescript-eslint/parser": "8.29.0",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0",
-        "knip": "5.46.0",
-        "pkg-pr-new": "0.0.41",
+        "knip": "5.46.4",
+        "pkg-pr-new": "0.0.42",
         "prettier": "3.5.3",
         "retypeapp": "3.6.0",
         "syncpack": "13.0.3",
