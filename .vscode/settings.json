@@ -43,5 +43,10 @@
         "javascriptreact",
         "yaml"
     ],
-    "vitest.disableWorkspaceWarning": true
+
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+        {
+            "file": ".github/copilot/commit-message-instructions.md"
+        }
+    ]
 }

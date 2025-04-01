@@ -21,13 +21,13 @@
         "react-dom": "*"
     },
     "devDependencies": {
-        "@swc/core": "1.11.11",
+        "@swc/core": "1.11.13",
         "@swc/jest": "0.2.37",
         "@testing-library/react": "16.2.0",
         "@types/jest": "29.5.14",
         "@types/react": "19.0.12",
         "@types/react-dom": "19.0.4",
-        "@typescript-eslint/parser": "8.26.1",
+        "@typescript-eslint/parser": "8.29.0",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
@@ -37,9 +37,9 @@
         "jest": "29.7.0",
         "jest-environment-jsdom": "29.7.0",
         "prettier": "3.5.3",
-        "react": "19.0.0",
-        "react-dom": "19.0.0",
-        "stylelint": "16.16.0",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "stylelint": "16.17.0",
         "ts-node": "10.9.2",
         "typescript": "5.5.4"
     }

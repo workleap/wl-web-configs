@@ -34,10 +34,10 @@
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "peerDependencies": {
-        "@swc/core": "*",
-        "@swc/helpers": "*",
-        "browserslist": "*",
-        "postcss": "*",
+        "@swc/core": "^1.10.0",
+        "@swc/helpers": "^0.5.0",
+        "browserslist": "^4.24.4",
+        "postcss": ">=8.4.6",
         "webpack": ">=5.0.0",
         "webpack-dev-server": ">=5.0.0"
     },
@@ -47,29 +47,29 @@
         }
     },
     "dependencies": {
-        "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
+        "@pmmmwh/react-refresh-webpack-plugin": "^0.5.16",
         "@svgr/webpack": "^8.1.0",
         "css-loader": "^7.1.2",
         "html-webpack-plugin": "^5.6.3",
         "mini-css-extract-plugin": "^2.9.2",
         "postcss-loader": "^8.1.1",
-        "react-refresh": "^0.16.0",
+        "react-refresh": "^0.17.0",
         "style-loader": "^4.0.0",
         "swc-loader": "^0.2.6",
         "terser-webpack-plugin": "^5.3.14"
     },
     "devDependencies": {
-        "@rsbuild/core": "1.2.19",
-        "@rslib/core": "0.5.4",
+        "@rsbuild/core": "1.3.1",
+        "@rslib/core": "0.6.1",
         "@svgr/core": "8.1.0",
-        "@types/node": "22.13.10",
-        "@typescript-eslint/parser": "8.26.1",
+        "@types/node": "22.13.14",
+        "@typescript-eslint/parser": "8.29.0",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0",
         "typescript": "5.8.2",
-        "vitest": "3.0.9"
+        "vitest": "3.1.1"
     }
 }
