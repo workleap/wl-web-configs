@@ -71,4 +71,4 @@ The shared configurations offered by `@workleap/rslib-configs` includes the foll
 
 To get started, follow the quick start guide to configure Rsbuild for either a [development environment](./configure-dev.md), a [production environment](./configure-build.md) or [storybook](./configure-storybook.md).
 
-If your project is already using `@workleap/tsup-configs`, follow the [migration guide](./migrate-from-tsup.md).
+:point_right: If your project is currently using `@workleap/tsup-configs`, follow the [migration guide](./migrate-from-tsup.md).
