@@ -23,7 +23,7 @@ First, create a `_redirects` file at the root of the project:
 /* /index.html 200
 ```
 
-Then, update the ``build` script of the project to copy the `_redirects` file into the `dist` folder once the application is built:
+Then, update the `build` script of the project to copy the `_redirects` file into the `dist` folder once the application is built:
 
 ```json package.json
 {
