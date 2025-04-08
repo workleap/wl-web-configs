@@ -15,9 +15,7 @@ However, there are a few essential configurations that need to be made regardles
 
 ## Add a default redirect 
 
-For SPA, to enable support for direct page hits, add a redirect rule serving the `index.html` file instead of responding with a `404` response. This redirect rule can be configured for Netlify by adding a `_redirects` file into the `dist` folder of the application.
-
-For single-page applications, it's important to support direct URL access (e.g., when a user refreshes a page or navigates directly to a route). To handle this, redirect rule that serves the `index.html` file instead of returning a `404` response must be configured.
+For SPA, it's important to support direct URL access (e.g., when a user refreshes a page or navigates directly to a route). To handle this, a redirect rule that serves the `index.html` file instead of returning a `404` response must be configured.
 
 First, create a `_redirects` file at the root of the project:
 
