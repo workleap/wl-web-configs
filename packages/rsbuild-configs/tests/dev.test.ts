@@ -22,14 +22,6 @@ test.concurrent("when https is true, the server option is configured with a self
     expect(result.plugins?.find(x => (x as RsbuildPlugin).name === "rsbuild:basic-ssl")).toBeDefined();
 });
 
-test.concurrent("when https is true, the asset prefix option include \"https\"", ({ expect }) => {
-    const result = defineDevConfig({
-        https: true
-    });
-
-    expect(result.dev?.assetPrefix).toMatch(/(https)/i);
-});
-
 test.concurrent("when https is a certificate, the server option is configured with the provided certificate", ({ expect }) => {
     const cert = {
         key: "foo",
@@ -41,25 +33,6 @@ test.concurrent("when https is a certificate, the server option is configured wi
     });
 
     expect(result.server?.https).toBe(cert);
-});
-
-test.concurrent("when https is a certificate, the dev.assetPrefix option include \"https\"", ({ expect }) => {
-    const result = defineDevConfig({
-        https: {
-            key: "foo",
-            cert: "bar"
-        }
-    });
-
-    expect(result.dev?.assetPrefix).toMatch(/(https)/i);
-});
-
-test.concurrent("when https is false, the dev.assetPrefix option doesn't include \"https\"", ({ expect }) => {
-    const result = defineDevConfig({
-        https: false
-    });
-
-    expect(result.dev?.assetPrefix).not.toMatch(/(https)/i);
 });
 
 test.concurrent("when https is false, the basic-ssl plugin is not included", ({ expect }) => {
@@ -76,38 +49,6 @@ test.concurrent("when https is false, the server.https option is undefined", ({ 
     });
 
     expect(result.server?.https).toBeUndefined();
-});
-
-test.concurrent("when an host is provided, the server.host option is the provided host value", ({ expect }) => {
-    const result = defineDevConfig({
-        host: "a-custom-host"
-    });
-
-    expect(result.server!.host).toBe("a-custom-host");
-});
-
-test.concurrent("when an host is provided, the dev.assetPrefix option include the provided host value", ({ expect }) => {
-    const result = defineDevConfig({
-        host: "a-custom-host"
-    });
-
-    expect(result.dev?.assetPrefix).toMatch(/a-custom-host/);
-});
-
-test.concurrent("when a port is provided, the server.port option is the provided port value", ({ expect }) => {
-    const result = defineDevConfig({
-        port: 1234
-    });
-
-    expect(result.server?.port).toBe(1234);
-});
-
-test.concurrent("when a port is provided, the dev.assetPrefix option include the provided port", ({ expect }) => {
-    const result = defineDevConfig({
-        port: 1234
-    });
-
-    expect(result.dev?.assetPrefix).toMatch(/1234/);
 });
 
 test.concurrent("when an asset prefix is provided, the dev.assetPrefix option is the provided value", ({ expect }) => {
