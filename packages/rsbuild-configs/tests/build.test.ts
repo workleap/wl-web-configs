@@ -25,10 +25,10 @@ test.concurrent("when a dist path is provided, the output.distpath option is the
 
 test.concurrent("when an asset prefix is provided, the output.assetPrefix option is the provided value", ({ expect }) => {
     const result = defineBuildConfig({
-        assetPrefix: "a-valid-public-path-ending-with-a-trailing-slash/"
+        assetPrefix: "a-valid-public-path-ending-with-a-trailing-slash"
     });
 
-    expect(result.output!.assetPrefix).toBe("a-valid-public-path-ending-with-a-trailing-slash/");
+    expect(result.output!.assetPrefix).toBe("a-valid-public-path-ending-with-a-trailing-slash");
 });
 
 test.concurrent("when additional plugins are provided, append the provided plugins at the end of the plugins array", ({ expect }) => {

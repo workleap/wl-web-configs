@@ -89,10 +89,6 @@ Then, add the assets to the `index.html` file:
 </html>
 ```
 
-!!!info
-If `assetPrefix` is set to `auto`, use `href="favicon.png"` instead.
-!!!
-
 ### Browserslist
 
 Next, let's set up [Browserlist](https://github.com/browserslist/browserslist) to define the minimum browser versions supported by the application. Rsbuild will automatically detect and load the browser versions from the nearest `.browserslistrc` configuration file.
@@ -135,9 +131,7 @@ Then, open the newly created file and `export` the Rsbuild configuration by usin
 ```ts rsbuild.build.ts
 import { defineBuildConfig } from "@workleap/rsbuild-configs";
 
-export default defineBuildConfig({
-    assetPrefix: "auto"
-});
+export default defineBuildConfig();
 ```
 
 ## Use predefined options
@@ -186,23 +180,13 @@ export default defineBuildConfig({
 - **Type**: `string`
 - **Default**: `http://localhost:8080`
 
-Set Rsbuild [output.assetPrefix](https://rsbuild.dev/config/output/asset-prefix) option.
+Set Rsbuild [output.assetPrefix](https://rsbuild.dev/config/output/asset-prefix) option. Only set this option if the application is not deployed under the root path of the domain.
 
 ```ts !#4 rsbuild.build.ts
 import { defineBuildConfig } from "@workleap/rsbuild-configs";
 
 export default defineBuildConfig({
     assetPrefix: "http://host:8080"
-});
-```
-
-If you're unsure of the asset prefix in advance, set the option to `auto`. Rsbuild will automatically determine the asset prefix using [import.meta.url](https://webpack.js.org/api/module-variables/#importmetaurl) or [document.currentScript](https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript).
-
-```ts !#4 rsbuild.build.ts
-import { defineBuildConfig  } from "@workleap/rsbuild-configs";
-
-export default defineBuildConfig({
-    assetPrefix: "auto"
 });
 ```
 
