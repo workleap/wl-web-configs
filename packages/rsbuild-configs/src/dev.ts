@@ -52,7 +52,7 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
         https = false,
         host = "localhost",
         port = 8080,
-        assetPrefix,
+        assetPrefix = "/",
         plugins = [],
         html = defaultDefineHtmlPluginConfig,
         lazyCompilation = true,
@@ -76,7 +76,8 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
     const config: RsbuildConfig = {
         mode: "development",
         dev: {
-            assetPrefix: assetPrefix ?? `${https ? "https" : "http"}://${host}:${port}`,
+            // assetPrefix: assetPrefix ?? `${https ? "https" : "http"}://${host}:${port}`,
+            assetPrefix,
             lazyCompilation,
             hmr: hmr || fastRefresh,
             client: (overlay === false || fastRefresh) ? {

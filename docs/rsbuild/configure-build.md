@@ -178,7 +178,7 @@ export default defineBuildConfig({
 > This option is the Rsbuild equivalent of webpack [publicPath](../webpack/configure-dev.md#publicpath) option.
 
 - **Type**: `string`
-- **Default**: `http://localhost:8080`
+- **Default**: `/`
 
 Set Rsbuild [output.assetPrefix](https://rsbuild.dev/config/output/asset-prefix) option. Only set this option if the application is not deployed under the root path of the domain.
 
@@ -186,7 +186,7 @@ Set Rsbuild [output.assetPrefix](https://rsbuild.dev/config/output/asset-prefix)
 import { defineBuildConfig } from "@workleap/rsbuild-configs";
 
 export default defineBuildConfig({
-    assetPrefix: "http://host:8080"
+    assetPrefix: "/app/"
 });
 ```
 
