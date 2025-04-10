@@ -1,5 +1,11 @@
 # @workleap/rsbuild-configs
 
+## 2.0.1
+
+### Patch Changes
+
+- [#254](https://github.com/workleap/wl-web-configs/pull/254) [`b3a6ddf`](https://github.com/workleap/wl-web-configs/commit/b3a6ddfcb60e0f5d43b44f971601220ad17249ab) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Change rsbuild dev config default `assetPrefix` value to `/`.
+
 ## 2.0.0
 
 ### Major Changes
