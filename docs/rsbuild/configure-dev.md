@@ -207,7 +207,7 @@ export default defineDevConfig({
 > This option is the Rsbuild equivalent of webpack [publicPath](../webpack/configure-dev.md#publicpath) option.
 
 - **Type**: `string`
-- **Default**: `${https ? "https" : "http"}://${host}:${port}`
+- **Default**: `/`
 
 Set Rsbuild [dev.assetPrefix](https://rsbuild.dev/config/dev/asset-prefix) option. Only set this option if the dev server is not hosting the application at the root.
 
@@ -215,7 +215,7 @@ Set Rsbuild [dev.assetPrefix](https://rsbuild.dev/config/dev/asset-prefix) optio
 import { defineDevConfig } from "@workleap/rsbuild-configs";
 
 export default defineDevConfig({
-    assetPrefix: "http://dev-host:8080"
+    assetPrefix: "/app/"
 });
 ```
 
