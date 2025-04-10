@@ -112,10 +112,10 @@ test.concurrent("when a port is provided, the dev.assetPrefix option include the
 
 test.concurrent("when an asset prefix is provided, the dev.assetPrefix option is the provided value", ({ expect }) => {
     const result = defineDevConfig({
-        assetPrefix: "http://my-dev-host.com/"
+        assetPrefix: "http://my-dev-host.com"
     });
 
-    expect(result.dev?.assetPrefix).toBe("http://my-dev-host.com/");
+    expect(result.dev?.assetPrefix).toBe("http://my-dev-host.com");
 });
 
 test.concurrent("when additional plugins are provided, append the provided plugins at the end of the plugins array", ({ expect }) => {

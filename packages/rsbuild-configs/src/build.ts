@@ -93,7 +93,7 @@ export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
         distPath = {
             root: path.resolve("./dist")
         },
-        assetPrefix = "http://localhost:8080",
+        assetPrefix = "/",
         plugins = [],
         html = defaultDefineHtmlPluginConfig,
         minify = true,
