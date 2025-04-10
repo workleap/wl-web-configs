@@ -1,6 +1,6 @@
 {
     "$schema": "https://turbo.build/schema.json",
-    "globalEnv": ["USE_MSW", "VERBOSE"],
+    "globalEnv": ["USE_MSW", "NETLIFY", "VERBOSE"],
     "ui": "tui",
     "tasks": {
         "dev": {
@@ -21,6 +21,9 @@
             "dependsOn": ["build"],
             "cache": false,
             "persistent": true
+        },
+        "deploy": {
+            "dependsOn": ["build"]
         },
         "lint": {
             // Temporary disabling knip until Rsbuild and Rslib plugins are available.

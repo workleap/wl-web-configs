@@ -7,6 +7,7 @@
     "license": "Apache-2.0",
     "type": "module",
     "scripts": {
+        "postinstall": "pnpm msw init",
         "dev": "nodemon",
         "dev-msw": "cross-env USE_MSW=true nodemon",
         "dev-verbose": "cross-env VERBOSE=true nodemon",
