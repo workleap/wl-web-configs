@@ -218,6 +218,14 @@ Build the sample Storybook application using Rsbuild as a bundler but with an Rs
 pnpm serve-storybook-rsbuild
 ```
 
+### deploy-rsbuild
+
+Build the sample application using Rsbuild and deploy the output to a [Netlify site](https://web-configs-rsbuild-sample.netlify.app).
+
+```bash
+pnpm deploy-rsbuild
+```
+
 ### dev-docs
 
 Build the [Retype](https://retype.com/) documentation for development and start the Retype dev server. If you are experiencing issue with the license, refer to the [setup Retype section](#setup-retype).

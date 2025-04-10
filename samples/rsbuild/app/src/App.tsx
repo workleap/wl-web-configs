@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import { About } from "./About.tsx";
+import { DeepPage } from "./DeepPage.tsx";
 import { Fetch } from "./Fetch.tsx";
 import { Home } from "./Home.tsx";
 import { RootLayout } from "./RootLayout.tsx";
@@ -20,6 +21,25 @@ const router = createBrowserRouter([
             {
                 path: "/fetch",
                 element: <Fetch />
+            },
+            {
+                path: "/app",
+                children: [
+                    {
+                        path: "/app/1",
+                        children: [
+                            {
+                                path: "/app/1/2",
+                                children: [
+                                    {
+                                        path: "/app/1/2/page",
+                                        element: <DeepPage />
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }

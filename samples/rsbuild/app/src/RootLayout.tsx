@@ -9,6 +9,7 @@ export function RootLayout() {
                     <li className="nav-item"><Link to="/">Home</Link></li>
                     <li className="nav-item"><Link to="/about">About</Link></li>
                     <li className="nav-item"><Link to="/fetch">Fetch</Link></li>
+                    <li className="nav-item"><Link to="/app/1/2/page">Deep Page</Link></li>
                 </ul>
             </nav>
             <Outlet />
