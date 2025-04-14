@@ -79,7 +79,7 @@ const config: Linter.Config = {
                 "react/jsx-curly-spacing": ["warn", { children: true, when: "never" }],
 
                 // react-compiler (beta)
-                "react-compiler/require-compiler": "warn"
+                "react-compiler/react-compiler": "warn"
             }
         }
     ]
