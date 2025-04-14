@@ -5,10 +5,10 @@ const config: Linter.Config = {
     overrides: [
         {
             files: sourceFiles,
-            plugins: ["react", "react-hooks"],
+            plugins: ["react", "react-hooks", "react-compiler"],
             extends: [
                 "plugin:react/recommended",
-                "plugin:react-hooks/recommended"
+                "plugin:react-hooks/recommended",
             ],
             parserOptions: {
                 ecmaFeatures: {
@@ -76,8 +76,10 @@ const config: Linter.Config = {
                     "warn",
                     { maximum: 1, when: "multiline" }
                 ],
-                "react/jsx-curly-spacing": ["warn", { children: true, when: "never" }]
+                "react/jsx-curly-spacing": ["warn", { children: true, when: "never" }],
 
+                // react-compiler (beta)
+                "react-compiler/require-compiler": "warn"
             }
         }
     ]
