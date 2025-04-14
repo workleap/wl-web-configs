@@ -8,7 +8,7 @@ const config: Linter.Config = {
             plugins: ["react", "react-hooks", "react-compiler"],
             extends: [
                 "plugin:react/recommended",
-                "plugin:react-hooks/recommended",
+                "plugin:react-hooks/recommended"
             ],
             parserOptions: {
                 ecmaFeatures: {
