@@ -1,5 +1,11 @@
 # @workleap/eslint-plugin
 
+## 3.4.0
+
+### Minor Changes
+
+- [#256](https://github.com/workleap/wl-web-configs/pull/256) [`159acef`](https://github.com/workleap/wl-web-configs/commit/159acef0f53bdb759b1093650c45d93bd17fa994) Thanks [@LaurentDario](https://github.com/LaurentDario)! - Add react-compiler eslint rules (warn) to the react-library config of workleap/eslint-plugin
+
 ## 3.3.2
 
 ### Patch Changes
