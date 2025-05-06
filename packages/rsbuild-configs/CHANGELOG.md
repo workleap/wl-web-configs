@@ -1,5 +1,11 @@
 # @workleap/rsbuild-configs
 
+## 3.0.0
+
+### Major Changes
+
+- [#258](https://github.com/workleap/wl-web-configs/pull/258) [`c562227`](https://github.com/workleap/wl-web-configs/commit/c562227c82d2b87a86fc6141d5eb18f9ece97fca) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Production bundle filenames now includes an hash.
+
 ## 2.0.1
 
 ### Patch Changes
