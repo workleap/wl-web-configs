@@ -132,16 +132,16 @@ export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
             distPath,
             cleanDistPath: true,
             assetPrefix,
-            filename: {
-                html: "[name].html",
-                js: "[name].js",
-                css: "[name].css",
-                svg: "[name].[contenthash:8].svg",
-                font: "[name].[contenthash:8][ext]",
-                image: "[name].[contenthash:8][ext]",
-                media: "[name].[contenthash:8][ext]",
-                assets: "[name].[contenthash:8][ext]"
-            },
+            // filename: {
+            //     html: "[name].html",
+            //     js: "[name].js",
+            //     css: "[name].css",
+            //     svg: "[name].[contenthash:8].svg",
+            //     font: "[name].[contenthash:8][ext]",
+            //     image: "[name].[contenthash:8][ext]",
+            //     media: "[name].[contenthash:8][ext]",
+            //     assets: "[name].[contenthash:8][ext]"
+            // },
             minify,
             sourceMap
         },
