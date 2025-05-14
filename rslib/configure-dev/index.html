@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.0.799821059442">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.1.800502900738">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.8.0">
+    <meta name="generator" content="Retype 3.8.1">
 
     <!-- Primary Meta Tags -->
     <title>Configure for development - Rslib</title>
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../static/favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.8.0.799821059442" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.8.1.800502900738" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.0.799821059442" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.8.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.0.799821059442" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.8.0.799821059442" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.1.800502900738" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.1.800502900738" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.8.1.800502900738" defer></script>
 
     <link href="https://gsoft-inc.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -55,7 +55,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-hub-link" href="https://workleap.github.io/wl-idp-docs-hub/" title="Workleap's IDP homepage">
+                        <a id="docs-hub-link" href="https://workleap.github.io/wl-idp-docs-hub/" title="Workleap's Frontend Platform homepage">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="30" viewBox="0 0 12 30" fill="currentColor" aria-label="Home" focusable="false" role="img">
                                 <path d="M10.6763 23.0822C10.4303 23.328 10.0967 23.4661 9.74885 23.4661C9.40103 23.4661 9.06744 23.328 8.82135 23.0822L1.38384 15.6447C1.13806 15.3986 1 15.065 1 14.7172C1 14.3694 1.13806 14.0358 1.38384 13.7897L8.82135 6.35222C9.0703 6.1205 9.39939 5.99432 9.73945 6.0002C10.0795 6.00607 10.404 6.14354 10.6448 6.38372C10.885 6.62452 11.0225 6.94906 11.0284 7.28912C11.0342 7.62917 10.9081 7.95826 10.6763 8.20722L4.16635 14.7172L10.6763 21.2272C10.9221 21.4733 11.0602 21.8069 11.0602 22.1547C11.0602 22.5025 10.9221 22.8361 10.6763 23.0822Z" />
                             </svg>
@@ -807,31 +807,6 @@ export const transformer: RslibConfigTransformer = (config: RslibConfig) =&gt; {
 <ul>
 <li><code v-pre>environment</code>: <code v-pre>&quot;dev&quot; | &quot;build&quot; | &quot;storybook&quot;</code></li>
 </ul>
-<doc-anchor-target id="setup-nodemon">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#setup-nodemon">#</doc-anchor-trigger>
-        <span>Setup nodemon</span>
-    </h2>
-</doc-anchor-target>
-<p><a href="https://nodemon.io/" class="outbound" target="_blank">Nodemon</a> is a utility that will monitor for any changes in the <code v-pre>rslib.dev.ts</code> file and restart Rslib watch process whenever a change occurs.</p>
-<p>First, add a <code v-pre>nodemon.json</code> file at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none" data-line="5"><code v-pre class="language-none">library-project
-├── src
-├──── ...
-├── package.json
-├── rslib.dev.ts
-├── nodemon.json</code></pre>
-</doc-codeblock></div>
-<p>Then, open the <code v-pre>nodemon.json</code> file and copy/paste the following content:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">nodemon.json</div>
-<pre class="language-json"><code v-pre class="language-json">{
-    &quot;watch&quot;: [&quot;rslib.dev.ts&quot;],
-    &quot;exec&quot;: &quot;rslib build -w -c ./rslib.dev.ts&quot;
-}</code></pre>
-</doc-codeblock></div>
-<p>Finally, add a CLI script at the <doc-anchor-trigger to="#add-a-cli-script">next step</doc-anchor-trigger> of this guide.</p>
 <doc-anchor-target id="add-a-cli-script">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#add-a-cli-script">#</doc-anchor-trigger>
@@ -842,9 +817,26 @@ export const transformer: RslibConfigTransformer = (config: RslibConfig) =&gt; {
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre class="language-json"><code v-pre class="language-json">{
-    &quot;dev&quot;: &quot;nodemon&quot;
+    &quot;dev&quot;: &quot;rslib build -w -c ./rslib.dev.ts&quot;
 }</code></pre>
 </doc-codeblock></div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-300" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>A tool such as <a href="https://nodemon.io/" class="outbound" target="_blank">Nodemon</a> is not required with Rslib because the development server is automatically restarted when the configuration file is updated.</p>
+        </div>
+    </div>
+</div>
 <doc-anchor-target id="css-modules-typings">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#css-modules-typings">#</doc-anchor-trigger>
