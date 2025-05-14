@@ -17,15 +17,15 @@ Open a terminal at the root of the web application project and install the follo
 
 +++ pnpm
 ```bash
-pnpm add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist nodemon
+pnpm add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist
 ```
 +++ yarn
 ```bash
-yarn add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist nodemon
+yarn add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist
 ```
 +++ npm
 ```bash
-npm install -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist nodemon
+npm install -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist
 ```
 +++
 
@@ -567,19 +567,19 @@ export const transformer: RsbuildConfigTransformer = (config: RsbuildConfig) => 
 - `environment`: `"dev" | "build" | "storybook"`
 - `verbose`: `boolean`
 
-## Setup nodemon
-
-A tool such as [Nodemon](https://nodemon.io/) is not required with Rsbuild because the development server is automatically restarted when the configuration file is updated.
-
 ## Add a CLI script
 
 To initiate the development server, add the following script to the project `package.json` file:
 
 ```json package.json
 {
-    "dev": "nodemon"
+    "dev": "rslib dev --config ./rslib.dev.ts"
 }
 ```
+
+!!!info
+A tool such as [Nodemon](https://nodemon.io/) is not required with Rsbuild because the development server is automatically restarted when the configuration file is updated.
+!!!
 
 ## Define environment variables
 
@@ -589,11 +589,11 @@ We recommend to define environment variables using [cross-env](https://github.co
 
 ```json package.json
 {
-    "dev": "cross-env DEBUG=true nodemon"
+    "dev": "cross-env DEBUG=true rslib dev --config ./rslib.dev.ts"
 }
 ```
 
-```ts !#4 tsbuild.dev.ts
+```ts !#4 rsbuild.dev.ts
 import { defineDevConfig } from "@workleap/rsbuild-configs";
 
 if (process.env.DEBUG) {

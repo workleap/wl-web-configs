@@ -408,41 +408,19 @@ export const transformer: RslibConfigTransformer = (config: RslibConfig) => {
 
 - `environment`: `"dev" | "build" | "storybook"`
 
-## Setup nodemon
-
-[Nodemon](https://nodemon.io/) is a utility that will monitor for any changes in the `rslib.dev.ts` file and restart Rslib watch process whenever a change occurs.
-
-First, add a `nodemon.json` file at the root of the project:
-
-``` !#5
-library-project
-├── src
-├──── ...
-├── package.json
-├── rslib.dev.ts
-├── nodemon.json
-```
-
-Then, open the `nodemon.json` file and copy/paste the following content:
-
-```json nodemon.json
-{
-    "watch": ["rslib.dev.ts"],
-    "exec": "rslib build -w -c ./rslib.dev.ts"
-}
-```
-
-Finally, add a CLI script at the [next step](#add-a-cli-script) of this guide.
-
 ## Add a CLI script
 
 To initiate the watch process, add the following script to the project `package.json` file:
 
 ```json package.json
 {
-    "dev": "nodemon"
+    "dev": "rslib build -w -c ./rslib.dev.ts"
 }
 ```
+
+!!!info
+A tool such as [Nodemon](https://nodemon.io/) is not required with Rslib because the development server is automatically restarted when the configuration file is updated.
+!!!
 
 ## CSS modules typings
 
