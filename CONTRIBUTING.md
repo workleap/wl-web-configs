@@ -40,9 +40,9 @@ pnpm install
 
 ### Setup Retype
 
-[Retype](https://retype.com/) is the documentation platform that `workleap/web-configs` is using for its documentation. As this project is leveraging a few [Pro features](https://retype.com/pro/) of Retype.
+[Retype](https://retype.com/) is the documentation platform that the Skew Protection package is using for its documentation. As this project is leveraging a few [Pro features](https://retype.com/pro/) of Retype it is recommended to setup [Retype wallet](https://retype.com/guides/cli/#retype-wallet).
 
-Everything should work fine as-is but there are a few limitations to use Retype Pro features without a wallet with a licence. If you want to circumvent these limitations, you can optionally, setup your [Retype wallet](https://retype.com/guides/cli/#retype-wallet).
+Everything should work fine without a wallet but there are a few limitations to use Retype Pro features without one. If you want to circumvent these limitations, you can optionally, setup your [Retype wallet](https://retype.com/guides/cli/#retype-wallet).
 
 To do so, first make sure that you retrieve the Retype license from your Vault (or ask IT).
 
@@ -89,7 +89,7 @@ Make sure GitHub Action has **write access** to the selected npm packages.
 If the packages failed to compile, it's easier to debug without executing the full release flow every time. To do so, instead, execute the following command:
 
 ```bash
-pnpm build
+pnpm build-pkg
 ```
 
 By default, packages compilation output will be in their respective *dist* directory.
