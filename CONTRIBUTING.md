@@ -40,7 +40,7 @@ pnpm install
 
 ### Setup Retype
 
-[Retype](https://retype.com/) is the documentation platform that the Skew Protection package is using for its documentation. As this project is leveraging a few [Pro features](https://retype.com/pro/) of Retype it is recommended to setup [Retype wallet](https://retype.com/guides/cli/#retype-wallet).
+[Retype](https://retype.com/) is the documentation platform that the `workleap/web-configs` package is using for its documentation. As this project is leveraging a few [Pro features](https://retype.com/pro/) of Retype it is recommended to setup [Retype wallet](https://retype.com/guides/cli/#retype-wallet).
 
 Everything should work fine without a wallet but there are a few limitations to use Retype Pro features without one. If you want to circumvent these limitations, you can optionally, setup your [Retype wallet](https://retype.com/guides/cli/#retype-wallet).
 
