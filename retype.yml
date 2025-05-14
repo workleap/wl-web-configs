@@ -32,7 +32,7 @@ output: .retype
 url: https://workleap.github.io/wl-web-configs
 
 branding:
-  title: Web configs
+  title: Web Configs
   logo: ./static/logo.png
 
 favicon: ./static/favicon.png
