@@ -32,9 +32,9 @@
         "typecheck": "tsc"
     },
     "peerDependencies": {
-        "@typescript-eslint/parser": "^8.0.0",
+        "@typescript-eslint/parser": "^8.32.1",
         "eslint": "^8.57.0",
-        "typescript": "^5.0.0"
+        "typescript": "^5.8.3"
     },
     "peerDependenciesMeta": {
         "@typescript-eslint/parser": {

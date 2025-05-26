@@ -1,5 +1,6 @@
 {
     "name": "workspace-root",
+    "version": "0.0.0",
     "author": "Workleap",
     "description": "Common configurations for building web apps and libraries at Workleap",
     "private": true,
