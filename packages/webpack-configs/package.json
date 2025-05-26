@@ -47,7 +47,7 @@
         }
     },
     "dependencies": {
-        "@pmmmwh/react-refresh-webpack-plugin": "^0.5.16",
+        "@pmmmwh/react-refresh-webpack-plugin": "^0.6.0",
         "@svgr/webpack": "^8.1.0",
         "css-loader": "^7.1.2",
         "html-webpack-plugin": "^5.6.3",
@@ -59,17 +59,17 @@
         "terser-webpack-plugin": "^5.3.14"
     },
     "devDependencies": {
-        "@rsbuild/core": "1.3.1",
-        "@rslib/core": "0.6.1",
+        "@rsbuild/core": "1.3.21",
+        "@rslib/core": "0.8.0",
         "@svgr/core": "8.1.0",
-        "@types/node": "22.13.14",
-        "@typescript-eslint/parser": "8.29.0",
+        "@types/node": "22.15.21",
+        "@typescript-eslint/parser": "8.32.1",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0",
-        "typescript": "5.8.2",
-        "vitest": "3.1.1"
+        "typescript": "5.8.3",
+        "vitest": "3.1.4"
     }
 }

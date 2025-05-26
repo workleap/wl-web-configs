@@ -1,5 +1,6 @@
 {
     "name": "@storybook-sample/rsbuild",
+    "description": "Storybook app using Rsbuild as the bundler.",
     "version": "0.0.0",
     "private": true,
     "type": "module",
@@ -15,24 +16,24 @@
         "react-dom": "19.1.0"
     },
     "devDependencies": {
-        "@rsbuild/core": "1.3.1",
-        "@rspack/core": "1.3.0",
-        "@storybook/addon-a11y": "8.6.11",
-        "@storybook/addon-essentials": "8.6.11",
-        "@storybook/addon-interactions": "8.6.11",
-        "@storybook/addon-links": "8.6.11",
-        "@storybook/react": "8.6.11",
-        "@types/react": "19.0.12",
-        "@types/react-dom": "19.0.4",
+        "@rsbuild/core": "1.3.21",
+        "@rspack/core": "1.3.11",
+        "@storybook/addon-a11y": "8.6.14",
+        "@storybook/addon-essentials": "8.6.14",
+        "@storybook/addon-interactions": "8.6.14",
+        "@storybook/addon-links": "8.6.14",
+        "@storybook/react": "8.6.14",
+        "@types/react": "19.1.5",
+        "@types/react-dom": "19.1.5",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/rsbuild-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
-        "browserslist": "4.24.4",
+        "browserslist": "4.24.5",
         "eslint": "8.57.0",
         "http-server": "14.1.1",
-        "storybook": "8.6.11",
+        "storybook": "8.6.14",
         "storybook-react-rsbuild": "1.0.1",
-        "typescript": "5.8.2"
+        "typescript": "5.8.3"
     }
 }
