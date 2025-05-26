@@ -17,8 +17,8 @@
         "test": "jest"
     },
     "peerDependencies": {
-        "react": "*",
-        "react-dom": "*"
+        "react": "^19.0.1",
+        "react-dom": "^19.0.1"
     },
     "devDependencies": {
         "@swc/core": "1.11.13",
