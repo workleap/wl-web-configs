@@ -38,10 +38,10 @@
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "peerDependencies": {
-        "@swc/core": "^1.10.0",
-        "@swc/helpers": "^0.5.0",
-        "@swc/jest": "^0.2.0",
-        "browserslist": "^4.24.4"
+        "@swc/core": "^1.11.29",
+        "@swc/helpers": "^0.5.17",
+        "@swc/jest": "^0.2.38",
+        "browserslist": "^4.24.5"
     },
     "peerDependenciesMeta": {
         "@swc/jest": {
