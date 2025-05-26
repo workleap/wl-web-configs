@@ -44,7 +44,8 @@
         "list-outdated-deps": "pnpm outdated -r --filter=!@webpack-sample/* --format list !eslint !@types/eslint !@stylistic/eslint-plugin-ts",
         "update-outdated-deps": "pnpm run --sequential \"/^update-outdated-deps:.*/\"",
         "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !eslint !@types/eslint !@stylistic/eslint-plugin-ts",
-        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !eslint !typescript"
+        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !eslint !typescript",
+        "update-outdated-deps:update-peers": "syncpack fix-mismatches"
     },
     "devDependencies": {
         "@changesets/changelog-github": "0.5.1",

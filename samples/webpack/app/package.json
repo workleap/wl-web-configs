@@ -9,9 +9,9 @@
     "scripts": {
         "postinstall": "pnpm msw init",
         "dev": "nodemon",
-        "dev-msw": "cross-env USE_MSW=true nodemon",
-        "dev-verbose": "cross-env VERBOSE=true nodemon",
-        "dev-msw-verbose": "cross-env USE_MSW=true VERBOSE=true nodemon",
+        "dev-msw": "cross-env USE_MSW=true pnpm dev",
+        "dev-verbose": "cross-env VERBOSE=true pnpm dev",
+        "dev-msw-verbose": "cross-env USE_MSW=true VERBOSE=true pnpm dev",
         "build": "webpack --config webpack.build.js",
         "serve-build": "pnpm build && pnpm http-server dist -p 8080 -P http://localhost:8080? -c-1",
         "eslint": "eslint . --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint",
