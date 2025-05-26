@@ -1,5 +1,11 @@
 # @workleap/postcss-configs
 
+## 1.0.9
+
+### Patch Changes
+
+- [#265](https://github.com/workleap/wl-web-configs/pull/265) [`de41d48`](https://github.com/workleap/wl-web-configs/commit/de41d48452860a28ab15fa8537c0df33edc4133a) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Bumped peer dependencies.
+
 ## 1.0.8
 
 ### Patch Changes
