@@ -551,9 +551,6 @@ importers:
       netlify-cli:
         specifier: 20.0.0
         version: 20.0.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/express@4.17.22)(@types/node@22.13.14)(picomatch@4.0.2)(rollup@4.41.1)
-      nodemon:
-        specifier: 3.1.9
-        version: 3.1.9
       prettier:
         specifier: 3.5.3
         version: 3.5.3
