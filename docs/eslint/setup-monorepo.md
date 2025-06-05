@@ -7,6 +7,10 @@ toc:
     depth: 2-3
 ---
 
+!!!warning
+This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
+!!!
+
 # Setup a monorepo
 
 !!!warning
@@ -152,7 +156,7 @@ workspace
 
 ```json package.json
 {
-    "lint:eslint:": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint"
+    "lint:eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint"
 }
 ```
 

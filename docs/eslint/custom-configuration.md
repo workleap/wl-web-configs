@@ -4,6 +4,10 @@ meta:
     title: Custom configuration - ESLint
 ---
 
+!!!warning
+This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
+!!!
+
 # Custom configuration
 
 If you are in the process of **migrating an existing project** to use `@workleap/eslint-plugin` or encountering a challenging situation that is not currently handled by this library, you might want to customize the default shared configurations.

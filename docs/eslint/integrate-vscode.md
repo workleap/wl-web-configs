@@ -5,6 +5,10 @@ meta:
     title: Integrate with VS Code - ESLint
 ---
 
+!!!warning
+This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
+!!!
+
 # Integrate with VS Code
 
 [ESLint VS Code extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) greatly improve the development experience by **automatically linting** the code as you type and **automatically formatting** the code according to your ESLint configuration whenever you save.

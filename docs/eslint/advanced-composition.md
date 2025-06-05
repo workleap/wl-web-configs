@@ -6,6 +6,10 @@ toc:
     depth: 2
 ---
 
+!!!warning
+This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
+!!!
+
 # Advanced composition
 
 If the default [by project type configurations](default.md/#available-configurations) doesn't fits your needs, rather than writing your own configuration from scratch, you can **compose a new one** from the underlying configuration pieces of `@workleap/eslint-plugin`.

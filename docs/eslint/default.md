@@ -7,6 +7,10 @@ toc:
     depth: 2-3
 ---
 
+!!!warning
+This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
+!!!
+
 # ESLint
 
 <!-- !!!warning Before you continue...
