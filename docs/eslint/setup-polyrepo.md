@@ -7,6 +7,10 @@ toc:
     depth: 2
 ---
 
+!!!warning
+This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
+!!!
+
 # Setup a polyrepo
 
 Execute the following steps to setup [ESLint](https://eslint.org/) for a polyrepo solution (**single project** per repository) :point_down:
@@ -154,7 +158,7 @@ At times, especially when running the CI build, it's useful to lint the entire s
 
 ```json package.json
 {
-    "lint:eslint:": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint"
+    "lint:eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint"
 }
 ```
 
