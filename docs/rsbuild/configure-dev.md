@@ -15,19 +15,9 @@ To configure [Rsbuild](https://rsbuild.dev/) for a development environment, exec
 
 Open a terminal at the root of the web application project and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist
-```
-+++ npm
-```bash
-npm install -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist
-```
-+++
 
 ## Configure Rsbuild
 
@@ -636,11 +626,11 @@ export function App() {
 }
 ```
 
-!!!info
+!!!tip
 The `=== "true"` part of `"DEBUG": process.env.DEBUG === "true"` is very important, otherwise the environment variable value would be `"true"` instead of `true`.
 !!!
 
-!!!info
+!!!tip
 By default, Rsbuild injects a few environment variables into the code using the [source.define](https://rsbuild.dev/guide/advanced/env-vars#using-define) option. For additional information about these default environment variables, refer to the Rsbuild [documentation](https://rsbuild.dev/guide/advanced/env-vars#default-variables).
 !!!
 
@@ -691,7 +681,7 @@ Copy the CSS Modules typings into the `app` web application own `env.d.ts` file,
 }
 ```
 
-!!!info
+!!!tip
 For additional information about CSS modules type declaration, refer to the Rsbuild [documentation](https://rsbuild.dev/guide/basic/css-modules#type-declaration).
 !!!
 

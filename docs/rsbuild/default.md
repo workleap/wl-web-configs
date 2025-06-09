@@ -1,32 +1,11 @@
 ---
 order: 140
-icon: /static/rsbuild.svg
 label: Rsbuild
-expanded: true
 toc:
     depth: 2-3
 ---
 
 # Rsbuild
-
-<!-- !!!warning Before you continue...
-
-The preferred way for using `@workleap/webpack-configs` is **not** by installing the library manually, but rather by **scaffolding** your application with Workleap's [foundry-cli](https://github.com/workleap/wl-foundry-cli).
-
-+++ pnpm
-```bash
-pnpm create @workleap/project@latest <output-directory>
-```
-+++ yarn
-```bash
-yarn create @workleap/project@latest <output-directory>
-```
-+++ npm
-```bash
-npm create @workleap/project@latest <output-directory>
-```
-+++
-!!! -->
 
 [Rsbuild](https://lib.rsbuild.dev/index) is a high-performance build tool powered by [Rspack](https://rspack.dev/), a Rust-based port of [webpack](https://webpack.js.org/) designed for efficiency and speed. Those new Rsbuild shared configurations are a modern replacement for previous Workleap's shared [webpack configurations](../webpack//default.md).
 

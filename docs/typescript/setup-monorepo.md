@@ -9,10 +9,6 @@ toc:
 
 # Setup a monorepo
 
-!!!warning
-This monorepo setup has been tested with [PNPM workspaces](https://pnpm.io/workspaces). You may need a different setup for [NPM workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) or [Yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/) because by default, those package managers **hoist dependencies** rather than installing them in isolation like PNPM.
-!!!
-
 To lint a monorepo solution (**multiple projects** per repository), [TypeScript](https://www.typescriptlang.org/) must be setuped to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup TypeScript for a monorepo solution.
 
 ## Setup the workspace
@@ -21,19 +17,9 @@ To lint a monorepo solution (**multiple projects** per repository), [TypeScript]
 
 Open a terminal at the root of the solution workspace (the **root** of the repository) and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/typescript-configs typescript
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/typescript-configs typescript
-```
-+++ npm
-```bash
-npm install -D @workleap/typescript-configs typescript
-```
-+++
 
 ### Configure TypeScript
 
@@ -96,19 +82,9 @@ workspace
 
 Open a terminal at the root of the project (`packages/app` for this example) and install the following package:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/typescript-configs typescript
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/typescript-configs typescript
-```
-+++ npm
-```bash
-npm install -D @workleap/typescript-configs typescript
-```
-+++
 
 ### Configure TypeScript
 

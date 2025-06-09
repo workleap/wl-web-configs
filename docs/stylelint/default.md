@@ -1,32 +1,11 @@
 ---
 order: 160
-icon: /static/stylelint.svg
 label: Stylelint
-expanded: true
 toc:
     depth: 2-3
 ---
 
 # Stylelint
-
-<!-- !!!warning Before you continue...
-
-The preferred way for using `@workleap/stylelint-configs` is **not** by installing the library manually, but rather by **scaffolding** your application with Workleap's [foundry-cli](https://github.com/workleap/wl-foundry-cli).
-
-+++ pnpm
-```bash
-pnpm create @workleap/project@latest <output-directory>
-```
-+++ yarn
-```bash
-yarn create @workleap/project@latest <output-directory>
-```
-+++ npm
-```bash
-npm create @workleap/project@latest <output-directory>
-```
-+++
-!!! -->
 
 ## SCSS support
 

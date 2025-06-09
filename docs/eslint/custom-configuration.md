@@ -12,7 +12,7 @@ This package is compatible only with ESLint v8. It is not intended for use with 
 
 If you are in the process of **migrating an existing project** to use `@workleap/eslint-plugin` or encountering a challenging situation that is not currently handled by this library, you might want to customize the default shared configurations.
 
-!!!
+!!!tip
 For a list of the rules included with the default shared configurations, refer to the configuration files in the following [folder](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-plugin/lib/config) on GitHub.
 !!!
 
@@ -61,7 +61,7 @@ You can update a default rule value by defining the rule locally with its new va
 }
 ```
 
-!!!light
+!!!info
 Please, don't update your project configuration to use single quotes :sweat_smile::pray:
 !!!
 

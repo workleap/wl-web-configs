@@ -1,8 +1,6 @@
 ---
 order: 110
-icon: /static/postcss.svg
 label: PostCSS
-expanded: true
 toc:
     depth: 2-3
 ---
@@ -12,25 +10,6 @@ toc:
 !!!warning
 `@workleap/postcss-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/default.md) instead of [@workleap/webpack-configs](../webpack/default.md), which eliminates the need for PostCSS.
 !!!
-
-<!-- !!!warning Before you continue...
-
-The preferred way for using `@workleap/postcss-configs` is **not** by installing the library manually, but rather by **scaffolding** your application with Workleap's [foundry-cli](https://github.com/workleap/wl-foundry-cli).
-
-+++ pnpm
-```bash
-pnpm create @workleap/project@latest <output-directory>
-```
-+++ yarn
-```bash
-yarn create @workleap/project@latest <output-directory>
-```
-+++ npm
-```bash
-npm create @workleap/project@latest <output-directory>
-```
-+++
-!!! -->
 
 ## Deprecation warning
 

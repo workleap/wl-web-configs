@@ -13,19 +13,9 @@ To configure [Rsbuild](https://rsbuild.dev/) for Storybook, execute the followin
 
 ## Install the packages
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist storybook-react-rsbuild
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist storybook-react-rsbuild
-```
-+++ npm
-```bash
-npm install -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist storybook-react-rsbuild
-```
-+++
 
 ## Configure Rsbuild
 
@@ -377,11 +367,11 @@ export function Button() {
 }
 ```
 
-!!!
+!!!tip
 The `=== "true"` part of `"DEBUG": process.env.DEBUG === "true"` is very important, otherwise the environment variable value would be `"true"` instead of `true`.
 !!!
 
-!!!info
+!!!tip
 By default, Rsbuild injects a few environment variables into the code using the [source.define](https://rsbuild.dev/guide/advanced/env-vars#using-define) option. For additional information about these default environment variables, refer to the Rsbuild [documentation](https://rsbuild.dev/guide/advanced/env-vars#default-variables).
 !!!
 

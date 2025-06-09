@@ -19,19 +19,9 @@ To configure [tsup](https://tsup.egoist.dev/) for a development environment, exe
 
 Open a terminal at the root of the project and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/tsup-configs tsup typescript
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/tsup-configs tsup typescript
-```
-+++ npm
-```bash
-npm install -D @workleap/tsup-configs tsup typescript
-```
-+++
 
 ## Configure tsup
 

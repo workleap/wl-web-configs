@@ -15,23 +15,13 @@ To configure [SWC](https://swc.rs/) for a [Jest](https://jestjs.io/) environment
 
 Open a terminal at the root of the project and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/swc-configs @swc/jest @swc/core @swc/helpers
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/swc-configs @swc/jest @swc/core @swc/helpers
-```
-+++ npm
-```bash
-npm install -D @workleap/swc-configs @swc/jest @swc/core @swc/helpers
-```
-+++
 
 ## Configure SWC
 
-!!!info
+!!!tip
 To use a TypeScript configuration file, make sure that your Jest configuration is also in TypeScript.
 !!!
 
@@ -196,18 +186,8 @@ test("should append \"world!\"", () => {
 
 Open a terminal and run Jest directly from the CLI:
 
-+++ pnpm
 ```bash
 pnpm jest
 ```
-+++ yarn
-```bash
-yarn jest
-```
-+++ npm
-```bash
-npm run jest
-```
-+++
 
 The test should succeed without any error outputted to the console.

@@ -15,35 +15,15 @@ To migrate from [@workleap/webpack-configs](https://www.npmjs.com/package/@workl
 
 Open a terminal at the root of the web application project and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/rsbuild-configs @rsbuild/core @rspack/core
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/rsbuild-configs @rsbuild/core @rspack/core
-```
-+++ npm
-```bash
-npm install -D @workleap/rsbuild-configs @rsbuild/core @rspack/core
-```
-+++
 
 Then, using the same terminal, remove the following packages:
 
-+++ pnpm
 ```bash
 pnpm remove @workleap/webpack-configs @swc/core @swc/helpers @workleap/swc-configs webpack webpack-cli webpack-dev-server @workleap/postcss-configs postcss
 ```
-+++ yarn
-```bash
-yarn remove @workleap/webpack-configs @swc/core @swc/helpers @workleap/swc-configs webpack webpack-cli webpack-dev-server @workleap/postcss-configs postcss
-```
-+++ npm
-```bash
-npm uninstall @workleap/webpack-configs @swc/core @swc/helpers @workleap/swc-configs webpack webpack-cli webpack-dev-server @workleap/postcss-configs postcss
-```
-+++
 
 !!!warning
 If your web application project uses SWC for tests, you may want to keep the `@swc/core` and `@workleap/swc-configs` packages.

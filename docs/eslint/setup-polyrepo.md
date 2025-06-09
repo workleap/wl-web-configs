@@ -19,19 +19,9 @@ Execute the following steps to setup [ESLint](https://eslint.org/) for a polyrep
 
 Open a terminal at the root of the solution and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/eslint-plugin eslint @typescript-eslint/parser
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/eslint-plugin eslint @typescript-eslint/parser
-```
-+++ npm
-```bash
-npm install -D @workleap/eslint-plugin eslint @typescript-eslint/parser
-```
-+++
 
 ## Configure ESLint
 
@@ -172,18 +162,8 @@ New projects shouldn't have to customize the default configurations offered by `
 
 To test your new ESLint setup, open a JavaScript file, type invalid code (e.g. `var x = 0;`), then save. Open a terminal at the root of the solution and execute the [CLI script added earlier](#add-a-cli-script):
 
-+++ pnpm
 ```bash
 pnpm lint:eslint
 ```
-+++ yarn
-```bash
-yarn lint:eslint
-```
-+++ npm
-```bash
-npm run lint:eslint
-```
-+++
 
 The terminal should output a linting error.
