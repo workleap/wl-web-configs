@@ -9,25 +9,6 @@ toc:
 
 # Typescript
 
-<!-- !!!warning Before you continue...
-
-The preferred way for using `@workleap/typescript-configs` is **not** by installing the library manually, but rather by **scaffolding** your application with Workleap's [foundry-cli](https://github.com/workleap/wl-foundry-cli).
-
-+++ pnpm
-```bash
-pnpm create @workleap/project@latest <output-directory>
-```
-+++ yarn
-```bash
-yarn create @workleap/project@latest <output-directory>
-```
-+++ npm
-```bash
-npm create @workleap/project@latest <output-directory>
-```
-+++
-!!! -->
-
 ## By project type configurations
 
 Typically, [TypeScript](https://www.typescriptlang.org/) shareable configuration libraries are architectured around the idea that shared configurations should be small and composable to accomodate any potential use cases that a development team might encounter.

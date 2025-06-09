@@ -12,19 +12,9 @@ meta:
 
 Open a terminal at the root of the project and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/browserslist-config browserslist
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/browserslist-config browserslist
-```
-+++ npm
-```bash
-npm install -D @workleap/browserslist-config browserslist
-```
-+++
 
 ## Configure Browserslist
 

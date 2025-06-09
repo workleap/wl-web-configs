@@ -15,19 +15,9 @@ To configure [Rslib](https://lib.rsbuild.dev) for publication, execute the follo
 
 Open a terminal at the root of the library project and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/rslib-configs @rslib/core @rsbuild/core
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/rslib-configs @rslib/core @rsbuild/core
-```
-+++ npm
-```bash
-npm install -D @workleap/rslib-configs @rslib/core @rsbuild/core
-```
-+++
 
 ## Configure Rslib
 
@@ -46,7 +36,7 @@ First, update the project `package.json` file to ensure the source files are inc
 }
 ```
 
-!!!info
+!!!tip
 The `defineBuildConfig` function generates source maps for the library code by default. To enable debugging with the original source code, the published package must include the source code files.
 !!!
 
@@ -73,7 +63,7 @@ Then, open the newly created `tsconfig.build.json` file and copy/paste the follo
 }
 ```
 
-!!!info
+!!!tip
 `@workleap/rslib-config` is configured by default to produce [bundleless](https://lib.rsbuild.dev/guide/basic/output-structure#bundle--bundleless) output. Rslib's bundleless mode expects the `include` option in the TypeScript configuration file to point to the project’s source files folder. If the project's source files are not located in the `src` folder, update the provided configuration sample to target the correct source folder.
 !!!
 
@@ -150,7 +140,7 @@ export default defineBuildConfig({
 });
 ```
 
-!!!info
+!!!tip
 Tree-shaking is most effective when bundlers can exclude entire files from the final bundle. However, when the `bundle` option is set to `true`, bundlers must perform tree-shaking within individual files by removing unused parts. While most modern bundlers support this, it's generally better to follow the lowest common denominator approach by opting for a [bundleless](https://lib.rsbuild.dev/guide/basic/output-structure#bundle--bundleless) output, to produce the most predictable results and not bundling unnecessary code.
 
 For more details on the differences between bundled and bundleless output, refer to the [documentation](https://lib.rsbuild.dev/guide/basic/output-structure#bundle--bundleless).
@@ -487,7 +477,7 @@ Copy the CSS Modules typings into the `app` web application own `env.d.ts` file,
 }
 ```
 
-!!!info
+!!!tip
 For additional information about CSS modules type declaration, refer to the Rslib/Rsbuild [documentation](https://rsbuild.dev/guide/basic/css-modules#type-declaration).
 !!!
 

@@ -7,25 +7,6 @@ expanded: true
 
 # Browserslist
 
-<!-- !!!warning Before you continue...
-
-The preferred way for using `@workleap/browserslist-plugin` is **not** by installing the library manually, but rather by **scaffolding** your application with Workleap's [foundry-cli](https://github.com/workleap/wl-foundry-cli).
-
-+++ pnpm
-```bash
-pnpm create @workleap/project@latest <output-directory>
-```
-+++ yarn
-```bash
-yarn create @workleap/project@latest <output-directory>
-```
-+++ npm
-```bash
-npm create @workleap/project@latest <output-directory>
-```
-+++
-!!! -->
-
 ## Supported browsers
 
 You can find an exhaustive list of the browser versions included with this shared configuration on [https://browsersl.ist](https://browsersl.ist/#q=%3E+0.2%25%2C+last+2+versions%2C+Firefox+ESR%2C+not+dead). 

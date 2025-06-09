@@ -13,10 +13,6 @@ This package is compatible only with ESLint v8. It is not intended for use with 
 
 # Setup a monorepo
 
-!!!warning
-This monorepo setup has been tested with [PNPM workspaces](https://pnpm.io/workspaces). You may need a different setup for [NPM workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) or [Yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/) because by default, those package managers **hoist dependencies** rather than installing them in isolation like PNPM.
-!!!
-
 To lint a monorepo solution (**multiple projects** per repository), [ESLint](https://eslint.org/) must be setuped to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup ESLint for a monorepo solution :point_down:
 
 ## Setup the workspace
@@ -25,19 +21,9 @@ To lint a monorepo solution (**multiple projects** per repository), [ESLint](htt
 
 Open a terminal at the root of the solution workspace (the **root** of the repository) and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/eslint-plugin eslint typescript @typescript-eslint/parser
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/eslint-plugin eslint typescript @typescript-eslint/parser
-```
-+++ npm
-```bash
-npm install -D @workleap/eslint-plugin eslint typescript @typescript-eslint/parser
-```
-+++
 
 ### Configure ESLint
 
@@ -168,19 +154,9 @@ workspace
 
 Open a terminal at the root of the project (`packages/app` for this example) and install the following package:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/eslint-plugin
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/eslint-plugin
-```
-+++ npm
-```bash
-npm install -D @workleap/eslint-plugin
-```
-+++
 
 ### Configure ESLint
 
@@ -246,18 +222,8 @@ New projects shouldn't have to customize the default configurations offered by `
 
 To test your new ESLint setup, open a JavaScript file, type invalid code (e.g. `var x = 0;`), then save. Open a terminal at the root of the solution and execute the [CLI script added earlier](#add-a-cli-script):
 
-+++ pnpm
 ```bash
 pnpm lint:eslint
 ```
-+++ yarn
-```bash
-yarn lint:eslint
-```
-+++ npm
-```bash
-npm run lint:eslint
-```
-+++
 
 The terminal should output a linting error.

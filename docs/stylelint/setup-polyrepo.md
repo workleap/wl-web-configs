@@ -15,19 +15,9 @@ Execute the following steps to setup [Stylelint](https://stylelint.io/) for a po
 
 Open a terminal at the root of the solution and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/stylelint-configs stylelint prettier
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/stylelint-configs stylelint prettier
-```
-+++ npm
-```bash
-npm install -D @workleap/stylelint-configs stylelint prettier
-```
-+++
 
 ## Configure Stylelint
 
@@ -155,18 +145,8 @@ New projects shouldn't have to customize the default configurations offered by `
 
 To test your new setup, open a CSS file, type invalid code (e.g. `color: #fff`), then save. Open a terminal at the root of the solution and execute the [CLI script added earlier](#add-a-cli-script):
 
-+++ pnpm
 ```bash
 pnpm lint:stylelint
 ```
-+++ yarn
-```bash
-yarn lint:stylelint
-```
-+++ npm
-```bash
-npm run lint:stylelint
-```
-+++
 
 The terminal should output a linting error.

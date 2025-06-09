@@ -19,19 +19,9 @@ To configure [SWC](https://swc.rs/) for a development environment, execute the f
 
 Open a terminal at the root of the project and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/swc-configs @swc/core @swc/helpers
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/swc-configs @swc/core @swc/helpers
-```
-+++ npm
-```bash
-npm install -D @workleap/swc-configs @swc/core @swc/helpers
-```
-+++
 
 ## Configure SWC
 
@@ -293,19 +283,9 @@ If you integrated SWC with webpack, make sure to import the previously created f
 
 Otherwise, open a terminal at the root of your project and install [@swc/cli](https://swc.rs/docs/usage/cli):
 
-+++ pnpm
 ```bash
 pnpm add -D @swc/cli @swc/core
 ```
-+++ yarn
-```bash
-yarn add -D @swc/cli @swc/core
-```
-+++ npm
-```bash
-npm install -D @swc/cli @swc/core
-```
-+++
 
 Then, process the file with `@swc/cli` by executing the following command in the same terminal:
 

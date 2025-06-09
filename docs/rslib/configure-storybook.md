@@ -13,19 +13,9 @@ To configure [Rslib](https://lib.rsbuild.dev/) for Storybook, execute the follow
 
 ## Install the packages
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/rslib-configs @rslib/core @rsbuild/core storybook-react-rsbuild storybook-addon-rslib
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/rslib-configs @rslib/core @rsbuild/core storybook-react-rsbuild storybook-addon-rslib
-```
-+++ npm
-```bash
-npm install -D @workleap/rslib-configs @rslib/core @rsbuild/core storybook-react-rsbuild storybook-addon-rslib
-```
-+++
 
 ## Configure Rslib
 
@@ -70,7 +60,7 @@ const storybookConfig: StorybookConfig = {
 export default storybookConfig;
 ```
 
-!!!info
+!!!tip
 For additional information about using Rslib with Storybook, refer to the Rslib [documentation](https://lib.rsbuild.dev/guide/advanced/storybook).
 !!!
 

@@ -19,19 +19,9 @@ To configure [webpack](https://webpack.js.org/) for a production environment, ex
 
 Open a terminal at the root of the project and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/webpack-configs webpack webpack-cli @swc/core @swc/helpers browserslist postcss
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/webpack-configs webpack webpack-cli @swc/core @swc/helpers browserslist postcss
-```
-+++ npm
-```bash
-npm install -D @workleap/webpack-configs webpack webpack-cli @swc/core @swc/helpers browserslist postcss
-```
-+++
 
 ## Configure webpack
 
@@ -94,7 +84,7 @@ Then, add the assets to the `index.html` file:
 </html>
 ```
 
-!!!info
+!!!tip
 If `output.publicPath` is set to `auto`, use `href="favicon.png"` instead.
 !!!
 
@@ -554,7 +544,7 @@ export function App() {
 }
 ```
 
-!!!
+!!!tip
 The `=== "true"` part of `"DEBUG": process.env.DEBUG === "true"` is very important, otherwise the environment variable value would be `"true"` instead of `true`.
 !!!
 

@@ -18,19 +18,9 @@ Execute the following steps to setup [PostCSS](https://postcss.org/) for a singl
 
 Open a terminal at the root of the project and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/postcss-configs postcss
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/postcss-configs postcss
-```
-+++ npm
-```bash
-npm install -D @workleap/postcss-configs postcss
-```
-+++
 
 ## Configure PostCSS
 
@@ -161,7 +151,7 @@ export default defineConfig({
 
 ## Configure webpack
 
-!!!info
+!!!tip
 If your project is using `@workleap/wepack-config`, you don't have to configure `postcss-loader` as the [defineDevConfig](../webpack/configure-dev.md#webpackdevjs) and [defineBuildConfig](../webpack/configure-build.md#webpackbuildjs) functions already takes care of configuring PostCSS.
 !!!
 
@@ -204,19 +194,9 @@ If you integrated PostCSS with webpack, execute your webpack build and find the 
 
 Otherwise, open a terminal at the root of your project and install [postcss-cli](https://github.com/postcss/postcss-cli):
 
-+++ pnpm
 ```bash
 pnpm add -D postcss-cli postcss
 ```
-+++ yarn
-```bash
-yarn add -D postcss-cli postcss
-```
-+++ npm
-```bash
-npm install -D postcss-cli postcss
-```
-+++
 
 Then, process the file with `postcss-cli` by executing the following command in the same terminal:
 

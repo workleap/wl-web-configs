@@ -9,10 +9,6 @@ toc:
 
 # Setup a monorepo
 
-!!!warning
-This monorepo setup has been tested with [PNPM workspaces](https://pnpm.io/workspaces). You may need a different setup for [NPM workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) or [Yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/) because by default, those package managers hoist dependencies rather than installing them in isolation like PNPM.
-!!!
-
 To lint a monorepo solution (**multiple projects** per repository), [Stylelint](https://stylelint.io/) must be setuped to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup Stylelint for a monorepo solution.
 
 ## Setup the workspace
@@ -21,19 +17,9 @@ To lint a monorepo solution (**multiple projects** per repository), [Stylelint](
 
 Open a terminal at the root of the solution workspace (the **root** of the repository) and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/stylelint-configs stylelint prettier
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/stylelint-configs stylelint prettier
-```
-+++ npm
-```bash
-npm install -D @workleap/stylelint-configs stylelint prettier
-```
-+++
 
 ### Configure Stylelint
 
@@ -181,19 +167,9 @@ workspace
 
 Open a terminal at the root of the project (`packages/app` for this example) and install the following package:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/stylelint-configs
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/stylelint-configs
-```
-+++ npm
-```bash
-npm install -D @workleap/stylelint-configs
-```
-+++
 
 ### Configure Stylelint
 
@@ -230,18 +206,8 @@ New projects shouldn't have to customize the default configurations offered by `
 
 To test your new setup, open a CSS file, type invalid code (e.g. `color: #fff`), then save. Open a terminal at the root of the solution and execute the CLI script added earlier:
 
-+++ pnpm
 ```bash
 pnpm lint:stylelint
 ```
-+++ yarn
-```bash
-yarn lint:stylelint
-```
-+++ npm
-```bash
-npm run lint:stylelint
-```
-+++
 
 The terminal should output a linting error.

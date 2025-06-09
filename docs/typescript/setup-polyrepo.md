@@ -15,19 +15,9 @@ Execute the following steps to setup [TypeScript](https://www.typescriptlang.org
 
 Open a terminal at the root of the solution and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/typescript-configs typescript
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/typescript-configs typescript
-```
-+++ npm
-```bash
-npm install -D @workleap/typescript-configs typescript
-```
-+++
 
 ## Configure TypeScript
 

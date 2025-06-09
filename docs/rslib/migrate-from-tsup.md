@@ -15,35 +15,15 @@ To migrate from `@workleap/tsup-configs` to `@workleap/rslib-configs`, execute t
 
 Open a terminal at the root of the library project and install the following packages:
 
-+++ pnpm
 ```bash
 pnpm add -D @workleap/rslib-configs @rslib/core @rsbuild/core
 ```
-+++ yarn
-```bash
-yarn add -D @workleap/rslib-configs @rslib/core @rsbuild/core
-```
-+++ npm
-```bash
-npm install -D @workleap/rslib-configs @rslib/core @rsbuild/core
-```
-+++
 
 Then, using the same terminal, remove the following packages:
 
-+++ pnpm
 ```bash
 pnpm remove @workleap/tsup-configs tsup
 ```
-+++ yarn
-```bash
-yarn remove @workleap/tsup-configs tsup
-```
-+++ npm
-```bash
-npm uninstall @workleap/tsup-configs tsup
-```
-+++
 
 ## Create a new `tsconfig.build.json` file
 
