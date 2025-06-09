@@ -1,8 +1,6 @@
 ---
 order: 110
-icon: /static/postcss.svg
 label: PostCSS
-expanded: true
 toc:
     depth: 2-3
 ---

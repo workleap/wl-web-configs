@@ -1,8 +1,6 @@
 ---
 order: 90
-icon: /static/webpack.svg
 label: webpack
-expanded: true
 toc:
     depth: 2-3
 ---

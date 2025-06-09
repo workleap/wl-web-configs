@@ -1,8 +1,6 @@
 ---
 order: 180
-icon: /static/browserslist.svg
 label: Browserslist
-expanded: true
 ---
 
 # Browserslist

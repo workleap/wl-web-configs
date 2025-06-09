@@ -1,8 +1,6 @@
 ---
 order: 140
-icon: /static/rsbuild.svg
 label: Rsbuild
-expanded: true
 toc:
     depth: 2-3
 ---

@@ -1,8 +1,6 @@
 ---
 order: 80
-icon: /static/tsup.svg
 label: tsup
-expanded: true
 toc:
     depth: 2-3
 ---

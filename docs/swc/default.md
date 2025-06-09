@@ -1,8 +1,6 @@
 ---
 order: 100
-icon: /static/swc.svg
 label: SWC
-expanded: true
 toc:
     depth: 2-3
 ---

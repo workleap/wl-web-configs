@@ -1,8 +1,6 @@
 ---
 order: 130
-icon: /static/rslib.svg
 label: Rslib
-expanded: true
 toc:
     depth: 2-3
 ---

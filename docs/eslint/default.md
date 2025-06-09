@@ -1,8 +1,6 @@
 ---
 order: 170
-icon: /static/eslint.svg
 label: ESLint
-expanded: true
 toc:
     depth: 2-3
 ---

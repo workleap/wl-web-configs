@@ -1,8 +1,6 @@
 ---
 order: 150
-icon: /static/typescript.svg
 label: Typescript
-expanded: true
 toc:
     depth: 2-3
 ---

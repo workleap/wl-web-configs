@@ -1,8 +1,6 @@
 ---
 order: 160
-icon: /static/stylelint.svg
 label: Stylelint
-expanded: true
 toc:
     depth: 2-3
 ---
