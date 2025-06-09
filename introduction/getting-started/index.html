@@ -10,24 +10,26 @@
     <meta name="generator" content="Retype 3.10.0">
 
     <!-- Primary Meta Tags -->
-    <title>Configure for development - tsup</title>
-    <meta name="title" content="Configure for development - tsup">
-    <meta name="description" content="@workleap/tsup-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rslib-configs">
+    <title>Getting started</title>
+    <meta name="title" content="Getting started">
+    <meta name="description" content="Welcome to @workleap/web-configs, a collection of configuration libraries for building web applications at ">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://workleap.github.io/wl-web-configs/tsup/configure-dev/">
+    <link rel="canonical" href="https://workleap.github.io/wl-web-configs/introduction/getting-started/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://workleap.github.io/wl-web-configs/tsup/configure-dev/">
-    <meta property="og:title" content="Configure for development - tsup">
-    <meta property="og:description" content="@workleap/tsup-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rslib-configs">
+    <meta property="og:url" content="https://workleap.github.io/wl-web-configs/introduction/getting-started/">
+    <meta property="og:title" content="Getting started">
+    <meta property="og:description" content="Welcome to @workleap/web-configs, a collection of configuration libraries for building web applications at ">
+    <meta property="og:image" content="https://workleap.github.io/wl-web-configs/static/browserslist.svg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://workleap.github.io/wl-web-configs/tsup/configure-dev/">
-    <meta property="twitter:title" content="Configure for development - tsup">
-    <meta property="twitter:description" content="@workleap/tsup-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rslib-configs">
+    <meta property="twitter:url" content="https://workleap.github.io/wl-web-configs/introduction/getting-started/">
+    <meta property="twitter:title" content="Getting started">
+    <meta property="twitter:description" content="Welcome to @workleap/web-configs, a collection of configuration libraries for building web applications at ">
+    <meta property="twitter:image" content="https://workleap.github.io/wl-web-configs/static/browserslist.svg">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -37,7 +39,6 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.10.0.802809373142" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.10.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.10.0.802809373142" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.10.0.802809373142" defer></script>
 
     <link href="https://gsoft-inc.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -279,192 +280,145 @@
                                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
                                     <ol role="list">
                                         <li class="pr-4">
-                                            <a href="../../tsup/" class="pr-4">
-                                                tsup
-                                            </a>
+                                            <span class="pr-4">
+                                                Introduction
+                                            </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                                             </svg>
                                         </li>
                                         <li class="pr-4">
-                                            <a href="../../tsup/configure-dev/" class="pr-4">
-                                                Configure for development
+                                            <a href="../../introduction/getting-started/" class="pr-4">
+                                                Getting started
                                             </a>
                                         </li>
                                     </ol>
                                 </nav>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="configure-for-development" class="break-words">
+<doc-anchor-target id="getting-started" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#configure-for-development">#</doc-anchor-trigger>
-        <span>Configure for development</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#getting-started">#</doc-anchor-trigger>
+        <span>Getting started</span>
     </h1>
 </doc-anchor-target>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-yellow-500"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
-                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p><code v-pre>@workleap/tsup-configs</code> is now in maintenance mode. If you&#x27;re starting a new project, consider using <a href="../../rslib/">@workleap/rslib-configs</a> instead for better performance and modern tooling.</p>
-        </div>
-    </div>
-</div>
-<p>To configure <a href="https://tsup.egoist.dev/" class="outbound" target="_blank">tsup</a> for a development environment, execute the following steps <span class="docs-emoji">&#x1F447;</span></p>
-<doc-anchor-target id="install-the-packages">
+<p>Welcome to <code v-pre>@workleap/web-configs</code>, a collection of <strong>configuration libraries</strong> for building web applications at <a href="https://workleap.com/" class="outbound" target="_blank">Workleap</a>. On this getting started page, you&#x27;ll find an overview of the project and a list of supported tools.</p>
+<doc-anchor-target id="why-we-built-these-libraries">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#install-the-packages">#</doc-anchor-trigger>
-        <span>Install the packages</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#why-we-built-these-libraries">#</doc-anchor-trigger>
+        <span>Why we built these libraries?</span>
     </h2>
 </doc-anchor-target>
-<p>Open a terminal at the root of the project and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/tsup-configs tsup typescript</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="configure-tsup">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#configure-tsup">#</doc-anchor-trigger>
-        <span>Configure tsup</span>
-    </h2>
-</doc-anchor-target>
-<p>First, create a configuration file named <code v-pre>tsup.dev.ts</code> at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">web-project
-├── src
-├──── ...
-├── package.json
-├── tsup.dev.ts</code></pre>
-</doc-codeblock></div>
-<p>Then, open the newly created file and export the tsup configuration by using the <code v-pre>defineDevConfig(options)</code> function:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">tsup.dev.ts</div>
-<pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/tsup-configs&quot;;
-
-export default defineDevConfig();</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="use-predefined-options">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#use-predefined-options">#</doc-anchor-trigger>
-        <span>Use predefined options</span>
-    </h2>
-</doc-anchor-target>
-<p>The <code v-pre>defineDevConfig(options)</code> function can be used as shown in the previous example, however, if you wish to customize the default configuration, the function also accepts any <a href="https://tsup.egoist.dev/#usage" class="outbound" target="_blank">tsup options</a>, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">tsup.dev.ts</div>
-<pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/tsup-configs&quot;;
-
-export default defineDevConfig({
-    dts: false
-});</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="configuration-transformers">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#configuration-transformers">#</doc-anchor-trigger>
-        <span>Configuration transformers</span>
-    </h2>
-</doc-anchor-target>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-yellow-500"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
-                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>We do not guarantee that your configuration transformers won&#x27;t break after an update. It&#x27;s your responsibility to keep them up to date with new releases.</p>
-        </div>
-    </div>
-</div>
-<p>Since the <doc-anchor-trigger to="#use-predefined-options">predefined options</doc-anchor-trigger> for tsup already covers all the availables <a href="https://tsup.egoist.dev/#usage" class="outbound" target="_blank">options</a>, configuration transformer functions aren&#x27;t as useful for a tsup configuration as for other tools like <a href="../../swc/configure-dev/#configuration-transformers">SWC</a> or <a href="../../webpack/configure-dev/#configuration-transformers">webpack</a>. Nonetheless, they are still valuable, especially for library authors aiming to <strong>distribute</strong> a <strong>default option set</strong> that facilitates the configuration of tsup for specific functionalities of their library. Configuration transformer functions can be provided through the <code v-pre>transformers</code> option of the <code v-pre>defineDevConfig</code> function.</p>
-<p>To view the default development configuration of <code v-pre>@workleap/tsup-configs</code>, have a look at the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/tsup-configs/src/dev.ts" class="outbound" target="_blank">dev.ts configuration file</a> on GitHub.</p>
-<doc-anchor-target id="transformers">
+<p>Starting a new web application is still an arduous task. There are so many tools to choose from, learn, install and configure, it can be daunting.</p>
+<p>For an organization like Workleap, with a large suite of products, it <strong>doesn&#x27;t make sense to start over every time</strong> we invest in a new idea or add a new vertical to an existing product. Developers working on a new project shouldn&#x27;t spend their first day&#x27;s figuring out which ESLint rules to enable/disable, or how to transpile their React code, they should rather <strong>focus on writing features code</strong>.</p>
+<doc-anchor-target id="filling-the-gap">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#transformers">#</doc-anchor-trigger>
-        <span><code v-pre>transformers</code></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#filling-the-gap">#</doc-anchor-trigger>
+        <span>Filling the gap</span>
     </h3>
 </doc-anchor-target>
-<ul>
-<li><strong>Type</strong>: <code v-pre>((config: TsupConfig, context: TsupConfigTransformerContext) =&gt; TsupConfig)[]</code></li>
-<li><strong>Default</strong>: <code v-pre>[]</code></li>
-</ul>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">myCustomTransformer.ts</div>
-<pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { type TsupConfigTransformer, type TsupConfig } from &quot;@workleap/tsup-configs&quot;;
-
-export const myCustomTsupTransformer: TsupConfigTransformer = (config: TsupConfig) =&gt; {
-    config.dts = false;
-    config.entry = [&quot;./src/my-library&quot;],
-    config.outDir = [&quot;./dist/my-library&quot;],
-
-    return config;
-};</code></pre>
-</doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">tsup.dev.ts</div>
-<pre translate="no" class="language-typescript" data-line="5"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/tsup-configs&quot;;
-import { myCustomTsupTransformer } from &quot;@my-library/myCustomTsupTransformer&quot;;
-
-export default defineDevConfig({
-    transformers: [myCustomTsupTransformer]
-})</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="execution-context">
+<p>While a collection of common configurations gets us closer to that goal, on their own, configuration libraries are not enough to reach it. There is still a need to install and assemble those configurations correctly in the new application, which can also be a challenge. To fill this gap, we will also invest into a <strong>CLI</strong> to scaffold new web applications and libraries.</p>
+<doc-anchor-target id="best-of-both-worlds">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#execution-context">#</doc-anchor-trigger>
-        <span>Execution context</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#best-of-both-worlds">#</doc-anchor-trigger>
+        <span>Best of both worlds</span>
     </h3>
 </doc-anchor-target>
-<p>Generic transformers can use the <code v-pre>context</code> parameter to gather additional information about their execution context, like the <code v-pre>environment</code> they are operating in:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">myCustomTransformer.ts</div>
-<pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import type { TsupConfigTransformer, TsupConfigTransformerContext, TsupConfig } from &quot;@workleap/tsup-configs&quot;;
-
-export const transformer: TsupConfigTransformer = (config: TsupConfig, context: TsupConfigTransformerContext) =&gt; {
-    if (context.environment === &quot;dev&quot;) {
-        config.watch = false;
-    }
-
-    config.dts = false;
-    config.entry = [&quot;./src/my-library&quot;],
-    config.outDir = [&quot;./dist/my-library&quot;],
-
-    return config;
-};</code></pre>
-</doc-codeblock></div>
-<ul>
-<li><code v-pre>environment</code>: <code v-pre>&quot;dev&quot; | &quot;build&quot;</code></li>
-</ul>
-<doc-anchor-target id="add-a-cli-script">
+<p>With the CLI, developers will have the ability to generate fully configured web applications in a few minutes. However, contrary to configuration libraries, a CLI alone is only good at creating the initial files of an application, it doesn&#x27;t help with the <strong>maintenance</strong> or the <strong>adoption of new features</strong> offered by tools over time.</p>
+<p>That&#x27;s why we need both, there&#x27;s a strong synergy between a collection of configuration libraries and a CLI.</p>
+<p>With configuration libraries <strong>distributed through NPM packages</strong> and installed with a CLI, when a new feature is available for a tool, the configuration libraries maintainers can spend time learning the new feature, making the necessary changes, and <strong>distributing the changes with a new version</strong> of the package. Then, at their convenience, <strong>product teams can adopt the changes</strong> by bumping the configuration library package version in their respective application.</p>
+<p>We hope that introducing CLI with a collection of configuration libraries will facilitate the creation and maintenance of front-end projects.</p>
+<doc-anchor-target id="guiding-principles">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#add-a-cli-script">#</doc-anchor-trigger>
-        <span>Add a CLI script</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#guiding-principles">#</doc-anchor-trigger>
+        <span>Guiding principles</span>
     </h2>
 </doc-anchor-target>
-<p>To initiate the development process, add the following script to your project <code v-pre>package.json</code> file:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">package.json</div>
-<pre translate="no" class="language-json"><code v-pre class="language-json">{
-    &quot;dev&quot;: &quot;tsup --config ./tsup.dev.ts&quot;
-}</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="try-it-rocket">
+<p>While developing the configuration libraries, we kept one guiding principle in mind, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>. We truly hope that the default configurations will satisfy your application needs, but if it doesn&#x27;t, there will always be an easy way to extend or override the default configuration.</p>
+<doc-anchor-target id="target-environment">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#try-it-rocket">#</doc-anchor-trigger>
-        <span>Try it <span class="docs-emoji">&#x1F680;</span></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#target-environment">#</doc-anchor-trigger>
+        <span>Target environment</span>
     </h2>
 </doc-anchor-target>
-<p>To test your new tsup configuration, open a terminal at the root of the project and execute the <doc-anchor-trigger to="#add-a-cli-script">CLI script added previously</doc-anchor-trigger>. A development process should start without outputting any error in the terminal.</p>
+<p>The majority of the shared tooling configurations targets <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" class="outbound" target="_blank">ESM</a> and the latest <a href="https://en.wikipedia.org/wiki/ECMAScript" class="outbound" target="_blank">ECMAScript</a> version (ESNext). If you are in the process of migrating an existing project to <code v-pre>workleap/web-configs</code>, and would rather delay transitioning to ESM, have a look at the <em>Target environment</em> section of each tool for additional information about how to support <strong>non ESM compliant</strong> solutions.</p>
+<doc-anchor-target id="supported-tools">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#supported-tools">#</doc-anchor-trigger>
+        <span>Supported tools</span>
+    </h2>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Name</th>
+<th>NPM</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="../../static/browserslist.svg" alt="" class="h-5 w-5 mr-2 -mt-1" /><a href="https://browsersl.ist/" class="outbound" target="_blank">Browserslist</a></td>
+<td><a href="https://www.npmjs.com/package/@workleap/browserslist-config" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/browserslist-config" alt="npm version" /></a></td>
+<td><a href="../../browserslist/">Getting started</a></td>
+</tr>
+<tr>
+<td><img src="../../static/eslint.svg" alt="" class="h-5 w-5 mr-2 -mt-1" /><a href="https://eslint.org/" class="outbound" target="_blank">ESLint</a></td>
+<td><a href="https://www.npmjs.com/package/@workleap/eslint-plugin" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/eslint-plugin" alt="npm version" /></a></td>
+<td><a href="../../eslint/">Getting started</a></td>
+</tr>
+<tr>
+<td><img src="../../static/stylelint.svg" alt="" class="h-5 w-5 mr-2 -mt-1" /><a href="https://stylelint.io/" class="outbound" target="_blank">Stylelint</a></td>
+<td><a href="https://www.npmjs.com/package/@workleap/stylelint-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/stylelint-configs" alt="npm version" /></a></td>
+<td><a href="../../stylelint/">Getting started</a></td>
+</tr>
+<tr>
+<td><img src="../../static/typescript.svg" alt="" class="h-5 w-5 mr-2 -mt-1" /><a href="https://www.typescriptlang.org/" class="outbound" target="_blank">Typescript</a></td>
+<td><a href="https://www.npmjs.com/package/@workleap/typescript-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/typescript-configs" alt="npm version" /></a></td>
+<td><a href="../../typescript/">Getting started</a></td>
+</tr>
+<tr>
+<td><img src="../../static/rsbuild.svg" alt="" class="h-5 w-5 mr-2 -mt-1" /><a href="https://rsbuild.dev/" class="outbound" target="_blank">Rsbuild</a></td>
+<td><a href="https://www.npmjs.com/package/@workleap/rsbuild-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/rsbuild-configs" alt="npm version" /></a></td>
+<td><a href="../../rsbuild/">Getting started</a></td>
+</tr>
+<tr>
+<td><img src="../../static/rslib.svg" alt="" class="h-5 w-5 mr-2 -mt-1" /><a href="https://lib.rsbuild.dev/" class="outbound" target="_blank">Rslib</a></td>
+<td><a href="https://www.npmjs.com/package/@workleap/rslib-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/rslib-configs" alt="npm version" /></a></td>
+<td><a href="../../rslib/">Getting started</a></td>
+</tr>
+<tr>
+<td><img src="../../static/postcss.svg" alt="" class="h-5 w-5 mr-2 -mt-1" /><a href="https://postcss.org/" class="outbound" target="_blank">PostCSS</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 dark:text-dark-600 bg-gray-200 h-5 px-1.5 text-2xs rounded">
+    <span>in maintenance mode</span>
+</span></td>
+<td><a href="https://www.npmjs.com/package/@workleap/postcss-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/postcss-configs" alt="npm version" /></a></td>
+<td><a href="../../postcss/">Getting started</a></td>
+</tr>
+<tr>
+<td><img src="../../static/swc.svg" alt="" class="h-5 w-5 mr-2 -mt-1" /><a href="https://swc.rs/" class="outbound" target="_blank">SWC</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 dark:text-dark-600 bg-gray-200 h-5 px-1.5 text-2xs rounded">
+    <span>in maintenance mode</span>
+</span></td>
+<td><a href="https://www.npmjs.com/package/@workleap/swc-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/swc-configs" alt="npm version" /></a></td>
+<td><a href="../../swc/">Getting started</a></td>
+</tr>
+<tr>
+<td><img src="../../static/webpack.svg" alt="" class="h-5 w-5 mr-2 -mt-1" /><a href="https://webpack.js.org/" class="outbound" target="_blank">webpack</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 dark:text-dark-600 bg-gray-200 h-5 px-1.5 text-2xs rounded">
+    <span>in maintenance mode</span>
+</span></td>
+<td><a href="https://www.npmjs.com/package/@workleap/webpack-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/webpack-configs" alt="npm version" /></a></td>
+<td><a href="../../webpack/">Getting started</a></td>
+</tr>
+<tr>
+<td><img src="../../static/tsup.svg" alt="" class="h-5 w-5 mr-2 -mt-1" /><a href="https://tsup.egoist.dev/" class="outbound" target="_blank">tsup</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 dark:text-dark-600 bg-gray-200 h-5 px-1.5 text-2xs rounded">
+    <span>in maintenance mode</span>
+</span></td>
+<td><a href="https://www.npmjs.com/package/@workleap/tsup-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/tsup-configs" alt="npm version" /></a></td>
+<td><a href="../../tsup/">Getting started</a></td>
+</tr>
+</tbody>
+</table>
+</div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -472,7 +426,7 @@ export const transformer: TsupConfigTransformer = (config: TsupConfig, context: 
                             </div>
                             <footer id="retype-content-footer" class="clear-both">
                                 <div class="flex flex-wrap items-center justify-between mt-14">
-                                    <a id="retype-edit-this-page" class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/workleap/wl-web-configs/blob/main/docs/tsup/configure-dev.md" target="_blank" rel="noopener">
+                                    <a id="retype-edit-this-page" class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/workleap/wl-web-configs/blob/main/docs/introduction/getting-started.md" target="_blank" rel="noopener">
                                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         <span>Edit this page</span>
                                     </a>
@@ -480,20 +434,13 @@ export const transformer: TsupConfigTransformer = (config: TsupConfig, context: 
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../tsup/">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                                            <span>
-                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">tsup</span>
-                                            </span>
-                                        </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../tsup/configure-build/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../browserslist/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Configure for build</span>
+                                                <span class="block mt-1">Browserslist</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -557,6 +504,6 @@ export const transformer: TsupConfigTransformer = (config: TsupConfig, context: 
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Configure for development", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Getting started", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 2 }</script>
 </body>
 </html>
