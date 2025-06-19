@@ -563,7 +563,7 @@ To initiate the development server, add the following script to the project `pac
 
 ```json package.json
 {
-    "dev": "rslib dev --config ./rslib.dev.ts"
+    "dev": "rsbuild dev --config ./rsbuild.dev.ts"
 }
 ```
 
@@ -579,7 +579,7 @@ We recommend to define environment variables using [cross-env](https://github.co
 
 ```json package.json
 {
-    "dev": "cross-env DEBUG=true rslib dev --config ./rslib.dev.ts"
+    "dev": "cross-env DEBUG=true rsbuild dev --config ./rsbuild.dev.ts"
 }
 ```
 
