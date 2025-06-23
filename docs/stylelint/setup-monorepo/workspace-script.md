@@ -9,7 +9,7 @@ toc:
 
 # Setup a monorepo with a workspace script
 
-To lint a monorepo solution (**multiple projects** per repository), [Stylelint](https://stylelint.io/) must be setuped to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup Stylelint for a monorepo solution using a single workspace script :point_down:
+To lint a monorepo solution (**multiple projects** per repository), [Stylelint](https://stylelint.io/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup Stylelint for a monorepo solution using a single workspace script :point_down:
 
 ## Setup the workspace
 

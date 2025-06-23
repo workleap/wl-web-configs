@@ -13,7 +13,7 @@ This package is compatible only with ESLint v8. It is not intended for use with 
 
 # Setup a monorepo with Turborepo
 
-To lint a monorepo solution (**multiple projects** per repository), [ESLint](https://eslint.org/) must be setuped to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup ESLint for a monorepo solution using [Turborepo](https://turborepo.com/) :point_down:
+To lint a monorepo solution (**multiple projects** per repository), [ESLint](https://eslint.org/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup ESLint for a monorepo solution using [Turborepo](https://turborepo.com/) :point_down:
 
 ## Setup the workspace
 
