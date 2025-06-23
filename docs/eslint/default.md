@@ -52,7 +52,7 @@ For a complete explanation of why we chose to stick with ESLint for stylistic ru
 
 ### Setup a project
 
-If you are looking to setup a **new** polyrepo solution (single project per repository) or migrating an **existing** polyrepo solution to `@workleap/eslint-plugin`, follow the guide to [setup a polyrepo](setup-polyrepo.md). Otherwise, for a monorepo solution (multiple projects per repository) follow either the guide to [setup a monorepo with Turborepo](setup-monorepo/turborepo.md) or to [setup a monorepo with a workspace script](setup-monorepo/workspace-script.md).
+If you are looking to setup a **new** polyrepo solution (single project per repository) or migrating an **existing** polyrepo solution to `@workleap/eslint-plugin`, follow the guide to [setup a polyrepo](./setup-polyrepo.md). Otherwise, for a monorepo solution (multiple projects per repository) follow either the guide to [setup a monorepo with Turborepo](./setup-monorepo/turborepo.md) or to [setup a monorepo with a workspace script](./setup-monorepo/workspace-script.md).
 
 Once configured, to understand how to adapt `@workleap/eslint-plugin` default configurations to your codebase while you are completing the migration, have a look at the [custom configuration](./custom-configuration.md) page.
 

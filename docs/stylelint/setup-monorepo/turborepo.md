@@ -1,5 +1,5 @@
 ---
-order: 90
+order: 100
 label: Turborepo setup
 meta:
     title: Setup a monorepo with Turborepo - Stylelint

@@ -1,15 +1,15 @@
 ---
 order: 90
-label: Setup a monorepo
+label: Workspace script setup
 meta:
-    title: Setup a monorepo - TypeScript
+    title: Setup a monorepo with a workspace script - TypeScript
 toc:
     depth: 2-3
 ---
 
-# Setup a monorepo
+# Setup a monorepo with a workspace script
 
-To lint a monorepo solution (**multiple projects** per repository), [TypeScript](https://www.typescriptlang.org/) must be setuped to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup TypeScript for a monorepo solution.
+To lint a monorepo solution (**multiple projects** per repository), [TypeScript](https://www.typescriptlang.org/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up TypeScript for a monorepo solution using a single workspace script :point_down:
 
 ## Setup the workspace
 
@@ -102,7 +102,7 @@ workspace
 ├── tsconfig.json
 ```
 
-Then, open the newly created file and extend the default configuration with one of the [shared configurations](default.md/#available-configurations) provided by `@workleap/typescript-configs` :point_down:
+Then, open the newly created file and extend the default configuration with one of the [shared configurations](../default.md/#available-configurations) provided by `@workleap/typescript-configs` :point_down:
 
 #### `web-application`
 
@@ -128,11 +128,11 @@ For a library project developed with or without React, use the following configu
 
 ## Custom configuration
 
-New projects shouldn't have to customize most of the default configurations offered by `@workleap/typescript-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
+New projects shouldn't have to customize most of the default configurations offered by `@workleap/typescript-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](../custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
 
 ### Compiler paths
 
-If any projects of your solution are referencing other projects of the monorepo workspace (e.g. `"@sample/components": "workspace:*"`), chances are that you'll need to define [paths](https://www.typescriptlang.org/tsconfig#compilerOptions) in their `tsconfig.json` file.
+If your solution is not set up with [JIT packages](https://www.shew.dev/monorepos/packaging/jit) and any projects referencing other projects of the monorepo workspace (e.g. `"@sample/components": "workspace:*"`), chances are that you'll need to define [paths](https://www.typescriptlang.org/tsconfig#compilerOptions) in their `tsconfig.json` file.
 
 Given the following solution:
 
@@ -188,3 +188,9 @@ If the `packages/components` project is referencing the `packages/utils` project
 ## Try it :rocket:
 
 To test your new TypeScript setup, open a TypeScript file, type invalid code (e.g. `import { App } from "./App"`), then wait for the IDE to flag the error. Fix the error (e.g. `import { App } from "./App.tsx"`), then wait for the IDE to remove the error.
+
+Alternatively, to catch the error, open a terminal at the root of the solution and execute the CLI script added earlier:
+
+```bash
+pnpm lint:types
+```

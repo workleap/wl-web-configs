@@ -2,7 +2,7 @@
 order: 90
 label: Workspace script setup
 meta:
-    title: Setup a monorepo workspace script - Stylelint
+    title: Setup a monorepo with a workspace script - Stylelint
 toc:
     depth: 2-3
 ---
