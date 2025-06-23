@@ -1,8 +1,8 @@
 ---
 order: 90
-label: Setup a monorepo
+label: Workspace script setup
 meta:
-    title: Configure a monorepo - ESLint
+    title: Setup a monorepo workspace script - ESLint
 toc:
     depth: 2-3
 ---
@@ -11,9 +11,9 @@ toc:
 This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
 !!!
 
-# Setup a monorepo
+# Setup a monorepo with a workspace script
 
-To lint a monorepo solution (**multiple projects** per repository), [ESLint](https://eslint.org/) must be setuped to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup ESLint for a monorepo solution :point_down:
+To lint a monorepo solution (**multiple projects** per repository), [ESLint](https://eslint.org/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up ESLint for a monorepo solution using a single workspace script :point_down:
 
 ## Setup the workspace
 
@@ -125,7 +125,7 @@ trim_trailing_whitespace = false
 
 ### Add a CLI script
 
-At times, especially when running the CI build, it's useful to lint the entire solution using a single command. To do so, add the following script to your solution's workspace `package.json` file:
+Finally, add the following script to your solution's workspace `package.json` file. This script will lint the root of the solution workspace and every project of the solution workspace:
 
 ``` !#7
 workspace
@@ -216,7 +216,7 @@ For a TypeScript library developed **without** React, use the following configur
 
 ## Custom configuration
 
-New projects shouldn't have to customize the default configurations offered by `@workleap/eslint-plugin`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
+New projects shouldn't have to customize the default configurations offered by `@workleap/eslint-plugin`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](../custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
 
 ## Try it :rocket:
 
