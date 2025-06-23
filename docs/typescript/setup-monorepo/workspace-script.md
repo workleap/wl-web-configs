@@ -194,3 +194,5 @@ Alternatively, to catch the error, open a terminal at the root of the solution a
 ```bash
 pnpm lint:types
 ```
+
+The terminal should output a linting error.
