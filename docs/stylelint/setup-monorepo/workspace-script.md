@@ -15,7 +15,7 @@ To lint a monorepo solution (**multiple projects** per repository), [Stylelint](
 
 ### Install the packages
 
-Open a terminal at the root of the solution workspace (the **root** of the repository) and install the following packages:
+Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
 pnpm add -D @workleap/stylelint-configs stylelint prettier
@@ -23,7 +23,7 @@ pnpm add -D @workleap/stylelint-configs stylelint prettier
 
 ### Configure Stylelint
 
-First, create a configuration file named `.stylelintrc.json` at the root of the solution workspace:
+First, create a configuration file named `.stylelintrc.json` at the root of the solution's workspace:
 
 ``` !#8
 workspace
@@ -49,7 +49,7 @@ Then, open the newly created file and extend the default configuration with the 
 
 Stylelint can be configured to [ignore](https://stylelint.io/user-guide/ignore-code#files-entirely) certain files and directories while linting by specifying one or more glob patterns.
 
-To do so, first, create an `.stylelintignore` file at the root of the solution workspace:
+To do so, first, create an `.stylelintignore` file at the root of the solution's workspace:
 
 ``` !#9
 workspace
@@ -74,9 +74,9 @@ storybook-static
 
 #### .prettierignore
 
-Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../../eslint/default.md#prettier), a `.prettierignore` file must be added at the root of the solution workspace to ignore everything but CSS files.
+Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../../eslint/default.md#prettier), a `.prettierignore` file must be added at the root of the solution's workspace to ignore everything but CSS files.
 
-To do so, first, create a `.prettierignore` file at the root of the solution workspace:
+To do so, first, create a `.prettierignore` file at the root of the solution's workspace:
 
 ``` !#10
 workspace
@@ -104,7 +104,7 @@ Prettier offers [built-in rules](https://prettier.io/docs/en/options#tab-width) 
 
 To guarantee a consistent indentation, we recommend using [EditorConfig](https://editorconfig.org/) on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and VS Code.
 
-First, create a `.editorconfig` file at the root of the solution workspace:
+First, create a `.editorconfig` file at the root of the solution's workspace:
 
 ``` !#10
 workspace

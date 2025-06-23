@@ -9,13 +9,13 @@ toc:
 
 # Setup a monorepo with Turborepo
 
-To lint a monorepo solution (**multiple projects** per repository), [Stylelint](https://stylelint.io/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up Stylelint for a monorepo solution using [Turborepo](https://turborepo.com/) :point_down:
+To lint a monorepo solution (**multiple projects** per repository), [Stylelint](https://stylelint.io/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up Stylelint for a monorepo solution managed with [Turborepo](https://turborepo.com/) :point_down:
 
 ## Setup the workspace
 
 ### Install the packages
 
-Open a terminal at the root of the solution workspace (the **root** of the repository) and install the following packages:
+Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
 pnpm add -D @workleap/stylelint-configs stylelint prettier turbo
@@ -23,12 +23,12 @@ pnpm add -D @workleap/stylelint-configs stylelint prettier turbo
 
 ### Configure Turborepo
 
-First, create a configuration file named `turbo.json` at the root of the solution workspace:
+First, create a configuration file named `turbo.json` at the root of the solution's workspace:
 
 ``` !#8
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -54,7 +54,7 @@ Then, open the newly created file and copy/paste the following content:
 }
 ```
 
-The `stylelint` task will execute the `stylelint` script for every project of the solution workspace.
+The `stylelint` task will execute the `stylelint` script for every project of the solution's workspace.
 
 !!!tip
 For additional information, refer to the [Turborepo documentation](https://turborepo.com/docs).
@@ -62,12 +62,12 @@ For additional information, refer to the [Turborepo documentation](https://turbo
 
 ### Configure Stylelint
 
-Next, let's configure Stylelint. Create a configuration file named `.stylelintrc.json` at the root of the solution workspace:
+Next, let's configure Stylelint. Create a configuration file named `.stylelintrc.json` at the root of the solution's workspace:
 
 ``` !#9
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -89,12 +89,12 @@ Then, open the newly created file and extend the default configuration with the 
 
 Stylelint can be configured to [ignore](https://stylelint.io/user-guide/ignore-code#files-entirely) certain files and directories while linting by specifying one or more glob patterns.
 
-To do so, first, create an `.stylelintignore` file at the root of the solution workspace:
+To do so, first, create an `.stylelintignore` file at the root of the solution's workspace:
 
 ``` !#10
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -115,14 +115,14 @@ storybook-static
 
 #### .prettierignore
 
-Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../../eslint/default.md#prettier), a `.prettierignore` file must be added at the root of the solution workspace to ignore everything but CSS files.
+Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../../eslint/default.md#prettier), a `.prettierignore` file must be added at the root of the solution's workspace to ignore everything but CSS files.
 
-To do so, first, create a `.prettierignore` file at the root of the solution workspace:
+To do so, first, create a `.prettierignore` file at the root of the solution's workspace:
 
 ``` !#11
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -146,12 +146,12 @@ Prettier offers [built-in rules](https://prettier.io/docs/en/options#tab-width) 
 
 To guarantee a consistent indentation, we recommend using [EditorConfig](https://editorconfig.org/) on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and VS Code.
 
-First, create a `.editorconfig` file at the root of the solution workspace:
+First, create a `.editorconfig` file at the root of the solution's workspace:
 
 ``` !#11
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -186,7 +186,7 @@ Finally, add the following script to your solution's workspace `package.json` fi
 ``` !#7
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -207,7 +207,7 @@ workspace
 
 ### Install the packages
 
-Open a terminal at the root of the project (`packages/app` for this example) and install the following package:
+Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following package:
 
 ```bash
 pnpm add -D @workleap/stylelint-configs
@@ -220,7 +220,7 @@ First, create a configuration file named `.stylelintrc.json` at the root of the 
 ``` !#7
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -233,7 +233,7 @@ workspace
 
 Then, open the newly created file and extend the default configuration with the shared configurations provided by `@workleap/stylelint-configs`:
 
-```json packages/app/.stylelintrc.json
+```json packages/pkg-1/.stylelintrc.json
 {
     "$schema": "https://json.schemastore.org/stylelintrc",
     "extends": "@workleap/stylelint-configs"
@@ -244,7 +244,7 @@ Then, open the newly created file and extend the default configuration with the 
 
 Finally, add the following `eslint` script to your project `package.json` file. This script will be executed by Turborepo:
 
-```json packages/app/package.json
+```json packages/pkg-1/package.json
 {
     "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0"
 }

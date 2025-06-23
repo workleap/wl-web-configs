@@ -15,7 +15,7 @@ To lint a monorepo solution (**multiple projects** per repository), [TypeScript]
 
 ### Install the packages
 
-Open a terminal at the root of the solution workspace (the **root** of the repository) and install the following packages:
+Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
 pnpm add -D @workleap/typescript-configs typescript
@@ -23,7 +23,7 @@ pnpm add -D @workleap/typescript-configs typescript
 
 ### Configure TypeScript
 
-First, create a configuration file named `tsconfig.json` at the root of the solution workspace:
+First, create a configuration file named `tsconfig.json` at the root of the solution's workspace:
 
 ``` !#8
 workspace

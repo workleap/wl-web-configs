@@ -9,13 +9,13 @@ toc:
 
 # Setup a monorepo with Turborepo
 
-To lint a monorepo solution (**multiple projects** per repository), [TypeScript](https://www.typescriptlang.org/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up TypeScript for a monorepo solution using [Turborepo](https://turborepo.com/) :point_down:
+To lint a monorepo solution (**multiple projects** per repository), [TypeScript](https://www.typescriptlang.org/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up TypeScript for a monorepo solution managed with [Turborepo](https://turborepo.com/) :point_down:
 
 ## Setup the workspace
 
 ### Install the packages
 
-Open a terminal at the root of the solution workspace (the **root** of the repository) and install the following packages:
+Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
 pnpm add -D @workleap/typescript-configs typescript turbo
@@ -23,12 +23,12 @@ pnpm add -D @workleap/typescript-configs typescript turbo
 
 ### Configure Turborepo
 
-First, create a configuration file named `turbo.json` at the root of the solution workspace:
+First, create a configuration file named `turbo.json` at the root of the solution's workspace:
 
 ``` !#8
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -57,7 +57,7 @@ Then, open the newly created file and copy/paste the following content:
 }
 ```
 
-The `//#typecheck` task will execute the `typecheck` script at the root of the solution workspace and the `typecheck` task will execute the `typecheck` script for every project of the solution workspace.
+The `//#typecheck` task will execute the `typecheck` script at the root of the solution's workspace and the `typecheck` task will execute the `typecheck` script for every project of the solution's workspace.
 
 !!!tip
 For additional information, refer to the [Turborepo documentation](https://turborepo.com/docs).
@@ -65,12 +65,12 @@ For additional information, refer to the [Turborepo documentation](https://turbo
 
 ### Configure TypeScript
 
-Next, let's configure TypeScript. Create a configuration file named `tsconfig.json` at the root of the solution workspace:
+Next, let's configure TypeScript. Create a configuration file named `tsconfig.json` at the root of the solution's workspace:
 
 ``` !#9
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -98,14 +98,14 @@ If your application is using [Storybook](https://storybook.js.org/), make sure t
 }
 ```
 
-### Add a CLI script
+### Add CLI scripts
 
 Finally, add the `lint` and `typecheck` scripts to your solution's workspace `package.json` file.
 
 ``` !#7
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -122,7 +122,7 @@ The `lint` script will execute the tasks configured earlier in the `turbo.json` 
 }
 ```
 
-The `typecheck` script will lint the root of the solution workspace:
+The `typecheck` script will lint the root of the solution's workspace:
 
 ```json package.json
 {
@@ -134,7 +134,7 @@ The `typecheck` script will lint the root of the solution workspace:
 
 ### Install the package
 
-Open a terminal at the root of the project (`packages/app` for this example) and install the following package:
+Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following package:
 
 ```bash
 pnpm add -D @workleap/typescript-configs typescript
@@ -147,7 +147,7 @@ First, create a configuration file named `tsconfig.json` at the root of the proj
 ``` !#7
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -184,7 +184,7 @@ For a library project developed with or without React, use the following configu
 
 Finally, add the following `typecheck` script to your project `package.json` file. This script will be executed by Turborepo:
 
-```json packages/app/package.json
+```json packages/pkg-1/package.json
 {
     "typecheck": "tsc"
 }
@@ -203,7 +203,7 @@ Given the following solution:
 ``` !#3,8,13
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -223,9 +223,9 @@ workspace
 ├── tsconfig.json
 ```
 
-If the `packages/components` project is referencing the `packages/utils` project, and the `packages/app` project is referencing the `packages/components` project, you'll need to add the following `compilerOptions.paths`:
+If the `packages/components` project is referencing the `packages/utils` project, and the `packages/pkg-1` project is referencing the `packages/components` project, you'll need to add the following `compilerOptions.paths`:
 
-```json !#4-7 packages/app/tsconfig.json
+```json !#4-7 packages/pkg-1/tsconfig.json
 {
     "extends": "@workleap/typescript-configs/web-application.json",
     "compilerOptions": {

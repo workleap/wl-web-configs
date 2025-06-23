@@ -19,7 +19,7 @@ To lint a monorepo solution (**multiple projects** per repository), [ESLint](htt
 
 ### Install the packages
 
-Open a terminal at the root of the solution workspace (the **root** of the repository) and install the following packages:
+Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
 pnpm add -D @workleap/eslint-plugin eslint typescript @typescript-eslint/parser
@@ -27,7 +27,7 @@ pnpm add -D @workleap/eslint-plugin eslint typescript @typescript-eslint/parser
 
 ### Configure ESLint
 
-First, create a configuration file named `.eslintrc.json` at the root of the solution workspace:
+First, create a configuration file named `.eslintrc.json` at the root of the solution's workspace:
 
 ``` !#8
 workspace
@@ -54,7 +54,7 @@ Then, open the newly created file and extend the default configuration with the 
 
 ESLint can be configured to [ignore](https://eslint.org/docs/latest/use/configure/ignore) certain files and directories while linting by specifying one or more glob patterns.
 
-To do so, first, create a `.eslintignore` file at the root of the solution workspace:
+To do so, first, create a `.eslintignore` file at the root of the solution's workspace:
 
 ``` !#9
 workspace
@@ -91,7 +91,7 @@ ESLint offers [built-in rules](https://eslint.org/docs/latest/rules/indent) for 
 
 To guarantee a consistent indentation, we recommend using [EditorConfig](https://editorconfig.org/) on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and [VS Code](https://code.visualstudio.com/).
 
-First, create a `.editorconfig` file at the root of the solution workspace:
+First, create a `.editorconfig` file at the root of the solution's workspace:
 
 ``` !#10
 workspace
@@ -125,7 +125,7 @@ trim_trailing_whitespace = false
 
 ### Add a CLI script
 
-Finally, add the following script to your solution's workspace `package.json` file. This script will lint the root of the solution workspace and every project of the solution workspace:
+Finally, add the following script to your solution's workspace `package.json` file. This script will lint the root of the solution's workspace and every project of the solution's workspace:
 
 ``` !#7
 workspace

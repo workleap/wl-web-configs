@@ -13,6 +13,8 @@ To configure [Rsbuild](https://rsbuild.dev/) for Storybook, execute the followin
 
 ## Install the packages
 
+Open a terminal at the root of the Storybook project and install the following packages:
+
 ```bash
 pnpm add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist storybook-react-rsbuild
 ```
