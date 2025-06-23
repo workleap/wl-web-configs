@@ -1,13 +1,13 @@
 ---
 order: 100
-label: Setup a monorepo
+label: Turborepo setup
 meta:
-    title: Setup a monorepo - TypeScript
+    title: Setup a monorepo with Turborepo - TypeScript
 toc:
     depth: 2-3
 ---
 
-# Setup a monorepo
+# Setup a monorepo with Turborepo
 
 To lint a monorepo solution (**multiple projects** per repository), [TypeScript](https://www.typescriptlang.org/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up TypeScript for a monorepo solution using [Turborepo](https://turborepo.com/) :point_down:
 
