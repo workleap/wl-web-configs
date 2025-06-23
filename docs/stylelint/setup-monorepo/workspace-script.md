@@ -1,15 +1,15 @@
 ---
 order: 90
-label: Setup a monorepo
+label: Workspace script setup
 meta:
-    title: Setup a monorepo - Stylelint
+    title: Setup a monorepo workspace script - Stylelint
 toc:
     depth: 2-3
 ---
 
-# Setup a monorepo
+# Setup a monorepo with a workspace script
 
-To lint a monorepo solution (**multiple projects** per repository), [Stylelint](https://stylelint.io/) must be setuped to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup Stylelint for a monorepo solution.
+To lint a monorepo solution (**multiple projects** per repository), [Stylelint](https://stylelint.io/) must be setuped to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to setup Stylelint for a monorepo solution using a single workspace script :point_down:
 
 ## Setup the workspace
 
@@ -74,7 +74,7 @@ storybook-static
 
 #### .prettierignore
 
-Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../eslint/default.md#prettier), a `.prettierignore` file must be added at the root of the solution workspace to ignore everything but CSS files.
+Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../../eslint/default.md#prettier), a `.prettierignore` file must be added at the root of the solution workspace to ignore everything but CSS files.
 
 To do so, first, create a `.prettierignore` file at the root of the solution workspace:
 
@@ -138,7 +138,7 @@ trim_trailing_whitespace = false
 
 ### Add a CLI script
 
-At times, especially when running the CI build, it's useful to lint the entire solution using a single command. To do so, add the following script to your solution's workspace `package.json` file:
+Finally, add the following script to your solution's workspace `package.json` file:
 
 ``` !#7
 workspace
@@ -200,7 +200,7 @@ Then, open the newly created file and extend the default configuration with the 
 
 ## Custom configuration
 
-New projects shouldn't have to customize the default configurations offered by `@workleap/stylelint-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
+New projects shouldn't have to customize the default configurations offered by `@workleap/stylelint-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](../custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
 
 ## Try it :rocket:
 

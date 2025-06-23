@@ -50,14 +50,12 @@ For a complete explanation of why we chose to stick with ESLint for stylistic ru
 
 ## Getting started
 
-To get started, choose one of the following scenarios :point_down:
-
 ### Setup a project
 
-If you are looking to setup a **new** polyrepo solution (single project per repository) or migrating an **existing** polyrepo solution to `workleap/web-configs`, follow the guide to [setup a polyrepo](setup-polyrepo.md). Otherwise, for a monorepo solution (multiple projects per repository) follow either the guide to [setup a monorepo with Turborepo](setup-monorepo/turborepo.md) or to [setup a monorepo with a workspace script](setup-monorepo/workspace-script.md).
+If you are looking to setup a **new** polyrepo solution (single project per repository) or migrating an **existing** polyrepo solution to `@workleap/eslint-plugin`, follow the guide to [setup a polyrepo](setup-polyrepo.md). Otherwise, for a monorepo solution (multiple projects per repository) follow either the guide to [setup a monorepo with Turborepo](setup-monorepo/turborepo.md) or to [setup a monorepo with a workspace script](setup-monorepo/workspace-script.md).
 
-Once configured, to understand how to adapt `@workleap/eslint-plugin` default configurations to your codebase while you are completing the migration, have a look at the [custom configuration](custom-configuration.md) page.
+Once configured, to understand how to adapt `@workleap/eslint-plugin` default configurations to your codebase while you are completing the migration, have a look at the [custom configuration](./custom-configuration.md) page.
 
 ### Advanced configuration
 
-If you are encountering a challenging use case making impractical the [per project type configurations](#available-configurations) offered by `@workleap/eslint-plugin`, have a look at the [advanced composition](advanced-composition.md) page for documentation about how to compose the underlying configuration pieces.
+If you are encountering a challenging use case making impractical the [per project type configurations](#available-configurations) offered by `@workleap/eslint-plugin`, have a look at the [advanced composition](./advanced-composition.md) page for documentation about how to compose the underlying configuration pieces.
