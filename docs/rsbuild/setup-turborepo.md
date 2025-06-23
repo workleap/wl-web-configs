@@ -103,7 +103,8 @@ The `dev` script will execute the `dev` task configured earlier in the `turbo.js
 
 ```json package.json
 {
-    "dev": "turbo run dev"
+    "dev-app-1": "turbo run dev --filter=./apps/app-1",
+    "dev-storybook": "turbo run dev --filter=./apps/storybook"
 }
 ```
 
@@ -111,12 +112,13 @@ The `build` script will execute the `build` task configured earlier in the `turb
 
 ```json package.json
 {
-    "build": "turbo run build"
+    "build-app-1": "turbo run build --filter=./apps/app-1",
+    "build-storybook": "turbo run build --filter=./apps/storybook"
 }
 ```
 
 !!!tip
-To control which projects tasks are executed for, use the `--filter` option. For example, to run the `build` task only for `apps/app-1`, use the following script: `turbo run build --filter=./apps/app-1`.
+The --filter option is used to control which projects tasks are executed. In the previous examples, project paths are used, but you can also filter by package name.
 !!!
 
 ## Setup projects
@@ -135,5 +137,8 @@ To configure a project with Rsbuild for Storybook, follow the [Configuration for
 
 ## Try it :rocket:
 
-To test the new Rsbuild configurations, open a terminal at root of the solution's workspace and execute the [CLI scripts added earlier](#add-cli-scripts). Either the application and Storybook development server should start without outputting any error in the terminal or the application and Storybook application bundle files should be available in respectively the `dist` and `/storybook-static` folder.
+To test the new Rsbuild configurations, open a terminal at root of the solution's workspace and execute the [CLI scripts added earlier](#add-cli-scripts): 
+
+- For development scripts, the application development server should start without outputting any terminal errors.
+- For build scripts, the application's bundled outputs should be available in either the `dist` or `/storybook-static` folder.
 
