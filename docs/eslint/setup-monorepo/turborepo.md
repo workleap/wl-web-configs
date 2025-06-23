@@ -61,7 +61,7 @@ Then, open the newly created file and copy/paste the following content:
 }
 ```
 
-The `//#eslint` task will execute the `eslint` script at the root of the solution workspace and the `eslint` task will execute the `eslint` scripts for every project of the solution workspace.
+The `//#eslint` task will execute the `eslint` script at the root of the solution workspace and the `eslint` task will execute the `eslint` script for every project of the solution workspace.
 
 !!!tip
 For additional information, refer to the [Turborepo documentation](https://turborepo.com/docs).

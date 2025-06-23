@@ -2,7 +2,7 @@
 order: 90
 label: Workspace script setup
 meta:
-    title: Setup a monorepo workspace script - ESLint
+    title: Setup a monorepo with a workspace script - ESLint
 toc:
     depth: 2-3
 ---
