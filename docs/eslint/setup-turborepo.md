@@ -1,8 +1,7 @@
 ---
 order: 90
-label: Workspace script setup
 meta:
-    title: Setup a monorepo with a workspace script - ESLint
+    title: Setup with Turborepo - ESLint
 toc:
     depth: 2-3
 ---
@@ -11,9 +10,9 @@ toc:
 This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
 !!!
 
-# Setup a monorepo with a workspace script
+# Setup with Turborepo
 
-To lint a monorepo solution (**multiple projects** per repository), [ESLint](https://eslint.org/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up ESLint for a monorepo solution using a single workspace script :point_down:
+Execute the following steps to set up [ESLint](https://eslint.org/) for a monorepo solution managed with [Turborepo](https://turborepo.com/) :point_down:
 
 ## Setup the workspace
 
@@ -22,21 +21,64 @@ To lint a monorepo solution (**multiple projects** per repository), [ESLint](htt
 Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
-pnpm add -D @workleap/eslint-plugin eslint typescript @typescript-eslint/parser
+pnpm add -D @workleap/eslint-plugin eslint typescript @typescript-eslint/parser turbo
 ```
 
-### Configure ESLint
+### Configure Turborepo
 
-First, create a configuration file named `.eslintrc.json` at the root of the solution's workspace:
+First, create a configuration file named `turbo.json` at the root of the solution's workspace:
 
 ``` !#8
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json
+├── turbo.json
+├── .eslintrc.json
+```
+
+Then, open the newly created file and copy/paste the following content:
+
+```json !#5-13 turbo.json
+{
+    "$schema": "https://turbo.build/schema.json",
+    "ui": "tui",
+    "tasks": {
+        "lint": {
+            "dependsOn": ["eslint"]
+        },
+        "//#eslint": {
+            "outputs": ["node_modules/.cache/eslint"]
+        },
+        "eslint": {
+            "outputs": ["node_modules/.cache/eslint"]
+        }
+    }
+}
+```
+
+The `//#eslint` task will execute the `eslint` script at the root of the solution's workspace and the `eslint` task will execute the `eslint` script for every project of the solution's workspace.
+
+!!!tip
+For additional information, refer to the [Turborepo documentation](https://turborepo.com/docs).
+!!!
+
+### Configure ESLint
+
+Next, let's configure ESLint. Create a configuration file named `.eslintrc.json` at the root of the solution's workspace:
+
+``` !#9
+workspace
+├── packages
+├──── pkg-1
+├────── src
+├──────── ...
+├────── package.json
+├── package.json
+├── turbo.json
 ├── .eslintrc.json
 ```
 
@@ -56,14 +98,15 @@ ESLint can be configured to [ignore](https://eslint.org/docs/latest/use/configur
 
 To do so, first, create a `.eslintignore` file at the root of the solution's workspace:
 
-``` !#9
+``` !#10
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json
+├── turbo.json
 ├── .eslintrc.json
 ├── .eslintignore
 ```
@@ -93,14 +136,15 @@ To guarantee a consistent indentation, we recommend using [EditorConfig](https:/
 
 First, create a `.editorconfig` file at the root of the solution's workspace:
 
-``` !#10
+``` !#11
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json
+├── turbo.json
 ├── .eslintrc.json
 ├── .eslintignore
 ├── .editorconfig
@@ -123,36 +167,49 @@ indent_size = 4
 trim_trailing_whitespace = false
 ```
 
-### Add a CLI script
+### Add CLI scripts
 
-Finally, add the following script to your solution's workspace `package.json` file. This script will lint the root of the solution's workspace and every project of the solution's workspace:
+Finally, add the `lint` and `eslint` scripts to your solution's workspace `package.json` file.
 
 ``` !#7
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json    <------- (this one!)
+├── turbo.json
 ├── .eslintrc.json
 ├── .eslintignore
 ├── .editorconfig
 ```
 
+The `lint` script will execute the tasks configured earlier in the `turbo.json` file:
+
 ```json package.json
 {
-    "lint:eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint"
+    "lint": "turbo run lint --continue"
 }
 ```
 
-> The script definition may vary depending of your needs and your application configuration. For example, you might want to specify specific file extensions such as `--ext .js,.ts,.tsx`.
+The `eslint` script will lint the root of the solution's workspace:
+
+```json package.json
+{
+    "eslint": "eslint . --ignore-pattern packages --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint"
+}
+```
+
+!!!tip
+To prevent the root `eslint` script from linting the `packages` folder, add the `--ignore-pattern packages` option to the script. Apply the same pattern to every folder that includes nested `eslint` scripts.
+!!!
 
 ## Setup a project
 
-### Install the package
+### Install the packages
 
-Open a terminal at the root of the project (`packages/app` for this example) and install the following package:
+Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following packages:
 
 ```bash
 pnpm add -D @workleap/eslint-plugin
@@ -165,7 +222,7 @@ First, create a configuration file named `.eslintrc.json` at the root of the pro
 ``` !#7
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -182,7 +239,7 @@ Then, open the newly created file and extend the default configuration with one 
 
 For an application developed with TypeScript and React, use the following configuration:
 
-```json !#4 packages/app/.eslintrc.json
+```json !#4 packages/pkg-1/.eslintrc.json
 {
     "$schema": "https://json.schemastore.org/eslintrc",
     "root": true,
@@ -194,7 +251,7 @@ For an application developed with TypeScript and React, use the following config
 
 For a TypeScript library developed **with** React, use the following configuration:
 
-```json !#4 packages/app/.eslintrc.json
+```json !#4 packages/pkg-1/.eslintrc.json
 {
     "$schema": "https://json.schemastore.org/eslintrc",
     "root": true,
@@ -206,7 +263,7 @@ For a TypeScript library developed **with** React, use the following configurati
 
 For a TypeScript library developed **without** React, use the following configuration:
 
-```json !#4 packages/app/.eslintrc.json
+```json !#4 packages/pkg-1/.eslintrc.json
 {
     "$schema": "https://json.schemastore.org/eslintrc",
     "root": true,
@@ -214,16 +271,26 @@ For a TypeScript library developed **without** React, use the following configur
 }
 ```
 
+### Add a CLI script
+
+Finally, add the following `eslint` script to your project `package.json` file. This script will be executed by Turborepo:
+
+```json packages/pkg-1/package.json
+{
+    "eslint": "eslint . --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint"
+}
+```
+
 ## Custom configuration
 
-New projects shouldn't have to customize the default configurations offered by `@workleap/eslint-plugin`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](../custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
+New projects shouldn't have to customize the default configurations offered by `@workleap/eslint-plugin`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](./custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
 
 ## Try it :rocket:
 
 To test your new ESLint setup, open a JavaScript file, type invalid code (e.g. `var x = 0;`), then save. Open a terminal at the root of the solution and execute the [CLI script added earlier](#add-a-cli-script):
 
 ```bash
-pnpm lint:eslint
+pnpm lint
 ```
 
 The terminal should output a linting error.

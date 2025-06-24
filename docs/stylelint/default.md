@@ -28,6 +28,4 @@ Otherwise, Prettier will also format your `.js,.json,.ts` files and you'll end u
 
 ## Getting started
 
-If you are looking to setup a **new** polyrepo solution (single project per repository) or migrating an **existing** polyrepo solution to `@workleap/stylelint-configs`, follow the guide to [setup a polyrepo](./setup-polyrepo.md). Otherwise, for a monorepo solution (multiple projects per repository) follow either the guide to [setup a monorepo with Turborepo](./setup-monorepo/turborepo.md) or to [setup a monorepo with a workspace script](./setup-monorepo/workspace-script.md).
-
-Once configured, to understand how to adapt `@workleap/stylelint-configs` default configurations to your codebase while you are completing the migration, have a look at the [custom configuration](./custom-configuration.md) page.
+If you are looking to setup a polyrepo solution (single project per repository), follow the [Setup a polyrepo](./setup-polyrepo.md) guide. To setup a monorepo solution managed with [Turborepo](https://turborepo.com/), follow the [Setup with Turborepo](./setup-turborepo.md) guide.

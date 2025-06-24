@@ -1,15 +1,14 @@
 ---
-order: 90
-label: Workspace script setup
+order: 100
 meta:
-    title: Setup a monorepo with a workspace script - Stylelint
+    title: Setup with Turborepo - Stylelint
 toc:
     depth: 2-3
 ---
 
-# Setup a monorepo with a workspace script
+# Setup with Turborepo
 
-To lint a monorepo solution (**multiple projects** per repository), [Stylelint](https://stylelint.io/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up Stylelint for a monorepo solution using a single workspace script :point_down:
+Execute the following steps to set up [Stylelint](https://stylelint.io/) for a monorepo solution managed with [Turborepo](https://turborepo.com/) :point_down:
 
 ## Setup the workspace
 
@@ -18,21 +17,61 @@ To lint a monorepo solution (**multiple projects** per repository), [Stylelint](
 Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
-pnpm add -D @workleap/stylelint-configs stylelint prettier
+pnpm add -D @workleap/stylelint-configs stylelint prettier turbo
 ```
 
-### Configure Stylelint
+### Configure Turborepo
 
-First, create a configuration file named `.stylelintrc.json` at the root of the solution's workspace:
+First, create a configuration file named `turbo.json` at the root of the solution's workspace:
 
 ``` !#8
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json
+├── turbo.json
+├── .eslintrc.json
+```
+
+Then, open the newly created file and copy/paste the following content:
+
+```json !#5-10 turbo.json
+{
+    "$schema": "https://turbo.build/schema.json",
+    "ui": "tui",
+    "tasks": {
+        "lint": {
+            "dependsOn": ["stylelint"]
+        },
+        "stylelint": {
+            "outputs": ["node_modules/.cache/stylelint"]
+        }
+    }
+}
+```
+
+The `stylelint` task will execute the `stylelint` script for every project of the solution's workspace.
+
+!!!tip
+For additional information, refer to the [Turborepo documentation](https://turborepo.com/docs).
+!!!
+
+### Configure Stylelint
+
+Next, let's configure Stylelint. Create a configuration file named `.stylelintrc.json` at the root of the solution's workspace:
+
+``` !#9
+workspace
+├── packages
+├──── pkg-1
+├────── src
+├──────── ...
+├────── package.json
+├── package.json
+├── turbo.json
 ├── .stylelintrc.json
 ```
 
@@ -51,14 +90,15 @@ Stylelint can be configured to [ignore](https://stylelint.io/user-guide/ignore-c
 
 To do so, first, create an `.stylelintignore` file at the root of the solution's workspace:
 
-``` !#9
+``` !#10
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json
+├── turbo.json
 ├── .stylelintrc.json
 ├── .stylelintignore
 ```
@@ -74,18 +114,19 @@ storybook-static
 
 #### .prettierignore
 
-Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../../eslint/default.md#prettier), a `.prettierignore` file must be added at the root of the solution's workspace to ignore everything but CSS files.
+Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../eslint/default.md#prettier), a `.prettierignore` file must be added at the root of the solution's workspace to ignore everything but CSS files.
 
 To do so, first, create a `.prettierignore` file at the root of the solution's workspace:
 
-``` !#10
+``` !#11
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json
+├── turbo.json
 ├── .stylelintrc.json
 ├── .stylelintignore
 ├── .prettierignore
@@ -106,14 +147,15 @@ To guarantee a consistent indentation, we recommend using [EditorConfig](https:/
 
 First, create a `.editorconfig` file at the root of the solution's workspace:
 
-``` !#10
+``` !#11
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json
+├── turbo.json
 ├── .stylelintrc.json
 ├── .stylelintignore
 ├── .editorconfig
@@ -143,11 +185,12 @@ Finally, add the following script to your solution's workspace `package.json` fi
 ``` !#7
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json    <------- (this one!)
+├── turbo.json
 ├── .stylelintrc.json
 ├── .stylelintignore
 ├── .editorconfig
@@ -155,17 +198,15 @@ workspace
 
 ```json package.json
 {
-    "lint:stylelint:": "stylelint \"**/*.css\" --cache --cache-location node_modules/.cache/stylelint"
+    "lint": "turbo run lint --continue"
 }
 ```
-
-> The script definition may vary depending on your needs and your application configuration. For example, you might want to specify additional file extensions such as `"**/*.{css,scss,sass}"`.
 
 ## Setup a project
 
 ### Install the packages
 
-Open a terminal at the root of the project (`packages/app` for this example) and install the following package:
+Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following package:
 
 ```bash
 pnpm add -D @workleap/stylelint-configs
@@ -178,7 +219,7 @@ First, create a configuration file named `.stylelintrc.json` at the root of the 
 ``` !#7
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -191,23 +232,33 @@ workspace
 
 Then, open the newly created file and extend the default configuration with the shared configurations provided by `@workleap/stylelint-configs`:
 
-```json packages/app/.stylelintrc.json
+```json packages/pkg-1/.stylelintrc.json
 {
     "$schema": "https://json.schemastore.org/stylelintrc",
     "extends": "@workleap/stylelint-configs"
 }
 ```
 
+### Add a CLI script
+
+Finally, add the following `eslint` script to your project `package.json` file. This script will be executed by Turborepo:
+
+```json packages/pkg-1/package.json
+{
+    "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0"
+}
+```
+
 ## Custom configuration
 
-New projects shouldn't have to customize the default configurations offered by `@workleap/stylelint-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](../custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
+New projects shouldn't have to customize the default configurations offered by `@workleap/stylelint-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](./custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
 
 ## Try it :rocket:
 
 To test your new setup, open a CSS file, type invalid code (e.g. `color: #fff`), then save. Open a terminal at the root of the solution and execute the CLI script added earlier:
 
 ```bash
-pnpm lint:stylelint
+pnpm lint
 ```
 
 The terminal should output a linting error.

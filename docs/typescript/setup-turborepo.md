@@ -1,15 +1,14 @@
 ---
 order: 100
-label: Turborepo setup
 meta:
-    title: Setup a monorepo with Turborepo - TypeScript
+    title: Setup with Turborepo - TypeScript
 toc:
     depth: 2-3
 ---
 
-# Setup a monorepo with Turborepo
+# Setup with Turborepo
 
-To lint a monorepo solution (**multiple projects** per repository), [TypeScript](https://www.typescriptlang.org/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up TypeScript for a monorepo solution managed with [Turborepo](https://turborepo.com/) :point_down:
+Execute the following steps to set up [TypeScript](https://www.typescriptlang.org/) for a monorepo solution managed with [Turborepo](https://turborepo.com/) :point_down:
 
 ## Setup the workspace
 
@@ -192,7 +191,7 @@ Finally, add the following `typecheck` script to your project `package.json` fil
 
 ## Custom configuration
 
-New projects shouldn't have to customize most of the default configurations offered by `@workleap/typescript-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](../custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
+New projects shouldn't have to customize most of the default configurations offered by `@workleap/typescript-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](./custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
 
 ### Compiler paths
 
