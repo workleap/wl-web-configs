@@ -1,4 +1,5 @@
 ---
+order: 100
 label: Getting started
 ---
 

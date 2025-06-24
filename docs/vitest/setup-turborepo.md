@@ -83,6 +83,10 @@ pnpm add -D vitest
 
 ### Configure Vitest
 
+!!!info
+`@workleap/web-configs` does not offer any custom configuration for Vitest.
+!!!
+
 First, create a configuration file named `vitest.config.ts` at the root of the project:
 
 ``` !#7
@@ -106,9 +110,6 @@ export default defineConfig({
     test: {
         include: ["tests/**/*.test.ts"],
         exclude: ["node_modules", "dist"],
-        testTransformMode: {
-            web: [".ts"]
-        },
         reporters: "verbose"
     },
     cacheDir: "./node_modules/.cache/vitest"
