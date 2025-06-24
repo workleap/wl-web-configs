@@ -1,9 +1,9 @@
 ---
 order: 90
-label: Setup a CI workflow for Turborepo
+label: Setup a CI workflow with Turborepo
 ---
 
-# Setup a CI workflow for Turborepo
+# Setup a CI workflow with Turborepo
 
 ## GitHub Actions
 
