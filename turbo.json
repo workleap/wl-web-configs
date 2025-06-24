@@ -26,8 +26,6 @@
             "dependsOn": ["build"]
         },
         "lint": {
-            // Temporary disabling knip until Rsbuild and Rslib plugins are available.
-            // "dependsOn": ["eslint", "stylelint", "typecheck", "//#syncpack", "//#knip"]
             "dependsOn": ["eslint", "stylelint", "typecheck", "//#syncpack"]
         },
         "//#eslint": {
@@ -46,7 +44,6 @@
             "outputs": ["node_modules/.cache/tsbuildinfo.json"]
         },
         "//#syncpack": {},
-        "//#knip": {},
         "@rsbuild-sample/app#test": {
             "dependsOn": ["@workleap/swc-configs#build", "@rsbuild-sample/rslib-lib#build"],
             "outputs": ["node_modules/.cache/vitest/**"]

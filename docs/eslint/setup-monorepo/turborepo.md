@@ -208,9 +208,9 @@ To prevent the root `eslint` script from linting the `packages` folder, add the 
 
 ## Setup a project
 
-### Install the package
+### Install the packages
 
-Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following package:
+Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following packages:
 
 ```bash
 pnpm add -D @workleap/eslint-plugin

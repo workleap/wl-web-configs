@@ -132,9 +132,9 @@ The `typecheck` script will lint the root of the solution's workspace:
 
 ## Setup a project
 
-### Install the package
+### Install the packages
 
-Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following package:
+Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following packages:
 
 ```bash
 pnpm add -D @workleap/typescript-configs typescript

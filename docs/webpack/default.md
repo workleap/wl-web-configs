@@ -1,5 +1,5 @@
 ---
-order: 90
+order: 80
 label: webpack
 toc:
     depth: 2-3
