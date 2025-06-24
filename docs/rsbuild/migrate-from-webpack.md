@@ -1,5 +1,5 @@
 ---
-order: 60
+order: 50
 label: Migrate from webpack
 meta:
     title: Migrate from webpack - Rsbuild

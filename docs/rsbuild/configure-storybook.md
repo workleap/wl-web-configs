@@ -13,6 +13,8 @@ To configure [Rsbuild](https://rsbuild.dev/) for Storybook, execute the followin
 
 ## Install the packages
 
+Open a terminal at the root of the Storybook project and install the following packages:
+
 ```bash
 pnpm add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist storybook-react-rsbuild
 ```
@@ -377,4 +379,4 @@ By default, Rsbuild injects a few environment variables into the code using the 
 
 ## Try it :rocket:
 
-To test the new Rsbuild configuration, open a terminal at the root of the project and execute the [CLI scripts added earlier](#add-cli-scripts). Either the Storybook development server should start without outputting any error in the terminal or the Storybook application bundle files should be available in the `/storybook-static` folder (or any other folder you configured).
+To test the new Rsbuild configuration, open a terminal at the root of the project and execute the [CLI scripts added earlier](#add-cli-scripts). Either the Storybook development server should start without outputting any terminal errors or the Storybook application bundled output should be available in the `/storybook-static` folder (or any other folder you configured).

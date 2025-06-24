@@ -44,7 +44,7 @@ To get started, choose one of the following scenarios :point_down:
 
 ### Setup a project
 
-If you are looking to setup a **new** polyrepo solution (single project per repository) or migrating an **existing** polyrepo solution to `@workleap/typescript-configs`, follow the guide to [setup a polyrepo](./setup-polyrepo.md). Otherwise, for a monorepo solution (multiple projects per repository) follow either the guide to [setup a monorepo with Turborepo](./setup-monorepo/turborepo.md) or to [setup a monorepo with a workspace script](./setup-monorepo/workspace-script.md).
+If you are looking to setup a polyrepo solution (single project per repository), follow the [Setup a polyrepo](./setup-polyrepo.md) guide. To setup a monorepo solution managed with [Turborepo](https://turborepo.com/), follow the [Setup with Turborepo](./setup-turborepo.md) guide.
 
 Once configured, to understand how to adapt `@workleap/typescript-configs` default configurations to your codebase while you are completing the migration, have a look at the [custom configuration](./custom-configuration.md) page.
 

@@ -1,5 +1,5 @@
 ---
-order: 70
+order: 60
 label: Deploy to Netlify
 meta:
     title: Deploy to Netlify - Rsbuild

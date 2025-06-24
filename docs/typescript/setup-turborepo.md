@@ -1,38 +1,80 @@
 ---
-order: 90
-label: Workspace script setup
+order: 100
 meta:
-    title: Setup a monorepo with a workspace script - TypeScript
+    title: Setup with Turborepo - TypeScript
 toc:
     depth: 2-3
 ---
 
-# Setup a monorepo with a workspace script
+# Setup with Turborepo
 
-To lint a monorepo solution (**multiple projects** per repository), [TypeScript](https://www.typescriptlang.org/) must be set up to lint the files at the root of the solution (the monorepo **workspace**) and the files of every project of the monorepo. Execute the following steps to set up TypeScript for a monorepo solution using a single workspace script :point_down:
+Execute the following steps to set up [TypeScript](https://www.typescriptlang.org/) for a monorepo solution managed with [Turborepo](https://turborepo.com/) :point_down:
 
 ## Setup the workspace
 
 ### Install the packages
 
-Open a terminal at the root of the solution workspace (the **root** of the repository) and install the following packages:
+Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript
+pnpm add -D @workleap/typescript-configs typescript turbo
 ```
 
-### Configure TypeScript
+### Configure Turborepo
 
-First, create a configuration file named `tsconfig.json` at the root of the solution workspace:
+First, create a configuration file named `turbo.json` at the root of the solution's workspace:
 
 ``` !#8
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json
+├── turbo.json
+├── tsconfig.json
+```
+
+Then, open the newly created file and copy/paste the following content:
+
+```json !#5-13 turbo.json
+{
+    "$schema": "https://turbo.build/schema.json",
+    "ui": "tui",
+    "tasks": {
+        "lint": {
+            "dependsOn": ["typecheck"]
+        },
+        "//#typecheck": {
+            "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+        },
+        "typecheck": {
+            "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+        }
+    }
+}
+```
+
+The `//#typecheck` task will execute the `typecheck` script at the root of the solution's workspace and the `typecheck` task will execute the `typecheck` script for every project of the solution's workspace.
+
+!!!tip
+For additional information, refer to the [Turborepo documentation](https://turborepo.com/docs).
+!!!
+
+### Configure TypeScript
+
+Next, let's configure TypeScript. Create a configuration file named `tsconfig.json` at the root of the solution's workspace:
+
+``` !#9
+workspace
+├── packages
+├──── pkg-1
+├────── src
+├──────── ...
+├────── package.json
+├── package.json
+├── turbo.json
 ├── tsconfig.json
 ```
 
@@ -55,32 +97,43 @@ If your application is using [Storybook](https://storybook.js.org/), make sure t
 }
 ```
 
-### Add a CLI script
+### Add CLI scripts
 
-At times, especially when running the CI build, it's useful to lint the entire solution using a single command. To do so, add the following script to your solution's workspace `package.json` file:
+Finally, add the `lint` and `typecheck` scripts to your solution's workspace `package.json` file.
 
 ``` !#7
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
 ├── package.json    <------- (this one!)
+├── turbo.json
 ├── tsconfig.json
 ```
 
+The `lint` script will execute the tasks configured earlier in the `turbo.json` file:
+
 ```json package.json
 {
-    "lint:types": "pnpm -r --parallel --include-workspace-root exec tsc"
+    "lint": "turbo run lint --continue"
+}
+```
+
+The `typecheck` script will lint the root of the solution's workspace:
+
+```json package.json
+{
+    "typecheck": "tsc"
 }
 ```
 
 ## Setup a project
 
-### Install the package
+### Install the packages
 
-Open a terminal at the root of the project (`packages/app` for this example) and install the following package:
+Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following packages:
 
 ```bash
 pnpm add -D @workleap/typescript-configs typescript
@@ -93,7 +146,7 @@ First, create a configuration file named `tsconfig.json` at the root of the proj
 ``` !#7
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -126,20 +179,30 @@ For a library project developed with or without React, use the following configu
 }
 ```
 
+### Add a CLI script
+
+Finally, add the following `typecheck` script to your project `package.json` file. This script will be executed by Turborepo:
+
+```json packages/pkg-1/package.json
+{
+    "typecheck": "tsc"
+}
+```
+
 ## Custom configuration
 
-New projects shouldn't have to customize most of the default configurations offered by `@workleap/typescript-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](../custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
+New projects shouldn't have to customize most of the default configurations offered by `@workleap/typescript-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](./custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
 
 ### Compiler paths
 
-If your solution is not set up with [JIT packages](https://www.shew.dev/monorepos/packaging/jit) and any projects referencing other projects of the monorepo workspace (e.g. `"@sample/components": "workspace:*"`), chances are that you'll need to define [paths](https://www.typescriptlang.org/tsconfig#compilerOptions) in their `tsconfig.json` file.
+If your solution is not set up with [JIT packages](https://www.shew.dev/monorepos/packaging/jit) and any projects are referencing other projects of the monorepo workspace (e.g. `"@sample/components": "workspace:*"`), chances are that you'll need to define [paths](https://www.typescriptlang.org/tsconfig#compilerOptions) in their `tsconfig.json` file.
 
 Given the following solution:
 
 ``` !#3,8,13
 workspace
 ├── packages
-├──── app
+├──── pkg-1
 ├────── src
 ├──────── ...
 ├────── package.json
@@ -155,12 +218,13 @@ workspace
 ├────── package.json
 ├────── tsconfig.json
 ├── package.json
+├── turbo.json
 ├── tsconfig.json
 ```
 
-If the `packages/components` project is referencing the `packages/utils` project, and the `packages/app` project is referencing the `packages/components` project, you'll need to add the following `compilerOptions.paths`:
+If the `packages/components` project is referencing the `packages/utils` project, and the `packages/pkg-1` project is referencing the `packages/components` project, you'll need to add the following `compilerOptions.paths`:
 
-```json !#4-7 packages/app/tsconfig.json
+```json !#4-7 packages/pkg-1/tsconfig.json
 {
     "extends": "@workleap/typescript-configs/web-application.json",
     "compilerOptions": {
@@ -192,7 +256,7 @@ To test your new TypeScript setup, open a TypeScript file, type invalid code (e.
 Alternatively, to catch the error, open a terminal at the root of the solution and execute the CLI script added earlier:
 
 ```bash
-pnpm lint:types
+pnpm lint
 ```
 
 The terminal should output a linting error.

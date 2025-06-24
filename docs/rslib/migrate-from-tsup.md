@@ -1,5 +1,5 @@
 ---
-order: 80
+order: 60
 label: Migrate from tsup
 meta:
     title: Migrate from tsup - Rslib
