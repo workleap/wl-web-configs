@@ -61,6 +61,14 @@ For additional information, refer to the [Turborepo documentation](https://turbo
 
 !!!warning
 A Syncpack configuration is highly specific to each project. While the following boilerplate offers a starting point for many use cases, it's important to review and tailor it to fit your project's particular needs.
+
+Look at other project configurations as inspiration:
+
+{.no-bottom-margin}
+- [wl-web-configs](https://github.com/workleap/wl-web-configs/blob/main/.syncpackrc.js)
+- [wl-squide](https://github.com/workleap/wl-squide/blob/main/.syncpackrc.js)
+- [wl-honeycomb-web](https://github.com/workleap/wl-honeycomb-web/blob/main/.syncpackrc.js)
+- [workleap-platform-widgets](https://dev.azure.com/workleap/WorkleapPlatform/_git/workleap-platform-widgets?path=/.syncpackrc.js)
 !!!
 
 Next, let's configure Syncpack. Create a configuration file named `.syncpackrc.js` at the root of the solution's workspace:
@@ -134,7 +142,7 @@ workspace
 ├── .syncpackrc.js
 ```
 
-The `lint` script will execute the `lint` task and it's dependencies configured earlier in the `turbo.json` file:
+The `lint` script will execute the `lint` task and its dependencies configured earlier in the `turbo.json` file:
 
 ```json package.json
 {
