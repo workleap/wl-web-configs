@@ -92,7 +92,6 @@ Finally, defines the specific validation steps for the workflow between `Restore
 
 ### Try it :rocket:
 
-{.list-flush}
 1. Create a pull request in GitHub and confirm that the CI workflow **runs successfully**.
 
 2. Make a trivial change to the code in the pull request branch, something that shouldn't affect the build output.
