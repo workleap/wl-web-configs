@@ -9,7 +9,7 @@ toc:
 
 # Configure for Storybook
 
-To configure [Rsbuild](https://rsbuild.dev/) for Storybook, execute the following steps :point_down:
+To configure [Rsbuild](https://rsbuild.dev/) for [Storybook](https://storybook.js.org/), execute the following steps :point_down:
 
 ## Install the packages
 

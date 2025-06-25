@@ -84,7 +84,7 @@ pnpm add -D vitest
 ### Configure Vitest
 
 !!!info
-`@workleap/web-configs` does not offer any custom configuration for Vitest.
+`workleap/web-configs` does not offer any custom configuration for Vitest.
 !!!
 
 First, create a configuration file named `vitest.config.ts` at the root of the project:

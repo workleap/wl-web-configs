@@ -9,9 +9,7 @@ toc:
 
 # Deploy to Netlify
 
-The deployment process for web applications can vary depending on various factors. Therefore, we do not recommend any specific deployment setup.
-
-However, there are a few essential configurations that need to be made regardless of your architectural and deployment choices.
+The deployment process for web applications can vary depending on various factors. Therefore, we do not recommend any specific deployment setup. However, there are a few essential configurations that need to be made regardless of your architectural and deployment choices.
 
 ## Add a default redirect 
 

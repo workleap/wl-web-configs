@@ -5,7 +5,7 @@ label: Getting started
 
 # Getting started
 
-Welcome to `@workleap/web-configs`, a collection of **configuration libraries** for building web applications at [Workleap](https://workleap.com/). On this getting started page, you'll find an overview of the project and a list of supported tools.
+Welcome to `workleap/web-configs`, a collection of **configuration libraries** for building web applications at [Workleap](https://workleap.com/). On this getting started page, you'll find an overview of the project and a list of supported tools.
 
 ## Why we built these libraries?
 
@@ -45,6 +45,7 @@ The majority of the shared tooling configurations targets [ESM](https://develope
 | ![](../static/typescript.svg){ class="h-5 w-5 mr-2 -mt-1" }[Typescript](https://www.typescriptlang.org/) | [![npm version](https://img.shields.io/npm/v/@workleap/typescript-configs)](https://www.npmjs.com/package/@workleap/typescript-configs) | [Getting started](../typescript/default.md) |
 | ![](../static/rsbuild.svg){ class="h-5 w-5 mr-2 -mt-1" }[Rsbuild](https://rsbuild.dev/) | [![npm version](https://img.shields.io/npm/v/@workleap/rsbuild-configs)](https://www.npmjs.com/package/@workleap/rsbuild-configs) | [Getting started](../rsbuild/default.md) |
 | ![](../static/rslib.svg){ class="h-5 w-5 mr-2 -mt-1" }[Rslib](https://lib.rsbuild.dev/) | [![npm version](https://img.shields.io/npm/v/@workleap/rslib-configs)](https://www.npmjs.com/package/@workleap/rslib-configs) | [Getting started](../rslib/default.md) |
+| ![](../static/vitest.svg){ class="h-5 w-5 mr-2 -mt-1" }[Vitest](https://vitest.dev/) | - | [Getting started](../vitest/setup-turborepo.md) |
 | ![](../static/postcss.svg){ class="h-5 w-5 mr-2 -mt-1" }[PostCSS](https://postcss.org/) [!badge variant="secondary" size="s" text="in maintenance mode"] | [![npm version](https://img.shields.io/npm/v/@workleap/postcss-configs)](https://www.npmjs.com/package/@workleap/postcss-configs) | [Getting started](../postcss/default.md) |
 | ![](../static/swc.svg){ class="h-5 w-5 mr-2 -mt-1" }[SWC](https://swc.rs/) [!badge variant="secondary" size="s" text="in maintenance mode"] | [![npm version](https://img.shields.io/npm/v/@workleap/swc-configs)](https://www.npmjs.com/package/@workleap/swc-configs) | [Getting started](../swc/default.md) |
 | ![](../static/webpack.svg){ class="h-5 w-5 mr-2 -mt-1" }[webpack](https://webpack.js.org/) [!badge variant="secondary" size="s" text="in maintenance mode"] | [![npm version](https://img.shields.io/npm/v/@workleap/webpack-configs)](https://www.npmjs.com/package/@workleap/webpack-configs) | [Getting started](../webpack/default.md) |
