@@ -1,5 +1,5 @@
 ---
-order: 70
+order: 60
 label: tsup
 toc:
     depth: 2-3

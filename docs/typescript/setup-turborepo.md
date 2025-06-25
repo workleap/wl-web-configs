@@ -113,7 +113,7 @@ workspace
 ├── tsconfig.json
 ```
 
-The `lint` script will execute the tasks configured earlier in the `turbo.json` file:
+The `lint` script will execute the `lint` task and it's dependencies configured earlier in the `turbo.json` file:
 
 ```json package.json
 {
@@ -128,6 +128,10 @@ The `typecheck` script will lint the root of the solution's workspace:
     "typecheck": "tsc"
 }
 ```
+
+!!!tip
+While the `lint` task may seem redundant for now, it's important to note that as your Turborepo configuration evolves, additional linting tasks will be added as dependencies of the main `lint` task.
+!!!
 
 ## Setup a project
 
