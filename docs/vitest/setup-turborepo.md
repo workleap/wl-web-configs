@@ -9,7 +9,9 @@ toc:
 
 # Setup with Turborepo
 
-To configure [Vitest](https://vitest.dev/) in a monorepo managed with [Turborepo](https://turborepo.com/), follow these steps 👇
+[Vitest](https://vitest.dev/) is a fast and modern unit testing framework. It provides a familiar developer experience by offering a Jest-compatible API, allowing most existing test setups to be ported easily. Until [Rstest](https://rstest.rs/) is ready, Vitest is the recommended unit testing framework at Workleap.
+
+To configure Vitest in a monorepo managed with [Turborepo](https://turborepo.com/), follow these steps 👇
 
 ## Setup the workspace
 

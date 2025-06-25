@@ -185,7 +185,7 @@ workspace
 ├── .editorconfig
 ```
 
-The `lint` script will execute the tasks configured earlier in the `turbo.json` file:
+The `lint` script will execute the `lint` task and it's dependencies configured earlier in the `turbo.json` file:
 
 ```json package.json
 {
@@ -203,6 +203,10 @@ The `eslint` script will lint the root of the solution's workspace:
 
 !!!tip
 To prevent the root `eslint` script from linting the `packages` folder, add the `--ignore-pattern packages` option to the script. Apply the same pattern to every folder that includes nested `eslint` scripts.
+!!!
+
+!!!tip
+While the `lint` task may seem redundant for now, it's important to note that as your Turborepo configuration evolves, additional linting tasks will be added as dependencies of the main `lint` task.
 !!!
 
 ## Setup a project
