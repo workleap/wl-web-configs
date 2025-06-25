@@ -167,7 +167,6 @@ While the `lint` task may seem redundant for now, it's important to note that as
 To test your new Syncpack setup:
 
 1. Identify a dependency that is installed in multiple projects within the monorepo.
-
 2. Open a terminal at the root of the workspace and run the CLI script added earlier. Syncpack should complete without reporting any errors:
 
 ```bash

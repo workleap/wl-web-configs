@@ -95,11 +95,8 @@ Finally, defines the specific validation steps for the workflow between `Restore
 To test your new CI workflow:
 
 1. Create a pull request in GitHub and confirm that the CI workflow **runs successfully**.
-
 2. Make a trivial change to the code in the pull request branch, something that shouldn't affect the build output.
-
 3. Push the change to trigger the CI workflow again.
-
 4. Check the CI workflow logs, you should see a log entry indicating a Turborepo cache hit:
 
 ```bash !#2
