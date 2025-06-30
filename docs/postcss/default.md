@@ -1,6 +1,8 @@
 ---
 order: 90
 label: PostCSS
+nav:
+    badge: in maintenance mode|secondary
 toc:
     depth: 2-3
 ---

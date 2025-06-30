@@ -1,6 +1,8 @@
 ---
 order: 60
 label: tsup
+nav:
+    badge: in maintenance mode|secondary
 toc:
     depth: 2-3
 ---

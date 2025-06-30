@@ -1,6 +1,8 @@
 ---
 order: 70
 label: webpack
+nav:
+    badge: in maintenance mode|secondary
 toc:
     depth: 2-3
 ---
