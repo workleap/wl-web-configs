@@ -1,6 +1,8 @@
 ---
 order: 80
 label: SWC
+nav:
+    badge: in maintenance mode|secondary
 toc:
     depth: 2-3
 ---
