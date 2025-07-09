@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0-preview5.804561850129">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.805399265721">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.11.0-preview5">
+    <meta name="generator" content="Retype 3.12.0-preview2">
 
     <!-- Primary Meta Tags -->
     <title>Configure for build - webpack</title>
@@ -31,13 +31,13 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../static/favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.11.0-preview5.804561850129" rel="stylesheet">
+    <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.805399265721" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0-preview5" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0-preview5.804561850129" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.805399265721" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -145,31 +145,6 @@
         
                         </ul>
                     </nav>
-        
-                    <!-- Header Right Skeleton -->
-                    <div v-cloak class="flex justify-end grow skeleton">
-        
-                        <!-- Search input mock -->
-                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
-                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                            </div>
-                            <input class="w-full h-10 placeholder-search-placeholder transition-colors duration-200 ease-in bg-search-bg border border-transparent rounded md:text-sm hover:border-search-border-hover focus:outline-none focus:border-search-border-focus" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
-                        </div>
-        
-                        <!-- Mobile search button -->
-                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                        </div>
-        
-                        <!-- Dark mode switch placeholder -->
-                        <div class="w-10 h-10 lg:ml-2"></div>
-        
-                        <!-- History button -->
-                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
-                        </div>
-                    </div>
         
                     <div v-cloak class="flex justify-end grow">
                         <div id="retype-mobile-search-button"></div>
@@ -286,9 +261,9 @@
                                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
                                     <ol role="list">
                                         <li class="pr-4">
-                                            <a href="../../webpack/" class="pr-4">
+                                            <span class="pr-4">
                                                 webpack
-                                            </a>
+                                            </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                                             </svg>
@@ -320,7 +295,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p><code v-pre>@workleap/webpack-configs</code> is now in maintenance mode. If you&#x27;re starting a new project, consider using <a href="../../rsbuild/">@workleap/rsbuild-configs</a> instead for better performance and modern tooling.</p>
+<p><code translate="no" v-pre>@workleap/webpack-configs</code> is now in maintenance mode. If you&#x27;re starting a new project, consider using <a href="../../rsbuild/getting-started/">@workleap/rsbuild-configs</a> instead for better performance and modern tooling.</p>
         </div>
     </div>
 </div>
@@ -347,7 +322,7 @@
         <span>HTML template</span>
     </h3>
 </doc-anchor-target>
-<p>First, create a <code v-pre>public</code> folder with an <code v-pre>index.html</code> file at the root of the project:</p>
+<p>First, create a <code translate="no" v-pre>public</code> folder with an <code translate="no" v-pre>index.html</code> file at the root of the project:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="2-3"><code v-pre class="language-none">web-project
 ├── public
@@ -357,7 +332,7 @@
 ├── package.json
 ├── webpack.build.js</code></pre>
 </doc-codeblock></div>
-<p>Then, open the newly created <code v-pre>index.html</code> file and copy/paste the following content:</p>
+<p>Then, open the newly created <code translate="no" v-pre>index.html</code> file and copy/paste the following content:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">public/index.html</div>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;!DOCTYPE html&gt;
@@ -369,15 +344,15 @@
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </doc-codeblock></div>
-<p>The content of the <code v-pre>public/index.html</code> file is the default template that will be used by <a href="https://webpack.js.org/plugins/html-webpack-plugin/" class="outbound" target="_blank">HtmlWebpackPlugin</a>.</p>
+<p>The content of the <code translate="no" v-pre>public/index.html</code> file is the default template that will be used by <a href="https://webpack.js.org/plugins/html-webpack-plugin/" class="outbound" target="_blank">HtmlWebpackPlugin</a>.</p>
 <doc-anchor-target id="reference-local-assets">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#reference-local-assets">#</doc-anchor-trigger>
         <span>Reference local assets</span>
     </h4>
 </doc-anchor-target>
-<p>To reference local assets such as a <code v-pre>favicon.png</code> in the default HTML template, it is recommended to preprend the <strong>relative</strong> path of every asset with the <code v-pre>publicPath</code> of the webpack config.</p>
-<p>First, add the asset to the <code v-pre>public</code> folder at the root of the project:</p>
+<p>To reference local assets such as a <code translate="no" v-pre>favicon.png</code> in the default HTML template, it is recommended to preprend the <strong>relative</strong> path of every asset with the <code translate="no" v-pre>publicPath</code> of the webpack config.</p>
+<p>First, add the asset to the <code translate="no" v-pre>public</code> folder at the root of the project:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="4"><code v-pre class="language-none">web-project
 ├── public
@@ -387,7 +362,7 @@
 ├──── ...
 ├── package.json</code></pre>
 </doc-codeblock></div>
-<p>Then, add the assets to the <code v-pre>index.html</code> file:</p>
+<p>Then, add the assets to the <code translate="no" v-pre>index.html</code> file:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">public/index.html</div>
 <pre translate="no" class="language-markup" data-line="4"><code v-pre class="language-markup">&lt;!DOCTYPE html&gt;
@@ -411,17 +386,17 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>If <code v-pre>output.publicPath</code> is set to <code v-pre>auto</code>, use <code v-pre>href=&quot;favicon.png&quot;</code> instead.</p>
+<p>If <code translate="no" v-pre>output.publicPath</code> is set to <code translate="no" v-pre>auto</code>, use <code translate="no" v-pre>href=&quot;favicon.png&quot;</code> instead.</p>
         </div>
     </div>
 </div>
 <doc-anchor-target id="webpackbuildjs">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#webpackbuildjs">#</doc-anchor-trigger>
-        <span><code v-pre>webpack.build.js</code></span>
+        <span><code translate="no" v-pre>webpack.build.js</code></span>
     </h3>
 </doc-anchor-target>
-<p>Next, create a configuration file named <code v-pre>webpack.build.js</code> at the root of the project:</p>
+<p>Next, create a configuration file named <code translate="no" v-pre>webpack.build.js</code> at the root of the project:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">web-project
 ├── src
@@ -429,7 +404,7 @@
 ├── package.json
 ├── webpack.build.js</code></pre>
 </doc-codeblock></div>
-<p>Then, open the newly created file and <code v-pre>export</code> the webpack configuration by using the <code v-pre>defineBuildConfig(swcConfig, options)</code> function:</p>
+<p>Then, open the newly created file and <code translate="no" v-pre>export</code> the webpack configuration by using the <code translate="no" v-pre>defineBuildConfig(swcConfig, options)</code> function:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.build.js</div>
 <pre translate="no" class="language-javascript" data-line="6"><code v-pre class="language-javascript">// @ts-check
@@ -444,28 +419,28 @@ export default defineBuildConfig(swcConfig, {
 <doc-anchor-target id="swcbuildjs">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#swcbuildjs">#</doc-anchor-trigger>
-        <span><code v-pre>swc.build.js</code></span>
+        <span><code translate="no" v-pre>swc.build.js</code></span>
     </h3>
 </doc-anchor-target>
-<p>In the previous code sample, the <code v-pre>defineBuildConfig(swcConfig, options)</code> function receive an SWC <a href="https://swc.rs/docs/configuration/swcrc" class="outbound" target="_blank">configuration object</a> through the <code v-pre>swcConfig</code> parameter.</p>
-<p>Although the <a href="https://swc.rs/docs/usage/swc-loader" class="outbound" target="_blank">swc-loader</a> defaults to loading the closest <code v-pre>.swcrc</code> <a href="https://swc.rs/docs/configuration/swcrc" class="outbound" target="_blank">configuration file</a> when no configuration object is provided, it lacks support for distinct configuration files by environment like webpack does.</p>
-<p>Therefore, <code v-pre>@workleap/webpack-configs</code> choosed to <strong>delegate</strong> the loading of the SWC configuration <strong>to the consumer</strong> by making the <code v-pre>swcConfig</code> option <strong>required</strong>.</p>
+<p>In the previous code sample, the <code translate="no" v-pre>defineBuildConfig(swcConfig, options)</code> function receive an SWC <a href="https://swc.rs/docs/configuration/swcrc" class="outbound" target="_blank">configuration object</a> through the <code translate="no" v-pre>swcConfig</code> parameter.</p>
+<p>Although the <a href="https://swc.rs/docs/usage/swc-loader" class="outbound" target="_blank">swc-loader</a> defaults to loading the closest <code translate="no" v-pre>.swcrc</code> <a href="https://swc.rs/docs/configuration/swcrc" class="outbound" target="_blank">configuration file</a> when no configuration object is provided, it lacks support for distinct configuration files by environment like webpack does.</p>
+<p>Therefore, <code translate="no" v-pre>@workleap/webpack-configs</code> choosed to <strong>delegate</strong> the loading of the SWC configuration <strong>to the consumer</strong> by making the <code translate="no" v-pre>swcConfig</code> option <strong>required</strong>.</p>
 <doc-anchor-target id="use-predefined-options">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#use-predefined-options">#</doc-anchor-trigger>
         <span>Use predefined options</span>
     </h2>
 </doc-anchor-target>
-<p>The <code v-pre>defineBuildConfig(swcConfig, options)</code> function can be used as shown in the previous example, however, if you wish to customize the default configuration, the function also accept a few predefined options to help with that <span class="docs-emoji">&#x1F447;</span></p>
+<p>The <code translate="no" v-pre>defineBuildConfig(swcConfig, options)</code> function can be used as shown in the previous examples, however, if you wish to customize the default configuration, the function also accept a few predefined options to help with that <span class="docs-emoji">&#x1F447;</span></p>
 <doc-anchor-target id="entry">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#entry">#</doc-anchor-trigger>
-        <span><code v-pre>entry</code></span>
+        <span><code translate="no" v-pre>entry</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>string</code></li>
-<li><strong>Default</strong>: <code v-pre>./src/index.tsx</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>string</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>./src/index.tsx</code></li>
 </ul>
 <p>Set webpack <a href="https://webpack.js.org/configuration/entry-context/#entry" class="outbound" target="_blank">entry option</a>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -482,12 +457,12 @@ export default defineBuildConfig(swcConfig, {
 <doc-anchor-target id="outputpath">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#outputpath">#</doc-anchor-trigger>
-        <span><code v-pre>outputPath</code></span>
+        <span><code translate="no" v-pre>outputPath</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>string</code></li>
-<li><strong>Default</strong>: <code v-pre>dist</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>string</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>dist</code></li>
 </ul>
 <p>Set webpack <a href="https://webpack.js.org/configuration/output/#outputpath" class="outbound" target="_blank">output path</a>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -505,12 +480,12 @@ export default defineBuildConfig(swcConfig, {
 <doc-anchor-target id="publicpath">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#publicpath">#</doc-anchor-trigger>
-        <span><code v-pre>publicPath</code></span>
+        <span><code translate="no" v-pre>publicPath</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>string</code></li>
-<li><strong>Default</strong>: <code v-pre>http://localhost:8080/</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>string</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>http://localhost:8080/</code></li>
 </ul>
 <p>Set webpack <a href="https://webpack.js.org/configuration/output/#outputpublicpath" class="outbound" target="_blank">public path</a>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -545,12 +520,12 @@ export default defineBuildConfig(swcConfig, {
 <doc-anchor-target id="modulerules">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#modulerules">#</doc-anchor-trigger>
-        <span><code v-pre>moduleRules</code></span>
+        <span><code translate="no" v-pre>moduleRules</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
 <li><strong>Type</strong>: An array of webpack <a href="https://webpack.js.org/configuration/module/#modulerules" class="outbound" target="_blank">moduleRule</a> objects</li>
-<li><strong>Default</strong>: <code v-pre>[]</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
 <p>Append the provided webpack module rules to the configuration.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -572,12 +547,12 @@ export default defineBuildConfig(swcConfig, {
 <doc-anchor-target id="plugins">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#plugins">#</doc-anchor-trigger>
-        <span><code v-pre>plugins</code></span>
+        <span><code translate="no" v-pre>plugins</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
 <li><strong>Type</strong>: An array of webpack <a href="https://webpack.js.org/configuration/plugins/" class="outbound" target="_blank">plugin instances</a></li>
-<li><strong>Default</strong>: <code v-pre>[]</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
 <p>Append the provided webpack plugins to the configuration.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -600,14 +575,14 @@ export default defineBuildConfig(swcConfig, {
 <doc-anchor-target id="htmlwebpackplugin">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#htmlwebpackplugin">#</doc-anchor-trigger>
-        <span><code v-pre>htmlWebpackPlugin</code></span>
+        <span><code translate="no" v-pre>htmlWebpackPlugin</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>boolean</code> or an object literal accepting any <code v-pre>html-webpack-plugin</code> <a href="https://github.com/jantimon/html-webpack-plugin#options" class="outbound" target="_blank">option</a></li>
-<li><strong>Default</strong>: <code v-pre>{ template: &quot;./public/index.html&quot; }</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code> or an object literal accepting any <code translate="no" v-pre>html-webpack-plugin</code> <a href="https://github.com/jantimon/html-webpack-plugin#options" class="outbound" target="_blank">option</a></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>{ template: &quot;./public/index.html&quot; }</code></li>
 </ul>
-<p>To remove the default instance of <a href="https://webpack.js.org/plugins/html-webpack-plugin/" class="outbound" target="_blank">html-webpack-plugin</a>, set the property to <code v-pre>false</code>.</p>
+<p>To remove the default instance of <a href="https://webpack.js.org/plugins/html-webpack-plugin/" class="outbound" target="_blank">html-webpack-plugin</a>, set the property to <code translate="no" v-pre>false</code>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.build.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
@@ -619,7 +594,7 @@ export default defineBuildConfig(swcConfig, {
     htmlWebpackPlugin: false
 });</code></pre>
 </doc-codeblock></div>
-<p>To extend/replace the default <code v-pre>html-webpack-plugin</code> configuration, use the <code v-pre>defineBuildHtmlWebpackPluginConfig(options)</code> function.</p>
+<p>To extend/replace the default <code translate="no" v-pre>html-webpack-plugin</code> configuration, use the <code translate="no" v-pre>defineBuildHtmlWebpackPluginConfig(options)</code> function.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.build.js</div>
 <pre translate="no" class="language-javascript" data-line="8-11"><code v-pre class="language-javascript">// @ts-check
@@ -638,12 +613,12 @@ export default defineBuildConfig(swcConfig, {
 <doc-anchor-target id="minicssextractpluginoptions">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#minicssextractpluginoptions">#</doc-anchor-trigger>
-        <span><code v-pre>miniCssExtractPluginOptions</code></span>
+        <span><code translate="no" v-pre>miniCssExtractPluginOptions</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: An object literal accepting any <code v-pre>mini-css-extract-plugin</code> <a href="https://github.com/webpack-contrib/mini-css-extract-plugin#plugin-options" class="outbound" target="_blank">option</a></li>
-<li><strong>Default</strong>: <code v-pre>{ filename: &quot;[name].[fullhash].css&quot; }</code></li>
+<li><strong>Type</strong>: An object literal accepting any <code translate="no" v-pre>mini-css-extract-plugin</code> <a href="https://github.com/webpack-contrib/mini-css-extract-plugin#plugin-options" class="outbound" target="_blank">option</a></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>{ filename: &quot;[name].[fullhash].css&quot; }</code></li>
 </ul>
 <p>Forward the provided object literal to the <a href="https://github.com/webpack-contrib/mini-css-extract-plugin" class="outbound" target="_blank">mini-css-extract-plugin</a>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -663,15 +638,15 @@ export default defineBuildConfig(swcConfig, {
 <doc-anchor-target id="optimize">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#optimize">#</doc-anchor-trigger>
-        <span><code v-pre>optimize</code></span>
+        <span><code translate="no" v-pre>optimize</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>boolean</code> | <code v-pre>&quot;readable&quot;</code></li>
-<li><strong>Default</strong>: <code v-pre>true</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code> | <code translate="no" v-pre>&quot;readable&quot;</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>true</code></li>
 </ul>
 <p>Whether or not to enable webpack production optimizations like <a href="https://webpack.js.org/configuration/optimization/#optimizationminimize" class="outbound" target="_blank">code minification</a> and <a href="https://webpack.js.org/guides/tree-shaking/" class="outbound" target="_blank">tree shaking</a>. This option can be quite useful when debugging an issue with webpack bundling.</p>
-<p>When <code v-pre>false</code> is provided, most of the optimizations, including minification and tree shaking will be turned off:</p>
+<p>When <code translate="no" v-pre>false</code> is provided, most of the optimizations, including minification and tree shaking will be turned off:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.build.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
@@ -683,7 +658,7 @@ export default defineBuildConfig(swcConfig, {
     optimize: false
 });</code></pre>
 </doc-codeblock></div>
-<p>When <code v-pre>readable</code> is provided, most of the optimizations will still be applied but the resulting code bundles will be easier to read:</p>
+<p>When <code translate="no" v-pre>readable</code> is provided, most of the optimizations will still be applied but the resulting code bundles will be easier to read:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.build.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
@@ -698,14 +673,14 @@ export default defineBuildConfig(swcConfig, {
 <doc-anchor-target id="cssmodules">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#cssmodules">#</doc-anchor-trigger>
-        <span><code v-pre>cssModules</code></span>
+        <span><code translate="no" v-pre>cssModules</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>boolean</code></li>
-<li><strong>Default</strong>: <code v-pre>false</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
-<p>Enable <code v-pre>css-loader</code> <a href="https://webpack.js.org/loaders/css-loader/#modules" class="outbound" target="_blank">modules</a> feature.</p>
+<p>Enable <code translate="no" v-pre>css-loader</code> <a href="https://webpack.js.org/loaders/css-loader/#modules" class="outbound" target="_blank">modules</a> feature.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.build.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
@@ -720,14 +695,14 @@ export default defineBuildConfig(swcConfig, {
 <doc-anchor-target id="svgr">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#svgr">#</doc-anchor-trigger>
-        <span><code v-pre>svgr</code></span>
+        <span><code translate="no" v-pre>svgr</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>boolean</code> or an object literal accepting any <code v-pre>@svgr/webpack</code> <a href="https://react-svgr.com/docs/options/" class="outbound" target="_blank">option</a></li>
-<li><strong>Default</strong>: <code v-pre>true</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code> or an object literal accepting any <code translate="no" v-pre>@svgr/webpack</code> <a href="https://react-svgr.com/docs/options/" class="outbound" target="_blank">option</a></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>true</code></li>
 </ul>
-<p>Whether or not to handle <code v-pre>.svg</code> files with <code v-pre>@svgr/webpack</code>. If <code v-pre>@svgr/webpack</code> is desactived, the <code v-pre>.svg</code> files will are handled by the <code v-pre>asset/resource</code> rule.</p>
+<p>Whether or not to handle <code translate="no" v-pre>.svg</code> files with <code translate="no" v-pre>@svgr/webpack</code>. If <code translate="no" v-pre>@svgr/webpack</code> is desactived, the <code translate="no" v-pre>.svg</code> files will are handled by the <code translate="no" v-pre>asset/resource</code> rule.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
@@ -739,7 +714,7 @@ export default defineDevConfig(swcConfig, {
     svgr: false
 });</code></pre>
 </doc-codeblock></div>
-<p>To extends the <code v-pre>@svgr/webpack</code> rule configuration, provide an object literal instead.</p>
+<p>To extends the <code translate="no" v-pre>@svgr/webpack</code> rule configuration, provide an object literal instead.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7-9"><code v-pre class="language-javascript">// @ts-check
@@ -756,12 +731,12 @@ export default defineDevConfig(swcConfig, {
 <doc-anchor-target id="verbose">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#verbose">#</doc-anchor-trigger>
-        <span><code v-pre>verbose</code></span>
+        <span><code translate="no" v-pre>verbose</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>boolean</code></li>
-<li><strong>Default</strong>: <code v-pre>false</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
 <p>Start the webpack process with verbose logging turned on.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -797,17 +772,17 @@ export default defineDevConfig(swcConfig, {
         </div>
     </div>
 </div>
-<p>The <doc-anchor-trigger to="#use-predefined-options">predefined options</doc-anchor-trigger> are useful to quickly customize the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/webpack-configs/src/build.ts" class="outbound" target="_blank">default build configuration</a> of <code v-pre>@workleap/webpack-configs</code>, but only covers a subset of a <a href="https://webpack.js.org/configuration/" class="outbound" target="_blank">webpack configuration</a>. If you need full control over the configuration, you can provide configuration transformer functions through the <code v-pre>transformers</code> option of the <code v-pre>defineBuildConfig</code> function. Remember, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>.</p>
-<p>To view the default build configuration of <code v-pre>@workleap/webpack-configs</code>, have a look at the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/webpack-configs/src/build.ts" class="outbound" target="_blank">build.ts configuration file</a> on GitHub.</p>
+<p>The <doc-anchor-trigger to="#use-predefined-options">predefined options</doc-anchor-trigger> are useful to quickly customize the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/webpack-configs/src/build.ts" class="outbound" target="_blank">default build configuration</a> of <code translate="no" v-pre>@workleap/webpack-configs</code>, but only covers a subset of a <a href="https://webpack.js.org/configuration/" class="outbound" target="_blank">webpack configuration</a>. If you need full control over the configuration, you can provide configuration transformer functions through the <code translate="no" v-pre>transformers</code> option of the <code translate="no" v-pre>defineBuildConfig</code> function. Remember, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>.</p>
+<p>To view the default build configuration of <code translate="no" v-pre>@workleap/webpack-configs</code>, have a look at the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/webpack-configs/src/build.ts" class="outbound" target="_blank">build.ts configuration file</a> on GitHub.</p>
 <doc-anchor-target id="transformers">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#transformers">#</doc-anchor-trigger>
-        <span><code v-pre>transformers</code></span>
+        <span><code translate="no" v-pre>transformers</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>((config: WebpackConfig, context: WebpackConfigTransformerContext) =&gt; WebpackConfig)[]</code></li>
-<li><strong>Default</strong>: <code v-pre>[]</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>((config: WebpackConfig, context: WebpackConfigTransformerContext) =&gt; WebpackConfig)[]</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">transformer(config: WebpackConfig, context: WebpackConfigTransformerContext) =&gt; WebpackConfig</code></pre>
@@ -838,7 +813,7 @@ export default defineBuildConfig(swcConfig, {
         <span>Execution context</span>
     </h3>
 </doc-anchor-target>
-<p>Generic transformers can use the <code v-pre>context</code> parameter to gather additional information about their execution context, like the <code v-pre>environment</code> they are operating in:</p>
+<p>Generic transformers can use the <code translate="no" v-pre>context</code> parameter to gather additional information about their execution context, like the <code translate="no" v-pre>environment</code> they are operating in:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.js</div>
 <pre translate="no" class="language-typescript" data-line="7"><code v-pre class="language-typescript">// @ts-check
@@ -855,8 +830,8 @@ export function transformer(config, context) {
 };</code></pre>
 </doc-codeblock></div>
 <ul>
-<li><code v-pre>environment</code>: <code v-pre>&quot;dev&quot; | &quot;build&quot;</code></li>
-<li><code v-pre>verbose</code>: <code v-pre>boolean</code></li>
+<li><code translate="no" v-pre>environment</code>: <code translate="no" v-pre>&quot;dev&quot; | &quot;build&quot;</code></li>
+<li><code translate="no" v-pre>verbose</code>: <code translate="no" v-pre>boolean</code></li>
 </ul>
 <doc-anchor-target id="utilities">
     <h3>
@@ -864,10 +839,10 @@ export function transformer(config, context) {
         <span>Utilities</span>
     </h3>
 </doc-anchor-target>
-<p>Modifying a webpack configuration object can be an arduous task, to help with that, <code v-pre>@workleap/webpack-configs</code> offer <a href="../transformer-utilities/">utility functions</a> for <a href="https://webpack.js.org/configuration/module/#modulerules" class="outbound" target="_blank">modules rules</a> and <a href="https://webpack.js.org/configuration/plugins/" class="outbound" target="_blank">plugins</a>.</p>
+<p>Modifying a webpack configuration object can be an arduous task, to help with that, <code translate="no" v-pre>@workleap/webpack-configs</code> offer <a href="../transformer-utilities/">utility functions</a> for <a href="https://webpack.js.org/configuration/module/#modulerules" class="outbound" target="_blank">modules rules</a> and <a href="https://webpack.js.org/configuration/plugins/" class="outbound" target="_blank">plugins</a>.</p>
 <p>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-base-border hover:border-base-border-hover rounded transition-colors duration-150">
-    <div class="flex items-center text-base-color">
+    <div class="flex items-center text-base-500">
         <span class="inline-block mb-px">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
         </span>
@@ -885,7 +860,7 @@ export function transformer(config, context) {
         <span>Add a CLI script</span>
     </h2>
 </doc-anchor-target>
-<p>To create the bundle files for production, add the following script to your project <code v-pre>package.json</code> file:</p>
+<p>To create the bundle files for production, add the following script to your project <code translate="no" v-pre>package.json</code> file:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
@@ -898,14 +873,14 @@ export function transformer(config, context) {
         <span>Use environment variables</span>
     </h2>
 </doc-anchor-target>
-<p>To deal with environment variables, the webpack documentation suggests using the <a href="https://webpack.js.org/guides/environment-variables/" class="outbound" target="_blank">--env option</a> from its CLI. While that would work, by using webpack <code v-pre>--env</code> CLI option, the environment variables would only be made available to the webpack configuration files (.e.g. <code v-pre>webpack.build.js</code>) rather than any Node.js files. Therefore we <strong>do not recommend</strong> using webpack <code v-pre>--env</code> CLI option.</p>
+<p>To deal with environment variables, the webpack documentation suggests using the <a href="https://webpack.js.org/guides/environment-variables/" class="outbound" target="_blank">--env option</a> from its CLI. While that would work, by using webpack <code translate="no" v-pre>--env</code> CLI option, the environment variables would only be made available to the webpack configuration files (.e.g. <code translate="no" v-pre>webpack.build.js</code>) rather than any Node.js files. Therefore we <strong>do not recommend</strong> using webpack <code translate="no" v-pre>--env</code> CLI option.</p>
 <doc-anchor-target id="cross-env">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#cross-env">#</doc-anchor-trigger>
         <span>cross-env</span>
     </h3>
 </doc-anchor-target>
-<p>We recommend instead to define environment variables using <a href="https://github.com/kentcdodds/cross-env" class="outbound" target="_blank">cross-env</a>. With <code v-pre>cross-env</code>, the environment variables will be made available to any Node.js files that are executed by the script process (<code v-pre>build</code> in the example below <span class="docs-emoji">&#x1F447;</span>):</p>
+<p>We recommend instead to define environment variables using <a href="https://github.com/kentcdodds/cross-env" class="outbound" target="_blank">cross-env</a>. With <code translate="no" v-pre>cross-env</code>, the environment variables will be made available to any Node.js files that are executed by the script process (<code translate="no" v-pre>build</code> in the example below <span class="docs-emoji">&#x1F447;</span>):</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
@@ -925,19 +900,19 @@ if (process.env.DEBUG) {
 
 export default defineBuildConfig(swcConfig);</code></pre>
 </doc-codeblock></div>
-<p>However, there&#x27;s a catch. When using <code v-pre>cross-env</code>, the variables will not be available in the application files because <code v-pre>cross-env</code> only makes them available to files that are executed by the process at <strong>build time</strong> while the application files are executed at <strong>runtime</strong> by a browser.</p>
-<p>To make them accessible to the application files, webpack must be aware of those environment variables and <strong>render</strong> them into the <strong>compiled application files</strong>. This is the purpose of the <code v-pre>environmentVariables</code> option.</p>
+<p>However, there&#x27;s a catch. When using <code translate="no" v-pre>cross-env</code>, the variables will not be available in the application files because <code translate="no" v-pre>cross-env</code> only makes them available to files that are executed by the process at <strong>build time</strong> while the application files are executed at <strong>runtime</strong> by a browser.</p>
+<p>To make them accessible to the application files, webpack must be aware of those environment variables and <strong>render</strong> them into the <strong>compiled application files</strong>. This is the purpose of the <code translate="no" v-pre>environmentVariables</code> option.</p>
 <doc-anchor-target id="environmentvariables">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#environmentvariables">#</doc-anchor-trigger>
-        <span><code v-pre>environmentVariables</code></span>
+        <span><code translate="no" v-pre>environmentVariables</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>Record&lt;string, unknown&gt;</code></li>
-<li><strong>Default</strong>: <code v-pre>{}</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>Record&lt;string, unknown&gt;</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>{}</code></li>
 </ul>
-<p>First, define the variables with <code v-pre>environmentVariables</code>:</p>
+<p>First, define the variables with <code translate="no" v-pre>environmentVariables</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.build.js</div>
 <pre translate="no" class="language-javascript" data-line="7-9"><code v-pre class="language-javascript">// @ts-check
@@ -973,7 +948,7 @@ export default defineBuildConfig(swcConfig, {
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>The <code v-pre>=== &quot;true&quot;</code> part of <code v-pre>&quot;DEBUG&quot;: process.env.DEBUG === &quot;true&quot;</code> is very important, otherwise the environment variable value would be <code v-pre>&quot;true&quot;</code> instead of <code v-pre>true</code>.</p>
+<p>The <code translate="no" v-pre>=== &quot;true&quot;</code> part of <code translate="no" v-pre>&quot;DEBUG&quot;: process.env.DEBUG === &quot;true&quot;</code> is very important, otherwise the environment variable value would be <code translate="no" v-pre>&quot;true&quot;</code> instead of <code translate="no" v-pre>true</code>.</p>
         </div>
     </div>
 </div>
@@ -983,7 +958,7 @@ export default defineBuildConfig(swcConfig, {
         <span>Try it <span class="docs-emoji">&#x1F680;</span></span>
     </h2>
 </doc-anchor-target>
-<p>To test your new webpack configuration, open a terminal at the root of the project and execute the <doc-anchor-trigger to="#add-a-cli-script">CLI script added earlier</doc-anchor-trigger>. The build process should complete without outputting any error in the terminal and the bundle files should be available in the <code v-pre>/dist</code> folder (or any other <code v-pre>outputPath</code> you configured).</p>
+<p>To test your new webpack configuration, open a terminal at the root of the project and execute the <doc-anchor-trigger to="#add-a-cli-script">CLI script added earlier</doc-anchor-trigger>. The build process should complete without outputting any error in the terminal and the bundle files should be available in the <code translate="no" v-pre>/dist</code> folder (or any other <code translate="no" v-pre>outputPath</code> you configured).</p>
 
                                 
                                 <!-- Required only on API pages -->

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0-preview5.804561850129">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.805399265721">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.11.0-preview5">
+    <meta name="generator" content="Retype 3.12.0-preview2">
 
     <!-- Primary Meta Tags -->
     <title>Setup with Turborepo - ESLint</title>
@@ -31,13 +31,13 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../static/favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.11.0-preview5.804561850129" rel="stylesheet">
+    <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.805399265721" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0-preview5" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0-preview5.804561850129" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.805399265721" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -145,31 +145,6 @@
         
                         </ul>
                     </nav>
-        
-                    <!-- Header Right Skeleton -->
-                    <div v-cloak class="flex justify-end grow skeleton">
-        
-                        <!-- Search input mock -->
-                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
-                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                            </div>
-                            <input class="w-full h-10 placeholder-search-placeholder transition-colors duration-200 ease-in bg-search-bg border border-transparent rounded md:text-sm hover:border-search-border-hover focus:outline-none focus:border-search-border-focus" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
-                        </div>
-        
-                        <!-- Mobile search button -->
-                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                        </div>
-        
-                        <!-- Dark mode switch placeholder -->
-                        <div class="w-10 h-10 lg:ml-2"></div>
-        
-                        <!-- History button -->
-                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
-                        </div>
-                    </div>
         
                     <div v-cloak class="flex justify-end grow">
                         <div id="retype-mobile-search-button"></div>
@@ -286,9 +261,9 @@
                                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
                                     <ol role="list">
                                         <li class="pr-4">
-                                            <a href="../../eslint/" class="pr-4">
+                                            <span class="pr-4">
                                                 ES​Lint
-                                            </a>
+                                            </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                                             </svg>
@@ -347,7 +322,7 @@
         <span>Configure Turborepo</span>
     </h3>
 </doc-anchor-target>
-<p>First, create a configuration file named <code v-pre>turbo.json</code> at the root of the solution&#x27;s workspace:</p>
+<p>First, create a configuration file named <code translate="no" v-pre>turbo.json</code> at the root of the solution&#x27;s workspace:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="8"><code v-pre class="language-none">workspace
 ├── packages
@@ -378,7 +353,7 @@
     }
 }</code></pre>
 </doc-codeblock></div>
-<p>The <code v-pre>//#eslint</code> task will execute the <code v-pre>eslint</code> script at the root of the solution&#x27;s workspace and the <code v-pre>eslint</code> task will execute the <code v-pre>eslint</code> script for every project of the solution&#x27;s workspace.</p>
+<p>The <code translate="no" v-pre>//#eslint</code> task will execute the <code translate="no" v-pre>eslint</code> script at the root of the solution&#x27;s workspace and the <code translate="no" v-pre>eslint</code> task will execute the <code translate="no" v-pre>eslint</code> script for every project of the solution&#x27;s workspace.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-tip"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -400,7 +375,7 @@
         <span>Configure ESLint</span>
     </h3>
 </doc-anchor-target>
-<p>Next, let&#x27;s configure ESLint. Create a configuration file named <code v-pre>.eslintrc.json</code> at the root of the solution&#x27;s workspace:</p>
+<p>Next, let&#x27;s configure ESLint. Create a configuration file named <code translate="no" v-pre>.eslintrc.json</code> at the root of the solution&#x27;s workspace:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="9"><code v-pre class="language-none">workspace
 ├── packages
@@ -412,7 +387,7 @@
 ├── turbo.json
 ├── .eslintrc.json</code></pre>
 </doc-codeblock></div>
-<p>Then, open the newly created file and extend the default configuration with the <code v-pre>monorepo-workspace</code> shared configurations:</p>
+<p>Then, open the newly created file and extend the default configuration with the <code translate="no" v-pre>monorepo-workspace</code> shared configurations:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.eslintrc.json</div>
 <pre translate="no" class="language-json" data-line="4"><code v-pre class="language-json">{
@@ -428,7 +403,7 @@
     </h4>
 </doc-anchor-target>
 <p>ESLint can be configured to <a href="https://eslint.org/docs/latest/use/configure/ignore" class="outbound" target="_blank">ignore</a> certain files and directories while linting by specifying one or more glob patterns.</p>
-<p>To do so, first, create a <code v-pre>.eslintignore</code> file at the root of the solution&#x27;s workspace:</p>
+<p>To do so, first, create a <code translate="no" v-pre>.eslintignore</code> file at the root of the solution&#x27;s workspace:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="10"><code v-pre class="language-none">workspace
 ├── packages
@@ -466,7 +441,7 @@ package-lock.json
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>While only the <code v-pre>.storybook</code> dot folder is listed, you should include any other dot folders that need to be linted.</p>
+<p>While only the <code translate="no" v-pre>.storybook</code> dot folder is listed, you should include any other dot folders that need to be linted.</p>
         </div>
     </div>
 </div>
@@ -478,7 +453,7 @@ package-lock.json
 </doc-anchor-target>
 <p>ESLint offers <a href="https://eslint.org/docs/latest/rules/indent" class="outbound" target="_blank">built-in rules</a> for configuring the indentation style of a codebase. However, there&#x27;s a catch: when <a href="https://code.visualstudio.com/docs/editor/codebasics#_formatting" class="outbound" target="_blank">VS Code auto-formatting</a> feature is enabled, it might conflict with the configured indentation rules if they are set differently.</p>
 <p>To guarantee a consistent indentation, we recommend using <a href="https://editorconfig.org/" class="outbound" target="_blank">EditorConfig</a> on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and <a href="https://code.visualstudio.com/" class="outbound" target="_blank">VS Code</a>.</p>
-<p>First, create a <code v-pre>.editorconfig</code> file at the root of the solution&#x27;s workspace:</p>
+<p>First, create a <code translate="no" v-pre>.editorconfig</code> file at the root of the solution&#x27;s workspace:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="11"><code v-pre class="language-none">workspace
 ├── packages
@@ -514,7 +489,7 @@ trim_trailing_whitespace = false</code></pre>
         <span>Add CLI scripts</span>
     </h3>
 </doc-anchor-target>
-<p>Finally, add the <code v-pre>lint</code> and <code v-pre>eslint</code> scripts to your solution&#x27;s workspace <code v-pre>package.json</code> file.</p>
+<p>Finally, add the <code translate="no" v-pre>lint</code> and <code translate="no" v-pre>eslint</code> scripts to your solution&#x27;s workspace <code translate="no" v-pre>package.json</code> file.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="7"><code v-pre class="language-none">workspace
 ├── packages
@@ -528,14 +503,14 @@ trim_trailing_whitespace = false</code></pre>
 ├── .eslintignore
 ├── .editorconfig</code></pre>
 </doc-codeblock></div>
-<p>The <code v-pre>lint</code> script will execute the <code v-pre>lint</code> task and it&#x27;s dependencies configured earlier in the <code v-pre>turbo.json</code> file:</p>
+<p>The <code translate="no" v-pre>lint</code> script will execute the <code translate="no" v-pre>lint</code> task and it&#x27;s dependencies configured earlier in the <code translate="no" v-pre>turbo.json</code> file:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;lint&quot;: &quot;turbo run lint --continue&quot;
 }</code></pre>
 </doc-codeblock></div>
-<p>The <code v-pre>eslint</code> script will lint the root of the solution&#x27;s workspace:</p>
+<p>The <code translate="no" v-pre>eslint</code> script will lint the root of the solution&#x27;s workspace:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
@@ -553,7 +528,7 @@ trim_trailing_whitespace = false</code></pre>
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>To prevent the root <code v-pre>eslint</code> script from linting the <code v-pre>packages</code> folder, add the <code v-pre>--ignore-pattern packages</code> option to the script. Apply the same pattern to every folder that includes nested <code v-pre>eslint</code> scripts.</p>
+<p>To prevent the root <code translate="no" v-pre>eslint</code> script from linting the <code translate="no" v-pre>packages</code> folder, add the <code translate="no" v-pre>--ignore-pattern packages</code> option to the script. Apply the same pattern to every folder that includes nested <code translate="no" v-pre>eslint</code> scripts.</p>
         </div>
     </div>
 </div>
@@ -568,7 +543,7 @@ trim_trailing_whitespace = false</code></pre>
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>While the <code v-pre>lint</code> task may seem redundant for now, it&#x27;s important to note that as your Turborepo configuration evolves, additional linting tasks will be added as dependencies of the main <code v-pre>lint</code> task.</p>
+<p>While the <code translate="no" v-pre>lint</code> task may seem redundant for now, it&#x27;s important to note that as your Turborepo configuration evolves, additional linting tasks will be added as dependencies of the main <code translate="no" v-pre>lint</code> task.</p>
         </div>
     </div>
 </div>
@@ -584,7 +559,7 @@ trim_trailing_whitespace = false</code></pre>
         <span>Install the packages</span>
     </h3>
 </doc-anchor-target>
-<p>Open a terminal at the root of the project (<code v-pre>packages/pkg-1</code> for this example) and install the following packages:</p>
+<p>Open a terminal at the root of the project (<code translate="no" v-pre>packages/pkg-1</code> for this example) and install the following packages:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/eslint-plugin</code></pre>
 </doc-codeblock></div>
@@ -594,7 +569,7 @@ trim_trailing_whitespace = false</code></pre>
         <span>Configure ESLint</span>
     </h3>
 </doc-anchor-target>
-<p>First, create a configuration file named <code v-pre>.eslintrc.json</code> at the root of the project:</p>
+<p>First, create a configuration file named <code translate="no" v-pre>.eslintrc.json</code> at the root of the project:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="7"><code v-pre class="language-none">workspace
 ├── packages
@@ -608,11 +583,11 @@ trim_trailing_whitespace = false</code></pre>
 ├── .eslintignore
 ├── .editorconfig</code></pre>
 </doc-codeblock></div>
-<p>Then, open the newly created file and extend the default configuration with one of the <a href="../#available-configurations">shared configurations</a> provided by <code v-pre>@workleap/eslint-plugin</code> <span class="docs-emoji">&#x1F447;</span></p>
+<p>Then, open the newly created file and extend the default configuration with one of the <a href="../getting-started/#available-configurations">shared configurations</a> provided by <code translate="no" v-pre>@workleap/eslint-plugin</code> <span class="docs-emoji">&#x1F447;</span></p>
 <doc-anchor-target id="web-application">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#web-application">#</doc-anchor-trigger>
-        <span><code v-pre>web-application</code></span>
+        <span><code translate="no" v-pre>web-application</code></span>
     </h4>
 </doc-anchor-target>
 <p>For an application developed with TypeScript and React, use the following configuration:</p>
@@ -627,7 +602,7 @@ trim_trailing_whitespace = false</code></pre>
 <doc-anchor-target id="react-library">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#react-library">#</doc-anchor-trigger>
-        <span><code v-pre>react-library</code></span>
+        <span><code translate="no" v-pre>react-library</code></span>
     </h4>
 </doc-anchor-target>
 <p>For a TypeScript library developed <strong>with</strong> React, use the following configuration:</p>
@@ -642,7 +617,7 @@ trim_trailing_whitespace = false</code></pre>
 <doc-anchor-target id="typescript-library">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#typescript-library">#</doc-anchor-trigger>
-        <span><code v-pre>typescript-library</code></span>
+        <span><code translate="no" v-pre>typescript-library</code></span>
     </h4>
 </doc-anchor-target>
 <p>For a TypeScript library developed <strong>without</strong> React, use the following configuration:</p>
@@ -660,7 +635,7 @@ trim_trailing_whitespace = false</code></pre>
         <span>Add a CLI script</span>
     </h3>
 </doc-anchor-target>
-<p>Finally, add the following <code v-pre>eslint</code> script to your project <code v-pre>package.json</code> file. This script will be executed by Turborepo:</p>
+<p>Finally, add the following <code translate="no" v-pre>eslint</code> script to your project <code translate="no" v-pre>package.json</code> file. This script will be executed by Turborepo:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">packages/pkg-1/package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
@@ -673,14 +648,14 @@ trim_trailing_whitespace = false</code></pre>
         <span>Custom configuration</span>
     </h2>
 </doc-anchor-target>
-<p>New projects shouldn&#x27;t have to customize the default configurations offered by <code v-pre>@workleap/eslint-plugin</code>. However, if you are in the process of <strong>migrating</strong> an existing project to use this library or encountering a challenging situation, refer to the <a href="../custom-configuration/">custom configuration</a> page to understand how to override or extend the default configurations. Remember, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>.</p>
+<p>New projects shouldn&#x27;t have to customize the default configurations offered by <code translate="no" v-pre>@workleap/eslint-plugin</code>. However, if you are in the process of <strong>migrating</strong> an existing project to use this library or encountering a challenging situation, refer to the <a href="../custom-configuration/">custom configuration</a> page to understand how to override or extend the default configurations. Remember, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>.</p>
 <doc-anchor-target id="try-it-rocket">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#try-it-rocket">#</doc-anchor-trigger>
         <span>Try it <span class="docs-emoji">&#x1F680;</span></span>
     </h2>
 </doc-anchor-target>
-<p>To test your new ESLint setup, open a JavaScript file, type invalid code (e.g. <code v-pre>var x = 0;</code>), then save. Open a terminal at the root of the solution and execute the <doc-anchor-trigger to="#add-a-cli-script">CLI script added earlier</doc-anchor-trigger>:</p>
+<p>To test your new ESLint setup, open a JavaScript file, type invalid code (e.g. <code translate="no" v-pre>var x = 0;</code>), then save. Open a terminal at the root of the solution and execute the <doc-anchor-trigger to="#add-a-cli-script">CLI script added earlier</doc-anchor-trigger>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm lint</code></pre>
 </doc-codeblock></div>

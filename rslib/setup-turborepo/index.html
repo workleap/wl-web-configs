@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0-preview5.804561850129">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.805399265721">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.11.0-preview5">
+    <meta name="generator" content="Retype 3.12.0-preview2">
 
     <!-- Primary Meta Tags -->
     <title>Setup with Turborepo - Rslib</title>
@@ -31,13 +31,13 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../static/favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.11.0-preview5.804561850129" rel="stylesheet">
+    <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.805399265721" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0-preview5" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0-preview5.804561850129" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.805399265721" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -145,31 +145,6 @@
         
                         </ul>
                     </nav>
-        
-                    <!-- Header Right Skeleton -->
-                    <div v-cloak class="flex justify-end grow skeleton">
-        
-                        <!-- Search input mock -->
-                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
-                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                            </div>
-                            <input class="w-full h-10 placeholder-search-placeholder transition-colors duration-200 ease-in bg-search-bg border border-transparent rounded md:text-sm hover:border-search-border-hover focus:outline-none focus:border-search-border-focus" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
-                        </div>
-        
-                        <!-- Mobile search button -->
-                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                        </div>
-        
-                        <!-- Dark mode switch placeholder -->
-                        <div class="w-10 h-10 lg:ml-2"></div>
-        
-                        <!-- History button -->
-                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
-                        </div>
-                    </div>
         
                     <div v-cloak class="flex justify-end grow">
                         <div id="retype-mobile-search-button"></div>
@@ -286,9 +261,9 @@
                                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
                                     <ol role="list">
                                         <li class="pr-4">
-                                            <a href="../../rslib/" class="pr-4">
+                                            <span class="pr-4">
                                                 Rslib
-                                            </a>
+                                            </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                                             </svg>
@@ -331,7 +306,7 @@
         <span>Configure Turborepo</span>
     </h3>
 </doc-anchor-target>
-<p>First, create a configuration file named <code v-pre>turbo.json</code> at the root of the solution&#x27;s workspace:</p>
+<p>First, create a configuration file named <code translate="no" v-pre>turbo.json</code> at the root of the solution&#x27;s workspace:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="18"><code v-pre class="language-none">workspace
 ├── packages
@@ -382,7 +357,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Notice the <code v-pre>^</code> at the beginning of <code v-pre>^build</code> ? In Turborepo, the caret (<code v-pre>^</code>) indicates that a task depends on the same task in its upstream dependencies. For example, <code v-pre>^build</code> means <em>&quot;run the build task of all dependencies before running the current package&#x27;s build task&quot;</em>.</p>
+<p>Notice the <code translate="no" v-pre>^</code> at the beginning of <code translate="no" v-pre>^build</code> ? In Turborepo, the caret (<code translate="no" v-pre>^</code>) indicates that a task depends on the same task in its upstream dependencies. For example, <code translate="no" v-pre>^build</code> means <em>&quot;run the build task of all dependencies before running the current package&#x27;s build task&quot;</em>.</p>
 <p>This ensures that tasks are executed in the correct order, with dependencies built before their dependents, optimizing task execution order in a monorepo.</p>
 <p>For additional information, refer to the <a href="https://turborepo.com/docs" class="outbound" target="_blank">Turborepo documentation</a>.</p>
         </div>
@@ -394,7 +369,7 @@
         <span>Add CLI scripts</span>
     </h3>
 </doc-anchor-target>
-<p>Finally, add the <code v-pre>dev</code> and <code v-pre>build</code> scripts to your solution&#x27;s workspace <code v-pre>package.json</code> file.</p>
+<p>Finally, add the <code translate="no" v-pre>dev</code> and <code translate="no" v-pre>build</code> scripts to your solution&#x27;s workspace <code translate="no" v-pre>package.json</code> file.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="17"><code v-pre class="language-none">workspace
 ├── packages
@@ -415,7 +390,7 @@
 ├── package.json    &lt;------- (this one!)
 ├── turbo.json</code></pre>
 </doc-codeblock></div>
-<p>The <code v-pre>dev</code> script will execute the <code v-pre>dev</code> task configured earlier in the <code v-pre>turbo.json</code> file:</p>
+<p>The <code translate="no" v-pre>dev</code> script will execute the <code translate="no" v-pre>dev</code> task configured earlier in the <code translate="no" v-pre>turbo.json</code> file:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
@@ -423,7 +398,7 @@
     &quot;dev-storybook&quot;: &quot;turbo run dev --filter=./apps/storybook&quot;
 }</code></pre>
 </doc-codeblock></div>
-<p>The <code v-pre>build</code> script will execute the <code v-pre>build</code> task configured earlier in the <code v-pre>turbo.json</code> file:</p>
+<p>The <code translate="no" v-pre>build</code> script will execute the <code translate="no" v-pre>build</code> task configured earlier in the <code translate="no" v-pre>turbo.json</code> file:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
@@ -442,7 +417,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>The <code v-pre>--filter</code> option is used to control which projects tasks are executed. In the previous examples, project paths are used, but you can also filter by package name.</p>
+<p>The <code translate="no" v-pre>--filter</code> option is used to control which projects tasks are executed. In the previous examples, project paths are used, but you can also filter by package name.</p>
         </div>
     </div>
 </div>
@@ -458,21 +433,21 @@
         <span>Configure for development</span>
     </h3>
 </doc-anchor-target>
-<p>To configure a project with Rslib for development, follow the <a href="../configure-dev/">Configuration for development</a> guide. Ensure that the project&#x27;s CLI script is named <code v-pre>dev</code>.</p>
+<p>To configure a project with Rslib for development, follow the <a href="../configure-dev/">Configuration for development</a> guide. Ensure that the project&#x27;s CLI script is named <code translate="no" v-pre>dev</code>.</p>
 <doc-anchor-target id="configure-for-build">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#configure-for-build">#</doc-anchor-trigger>
         <span>Configure for build</span>
     </h3>
 </doc-anchor-target>
-<p>To configure a project with Rslib for build, follow the <a href="../configure-build/">Configuration for build</a> guide. Ensure that the project&#x27;s CLI script is named <code v-pre>build</code>.</p>
+<p>To configure a project with Rslib for build, follow the <a href="../configure-build/">Configuration for build</a> guide. Ensure that the project&#x27;s CLI script is named <code translate="no" v-pre>build</code>.</p>
 <doc-anchor-target id="configure-for-storybook">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#configure-for-storybook">#</doc-anchor-trigger>
         <span>Configure for Storybook</span>
     </h3>
 </doc-anchor-target>
-<p>To configure a project with Rslib for Storybook, follow the <a href="../configure-storybook/">Configuration for Storybook</a> guide. Ensure that the project&#x27;s CLI scripts are named <code v-pre>dev</code> and <code v-pre>build</code>.</p>
+<p>To configure a project with Rslib for Storybook, follow the <a href="../configure-storybook/">Configuration for Storybook</a> guide. Ensure that the project&#x27;s CLI scripts are named <code translate="no" v-pre>dev</code> and <code translate="no" v-pre>build</code>.</p>
 <doc-anchor-target id="try-it-rocket">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#try-it-rocket">#</doc-anchor-trigger>
@@ -482,7 +457,7 @@
 <p>To test the new Rslib configurations, open a terminal at root of the solution&#x27;s workspace and execute the <doc-anchor-trigger to="#add-cli-scripts">CLI scripts added earlier</doc-anchor-trigger>:</p>
 <ul>
 <li>For development scripts, the application development server should start without outputting any terminal errors.</li>
-<li>For build scripts, the application&#x27;s bundled outputs should be available in either the <code v-pre>dist</code> or <code v-pre>/storybook-static</code> folder.</li>
+<li>For build scripts, the application&#x27;s bundled outputs should be available in either the <code translate="no" v-pre>dist</code> or <code translate="no" v-pre>/storybook-static</code> folder.</li>
 </ul>
 
                                 

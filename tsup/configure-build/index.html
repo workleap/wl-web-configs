@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0-preview5.804561850129">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.805399265721">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.11.0-preview5">
+    <meta name="generator" content="Retype 3.12.0-preview2">
 
     <!-- Primary Meta Tags -->
     <title>Configure for build - tsup</title>
@@ -31,13 +31,13 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../static/favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.11.0-preview5.804561850129" rel="stylesheet">
+    <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.805399265721" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0-preview5" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0-preview5.804561850129" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.805399265721" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -145,31 +145,6 @@
         
                         </ul>
                     </nav>
-        
-                    <!-- Header Right Skeleton -->
-                    <div v-cloak class="flex justify-end grow skeleton">
-        
-                        <!-- Search input mock -->
-                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
-                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                            </div>
-                            <input class="w-full h-10 placeholder-search-placeholder transition-colors duration-200 ease-in bg-search-bg border border-transparent rounded md:text-sm hover:border-search-border-hover focus:outline-none focus:border-search-border-focus" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
-                        </div>
-        
-                        <!-- Mobile search button -->
-                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                        </div>
-        
-                        <!-- Dark mode switch placeholder -->
-                        <div class="w-10 h-10 lg:ml-2"></div>
-        
-                        <!-- History button -->
-                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
-                        </div>
-                    </div>
         
                     <div v-cloak class="flex justify-end grow">
                         <div id="retype-mobile-search-button"></div>
@@ -286,9 +261,9 @@
                                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
                                     <ol role="list">
                                         <li class="pr-4">
-                                            <a href="../../tsup/" class="pr-4">
+                                            <span class="pr-4">
                                                 tsup
-                                            </a>
+                                            </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                                             </svg>
@@ -320,7 +295,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p><code v-pre>@workleap/tsup-configs</code> is now in maintenance mode. If you&#x27;re starting a new project, consider using <a href="../../rslib/">@workleap/rslib-configs</a> instead for better performance and modern tooling.</p>
+<p><code translate="no" v-pre>@workleap/tsup-configs</code> is now in maintenance mode. If you&#x27;re starting a new project, consider using <a href="../../rslib/getting-started/">@workleap/rslib-configs</a> instead for better performance and modern tooling.</p>
         </div>
     </div>
 </div>
@@ -341,7 +316,7 @@
         <span>Configure tsup</span>
     </h2>
 </doc-anchor-target>
-<p>First, create a configuration file named <code v-pre>tsup.build.ts</code> at the root of the project:</p>
+<p>First, create a configuration file named <code translate="no" v-pre>tsup.build.ts</code> at the root of the project:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">web-project
 ├── src
@@ -349,7 +324,7 @@
 ├── package.json
 ├── tsup.build.ts</code></pre>
 </doc-codeblock></div>
-<p>Then, open the newly created file and export the tsup configuration by using the <code v-pre>defineBuildConfig(options)</code> function:</p>
+<p>Then, open the newly created file and export the tsup configuration by using the <code translate="no" v-pre>defineBuildConfig(options)</code> function:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">tsup.build.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { defineBuildConfig } from &quot;@workleap/tsup-configs&quot;;
@@ -362,7 +337,7 @@ export default defineBuildConfig();</code></pre>
         <span>Use predefined options</span>
     </h2>
 </doc-anchor-target>
-<p>The <code v-pre>defineBuildConfig(options)</code> function can be used as shown in the previous example, however, if you wish to customize the default configuration, the function also accepts any <a href="https://tsup.egoist.dev/#usage" class="outbound" target="_blank">tsup options</a>, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>:</p>
+<p>The <code translate="no" v-pre>defineBuildConfig(options)</code> function can be used as shown in the previous example, however, if you wish to customize the default configuration, the function also accepts any <a href="https://tsup.egoist.dev/#usage" class="outbound" target="_blank">tsup options</a>, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">tsup.build.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineBuildConfig } from &quot;@workleap/tsup-configs&quot;;
@@ -393,17 +368,17 @@ export default defineBuildConfig({
         </div>
     </div>
 </div>
-<p>Since the <doc-anchor-trigger to="#use-predefined-options">predefined options</doc-anchor-trigger> for tsup already covers all the availables <a href="https://tsup.egoist.dev/#usage" class="outbound" target="_blank">options</a>, configuration transformer functions aren&#x27;t as useful for a tsup configuration as for other tools like <a href="../../swc/configure-build/#configuration-transformers">SWC</a> or <a href="../../webpack/configure-build/#configuration-transformers">webpack</a>. Nonetheless, they are still valuable, especially for library authors aiming to <strong>distribute</strong> a <strong>default option set</strong> that facilitates the configuration of tsup for specific functionalities of their library. Configuration transformer functions can be provided through the <code v-pre>transformers</code> option of the <code v-pre>defineBuildConfig</code> function.</p>
-<p>To view the default build configuration of <code v-pre>@workleap/tsup-configs</code>, have a look at the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/tsup-configs/src/build.ts" class="outbound" target="_blank">build.ts configuration file</a> on GitHub.</p>
+<p>Since the <doc-anchor-trigger to="#use-predefined-options">predefined options</doc-anchor-trigger> for tsup already covers all the availables <a href="https://tsup.egoist.dev/#usage" class="outbound" target="_blank">options</a>, configuration transformer functions aren&#x27;t as useful for a tsup configuration as for other tools like <a href="../../swc/configure-build/#configuration-transformers">SWC</a> or <a href="../../webpack/configure-build/#configuration-transformers">webpack</a>. Nonetheless, they are still valuable, especially for library authors aiming to <strong>distribute</strong> a <strong>default option set</strong> that facilitates the configuration of tsup for specific functionalities of their library. Configuration transformer functions can be provided through the <code translate="no" v-pre>transformers</code> option of the <code translate="no" v-pre>defineBuildConfig</code> function.</p>
+<p>To view the default build configuration of <code translate="no" v-pre>@workleap/tsup-configs</code>, have a look at the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/tsup-configs/src/build.ts" class="outbound" target="_blank">build.ts configuration file</a> on GitHub.</p>
 <doc-anchor-target id="transformers">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#transformers">#</doc-anchor-trigger>
-        <span><code v-pre>transformers</code></span>
+        <span><code translate="no" v-pre>transformers</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>((config: TsupConfig, context: TsupConfigTransformerContext) =&gt; TsupConfig)[]</code></li>
-<li><strong>Default</strong>: <code v-pre>[]</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>((config: TsupConfig, context: TsupConfigTransformerContext) =&gt; TsupConfig)[]</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">myCustomTransformer.ts</div>
@@ -432,7 +407,7 @@ export default defineBuildConfig({
         <span>Execution context</span>
     </h3>
 </doc-anchor-target>
-<p>Generic transformers can use the <code v-pre>context</code> parameter to gather additional information about their execution context, like the <code v-pre>environment</code> they are operating in:</p>
+<p>Generic transformers can use the <code translate="no" v-pre>context</code> parameter to gather additional information about their execution context, like the <code translate="no" v-pre>environment</code> they are operating in:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">myCustomTransformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import type { TsupConfigTransformer, TsupConfigTransformerContext, TsupConfig } from &quot;@workleap/tsup-configs&quot;;
@@ -450,7 +425,7 @@ export const myCustomTsupTransformer: TsupConfigTransformer = (config: TsupConfi
 };</code></pre>
 </doc-codeblock></div>
 <ul>
-<li><code v-pre>environment</code>: <code v-pre>&quot;dev&quot; | &quot;build&quot;</code></li>
+<li><code translate="no" v-pre>environment</code>: <code translate="no" v-pre>&quot;dev&quot; | &quot;build&quot;</code></li>
 </ul>
 <doc-anchor-target id="add-a-cli-script">
     <h2>
@@ -458,7 +433,7 @@ export const myCustomTsupTransformer: TsupConfigTransformer = (config: TsupConfi
         <span>Add a CLI script</span>
     </h2>
 </doc-anchor-target>
-<p>To build the bundle files for production, add the following script to your project <code v-pre>package.json</code> file:</p>
+<p>To build the bundle files for production, add the following script to your project <code translate="no" v-pre>package.json</code> file:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
@@ -471,7 +446,7 @@ export const myCustomTsupTransformer: TsupConfigTransformer = (config: TsupConfi
         <span>Try it <span class="docs-emoji">&#x1F680;</span></span>
     </h2>
 </doc-anchor-target>
-<p>To test your new tsup configuration, open a terminal at the root of the project and execute the <doc-anchor-trigger to="#add-a-cli-script">CLI script added previously</doc-anchor-trigger>. The build process should complete without outputting any error in the terminal and the bundle files should be available in the <code v-pre>/dist</code> folder (or any other <code v-pre>outputDir</code> you configured).</p>
+<p>To test your new tsup configuration, open a terminal at the root of the project and execute the <doc-anchor-trigger to="#add-a-cli-script">CLI script added previously</doc-anchor-trigger>. The build process should complete without outputting any error in the terminal and the bundle files should be available in the <code translate="no" v-pre>/dist</code> folder (or any other <code translate="no" v-pre>outputDir</code> you configured).</p>
 
                                 
                                 <!-- Required only on API pages -->

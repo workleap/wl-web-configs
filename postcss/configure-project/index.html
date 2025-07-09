@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0-preview5.804561850129">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.805399265721">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.11.0-preview5">
+    <meta name="generator" content="Retype 3.12.0-preview2">
 
     <!-- Primary Meta Tags -->
     <title>Configure a project - PostCSS</title>
@@ -31,13 +31,13 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../static/favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.11.0-preview5.804561850129" rel="stylesheet">
+    <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.805399265721" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0-preview5" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0-preview5.804561850129" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.805399265721" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -145,31 +145,6 @@
         
                         </ul>
                     </nav>
-        
-                    <!-- Header Right Skeleton -->
-                    <div v-cloak class="flex justify-end grow skeleton">
-        
-                        <!-- Search input mock -->
-                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
-                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                            </div>
-                            <input class="w-full h-10 placeholder-search-placeholder transition-colors duration-200 ease-in bg-search-bg border border-transparent rounded md:text-sm hover:border-search-border-hover focus:outline-none focus:border-search-border-focus" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
-                        </div>
-        
-                        <!-- Mobile search button -->
-                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                        </div>
-        
-                        <!-- Dark mode switch placeholder -->
-                        <div class="w-10 h-10 lg:ml-2"></div>
-        
-                        <!-- History button -->
-                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
-                        </div>
-                    </div>
         
                     <div v-cloak class="flex justify-end grow">
                         <div id="retype-mobile-search-button"></div>
@@ -286,9 +261,9 @@
                                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
                                     <ol role="list">
                                         <li class="pr-4">
-                                            <a href="../../postcss/" class="pr-4">
+                                            <span class="pr-4">
                                                 Post​CSS
-                                            </a>
+                                            </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                                             </svg>
@@ -320,7 +295,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p><code v-pre>@workleap/postcss-configs</code> is now in maintenance mode. If you&#x27;re starting a new project, consider using <a href="../../rsbuild/">@workleap/rsbuild-configs</a> instead of <a href="../../webpack/">@workleap/webpack-configs</a>, which eliminates the need for PostCSS.</p>
+<p><code translate="no" v-pre>@workleap/postcss-configs</code> is now in maintenance mode. If you&#x27;re starting a new project, consider using <a href="../../rsbuild/getting-started/">@workleap/rsbuild-configs</a> instead of <a href="../../webpack/getting-started/">@workleap/webpack-configs</a>, which eliminates the need for PostCSS.</p>
         </div>
     </div>
 </div>
@@ -341,7 +316,7 @@
         <span>Configure PostCSS</span>
     </h2>
 </doc-anchor-target>
-<p>First, create a configuration file named <code v-pre>postcss.config.ts</code> at the root of the project:</p>
+<p>First, create a configuration file named <code translate="no" v-pre>postcss.config.ts</code> at the root of the project:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">project
 ├── src
@@ -349,7 +324,7 @@
 ├── package.json
 ├── postcss.config.ts</code></pre>
 </doc-codeblock></div>
-<p>Then, open the newly created file and <code v-pre>export</code> the PostCSS configuration by using the <code v-pre>defineConfig(options)</code> function:</p>
+<p>Then, open the newly created file and <code translate="no" v-pre>export</code> the PostCSS configuration by using the <code translate="no" v-pre>defineConfig(options)</code> function:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">postcss.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="3"><code v-pre class="language-typescript">import { defineConfig } from &quot;@workleap/postcss-configs&quot;;
@@ -362,18 +337,18 @@ export default defineConfig();</code></pre>
         <span>Use predefined options</span>
     </h2>
 </doc-anchor-target>
-<p>The <code v-pre>defineConfig(options)</code> function can be used as-is as shown in the previous example, however, if you wish to customize the default configuration, the function also accepts a few predefined options to help with that <span class="docs-emoji">&#x1F447;</span></p>
+<p>The <code translate="no" v-pre>defineConfig(options)</code> function can be used as-is as shown in the previous example, however, if you wish to customize the default configuration, the function also accepts a few predefined options to help with that <span class="docs-emoji">&#x1F447;</span></p>
 <doc-anchor-target id="browsers">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#browsers">#</doc-anchor-trigger>
-        <span><code v-pre>browsers</code></span>
+        <span><code translate="no" v-pre>browsers</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>string | string[]</code></li>
-<li><strong>Default</strong>: When available, will load the supported browser versions from the closest <code v-pre>.browserslistrc</code> file</li>
+<li><strong>Type</strong>: <code translate="no" v-pre>string | string[]</code></li>
+<li><strong>Default</strong>: When available, will load the supported browser versions from the closest <code translate="no" v-pre>.browserslistrc</code> file</li>
 </ul>
-<p>Set <code v-pre>postcss-preset-env</code> <a href="https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#browsers" class="outbound" target="_blank">browsers option</a>.</p>
+<p>Set <code translate="no" v-pre>postcss-preset-env</code> <a href="https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#browsers" class="outbound" target="_blank">browsers option</a>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">postcss.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineConfig } from &quot;@workleap/postcss-configs&quot;;
@@ -385,12 +360,12 @@ export default defineConfig({
 <doc-anchor-target id="presetenvoptions">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#presetenvoptions">#</doc-anchor-trigger>
-        <span><code v-pre>presetEnvOptions</code></span>
+        <span><code translate="no" v-pre>presetEnvOptions</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: An object literal accepting any <code v-pre>postcss-preset-env</code> <a href="https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#options" class="outbound" target="_blank">option</a></li>
-<li><strong>Default</strong>: <code v-pre>{ autoprefixer: { flexbox: &quot;no-2009&quot; }, stage: 3 }</code></li>
+<li><strong>Type</strong>: An object literal accepting any <code translate="no" v-pre>postcss-preset-env</code> <a href="https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#options" class="outbound" target="_blank">option</a></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>{ autoprefixer: { flexbox: &quot;no-2009&quot; }, stage: 3 }</code></li>
 </ul>
 <p>Forward the provided object literal to the <a href="https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env" class="outbound" target="_blank">postcss-preset-env</a> plugin.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -406,10 +381,10 @@ export default defineConfig({
 <doc-anchor-target id="extends-presetenvoptions-options">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#extends-presetenvoptions-options">#</doc-anchor-trigger>
-        <span>Extends <code v-pre>presetEnvOptions</code> options</span>
+        <span>Extends <code translate="no" v-pre>presetEnvOptions</code> options</span>
     </h4>
 </doc-anchor-target>
-<p>When provided, the <code v-pre>presetEnvOptions</code> option will override the default <a href="https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env" class="outbound" target="_blank">postcss-preset-env</a> plugin configuration. If you wish to <strong>extend</strong> the default configuration rather than overriding it, you can do so by importing the <code v-pre>DefaultPresetEnvOptions</code> object:</p>
+<p>When provided, the <code translate="no" v-pre>presetEnvOptions</code> option will override the default <a href="https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env" class="outbound" target="_blank">postcss-preset-env</a> plugin configuration. If you wish to <strong>extend</strong> the default configuration rather than overriding it, you can do so by importing the <code translate="no" v-pre>DefaultPresetEnvOptions</code> object:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">postcss.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="5,7"><code v-pre class="language-typescript">import { defineConfig, DefaultPresetEnvOptions } from &quot;@workleap/postcss-configs&quot;;
@@ -447,17 +422,17 @@ export default defineConfig({
         </div>
     </div>
 </div>
-<p>The <doc-anchor-trigger to="#use-predefined-options">predefined options</doc-anchor-trigger> are useful to quickly customize the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/postcss-configs/src/index.ts" class="outbound" target="_blank">default configuration</a> of <code v-pre>@workleap/postcss-configs</code>, but only covers a subset of a <a href="https://github.com/postcss/postcss-load-config" class="outbound" target="_blank">PostCSS configuration</a>. If you need full control over the configuration, you can provide <strong>configuration transformer</strong> functions through the <code v-pre>transformers</code> option of the <code v-pre>defineConfig</code> function. Remember, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>.</p>
-<p>To view the default configuration of <code v-pre>@workleap/postcss-configs</code>, have a look at the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/postcss-configs/src/index" class="outbound" target="_blank">configuration file</a> on GitHub.</p>
+<p>The <doc-anchor-trigger to="#use-predefined-options">predefined options</doc-anchor-trigger> are useful to quickly customize the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/postcss-configs/src/index.ts" class="outbound" target="_blank">default configuration</a> of <code translate="no" v-pre>@workleap/postcss-configs</code>, but only covers a subset of a <a href="https://github.com/postcss/postcss-load-config" class="outbound" target="_blank">PostCSS configuration</a>. If you need full control over the configuration, you can provide <strong>configuration transformer</strong> functions through the <code translate="no" v-pre>transformers</code> option of the <code translate="no" v-pre>defineConfig</code> function. Remember, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>.</p>
+<p>To view the default configuration of <code translate="no" v-pre>@workleap/postcss-configs</code>, have a look at the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/postcss-configs/src/index" class="outbound" target="_blank">configuration file</a> on GitHub.</p>
 <doc-anchor-target id="transformers">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#transformers">#</doc-anchor-trigger>
-        <span><code v-pre>transformers</code></span>
+        <span><code translate="no" v-pre>transformers</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>((config: PostCSSConfig) =&gt; PostCSSConfig)[]</code></li>
-<li><strong>Default</strong>: <code v-pre>[]</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>((config: PostCSSConfig) =&gt; PostCSSConfig)[]</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">transformer(config: PostCSSConfig) =&gt; PostCSSConfig</code></pre>
@@ -515,7 +490,7 @@ export default defineConfig({
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>If your project is using <code v-pre>@workleap/wepack-config</code>, you don&#x27;t have to configure <code v-pre>postcss-loader</code> as the <a href="../../webpack/configure-dev/#webpackdevjs">defineDevConfig</a> and <a href="../../webpack/configure-build/#webpackbuildjs">defineBuildConfig</a> functions already takes care of configuring PostCSS.</p>
+<p>If your project is using <code translate="no" v-pre>@workleap/wepack-config</code>, you don&#x27;t have to configure <code translate="no" v-pre>postcss-loader</code> as the <a href="../../webpack/configure-dev/#webpackdevjs">defineDevConfig</a> and <a href="../../webpack/configure-build/#webpackbuildjs">defineBuildConfig</a> functions already takes care of configuring PostCSS.</p>
         </div>
     </div>
 </div>
@@ -556,16 +531,16 @@ export default {
     background: linear-gradient(to bottom, white, black);
 }</code></pre>
 </doc-codeblock></div>
-<p>If you integrated PostCSS with webpack, execute your webpack build and find the outputted <code v-pre>.example</code> CSS class in the generated bundle files of your <code v-pre>dist</code> folder.</p>
+<p>If you integrated PostCSS with webpack, execute your webpack build and find the outputted <code translate="no" v-pre>.example</code> CSS class in the generated bundle files of your <code translate="no" v-pre>dist</code> folder.</p>
 <p>Otherwise, open a terminal at the root of your project and install <a href="https://github.com/postcss/postcss-cli" class="outbound" target="_blank">postcss-cli</a>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D postcss-cli postcss</code></pre>
 </doc-codeblock></div>
-<p>Then, process the file with <code v-pre>postcss-cli</code> by executing the following command in the same terminal:</p>
+<p>Then, process the file with <code translate="no" v-pre>postcss-cli</code> by executing the following command in the same terminal:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">npx postcss example.css -o out.css</code></pre>
 </doc-codeblock></div>
-<p>Whether you processed the CSS with webpack or <code v-pre>postcss-cli</code>, most of the CSS properties in the <code v-pre>.example</code> CSS class should have been prefixed (it can vary based on your Browserslist configuration):</p>
+<p>Whether you processed the CSS with webpack or <code translate="no" v-pre>postcss-cli</code>, most of the CSS properties in the <code translate="no" v-pre>.example</code> CSS class should have been prefixed (it can vary based on your Browserslist configuration):</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">out.css</div>
 <pre translate="no" class="language-css"><code v-pre class="language-css">.example {
@@ -596,20 +571,20 @@ export default {
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../postcss/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../postcss/getting-started/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                                <span class="block mt-1">Post​CSS</span>
+                                                <span class="block mt-1">Getting started</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../swc/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../swc/getting-started/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                                <span class="block mt-1">SWC</span>
+                                                <span class="block mt-1">Getting started</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>

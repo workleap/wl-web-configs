@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0-preview5.804561850129">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.805399265721">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.11.0-preview5">
+    <meta name="generator" content="Retype 3.12.0-preview2">
 
     <!-- Primary Meta Tags -->
     <title>Configure for development - Rsbuild</title>
@@ -31,13 +31,13 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../static/favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.11.0-preview5.804561850129" rel="stylesheet">
+    <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.805399265721" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0-preview5" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0-preview5.804561850129" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0-preview5.804561850129" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.805399265721" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.805399265721" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -145,31 +145,6 @@
         
                         </ul>
                     </nav>
-        
-                    <!-- Header Right Skeleton -->
-                    <div v-cloak class="flex justify-end grow skeleton">
-        
-                        <!-- Search input mock -->
-                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
-                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                            </div>
-                            <input class="w-full h-10 placeholder-search-placeholder transition-colors duration-200 ease-in bg-search-bg border border-transparent rounded md:text-sm hover:border-search-border-hover focus:outline-none focus:border-search-border-focus" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
-                        </div>
-        
-                        <!-- Mobile search button -->
-                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                        </div>
-        
-                        <!-- Dark mode switch placeholder -->
-                        <div class="w-10 h-10 lg:ml-2"></div>
-        
-                        <!-- History button -->
-                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
-                        </div>
-                    </div>
         
                     <div v-cloak class="flex justify-end grow">
                         <div id="retype-mobile-search-button"></div>
@@ -286,9 +261,9 @@
                                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
                                     <ol role="list">
                                         <li class="pr-4">
-                                            <a href="../../rsbuild/" class="pr-4">
+                                            <span class="pr-4">
                                                 Rsbuild
-                                            </a>
+                                            </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                                             </svg>
@@ -331,7 +306,7 @@
         <span>HTML template</span>
     </h3>
 </doc-anchor-target>
-<p>First, create a <code v-pre>public</code> folder with an <code v-pre>index.html</code> file at the root of the project:</p>
+<p>First, create a <code translate="no" v-pre>public</code> folder with an <code translate="no" v-pre>index.html</code> file at the root of the project:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="2-3"><code v-pre class="language-none">web-project
 ├── public
@@ -340,7 +315,7 @@
 ├──── ...
 ├── package.json</code></pre>
 </doc-codeblock></div>
-<p>Then, open the newly created <code v-pre>index.html</code> file and copy/paste the following content:</p>
+<p>Then, open the newly created <code translate="no" v-pre>index.html</code> file and copy/paste the following content:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">public/index.html</div>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;!DOCTYPE html&gt;
@@ -352,15 +327,15 @@
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </doc-codeblock></div>
-<p>The content of the <code v-pre>public/index.html</code> file will be the template used by Rsbuild <a href="https://rsbuild.dev/guide/basic/html-template" class="outbound" target="_blank">HTML template</a> feature.</p>
+<p>The content of the <code translate="no" v-pre>public/index.html</code> file will be the template used by Rsbuild <a href="https://rsbuild.dev/guide/basic/html-template" class="outbound" target="_blank">HTML template</a> feature.</p>
 <doc-anchor-target id="reference-local-assets">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#reference-local-assets">#</doc-anchor-trigger>
         <span>Reference local assets</span>
     </h4>
 </doc-anchor-target>
-<p>To reference local assets such as a <code v-pre>favicon.png</code> in the default HTML template, it is recommended to preprend the <strong>relative</strong> path of every asset with the <code v-pre>assetPrefix</code> option of the Rsbuild config.</p>
-<p>First, add the asset to the <code v-pre>public</code> folder at the root of the project:</p>
+<p>To reference local assets such as a <code translate="no" v-pre>favicon.png</code> in the default HTML template, it is recommended to preprend the <strong>relative</strong> path of every asset with the <code translate="no" v-pre>assetPrefix</code> option of the Rsbuild config.</p>
+<p>First, add the asset to the <code translate="no" v-pre>public</code> folder at the root of the project:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="4"><code v-pre class="language-none">web-project
 ├── public
@@ -370,7 +345,7 @@
 ├──── ...
 ├── package.json</code></pre>
 </doc-codeblock></div>
-<p>Then, add the assets to the <code v-pre>index.html</code> file:</p>
+<p>Then, add the assets to the <code translate="no" v-pre>index.html</code> file:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">public/index.html</div>
 <pre translate="no" class="language-markup" data-line="4"><code v-pre class="language-markup">&lt;!DOCTYPE html&gt;
@@ -389,8 +364,8 @@
         <span>Browserslist</span>
     </h3>
 </doc-anchor-target>
-<p>Next, let&#x27;s set up <a href="https://github.com/browserslist/browserslist" class="outbound" target="_blank">Browserlist</a> to define the minimum browser versions supported by the application. Rsbuild will automatically detect and load the browser versions from the nearest <code v-pre>.browserslistrc</code> configuration file.</p>
-<p>First, create a <code v-pre>browserslistrc</code> file at the root of the project:</p>
+<p>Next, let&#x27;s set up <a href="https://github.com/browserslist/browserslist" class="outbound" target="_blank">Browserlist</a> to define the minimum browser versions supported by the application. Rsbuild will automatically detect and load the browser versions from the nearest <code translate="no" v-pre>.browserslistrc</code> configuration file.</p>
+<p>First, create a <code translate="no" v-pre>browserslistrc</code> file at the root of the project:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="6"><code v-pre class="language-none">web-project
 ├── public
@@ -400,7 +375,7 @@
 ├── .browserslistrc
 ├── package.json</code></pre>
 </doc-codeblock></div>
-<p>Then, open the newly created file and extend the default configuration with the shared configuration provided by <code v-pre>@workleap/browserslist-config</code>:</p>
+<p>Then, open the newly created file and extend the default configuration with the shared configuration provided by <code translate="no" v-pre>@workleap/browserslist-config</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.browserslistrc</div>
 <pre translate="no" class="language-none"><code v-pre class="language-none">extends @workleap/browserslist-config</code></pre>
@@ -408,10 +383,10 @@
 <doc-anchor-target id="rsbuilddevts">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#rsbuilddevts">#</doc-anchor-trigger>
-        <span><code v-pre>rsbuild.dev.ts</code></span>
+        <span><code translate="no" v-pre>rsbuild.dev.ts</code></span>
     </h3>
 </doc-anchor-target>
-<p>Next, create a configuration file named <code v-pre>rsbuild.dev.ts</code> at the root of the project:</p>
+<p>Next, create a configuration file named <code translate="no" v-pre>rsbuild.dev.ts</code> at the root of the project:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="8"><code v-pre class="language-none">web-project
 ├── public
@@ -422,7 +397,7 @@
 ├── package.json
 ├── rsbuild.dev.ts</code></pre>
 </doc-codeblock></div>
-<p>Then, open the newly created file and <code v-pre>export</code> the Rsbuild configuration by using the <code v-pre>defineDevConfig(options)</code> function:</p>
+<p>Then, open the newly created file and <code translate="no" v-pre>export</code> the Rsbuild configuration by using the <code translate="no" v-pre>defineDevConfig(options)</code> function:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
@@ -435,16 +410,16 @@ export default defineDevConfig();</code></pre>
         <span>Use predefined options</span>
     </h2>
 </doc-anchor-target>
-<p>The <code v-pre>defineDevConfig(options)</code> function can be used as shown in the previous example, however, if you wish to customize the default configuration, the function also accept a few predefined options to help with that <span class="docs-emoji">&#x1F447;</span></p>
+<p>The <code translate="no" v-pre>defineDevConfig(options)</code> function can be used as shown in the previous examples, however, if you wish to customize the default configuration, the function also accept a few predefined options to help with that <span class="docs-emoji">&#x1F447;</span></p>
 <doc-anchor-target id="entry">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#entry">#</doc-anchor-trigger>
-        <span><code v-pre>entry</code></span>
+        <span><code translate="no" v-pre>entry</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
 <li><strong>Type</strong>: An object literal accepting any <a href="https://rsbuild.dev/config/source/entry" class="outbound" target="_blank">source.entry</a> options.</li>
-<li><strong>Default</strong>: <code v-pre>{ index: &quot;./src/index.tsx&quot; }</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>{ index: &quot;./src/index.tsx&quot; }</code></li>
 </ul>
 <p>Set Rsbuild <a href="https://rsbuild.dev/config/source/entry" class="outbound" target="_blank">source.entry</a> option.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -460,12 +435,12 @@ export default defineDevConfig({
 <doc-anchor-target id="https">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#https">#</doc-anchor-trigger>
-        <span><code v-pre>https</code></span>
+        <span><code translate="no" v-pre>https</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>boolean</code> or an object literal accepting any <a href="https://rsbuild.dev/config/server/https" class="outbound" target="_blank">server.https</a> options.</li>
-<li><strong>Default</strong>: <code v-pre>false</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code> or an object literal accepting any <a href="https://rsbuild.dev/config/server/https" class="outbound" target="_blank">server.https</a> options.</li>
+<li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
 <p>Set Rsbuild <a href="https://rsbuild.dev/config/server/https" class="outbound" target="_blank">server.https</a> option and format Rsbuild <a href="https://rsbuild.dev/config/dev/asset-prefix" class="outbound" target="_blank">dev.assetPrefix</a> option accordingly.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -476,16 +451,16 @@ export default defineDevConfig({
     https: true
 });</code></pre>
 </doc-codeblock></div>
-<p>When <code v-pre>true</code>, a self-signed certificate will be generated with <a href="https://github.com/rspack-contrib/rsbuild-plugin-basic-ssl" class="outbound" target="_blank">rsbuild-plugin-basic-ssl</a>. To manually set a certificate, follow Rsbuild <a href="https://rsbuild.dev/config/server/https#set-certificate" class="outbound" target="_blank">instructions</a>.</p>
+<p>When <code translate="no" v-pre>true</code>, a self-signed certificate will be generated with <a href="https://github.com/rspack-contrib/rsbuild-plugin-basic-ssl" class="outbound" target="_blank">rsbuild-plugin-basic-ssl</a>. To manually set a certificate, follow Rsbuild <a href="https://rsbuild.dev/config/server/https#set-certificate" class="outbound" target="_blank">instructions</a>.</p>
 <doc-anchor-target id="host">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#host">#</doc-anchor-trigger>
-        <span><code v-pre>host</code></span>
+        <span><code translate="no" v-pre>host</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>string</code></li>
-<li><strong>Default</strong>: <code v-pre>localhost</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>string</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>localhost</code></li>
 </ul>
 <p>Set Rsbuild <a href="https://rsbuild.dev/config/server/host" class="outbound" target="_blank">server.host</a> option and format Rsbuild <a href="https://rsbuild.dev/config/dev/asset-prefix" class="outbound" target="_blank">dev.assetPrefix</a> option accordingly.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -499,12 +474,12 @@ export default defineDevConfig({
 <doc-anchor-target id="port">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#port">#</doc-anchor-trigger>
-        <span><code v-pre>port</code></span>
+        <span><code translate="no" v-pre>port</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>number</code></li>
-<li><strong>Default</strong>: <code v-pre>8080</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>number</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>8080</code></li>
 </ul>
 <p>Set Rsbuild <a href="https://rsbuild.dev/config/server/port" class="outbound" target="_blank">server.port</a> option and format Rsbuild <a href="https://rsbuild.dev/config/dev/asset-prefix" class="outbound" target="_blank">dev.assetPrefix</a> option accordingly.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -518,15 +493,15 @@ export default defineDevConfig({
 <doc-anchor-target id="assetprefix">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#assetprefix">#</doc-anchor-trigger>
-        <span><code v-pre>assetPrefix</code></span>
+        <span><code translate="no" v-pre>assetPrefix</code></span>
     </h3>
 </doc-anchor-target>
 <blockquote>
 <p>This option is the Rsbuild equivalent of webpack <a href="../../webpack/configure-dev/#publicpath">publicPath</a> option.</p>
 </blockquote>
 <ul>
-<li><strong>Type</strong>: <code v-pre>string</code></li>
-<li><strong>Default</strong>: <code v-pre>/</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>string</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>/</code></li>
 </ul>
 <p>Set Rsbuild <a href="https://rsbuild.dev/config/dev/asset-prefix" class="outbound" target="_blank">dev.assetPrefix</a> option. Only set this option if the dev server is not hosting the application at the root.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -540,12 +515,12 @@ export default defineDevConfig({
 <doc-anchor-target id="plugins">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#plugins">#</doc-anchor-trigger>
-        <span><code v-pre>plugins</code></span>
+        <span><code translate="no" v-pre>plugins</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
 <li><strong>Type</strong>: An array of Rsbuild <a href="https://rsbuild.dev/plugins/list/index" class="outbound" target="_blank">plugin instances</a></li>
-<li><strong>Default</strong>: <code v-pre>[]</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
 <p>Append the provided Rsbuild plugins to the configuration.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -560,14 +535,14 @@ export default defineDevConfig({
 <doc-anchor-target id="html">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#html">#</doc-anchor-trigger>
-        <span><code v-pre>html</code></span>
+        <span><code translate="no" v-pre>html</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>false</code> or <code v-pre>(defaultOptions: HtmlConfig) =&gt; HtmlConfig</code></li>
-<li><strong>Default</strong>: <code v-pre>defaultOptions =&gt; defaultOptions</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>false</code> or <code translate="no" v-pre>(defaultOptions: HtmlConfig) =&gt; HtmlConfig</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>defaultOptions =&gt; defaultOptions</code></li>
 </ul>
-<p>By default, Rsbuild will attempt to load an HTML template from the <code v-pre>public/index.html</code> file. To use Rsbuild&#x27;s built-in HTML template instead, set the option to <code v-pre>false</code>.</p>
+<p>By default, Rsbuild will attempt to load an HTML template from the <code translate="no" v-pre>public/index.html</code> file. To use Rsbuild&#x27;s built-in HTML template instead, set the option to <code translate="no" v-pre>false</code>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
@@ -594,14 +569,14 @@ export default defineDevConfig({
 <doc-anchor-target id="lazycompilation">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#lazycompilation">#</doc-anchor-trigger>
-        <span><code v-pre>lazyCompilation</code></span>
+        <span><code translate="no" v-pre>lazyCompilation</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>boolean</code></li>
-<li><strong>Default</strong>: <code v-pre>true</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>true</code></li>
 </ul>
-<p>Whether or not to use <a href="https://rsbuild.dev/config/dev/lazy-compilation" class="outbound" target="_blank">lazy compilation</a>. To disable lazy compilation, set the option to <code v-pre>false</code>.</p>
+<p>Whether or not to use <a href="https://rsbuild.dev/config/dev/lazy-compilation" class="outbound" target="_blank">lazy compilation</a>. To disable lazy compilation, set the option to <code translate="no" v-pre>false</code>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
@@ -613,14 +588,14 @@ export default defineDevConfig({
 <doc-anchor-target id="hmr">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#hmr">#</doc-anchor-trigger>
-        <span><code v-pre>hmr</code></span>
+        <span><code translate="no" v-pre>hmr</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>boolean</code></li>
-<li><strong>Default</strong>: <code v-pre>true</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>true</code></li>
 </ul>
-<p>Whether or not to use <a href="https://rsbuild.dev/guide/advanced/hmr" class="outbound" target="_blank">HMR</a>. To disable HMR set the option to <code v-pre>false</code>.</p>
+<p>Whether or not to use <a href="https://rsbuild.dev/guide/advanced/hmr" class="outbound" target="_blank">HMR</a>. To disable HMR set the option to <code translate="no" v-pre>false</code>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
@@ -632,14 +607,14 @@ export default defineDevConfig({
 <doc-anchor-target id="fastrefresh">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#fastrefresh">#</doc-anchor-trigger>
-        <span><code v-pre>fastRefresh</code></span>
+        <span><code translate="no" v-pre>fastRefresh</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>boolean</code></li>
-<li><strong>Default</strong>: <code v-pre>true</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>true</code></li>
 </ul>
-<p>Whether or not to use <a href="https://rsbuild.dev/guide/framework/react#react-fast-refresh" class="outbound" target="_blank">Fast Refresh</a> instead of use <a href="https://rsbuild.dev/guide/advanced/hmr" class="outbound" target="_blank">HMR</a>. To disable fast refresh set the option to <code v-pre>false</code>.</p>
+<p>Whether or not to use <a href="https://rsbuild.dev/guide/framework/react#react-fast-refresh" class="outbound" target="_blank">Fast Refresh</a> instead of use <a href="https://rsbuild.dev/guide/advanced/hmr" class="outbound" target="_blank">HMR</a>. To disable fast refresh set the option to <code translate="no" v-pre>false</code>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
@@ -667,14 +642,14 @@ export default defineDevConfig({
 <doc-anchor-target id="sourcemap">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#sourcemap">#</doc-anchor-trigger>
-        <span><code v-pre>sourceMap</code></span>
+        <span><code translate="no" v-pre>sourceMap</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>false</code> or an object literal accepting any <a href="https://rsbuild.dev/config/output/source-map" class="outbound" target="_blank">output.sourceMap</a> options.</li>
-<li><strong>Default</strong>: <code v-pre>{ js: &quot;cheap-module-source-map&quot;, css: true }</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>false</code> or an object literal accepting any <a href="https://rsbuild.dev/config/output/source-map" class="outbound" target="_blank">output.sourceMap</a> options.</li>
+<li><strong>Default</strong>: <code translate="no" v-pre>{ js: &quot;cheap-module-source-map&quot;, css: true }</code></li>
 </ul>
-<p>Whether or not to generate <a href="https://rsbuild.dev/config/output/source-map" class="outbound" target="_blank">source maps</a>. To disable source map, set the option to <code v-pre>false</code>.</p>
+<p>Whether or not to generate <a href="https://rsbuild.dev/config/output/source-map" class="outbound" target="_blank">source maps</a>. To disable source map, set the option to <code translate="no" v-pre>false</code>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
@@ -697,12 +672,12 @@ export default defineDevConfig({
 <doc-anchor-target id="overlay">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#overlay">#</doc-anchor-trigger>
-        <span><code v-pre>overlay</code></span>
+        <span><code translate="no" v-pre>overlay</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>false</code></li>
-<li><strong>Default</strong>: <code v-pre>undefined</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>false</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>undefined</code></li>
 </ul>
 <p>Whether or not a full-screen overlay should be in the browser when there are compiler errors or warnings.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -716,12 +691,12 @@ export default defineDevConfig({
 <doc-anchor-target id="writetodisk">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#writetodisk">#</doc-anchor-trigger>
-        <span><code v-pre>writeToDisk</code></span>
+        <span><code translate="no" v-pre>writeToDisk</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>true</code></li>
-<li><strong>Default</strong>: <code v-pre>undefined</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>true</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>undefined</code></li>
 </ul>
 <p>Whether or not to <a href="https://rsbuild.dev/config/dev/write-to-disk" class="outbound" target="_blank">write the build output</a> from the development server to the disk.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -735,14 +710,14 @@ export default defineDevConfig({
 <doc-anchor-target id="react">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#react">#</doc-anchor-trigger>
-        <span><code v-pre>react</code></span>
+        <span><code translate="no" v-pre>react</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>false</code> or <code v-pre>(defaultOptions: PluginReactOptions) =&gt; PluginReactOptions</code></li>
-<li><strong>Default</strong>: <code v-pre>defaultOptions =&gt; defaultOptions</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>false</code> or <code translate="no" v-pre>(defaultOptions: PluginReactOptions) =&gt; PluginReactOptions</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>defaultOptions =&gt; defaultOptions</code></li>
 </ul>
-<p>Whether or not to transform React code. To disable React code transformation, set the option to <code v-pre>false</code>.</p>
+<p>Whether or not to transform React code. To disable React code transformation, set the option to <code translate="no" v-pre>false</code>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
@@ -771,14 +746,14 @@ export default defineDevConfig({
 <doc-anchor-target id="svgr">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#svgr">#</doc-anchor-trigger>
-        <span><code v-pre>svgr</code></span>
+        <span><code translate="no" v-pre>svgr</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>false</code> or <code v-pre>(defaultOptions: PluginSvgrOptions) =&gt; PluginSvgrOptions</code></li>
-<li><strong>Default</strong>: <code v-pre>defaultOptions =&gt; defaultOptions</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>false</code> or <code translate="no" v-pre>(defaultOptions: PluginSvgrOptions) =&gt; PluginSvgrOptions</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>defaultOptions =&gt; defaultOptions</code></li>
 </ul>
-<p>Whether or not to handle <code v-pre>.svg</code> files with <a href="https://rsbuild.dev/plugins/list/plugin-svgr" class="outbound" target="_blank">plugin-svgr</a>. When the option is set to <code v-pre>false</code>, the <code v-pre>.svg</code> files will be handled by the <code v-pre>asset/resource</code> rule.</p>
+<p>Whether or not to handle <code translate="no" v-pre>.svg</code> files with <a href="https://rsbuild.dev/plugins/list/plugin-svgr" class="outbound" target="_blank">plugin-svgr</a>. When the option is set to <code translate="no" v-pre>false</code>, the <code translate="no" v-pre>.svg</code> files will be handled by the <code translate="no" v-pre>asset/resource</code> rule.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
@@ -815,7 +790,7 @@ export default defineDevConfig({
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">TS2307: Cannot find module './logo.svg' or its corresponding type declarations.</code></pre>
 </doc-codeblock></div>
-<p>To fix this, add a type declaration for the SVG assets, by creating a <code v-pre>src/env.d.ts</code> file, and add the type declaration.</p>
+<p>To fix this, add a type declaration for the SVG assets, by creating a <code translate="no" v-pre>src/env.d.ts</code> file, and add the type declaration.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">src/env.d.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">declare module '*.svg' {
@@ -835,7 +810,7 @@ declare module '*.svg?react' {
         <span>Import images</span>
     </h4>
 </doc-anchor-target>
-<p>By default, <code v-pre>plugin-svgr</code> is configured to support <a href="https://rsbuild.dev/plugins/list/plugin-svgr#named-import" class="outbound" target="_blank">named import</a> for <code v-pre>ReactComponent</code>:</p>
+<p>By default, <code translate="no" v-pre>plugin-svgr</code> is configured to support <a href="https://rsbuild.dev/plugins/list/plugin-svgr#named-import" class="outbound" target="_blank">named import</a> for <code translate="no" v-pre>ReactComponent</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-tsx"><code v-pre class="language-tsx">import { ReactComponent as Logo } from &quot;./logo.svg&quot;;
 
@@ -844,12 +819,12 @@ export const App = () =&gt; &lt;Logo /&gt;;</code></pre>
 <doc-anchor-target id="verbose">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#verbose">#</doc-anchor-trigger>
-        <span><code v-pre>verbose</code></span>
+        <span><code translate="no" v-pre>verbose</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>boolean</code></li>
-<li><strong>Default</strong>: <code v-pre>false</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
 <p>Start the Rsbuild process with verbose logging turned on.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -882,17 +857,17 @@ export default defineDevConfig({
         </div>
     </div>
 </div>
-<p>The <doc-anchor-trigger to="#use-predefined-options">predefined options</doc-anchor-trigger> are useful to quickly customize the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/rsbuild-configs/src/dev.ts" class="outbound" target="_blank">default development configuration</a> of <code v-pre>@workleap/rsbuild-configs</code>, but only covers a subset of an <a href="https://rsbuild.dev/config/index" class="outbound" target="_blank">Rsbuild configuration</a>. If you need full control over the configuration, you can provide configuration transformer functions through the <code v-pre>transformers</code> option of the <code v-pre>defineDevConfig</code> function. Remember, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>.</p>
-<p>To view the default development configuration of <code v-pre>@workleap/rsbuild-configs</code>, have a look at the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/rsbuild-configs/src/dev.ts" class="outbound" target="_blank">dev.ts configuration file</a> on GitHub.</p>
+<p>The <doc-anchor-trigger to="#use-predefined-options">predefined options</doc-anchor-trigger> are useful to quickly customize the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/rsbuild-configs/src/dev.ts" class="outbound" target="_blank">default development configuration</a> of <code translate="no" v-pre>@workleap/rsbuild-configs</code>, but only covers a subset of an <a href="https://rsbuild.dev/config/index" class="outbound" target="_blank">Rsbuild configuration</a>. If you need full control over the configuration, you can provide configuration transformer functions through the <code translate="no" v-pre>transformers</code> option of the <code translate="no" v-pre>defineDevConfig</code> function. Remember, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>.</p>
+<p>To view the default development configuration of <code translate="no" v-pre>@workleap/rsbuild-configs</code>, have a look at the <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/rsbuild-configs/src/dev.ts" class="outbound" target="_blank">dev.ts configuration file</a> on GitHub.</p>
 <doc-anchor-target id="transformers">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#transformers">#</doc-anchor-trigger>
-        <span><code v-pre>transformers</code></span>
+        <span><code translate="no" v-pre>transformers</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>((config: RsbuildConfig, context: RsbuildConfigTransformerContext) =&gt; RsbuildConfig)[]</code></li>
-<li><strong>Default</strong>: <code v-pre>[]</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>((config: RsbuildConfig, context: RsbuildConfigTransformerContext) =&gt; RsbuildConfig)[]</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">transformer(config: RsbuildConfig, context: RsbuildConfigTransformerContext) =&gt; RsbuildConfig</code></pre>
@@ -924,7 +899,7 @@ export default defineDevConfig({
         <span>Execution context</span>
     </h3>
 </doc-anchor-target>
-<p>Generic transformers can use the <code v-pre>context</code> parameter to gather additional information about their execution context, like the <code v-pre>environment</code> they are operating in.</p>
+<p>Generic transformers can use the <code translate="no" v-pre>context</code> parameter to gather additional information about their execution context, like the <code translate="no" v-pre>environment</code> they are operating in.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="5"><code v-pre class="language-typescript">import type { RsbuildConfigTransformer } from &quot;@workleap/rsbuild-configs&quot;;
@@ -945,8 +920,8 @@ export const transformer: RsbuildConfigTransformer = (config: RsbuildConfig) =&g
 }</code></pre>
 </doc-codeblock></div>
 <ul>
-<li><code v-pre>environment</code>: <code v-pre>&quot;dev&quot; | &quot;build&quot; | &quot;storybook&quot;</code></li>
-<li><code v-pre>verbose</code>: <code v-pre>boolean</code></li>
+<li><code translate="no" v-pre>environment</code>: <code translate="no" v-pre>&quot;dev&quot; | &quot;build&quot; | &quot;storybook&quot;</code></li>
+<li><code translate="no" v-pre>verbose</code>: <code translate="no" v-pre>boolean</code></li>
 </ul>
 <doc-anchor-target id="add-a-cli-script">
     <h2>
@@ -954,7 +929,7 @@ export const transformer: RsbuildConfigTransformer = (config: RsbuildConfig) =&g
         <span>Add a CLI script</span>
     </h2>
 </doc-anchor-target>
-<p>To initiate the development server, add the following script to the project <code v-pre>package.json</code> file:</p>
+<p>To initiate the development server, add the following script to the project <code translate="no" v-pre>package.json</code> file:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
@@ -990,7 +965,7 @@ export const transformer: RsbuildConfigTransformer = (config: RsbuildConfig) =&g
         <span>cross-env</span>
     </h3>
 </doc-anchor-target>
-<p>We recommend to define environment variables using <a href="https://github.com/kentcdodds/cross-env" class="outbound" target="_blank">cross-env</a>. With <code v-pre>cross-env</code>, the environment variables will be made available to any Node.js files that are executed by the script process (<code v-pre>dev</code> in the example below <span class="docs-emoji">&#x1F447;</span>):</p>
+<p>We recommend to define environment variables using <a href="https://github.com/kentcdodds/cross-env" class="outbound" target="_blank">cross-env</a>. With <code translate="no" v-pre>cross-env</code>, the environment variables will be made available to any Node.js files that are executed by the script process (<code translate="no" v-pre>dev</code> in the example below <span class="docs-emoji">&#x1F447;</span>):</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
@@ -1007,19 +982,19 @@ if (process.env.DEBUG) {
 
 export default defineDevConfig();</code></pre>
 </doc-codeblock></div>
-<p>However, there&#x27;s a catch. When using <code v-pre>cross-env</code>, the variables will not be available in the application files because <code v-pre>cross-env</code> only makes them available to files that are executed by the process at <strong>build time</strong> while the application files are executed at <strong>runtime</strong> by a browser.</p>
-<p>To make them accessible to the application files, Rsbuild must be aware of those environment variables and <strong>render</strong> them into the <strong>compiled application files</strong>. This is the purpose of the <code v-pre>environmentVariables</code> option.</p>
+<p>However, there&#x27;s a catch. When using <code translate="no" v-pre>cross-env</code>, the variables will not be available in the application files because <code translate="no" v-pre>cross-env</code> only makes them available to files that are executed by the process at <strong>build time</strong> while the application files are executed at <strong>runtime</strong> by a browser.</p>
+<p>To make them accessible to the application files, Rsbuild must be aware of those environment variables and <strong>render</strong> them into the <strong>compiled application files</strong>. This is the purpose of the <code translate="no" v-pre>environmentVariables</code> option.</p>
 <doc-anchor-target id="environmentvariables">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#environmentvariables">#</doc-anchor-trigger>
-        <span><code v-pre>environmentVariables</code></span>
+        <span><code translate="no" v-pre>environmentVariables</code></span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Type</strong>: <code v-pre>Record&lt;string, unknown&gt;</code></li>
-<li><strong>Default</strong>: <code v-pre>{}</code></li>
+<li><strong>Type</strong>: <code translate="no" v-pre>Record&lt;string, unknown&gt;</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>{}</code></li>
 </ul>
-<p>First, define the variables with <code v-pre>environmentVariables</code>:</p>
+<p>First, define the variables with <code translate="no" v-pre>environmentVariables</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
@@ -1052,7 +1027,7 @@ export default defineDevConfig({
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>The <code v-pre>=== &quot;true&quot;</code> part of <code v-pre>&quot;DEBUG&quot;: process.env.DEBUG === &quot;true&quot;</code> is very important, otherwise the environment variable value would be <code v-pre>&quot;true&quot;</code> instead of <code v-pre>true</code>.</p>
+<p>The <code translate="no" v-pre>=== &quot;true&quot;</code> part of <code translate="no" v-pre>&quot;DEBUG&quot;: process.env.DEBUG === &quot;true&quot;</code> is very important, otherwise the environment variable value would be <code translate="no" v-pre>&quot;true&quot;</code> instead of <code translate="no" v-pre>true</code>.</p>
         </div>
     </div>
 </div>
@@ -1081,7 +1056,7 @@ export default defineDevConfig({
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">TS2307: Cannot find module './index.module.css' or its corresponding type declarations.</code></pre>
 </doc-codeblock></div>
-<p>To fix this, add a type declaration file for the CSS Modules, by creating a <code v-pre>src/env.d.ts</code> file, and adding the corresponding type declaration.</p>
+<p>To fix this, add a type declaration file for the CSS Modules, by creating a <code translate="no" v-pre>src/env.d.ts</code> file, and adding the corresponding type declaration.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">env.d.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">/// &lt;reference types=&quot;@rsbuild/core/types&quot; /&gt;</code></pre>
@@ -1107,7 +1082,7 @@ export default defineDevConfig({
 ├───────── tsconfig.ts
 ├── package.json</code></pre>
 </doc-codeblock></div>
-<p>Copy the CSS Modules typings into the <code v-pre>app</code> web application own <code v-pre>env.d.ts</code> file, or include the <code v-pre>components</code> package&#x27;s typings into the <code v-pre>apps</code> web application <code v-pre>tsconfig.ts</code> configuration file:</p>
+<p>Copy the CSS Modules typings into the <code translate="no" v-pre>app</code> web application own <code translate="no" v-pre>env.d.ts</code> file, or include the <code translate="no" v-pre>components</code> package&#x27;s typings into the <code translate="no" v-pre>apps</code> web application <code translate="no" v-pre>tsconfig.ts</code> configuration file:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">app/tsconfig.ts</div>
 <pre translate="no" class="language-json" data-line="5"><code v-pre class="language-json">{
@@ -1156,11 +1131,11 @@ export default defineDevConfig({
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../rsbuild/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../rsbuild/getting-started/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                                <span class="block mt-1">Rsbuild</span>
+                                                <span class="block mt-1">Getting started</span>
                                             </span>
                                         </a>
                                     </div>
