@@ -1,8 +1,6 @@
 ---
-order: 60
-label: tsup
-nav:
-    badge: in maintenance mode|secondary
+order: 110
+label: Getting started
 toc:
     depth: 2-3
 ---
@@ -10,7 +8,7 @@ toc:
 # tsup
 
 !!!warning
-`@workleap/tsup-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rslib-configs](../rslib/default.md) instead for better performance and modern tooling.
+`@workleap/tsup-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rslib-configs](../rslib/getting-started.md) instead for better performance and modern tooling.
 !!!
 
 ## Issues with `tsc`

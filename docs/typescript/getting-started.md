@@ -1,6 +1,6 @@
 ---
-order: 150
-label: Typescript
+order: 110
+label: Getting started
 toc:
     depth: 2-3
 ---
@@ -19,7 +19,7 @@ This way, it's pretty straightforward for the consumer to configure TypeScript, 
 
 ### Linting only
 
-`@workleap/typescript-configs` by project type shared configurations exclusively focus on code linting, as [tsup](../tsup/default.md) is handling the transpilation process.
+`@workleap/typescript-configs` by project type shared configurations exclusively focus on code linting, as [tsup](../tsup/getting-started.md) is handling the transpilation process.
 
 ### Target environment
 

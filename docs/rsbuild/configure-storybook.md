@@ -81,7 +81,7 @@ export default storybookConfig;
 
 ## Use predefined options
 
-The `defineStorybookConfig(options)` function can be used as shown in the previous example, however, if you wish to customize the default configuration, the function also accept a few predefined options to help with that 👇
+The `defineStorybookConfig(options)` function can be used as shown in the previous examples, however, if you wish to customize the default configuration, the function also accept a few predefined options to help with that 👇
 
 ### `plugins`
 

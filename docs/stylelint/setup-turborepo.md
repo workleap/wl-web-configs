@@ -114,7 +114,7 @@ storybook-static
 
 #### .prettierignore
 
-Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../eslint/default.md#prettier), a `.prettierignore` file must be added at the root of the solution's workspace to ignore everything but CSS files.
+Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../eslint/getting-started.md#prettier), a `.prettierignore` file must be added at the root of the solution's workspace to ignore everything but CSS files.
 
 To do so, first, create a `.prettierignore` file at the root of the solution's workspace:
 

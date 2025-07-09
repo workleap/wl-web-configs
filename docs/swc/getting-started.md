@@ -1,8 +1,6 @@
 ---
-order: 80
-label: SWC
-nav:
-    badge: in maintenance mode|secondary
+order: 110
+label: Getting started
 toc:
     depth: 2-3
 ---
@@ -10,7 +8,7 @@ toc:
 # SWC
 
 !!!warning
-`@workleap/swc-configs` is now in maintenance mode, with the exception of the [Jest shared configurations](./configure-jest.md), which remain actively maintained. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/default.md) or [@workleap/rslib-configs](../rslib/default.md) instead for better performance and modern tooling.
+`@workleap/swc-configs` is now in maintenance mode, with the exception of the [Jest shared configurations](./configure-jest.md), which remain actively maintained. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/getting-started.md) or [@workleap/rslib-configs](../rslib/getting-started.md) instead for better performance and modern tooling.
 !!!
 
 ## Main features

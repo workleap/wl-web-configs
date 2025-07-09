@@ -1,8 +1,6 @@
 ---
-order: 70
-label: webpack
-nav:
-    badge: in maintenance mode|secondary
+order: 110
+label: Getting started
 toc:
     depth: 2-3
 ---
@@ -10,7 +8,7 @@ toc:
 # Webpack
 
 !!!warning
-`@workleap/webpack-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/default.md) instead for better performance and modern tooling.
+`@workleap/webpack-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/getting-started.md) instead for better performance and modern tooling.
 !!!
 
 ## Main features
@@ -49,7 +47,7 @@ The shared configurations offered by `@workleap/webpack-configs` includes the fo
 
 ### Target environment
 
-As per the [PostCSS](../postcss/default.md) and [SWC](../swc/default.md) configurations.
+As per the [PostCSS](../postcss/getting-started.md) and [SWC](../swc/getting-started.md) configurations.
 
 ## Getting started
 

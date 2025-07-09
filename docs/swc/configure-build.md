@@ -10,7 +10,7 @@ toc:
 # Configure for build
 
 !!!warning
-`@workleap/swc-configs` is now in maintenance mode for the shared __build__ configuration. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/default.md) instead for better performance and modern tooling which eliminates the needs for a custom SWC configuration.
+`@workleap/swc-configs` is now in maintenance mode for the shared __build__ configuration. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/getting-started.md) instead for better performance and modern tooling which eliminates the needs for a custom SWC configuration.
 !!!
 
 To configure [SWC](https://swc.rs/) for a production environment, execute the following steps :point_down:
@@ -97,7 +97,7 @@ The `browserslistToSwc(options)` utility function accepts any option supported b
 
 ## Use predefined options
 
-The `defineBuildConfig(targets, options)` function can be used as shown in the previous example, however, if you wish to customize the default configuration, the function also accept a few predefined options to help with that 👇
+The `defineBuildConfig(targets, options)` function can be used as shown in the previous examples, however, if you wish to customize the default configuration, the function also accept a few predefined options to help with that 👇
 
 ### `baseUrl`
 

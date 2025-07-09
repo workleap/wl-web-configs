@@ -8,7 +8,7 @@ toc:
 
 # Advanced composition
 
-If the default [by project type configurations](default.md/#available-configurations) doesn't fits your needs, rather than writing your own configuration from scratch, you can **compose a new one** from the underlying configuration pieces of `@workleap/typescript-configs`.
+If the default [by project type configurations](./getting-started.md/#available-configurations) doesn't fits your needs, rather than writing your own configuration from scratch, you can **compose a new one** from the underlying configuration pieces of `@workleap/typescript-configs`.
 
 ## Available pieces
 

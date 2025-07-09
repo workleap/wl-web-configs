@@ -10,7 +10,7 @@ toc:
 # Configure for development
 
 !!!warning
-`@workleap/webpack-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/default.md) instead for better performance and modern tooling.
+`@workleap/webpack-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/getting-started.md) instead for better performance and modern tooling.
 !!!
 
 To configure [webpack](https://webpack.js.org/) for a development environment, execute the following steps :point_down:
@@ -122,7 +122,7 @@ Therefore, `@workleap/webpack-configs` choosed to **delegate** the loading of th
 
 ## Use predefined options
 
-The `defineDevConfig(swcConfig, options)` function can be used as shown in the previous example, however, if you wish to customize the default configuration, the function also accept a few predefined options to help with that 👇
+The `defineDevConfig(swcConfig, options)` function can be used as shown in the previous examples, however, if you wish to customize the default configuration, the function also accept a few predefined options to help with that 👇
 
 ### `entry`
 

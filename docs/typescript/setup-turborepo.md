@@ -159,7 +159,7 @@ workspace
 ├── tsconfig.json
 ```
 
-Then, open the newly created file and extend the default configuration with one of the [shared configurations](../default.md/#available-configurations) provided by `@workleap/typescript-configs` :point_down:
+Then, open the newly created file and extend the default configuration with one of the [shared configurations](./getting-started.md#available-configurations) provided by `@workleap/typescript-configs` :point_down:
 
 #### `web-application`
 
