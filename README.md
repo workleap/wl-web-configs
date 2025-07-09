@@ -1,6 +1,6 @@
 # wl-web-configs
 
-Common configurations for building web apps at [Workleap](https://workleap.com/).
+Default tooling configurations for building web applications at [Workleap](https://workleap.com/).
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
 [![CI](https://github.com/workleap/wl-web-configs/actions/workflows/ci.yml/badge.svg)](https://github.com/workleap/wl-web-configs/actions/workflows/ci.yml)

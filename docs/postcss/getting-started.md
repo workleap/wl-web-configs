@@ -1,8 +1,6 @@
 ---
-order: 90
-label: PostCSS
-nav:
-    badge: in maintenance mode|secondary
+order: 100
+label: Getting started
 toc:
     depth: 2-3
 ---
@@ -10,7 +8,7 @@ toc:
 # PostCSS
 
 !!!warning
-`@workleap/postcss-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/default.md) instead of [@workleap/webpack-configs](../webpack/default.md), which eliminates the need for PostCSS.
+`@workleap/postcss-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rsbuild-configs](../rsbuild/getting-started.md) instead of [@workleap/webpack-configs](../webpack/getting-started.md), which eliminates the need for PostCSS.
 !!!
 
 ## Deprecation warning

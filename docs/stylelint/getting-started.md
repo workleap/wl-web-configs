@@ -1,6 +1,6 @@
 ---
-order: 160
-label: Stylelint
+order: 110
+label: Getting started
 toc:
     depth: 2-3
 ---
@@ -17,7 +17,7 @@ Since `v15.0.0`, Stylelint's stylistic rules [has been deprecated](https://style
 
 For that reason, `@workleap/stylelint-configs` shared configurations includes the [stylelint-prettier](https://github.com/prettier/stylelint-prettier) plugin. Using this plugin, Prettier changes are exposed as Stylelint's rule violations.
 
-Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../eslint/default.md#prettier), a `.prettierignore` file must be added at the root of the solution to ignore everything but CSS files:
+Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../eslint/getting-started.md#prettier), a `.prettierignore` file must be added at the root of the solution to ignore everything but CSS files:
 
 ``` .prettierignore
 *

@@ -10,7 +10,7 @@ toc:
 # Configure for build
 
 !!!warning
-`@workleap/tsup-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rslib-configs](../rslib/default.md) instead for better performance and modern tooling.
+`@workleap/tsup-configs` is now in maintenance mode. If you're starting a new project, consider using [@workleap/rslib-configs](../rslib/getting-started.md) instead for better performance and modern tooling.
 !!!
 
 To configure [tsup](https://tsup.egoist.dev/) for a build environment, execute the following steps :point_down:

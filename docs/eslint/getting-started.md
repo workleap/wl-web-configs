@@ -1,6 +1,6 @@
 ---
-order: 170
-label: ESLint
+order: 110
+label: Getting started
 toc:
     depth: 2-3
 ---

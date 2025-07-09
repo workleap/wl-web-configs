@@ -1,13 +1,13 @@
 ---
-order: 130
-label: Rslib
+order: 110
+label: Getting started
 toc:
     depth: 2-3
 ---
 
 # Rslib
 
-[Rslib](https://lib.rsbuild.dev/) is a high-performance build tool powered by [Rsbuild](https://rsbuild.dev/) and [Rspack](https://rspack.dev/), Rust-based ports of webpack designed for efficiency and speed. Those new Rslib shared configurations are a modern replacement for previous Workleap's shared [tsup configurations](../tsup/default.md).
+[Rslib](https://lib.rsbuild.dev/) is a high-performance build tool powered by [Rsbuild](https://rsbuild.dev/) and [Rspack](https://rspack.dev/), Rust-based ports of webpack designed for efficiency and speed. Those new Rslib shared configurations are a modern replacement for previous Workleap's shared [tsup configurations](../tsup/getting-started.md).
 
 ## Main features
 

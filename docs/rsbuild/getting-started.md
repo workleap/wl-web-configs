@@ -1,13 +1,13 @@
 ---
-order: 140
-label: Rsbuild
+order: 110
+label: Getting started
 toc:
     depth: 2-3
 ---
 
 # Rsbuild
 
-[Rsbuild](https://lib.rsbuild.dev/index) is a high-performance build tool powered by [Rspack](https://rspack.dev/), a Rust-based port of [webpack](https://webpack.js.org/) designed for efficiency and speed. Those new Rsbuild shared configurations are a modern replacement for previous Workleap's shared [webpack configurations](../webpack//default.md).
+[Rsbuild](https://lib.rsbuild.dev/index) is a high-performance build tool powered by [Rspack](https://rspack.dev/), a Rust-based port of [webpack](https://webpack.js.org/) designed for efficiency and speed. Those new Rsbuild shared configurations are a modern replacement for previous Workleap's shared [webpack configurations](../webpack/getting-started.md).
 
 ## Main features
 
@@ -43,7 +43,7 @@ The shared configurations offered by `@workleap/rsbuild-configs` includes the fo
 
 ### Target environment
 
-As per the [Browserlist](../browserslist/default.md) configuration.
+As per the [Browserlist](../browserslist/getting-started.md) configuration.
 
 ## Getting started
 
