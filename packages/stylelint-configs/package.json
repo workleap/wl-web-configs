@@ -32,8 +32,8 @@
         "typecheck": "tsc"
     },
     "peerDependencies": {
-        "prettier": "^3.5.3",
-        "stylelint": "^16.19.1"
+        "prettier": "^3.6.2",
+        "stylelint": "^16.21.1"
     },
     "peerDependenciesMeta": {
         "prettier": {
@@ -48,8 +48,8 @@
         "stylelint-prettier": "^5.0.3"
     },
     "devDependencies": {
-        "@types/node": "22.15.21",
-        "@typescript-eslint/parser": "8.32.1",
+        "@types/node": "24.0.14",
+        "@typescript-eslint/parser": "8.37.0",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0",

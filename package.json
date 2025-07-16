@@ -43,23 +43,23 @@
         "reset:modules": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf node_modules pnpm-lock.yaml",
         "list-outdated-deps": "pnpm outdated -r --filter=!@webpack-sample/* --format list !eslint !@types/eslint !@stylistic/eslint-plugin-ts",
         "update-outdated-deps": "pnpm run --sequential \"/^update-outdated-deps:.*/\"",
-        "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !eslint !@types/eslint !@stylistic/eslint-plugin-ts",
+        "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !eslint !@types/eslint !@stylistic/eslint-plugin-ts !eslint-plugin-package-json !vitest",
         "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !eslint !typescript",
         "update-outdated-deps:update-peers": "syncpack fix-mismatches"
     },
     "devDependencies": {
         "@changesets/changelog-github": "0.5.1",
-        "@changesets/cli": "2.29.4",
-        "@typescript-eslint/parser": "8.32.1",
+        "@changesets/cli": "2.29.5",
+        "@typescript-eslint/parser": "8.37.0",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "cross-env": "7.0.3",
         "eslint": "8.57.0",
-        "pkg-pr-new": "0.0.50",
-        "prettier": "3.5.3",
-        "retypeapp": "3.11.0-preview5",
+        "pkg-pr-new": "0.0.54",
+        "prettier": "3.6.2",
+        "retypeapp": "3.11.0",
         "syncpack": "13.0.4",
-        "turbo": "2.5.3",
+        "turbo": "2.5.5",
         "typescript": "5.8.3"
     },
     "engines": {
@@ -68,4 +68,3 @@
     },
     "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }
-

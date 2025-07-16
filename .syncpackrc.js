@@ -3,8 +3,13 @@
 /** @type {import("syncpack").RcFile} */
 export default {
     "lintFormatting": false,
-    // "dependencyTypes": ["prod", "dev"],
     "semverGroups": [
+        {
+            // Cannot be updated without moving to ESLint 9+.
+            "packages": ["@workleap/eslint-plugin"],
+            "dependencies": ["eslint-plugin-package-json"],
+            "isIgnored": true
+        },
         {
             "packages": ["@workleap/*"],
             "dependencyTypes": ["prod", "peer"],

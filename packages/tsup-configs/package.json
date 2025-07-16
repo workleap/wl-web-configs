@@ -38,9 +38,9 @@
         "typescript": "^5.8.3"
     },
     "devDependencies": {
-        "@rsbuild/core": "1.3.21",
-        "@rslib/core": "0.8.0",
-        "@typescript-eslint/parser": "8.32.1",
+        "@rsbuild/core": "1.4.7",
+        "@rslib/core": "0.10.6",
+        "@typescript-eslint/parser": "8.37.0",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
