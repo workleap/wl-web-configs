@@ -2,7 +2,7 @@
     "name": "@workleap/eslint-plugin",
     "author": "Workleap",
     "description": "Workleap recommended ESLint rules and configurations.",
-    "version": "3.4.2",
+    "version": "3.5.0",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
