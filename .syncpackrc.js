@@ -7,7 +7,24 @@ export default {
         {
             // Cannot be updated without moving to ESLint 9+.
             "packages": ["@workleap/eslint-plugin"],
-            "dependencies": ["eslint-plugin-package-json"],
+            "dependencies": [
+                "@stylistic/eslint-plugin-ts",
+                "@typescript-eslint/eslint-plugin",
+                "@typescript-eslint/parser",
+                "@vitest/eslint-plugin",
+                "eslint-plugin-import",
+                "eslint-plugin-jest",
+                "eslint-plugin-jsx-a11y",
+                "eslint-plugin-package-json",
+                "eslint-plugin-mdx",
+                "eslint-plugin-react",
+                "eslint-plugin-react-hooks",
+                "eslint-plugin-storybook",
+                "eslint-plugin-testing-library",
+                "eslint-plugin-yml",
+                "jsonc-eslint-parser",
+                "yaml-eslint-parser"
+            ],
             "isIgnored": true
         },
         {

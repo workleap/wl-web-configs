@@ -32,7 +32,7 @@
         "typecheck": "tsc"
     },
     "devDependencies": {
-        "@typescript-eslint/parser": "8.37.0",
+        "@typescript-eslint/parser": "8.32.1",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0"
