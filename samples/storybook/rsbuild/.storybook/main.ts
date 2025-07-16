@@ -1,19 +1,22 @@
+import { createRequire } from "node:module";
+import { dirname, join } from "node:path";
 import type { StorybookConfig } from "storybook-react-rsbuild";
 
+const require = createRequire(import.meta.url);
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function getAbsolutePath(value: string): any {
+    return dirname(require.resolve(join(value, "package.json")));
+}
+
 const storybookConfig: StorybookConfig = {
-    framework: "storybook-react-rsbuild",
+    framework: getAbsolutePath("storybook-react-rsbuild"),
     addons: [
-        "@storybook/addon-links",
-        "@storybook/addon-essentials",
-        "@storybook/addon-interactions",
-        "@storybook/addon-a11y"
+        getAbsolutePath("@storybook/addon-a11y")
     ],
     stories: [
         "../../../rsbuild/components/src/**/*.stories.(tsx|mdx)"
-    ],
-    docs: {
-        autodocs: false
-    }
+    ]
 };
 
 export default storybookConfig;
