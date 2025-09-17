@@ -1,0 +1,11 @@
+{
+    "$schema": "https://context7.com/schema/context7.json",
+    "projectTitle": "Workleap Web Configs",
+    "description": "Shared configurations for building web applications at Workleap.",
+    "folders": [
+        "docs"
+    ],
+    "excludeFolders": [
+        "docs/updating"
+    ]
+}
