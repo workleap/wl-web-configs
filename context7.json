@@ -6,6 +6,10 @@
         "docs"
     ],
     "excludeFolders": [
-        "docs/updating"
+        "docs/updating",
+        "docs/postcss",
+        "docs/swc",
+        "docs/tsup",
+        "docs/webpack"
     ]
 }
