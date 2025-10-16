@@ -30,7 +30,7 @@
         "serve-storybook-rslib": "turbo run serve-build --filter=./samples/storybook/rslib",
         "deploy-rsbuild": "cross-env NETLIFY=true turbo run deploy --filter=./samples/rsbuild/app",
         "prelint": "turbo run build --filter=./packages/*",
-        "lint": "turbo run lint --filter=!@workleap/eslint-plugin --continue",
+        "lint": "turbo run lint --continue",
         "eslint": "eslint . --ignore-pattern packages --ignore-pattern samples --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsc",
         "syncpack": "syncpack lint",
