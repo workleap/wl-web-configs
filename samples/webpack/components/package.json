@@ -27,7 +27,7 @@
         "@types/jest": "30.0.0",
         "@types/react": "19.1.8",
         "@types/react-dom": "19.1.6",
-        "@typescript-eslint/parser": "8.32.1",
+        "@typescript-eslint/parser": "7.18.0",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
