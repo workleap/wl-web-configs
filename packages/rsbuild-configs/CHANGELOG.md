@@ -1,5 +1,11 @@
 # @workleap/rsbuild-configs
 
+## 3.1.1
+
+### Patch Changes
+
+- [#295](https://github.com/workleap/wl-web-configs/pull/295) [`0751463`](https://github.com/workleap/wl-web-configs/commit/075146304e97eeeb0866032e2c467e5c65823b27) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Latest version of rsbuild set "lazyCompilation" to true by default which breaks Storybook dev server. This version force "lazyCompilation" to false by default.
+
 ## 3.1.0
 
 ### Minor Changes
