@@ -20,7 +20,7 @@ Execute the following steps to setup [ESLint](https://eslint.org/) for a polyrep
 Open a terminal at the root of the solution and install the following packages:
 
 ```bash
-pnpm add -D @workleap/eslint-plugin eslint @typescript-eslint/parser
+pnpm add -D @workleap/eslint-plugin eslint @typescript-eslint/parser@7.18.0
 ```
 
 ## Configure ESLint

@@ -49,7 +49,7 @@
     },
     "devDependencies": {
         "@types/node": "24.0.14",
-        "@typescript-eslint/parser": "8.32.1",
+        "@typescript-eslint/parser": "7.18.0",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "8.57.0",

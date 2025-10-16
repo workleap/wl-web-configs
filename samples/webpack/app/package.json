@@ -35,7 +35,7 @@
         "@types/node": "24.0.14",
         "@types/react": "19.1.8",
         "@types/react-dom": "19.1.6",
-        "@typescript-eslint/parser": "8.32.1",
+        "@typescript-eslint/parser": "7.18.0",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-plugin": "workspace:*",
         "@workleap/postcss-configs": "workspace:*",

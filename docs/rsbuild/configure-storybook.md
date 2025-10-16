@@ -99,6 +99,21 @@ export default defineStorybookConfig({
 });
 ```
 
+### `lazyCompilation`
+
+- **Type**: `boolean`
+- **Default**: `false`
+
+Whether or not to use [lazy compilation](https://rsbuild.dev/config/dev/lazy-compilation). To enable lazy compilation, set the option to `true`.
+
+```ts !#4 rsbuild.dev.ts
+import { defineStorybookConfig } from "@workleap/rsbuild-configs";
+
+export default defineStorybookConfig({
+    lazyCompilation: false
+});
+```
+
 ### `sourceMap`
 
 - **Type**: `false` or an object literal accepting any [output.sourceMap](https://rsbuild.dev/config/output/source-map) options.

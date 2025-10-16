@@ -8,6 +8,7 @@ export type DefineStorybookSvgrPluginConfigFunction = (defaultOptions: PluginSvg
 
 export interface DefineStorybookConfigOptions {
     plugins?: RsbuildPlugins;
+    lazyCompilation?: boolean;
     sourceMap?: boolean | SourceMap;
     react?: false | DefineStorybookDefineReactPluginConfigFunction;
     svgr? : false | DefineStorybookSvgrPluginConfigFunction;
@@ -27,6 +28,7 @@ function defineSvgrPluginConfig(options: PluginSvgrOptions) {
 export function defineStorybookConfig(options: DefineStorybookConfigOptions = {}) {
     const {
         plugins = [],
+        lazyCompilation = false,
         sourceMap = {
             js: "cheap-module-source-map",
             css: true
@@ -41,6 +43,9 @@ export function defineStorybookConfig(options: DefineStorybookConfigOptions = {}
     } = options;
 
     const config: RsbuildConfig = {
+        dev: {
+            lazyCompilation
+        },
         source: {
             // Stringify the environment variables because the plugin does a direct text replacement. Otherwise, "production" would become production
             // after replacement and cause an undefined var error because the production var doesn't exist.

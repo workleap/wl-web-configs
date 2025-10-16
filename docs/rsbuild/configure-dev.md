@@ -259,9 +259,9 @@ export default defineDevConfig({
 ### `lazyCompilation`
 
 - **Type**: `boolean`
-- **Default**: `true`
+- **Default**: `false`
 
-Whether or not to use [lazy compilation](https://rsbuild.dev/config/dev/lazy-compilation). To disable lazy compilation, set the option to `false`.
+Whether or not to use [lazy compilation](https://rsbuild.dev/config/dev/lazy-compilation). To enable lazy compilation, set the option to `true`.
 
 ```ts !#4 rsbuild.dev.ts
 import { defineDevConfig } from "@workleap/rsbuild-configs";
