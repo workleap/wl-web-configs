@@ -21,7 +21,7 @@ Execute the following steps to set up [ESLint](https://eslint.org/) for a monore
 Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
-pnpm add -D @workleap/eslint-plugin eslint typescript @typescript-eslint/parser@7.18.0 turbo
+pnpm add -D @workleap/eslint-plugin eslint@8.57.0 typescript @typescript-eslint/parser@7.18.0 turbo
 ```
 
 ### Configure Turborepo
