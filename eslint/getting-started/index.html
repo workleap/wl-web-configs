@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.813970743099">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.814028959223">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0-preview2">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=3.12.0-preview2.813970743099" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.814028959223" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.813970743099" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.814028959223" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.813970743099" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.814028959223" data-turbo-eval="false" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -306,11 +306,6 @@
 </doc-anchor-target>
 <p>Typically, <a href="https://eslint.org/" class="outbound" target="_blank">ESLint</a> shareable configuration libraries are architectured around the idea that <a href="https://eslint.org/docs/latest/extend/shareable-configs" class="outbound" target="_blank">shared configurations</a> should be small and composable to accommodate any potential use cases that a development team might encounter.</p>
 <p>While composability provides flexibility, it also increases the complexity on the consumer side as they must understand how <a href="https://eslint.org/docs/latest/use/configure/configuration-files#cascading-and-hierarchy" class="outbound" target="_blank">ESLint cascading and hierarchy</a> works and how to compose the provided shared configurations correctly. <strong>It can be frustrating at times</strong> when you want to get something up and running quickly.</p>
-<doc-panel id="shopifyweb-configs-example" collapsed>
-    <template #title>@shopify/web-configs example</template>
-<p>Have a look at Shopify <a href="https://github.com/Shopify/web-configs/tree/main/packages/eslint-plugin#usage" class="outbound" target="_blank">ESLint usage section</a>. To configure ESLint with <code translate="no" v-pre>@shopify/web-configs</code>, a consumer must choose whether he wants rules for <code translate="no" v-pre>es5</code>, <code translate="no" v-pre>esnext</code>, <code translate="no" v-pre>typescript</code> or <code translate="no" v-pre>node</code>, then decide if he should use <code translate="no" v-pre>@babel/eslint-parser</code> or <code translate="no" v-pre>@typescript-eslint/parser</code>.</p>
-<p>To make the right choices and assemble the final configuration correctly, a consumer must have niche front-end skills.</p>
-</doc-panel>
 <p>To improve the experience, rather than delegating the composition of the shared configuration pieces to the consumer, we <strong>compose them internally</strong> and offer configurations by project type instead.</p>
 <p>This way, it&#x27;s pretty straightforward for the consumer to configure ESLint as it only involves <strong>extending</strong> a <strong>single</strong> shared <strong>configuration</strong> per project and it allows for more <strong>accurate defaults</strong> and <strong>assumptions</strong> about the target environment. For advanced users in need of flexibility, the underlying configuration pieces are <a href="../advanced-composition/">also available</a>.</p>
 <doc-anchor-target id="target-environment">
