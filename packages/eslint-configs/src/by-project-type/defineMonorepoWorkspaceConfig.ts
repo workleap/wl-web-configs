@@ -11,7 +11,11 @@ export interface DefineMonorepoWorkspaceConfigOptions {
     yaml?: YamlConfigOptions;
 }
 
-export function defineMonorepoWorkspaceConfig(options: DefineMonorepoWorkspaceConfigOptions = {}) {
+/**
+ * @param tsconfigRootDir The directory of the tsconfig file to use for rules that needs a TypeScript type check: https://typescript-eslint.io/packages/parser/#tsconfigrootdir.
+ * @param options An optional object of options for the ESlint core and plugins rules.
+ */
+export function defineMonorepoWorkspaceConfig(tsconfigRootDir: string, options: DefineMonorepoWorkspaceConfigOptions = {}) {
     const {
         core,
         typescript,
@@ -29,7 +33,7 @@ export function defineMonorepoWorkspaceConfig(options: DefineMonorepoWorkspaceCo
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
-        ...typescriptConfig(typescript),
+        ...typescriptConfig(tsconfigRootDir, typescript),
         ...packageJsonConfig(packageJson),
         ...yamlConfig(yaml),
         {

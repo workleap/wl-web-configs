@@ -53,7 +53,11 @@ export interface DefineWebApplicationConfigOptions {
     yaml?: YamlConfigOptions;
 }
 
-export const defineWebApplicationConfig = (options: DefineWebApplicationConfigOptions = {}) => {
+/**
+ * @param tsconfigRootDir The directory of the tsconfig file to use for rules that needs a TypeScript type check: https://typescript-eslint.io/packages/parser/#tsconfigrootdir.
+ * @param options An optional object of options for the ESlint core and plugins rules.
+ */
+export const defineWebApplicationConfig = (tsconfigRootDir: string, options: DefineWebApplicationConfigOptions = {}) => {
     const {
         core,
         typescript,
@@ -83,12 +87,12 @@ export const defineWebApplicationConfig = (options: DefineWebApplicationConfigOp
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
-        ...typescriptConfig(typescript),
+        ...typescriptConfig(tsconfigRootDir, typescript),
         ...reactConfig(react),
         ...jsxAllyConfig(jsxAlly),
         ...jestConfig(jest),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
         ...(vitestConfig(vitest) as any),
         ...testingLibraryConfig(testingLibrary),
         ...storybookConfig(storybook),

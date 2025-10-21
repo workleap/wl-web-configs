@@ -20,7 +20,11 @@ export interface DefineTypeScriptLibraryConfigOptions {
     yaml?: YamlConfigOptions;
 }
 
-export function defineTypeScriptLibraryConfig(options: DefineTypeScriptLibraryConfigOptions = {}) {
+/**
+ * @param tsconfigRootDir The directory of the tsconfig file to use for rules that needs a TypeScript type check: https://typescript-eslint.io/packages/parser/#tsconfigrootdir.
+ * @param options An optional object of options for the ESlint core and plugins rules.
+ */
+export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: DefineTypeScriptLibraryConfigOptions = {}) {
     const {
         core,
         typescript,
@@ -42,10 +46,10 @@ export function defineTypeScriptLibraryConfig(options: DefineTypeScriptLibraryCo
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
-        ...typescriptConfig(typescript),
+        ...typescriptConfig(tsconfigRootDir, typescript),
         ...jestConfig(jest),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
         ...(vitestConfig(vitest) as any),
         ...packageJsonConfig(packageJson),
         ...yamlConfig(yaml)

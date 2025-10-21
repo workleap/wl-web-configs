@@ -10,7 +10,7 @@ export interface TypescriptConfigOptions {
 
 export const typescriptGlobalIgnores = [];
 
-export function typescriptConfig(options: TypescriptConfigOptions = {}) {
+export function typescriptConfig(tsconfigRootDir: string, options: TypescriptConfigOptions = {}) {
     const {
         rules = {}
     } = options;
@@ -25,13 +25,15 @@ export function typescriptConfig(options: TypescriptConfigOptions = {}) {
         },
         extends: [
             js.configs.recommended,
-            tseslint.configs.recommended
+            tseslint.configs.recommendedTypeChecked,
+            tseslint.configs.stylisticTypeChecked
         ],
         languageOptions: {
             parser: tseslint.parser,
             parserOptions: {
                 // Rely on TypeScript's project service to automatically discover the "tsconfig.json" file.
-                projectService: true
+                projectService: true,
+                tsconfigRootDir
             }
         },
         rules: {

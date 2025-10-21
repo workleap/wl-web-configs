@@ -34,12 +34,16 @@
     },
     "peerDependencies": {
         "@eslint/js": "^9.38.0",
+        "@typescript-eslint/parser": "^8.46.2",
         "eslint": "^9.38.0",
         "storybook": "^9.1.13",
         "typescript": "^5.9.3",
-        "typescript-eslint": "^8.46.1"
+        "typescript-eslint": "^8.46.2"
     },
     "peerDependenciesMeta": {
+        "@typescript-eslint/parser": {
+            "optional": true
+        },
         "storybook": {
             "optional": true
         },

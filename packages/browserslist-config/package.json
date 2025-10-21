@@ -22,8 +22,7 @@
     "files": [
         "src",
         "dist",
-        "CHANGELOG.md",
-        "README.md"
+        "CHANGELOG.md"
     ],
     "scripts": {
         "prebuild": "pnpm dlx rimraf dist",
@@ -32,9 +31,11 @@
         "typecheck": "tsc"
     },
     "devDependencies": {
-        "@typescript-eslint/parser": "7.18.0",
-        "@workleap/eslint-plugin": "workspace:*",
-        "@workleap/typescript-configs": "workspace:*",
-        "eslint": "8.57.0"
+        "@eslint/js": "9.38.0",
+        "@typescript-eslint/parser": "8.46.2",
+        "@workleap/eslint-configs": "workspace:*",
+        "eslint": "9.38.0",
+        "typescript": "5.9.3",
+        "typescript-eslint": "8.46.2"
     }
 }
