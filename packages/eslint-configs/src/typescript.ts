@@ -30,8 +30,8 @@ export function typescriptConfig(options: TypescriptConfigOptions = {}) {
         languageOptions: {
             parser: tseslint.parser,
             parserOptions: {
-                projectService: true,
-                tsconfigRootDir: import.meta.dirname
+                // Rely on TypeScript's project service to automatically discover the "tsconfig.json" file.
+                projectService: true
             }
         },
         rules: {
