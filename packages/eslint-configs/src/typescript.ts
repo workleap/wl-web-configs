@@ -15,7 +15,7 @@ export function typescriptConfig(options: TypescriptConfigOptions = {}) {
         rules = {}
     } = options;
 
-    return [{
+    const config: ConfigWithExtends[] = [{
         name: "@workleap/eslint-configs/typescript",
         files: [
             "**/*.{ts,tsx}"
@@ -93,5 +93,7 @@ export function typescriptConfig(options: TypescriptConfigOptions = {}) {
             // Positioned last to allow the consumer to override any rules.
             ...rules
         }
-    }] satisfies ConfigWithExtends[];
+    }];
+
+    return config;
 };

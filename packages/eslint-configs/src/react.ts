@@ -14,7 +14,7 @@ export function reactConfig(options: ReactConfigOptions = {}) {
         rules = {}
     } = options;
 
-    return [{
+    const config: ConfigWithExtends[] = [{
         name: "@workleap/eslint-configs/react",
         files: [
             "**/*.[jt]sx"
@@ -91,5 +91,7 @@ export function reactConfig(options: ReactConfigOptions = {}) {
             // Positioned last to allow the consumer to override any rules.
             ...rules
         }
-    }] satisfies ConfigWithExtends[];
+    }];
+
+    return config;
 };

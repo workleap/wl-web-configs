@@ -13,15 +13,17 @@ export function yamlConfig(options: YamlConfigOptions = {}) {
         rules = {}
     } = options;
 
-    return [{
+    const config: ConfigWithExtends[] = [{
         name: "@workleap/eslint-configs/yaml",
         files: [
             "**/*.yaml",
             "**/*.yml"
         ],
         extends: [
-            yamlPlugin.configs.recommended
+            yamlPlugin.configs.recommended as Linter.Config
         ],
         rules
-    }] satisfies ConfigWithExtends[];
+    }];
+
+    return config;
 };

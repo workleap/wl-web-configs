@@ -15,7 +15,7 @@ export function coreConfig(options: CoreConfigOptions = {}) {
         rules
     } = options;
 
-    return [{
+    const config: ConfigWithExtends[] = [{
         name: "@workleap/eslint-configs/core",
         files: [
             "**/*.{js,jsx,ts,tsx,cjs,mjs}"
@@ -170,5 +170,7 @@ export function coreConfig(options: CoreConfigOptions = {}) {
             // Positioned last to allow the consumer to override any rules.
             ...rules
         }
-    }] satisfies ConfigWithExtends[];
+    }];
+
+    return config;
 };

@@ -82,17 +82,17 @@ export const defineWebApplicationConfig = (options: DefineWebApplicationConfigOp
             ...packageJsonGlobalIgnores,
             ...yamlGlobalIgnores
         ]),
-        coreConfig(core),
-        typescriptConfig(typescript),
-        reactConfig(react),
-        jsxAllyConfig(jsxAlly),
-        jestConfig(jest),
+        ...coreConfig(core),
+        ...typescriptConfig(typescript),
+        ...reactConfig(react),
+        ...jsxAllyConfig(jsxAlly),
+        ...jestConfig(jest),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (vitestConfig(vitest) as any),
-        testingLibraryConfig(testingLibrary),
-        storybookConfig(storybook),
-        packageJsonConfig(packageJson),
-        yamlConfig(yaml)
+        ...(vitestConfig(vitest) as any),
+        ...testingLibraryConfig(testingLibrary),
+        ...storybookConfig(storybook),
+        ...packageJsonConfig(packageJson),
+        ...yamlConfig(yaml)
     ]);
 };

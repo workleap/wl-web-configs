@@ -14,7 +14,7 @@ export function jestConfig(options: JestConfigOptions = {}) {
         rules = {}
     } = options;
 
-    return [{
+    const config: ConfigWithExtends[] = [{
         name: "@workleap/eslint-configs/jest",
         files: [
             "**/*.test.{js,jsx,ts,tsx}",
@@ -47,5 +47,7 @@ export function jestConfig(options: JestConfigOptions = {}) {
             // Positioned last to allow the consumer to override any rules.
             ...rules
         }
-    }] satisfies ConfigWithExtends[];
+    }];
+
+    return config;
 };

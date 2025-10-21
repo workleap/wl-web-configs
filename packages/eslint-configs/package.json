@@ -25,8 +25,7 @@
     "files": [
         "src",
         "dist",
-        "CHANGELOG.md",
-        "README.md"
+        "CHANGELOG.md"
     ],
     "scripts": {
         "build": "rslib build -c rslib.config.ts",

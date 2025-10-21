@@ -28,10 +28,10 @@ export function defineMonorepoWorkspaceConfig(options: DefineMonorepoWorkspaceCo
             ...packageJsonGlobalIgnores,
             ...yamlGlobalIgnores
         ]),
-        coreConfig(core),
-        typescriptConfig(typescript),
-        packageJsonConfig(packageJson),
-        yamlConfig(yaml),
+        ...coreConfig(core),
+        ...typescriptConfig(typescript),
+        ...packageJsonConfig(packageJson),
+        ...yamlConfig(yaml),
         {
             rules: {
                 "package-json/valid-version": "off"

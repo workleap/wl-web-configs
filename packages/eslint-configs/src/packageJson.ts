@@ -13,7 +13,7 @@ export function packageJsonConfig(options: PackageJsonConfigOptions = {}) {
         rules = {}
     } = options;
 
-    return [{
+    const config: ConfigWithExtends[] = [{
         name: "@workleap/eslint-configs/package-json",
         files: [
             "**/package.json"
@@ -42,5 +42,7 @@ export function packageJsonConfig(options: PackageJsonConfigOptions = {}) {
             // Positioned last to allow the consumer to override any rules.
             ...rules
         }
-    }] satisfies ConfigWithExtends[];
+    }];
+
+    return config;
 };

@@ -15,7 +15,7 @@ export function testingLibraryConfig(options: TestingLibraryConfigOptions = {}) 
         jsRules = {}
     } = options;
 
-    return [
+    const config: ConfigWithExtends[] = [
         {
             name: "@workleap/eslint-configs/testing-library-react",
             files: [
@@ -42,5 +42,7 @@ export function testingLibraryConfig(options: TestingLibraryConfigOptions = {}) 
             ],
             rules: jsRules
         }
-    ] satisfies ConfigWithExtends[];
+    ];
+
+    return config;
 };

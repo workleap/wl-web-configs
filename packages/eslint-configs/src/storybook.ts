@@ -15,7 +15,7 @@ export function storybookConfig(options: StorybookConfigOptions = {}) {
         mainFileRules = {}
     } = options;
 
-    return [
+    const config: ConfigWithExtends[] = [
         {
             name: "@workleap/eslint-configs/storybook-stories",
             files: [
@@ -40,5 +40,7 @@ export function storybookConfig(options: StorybookConfigOptions = {}) {
                 ...mainFileRules
             }
         }
-    ] satisfies ConfigWithExtends[];
+    ];
+
+    return config;
 };

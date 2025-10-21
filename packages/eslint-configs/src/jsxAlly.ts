@@ -13,7 +13,7 @@ export function jsxAllyConfig(options: JsxAllyConfigOptions = {}) {
         rules = {}
     } = options;
 
-    return [{
+    const config: ConfigWithExtends[] = [{
         name: "@workleap/eslint-configs/jsx-a11y",
         files: [
             "**/*.{js,ts,jsx,tsx,cjs,mjs}"
@@ -46,5 +46,7 @@ export function jsxAllyConfig(options: JsxAllyConfigOptions = {}) {
             // Positioned last to allow the consumer to override any rules.
             ...rules
         }
-    }] satisfies ConfigWithExtends[];
+    }];
+
+    return config;
 };
