@@ -41,7 +41,6 @@
     },
     "devDependencies": {
         "@eslint/js": "9.38.0",
-        "@rsbuild/core": "1.4.7",
         "@rslib/core": "0.10.6",
         "@types/node": "24.0.14",
         "@typescript-eslint/parser": "8.46.2",

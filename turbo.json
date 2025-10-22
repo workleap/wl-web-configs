@@ -25,8 +25,11 @@
         "deploy": {
             "dependsOn": ["build"]
         },
+        // "lint": {
+        //     "dependsOn": ["eslint", "stylelint", "typecheck", "//#syncpack"]
+        // },
         "lint": {
-            "dependsOn": ["eslint", "stylelint", "typecheck", "//#syncpack"]
+            "dependsOn": ["eslint", "stylelint", "typecheck"]
         },
         "//#eslint": {
             "outputs": ["node_modules/.cache/eslint"]
