@@ -1,7 +1,6 @@
 // Standalone config because otherwise there's a dependency cycle between @workleap/eslint-configs and @workleap/rslib-configs.
 
 import { defineConfig } from "@rslib/core";
-import path from "node:path";
 
 export default defineConfig({
     mode: "production",
@@ -13,9 +12,9 @@ export default defineConfig({
     }],
     source: {
         entry: {
-            index: path.resolve("./src/index.ts"),
-            tsconfigPath: path.resolve("./tsconfig.build.json")
-        }
+            index: "./src/**"
+        },
+        tsconfigPath: "./tsconfig.build.json"
     },
     output: {
         target: "node",

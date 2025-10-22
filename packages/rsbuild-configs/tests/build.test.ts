@@ -295,5 +295,3 @@ describe("getOptimizationConfig", () => {
         expect(result.minimizer).toBeDefined();
     });
 });
-
-

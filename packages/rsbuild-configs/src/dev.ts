@@ -26,7 +26,7 @@ export interface DefineDevConfigOptions {
     overlay?: false;
     writeToDisk?: true;
     react?: false | DefineDevDefineReactPluginConfigFunction;
-    svgr? : false | DefineDevSvgrPluginConfigFunction;
+    svgr?: false | DefineDevSvgrPluginConfigFunction;
     environmentVariables?: Record<string, unknown>;
     transformers?: RsbuildConfigTransformer[];
     verbose?: boolean;

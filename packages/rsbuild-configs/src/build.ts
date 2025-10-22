@@ -25,7 +25,7 @@ export interface DefineBuildConfigOptions {
     optimize?: OptimizeOption;
     sourceMap?: boolean | SourceMap;
     react?: false | DefineBuildDefineReactPluginConfigFunction;
-    svgr? : false | DefineBuildSvgrPluginConfigFunction;
+    svgr?: false | DefineBuildSvgrPluginConfigFunction;
     compressImage?: false | DefineBuildImageCompressPluginConfigFunction;
     environmentVariables?: Record<string, unknown>;
     transformers?: RsbuildConfigTransformer[];
