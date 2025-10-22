@@ -34,6 +34,15 @@ So when a second object sets the rule using a plugin "xyz", it doesn’t "see" t
 
 */
 
+/*
+
+error  Parsing error: C:\Dev\workleap\wl-web-configs\samples\storybook\rsbuild\.storybook\main.ts was not found by the project service. Consider either including it in the tsconfig.json or including it in allowDefaultProject
+
+-> It usually means that the project tsconfig.json file cannot find the specified file
+-> Make sure to clear the ESLint cache after such an error because update the tsconfig.json file doesn't invalidate the ESLint cache
+
+*/
+
 //     rules: {
 //         // Custom WorkLeap rules
 //         "@workleap/strict-css-modules-names": "warn"
@@ -91,7 +100,7 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
         ...jsxAllyConfig(jsxAlly),
         ...jestConfig(jest),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(vitestConfig(vitest) as any),
         ...testingLibraryConfig(testingLibrary),
         ...storybookConfig(storybook),

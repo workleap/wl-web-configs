@@ -27,6 +27,7 @@
         "react-router": "7.7.0"
     },
     "devDependencies": {
+        "@eslint/js": "9.38.0",
         "@swc/core": "1.12.14",
         "@swc/helpers": "0.5.17",
         "@swc/jest": "0.2.39",
@@ -35,9 +36,9 @@
         "@types/node": "24.0.14",
         "@types/react": "19.1.8",
         "@types/react-dom": "19.1.6",
-        "@typescript-eslint/parser": "7.18.0",
+        "@typescript-eslint/parser": "8.46.2",
         "@workleap/browserslist-config": "workspace:*",
-        "@workleap/eslint-plugin": "workspace:*",
+        "@workleap/eslint-configs": "workspace:*",
         "@workleap/postcss-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
@@ -45,7 +46,7 @@
         "@workleap/webpack-configs": "workspace:*",
         "browserslist": "4.25.1",
         "cross-env": "7.0.3",
-        "eslint": "8.57.0",
+        "eslint": "9.38.0",
         "http-server": "14.1.1",
         "identity-obj-proxy": "3.0.0",
         "jest": "30.0.4",
@@ -57,6 +58,7 @@
         "stylelint": "16.21.1",
         "ts-node": "10.9.2",
         "typescript": "5.5.4",
+        "typescript-eslint": "8.46.2",
         "webpack": "5.100.2",
         "webpack-cli": "6.0.1",
         "webpack-dev-server": "5.2.2"

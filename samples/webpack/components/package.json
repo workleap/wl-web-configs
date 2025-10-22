@@ -21,18 +21,19 @@
         "react-dom": "19.1.0"
     },
     "devDependencies": {
+        "@eslint/js": "9.38.0",
         "@swc/core": "1.12.14",
         "@swc/jest": "0.2.39",
         "@testing-library/react": "16.3.0",
         "@types/jest": "30.0.0",
         "@types/react": "19.1.8",
         "@types/react-dom": "19.1.6",
-        "@typescript-eslint/parser": "7.18.0",
-        "@workleap/eslint-plugin": "workspace:*",
+        "@typescript-eslint/parser": "8.46.2",
+        "@workleap/eslint-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
-        "eslint": "8.57.0",
+        "eslint": "9.38.0",
         "identity-obj-proxy": "3.0.0",
         "jest": "30.0.4",
         "jest-environment-jsdom": "30.0.4",
@@ -41,6 +42,7 @@
         "react-dom": "19.1.0",
         "stylelint": "16.21.1",
         "ts-node": "10.9.2",
-        "typescript": "5.5.4"
+        "typescript": "5.5.4",
+        "typescript-eslint": "8.46.2"
     }
 }

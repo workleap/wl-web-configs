@@ -33,16 +33,20 @@ export function storybookConfig(options: StorybookConfigOptions = {}) {
                 // storybookPlugin.configs["flat/csf-strict"]
             ],
             rules: storiesRules
+        },
+        {
+            name: "@workleap/eslint-configs/storybook-main",
+            files: ["**/{.storybook,storybook}/main.@(js|cjs|mjs|ts)"],
+            plugins: {
+                // @ts-expect-error the package types are messed up.
+                storybook: storybookPlugin
+            },
+            rules: {
+                "storybook/no-uninstalled-addons": "warn",
+                // Positioned last to allow the consumer to override any rules.
+                ...mainFileRules
+            }
         }
-        // {
-        //     name: "@workleap/eslint-configs/storybook-main",
-        //     files: ["**/{.storybook,storybook}/main.@(js|cjs|mjs|ts)"],
-        //     rules: {
-        //         "storybook/no-uninstalled-addons": "warn",
-        //         // Positioned last to allow the consumer to override any rules.
-        //         ...mainFileRules
-        //     }
-        // }
     ];
 
     return config;
