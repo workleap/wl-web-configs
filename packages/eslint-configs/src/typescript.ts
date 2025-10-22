@@ -27,7 +27,15 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
             js.configs.recommended,
             tseslint.configs.recommendedTypeChecked,
             tseslint.configs.stylisticTypeCheckedOnly,
-            stylisticPlugin.configs.recommended
+            // stylisticPlugin.configs.recommended
+            stylisticPlugin.configs.customize({
+                braceStyle: "1tbs",
+                commaDangle: "never",
+                jsx: false,
+                quotes: "double",
+                semi: true,
+                severity: "warn"
+            })
         ],
         languageOptions: {
             parser: tseslint.parser,
@@ -68,8 +76,11 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
                     allowObjectTypes: "never"
                 }
             ],
+            "@typescript-eslint/no-floating-promises": "off",
             "@typescript-eslint/no-non-null-assertion": "off",
+            "@typescript-eslint/no-unsafe-argument": "off",
             "@typescript-eslint/no-unsafe-member-access": "off",
+            "@typescript-eslint/only-throw-error": "off",
             "@typescript-eslint/prefer-nullish-coalescing": "off",
             "@typescript-eslint/restrict-template-expressions": "off",
 
@@ -81,7 +92,7 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
                     requireForBlockBody: false
                 }
             ],
-            "@stylistic/comma-dangle": ["warn", "never"],
+            // "@stylistic/comma-dangle": ["warn", "never"],
             "@stylistic/indent": [
                 "warn",
                 4,
@@ -90,7 +101,7 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
                     CallExpression: { arguments: "first" }
                 }
             ],
-            "@stylistic/brace-style": ["warn", "1tbs"],
+            // "@stylistic/brace-style": ["warn", "1tbs"],
             "@stylistic/member-delimiter-style": [
                 "warn",
                 {
@@ -112,8 +123,8 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
             ],
             // Should be the default but somehow it's not enforced if it's not explicitly specified.
             "@stylistic/quote-props": "off",
-            "@stylistic/quotes": ["warn", "double"],
-            "@stylistic/semi": ["warn", "always"],
+            // "@stylistic/quotes": ["warn", "double"],
+            // "@stylistic/semi": ["warn", "always"],
 
             // Additional rules we want
             // "@typescript-eslint/consistent-type-definitions": "warn",

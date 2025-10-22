@@ -32,7 +32,7 @@ export interface DefineReactLibraryConfigOptions {
  * @param tsconfigRootDir The directory of the tsconfig file to use for rules that needs a TypeScript type check: https://typescript-eslint.io/packages/parser/#tsconfigrootdir.
  * @param options An optional object of options for the ESlint core and plugins rules.
  */
-export function defineReactLibraryConfig(tsconfigRootDir: string, options: DefineReactLibraryConfigOptions) {
+export function defineReactLibraryConfig(tsconfigRootDir: string, options: DefineReactLibraryConfigOptions = {}) {
     const {
         core,
         typescript,

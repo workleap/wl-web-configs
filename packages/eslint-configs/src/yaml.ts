@@ -6,7 +6,9 @@ export interface YamlConfigOptions {
     rules?: Partial<Linter.RulesRecord>;
 }
 
-export const yamlGlobalIgnores = [];
+export const yamlGlobalIgnores = [
+    "pnpm-lock.yaml"
+];
 
 export function yamlConfig(options: YamlConfigOptions = {}) {
     const {

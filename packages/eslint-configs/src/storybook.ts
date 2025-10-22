@@ -7,7 +7,10 @@ export interface StorybookConfigOptions {
     mainFileRules?: Partial<Linter.RulesRecord>;
 }
 
-export const storybookGlobalIgnores = ["!.storybook"];
+export const storybookGlobalIgnores = [
+    "!.storybook",
+    "storybook-static"
+];
 
 export function storybookConfig(options: StorybookConfigOptions = {}) {
     const {
@@ -23,23 +26,23 @@ export function storybookConfig(options: StorybookConfigOptions = {}) {
             ],
             extends: [
                 // @ts-expect-error the types are broken and think there's a ".default" to add.
-                storybookPlugin.configs["flat/recommended"],
-                // @ts-expect-error the types are broken and think there's a ".default" to add.
-                storybookPlugin.configs["flat/csf"],
-                // @ts-expect-error the types are broken and think there's a ".default" to add.
-                storybookPlugin.configs["flat/csf-strict"]
+                storybookPlugin.configs["flat/recommended"]
+                // // @ts-expect-error the types are broken and think there's a ".default" to add.
+                // storybookPlugin.configs["flat/csf"],
+                // // @ts-expect-error the types are broken and think there's a ".default" to add.
+                // storybookPlugin.configs["flat/csf-strict"]
             ],
             rules: storiesRules
-        },
-        {
-            name: "@workleap/eslint-configs/storybook-main",
-            files: ["**/{.storybook,storybook}/main.@(js|cjs|mjs|ts)"],
-            rules: {
-                "storybook/no-uninstalled-addons": "warn",
-                // Positioned last to allow the consumer to override any rules.
-                ...mainFileRules
-            }
         }
+        // {
+        //     name: "@workleap/eslint-configs/storybook-main",
+        //     files: ["**/{.storybook,storybook}/main.@(js|cjs|mjs|ts)"],
+        //     rules: {
+        //         "storybook/no-uninstalled-addons": "warn",
+        //         // Positioned last to allow the consumer to override any rules.
+        //         ...mainFileRules
+        //     }
+        // }
     ];
 
     return config;

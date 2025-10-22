@@ -1,7 +1,16 @@
+import stylisticPlugin from "@stylistic/eslint-plugin";
 import type { Linter } from "eslint";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import type { ConfigWithExtends } from "./types.ts";
+
+// **************************************
+// **************************************
+// **************************************
+// **************************************
+// **************************************
+// TODO: Add stylistic JSX rules.
+// **************************************
 
 export interface ReactConfigOptions {
     rules?: Partial<Linter.RulesRecord>;
@@ -19,6 +28,9 @@ export function reactConfig(options: ReactConfigOptions = {}) {
         files: [
             "**/*.[jt]sx"
         ],
+        plugins: {
+            "@stylistic": stylisticPlugin
+        },
         extends: [
             reactPlugin.configs.flat.recommended,
             // @ts-expect-error the types are broken and think there's a ".default" to add.
