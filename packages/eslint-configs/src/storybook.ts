@@ -25,7 +25,7 @@ export function storybookConfig(options: StorybookConfigOptions = {}) {
                 "**/*.{stories,storybook,story,chroma}.{js,ts,jsx,tsx}"
             ],
             extends: [
-                // @ts-expect-error the types are broken and think there's a ".default" to add.
+                // @ts-expect-error the typings are broken and think there's a ".default" to add.
                 storybookPlugin.configs["flat/recommended"]
                 // // @ts-expect-error the types are broken and think there's a ".default" to add.
                 // storybookPlugin.configs["flat/csf"],
@@ -38,7 +38,7 @@ export function storybookConfig(options: StorybookConfigOptions = {}) {
             name: "@workleap/eslint-configs/storybook-main",
             files: ["**/{.storybook,storybook}/main.@(js|cjs|mjs|ts)"],
             plugins: {
-                // @ts-expect-error the package types are messed up.
+                // @ts-expect-error the typings are broken.
                 storybook: storybookPlugin
             },
             rules: {

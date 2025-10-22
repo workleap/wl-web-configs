@@ -17,14 +17,14 @@ import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.t
 
 export interface DefineReactLibraryConfigOptions {
     core?: CoreConfigOptions;
-    typescript?: TypescriptConfigOptions;
-    react?: ReactConfigOptions;
-    jsxAlly?: JsxAllyConfigOptions;
     jest?: JestConfigOptions;
-    vitest?: VitestConfigOptions;
-    testingLibrary?: TestingLibraryConfigOptions;
-    storybook?: StorybookConfigOptions;
+    jsxAlly?: JsxAllyConfigOptions;
     packageJson?: PackageJsonConfigOptions;
+    react?: ReactConfigOptions;
+    storybook?: StorybookConfigOptions;
+    testingLibrary?: TestingLibraryConfigOptions;
+    typescript?: TypescriptConfigOptions;
+    vitest?: VitestConfigOptions;
     yaml?: YamlConfigOptions;
 }
 
@@ -35,14 +35,14 @@ export interface DefineReactLibraryConfigOptions {
 export function defineReactLibraryConfig(tsconfigRootDir: string, options: DefineReactLibraryConfigOptions = {}) {
     const {
         core,
-        typescript,
-        react,
-        jsxAlly,
         jest,
-        vitest,
-        testingLibrary,
-        storybook,
+        jsxAlly,
         packageJson,
+        react,
+        storybook,
+        testingLibrary,
+        typescript,
+        vitest,
         yaml
     } = options;
 
@@ -51,27 +51,27 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
         globalIgnores([
             "dist",
             ...coreGlobalIgnores,
-            ...typescriptGlobalIgnores,
-            ...reactGlobalIgnores,
-            ...jsxAllyGlobalIgnores,
             ...jestGlobalIgnores,
-            ...vitestGlobalIgnores,
-            ...testingLibraryGlobalIgnores,
-            ...storybookGlobalIgnores,
+            ...jsxAllyGlobalIgnores,
             ...packageJsonGlobalIgnores,
+            ...reactGlobalIgnores,
+            ...storybookGlobalIgnores,
+            ...testingLibraryGlobalIgnores,
+            ...typescriptGlobalIgnores,
+            ...vitestGlobalIgnores,
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
-        ...typescriptConfig(tsconfigRootDir, typescript),
-        ...reactConfig(react),
-        ...jsxAllyConfig(jsxAlly),
         ...jestConfig(jest),
+        ...jsxAllyConfig(jsxAlly),
+        ...packageJsonConfig(packageJson),
+        ...reactConfig(react),
+        ...storybookConfig(storybook),
+        ...testingLibraryConfig(testingLibrary),
+        ...typescriptConfig(tsconfigRootDir, typescript),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(vitestConfig(vitest) as any),
-        ...testingLibraryConfig(testingLibrary),
-        ...storybookConfig(storybook),
-        ...packageJsonConfig(packageJson),
         ...yamlConfig(yaml)
     ]);
 }

@@ -22,7 +22,7 @@ export function vitestConfig(options: VitestConfigOptions = {}) {
             "**/test.{js,jsx,ts,tsx}"
         ],
         plugins: {
-            // @ts-expect-error Temporary code until defineConfig is supported.
+            // @ts-expect-error temporary code until defineConfig is supported.
             vitest: vitestPlugin
         },
         // Waiting for defineConfig support: https://github.com/vitest-dev/eslint-plugin-vitest/issues/771

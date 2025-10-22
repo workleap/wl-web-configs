@@ -27,10 +27,10 @@ export interface DefineTypeScriptLibraryConfigOptions {
 export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: DefineTypeScriptLibraryConfigOptions = {}) {
     const {
         core,
-        typescript,
         jest,
-        vitest,
         packageJson,
+        typescript,
+        vitest,
         yaml
     } = options;
 
@@ -39,19 +39,19 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         globalIgnores([
             "dist",
             ...coreGlobalIgnores,
-            ...typescriptGlobalIgnores,
             ...jestGlobalIgnores,
-            ...vitestGlobalIgnores,
             ...packageJsonGlobalIgnores,
+            ...typescriptGlobalIgnores,
+            ...vitestGlobalIgnores,
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
-        ...typescriptConfig(tsconfigRootDir, typescript),
         ...jestConfig(jest),
+        ...packageJsonConfig(packageJson),
+        ...typescriptConfig(tsconfigRootDir, typescript),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(vitestConfig(vitest) as any),
-        ...packageJsonConfig(packageJson),
         ...yamlConfig(yaml)
     ]);
 }

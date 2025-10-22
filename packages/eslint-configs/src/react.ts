@@ -4,14 +4,6 @@ import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import type { ConfigWithExtends } from "./types.ts";
 
-// **************************************
-// **************************************
-// **************************************
-// **************************************
-// **************************************
-// TODO: Add stylistic JSX rules.
-// **************************************
-
 export interface ReactConfigOptions {
     rules?: Partial<Linter.RulesRecord>;
 }
@@ -33,8 +25,8 @@ export function reactConfig(options: ReactConfigOptions = {}) {
         },
         extends: [
             reactPlugin.configs.flat.recommended,
-            // @ts-expect-error the types are broken and think there's a ".default" to add.
-            reactHooksPlugin.configs.flat["recommended-latest"]
+            // @ts-expect-error the typings are broken and think there's a ".default" to add.
+            reactHooksPlugin.configs.flat.recommended
         ],
         languageOptions: {
             parserOptions: {
@@ -49,20 +41,46 @@ export function reactConfig(options: ReactConfigOptions = {}) {
             }
         },
         rules: {
-            // https://eslint.org/docs/rules
-            "jsx-quotes": ["warn", "prefer-double"],
-
-            // Recommend rules overrides
-            "react/jsx-no-duplicate-props": ["warn", { ignoreCase: true }],
-            "react/jsx-no-undef": ["warn", { allowGlobals: true }],
-            "react/react-in-jsx-scope": "off",
+            // React Recommend rules overrides
             "react/display-name": "off",
+            "react/jsx-key": "off",
+            "react/jsx-no-duplicate-props": [
+                "warn",
+                {
+                    ignoreCase: true
+                }
+            ],
+            "react/jsx-no-undef": [
+                "warn",
+                {
+                    allowGlobals: true
+                }
+            ],
             "react/no-unescaped-entities": "off",
             "react/prop-types": "off",
-            "react/jsx-key": "off",
+            "react/react-in-jsx-scope": "off",
 
-            // Extra react rules
-            "react/forbid-foreign-prop-types": ["warn", { allowInPropTypes: true }],
+            // React extra rules
+            "react/button-has-type": "warn",
+            "react/default-props-match-prop-types": "warn",
+            "react/destructuring-assignment": [
+                "warn",
+                "always",
+                { ignoreClassFields: true }
+            ],
+            "react/forbid-foreign-prop-types": [
+                "warn",
+                {
+                    allowInPropTypes: true
+                }
+            ],
+            "react/jsx-boolean-value": ["warn", "never"],
+            "react/jsx-filename-extension": [
+                "warn",
+                {
+                    extensions: [".jsx", ".tsx"]
+                }
+            ],
             "react/jsx-pascal-case": [
                 "warn",
                 {
@@ -70,33 +88,83 @@ export function reactConfig(options: ReactConfigOptions = {}) {
                     ignore: []
                 }
             ],
-            "react/no-typos": "error",
-            "react/style-prop-object": "warn",
-            "react/button-has-type": "warn",
-            "react/destructuring-assignment": [
-                "warn",
-                "always",
-                { ignoreClassFields: true }
-            ],
-            "react/jsx-boolean-value": ["warn", "never"],
-            "react/default-props-match-prop-types": "warn",
-            "react/no-unused-state": "warn",
-            "react/no-array-index-key": "warn",
             "react/no-access-state-in-setstate": "warn",
-            "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".tsx"] }],
-            "react/jsx-curly-brace-presence": "warn",
+            "react/no-array-index-key": "warn",
+            "react/no-typos": "error",
             "react/no-unused-prop-types": [
                 "warn",
-                { customValidators: [], skipShapeProps: true }
+                {
+                    customValidators: [],
+                    skipShapeProps: true
+                }
             ],
+            "react/no-unused-state": "warn",
+            "react/style-prop-object": "warn",
 
-            "react/jsx-closing-bracket-location": [1, "line-aligned"],
-            "react/jsx-tag-spacing": ["warn", { beforeSelfClosing: "always" }],
-            "react/jsx-max-props-per-line": [
+            // React rules turned off in favor of @stylistic
+            "react/jsx-closing-bracket-location": "off",
+            "react/jsx-closing-tag-location": "off",
+            "react/jsx-curly-brace-presence": "off",
+            "react/jsx-curly-newline": "off",
+            "react/jsx-curly-spacing": "off",
+            "react/jsx-equals-spacing": "off",
+            "react/jsx-first-prop-new-line": "off",
+            "react/jsx-indent-props": "off",
+            "react/jsx-max-props-per-line": "off",
+            "react/jsx-one-expression-per-line": "off",
+            "react/jsx-tag-spacing": "off",
+            "react/jsx-wrap-multilines": "off",
+
+            // @stylistic rules (cannot use recommended because it would conflict with the "typescript" config rules)
+            "@stylistic/jsx-closing-bracket-location": "warn",
+            "@stylistic/jsx-closing-tag-location": "warn",
+            "@stylistic/jsx-curly-brace-presence": [
                 "warn",
-                { maximum: 1, when: "multiline" }
+                {
+                    propElementValues: "always"
+                }
             ],
-            "react/jsx-curly-spacing": ["warn", { children: true, when: "never" }],
+            "@stylistic/jsx-curly-newline": "warn",
+            "@stylistic/jsx-curly-spacing": [
+                "warn",
+                {
+                    children: true,
+                    when: "never"
+                }
+            ],
+            "@stylistic/jsx-equals-spacing": "warn",
+            "@stylistic/jsx-first-prop-new-line": "warn",
+            "@stylistic/jsx-function-call-newline": ["warn", "multiline"],
+            "@stylistic/jsx-max-props-per-line": [
+                "warn",
+                {
+                    maximum: 1,
+                    when: "multiline"
+                }
+            ],
+            "@stylistic/jsx-quotes": ["warn", "prefer-double"],
+            "@stylistic/jsx-tag-spacing": [
+                "warn",
+                {
+                    // afterOpening: "never",
+                    // beforeClosing: "never",
+                    beforeSelfClosing: "always"
+                    // closingSlash: "never"
+                }
+            ],
+            "@stylistic/jsx-wrap-multilines": [
+                "warn",
+                {
+                    arrow: "parens-new-line",
+                    assignment: "parens-new-line",
+                    condition: "parens-new-line",
+                    declaration: "parens-new-line",
+                    logical: "parens-new-line",
+                    prop: "parens-new-line",
+                    propertyValue: "parens-new-line",
+                    return: "parens-new-line"
+                }
+            ],
 
             // Positioned last to allow the consumer to override any rules.
             ...rules

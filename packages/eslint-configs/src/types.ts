@@ -25,8 +25,3 @@ export type ExtendsElement = SimpleExtendsElement | InfiniteArray<Linter.Config>
 export interface ConfigWithExtends extends Linter.Config {
     extends?: ExtendsElement[];
 }
-
-/**
- * ESLint configuration array type with extends support
- */
-export type ESLintConfigArray = ConfigWithExtends[];

@@ -6,8 +6,8 @@ import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.t
 
 export interface DefineMonorepoWorkspaceConfigOptions {
     core?: CoreConfigOptions;
-    typescript?: TypescriptConfigOptions;
     packageJson?: PackageJsonConfigOptions;
+    typescript?: TypescriptConfigOptions;
     yaml?: YamlConfigOptions;
 }
 
@@ -18,8 +18,8 @@ export interface DefineMonorepoWorkspaceConfigOptions {
 export function defineMonorepoWorkspaceConfig(tsconfigRootDir: string, options: DefineMonorepoWorkspaceConfigOptions = {}) {
     const {
         core,
-        typescript,
         packageJson,
+        typescript,
         yaml
     } = options;
 
@@ -28,13 +28,13 @@ export function defineMonorepoWorkspaceConfig(tsconfigRootDir: string, options: 
         globalIgnores([
             "dist",
             ...coreGlobalIgnores,
-            ...typescriptGlobalIgnores,
             ...packageJsonGlobalIgnores,
+            ...typescriptGlobalIgnores,
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
-        ...typescriptConfig(tsconfigRootDir, typescript),
         ...packageJsonConfig(packageJson),
+        ...typescriptConfig(tsconfigRootDir, typescript),
         ...yamlConfig(yaml),
         {
             rules: {

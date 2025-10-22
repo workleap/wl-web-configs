@@ -68,14 +68,14 @@ export interface DefineWebApplicationConfigOptions {
 export const defineWebApplicationConfig = (tsconfigRootDir: string, options: DefineWebApplicationConfigOptions = {}) => {
     const {
         core,
-        typescript,
-        react,
-        jsxAlly,
         jest,
-        vitest,
-        testingLibrary,
-        storybook,
+        jsxAlly,
         packageJson,
+        react,
+        storybook,
+        testingLibrary,
+        typescript,
+        vitest,
         yaml
     } = options;
 
@@ -84,27 +84,27 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
         globalIgnores([
             "dist",
             ...coreGlobalIgnores,
-            ...typescriptGlobalIgnores,
-            ...reactGlobalIgnores,
-            ...jsxAllyGlobalIgnores,
             ...jestGlobalIgnores,
-            ...vitestGlobalIgnores,
-            ...testingLibraryGlobalIgnores,
-            ...storybookGlobalIgnores,
+            ...jsxAllyGlobalIgnores,
             ...packageJsonGlobalIgnores,
+            ...reactGlobalIgnores,
+            ...storybookGlobalIgnores,
+            ...testingLibraryGlobalIgnores,
+            ...typescriptGlobalIgnores,
+            ...vitestGlobalIgnores,
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
-        ...typescriptConfig(tsconfigRootDir, typescript),
-        ...reactConfig(react),
-        ...jsxAllyConfig(jsxAlly),
         ...jestConfig(jest),
+        ...jsxAllyConfig(jsxAlly),
+        ...packageJsonConfig(packageJson),
+        ...reactConfig(react),
+        ...storybookConfig(storybook),
+        ...testingLibraryConfig(testingLibrary),
+        ...typescriptConfig(tsconfigRootDir, typescript),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(vitestConfig(vitest) as any),
-        ...testingLibraryConfig(testingLibrary),
-        ...storybookConfig(storybook),
-        ...packageJsonConfig(packageJson),
         ...yamlConfig(yaml)
     ]);
 };

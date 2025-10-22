@@ -43,10 +43,7 @@ export function coreConfig(options: CoreConfigOptions = {}) {
             "no-labels": ["warn", { allowLoop: true, allowSwitch: false }],
             "no-prototype-builtins": "off",
 
-            // https://eslint.org/docs/rules
-            // Extra eslint rules
-
-            // Possible Problems
+            // Possible problems
             "array-callback-return": "error",
             "no-self-compare": "error",
             "no-template-curly-in-string": "error",
@@ -60,6 +57,8 @@ export function coreConfig(options: CoreConfigOptions = {}) {
             ],
 
             // Suggestions
+            curly: "warn",
+            eqeqeq: ["warn", "smart"],
             "no-array-constructor": "warn",
             "no-caller": "warn",
             "no-eval": "warn",
@@ -71,25 +70,6 @@ export function coreConfig(options: CoreConfigOptions = {}) {
             "no-label-var": "warn",
             "no-lone-blocks": "warn",
             "no-loop-func": "warn",
-            "no-multi-str": "warn",
-            "no-new-func": "warn",
-            "no-new-object": "warn",
-            "no-new-wrappers": "warn",
-            "no-octal-escape": "warn",
-            "no-useless-computed-key": "warn",
-            "no-useless-concat": "warn",
-            "no-useless-constructor": "warn",
-            "no-script-url": "warn",
-            "no-sequences": "warn",
-            "no-throw-literal": "warn",
-            "prefer-const": "warn",
-            "no-var": "warn",
-            curly: "warn",
-            "no-shadow": "warn",
-            "no-restricted-properties": "warn",
-            "no-unneeded-ternary": "warn",
-            "no-param-reassign": "warn",
-            eqeqeq: ["warn", "smart"],
             "no-mixed-operators": [
                 "warn",
                 {
@@ -102,17 +82,20 @@ export function coreConfig(options: CoreConfigOptions = {}) {
                     allowSamePrecedence: false
                 }
             ],
-            "no-restricted-syntax": ["error", "WithStatement"],
+            "no-multi-str": "warn",
+            "no-new-func": "warn",
+            "no-new-object": "warn",
+            "no-new-wrappers": "warn",
+            "no-octal-escape": "warn",
+            "no-param-reassign": "warn",
+            "no-restricted-properties": "warn",
             "no-restricted-globals": ["error"],
-            "no-useless-rename": [
-                "warn",
-                {
-                    ignoreDestructuring: false,
-                    ignoreImport: false,
-                    ignoreExport: false
-                }
-            ],
-            strict: ["warn", "never"],
+            "no-restricted-syntax": ["error", "WithStatement"],
+            "no-script-url": "warn",
+            "no-sequences": "warn",
+            "no-shadow": "warn",
+            "no-throw-literal": "warn",
+            "no-unneeded-ternary": "warn",
             "no-unused-expressions": [
                 "error",
                 {
@@ -121,51 +104,30 @@ export function coreConfig(options: CoreConfigOptions = {}) {
                     allowTaggedTemplates: true
                 }
             ],
-
-            // Layout & Formatting
-            // "no-native-reassign": "warn", // deprecated replaced by no-global-assign, deja ds recommended
-            // "no-negated-in-lhs": "warn", // deprecated replaced by no-unsafe-negation, deja ds recommended
-            "padding-line-between-statements": [
+            "no-useless-computed-key": "warn",
+            "no-useless-concat": "warn",
+            "no-useless-constructor": "warn",
+            "no-useless-rename": [
                 "warn",
-                { blankLine: "always", prev: "*", next: "return" }
-            ],
-
-            "rest-spread-spacing": ["warn", "never"],
-            "unicode-bom": ["warn", "never"],
-            "comma-spacing": ["warn", { before: false, after: true }],
-            "keyword-spacing": ["warn", { before: true, after: true }],
-            "arrow-spacing": ["warn", { before: true, after: true }],
-            "space-before-blocks": ["warn", "always"],
-            "space-in-parens": ["warn", "never"],
-            "padded-blocks": ["warn", "never"],
-            "brace-style": ["warn", "1tbs", { allowSingleLine: true }],
-            "new-parens": "warn",
-            "no-whitespace-before-property": "warn",
-            "no-multi-spaces": "warn",
-            "no-multiple-empty-lines": "warn",
-            "space-infix-ops": "warn",
-            "max-len": ["warn", { tabWidth: 4, code: 300 }],
-            indent: [
-                "warn",
-                4,
                 {
-                    SwitchCase: 1,
-                    CallExpression: { arguments: "first" }
+                    ignoreDestructuring: false,
+                    ignoreImport: false,
+                    ignoreExport: false
                 }
             ],
-            semi: ["warn", "always"],
-            quotes: ["warn", "double"],
-            "comma-dangle": ["warn", "never"],
-            "object-curly-spacing": ["warn", "always"],
-            "dot-location": ["warn", "property"],
-            "arrow-parens": ["warn", "as-needed"],
+            "no-var": "warn",
+            "prefer-const": "warn",
+            strict: ["warn", "never"],
+
+            // Layout & Formatting
+            "unicode-bom": ["warn", "never"],
 
             // https://github.com/import-js/eslint-plugin-import/tree/main/docs/rules
-            "import/no-amd": "error",
-            "import/no-webpack-loader-syntax": "error",
-            "import/no-self-import": "error",
             "import/newline-after-import": "warn",
+            "import/no-amd": "error",
             "import/no-duplicates": "warn",
+            "import/no-self-import": "error",
+            "import/no-webpack-loader-syntax": "error",
 
             // Positioned last to allow the consumer to override any rules.
             ...rules
