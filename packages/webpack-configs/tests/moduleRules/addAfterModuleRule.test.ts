@@ -104,8 +104,8 @@ test.concurrent("when a matching module rule is found in a \"use\" prop, add aft
 
     addAfterModuleRule(config, matchLoaderName("esbuild-loader"), [newRule]);
 
-    expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[])!.length).toBe(3);
-    expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[])![2]).toBe(newRule);
+    expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[]).length).toBe(3);
+    expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[])[2]).toBe(newRule);
 });
 
 test.concurrent("when no matching module rule is found, throw an error", ({ expect }) => {

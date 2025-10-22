@@ -126,11 +126,11 @@ test.concurrent("when multiple matching rules are found in a \"use\" prop, retur
     expect(result?.length).toBe(2);
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
+    // @ts-ignore
     expect((result![0].moduleRule as RuleSetUseItem).loader).toBe("swc-loader");
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
+    // @ts-ignore
     expect((result![1].moduleRule as RuleSetUseItem).loader).toBe("swc-loader");
 });
 
@@ -206,11 +206,11 @@ test.concurrent("when multiple matching rules are found in the rules array and a
     expect(result?.length).toBe(2);
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
+    // @ts-ignore
     expect((result![0].moduleRule as RuleSetUseItem).loader).toBe("swc-loader");
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
+    // @ts-ignore
     expect((result![1].moduleRule as RuleSetUseItem).loader).toBe("swc-loader");
 });
 

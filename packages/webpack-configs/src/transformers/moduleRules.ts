@@ -12,7 +12,7 @@ export type WithModuleRuleMatcherInfo = {
 } & ModuleRuleMatcher;
 
 function isNameMatchingLoader(loader: string, name: string) {
-    return loader === name || loader.indexOf(`${path.sep}${name}${path.sep}`) !== -1 || loader.indexOf(`@${name}${path.sep}`) !== -1;
+    return loader === name || loader.includes(`${path.sep}${name}${path.sep}`) || loader.includes(`@${name}${path.sep}`);
 }
 
 export function matchLoaderName(name: string): ModuleRuleMatcher {
@@ -37,17 +37,17 @@ export function matchLoaderName(name: string): ModuleRuleMatcher {
     return matcher;
 }
 
-export type AssetModuleType =
-  | "javascript/auto"
-  | "javascript/dynamic"
-  | "javascript/esm"
-  | "json"
-  | "webassembly/sync"
-  | "webassembly/async"
-  | "asset"
-  | "asset/source"
-  | "asset/resource"
-  | "asset/inline";
+export type AssetModuleType
+    = | "javascript/auto"
+      | "javascript/dynamic"
+      | "javascript/esm"
+      | "json"
+      | "webassembly/sync"
+      | "webassembly/async"
+      | "asset"
+      | "asset/source"
+      | "asset/resource"
+      | "asset/inline";
 
 export function matchAssetModuleType(type: AssetModuleType): ModuleRuleMatcher {
     const matcher: WithModuleRuleMatcherInfo = moduleRule => {

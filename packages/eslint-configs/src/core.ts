@@ -38,7 +38,7 @@ export function coreConfig(options: CoreConfigOptions = {}) {
             }
         },
         rules: {
-            // @eslint/js/recommended overwrite
+            // Recommended rules overrides
             "no-cond-assign": ["error", "except-parens"],
             "no-labels": ["warn", { allowLoop: true, allowSwitch: false }],
             "no-prototype-builtins": "off",

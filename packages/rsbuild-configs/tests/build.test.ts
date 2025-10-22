@@ -10,7 +10,7 @@ test.concurrent("when an entry prop is provided, the source.entry option is the 
         }
     });
 
-    expect(result!.source!.entry!.index).toBe("./a-new-entry.ts");
+    expect(result.source!.entry!.index).toBe("./a-new-entry.ts");
 });
 
 test.concurrent("when a dist path is provided, the output.distpath option is the provided value", ({ expect }) => {

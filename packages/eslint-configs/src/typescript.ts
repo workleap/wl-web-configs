@@ -26,60 +26,62 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
         extends: [
             js.configs.recommended,
             tseslint.configs.recommendedTypeChecked,
-            tseslint.configs.stylisticTypeChecked
+            tseslint.configs.stylisticTypeCheckedOnly,
+            stylisticPlugin.configs.recommended
         ],
         languageOptions: {
             parser: tseslint.parser,
             parserOptions: {
-                // Rely on TypeScript's project service to automatically discover the "tsconfig.json" file.
+                // Rely on TypeScript's project service to automatically discover the "tsconfig.json" file
+                // within the boundaries of "tsconfigRootDir".
                 projectService: true,
                 tsconfigRootDir
             }
         },
         rules: {
-            // @typescript-eslint/recommended disables
-            "@typescript-eslint/no-non-null-assertion": "off",
-            "@typescript-eslint/no-empty-object-type": ["error", { allowInterfaces: "with-single-extends", allowObjectTypes: "never" }],
+            // ESLint core rules overrides
+            "dot-notation": "off",
+            "indent": "off",
+            "no-dupe-class-members": "off",
+            "no-empty-function": "off",
+            "no-loop-func": "off",
+            "no-shadow": "off",
+            "no-unused-expressions": "off",
+            "no-use-before-define": "off",
+            "no-useless-constructor": "off",
+            "object-curly-spacing": "off",
+            "quotes": "off",
+            "semi": "off",
 
-            // Additional rules we want
-            "@typescript-eslint/consistent-type-definitions": "warn",
-            "@typescript-eslint/explicit-member-accessibility": ["warn", { accessibility: "no-public" }],
-            "@typescript-eslint/method-signature-style": "warn",
-            "comma-dangle":"off",
-            "no-dupe-class-members":"off",
-            "@typescript-eslint/no-dupe-class-members":"error",
-            "no-loop-func":"off",
-            "@typescript-eslint/no-loop-func":"warn",
-            "no-shadow":"off",
-            "@typescript-eslint/no-shadow":"warn",
-            "no-unused-expressions":"off",
-            "@typescript-eslint/no-unused-expressions": [
+            // ESlint deprecated core rules
+            "arrow-parens": "off",
+            "comma-dangle": "off",
+
+            // @typescript-eslint recommended rules overrides
+            "@typescript-eslint/dot-notation": "off",
+            "@typescript-eslint/no-base-to-string": "off",
+            "@typescript-eslint/no-empty-function": "off",
+            "@typescript-eslint/no-empty-object-type": [
                 "error",
                 {
-                    allowShortCircuit: true,
-                    allowTernary: true,
-                    allowTaggedTemplates: true
+                    allowInterfaces: "with-single-extends",
+                    allowObjectTypes: "never"
                 }
             ],
-            "no-use-before-define":"off",
-            "no-useless-constructor":"off",
-            "@typescript-eslint/no-useless-constructor":"warn",
-            "object-curly-spacing":"off",
-            "quotes":"off",
-            "@stylistic/quotes": ["warn", "double"],
-            "@typescript-eslint/no-import-type-side-effects": "warn",
-            "@typescript-eslint/consistent-type-imports": [
-                "warn",
-                {
-                    "prefer": "type-imports",
-                    "disallowTypeAnnotations": true,
-                    "fixStyle": "inline-type-imports"
-                }
-            ],
+            "@typescript-eslint/no-non-null-assertion": "off",
+            "@typescript-eslint/no-unsafe-member-access": "off",
+            "@typescript-eslint/prefer-nullish-coalescing": "off",
+            "@typescript-eslint/restrict-template-expressions": "off",
 
-            "@stylistic/member-delimiter-style": "warn",
+            // @stylistic recommend rules overrides
+            "@stylistic/arrow-parens": [
+                "warn",
+                "as-needed",
+                {
+                    requireForBlockBody: false
+                }
+            ],
             "@stylistic/comma-dangle": ["warn", "never"],
-            "indent":"off",
             "@stylistic/indent": [
                 "warn",
                 4,
@@ -88,9 +90,59 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
                     CallExpression: { arguments: "first" }
                 }
             ],
-            "@stylistic/object-curly-spacing": ["warn", "always"],
-            "semi":"off",
+            "@stylistic/brace-style": ["warn", "1tbs"],
+            "@stylistic/member-delimiter-style": [
+                "warn",
+                {
+                    multiline: {
+                        delimiter: "semi"
+                    },
+                    singleline: {
+                        delimiter: "semi"
+                    }
+                }
+            ],
+            "@stylistic/multiline-ternary": "off",
+            "@stylistic/no-multiple-empty-lines": [
+                "warn",
+                {
+                    // View https://eslint.style/rules/eol-last.
+                    max: 1
+                }
+            ],
+            // Should be the default but somehow it's not enforced if it's not explicitly specified.
+            "@stylistic/quote-props": "off",
+            "@stylistic/quotes": ["warn", "double"],
             "@stylistic/semi": ["warn", "always"],
+
+            // Additional rules we want
+            // "@typescript-eslint/consistent-type-definitions": "warn",
+            // "@typescript-eslint/explicit-member-accessibility": ["warn", { accessibility: "no-public" }],
+            // "@typescript-eslint/method-signature-style": "warn",
+            // "@typescript-eslint/no-dupe-class-members": "error",
+            // "@typescript-eslint/no-loop-func": "warn",
+            // "@typescript-eslint/no-shadow": "warn",
+            // "@typescript-eslint/no-unused-expressions": [
+            //     "error",
+            //     {
+            //         allowShortCircuit: true,
+            //         allowTernary: true,
+            //         allowTaggedTemplates: true
+            //     }
+            // ],
+
+            // "@typescript-eslint/no-useless-constructor": "warn",
+            // "@typescript-eslint/no-import-type-side-effects": "warn",
+            // "@typescript-eslint/consistent-type-imports": [
+            //     "warn",
+            //     {
+            //         prefer: "type-imports",
+            //         disallowTypeAnnotations: true,
+            //         fixStyle: "inline-type-imports"
+            //     }
+            // ],
+
+            // "@stylistic/object-curly-spacing": ["warn", "always"],
 
             // Positioned last to allow the consumer to override any rules.
             ...rules

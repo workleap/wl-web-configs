@@ -17,8 +17,7 @@
     "files": [
         "src",
         "dist",
-        "CHANGELOG.md",
-        "README.md"
+        "CHANGELOG.md"
     ],
     "repository": {
         "type": "git",
@@ -48,11 +47,13 @@
         "stylelint-prettier": "^5.0.3"
     },
     "devDependencies": {
+        "@eslint/js": "9.38.0",
         "@types/node": "24.0.14",
-        "@typescript-eslint/parser": "7.18.0",
-        "@workleap/eslint-plugin": "workspace:*",
+        "@typescript-eslint/parser": "8.46.2",
+        "@workleap/eslint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
-        "eslint": "8.57.0",
-        "typescript": "5.8.3"
+        "eslint": "9.38.0",
+        "typescript": "5.0.3",
+        "typescript-eslint": "8.46.2"
     }
 }

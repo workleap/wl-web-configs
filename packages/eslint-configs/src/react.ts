@@ -40,18 +40,16 @@ export function reactConfig(options: ReactConfigOptions = {}) {
             // https://eslint.org/docs/rules
             "jsx-quotes": ["warn", "prefer-double"],
 
-            // react/recommended overrides
+            // Recommend rules overrides
             "react/jsx-no-duplicate-props": ["warn", { ignoreCase: true }],
             "react/jsx-no-undef": ["warn", { allowGlobals: true }],
-
-            // react/recommended disables
             "react/react-in-jsx-scope": "off",
             "react/display-name": "off",
             "react/no-unescaped-entities": "off",
             "react/prop-types": "off",
             "react/jsx-key": "off",
 
-            // extra react rules
+            // Extra react rules
             "react/forbid-foreign-prop-types": ["warn", { allowInPropTypes: true }],
             "react/jsx-pascal-case": [
                 "warn",
@@ -73,7 +71,7 @@ export function reactConfig(options: ReactConfigOptions = {}) {
             "react/no-unused-state": "warn",
             "react/no-array-index-key": "warn",
             "react/no-access-state-in-setstate": "warn",
-            "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".tsx"] }],
+            "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".tsx"] }],
             "react/jsx-curly-brace-presence": "warn",
             "react/no-unused-prop-types": [
                 "warn",

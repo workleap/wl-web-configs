@@ -93,4 +93,3 @@ test.concurrent("when module rule use item is a string and doesn't match name, r
     expect(matcher(moduleRule, 0, [])).toBeFalsy();
 });
 
-

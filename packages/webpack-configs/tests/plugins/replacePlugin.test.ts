@@ -49,4 +49,3 @@ test.concurrent("when no matching plugin is found, throw an error", ({ expect })
     expect(() => replacePlugin(config, matchConstructorName("anything"), newPlugin)).toThrow();
 });
 
-

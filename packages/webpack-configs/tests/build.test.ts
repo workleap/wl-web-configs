@@ -358,7 +358,6 @@ describe("defineMiniCssExtractPluginConfig", () => {
         expect(result.filename).toBe("[name].css");
     });
 
-
     test.concurrent("when a filename value is provided, override the default filename option", ({ expect }) => {
         const result = defineMiniCssExtractPluginConfig({
             filename: "a-custom-filename"

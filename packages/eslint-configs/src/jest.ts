@@ -40,10 +40,10 @@ export function jestConfig(options: JestConfigOptions = {}) {
             }
         },
         rules: {
-            // Prefer spies to allow for automatic restoration.
-            "jest/prefer-spy-on": "error",
             // Gives better failure messages for array checks.
             "jest/prefer-to-contain": "error",
+            // Prefer spies to allow for automatic restoration.
+            "jest/prefer-spy-on": "error",
             // Positioned last to allow the consumer to override any rules.
             ...rules
         }

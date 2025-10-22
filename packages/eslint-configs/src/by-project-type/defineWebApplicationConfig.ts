@@ -34,7 +34,6 @@ So when a second object sets the rule using a plugin "xyz", it doesn’t "see" t
 
 */
 
-
 //     rules: {
 //         // Custom WorkLeap rules
 //         "@workleap/strict-css-modules-names": "warn"
