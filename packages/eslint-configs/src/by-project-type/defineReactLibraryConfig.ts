@@ -67,7 +67,7 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
         ...jsxAllyConfig(jsxAlly),
         ...jestConfig(jest),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(vitestConfig(vitest) as any),
         ...testingLibraryConfig(testingLibrary),
         ...storybookConfig(storybook),

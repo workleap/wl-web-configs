@@ -22,7 +22,7 @@ export function yamlConfig(options: YamlConfigOptions = {}) {
             "**/*.yml"
         ],
         extends: [
-            yamlPlugin.configs.recommended as Linter.Config
+            yamlPlugin.configs.recommended
         ],
         rules
     }];
