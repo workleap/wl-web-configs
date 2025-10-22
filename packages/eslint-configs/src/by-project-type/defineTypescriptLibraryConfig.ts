@@ -2,14 +2,10 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import { coreConfig, type CoreConfigOptions, coreGlobalIgnores } from "../core.ts";
 import { jestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
 import { packageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
+import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
 import { typescriptConfig, type TypescriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
 import { vitestConfig, type VitestConfigOptions, vitestGlobalIgnores } from "../vitest.ts";
 import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
-
-//     rules: {
-//         // Custom WorkLeap rules
-//         "@workleap/strict-css-modules-names": "warn"
-//     }
 
 export interface DefineTypeScriptLibraryConfigOptions {
     core?: CoreConfigOptions;
@@ -52,6 +48,14 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(vitestConfig(vitest) as any),
-        ...yamlConfig(yaml)
+        ...yamlConfig(yaml),
+        {
+            plugins: {
+                "@workleap": WorkleapPlugin
+            },
+            rules: {
+                "@workleap/strict-css-modules-names": "warn"
+            }
+        }
     ]);
 }

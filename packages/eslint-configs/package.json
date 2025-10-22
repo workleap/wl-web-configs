@@ -73,6 +73,7 @@
         "@rsbuild/core": "1.4.7",
         "@rslib/core": "0.10.6",
         "@types/eslint-plugin-jsx-a11y": "6.10.1",
+        "@types/estree": "1.0.8",
         "@types/node": "24.9.0",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "3.0.4",

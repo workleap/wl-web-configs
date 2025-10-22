@@ -115,7 +115,7 @@ export function reactConfig(options: ReactConfigOptions = {}) {
             "react/jsx-tag-spacing": "off",
             "react/jsx-wrap-multilines": "off",
 
-            // @stylistic rules (cannot use recommended because it would conflict with the "typescript" config rules)
+            // @stylistic rules (cannot use the recommended config" because it would conflict with the "typescript" config rules)
             "@stylistic/jsx-closing-bracket-location": "warn",
             "@stylistic/jsx-closing-tag-location": "warn",
             "@stylistic/jsx-curly-brace-presence": [

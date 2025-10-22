@@ -3,6 +3,7 @@ import { coreConfig, type CoreConfigOptions, coreGlobalIgnores } from "../core.t
 import { jestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
 import { jsxAllyConfig, type JsxAllyConfigOptions, jsxAllyGlobalIgnores } from "../jsxAlly.ts";
 import { packageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
+import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
 import { reactConfig, type ReactConfigOptions, reactGlobalIgnores } from "../react.ts";
 import { storybookConfig, type StorybookConfigOptions, storybookGlobalIgnores } from "../storybook.ts";
 import { testingLibraryConfig, type TestingLibraryConfigOptions, testingLibraryGlobalIgnores } from "../testingLibrary.ts";
@@ -42,11 +43,6 @@ error  Parsing error: C:\Dev\workleap\wl-web-configs\samples\storybook\rsbuild\.
 -> Make sure to clear the ESLint cache after such an error because update the tsconfig.json file doesn't invalidate the ESLint cache
 
 */
-
-//     rules: {
-//         // Custom WorkLeap rules
-//         "@workleap/strict-css-modules-names": "warn"
-//     }
 
 export interface DefineWebApplicationConfigOptions {
     core?: CoreConfigOptions;
@@ -105,6 +101,14 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(vitestConfig(vitest) as any),
-        ...yamlConfig(yaml)
+        ...yamlConfig(yaml),
+        {
+            plugins: {
+                "@workleap": WorkleapPlugin
+            },
+            rules: {
+                "@workleap/strict-css-modules-names": "warn"
+            }
+        }
     ]);
 };
