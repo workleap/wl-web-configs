@@ -56,62 +56,6 @@ exports[`createSwcTargetsFromBrowserslistEntries > when there are multiple versi
 }
 `;
 
-exports[`createSwcTargetsFromBrowserslistEntries when a browser is a mobile alias for a desktop browser, and the mobile alias version is older than the oldest desktop browser version, use the alias version 1`] = `
-{
-  "chrome": "115",
-}
-`;
-
-exports[`createSwcTargetsFromBrowserslistEntries when a browser is a mobile alias to a desktop browser, include a target for the desktop browser 1`] = `
-{
-  "chrome": "115",
-  "firefox": "115",
-  "ie": "11",
-  "ios": "16.5",
-  "opera": "73",
-}
-`;
-
-exports[`createSwcTargetsFromBrowserslistEntries when a browser is not supported, do not include a target for the browser 1`] = `
-{
-  "firefox": "115",
-}
-`;
-
-exports[`createSwcTargetsFromBrowserslistEntries when a browser version has a 0 digit, remove the digit 1`] = `
-{
-  "samsung": "19",
-}
-`;
-
-exports[`createSwcTargetsFromBrowserslistEntries when a browser version has an non 0 digit, keep the digit 1`] = `
-{
-  "safari": "15.4",
-}
-`;
-
-exports[`createSwcTargetsFromBrowserslistEntries when a browser version is "all", keep "all" 1`] = `
-{
-  "chrome": "all",
-}
-`;
-
-exports[`createSwcTargetsFromBrowserslistEntries when a browser version is a range, only keep the lower value of the range 1`] = `
-{
-  "safari": "15.2",
-}
-`;
-
-exports[`createSwcTargetsFromBrowserslistEntries when there are multiple versions of the same browser, only include the oldest version of the browser 1`] = `
-{
-  "android": "115",
-  "chrome": "107",
-  "edge": "113",
-  "firefox": "107",
-  "opera": "101",
-}
-`;
-
 exports[`when queries are provided, use the queries 1`] = `
 {
   "chrome": "113",
