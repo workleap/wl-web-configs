@@ -76,7 +76,7 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
                 }
             ],
             "@typescript-eslint/no-floating-promises": "off",
-            // This rule should be enable but has several options that needs to be investigated.
+            // This rule should be enabled but has several options that need to be investigated.
             "@typescript-eslint/no-misused-promises": "off",
             "@typescript-eslint/no-non-null-assertion": "off",
             "@typescript-eslint/no-unsafe-argument": "off",
