@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import { coreConfig, type CoreConfigOptions, coreGlobalIgnores } from "../core.ts";
 import { jestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
+import { jsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
 import { jsxAllyConfig, type JsxAllyConfigOptions, jsxAllyGlobalIgnores } from "../jsxAlly.ts";
 import { packageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
@@ -14,6 +15,7 @@ import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.t
 export interface DefineReactLibraryConfigOptions {
     core?: CoreConfigOptions;
     jest?: JestConfigOptions;
+    json?: JsonConfigOptions;
     jsxAlly?: JsxAllyConfigOptions;
     packageJson?: PackageJsonConfigOptions;
     react?: ReactConfigOptions;
@@ -32,6 +34,7 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
     const {
         core,
         jest,
+        json,
         jsxAlly,
         packageJson,
         react,
@@ -46,8 +49,10 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
         // node_modules folder is ignored by default.
         globalIgnores([
             "dist",
+            "**/__snapshots__/*",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
+            ...jsonGlobalIgnores,
             ...jsxAllyGlobalIgnores,
             ...packageJsonGlobalIgnores,
             ...reactGlobalIgnores,
@@ -59,6 +64,7 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
         ]),
         ...coreConfig(core),
         ...jestConfig(jest),
+        ...jsonConfig(json),
         ...jsxAllyConfig(jsxAlly),
         ...packageJsonConfig(packageJson),
         ...reactConfig(react),

@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import { coreConfig, type CoreConfigOptions, coreGlobalIgnores } from "../core.ts";
 import { jestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
+import { jsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
 import { packageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
 import { typescriptConfig, type TypescriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
@@ -11,6 +12,7 @@ export interface DefineTypeScriptLibraryConfigOptions {
     core?: CoreConfigOptions;
     typescript?: TypescriptConfigOptions;
     jest?: JestConfigOptions;
+    json?: JsonConfigOptions;
     vitest?: VitestConfigOptions;
     packageJson?: PackageJsonConfigOptions;
     yaml?: YamlConfigOptions;
@@ -24,6 +26,7 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
     const {
         core,
         jest,
+        json,
         packageJson,
         typescript,
         vitest,
@@ -34,8 +37,10 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         // node_modules folder is ignored by default.
         globalIgnores([
             "dist",
+            "**/__snapshots__/*",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
+            ...jsonGlobalIgnores,
             ...packageJsonGlobalIgnores,
             ...typescriptGlobalIgnores,
             ...vitestGlobalIgnores,
@@ -43,6 +48,7 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         ]),
         ...coreConfig(core),
         ...jestConfig(jest),
+        ...jsonConfig(json),
         ...packageJsonConfig(packageJson),
         ...typescriptConfig(tsconfigRootDir, typescript),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.

@@ -25,7 +25,7 @@ export function packageJsonConfig(options: PackageJsonConfigOptions = {}) {
             "package-json/order-properties": "off",
             "package-json/prefer-repository-shorthand": "off",
             "package-json/sort-collections": [
-                "error",
+                "warn",
                 [
                     // Do not sort "scripts".
                     "devDependencies",
