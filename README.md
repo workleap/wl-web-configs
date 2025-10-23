@@ -10,7 +10,7 @@ Default tooling configurations for building web applications at [Workleap](https
 | Name | NPM |
 | --- | --- |
 | [@workleap/browserslist-config](packages/browserslist-config/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/browserslist-config)](https://www.npmjs.com/package/@workleap/browserslist-config) |
-| [@workleap/eslint-plugin](packages/eslint-plugin/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/eslint-plugin)](https://www.npmjs.com/package/@workleap/eslint-plugin) |
+| [@workleap/eslint-configs](packages/eslint-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/eslint-configs)](https://www.npmjs.com/package/@workleap/eslint-configs) |
 | [@workleap/stylelint-plugin](packages/stylelint-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/stylelint-configs)](https://www.npmjs.com/package/@workleap/stylelint-configs) |
 | [@workleap/typescript-configs](packages/typescript-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/typescript-configs)](https://www.npmjs.com/package/@workleap/typescript-configs) |
 | [@workleap/rsbuild-configs](packages/rsbuild-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/rsbuild-configs)](https://www.npmjs.com/package/@workleap/rsbuild-configs) |

@@ -30,7 +30,7 @@
         "@vitejs/plugin-react": "5.0.4",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
-        "@workleap/typescript-configs": "3.0.5",
+        "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.38.0",
         "happy-dom": "20.0.8",
         "identity-obj-proxy": "3.0.0",
