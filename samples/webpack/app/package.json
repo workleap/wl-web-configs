@@ -42,7 +42,7 @@
         "@workleap/postcss-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
-        "@workleap/typescript-configs": "3.0.4",
+        "@workleap/typescript-configs": "3.0.5",
         "@workleap/webpack-configs": "workspace:*",
         "browserslist": "4.27.0",
         "cross-env": "10.1.0",

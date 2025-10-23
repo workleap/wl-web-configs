@@ -2,7 +2,7 @@
     "name": "@workleap/eslint-configs",
     "author": "Workleap",
     "description": "Workleap recommended ESLint configurations.",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
@@ -75,7 +75,7 @@
         "@types/eslint-plugin-jsx-a11y": "6.10.1",
         "@types/estree": "1.0.8",
         "@types/node": "24.9.1",
-        "@workleap/typescript-configs": "3.0.4",
+        "@workleap/typescript-configs": "3.0.5",
         "eslint": "9.38.0",
         "typescript": "5.9.3",
         "typescript-eslint": "8.46.2"

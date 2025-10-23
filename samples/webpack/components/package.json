@@ -32,7 +32,7 @@
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
-        "@workleap/typescript-configs": "3.0.4",
+        "@workleap/typescript-configs": "3.0.5",
         "eslint": "9.38.0",
         "identity-obj-proxy": "3.0.0",
         "jest": "30.2.0",

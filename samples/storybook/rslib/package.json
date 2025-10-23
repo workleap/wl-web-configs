@@ -27,7 +27,7 @@
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
-        "@workleap/typescript-configs": "3.0.4",
+        "@workleap/typescript-configs": "3.0.5",
         "browserslist": "4.27.0",
         "eslint": "9.38.0",
         "http-server": "14.1.1",
