@@ -25,6 +25,7 @@
         "directory": "packages/stylelint-configs"
     },
     "scripts": {
+        "prebuild": "pnpm rimraf dist",
         "build": "tsc --project tsconfig.build.json",
         "eslint": "eslint . --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsc"
@@ -52,6 +53,7 @@
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/typescript-configs": "3.0.4",
         "eslint": "9.38.0",
+        "rimraf": "6.0.1",
         "typescript": "5.9.3",
         "typescript-eslint": "8.46.2"
     }
