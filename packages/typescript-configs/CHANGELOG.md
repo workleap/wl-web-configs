@@ -1,5 +1,11 @@
 # @workleap/typescript-configs
 
+## 3.0.6
+
+### Patch Changes
+
+- [#300](https://github.com/workleap/wl-web-configs/pull/300) [`95ba69a`](https://github.com/workleap/wl-web-configs/commit/95ba69af8f342cfd5a69c4dd067b851f7a4817c3) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Fixing deployment of previous version.
+
 ## 3.0.5
 
 ### Patch Changes
