@@ -31,7 +31,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-            node-version: ">=22.0.0"
+            node-version: ">=24.0.0"
             check-latest: true
             cache: pnpm
             cache-dependency-path: pnpm-lock.yaml
@@ -56,6 +56,15 @@ jobs:
 
       - name: Build webpack sample
         run: pnpm build-webpack
+
+      - name: Build Rsbuild sample
+        run: pnpm build-rsbuild
+
+      - name: Build Storybook Rsbuild sample
+        run: pnpm build-storybook-rsbuild
+
+      - name: Build Storybook Rslib sample
+        run: pnpm build-storybook-rslib
 
       - name: Test packages
         run: pnpm test

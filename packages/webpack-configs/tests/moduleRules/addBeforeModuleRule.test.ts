@@ -104,8 +104,8 @@ test.concurrent("when a matching module rule is found in a \"use\" prop, add bef
 
     addBeforeModuleRule(config, matchLoaderName("babel-loader"), [newRule]);
 
-    expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[])!.length).toBe(3);
-    expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[])![0]).toBe(newRule);
+    expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[]).length).toBe(3);
+    expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[])[0]).toBe(newRule);
 });
 
 test.concurrent("when no matching module rule is found, throw an error", ({ expect }) => {

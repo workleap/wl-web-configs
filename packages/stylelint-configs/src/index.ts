@@ -43,11 +43,11 @@ const config: Config = {
         // if we had used kebab-case (my-class) then we would have to use styles["my-class"] which is not as nice.
         // in our design system however, i would add the following rule:
         // "selector-class-pattern": [
-        // 	"^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
-        // 	{
-        // 		message: (selector) => `Expected class selector "${selector}" to be kebab-case`,
-        // 	},
-        // ],
+        //      "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+        //      {
+        //          message: (selector) => `Expected class selector "${selector}" to be kebab-case`
+        //      }
+        //  ]
         "selector-class-pattern": null,
 
         // These next rules do not exist in the stylelint-config-recommended config nor the stylelint-config-standard config.

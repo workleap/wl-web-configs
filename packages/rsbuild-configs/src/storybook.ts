@@ -11,7 +11,7 @@ export interface DefineStorybookConfigOptions {
     lazyCompilation?: boolean;
     sourceMap?: boolean | SourceMap;
     react?: false | DefineStorybookDefineReactPluginConfigFunction;
-    svgr? : false | DefineStorybookSvgrPluginConfigFunction;
+    svgr?: false | DefineStorybookSvgrPluginConfigFunction;
     environmentVariables?: Record<string, unknown>;
     transformers?: RsbuildConfigTransformer[];
     verbose?: boolean;

@@ -11,7 +11,7 @@ export interface DefineStorybookConfigOptions {
     plugins?: RsbuildPlugins;
     sourceMap?: boolean | SourceMap;
     react?: false | DefineStorybookDefineReactPluginConfigFunction;
-    svgr? : false | DefineStorybookSvgrPluginConfigFunction;
+    svgr?: false | DefineStorybookSvgrPluginConfigFunction;
     transformers?: RslibConfigTransformer[];
 }
 

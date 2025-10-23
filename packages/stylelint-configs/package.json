@@ -17,8 +17,7 @@
     "files": [
         "src",
         "dist",
-        "CHANGELOG.md",
-        "README.md"
+        "CHANGELOG.md"
     ],
     "repository": {
         "type": "git",
@@ -26,14 +25,14 @@
         "directory": "packages/stylelint-configs"
     },
     "scripts": {
-        "prebuild": "pnpm dlx rimraf dist",
+        "prebuild": "pnpm rimraf dist",
         "build": "tsc --project tsconfig.build.json",
         "eslint": "eslint . --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsc"
     },
     "peerDependencies": {
         "prettier": "^3.6.2",
-        "stylelint": "^16.21.1"
+        "stylelint": "^16.25.0"
     },
     "peerDependenciesMeta": {
         "prettier": {
@@ -44,15 +43,18 @@
         }
     },
     "dependencies": {
-        "stylelint-config-standard": "^38.0.0",
+        "stylelint-config-standard": "^39.0.1",
         "stylelint-prettier": "^5.0.3"
     },
     "devDependencies": {
-        "@types/node": "24.0.14",
-        "@typescript-eslint/parser": "7.18.0",
-        "@workleap/eslint-plugin": "workspace:*",
-        "@workleap/typescript-configs": "workspace:*",
-        "eslint": "8.57.0",
-        "typescript": "5.8.3"
+        "@eslint/js": "9.38.0",
+        "@types/node": "24.9.1",
+        "@typescript-eslint/parser": "8.46.2",
+        "@workleap/eslint-configs": "workspace:*",
+        "@workleap/typescript-configs": "3.0.4",
+        "eslint": "9.38.0",
+        "rimraf": "6.0.1",
+        "typescript": "5.9.3",
+        "typescript-eslint": "8.46.2"
     }
 }

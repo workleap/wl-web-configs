@@ -19,7 +19,7 @@ export interface DefineBuildConfigOptions {
     plugins?: RsbuildPlugins;
     sourceMap?: boolean | SourceMap;
     react?: true | DefineBuildDefineReactPluginConfigFunction;
-    svgr? : true | DefineBuildSvgrPluginConfigFunction;
+    svgr?: true | DefineBuildSvgrPluginConfigFunction;
     transformers?: RslibConfigTransformer[];
 }
 

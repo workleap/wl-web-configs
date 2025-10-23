@@ -4,5 +4,7 @@
         "incremental": true,
         "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     },
+    // Required for @typescript-eslint project service to discover the files in ".storybook".
+    "include": [".storybook/*", "."],
     "exclude": ["dist", "node_modules"]
 }

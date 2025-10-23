@@ -112,7 +112,7 @@ export function createSwcTargetsFromBrowserslistEntries(entries: string[]) {
         const { browser, version } = parseBrowserslistEntry(x);
 
         // Exclude browsers that are not supported by SWC.
-        if (((SwcSupportedBrowsers as unknown) as string[]).indexOf(browser) === -1) {
+        if (!((SwcSupportedBrowsers as unknown) as string[]).includes(browser)) {
             return acc;
         }
 
