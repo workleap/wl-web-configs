@@ -1,5 +1,11 @@
 # @workleap/rsbuild-configs
 
+## 3.1.4
+
+### Patch Changes
+
+- [#302](https://github.com/workleap/wl-web-configs/pull/302) [`a0c552f`](https://github.com/workleap/wl-web-configs/commit/a0c552fb26428fe854077351b78fe6dbe393b140) Thanks [@alexasselin008](https://github.com/alexasselin008)! - Bump release to test OIDC deployment
+
 ## 3.1.3
 
 ### Patch Changes
