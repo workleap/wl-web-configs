@@ -2,7 +2,7 @@
     "name": "@workleap/rsbuild-configs",
     "author": "Workleap",
     "description": "Workleap recommended Rsbuild configurations.",
-    "version": "3.1.1",
+    "version": "3.1.2",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
@@ -51,7 +51,7 @@
         "@typescript-eslint/parser": "8.46.2",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
-        "@workleap/typescript-configs": "3.0.4",
+        "@workleap/typescript-configs": "3.0.5",
         "eslint": "9.38.0",
         "typescript": "5.9.3",
         "typescript-eslint": "8.46.2",
