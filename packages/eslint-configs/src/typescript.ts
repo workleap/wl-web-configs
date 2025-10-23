@@ -76,10 +76,13 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
                 }
             ],
             "@typescript-eslint/no-floating-promises": "off",
+            // This rule should be enabled but has several options that need to be investigated.
+            "@typescript-eslint/no-misused-promises": "off",
             "@typescript-eslint/no-non-null-assertion": "off",
             "@typescript-eslint/no-unsafe-argument": "off",
             "@typescript-eslint/no-unsafe-assignment": "off",
             "@typescript-eslint/no-unsafe-member-access": "off",
+            "@typescript-eslint/no-unsafe-return": "off",
             "@typescript-eslint/only-throw-error": "off",
             "@typescript-eslint/prefer-nullish-coalescing": "off",
             "@typescript-eslint/restrict-template-expressions": "off",
@@ -121,6 +124,7 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
                 }
             ],
             "@stylistic/operator-linebreak": "off",
+            "@stylistic/spaced-comment": "off",
             // Should be the default but somehow it's not enforced if it's not explicitly specified.
             "@stylistic/quote-props": "off",
 

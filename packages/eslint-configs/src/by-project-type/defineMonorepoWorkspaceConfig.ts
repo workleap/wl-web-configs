@@ -1,11 +1,13 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import { coreConfig, type CoreConfigOptions, coreGlobalIgnores } from "../core.ts";
+import { jsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
 import { packageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { typescriptConfig, type TypescriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
 import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
 
 export interface DefineMonorepoWorkspaceConfigOptions {
     core?: CoreConfigOptions;
+    json?: JsonConfigOptions;
     packageJson?: PackageJsonConfigOptions;
     typescript?: TypescriptConfigOptions;
     yaml?: YamlConfigOptions;
@@ -18,6 +20,7 @@ export interface DefineMonorepoWorkspaceConfigOptions {
 export function defineMonorepoWorkspaceConfig(tsconfigRootDir: string, options: DefineMonorepoWorkspaceConfigOptions = {}) {
     const {
         core,
+        json,
         packageJson,
         typescript,
         yaml
@@ -27,12 +30,15 @@ export function defineMonorepoWorkspaceConfig(tsconfigRootDir: string, options: 
         // node_modules folder is ignored by default.
         globalIgnores([
             "dist",
+            ".turbo",
             ...coreGlobalIgnores,
+            ...jsonGlobalIgnores,
             ...packageJsonGlobalIgnores,
             ...typescriptGlobalIgnores,
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
+        ...jsonConfig(json),
         ...packageJsonConfig(packageJson),
         ...typescriptConfig(tsconfigRootDir, typescript),
         ...yamlConfig(yaml),

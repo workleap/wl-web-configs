@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import { coreConfig, type CoreConfigOptions, coreGlobalIgnores } from "../core.ts";
 import { jestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
+import { jsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
 import { jsxAllyConfig, type JsxAllyConfigOptions, jsxAllyGlobalIgnores } from "../jsxAlly.ts";
 import { packageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
@@ -46,14 +47,15 @@ error  Parsing error: C:\Dev\workleap\wl-web-configs\samples\storybook\rsbuild\.
 
 export interface DefineWebApplicationConfigOptions {
     core?: CoreConfigOptions;
-    typescript?: TypescriptConfigOptions;
-    react?: ReactConfigOptions;
-    jsxAlly?: JsxAllyConfigOptions;
     jest?: JestConfigOptions;
-    vitest?: VitestConfigOptions;
-    testingLibrary?: TestingLibraryConfigOptions;
-    storybook?: StorybookConfigOptions;
+    json?: JsonConfigOptions;
+    jsxAlly?: JsxAllyConfigOptions;
     packageJson?: PackageJsonConfigOptions;
+    react?: ReactConfigOptions;
+    storybook?: StorybookConfigOptions;
+    testingLibrary?: TestingLibraryConfigOptions;
+    typescript?: TypescriptConfigOptions;
+    vitest?: VitestConfigOptions;
     yaml?: YamlConfigOptions;
 }
 
@@ -65,6 +67,7 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
     const {
         core,
         jest,
+        json,
         jsxAlly,
         packageJson,
         react,
@@ -79,8 +82,10 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
         // node_modules folder is ignored by default.
         globalIgnores([
             "dist",
+            "**/__snapshots__/*",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
+            ...jsonGlobalIgnores,
             ...jsxAllyGlobalIgnores,
             ...packageJsonGlobalIgnores,
             ...reactGlobalIgnores,
@@ -92,6 +97,7 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
         ]),
         ...coreConfig(core),
         ...jestConfig(jest),
+        ...jsonConfig(json),
         ...jsxAllyConfig(jsxAlly),
         ...packageJsonConfig(packageJson),
         ...reactConfig(react),
