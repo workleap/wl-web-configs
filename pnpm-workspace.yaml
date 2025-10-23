@@ -2,5 +2,4 @@ packages:
   - packages/*
   - samples/**
 
-onlyBuiltDependencies:
-  - msw
+dangerouslyAllowAllBuilds: true
