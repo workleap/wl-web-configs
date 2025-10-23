@@ -37,17 +37,17 @@ export function matchLoaderName(name: string): ModuleRuleMatcher {
     return matcher;
 }
 
-export type AssetModuleType
-    = | "javascript/auto"
-      | "javascript/dynamic"
-      | "javascript/esm"
-      | "json"
-      | "webassembly/sync"
-      | "webassembly/async"
-      | "asset"
-      | "asset/source"
-      | "asset/resource"
-      | "asset/inline";
+export type AssetModuleType =
+    | "javascript/auto"
+    | "javascript/dynamic"
+    | "javascript/esm"
+    | "json"
+    | "webassembly/sync"
+    | "webassembly/async"
+    | "asset"
+    | "asset/source"
+    | "asset/resource"
+    | "asset/inline";
 
 export function matchAssetModuleType(type: AssetModuleType): ModuleRuleMatcher {
     const matcher: WithModuleRuleMatcherInfo = moduleRule => {

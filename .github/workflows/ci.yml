@@ -57,6 +57,15 @@ jobs:
       - name: Build webpack sample
         run: pnpm build-webpack
 
+      - name: Build Rsbuild sample
+        run: pnpm build-rsbuild
+
+      - name: Build Storybook Rsbuild sample
+        run: pnpm build-storybook-rsbuild
+
+      - name: Build Storybook Rslib sample
+        run: pnpm build-storybook-rslib
+
       - name: Test packages
         run: pnpm test
 

@@ -100,6 +100,7 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
                     CallExpression: { arguments: "first" }
                 }
             ],
+            "@stylistic/indent-binary-ops": ["warn", 4],
             "@stylistic/member-delimiter-style": [
                 "warn",
                 {
@@ -119,6 +120,7 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
                     max: 1
                 }
             ],
+            "@stylistic/operator-linebreak": "off",
             // Should be the default but somehow it's not enforced if it's not explicitly specified.
             "@stylistic/quote-props": "off",
 
