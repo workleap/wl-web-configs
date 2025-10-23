@@ -25,6 +25,7 @@
         "CHANGELOG.md"
     ],
     "scripts": {
+        "prebuild": "pnpm -c dlx rimraf dist",
         "build": "tsc --project tsconfig.build.json",
         "eslint": "eslint . --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsc"
