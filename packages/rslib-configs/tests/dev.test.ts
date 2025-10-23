@@ -1,4 +1,4 @@
-import type { RsbuildPlugin, SourceMap } from "@rsbuild/core";
+import type { DistPathConfig, RsbuildPlugin, SourceMap } from "@rsbuild/core";
 import type { RslibConfig } from "@rslib/core";
 import { test, vi } from "vitest";
 import type { RslibConfigTransformer } from "../src/applyTransformers.ts";
@@ -83,7 +83,7 @@ test.concurrent("when a dist path is provided, the output.distPath option is the
         tsconfigPath: "./build.json"
     });
 
-    expect(result.output?.distPath?.js).toBe("./dist-path");
+    expect((result.output?.distPath as DistPathConfig).js).toBe("./dist-path");
 });
 
 test.concurrent("when additional plugins are provided, append the provided plugins at the end of the plugins array", ({ expect }) => {
@@ -249,7 +249,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     const distPathTransformer: RslibConfigTransformer = (config: RslibConfig) => {
         config.output = config.output ?? {};
         config.output.distPath = config.output.distPath ?? {};
-        config.output.distPath.js = "a-custom-dist-path-in-a-tranformer";
+        (config.output.distPath as DistPathConfig).js = "a-custom-dist-path-in-a-tranformer";
 
         return config;
     };
@@ -260,7 +260,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     });
 
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
-    expect(result.output!.distPath!.js).toBe("a-custom-dist-path-in-a-tranformer");
+    expect((result.output!.distPath as DistPathConfig).js).toBe("a-custom-dist-path-in-a-tranformer");
 });
 
 test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
