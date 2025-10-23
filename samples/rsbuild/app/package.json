@@ -41,7 +41,7 @@
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rsbuild-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
-        "@workleap/typescript-configs": "3.0.5",
+        "@workleap/typescript-configs": "workspace:*",
         "browserslist": "4.27.0",
         "cross-env": "10.1.0",
         "eslint": "9.38.0",

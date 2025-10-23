@@ -67,7 +67,7 @@
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
-        "@workleap/typescript-configs": "3.0.5",
+        "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.38.0",
         "typescript": "5.9.3",
         "typescript-eslint": "8.46.2",
