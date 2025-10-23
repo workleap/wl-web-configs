@@ -75,7 +75,7 @@
         "@types/eslint-plugin-jsx-a11y": "6.10.1",
         "@types/estree": "1.0.8",
         "@types/node": "24.9.1",
-        "@workleap/typescript-configs": "",
+        "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.38.0",
         "typescript": "5.9.3",
         "typescript-eslint": "8.46.2"
