@@ -54,7 +54,7 @@
         "@types/node": "24.9.1",
         "@typescript-eslint/parser": "8.46.2",
         "@workleap/eslint-configs": "workspace:*",
-        "@workleap/typescript-configs": "3.0.4",
+        "@workleap/typescript-configs": "workspace:*",
         "cross-env": "10.1.0",
         "eslint": "9.38.0",
         "pkg-pr-new": "0.0.60",
@@ -66,8 +66,8 @@
         "typescript-eslint": "8.46.2"
     },
     "engines": {
-        "node": ">=22.0.0",
-        "pnpm": ">=9"
+        "node": ">=24.0.0",
+        "pnpm": ">=10"
     },
     "packageManager": "pnpm@10.19.0"
 }
