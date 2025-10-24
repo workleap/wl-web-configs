@@ -87,6 +87,9 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
             "@typescript-eslint/only-throw-error": "off",
             "@typescript-eslint/prefer-nullish-coalescing": "off",
             "@typescript-eslint/restrict-template-expressions": "off",
+            // This rule should be enabled but it's strangely causing issues with common React Aria patterns
+            // when destructuring an object literal returned by a hook like "useFilter".
+            "@typescript-eslint/unbound-method": "off",
 
             // @stylistic recommend rules overrides
             "@stylistic/arrow-parens": [

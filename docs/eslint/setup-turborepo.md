@@ -197,7 +197,7 @@ The `eslint` script will lint the root of the solution's workspace:
 
 ```json package.json
 {
-    "eslint": "eslint . --ignore-pattern packages --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint"
+    "eslint": "eslint . --ignore-pattern packages --max-warnings=0 --cache --cache-location node_modules/.cache/eslint"
 }
 ```
 
@@ -281,7 +281,7 @@ Finally, add the following `eslint` script to your project `package.json` file. 
 
 ```json packages/pkg-1/package.json
 {
-    "eslint": "eslint . --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint"
+    "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint"
 }
 ```
 
