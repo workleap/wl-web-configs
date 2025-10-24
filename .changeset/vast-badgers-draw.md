@@ -2,4 +2,4 @@
 "@workleap/eslint-configs": patch
 ---
 
-Added an `compiler` option to the React rules.
+Added a `compiler` option to the React rules.
