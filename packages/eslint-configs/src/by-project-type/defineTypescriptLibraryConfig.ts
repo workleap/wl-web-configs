@@ -38,6 +38,7 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         globalIgnores([
             "dist",
             "**/__snapshots__/*",
+            ".turbo",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
             ...jsonGlobalIgnores,
