@@ -72,7 +72,7 @@ export function coreConfig(options: CoreConfigOptions = {}) {
             "no-loop-func": "warn",
             "no-multi-str": "warn",
             "no-new-func": "warn",
-            // Deprecated but still no remplacement in @stylistic.
+            // Deprecated but still no replacement in @stylistic.
             // "no-new-object": "warn",
             "no-new-wrappers": "warn",
             "no-octal-escape": "warn",
