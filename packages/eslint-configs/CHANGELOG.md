@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 0.0.5
+
+### Patch Changes
+
+- [#307](https://github.com/workleap/wl-web-configs/pull/307) [`6e0701a`](https://github.com/workleap/wl-web-configs/commit/6e0701a9c1086f618b01857847519797d7cd39f4) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Fine tuning ESLint rules.
+
 ## 0.0.4
 
 ### Patch Changes
