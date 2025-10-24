@@ -6,13 +6,15 @@ import type { ConfigWithExtends } from "./types.ts";
 
 export interface ReactConfigOptions {
     rules?: Partial<Linter.RulesRecord>;
+    compiler?: boolean;
 }
 
 export const reactGlobalIgnores = [];
 
 export function reactConfig(options: ReactConfigOptions = {}) {
     const {
-        rules = {}
+        rules = {},
+        compiler = false
     } = options;
 
     const config: ConfigWithExtends[] = [{
@@ -41,7 +43,7 @@ export function reactConfig(options: ReactConfigOptions = {}) {
             }
         },
         rules: {
-            // React Recommend rules overrides
+            // React recommend rules overrides
             "react/display-name": "off",
             "react/jsx-key": "off",
             "react/jsx-no-duplicate-props": [
@@ -115,10 +117,16 @@ export function reactConfig(options: ReactConfigOptions = {}) {
             "react/jsx-tag-spacing": "off",
             "react/jsx-wrap-multilines": "off",
 
-            // React Hooks Recommend rules overrides
+            // React hooks recommend rules overrides
             "react-hooks/set-state-in-effect": "off",
-            // Should be enabled later when we better understand the rule.
-            "react-hooks/preserve-manual-memoization": "off",
+
+            // React hooks "compiler" related rules
+            ...compiler === false ? {
+                "react-hooks/gating": "off",
+                "react-hooks/incompatible-library": "off",
+                "react-hooks/preserve-manual-memoization": "off",
+                "react-hooks/unsupported-syntax": "off"
+            } : {},
 
             // @stylistic rules (cannot use the recommended config" because it would conflict with the "typescript" config rules)
             "@stylistic/jsx-closing-bracket-location": "warn",
