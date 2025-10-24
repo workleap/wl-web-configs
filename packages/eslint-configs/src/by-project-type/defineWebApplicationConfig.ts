@@ -67,6 +67,12 @@ file itself for optimal performance, rather than relying on CLI flags (--ignore-
 
 */
 
+/*
+
+Document the React compiler setting
+
+*/
+
 export interface DefineWebApplicationConfigOptions {
     core?: CoreConfigOptions;
     jest?: JestConfigOptions;
