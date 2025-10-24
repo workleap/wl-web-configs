@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 0.0.8
+
+### Patch Changes
+
+- [#313](https://github.com/workleap/wl-web-configs/pull/313) [`d7f37fe`](https://github.com/workleap/wl-web-configs/commit/d7f37fe8e6db5d4f360fc7ea49ec302fd9779b00) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Added a `compiler` option to the React rules.
+
 ## 0.0.7
 
 ### Patch Changes
