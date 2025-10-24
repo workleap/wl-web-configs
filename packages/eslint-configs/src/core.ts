@@ -70,21 +70,10 @@ export function coreConfig(options: CoreConfigOptions = {}) {
             "no-label-var": "warn",
             "no-lone-blocks": "warn",
             "no-loop-func": "warn",
-            "no-mixed-operators": [
-                "warn",
-                {
-                    groups: [
-                        ["&", "|", "^", "~", "<<", ">>", ">>>"],
-                        ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
-                        ["&&", "||"],
-                        ["in", "instanceof"]
-                    ],
-                    allowSamePrecedence: false
-                }
-            ],
             "no-multi-str": "warn",
             "no-new-func": "warn",
-            "no-new-object": "warn",
+            // Deprecated but still no replacement in @stylistic.
+            // "no-new-object": "warn",
             "no-new-wrappers": "warn",
             "no-octal-escape": "warn",
             "no-param-reassign": "warn",

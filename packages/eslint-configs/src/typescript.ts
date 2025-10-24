@@ -117,6 +117,18 @@ export function typescriptConfig(tsconfigRootDir: string, options: TypescriptCon
                 }
             ],
             "@stylistic/multiline-ternary": "off",
+            "@stylistic/no-mixed-operators": [
+                "warn",
+                {
+                    groups: [
+                        ["&", "|", "^", "~", "<<", ">>", ">>>"],
+                        ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+                        ["&&", "||"],
+                        ["in", "instanceof"]
+                    ],
+                    allowSamePrecedence: false
+                }
+            ],
             "@stylistic/no-multiple-empty-lines": [
                 "warn",
                 {
