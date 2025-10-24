@@ -31,7 +31,7 @@
         "deploy-rsbuild": "cross-env NETLIFY=true turbo run deploy --filter=./samples/rsbuild/app",
         "prelint": "turbo run build --filter=./packages/*",
         "lint": "turbo run lint --continue",
-        "eslint": "eslint . --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint",
+        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsc",
         "syncpack": "syncpack lint",
         "test": "turbo run test --continue",

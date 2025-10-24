@@ -14,7 +14,7 @@
         "dev-msw-verbose": "cross-env USE_MSW=true VERBOSE=true pnpm dev",
         "build": "webpack --config webpack.build.js",
         "serve-build": "pnpm build && pnpm http-server dist -p 8080 -P http://localhost:8080? -c-1",
-        "eslint": "eslint . --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint",
+        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
         "typecheck": "tsc",
         "test": "jest"

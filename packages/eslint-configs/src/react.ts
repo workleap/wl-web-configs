@@ -115,6 +115,11 @@ export function reactConfig(options: ReactConfigOptions = {}) {
             "react/jsx-tag-spacing": "off",
             "react/jsx-wrap-multilines": "off",
 
+            // React Hooks Recommend rules overrides
+            "react-hooks/set-state-in-effect": "off",
+            // Should be enabled later when we better understand the rule.
+            "react-hooks/preserve-manual-memoization": "off",
+
             // @stylistic rules (cannot use the recommended config" because it would conflict with the "typescript" config rules)
             "@stylistic/jsx-closing-bracket-location": "warn",
             "@stylistic/jsx-closing-tag-location": "warn",
@@ -146,10 +151,7 @@ export function reactConfig(options: ReactConfigOptions = {}) {
             "@stylistic/jsx-tag-spacing": [
                 "warn",
                 {
-                    // afterOpening: "never",
-                    // beforeClosing: "never",
                     beforeSelfClosing: "always"
-                    // closingSlash: "never"
                 }
             ],
             "@stylistic/jsx-wrap-multilines": [

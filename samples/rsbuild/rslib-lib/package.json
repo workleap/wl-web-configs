@@ -20,7 +20,7 @@
         "dev": "rslib build -w -c ./rslib.dev.ts",
         "dev-msw": "pnpm dev",
         "build": "rslib build -c ./rslib.build.ts",
-        "eslint": "eslint . --max-warnings=-0 --cache --cache-location node_modules/.cache/eslint",
+        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsc"
     },
     "devDependencies": {
