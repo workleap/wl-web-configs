@@ -78,7 +78,7 @@ export default defineConfig([
 ]);
 ```
 
-Or by registring manually the plugin:
+Or by registering manually the plugin:
 
 ```ts !#6-13 eslint.config.ts
 import { defineWebApplicationConfig } from "@workleap/eslint-configs";
