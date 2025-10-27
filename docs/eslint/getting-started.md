@@ -49,3 +49,5 @@ Once configured, to understand how to adapt `@workleap/eslint-configs` default c
 ### Migrate from ESLint 8
 
 If your project currently uses `@workleap/eslint-plugin`, follow the [migration guide](./migrate-from-eslint-8.md) to upgrade.
+
+After completing the migration, you can further customize `@workleap/eslint-configs` to fit your codebase by following the [custom configuration](./custom-configuration.md) guide.
