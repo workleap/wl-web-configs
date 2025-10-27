@@ -6,10 +6,6 @@ toc:
     depth: 2-3
 ---
 
-!!!warning
-This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
-!!!
-
 # Setup with Turborepo
 
 Execute the following steps to set up [ESLint](https://eslint.org/) for a monorepo solution managed with [Turborepo](https://turborepo.com/) :point_down:
@@ -21,7 +17,7 @@ Execute the following steps to set up [ESLint](https://eslint.org/) for a monore
 Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
-pnpm add -D @workleap/eslint-plugin eslint@8.57.0 typescript @typescript-eslint/parser@7.18.0 turbo
+pnpm add -D @workleap/eslint-configs @eslint/js @typescript-eslint/parser @types/node eslint typescript-eslint turbo
 ```
 
 ### Configure Turborepo
@@ -37,7 +33,7 @@ workspace
 ├────── package.json
 ├── package.json
 ├── turbo.json
-├── .eslintrc.json
+├── eslint.config.ts
 ```
 
 Then, open the newly created file and copy/paste the following content:
@@ -68,7 +64,7 @@ For additional information, refer to the [Turborepo documentation](https://turbo
 
 ### Configure ESLint
 
-Next, let's configure ESLint. Create a configuration file named `.eslintrc.json` at the root of the solution's workspace:
+Next, let's configure ESLint. Create a configuration file named `eslint.config.ts` at the root of the solution's workspace:
 
 ``` !#9
 workspace
@@ -79,24 +75,48 @@ workspace
 ├────── package.json
 ├── package.json
 ├── turbo.json
-├── .eslintrc.json
+├── eslint.config.ts
 ```
 
-Then, open the newly created file and extend the default configuration with the `monorepo-workspace` shared configurations:
+Then, open the newly created file and extend the default configuration with the monorepo workspace shared configurations:
 
-```json !#4 .eslintrc.json
-{
-    "$schema": "https://json.schemastore.org/eslintrc",
-    "root": true,
-    "extends": "plugin:@workleap/monorepo-workspace"
-}
+```ts !#3 eslint.config.ts
+import { defineMonorepoWorkspaceConfig } from "@workleap/eslint-configs";
+
+export default defineMonorepoWorkspaceConfig(import.meta.dirname);
 ```
 
-#### .eslintignore
+#### Ignore files and folders
 
-ESLint can be configured to [ignore](https://eslint.org/docs/latest/use/configure/ignore) certain files and directories while linting by specifying one or more glob patterns.
+ESLint can be configured to [ignore](https://eslint.org/docs/latest/use/configure/ignore) certain files and folders by specifying one or more glob patterns.
 
-To do so, first, create a `.eslintignore` file at the root of the solution's workspace:
+To do so, extend the `eslint.config.ts` file configuration at the root of the solution:
+
+```ts !#5-9 eslint.config.ts
+import { defineMonorepoWorkspaceConfig } from "@workleap/eslint-configs";
+import { defineConfig, globalIgnores } from "eslint/config";
+
+export default defineConfig([
+    globalIgnores([
+        "packages",
+        "samples",
+        "docs"
+    ]),
+    defineMonorepoWorkspaceConfig(import.meta.dirname)
+]);
+```
+
+!!!tip
+The configuration ignores common folders by default, such as `node_modules`, `dist`, `storybook-static`, `.git`, `.turbo` etc. Before manually adding more ignored files or folders, make sure that ESLint is actually processing them.
+!!!
+
+### Configure indent style
+
+[@stylistic/eslint-plugin](https://eslint.style/) offers built-in rules for configuring the indentation style of a codebase. However, there's a catch: when [VS Code auto-formatting](https://code.visualstudio.com/docs/editor/codebasics#_formatting) feature is enabled, it might conflict with the configured indentation rules if they are set differently.
+
+To guarantee a consistent indentation, we recommend using [EditorConfig](https://editorconfig.org/) on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and [VS Code](https://code.visualstudio.com/).
+
+First, create a `.editorconfig` file at the root of the solution's workspace:
 
 ``` !#10
 workspace
@@ -107,46 +127,7 @@ workspace
 ├────── package.json
 ├── package.json
 ├── turbo.json
-├── .eslintrc.json
-├── .eslintignore
-```
-
-Then, open the newly created file and paste the following ignore rules:
-
-```bash .eslintignore
-**/dist/*
-node_modules
-__snapshots__
-storybook-static
-pnpm-lock.yaml
-package-lock.json
-*.md
-!.storybook
-```
-
-!!!info
-While only the `.storybook` dot folder is listed, you should include any other dot folders that need to be linted.
-!!!
-
-### Configure indent style
-
-ESLint offers [built-in rules](https://eslint.org/docs/latest/rules/indent) for configuring the indentation style of a codebase. However, there's a catch: when [VS Code auto-formatting](https://code.visualstudio.com/docs/editor/codebasics#_formatting) feature is enabled, it might conflict with the configured indentation rules if they are set differently.
-
-To guarantee a consistent indentation, we recommend using [EditorConfig](https://editorconfig.org/) on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and [VS Code](https://code.visualstudio.com/).
-
-First, create a `.editorconfig` file at the root of the solution's workspace:
-
-``` !#11
-workspace
-├── packages
-├──── pkg-1
-├────── src
-├──────── ...
-├────── package.json
-├── package.json
-├── turbo.json
-├── .eslintrc.json
-├── .eslintignore
+├── eslint.config.ts
 ├── .editorconfig
 ```
 
@@ -180,8 +161,7 @@ workspace
 ├────── package.json
 ├── package.json    <------- (this one!)
 ├── turbo.json
-├── .eslintrc.json
-├── .eslintignore
+├── eslint.config.ts
 ├── .editorconfig
 ```
 
@@ -197,13 +177,9 @@ The `eslint` script will lint the root of the solution's workspace:
 
 ```json package.json
 {
-    "eslint": "eslint . --ignore-pattern packages --max-warnings=0 --cache --cache-location node_modules/.cache/eslint"
+    "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint"
 }
 ```
-
-!!!tip
-To prevent the root `eslint` script from linting the `packages` folder, add the `--ignore-pattern packages` option to the script. Apply the same pattern to every folder that includes nested `eslint` scripts.
-!!!
 
 !!!tip
 While the `lint` task may seem redundant for now, it's important to note that as your Turborepo configuration evolves, additional linting tasks will be added as dependencies of the main `lint` task.
@@ -216,12 +192,12 @@ While the `lint` task may seem redundant for now, it's important to note that as
 Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following packages:
 
 ```bash
-pnpm add -D @workleap/eslint-plugin
+pnpm add -D @workleap/eslint-configs @eslint/js @typescript-eslint/parser @types/node eslint typescript-eslint
 ```
 
 ### Configure ESLint
 
-First, create a configuration file named `.eslintrc.json` at the root of the project:
+First, create a configuration file named `eslint.config.ts` at the root of the project:
 
 ``` !#7
 workspace
@@ -230,49 +206,56 @@ workspace
 ├────── src
 ├──────── ...
 ├────── package.json
-├────── .eslintrc.json
+├────── eslint.config.ts
 ├── package.json
-├── .eslintrc.json
-├── .eslintignore
+├── eslint.config.ts
 ├── .editorconfig
 ```
 
 Then, open the newly created file and extend the default configuration with one of the [shared configurations](./getting-started.md#available-configurations) provided by `@workleap/eslint-plugin` :point_down:
 
-#### `web-application`
+#### Web application
 
 For an application developed with TypeScript and React, use the following configuration:
 
-```json !#4 packages/pkg-1/.eslintrc.json
-{
-    "$schema": "https://json.schemastore.org/eslintrc",
-    "root": true,
-    "extends": "plugin:@workleap/web-application"
-}
+```ts !#3 eslint.config.ts
+import { defineWebApplicationConfig } from "@workleap/eslint-configs";
+
+export default defineWebApplicationConfig(import.meta.dirname);
 ```
 
-#### `react-library`
+#### React library
 
 For a TypeScript library developed **with** React, use the following configuration:
 
-```json !#4 packages/pkg-1/.eslintrc.json
-{
-    "$schema": "https://json.schemastore.org/eslintrc",
-    "root": true,
-    "extends": "plugin:@workleap/react-library"
-}
+```ts !#3 eslint.config.ts
+import { defineReactLibraryConfig } from "@workleap/eslint-configs";
+
+export default defineReactLibraryConfig(import.meta.dirname);
 ```
 
-#### `typescript-library`
+##### React compiler
+
+If your application is set up with the [React compiler](https://react.dev/learn/react-compiler), enable the React Compiler rules:
+
+```ts !#4-6 eslint.config.ts
+import { defineReactLibraryConfig } from "@workleap/eslint-configs";
+
+export default defineReactLibraryConfig(import.meta.dirname, {
+    react: {
+        compiler: true
+    }
+});
+```
+
+#### TypeScript library
 
 For a TypeScript library developed **without** React, use the following configuration:
 
-```json !#4 packages/pkg-1/.eslintrc.json
-{
-    "$schema": "https://json.schemastore.org/eslintrc",
-    "root": true,
-    "extends": "plugin:@workleap/typescript-library"
-}
+```ts !#3 eslint.config.ts
+import { defineTypescriptLibraryConfig } from "@workleap/eslint-configs";
+
+export default defineTypescriptLibraryConfig(import.meta.dirname);
 ```
 
 ### Add a CLI script
@@ -287,7 +270,7 @@ Finally, add the following `eslint` script to your project `package.json` file. 
 
 ## Custom configuration
 
-New projects shouldn't have to customize the default configurations offered by `@workleap/eslint-plugin`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](./custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
+New projects shouldn't have to customize the default configurations offered by `@workleap/eslint-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](./custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
 
 ## Try it :rocket:
 

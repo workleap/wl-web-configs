@@ -5,27 +5,23 @@ toc:
     depth: 2-3
 ---
 
-!!!warning
-This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
-!!!
-
 # ESLint
 
 ## By project type configurations
 
 Typically, [ESLint](https://eslint.org/) shareable configuration libraries are architectured around the idea that [shared configurations](https://eslint.org/docs/latest/extend/shareable-configs) should be small and composable to accommodate any potential use cases that a development team might encounter.
 
-While composability provides flexibility, it also increases the complexity on the consumer side as they must understand how [ESLint cascading and hierarchy](https://eslint.org/docs/latest/use/configure/configuration-files#cascading-and-hierarchy) works and how to compose the provided shared configurations correctly. **It can be frustrating at times** when you want to get something up and running quickly.
+While composability provides flexibility, it also increases the complexity on the consumer side as they must understand [ESLint core concepts](https://eslint.org/docs/latest/use/core-concepts/glossary) and how to compose the provided shared configurations correctly. **It can be frustrating at times** when you want to get something up and running quickly.
 
 To improve the experience, rather than delegating the composition of the shared configuration pieces to the consumer, we **compose them internally** and offer configurations by project type instead.
 
-This way, it's pretty straightforward for the consumer to configure ESLint as it only involves **extending** a **single** shared **configuration** per project and it allows for more **accurate defaults** and **assumptions** about the target environment. For advanced users in need of flexibility, the underlying configuration pieces are [also available](advanced-composition.md).
+This way, it's pretty straightforward for the consumer to configure ESLint as it only involves **extending** a **single** shared **configuration** per project and it allows for more **accurate defaults** and **assumptions** about the target environment.
 
 ### Target environment
 
-`@workleap/eslint-plugin` by project type shared configurations targets the following environment:
+`@workleap/eslint-configs` by project type shared configurations targets the following environment:
 
-- ESM / CommonJS
+- ESM
 - ESNext
 - Node
 
@@ -33,10 +29,10 @@ This way, it's pretty straightforward for the consumer to configure ESLint as it
 
 | Name | Description |
 | ---  | --- |
-| :icon-mark-github: [web-application](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/by-project-type/web-application.ts) | For web applications developed with React and TypeScript. |
-| :icon-mark-github: [react-library](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/by-project-type/react-library.ts) | For TypeScript libraries developed **with** React. |
-| :icon-mark-github: [typescript-library](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/by-project-type/typescript-library.ts) | For TypeScript libraries developed **without** React. |
-| :icon-mark-github: [monorepo-workspace](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/by-project-type/monorepo-workspace.ts) | For the workspace configuration of a monorepo solution. |
+| :icon-mark-github: [defineWebApplicationConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineWebApplicationConfig.ts) | For web applications developed with React and TypeScript. |
+| :icon-mark-github: [defineReactLibraryConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineReactLibraryConfig.ts) | For TypeScript libraries developed **with** React. |
+| :icon-mark-github: [defineTypescriptLibraryConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineTypescriptLibraryConfig.ts) | For TypeScript libraries developed **without** React. |
+| :icon-mark-github: [defineMonorepoWorkspaceConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineMonorepoWorkspaceConfig.ts) | For the workspace configuration of a monorepo solution. |
 
 ## Prettier
 
@@ -48,8 +44,4 @@ For a complete explanation of why we chose to stick with ESLint for stylistic ru
 
 If you are looking to setup a polyrepo solution (single project per repository), follow the [Setup a polyrepo](./setup-polyrepo.md) guide. To setup a monorepo solution managed with [Turborepo](https://turborepo.com/), follow the [Setup with Turborepo](./setup-turborepo.md) guide.
 
-Once configured, to understand how to adapt `@workleap/eslint-plugin` default configurations to your codebase while you are completing the migration, have a look at the [custom configuration](./custom-configuration.md) page.
-
-### Advanced configuration
-
-If you are encountering a challenging use case making impractical the [per project type configurations](#available-configurations) offered by `@workleap/eslint-plugin`, have a look at the [advanced composition](./advanced-composition.md) page for documentation about how to compose the underlying configuration pieces.
+Once configured, to understand how to adapt `@workleap/eslint-configs` default configurations to your codebase while you are completing the migration, have a look at the [custom configuration](./custom-configuration.md) page.

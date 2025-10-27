@@ -73,6 +73,12 @@ Document the React compiler setting
 
 */
 
+/*
+
+- Document how to extend the rules
+
+*/
+
 export interface DefineWebApplicationConfigOptions {
     core?: CoreConfigOptions;
     jest?: JestConfigOptions;
