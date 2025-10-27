@@ -120,7 +120,7 @@ export default defineConfig([
 
 {.eslint-rules-first-column}
 Category | Description
---- | --- | ---
+--- | ---
 :icon-mark-github: [Core](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-configs/src/core.ts) | Core rules shared across all configurations. Includes most of the ESLint [recommended rules](https://eslint.org/docs/latest/rules/), along with the [rules](https://github.com/import-js/eslint-plugin-import?tab=readme-ov-file#rules) from `eslint-plugin-import`.
 :icon-mark-github: [Jest](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-configs/src/jest.ts) | Includes most of the [recommended rules](https://github.com/testing-library/eslint-plugin-jest-dom?tab=readme-ov-file#supported-rules) from `eslint-plugin-jest`.
 :icon-mark-github: [JSON](https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-configs/src/json.ts) | Includes the [rules](https://github.com/ota-meshi/eslint-plugin-jsonc?tab=readme-ov-file#jsonc-rules) from `eslint-plugin-jsonc`.
