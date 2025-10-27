@@ -67,7 +67,7 @@ export default defineReactLibraryConfig(import.meta.dirname, {
 });
 ```
 
-### Typescript library
+### TypeScript library
 
 For a TypeScript library developed **without** React, use the following configuration:
 
