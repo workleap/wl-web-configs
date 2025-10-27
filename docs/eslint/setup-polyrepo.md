@@ -7,10 +7,6 @@ toc:
     depth: 2
 ---
 
-!!!warning
-This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
-!!!
-
 # Setup a polyrepo
 
 Execute the following steps to setup [ESLint](https://eslint.org/) for a polyrepo solution (**single project** per repository) :point_down:
@@ -20,106 +16,105 @@ Execute the following steps to setup [ESLint](https://eslint.org/) for a polyrep
 Open a terminal at the root of the solution and install the following packages:
 
 ```bash
-pnpm add -D @workleap/eslint-plugin eslint@8.57.0 @typescript-eslint/parser@7.18.0
+pnpm add -D @workleap/eslint-configs @eslint/js @typescript-eslint/parser @types/node eslint typescript-eslint
 ```
 
 ## Configure ESLint
 
-First, create a configuration file named `.eslintrc.json` at the root of the solution:
+First, create a configuration file named `eslint.config.ts` at the root of the solution:
 
 ``` !#5
 root
 ├── src
 ├──── ...
 ├── package.json
-├── .eslintrc.json
+├── eslint.config.ts
 ```
 
-Then, open the newly created file and extend the default configuration with one of the [shared configurations](./getting-started.md#available-configurations) provided by `@workleap/eslint-plugin` :point_down:
+Then, open the newly created file and extend the default configuration with one of the [shared configurations](./getting-started.md#available-configurations) provided by `@workleap/eslint-configs` :point_down:
 
-### `web-application`
+### Web application
 
 For an application developed with TypeScript and React, use the following configuration:
 
-```json !#4 .eslintrc.json
-{
-    "$schema": "https://json.schemastore.org/eslintrc",
-    "root": true,
-    "extends": "plugin:@workleap/web-application"
-}
+```ts !#3 eslint.config.ts
+import { defineWebApplicationConfig } from "@workleap/eslint-configs";
+
+export default defineWebApplicationConfig(import.meta.dirname);
 ```
 
-### `react-library`
+### React library
 
 For a TypeScript library developed **with** React, use the following configuration:
 
-```json !#4 .eslintrc.json
-{
-    "$schema": "https://json.schemastore.org/eslintrc",
-    "root": true,
-    "extends": "plugin:@workleap/react-library"
-}
+```ts !#3 eslint.config.ts
+import { defineReactLibraryConfig } from "@workleap/eslint-configs";
+
+export default defineReactLibraryConfig(import.meta.dirname);
 ```
 
-### `typescript-library`
+#### React compiler
+
+If your application is set up with the [React compiler](https://react.dev/learn/react-compiler), enable the React Compiler rules:
+
+```ts !#4-6 eslint.config.ts
+import { defineReactLibraryConfig } from "@workleap/eslint-configs";
+
+export default defineReactLibraryConfig(import.meta.dirname, {
+    react: {
+        compiler: true
+    }
+});
+```
+
+### Typescript library
 
 For a TypeScript library developed **without** React, use the following configuration:
 
-```json !#4 .eslintrc.json
-{
-    "$schema": "https://json.schemastore.org/eslintrc",
-    "root": true,
-    "extends": "plugin:@workleap/typescript-library"
-}
+```ts !#3 eslint.config.ts
+import { defineTypescriptLibraryConfig } from "@workleap/eslint-configs";
+
+export default defineTypescriptLibraryConfig(import.meta.dirname);
 ```
 
-### .eslintignore
+### Ignore files and folders
 
-ESLint can be configured to [ignore](https://eslint.org/docs/latest/use/configure/ignore) certain files and directories while linting by specifying one or more glob patterns.
+ESLint can be configured to [ignore](https://eslint.org/docs/latest/use/configure/ignore) certain files and folders by specifying one or more glob patterns.
 
-To do so, first, create an `.eslintignore` file at the root of the solution:
+To do so, extend the `eslint.config.ts` file configuration at the root of the solution:
+
+```ts !#5-9 eslint.config.ts
+import { defineWebApplicationConfig } from "@workleap/eslint-configs";
+import { defineConfig, globalIgnores } from "eslint/config";
+
+export default defineConfig([
+    globalIgnores([
+        "packages",
+        "samples",
+        "docs"
+    ]),
+    defineWebApplicationConfig(import.meta.dirname)
+]);
+```
+
+!!!tip
+The configuration ignores common folders by default, such as `node_modules`, `dist`, `storybook-static`, `.git`, `.turbo`etc.. Before manually adding more ignored files or folders, make sure that ESLint is actually processing them.
+!!!
+
+## Configure the indent style
+
+[@stylistic/eslint-plugin](https://eslint.style/) offers built-in rules for configuring the indentation style of a codebase. However, there's a catch: when [VS Code auto-formatting](https://code.visualstudio.com/docs/editor/codebasics#_formatting) feature is enabled, it might conflict with the configured indentation rules if they are set differently.
+
+To guarantee a consistent indentation, we recommend using [EditorConfig](https://editorconfig.org/) on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and [VS Code](https://code.visualstudio.com/).
+
+First, create a `.editorconfig` file at the root of the solution:
 
 ``` !#6
 root
 ├── src
 ├──── ...
 ├── package.json
-├── .eslintrc.json
-├── .eslintignore
-```
-
-Then, open the newly created file and paste the following ignore rules:
-
-```bash .eslintignore
-**/dist/*
-node_modules
-__snapshots__
-storybook-static
-pnpm-lock.yaml
-package-lock.json
-*.md
-!.storybook
-```
-
-!!!info
-While only the `.storybook` dot folder is listed, you should include any other dot folders that need to be linted.
-!!!
-
-## Configure the indent style
-
-[ESLint](https://eslint.org/) offers [built-in rules](https://eslint.org/docs/latest/rules/indent) for configuring the indentation style of a codebase. However, there's a catch: when [VS Code auto-formatting](https://code.visualstudio.com/docs/editor/codebasics#_formatting) feature is enabled, it might conflict with the configured indentation rules if they are set differently.
-
-To guarantee a consistent indentation, we recommend using [EditorConfig](https://editorconfig.org/) on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and [VS Code](https://code.visualstudio.com/).
-
-First, create a `.editorconfig` file at the root of the solution:
-
-``` !#7
-root
-├── src
-├──── ...
-├── package.json
-├── .eslintrc.json
-├── .eslintignore
+├── eslint.config.ts
 ├── .editorconfig
 ```
 
@@ -156,7 +151,7 @@ At times, especially when running the CI build, it's useful to lint the entire s
 
 ## Custom configuration
 
-New projects shouldn't have to customize the default configurations offered by `@workleap/eslint-plugin`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
+New projects shouldn't have to customize the default configurations offered by `@workleap/eslint-configs`. However, if you are in the process of **migrating** an existing project to use this library or encountering a challenging situation, refer to the [custom configuration](./custom-configuration.md) page to understand how to override or extend the default configurations. Remember, **no locked in** :heart::v:.
 
 ## Try it :rocket:
 

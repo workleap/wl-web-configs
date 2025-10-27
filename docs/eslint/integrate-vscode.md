@@ -1,13 +1,9 @@
 ---
-order: 60
+order: 70
 label: Integrate with VS Code
 meta:
     title: Integrate with VS Code - ESLint
 ---
-
-!!!warning
-This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.
-!!!
 
 # Integrate with VS Code
 
@@ -31,9 +27,12 @@ Then, add the following settings to your solution [VS Code settings file](https:
     "typescript.format.enable": false, // Disables the default formatter to use ESLint instead
     "javascript.format.enable": false, // Disables the default formatter to use ESLint instead
     "json.format.enable": false, // Disables the default formatter to use ESLint instead
-    "eslint.validate": [ // Enables YAML files formatting.
+    "eslint.probe": [ // Enables YAML files formatting.
         "javascript",
-        "javascriptreact",
+        "javascript",
+        "typescript",
+        "json",
+        "jsonc",
         "yaml"
     ]
 }
