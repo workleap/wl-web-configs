@@ -29,7 +29,6 @@ Then, add the following settings to your solution [VS Code settings file](https:
     "json.format.enable": false, // Disables the default formatter to use ESLint instead
     "eslint.probe": [ // Enables YAML files formatting.
         "javascript",
-        "javascript",
         "typescript",
         "json",
         "jsonc",
