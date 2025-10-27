@@ -2,8 +2,6 @@
 order: 80
 meta:
     title: Custom configuration - ESLint
-toc:
-    depth: 2-3
 ---
 
 # Custom configuration
