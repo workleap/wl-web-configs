@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.814655052701">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.814914684942">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0-preview2">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>ESLint</title>
     <meta name="title" content="ESLint">
-    <meta name="description" content="This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.">
+    <meta name="description" content="Typically, ESLint shareable configuration libraries are architectured around the idea that shared configurations">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://workleap.github.io/wl-web-configs/eslint/getting-started/">
@@ -21,28 +21,34 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://workleap.github.io/wl-web-configs/eslint/getting-started/">
     <meta property="og:title" content="ESLint">
-    <meta property="og:description" content="This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.">
+    <meta property="og:description" content="Typically, ESLint shareable configuration libraries are architectured around the idea that shared configurations">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://workleap.github.io/wl-web-configs/eslint/getting-started/">
     <meta property="twitter:title" content="ESLint">
-    <meta property="twitter:description" content="This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.">
+    <meta property="twitter:description" content="Typically, ESLint shareable configuration libraries are architectured around the idea that shared configurations">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=3.12.0-preview2.814655052701" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.814914684942" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.814655052701" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.814914684942" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.814655052701" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.814914684942" data-turbo-eval="false" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
     <style>
         .no-bottom-margin {
             margin-bottom: 0 !important;
+        }
+        .eslint-rules-first-column th:first-child {
+            min-width: 180px;
+        }
+        .eslint-rules-first-column th:last-child {
+            min-width: 120px;
         }
     </style>
 
@@ -276,22 +282,6 @@
                                 </nav>
                 
                                 <!-- Page content  -->
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
-                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.</p>
-        </div>
-    </div>
-</div>
 <doc-anchor-target id="eslint" class="break-words">
     <h1>
         <doc-anchor-trigger class="header-anchor-trigger" to="#eslint">#</doc-anchor-trigger>
@@ -305,18 +295,18 @@
     </h2>
 </doc-anchor-target>
 <p>Typically, <a href="https://eslint.org/" class="outbound" target="_blank">ESLint</a> shareable configuration libraries are architectured around the idea that <a href="https://eslint.org/docs/latest/extend/shareable-configs" class="outbound" target="_blank">shared configurations</a> should be small and composable to accommodate any potential use cases that a development team might encounter.</p>
-<p>While composability provides flexibility, it also increases the complexity on the consumer side as they must understand how <a href="https://eslint.org/docs/latest/use/configure/configuration-files#cascading-and-hierarchy" class="outbound" target="_blank">ESLint cascading and hierarchy</a> works and how to compose the provided shared configurations correctly. <strong>It can be frustrating at times</strong> when you want to get something up and running quickly.</p>
+<p>While composability provides flexibility, it also increases the complexity on the consumer side as they must understand <a href="https://eslint.org/docs/latest/use/core-concepts/glossary" class="outbound" target="_blank">ESLint core concepts</a> and how to compose the provided shared configurations correctly. <strong>It can be frustrating at times</strong> when you want to get something up and running quickly.</p>
 <p>To improve the experience, rather than delegating the composition of the shared configuration pieces to the consumer, we <strong>compose them internally</strong> and offer configurations by project type instead.</p>
-<p>This way, it&#x27;s pretty straightforward for the consumer to configure ESLint as it only involves <strong>extending</strong> a <strong>single</strong> shared <strong>configuration</strong> per project and it allows for more <strong>accurate defaults</strong> and <strong>assumptions</strong> about the target environment. For advanced users in need of flexibility, the underlying configuration pieces are <a href="../advanced-composition/">also available</a>.</p>
+<p>This way, it&#x27;s pretty straightforward for the consumer to configure ESLint as it only involves <strong>extending</strong> a <strong>single</strong> shared <strong>configuration</strong> per project and it allows for more <strong>accurate defaults</strong> and <strong>assumptions</strong> about the target environment.</p>
 <doc-anchor-target id="target-environment">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#target-environment">#</doc-anchor-trigger>
         <span>Target environment</span>
     </h3>
 </doc-anchor-target>
-<p><code translate="no" v-pre>@workleap/eslint-plugin</code> by project type shared configurations targets the following environment:</p>
+<p><code translate="no" v-pre>@workleap/eslint-configs</code> by project type shared configurations targets the following environment:</p>
 <ul>
-<li>ESM / CommonJS</li>
+<li>ESM</li>
 <li>ESNext</li>
 <li>Node</li>
 </ul>
@@ -336,19 +326,19 @@
 </thead>
 <tbody>
 <tr>
-<td><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/></g></g></svg> <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/by-project-type/web-application.ts" class="outbound" target="_blank">web-application</a></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/></g></g></svg> <a href="https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineWebApplicationConfig.ts" class="outbound" target="_blank">defineWebApplicationConfig</a></td>
 <td>For web applications developed with React and TypeScript.</td>
 </tr>
 <tr>
-<td><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/></g></g></svg> <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/by-project-type/react-library.ts" class="outbound" target="_blank">react-library</a></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/></g></g></svg> <a href="https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineReactLibraryConfig.ts" class="outbound" target="_blank">defineReactLibraryConfig</a></td>
 <td>For TypeScript libraries developed <strong>with</strong> React.</td>
 </tr>
 <tr>
-<td><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/></g></g></svg> <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/by-project-type/typescript-library.ts" class="outbound" target="_blank">typescript-library</a></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/></g></g></svg> <a href="https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineTypescriptLibraryConfig.ts" class="outbound" target="_blank">defineTypescriptLibraryConfig</a></td>
 <td>For TypeScript libraries developed <strong>without</strong> React.</td>
 </tr>
 <tr>
-<td><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/></g></g></svg> <a href="https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/lib/config/by-project-type/monorepo-workspace.ts" class="outbound" target="_blank">monorepo-workspace</a></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/></g></g></svg> <a href="https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineMonorepoWorkspaceConfig.ts" class="outbound" target="_blank">defineMonorepoWorkspaceConfig</a></td>
 <td>For the workspace configuration of a monorepo solution.</td>
 </tr>
 </tbody>
@@ -374,14 +364,7 @@
     </h3>
 </doc-anchor-target>
 <p>If you are looking to setup a polyrepo solution (single project per repository), follow the <a href="../setup-polyrepo/">Setup a polyrepo</a> guide. To setup a monorepo solution managed with <a href="https://turborepo.com/" class="outbound" target="_blank">Turborepo</a>, follow the <a href="../setup-turborepo/">Setup with Turborepo</a> guide.</p>
-<p>Once configured, to understand how to adapt <code translate="no" v-pre>@workleap/eslint-plugin</code> default configurations to your codebase while you are completing the migration, have a look at the <a href="../custom-configuration/">custom configuration</a> page.</p>
-<doc-anchor-target id="advanced-configuration">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#advanced-configuration">#</doc-anchor-trigger>
-        <span>Advanced configuration</span>
-    </h3>
-</doc-anchor-target>
-<p>If you are encountering a challenging use case making impractical the <doc-anchor-trigger to="#available-configurations">per project type configurations</doc-anchor-trigger> offered by <code translate="no" v-pre>@workleap/eslint-plugin</code>, have a look at the <a href="../advanced-composition/">advanced composition</a> page for documentation about how to compose the underlying configuration pieces.</p>
+<p>Once configured, to understand how to adapt <code translate="no" v-pre>@workleap/eslint-configs</code> default configurations to your codebase while you are completing the migration, have a look at the <a href="../custom-configuration/">custom configuration</a> page.</p>
 
                                 
                                 <!-- Required only on API pages -->

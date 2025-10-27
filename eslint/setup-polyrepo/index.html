@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.814655052701">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.814914684942">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0-preview2">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Configure a polyrepo - ESLint</title>
     <meta name="title" content="Configure a polyrepo - ESLint">
-    <meta name="description" content="This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.">
+    <meta name="description" content="Execute the following steps to setup ESLint for a polyrepo solution ( single project per repository) 👇">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://workleap.github.io/wl-web-configs/eslint/setup-polyrepo/">
@@ -21,29 +21,35 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://workleap.github.io/wl-web-configs/eslint/setup-polyrepo/">
     <meta property="og:title" content="Configure a polyrepo - ESLint">
-    <meta property="og:description" content="This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.">
+    <meta property="og:description" content="Execute the following steps to setup ESLint for a polyrepo solution ( single project per repository) 👇">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://workleap.github.io/wl-web-configs/eslint/setup-polyrepo/">
     <meta property="twitter:title" content="Configure a polyrepo - ESLint">
-    <meta property="twitter:description" content="This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.">
+    <meta property="twitter:description" content="Execute the following steps to setup ESLint for a polyrepo solution ( single project per repository) 👇">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=3.12.0-preview2.814655052701" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.814914684942" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.814655052701" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.814914684942" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.814655052701" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.814655052701" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.814914684942" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.814914684942" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
     <style>
         .no-bottom-margin {
             margin-bottom: 0 !important;
+        }
+        .eslint-rules-first-column th:first-child {
+            min-width: 180px;
+        }
+        .eslint-rules-first-column th:last-child {
+            min-width: 120px;
         }
     </style>
 
@@ -277,22 +283,6 @@
                                 </nav>
                 
                                 <!-- Page content  -->
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
-                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.</p>
-        </div>
-    </div>
-</div>
 <doc-anchor-target id="setup-a-polyrepo" class="break-words">
     <h1>
         <doc-anchor-trigger class="header-anchor-trigger" to="#setup-a-polyrepo">#</doc-anchor-trigger>
@@ -308,7 +298,7 @@
 </doc-anchor-target>
 <p>Open a terminal at the root of the solution and install the following packages:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/eslint-plugin eslint@8.57.0 @typescript-eslint/parser@7.18.0</code></pre>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/eslint-configs @eslint/js @typescript-eslint/parser @types/node eslint typescript-eslint</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-eslint">
     <h2>
@@ -316,102 +306,105 @@
         <span>Configure ESLint</span>
     </h2>
 </doc-anchor-target>
-<p>First, create a configuration file named <code translate="no" v-pre>.eslintrc.json</code> at the root of the solution:</p>
+<p>First, create a configuration file named <code translate="no" v-pre>eslint.config.ts</code> at the root of the solution:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">root
 ├── src
 ├──── ...
 ├── package.json
-├── .eslintrc.json</code></pre>
+├── eslint.config.ts</code></pre>
 </doc-codeblock></div>
-<p>Then, open the newly created file and extend the default configuration with one of the <a href="../getting-started/#available-configurations">shared configurations</a> provided by <code translate="no" v-pre>@workleap/eslint-plugin</code> <span class="docs-emoji">&#x1F447;</span></p>
+<p>Then, open the newly created file and extend the default configuration with one of the <a href="../getting-started/#available-configurations">shared configurations</a> provided by <code translate="no" v-pre>@workleap/eslint-configs</code> <span class="docs-emoji">&#x1F447;</span></p>
 <doc-anchor-target id="web-application">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#web-application">#</doc-anchor-trigger>
-        <span><code translate="no" v-pre>web-application</code></span>
+        <span>Web application</span>
     </h3>
 </doc-anchor-target>
 <p>For an application developed with TypeScript and React, use the following configuration:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">.eslintrc.json</div>
-<pre translate="no" class="language-json" data-line="4"><code v-pre class="language-json">{
-    &quot;$schema&quot;: &quot;https://json.schemastore.org/eslintrc&quot;,
-    &quot;root&quot;: true,
-    &quot;extends&quot;: &quot;plugin:@workleap/web-application&quot;
-}</code></pre>
+<div class="codeblock-title">eslint.config.ts</div>
+<pre translate="no" class="language-typescript" data-line="3"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
+
+export default defineWebApplicationConfig(import.meta.dirname);</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="react-library">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#react-library">#</doc-anchor-trigger>
-        <span><code translate="no" v-pre>react-library</code></span>
+        <span>React library</span>
     </h3>
 </doc-anchor-target>
 <p>For a TypeScript library developed <strong>with</strong> React, use the following configuration:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">.eslintrc.json</div>
-<pre translate="no" class="language-json" data-line="4"><code v-pre class="language-json">{
-    &quot;$schema&quot;: &quot;https://json.schemastore.org/eslintrc&quot;,
-    &quot;root&quot;: true,
-    &quot;extends&quot;: &quot;plugin:@workleap/react-library&quot;
-}</code></pre>
+<div class="codeblock-title">eslint.config.ts</div>
+<pre translate="no" class="language-typescript" data-line="3"><code v-pre class="language-typescript">import { defineReactLibraryConfig } from &quot;@workleap/eslint-configs&quot;;
+
+export default defineReactLibraryConfig(import.meta.dirname);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="react-compiler">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#react-compiler">#</doc-anchor-trigger>
+        <span>React compiler</span>
+    </h4>
+</doc-anchor-target>
+<p>If your application is set up with the <a href="https://react.dev/learn/react-compiler" class="outbound" target="_blank">React compiler</a>, enable the React Compiler rules:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">eslint.config.ts</div>
+<pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineReactLibraryConfig } from &quot;@workleap/eslint-configs&quot;;
+
+export default defineReactLibraryConfig(import.meta.dirname, {
+    react: {
+        compiler: true
+    }
+});</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="typescript-library">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#typescript-library">#</doc-anchor-trigger>
-        <span><code translate="no" v-pre>typescript-library</code></span>
+        <span>TypeScript library</span>
     </h3>
 </doc-anchor-target>
 <p>For a TypeScript library developed <strong>without</strong> React, use the following configuration:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">.eslintrc.json</div>
-<pre translate="no" class="language-json" data-line="4"><code v-pre class="language-json">{
-    &quot;$schema&quot;: &quot;https://json.schemastore.org/eslintrc&quot;,
-    &quot;root&quot;: true,
-    &quot;extends&quot;: &quot;plugin:@workleap/typescript-library&quot;
-}</code></pre>
+<div class="codeblock-title">eslint.config.ts</div>
+<pre translate="no" class="language-typescript" data-line="3"><code v-pre class="language-typescript">import { defineTypescriptLibraryConfig } from &quot;@workleap/eslint-configs&quot;;
+
+export default defineTypescriptLibraryConfig(import.meta.dirname);</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="eslintignore">
+<doc-anchor-target id="ignore-files-and-folders">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#eslintignore">#</doc-anchor-trigger>
-        <span>.eslintignore</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ignore-files-and-folders">#</doc-anchor-trigger>
+        <span>Ignore files and folders</span>
     </h3>
 </doc-anchor-target>
-<p>ESLint can be configured to <a href="https://eslint.org/docs/latest/use/configure/ignore" class="outbound" target="_blank">ignore</a> certain files and directories while linting by specifying one or more glob patterns.</p>
-<p>To do so, first, create an <code translate="no" v-pre>.eslintignore</code> file at the root of the solution:</p>
+<p>ESLint can be configured to <a href="https://eslint.org/docs/latest/use/configure/ignore" class="outbound" target="_blank">ignore</a> certain files and folders by specifying one or more glob patterns.</p>
+<p>To do so, extend the <code translate="no" v-pre>eslint.config.ts</code> file configuration at the root of the solution:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-none" data-line="6"><code v-pre class="language-none">root
-├── src
-├──── ...
-├── package.json
-├── .eslintrc.json
-├── .eslintignore</code></pre>
-</doc-codeblock></div>
-<p>Then, open the newly created file and paste the following ignore rules:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">.eslintignore</div>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">**/dist/*
-node_modules
-__snapshots__
-storybook-static
-pnpm-lock.yaml
-package-lock.json
-*.md
-!.storybook</code></pre>
+<div class="codeblock-title">eslint.config.ts</div>
+<pre translate="no" class="language-typescript" data-line="5-9"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
+import { defineConfig, globalIgnores } from &quot;eslint/config&quot;;
+
+export default defineConfig([
+    globalIgnores([
+        &quot;packages&quot;,
+        &quot;samples&quot;,
+        &quot;docs&quot;
+    ]),
+    defineWebApplicationConfig(import.meta.dirname)
+]);</code></pre>
 </doc-codeblock></div>
 <div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-tip"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
         <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-tip" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path d="M7.90625 2.15625C4.50944 2.15625 2.15625 4.58563 2.15625 7.54688C2.15625 8.96138 2.76575 9.88281 3.57075 10.8589L3.87837 11.2226C4.19894 11.6021 4.554 12.0218 4.84581 12.4416C5.25406 13.0324 5.61775 13.7296 5.7385 14.5834C5.76728 14.8608 5.68746 15.1386 5.51579 15.3583C5.34413 15.5781 5.09399 15.7228 4.8179 15.7621C4.5418 15.8013 4.26124 15.7321 4.03512 15.5689C3.809 15.4056 3.65493 15.1612 3.60525 14.8867C3.54775 14.4814 3.37094 14.1004 3.07338 13.6692C2.8306 13.3302 2.57055 13.0039 2.29425 12.6917C2.1735 12.5479 2.04556 12.397 1.909 12.2317C1.00769 11.1406 0 9.72613 0 7.54688C0 3.32062 3.39681 0 7.90625 0C12.4157 0 15.8125 3.32062 15.8125 7.54688C15.8125 9.72613 14.8048 11.1406 13.9035 12.2317C13.7669 12.397 13.639 12.5479 13.5183 12.6903C13.2207 13.0424 12.9677 13.3414 12.7406 13.6692C12.4416 14.1004 12.2662 14.4814 12.2087 14.8867C12.1557 15.1584 12.0003 15.3994 11.7747 15.5598C11.5492 15.7202 11.2706 15.7879 10.9965 15.7488C10.7225 15.7096 10.474 15.5667 10.3023 15.3496C10.1306 15.1325 10.0489 14.8577 10.074 14.582C10.1948 13.7296 10.5584 13.0324 10.9667 12.4416C11.2585 12.0218 11.6136 11.6021 11.9341 11.2226C12.0419 11.0961 12.1454 10.9739 12.2403 10.8589C13.0468 9.88281 13.6562 8.96138 13.6562 7.54688C13.6562 4.58563 11.3031 2.15625 7.90625 2.15625ZM4.67188 17.25H11.1406C11.4266 17.25 11.7008 17.3636 11.903 17.5658C12.1052 17.768 12.2188 18.0422 12.2188 18.3281C12.2188 18.6141 12.1052 18.8883 11.903 19.0905C11.7008 19.2927 11.4266 19.4062 11.1406 19.4062H4.67188C4.38594 19.4062 4.11171 19.2927 3.90953 19.0905C3.70734 18.8883 3.59375 18.6141 3.59375 18.3281C3.59375 18.0422 3.70734 17.768 3.90953 17.5658C4.11171 17.3636 4.38594 17.25 4.67188 17.25ZM5.03125 21.9219C5.03125 21.6359 5.14484 21.3617 5.34703 21.1595C5.54921 20.9573 5.82344 20.8438 6.10938 20.8438H9.70312C9.98906 20.8438 10.2633 20.9573 10.4655 21.1595C10.6677 21.3617 10.7812 21.6359 10.7812 21.9219C10.7812 22.2078 10.6677 22.482 10.4655 22.6842C10.2633 22.8864 9.98906 23 9.70312 23H6.10938C5.82344 23 5.54921 22.8864 5.34703 22.6842C5.14484 22.482 5.03125 22.2078 5.03125 21.9219Z" />
                 </g></g>
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>While only the <code translate="no" v-pre>.storybook</code> dot folder is listed, you should include any other dot folders that need to be linted.</p>
+<p>The configuration ignores common folders by default, such as <code translate="no" v-pre>node_modules</code>, <code translate="no" v-pre>dist</code>, <code translate="no" v-pre>storybook-static</code>, <code translate="no" v-pre>.git</code>, <code translate="no" v-pre>.turbo</code> etc. Before manually adding more ignored files or folders, make sure that ESLint is actually processing them.</p>
         </div>
     </div>
 </div>
@@ -421,16 +414,15 @@ package-lock.json
         <span>Configure the indent style</span>
     </h2>
 </doc-anchor-target>
-<p><a href="https://eslint.org/" class="outbound" target="_blank">ESLint</a> offers <a href="https://eslint.org/docs/latest/rules/indent" class="outbound" target="_blank">built-in rules</a> for configuring the indentation style of a codebase. However, there&#x27;s a catch: when <a href="https://code.visualstudio.com/docs/editor/codebasics#_formatting" class="outbound" target="_blank">VS Code auto-formatting</a> feature is enabled, it might conflict with the configured indentation rules if they are set differently.</p>
+<p><a href="https://eslint.style/" class="outbound" target="_blank">@stylistic/eslint-plugin</a> offers built-in rules for configuring the indentation style of a codebase. However, there&#x27;s a catch: when <a href="https://code.visualstudio.com/docs/editor/codebasics#_formatting" class="outbound" target="_blank">VS Code auto-formatting</a> feature is enabled, it might conflict with the configured indentation rules if they are set differently.</p>
 <p>To guarantee a consistent indentation, we recommend using <a href="https://editorconfig.org/" class="outbound" target="_blank">EditorConfig</a> on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and <a href="https://code.visualstudio.com/" class="outbound" target="_blank">VS Code</a>.</p>
 <p>First, create a <code translate="no" v-pre>.editorconfig</code> file at the root of the solution:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-none" data-line="7"><code v-pre class="language-none">root
+<pre translate="no" class="language-none" data-line="6"><code v-pre class="language-none">root
 ├── src
 ├──── ...
 ├── package.json
-├── .eslintrc.json
-├── .eslintignore
+├── eslint.config.ts
 ├── .editorconfig</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and paste the following configuration:</p>
@@ -472,7 +464,7 @@ trim_trailing_whitespace = false</code></pre>
         <span>Custom configuration</span>
     </h2>
 </doc-anchor-target>
-<p>New projects shouldn&#x27;t have to customize the default configurations offered by <code translate="no" v-pre>@workleap/eslint-plugin</code>. However, if you are in the process of <strong>migrating</strong> an existing project to use this library or encountering a challenging situation, refer to the <a href="../custom-configuration/">custom configuration</a> page to understand how to override or extend the default configurations. Remember, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>.</p>
+<p>New projects shouldn&#x27;t have to customize the default configurations offered by <code translate="no" v-pre>@workleap/eslint-configs</code>. However, if you are in the process of <strong>migrating</strong> an existing project to use this library or encountering a challenging situation, refer to the <a href="../custom-configuration/">custom configuration</a> page to understand how to override or extend the default configurations. Remember, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>.</p>
 <doc-anchor-target id="try-it-rocket">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#try-it-rocket">#</doc-anchor-trigger>

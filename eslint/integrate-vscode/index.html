@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.814655052701">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.814914684942">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0-preview2">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Integrate with VS Code - ESLint</title>
     <meta name="title" content="Integrate with VS Code - ESLint">
-    <meta name="description" content="This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.">
+    <meta name="description" content="ESLint VS Code extension greatly improve the development experience by automatically linting the code as you type and ">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://workleap.github.io/wl-web-configs/eslint/integrate-vscode/">
@@ -21,29 +21,35 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://workleap.github.io/wl-web-configs/eslint/integrate-vscode/">
     <meta property="og:title" content="Integrate with VS Code - ESLint">
-    <meta property="og:description" content="This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.">
+    <meta property="og:description" content="ESLint VS Code extension greatly improve the development experience by automatically linting the code as you type and ">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://workleap.github.io/wl-web-configs/eslint/integrate-vscode/">
     <meta property="twitter:title" content="Integrate with VS Code - ESLint">
-    <meta property="twitter:description" content="This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.">
+    <meta property="twitter:description" content="ESLint VS Code extension greatly improve the development experience by automatically linting the code as you type and ">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=3.12.0-preview2.814655052701" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.814914684942" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.814655052701" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.814914684942" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.814655052701" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.814655052701" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.814914684942" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.814914684942" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
     <style>
         .no-bottom-margin {
             margin-bottom: 0 !important;
+        }
+        .eslint-rules-first-column th:first-child {
+            min-width: 180px;
+        }
+        .eslint-rules-first-column th:last-child {
+            min-width: 120px;
         }
     </style>
 
@@ -277,22 +283,6 @@
                                 </nav>
                 
                                 <!-- Page content  -->
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
-                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>This package is compatible only with ESLint v8. It is not intended for use with ESLint v9 or later.</p>
-        </div>
-    </div>
-</div>
 <doc-anchor-target id="integrate-with-vs-code" class="break-words">
     <h1>
         <doc-anchor-trigger class="header-anchor-trigger" to="#integrate-with-vs-code">#</doc-anchor-trigger>
@@ -325,9 +315,11 @@
     &quot;typescript.format.enable&quot;: false, // Disables the default formatter to use ESLint instead
     &quot;javascript.format.enable&quot;: false, // Disables the default formatter to use ESLint instead
     &quot;json.format.enable&quot;: false, // Disables the default formatter to use ESLint instead
-    &quot;eslint.validate&quot;: [ // Enables YAML files formatting.
+    &quot;eslint.probe&quot;: [ // Enables YAML files formatting.
         &quot;javascript&quot;,
-        &quot;javascriptreact&quot;,
+        &quot;typescript&quot;,
+        &quot;json&quot;,
+        &quot;jsonc&quot;,
         &quot;yaml&quot;
     ]
 }</code></pre>
@@ -361,11 +353,11 @@
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../eslint/advanced-composition/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../eslint/custom-configuration/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                                <span class="block mt-1">Advanced composition</span>
+                                                <span class="block mt-1">Custom configuration</span>
                                             </span>
                                         </a>
                                     </div>
