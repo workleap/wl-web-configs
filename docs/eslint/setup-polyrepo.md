@@ -98,7 +98,7 @@ export default defineConfig([
 ```
 
 !!!tip
-The configuration ignores common folders by default, such as `node_modules`, `dist`, `storybook-static`, `.git`, `.turbo`etc.. Before manually adding more ignored files or folders, make sure that ESLint is actually processing them.
+The configuration ignores common folders by default, such as `node_modules`, `dist`, `storybook-static`, `.git`, `.turbo` etc. Before manually adding more ignored files or folders, make sure that ESLint is actually processing them.
 !!!
 
 ## Configure the indent style
