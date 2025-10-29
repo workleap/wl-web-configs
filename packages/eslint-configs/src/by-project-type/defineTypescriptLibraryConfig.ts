@@ -60,7 +60,7 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
         ...(vitestConfig({
             ...vitest,
-            enabled: vitest?.enabled ? vitest.enabled : testFramework === "vitest"
+            enabled: vitest?.enabled ?? testFramework === "vitest"
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         }) as any),
         ...yamlConfig(yaml),
