@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.815012135996">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.815079843602">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0-preview2">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=3.12.0-preview2.815012135996" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.815079843602" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.815012135996" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.815079843602" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.815012135996" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.815012135996" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.815079843602" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.815079843602" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -483,6 +483,17 @@ export default defineMonorepoWorkspaceConfig(import.meta.dirname);</code></pre>
 export default defineReactLibraryConfig(import.meta.dirname);</code></pre>
 </doc-codeblock></div>
 <p>Finally, use the copied configurations from the legacy <code translate="no" v-pre>v8</code> files to customize the newly created <code translate="no" v-pre>eslint.config.ts</code> file. Refer to the <a href="../custom-configuration/">custom configuration</a> section for guidance.</p>
+<doc-anchor-target id="update-vs-code-configuration">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#update-vs-code-configuration">#</doc-anchor-trigger>
+        <span>Update VS Code configuration</span>
+    </h2>
+</doc-anchor-target>
+<ol>
+<li>Open the <code translate="no" v-pre>.vscode/settings.json</code> file.</li>
+<li>Remove any existing <code translate="no" v-pre>eslint.validate</code> setting to avoid conflicts.</li>
+<li>Then, follow the VS Code integration <a href="../integrate-vscode/">guide</a> to add the correct configuration.</li>
+</ol>
 
                                 
                                 <!-- Required only on API pages -->
