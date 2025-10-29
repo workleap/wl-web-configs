@@ -99,7 +99,7 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
         ...coreConfig(core),
         ...jestConfig({
             ...jest,
-            enabled: jest?.enabled ? jest.enabled : testFramework === "jest"
+            enabled: jest?.enabled ?? testFramework === "jest"
         }),
         ...jsonConfig(json),
         ...jsxAllyConfig(jsxAlly),
