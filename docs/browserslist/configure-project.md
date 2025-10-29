@@ -54,7 +54,7 @@ To test your new Browserslist configuration, open a terminal at the root of the 
 pnpm browserslist
 ```
 
-A list of the selected browser versions shoud be outputted to the terminal:
+A list of the selected browser versions should be outputted to the terminal:
 
 ``` An example of the outputted browser versions (you won't get exactly this)
 and_chr 114
