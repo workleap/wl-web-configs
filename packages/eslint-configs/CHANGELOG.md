@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 1.0.1
+
+### Patch Changes
+
+- [#319](https://github.com/workleap/wl-web-configs/pull/319) [`544890b`](https://github.com/workleap/wl-web-configs/commit/544890be5ec24b2d9ac010e84c510559822a7447) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Disable Jest tests by default.
+
 ## 1.0.0
 
 ### Major Changes
