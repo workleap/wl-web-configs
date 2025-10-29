@@ -2,8 +2,8 @@ packages:
   - packages/*
   - samples/**
 
-dangerouslyAllowAllBuilds: true
-
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   - "@workleap*"
+
+dangerouslyAllowAllBuilds: true

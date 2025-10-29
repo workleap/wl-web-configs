@@ -33,7 +33,9 @@
 
     "eslint.probe": [
         "javascript",
+        "javascriptreact",
         "typescript",
+        "typescriptreact",
         "json",
         "jsonc",
         "yaml"

@@ -4,6 +4,7 @@ import globals from "globals";
 import type { ConfigWithExtends } from "./types.ts";
 
 export interface JestConfigOptions {
+    enabled?: boolean;
     rules?: Partial<Linter.RulesRecord>;
 }
 
@@ -11,8 +12,13 @@ export const jestGlobalIgnores = [];
 
 export function jestConfig(options: JestConfigOptions = {}) {
     const {
+        enabled = false,
         rules = {}
     } = options;
+
+    if (!enabled) {
+        return [];
+    }
 
     const config: ConfigWithExtends[] = [{
         name: "@workleap/eslint-configs/jest",
@@ -40,6 +46,7 @@ export function jestConfig(options: JestConfigOptions = {}) {
             }
         },
         rules: {
+            "jest/no-commented-out-tests": "off",
             // Gives better failure messages for array checks.
             "jest/prefer-to-contain": "error",
             // Prefer spies to allow for automatic restoration.

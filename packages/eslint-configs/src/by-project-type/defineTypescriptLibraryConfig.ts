@@ -9,6 +9,7 @@ import { vitestConfig, type VitestConfigOptions, vitestGlobalIgnores } from "../
 import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
 
 export interface DefineTypeScriptLibraryConfigOptions {
+    testFramework?: "vitest" | "jest";
     core?: CoreConfigOptions;
     typescript?: TypescriptConfigOptions;
     jest?: JestConfigOptions;
@@ -24,6 +25,7 @@ export interface DefineTypeScriptLibraryConfigOptions {
  */
 export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: DefineTypeScriptLibraryConfigOptions = {}) {
     const {
+        testFramework = "vitest",
         core,
         jest,
         json,
@@ -48,13 +50,19 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
-        ...jestConfig(jest),
+        ...jestConfig({
+            ...jest,
+            enabled: jest?.enabled ? jest.enabled : testFramework === "jest"
+        }),
         ...jsonConfig(json),
         ...packageJsonConfig(packageJson),
         ...typescriptConfig(tsconfigRootDir, typescript),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
+        ...(vitestConfig({
+            ...vitest,
+            enabled: vitest?.enabled ? vitest.enabled : testFramework === "vitest"
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ...(vitestConfig(vitest) as any),
+        }) as any),
         ...yamlConfig(yaml),
         {
             plugins: {

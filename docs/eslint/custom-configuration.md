@@ -114,6 +114,18 @@ export default defineConfig([
 ]);
 ```
 
+## Enable rules for Jest
+
+By default, the [Vitest](https://vitest.dev/) ESLint rules are enabled. If your project uses [Jest](https://jestjs.io/) instead of Vitest, disable the Vitest rules and enable the Jest rules:
+
+```ts !#4 eslint.config.ts
+import { defineWebApplicationConfig } from "@workleap/eslint-configs";
+
+export default defineWebApplicationConfig(import.meta.dirname, {
+    testFramework: "jest"
+});
+```
+
 ## Rules by category
 
 {.eslint-rules-first-column}

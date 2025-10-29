@@ -3,6 +3,7 @@ import type { Linter } from "eslint";
 import type { ConfigWithExtends } from "./types.ts";
 
 export interface VitestConfigOptions {
+    enabled?: boolean;
     rules?: Partial<Linter.RulesRecord>;
 }
 
@@ -10,8 +11,13 @@ export const vitestGlobalIgnores = [];
 
 export function vitestConfig(options: VitestConfigOptions = {}) {
     const {
+        enabled = true,
         rules = {}
     } = options;
+
+    if (!enabled) {
+        return [];
+    }
 
     const config: ConfigWithExtends[] = [{
         name: "@workleap/eslint-configs/vitest",

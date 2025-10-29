@@ -13,6 +13,7 @@ import { vitestConfig, type VitestConfigOptions, vitestGlobalIgnores } from "../
 import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
 
 export interface DefineReactLibraryConfigOptions {
+    testFramework?: "vitest" | "jest";
     core?: CoreConfigOptions;
     jest?: JestConfigOptions;
     json?: JsonConfigOptions;
@@ -32,6 +33,7 @@ export interface DefineReactLibraryConfigOptions {
  */
 export function defineReactLibraryConfig(tsconfigRootDir: string, options: DefineReactLibraryConfigOptions = {}) {
     const {
+        testFramework = "vitest",
         core,
         jest,
         json,
@@ -64,7 +66,10 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
-        ...jestConfig(jest),
+        ...jestConfig({
+            ...jest,
+            enabled: jest?.enabled ? jest.enabled : testFramework === "jest"
+        }),
         ...jsonConfig(json),
         ...jsxAllyConfig(jsxAlly),
         ...packageJsonConfig(packageJson),
@@ -73,8 +78,11 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
         ...testingLibraryConfig(testingLibrary),
         ...typescriptConfig(tsconfigRootDir, typescript),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
+        ...(vitestConfig({
+            ...vitest,
+            enabled: vitest?.enabled ? vitest.enabled : testFramework === "vitest"
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ...(vitestConfig(vitest) as any),
+        }) as any),
         ...yamlConfig(yaml),
         {
             plugins: {
