@@ -52,7 +52,7 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         ...coreConfig(core),
         ...jestConfig({
             ...jest,
-            enabled: jest?.enabled ? jest.enabled : testFramework === "jest"
+            enabled: jest?.enabled ?? testFramework === "jest"
         }),
         ...jsonConfig(json),
         ...packageJsonConfig(packageJson),
