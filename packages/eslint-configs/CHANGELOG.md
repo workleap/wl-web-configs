@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 1.1.0
+
+### Minor Changes
+
+- [#322](https://github.com/workleap/wl-web-configs/pull/322) [`9a6f6ed`](https://github.com/workleap/wl-web-configs/commit/9a6f6ed3f180d459c8bb04358b5b8be2d51d4d20) Thanks [@patricklafrance](https://github.com/patricklafrance)! - The package is now exporting all the granular configs, like "core", "react", "vitest", etc..
+
 ## 1.0.1
 
 ### Patch Changes
