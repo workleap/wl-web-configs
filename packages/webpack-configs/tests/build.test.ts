@@ -298,7 +298,6 @@ test.concurrent("when the verbose option is true, the transformers context verbo
 });
 
 // TODO: The test do not pass on UNIX system becase of \\, fix this later,
-// eslint-disable-next-line jest/no-commented-out-tests
 // test.concurrent("by default, an svgr rule is added and the assets loader do not handle .svg files", ({ expect }) => {
 //     const result = defineBuildConfig(SwcConfig);
 

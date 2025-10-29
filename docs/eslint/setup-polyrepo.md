@@ -162,3 +162,7 @@ pnpm lint:eslint
 ```
 
 The terminal should output a linting error.
+
+### Troubleshoot issues
+
+Refer to the [troubleshooting](./troubleshooting.md) page.

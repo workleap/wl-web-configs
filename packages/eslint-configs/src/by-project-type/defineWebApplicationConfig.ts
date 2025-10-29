@@ -14,30 +14,6 @@ import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.t
 
 /*
 
-The WHY for the interface instead of using nested "extends".
-
-1- ESlint flat config doesn't support nested "extends":
-
-Each configuration object may have an extends key, but only at the top level — not inside another config that already came from an extends.
-
-Flat config was designed to be explicitly ordered and fully expanded:
-
-- "extends" in flat config is syntactic sugar for concatenating multiple config objects.
-- Allowing recursion would make config evaluation order ambiguous and slow.
-
-So ESLint enforces a one-level-deep rule:
-
-- only a top-level config object can have extends.
-
-2- Each object in the array is evaluated independently. "plugins" declared in one object are not inherited by the next object.
-So when a second object sets the rule using a plugin "xyz", it doesn’t "see" the plugin "xyz" that’s defined inside a predefine config, and ESLint throws.
-
-3- Trying to redefine a plugin that as already been define in a configuration object will throw: Cannot redefine plugin "xyz".
-
-*/
-
-/*
-
 error  Parsing error: C:\Dev\workleap\wl-web-configs\samples\storybook\rsbuild\.storybook\main.ts was not found by the project service. Consider either including it in the tsconfig.json or including it in allowDefaultProject
 
 -> It usually means that the project tsconfig.json file cannot find the specified file
@@ -67,19 +43,8 @@ file itself for optimal performance, rather than relying on CLI flags (--ignore-
 
 */
 
-/*
-
-Document the React compiler setting
-
-*/
-
-/*
-
-- Document how to extend the rules
-
-*/
-
 export interface DefineWebApplicationConfigOptions {
+    testFramework?: "vitest" | "jest";
     core?: CoreConfigOptions;
     jest?: JestConfigOptions;
     json?: JsonConfigOptions;
@@ -99,6 +64,7 @@ export interface DefineWebApplicationConfigOptions {
  */
 export const defineWebApplicationConfig = (tsconfigRootDir: string, options: DefineWebApplicationConfigOptions = {}) => {
     const {
+        testFramework = "vitest",
         core,
         jest,
         json,
@@ -131,7 +97,10 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
             ...yamlGlobalIgnores
         ]),
         ...coreConfig(core),
-        ...jestConfig(jest),
+        ...jestConfig({
+            ...jest,
+            enabled: jest?.enabled ?? testFramework === "jest"
+        }),
         ...jsonConfig(json),
         ...jsxAllyConfig(jsxAlly),
         ...packageJsonConfig(packageJson),
@@ -140,8 +109,11 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
         ...testingLibraryConfig(testingLibrary),
         ...typescriptConfig(tsconfigRootDir, typescript),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
+        ...(vitestConfig({
+            ...vitest,
+            enabled: vitest?.enabled ?? testFramework === "vitest"
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ...(vitestConfig(vitest) as any),
+        }) as any),
         ...yamlConfig(yaml),
         {
             plugins: {

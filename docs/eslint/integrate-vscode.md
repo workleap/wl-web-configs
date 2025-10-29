@@ -29,12 +29,13 @@ Then, add the following settings to your solution [VS Code settings file](https:
     "json.format.enable": false, // Disables the default formatter to use ESLint instead
     "eslint.probe": [ // Enables YAML files formatting.
         "javascript",
+        "javascriptreact",
         "typescript",
+        "typescriptreact",
         "json",
         "jsonc",
         "yaml"
     ]
-}
 ```
 
 ## Install EditorConfig extension

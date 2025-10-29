@@ -2,8 +2,6 @@
 order: 90
 meta:
     title: Setup with Turborepo - ESLint
-toc:
-    depth: 2-3
 ---
 
 # Setup with Turborepo
@@ -281,3 +279,7 @@ pnpm lint
 ```
 
 The terminal should output a linting error.
+
+### Troubleshoot issues
+
+Refer to the [troubleshooting](./troubleshooting.md) page.
