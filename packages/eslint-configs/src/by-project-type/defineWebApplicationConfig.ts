@@ -12,37 +12,6 @@ import { typescriptConfig, type TypescriptConfigOptions, typescriptGlobalIgnores
 import { vitestConfig, type VitestConfigOptions, vitestGlobalIgnores } from "../vitest.ts";
 import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
 
-/*
-
-error  Parsing error: C:\Dev\workleap\wl-web-configs\samples\storybook\rsbuild\.storybook\main.ts was not found by the project service. Consider either including it in the tsconfig.json or including it in allowDefaultProject
-
--> It usually means that the project tsconfig.json file cannot find the specified file
--> Make sure to clear the ESLint cache after such an error because update the tsconfig.json file doesn't invalidate the ESLint cache
-
-*/
-
-/*
-
-import { defineConfig, globalIgnores } from "eslint/config";
-import { defineReactLibraryConfig } from  "@workleap/eslint-configs";
-
-export default defineConfig([
-    globalIgnores([
-        "/reports/**"
-    ]),
-    defineReactLibraryConfig(import.meta.dirname)
-]);
-
-*/
-
-/*
-
-The key insight was that ESLint 9's flat config system requires ignores to be specified in the configuration
-file itself for optimal performance, rather than relying on CLI flags (--ignore-pattern). The ignores array at the beginning of the
- config ensures files are filtered out during the file discovery phase, not after.
-
-*/
-
 export interface DefineWebApplicationConfigOptions {
     testFramework?: "vitest" | "jest";
     core?: CoreConfigOptions;

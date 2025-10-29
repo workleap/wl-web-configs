@@ -182,3 +182,9 @@ export default defineReactLibraryConfig(import.meta.dirname);
 ```
 
 Finally, use the copied configurations from the legacy `v8` files to customize the newly created `eslint.config.ts` file. Refer to the [custom configuration](./custom-configuration.md) section for guidance.
+
+## Update VS Code configuration
+
+1. Open the `.vscode/settings.json` file.
+2. Remove any existing `eslint.validate` setting to avoid conflicts.
+3. Then, follow the VS Code integration [guide](./integrate-vscode.md) to add the correct configuration.

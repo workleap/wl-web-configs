@@ -67,7 +67,7 @@ Look at other project configurations as inspiration:
 {.no-bottom-margin}
 - [wl-web-configs](https://github.com/workleap/wl-web-configs/blob/main/.syncpackrc.js)
 - [wl-squide](https://github.com/workleap/wl-squide/blob/main/.syncpackrc.js)
-- [wl-honeycomb-web](https://github.com/workleap/wl-honeycomb-web/blob/main/.syncpackrc.js)
+- [wl-telemetry](https://github.com/workleap/wl-telemetry/blob/main/.syncpackrc.js)
 - [workleap-platform-widgets](https://dev.azure.com/workleap/WorkleapPlatform/_git/workleap-platform-widgets?path=/.syncpackrc.js)
 !!!
 
