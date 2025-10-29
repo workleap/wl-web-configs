@@ -9,7 +9,7 @@ export interface VitestConfigOptions {
 
 export const vitestGlobalIgnores = [];
 
-export function vitestConfig(options: VitestConfigOptions = {}) {
+export function defineVitestConfig(options: VitestConfigOptions = {}) {
     const {
         enabled = true,
         rules = {}

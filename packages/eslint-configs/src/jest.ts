@@ -10,7 +10,7 @@ export interface JestConfigOptions {
 
 export const jestGlobalIgnores = [];
 
-export function jestConfig(options: JestConfigOptions = {}) {
+export function defineJestConfig(options: JestConfigOptions = {}) {
     const {
         enabled = false,
         rules = {}

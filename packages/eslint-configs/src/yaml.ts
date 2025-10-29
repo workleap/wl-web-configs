@@ -10,7 +10,7 @@ export const yamlGlobalIgnores = [
     "pnpm-lock.yaml"
 ];
 
-export function yamlConfig(options: YamlConfigOptions = {}) {
+export function defineYamlConfig(options: YamlConfigOptions = {}) {
     const {
         rules = {}
     } = options;

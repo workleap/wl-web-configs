@@ -12,7 +12,7 @@ export const storybookGlobalIgnores = [
     "storybook-static"
 ];
 
-export function storybookConfig(options: StorybookConfigOptions = {}) {
+export function defineStorybookConfig(options: StorybookConfigOptions = {}) {
     const {
         storiesRules = {},
         mainFileRules = {}

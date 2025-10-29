@@ -1,16 +1,16 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import { coreConfig, type CoreConfigOptions, coreGlobalIgnores } from "../core.ts";
-import { jestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
-import { jsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
-import { jsxAllyConfig, type JsxAllyConfigOptions, jsxAllyGlobalIgnores } from "../jsxAlly.ts";
-import { packageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
+import { type CoreConfigOptions, coreGlobalIgnores, defineCoreConfig } from "../core.ts";
+import { defineJestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
+import { defineJsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
+import { defineJsxAllyConfig, type JsxAllyConfigOptions, jsxAllyGlobalIgnores } from "../jsxAlly.ts";
+import { definePackageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
-import { reactConfig, type ReactConfigOptions, reactGlobalIgnores } from "../react.ts";
-import { storybookConfig, type StorybookConfigOptions, storybookGlobalIgnores } from "../storybook.ts";
-import { testingLibraryConfig, type TestingLibraryConfigOptions, testingLibraryGlobalIgnores } from "../testingLibrary.ts";
-import { typescriptConfig, type TypescriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
-import { vitestConfig, type VitestConfigOptions, vitestGlobalIgnores } from "../vitest.ts";
-import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
+import { defineReactConfig, type ReactConfigOptions, reactGlobalIgnores } from "../react.ts";
+import { defineStorybookConfig, type StorybookConfigOptions, storybookGlobalIgnores } from "../storybook.ts";
+import { defineTestingLibraryConfig, type TestingLibraryConfigOptions, testingLibraryGlobalIgnores } from "../testingLibrary.ts";
+import { defineTypeScriptConfig, type TypeScriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
+import { defineVitestConfig, type VitestConfigOptions, vitestGlobalIgnores } from "../vitest.ts";
+import { defineYamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
 
 export interface DefineReactLibraryConfigOptions {
     testFramework?: "vitest" | "jest";
@@ -22,7 +22,7 @@ export interface DefineReactLibraryConfigOptions {
     react?: ReactConfigOptions;
     storybook?: StorybookConfigOptions;
     testingLibrary?: TestingLibraryConfigOptions;
-    typescript?: TypescriptConfigOptions;
+    typescript?: TypeScriptConfigOptions;
     vitest?: VitestConfigOptions;
     yaml?: YamlConfigOptions;
 }
@@ -65,25 +65,25 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
             ...vitestGlobalIgnores,
             ...yamlGlobalIgnores
         ]),
-        ...coreConfig(core),
-        ...jestConfig({
+        ...defineCoreConfig(core),
+        ...defineJestConfig({
             ...jest,
             enabled: jest?.enabled ?? testFramework === "jest"
         }),
-        ...jsonConfig(json),
-        ...jsxAllyConfig(jsxAlly),
-        ...packageJsonConfig(packageJson),
-        ...reactConfig(react),
-        ...storybookConfig(storybook),
-        ...testingLibraryConfig(testingLibrary),
-        ...typescriptConfig(tsconfigRootDir, typescript),
+        ...defineJsonConfig(json),
+        ...defineJsxAllyConfig(jsxAlly),
+        ...definePackageJsonConfig(packageJson),
+        ...defineReactConfig(react),
+        ...defineStorybookConfig(storybook),
+        ...defineTestingLibraryConfig(testingLibrary),
+        ...defineTypeScriptConfig(tsconfigRootDir, typescript),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
-        ...(vitestConfig({
+        ...(defineVitestConfig({
             ...vitest,
             enabled: vitest?.enabled ?? testFramework === "vitest"
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         }) as any),
-        ...yamlConfig(yaml),
+        ...defineYamlConfig(yaml),
         {
             plugins: {
                 "@workleap": WorkleapPlugin

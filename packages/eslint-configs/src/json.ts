@@ -8,7 +8,7 @@ export interface JsonConfigOptions {
 
 export const jsonGlobalIgnores = [];
 
-export function jsonConfig(options: JsonConfigOptions = {}) {
+export function defineJsonConfig(options: JsonConfigOptions = {}) {
     const {
         rules = {}
     } = options;
