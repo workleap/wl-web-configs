@@ -50,21 +50,11 @@ Refer to the [Browserslist documentation](https://github.com/browserslist/browse
 
 To test your new Browserslist configuration, open a terminal at the root of the project and execute the following command:
 
-+++ pnpm
 ```bash
 pnpm browserslist
 ```
-+++ yarn
-```bash
-yarn browserslist
-```
-+++ npm
-```bash
-npm browserslist
-```
-+++
 
-A list of the selected browser versions shoud be outputted to the terminal:
+A list of the selected browser versions should be outputted to the terminal:
 
 ``` An example of the outputted browser versions (you won't get exactly this)
 and_chr 114
