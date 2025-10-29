@@ -4,13 +4,13 @@ import type { Linter } from "eslint";
 import tseslint from "typescript-eslint";
 import type { ConfigWithExtends } from "./types.ts";
 
-export interface TypescriptConfigOptions {
+export interface TypeScriptConfigOptions {
     rules?: Partial<Linter.RulesRecord>;
 }
 
 export const typescriptGlobalIgnores = [];
 
-export function typescriptConfig(tsconfigRootDir: string, options: TypescriptConfigOptions = {}) {
+export function defineTypeScriptConfig(tsconfigRootDir: string, options: TypeScriptConfigOptions = {}) {
     const {
         rules = {}
     } = options;

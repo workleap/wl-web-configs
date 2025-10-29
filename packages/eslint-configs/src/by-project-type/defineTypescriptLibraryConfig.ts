@@ -1,17 +1,17 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import { coreConfig, type CoreConfigOptions, coreGlobalIgnores } from "../core.ts";
-import { jestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
-import { jsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
-import { packageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
+import { type CoreConfigOptions, coreGlobalIgnores, defineCoreConfig } from "../core.ts";
+import { defineJestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
+import { defineJsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
+import { definePackageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
-import { typescriptConfig, type TypescriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
-import { vitestConfig, type VitestConfigOptions, vitestGlobalIgnores } from "../vitest.ts";
-import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
+import { defineTypeScriptConfig, type TypeScriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
+import { defineVitestConfig, type VitestConfigOptions, vitestGlobalIgnores } from "../vitest.ts";
+import { defineYamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
 
 export interface DefineTypeScriptLibraryConfigOptions {
     testFramework?: "vitest" | "jest";
     core?: CoreConfigOptions;
-    typescript?: TypescriptConfigOptions;
+    typescript?: TypeScriptConfigOptions;
     jest?: JestConfigOptions;
     json?: JsonConfigOptions;
     vitest?: VitestConfigOptions;
@@ -49,21 +49,21 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
             ...vitestGlobalIgnores,
             ...yamlGlobalIgnores
         ]),
-        ...coreConfig(core),
-        ...jestConfig({
+        ...defineCoreConfig(core),
+        ...defineJestConfig({
             ...jest,
             enabled: jest?.enabled ?? testFramework === "jest"
         }),
-        ...jsonConfig(json),
-        ...packageJsonConfig(packageJson),
-        ...typescriptConfig(tsconfigRootDir, typescript),
+        ...defineJsonConfig(json),
+        ...definePackageJsonConfig(packageJson),
+        ...defineTypeScriptConfig(tsconfigRootDir, typescript),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
-        ...(vitestConfig({
+        ...(defineVitestConfig({
             ...vitest,
             enabled: vitest?.enabled ?? testFramework === "vitest"
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         }) as any),
-        ...yamlConfig(yaml),
+        ...defineYamlConfig(yaml),
         {
             plugins: {
                 "@workleap": WorkleapPlugin

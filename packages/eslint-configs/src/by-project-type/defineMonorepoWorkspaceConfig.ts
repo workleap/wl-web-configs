@@ -1,15 +1,15 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import { coreConfig, type CoreConfigOptions, coreGlobalIgnores } from "../core.ts";
-import { jsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
-import { packageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
-import { typescriptConfig, type TypescriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
-import { yamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
+import { type CoreConfigOptions, coreGlobalIgnores, defineCoreConfig } from "../core.ts";
+import { defineJsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
+import { definePackageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
+import { defineTypeScriptConfig, type TypeScriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
+import { defineYamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
 
 export interface DefineMonorepoWorkspaceConfigOptions {
     core?: CoreConfigOptions;
     json?: JsonConfigOptions;
     packageJson?: PackageJsonConfigOptions;
-    typescript?: TypescriptConfigOptions;
+    typescript?: TypeScriptConfigOptions;
     yaml?: YamlConfigOptions;
 }
 
@@ -37,11 +37,11 @@ export function defineMonorepoWorkspaceConfig(tsconfigRootDir: string, options: 
             ...typescriptGlobalIgnores,
             ...yamlGlobalIgnores
         ]),
-        ...coreConfig(core),
-        ...jsonConfig(json),
-        ...packageJsonConfig(packageJson),
-        ...typescriptConfig(tsconfigRootDir, typescript),
-        ...yamlConfig(yaml),
+        ...defineCoreConfig(core),
+        ...defineJsonConfig(json),
+        ...definePackageJsonConfig(packageJson),
+        ...defineTypeScriptConfig(tsconfigRootDir, typescript),
+        ...defineYamlConfig(yaml),
         {
             rules: {
                 "package-json/valid-version": "off"

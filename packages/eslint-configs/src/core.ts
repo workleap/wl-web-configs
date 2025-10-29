@@ -10,7 +10,7 @@ export interface CoreConfigOptions {
 
 export const coreGlobalIgnores = [];
 
-export function coreConfig(options: CoreConfigOptions = {}) {
+export function defineCoreConfig(options: CoreConfigOptions = {}) {
     const {
         rules
     } = options;

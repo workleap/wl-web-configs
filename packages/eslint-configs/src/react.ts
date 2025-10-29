@@ -11,7 +11,7 @@ export interface ReactConfigOptions {
 
 export const reactGlobalIgnores = [];
 
-export function reactConfig(options: ReactConfigOptions = {}) {
+export function defineReactConfig(options: ReactConfigOptions = {}) {
     const {
         rules = {},
         compiler = false
