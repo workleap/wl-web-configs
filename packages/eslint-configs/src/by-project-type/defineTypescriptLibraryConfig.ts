@@ -4,7 +4,7 @@ import { defineJestConfig, type JestConfigOptions, jestGlobalIgnores } from "../
 import { defineJsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
 import { definePackageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
-import { defineTestingLibraryConfig, TestingLibraryConfigOptions, testingLibraryGlobalIgnores } from "../testingLibrary.ts";
+import { defineTestingLibraryConfig, type TestingLibraryConfigOptions, testingLibraryGlobalIgnores } from "../testingLibrary.ts";
 import { defineTypeScriptConfig, type TypeScriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
 import { defineVitestConfig, type VitestConfigOptions, vitestGlobalIgnores } from "../vitest.ts";
 import { defineYamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
