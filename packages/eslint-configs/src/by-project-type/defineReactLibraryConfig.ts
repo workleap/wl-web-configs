@@ -52,6 +52,7 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
         globalIgnores([
             "dist",
             "**/__snapshots__/*",
+            ".playwright",
             ".turbo",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,

@@ -52,6 +52,7 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
         globalIgnores([
             "dist",
             "**/__snapshots__/*",
+            ".playwright",
             ".turbo",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,

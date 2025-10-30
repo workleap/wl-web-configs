@@ -4,6 +4,7 @@ import { defineJestConfig, type JestConfigOptions, jestGlobalIgnores } from "../
 import { defineJsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
 import { definePackageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
+import { defineTestingLibraryConfig, type TestingLibraryConfigOptions, testingLibraryGlobalIgnores } from "../testingLibrary.ts";
 import { defineTypeScriptConfig, type TypeScriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
 import { defineVitestConfig, type VitestConfigOptions, vitestGlobalIgnores } from "../vitest.ts";
 import { defineYamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
@@ -11,11 +12,12 @@ import { defineYamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../
 export interface DefineTypeScriptLibraryConfigOptions {
     testFramework?: "vitest" | "jest";
     core?: CoreConfigOptions;
-    typescript?: TypeScriptConfigOptions;
     jest?: JestConfigOptions;
     json?: JsonConfigOptions;
-    vitest?: VitestConfigOptions;
     packageJson?: PackageJsonConfigOptions;
+    testingLibrary?: TestingLibraryConfigOptions;
+    typescript?: TypeScriptConfigOptions;
+    vitest?: VitestConfigOptions;
     yaml?: YamlConfigOptions;
 }
 
@@ -30,6 +32,7 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         jest,
         json,
         packageJson,
+        testingLibrary,
         typescript,
         vitest,
         yaml
@@ -40,11 +43,13 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         globalIgnores([
             "dist",
             "**/__snapshots__/*",
+            ".playwright",
             ".turbo",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
             ...jsonGlobalIgnores,
             ...packageJsonGlobalIgnores,
+            ...testingLibraryGlobalIgnores,
             ...typescriptGlobalIgnores,
             ...vitestGlobalIgnores,
             ...yamlGlobalIgnores
@@ -56,6 +61,7 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         }),
         ...defineJsonConfig(json),
         ...definePackageJsonConfig(packageJson),
+        ...defineTestingLibraryConfig(testingLibrary),
         ...defineTypeScriptConfig(tsconfigRootDir, typescript),
         // Temporary fix until the vitest plugin support defineConfig and the types are fixed.
         ...(defineVitestConfig({
