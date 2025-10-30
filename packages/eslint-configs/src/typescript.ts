@@ -140,6 +140,15 @@ export function defineTypeScriptConfig(tsconfigRootDir: string, options: TypeScr
                 }
             ],
             "@stylistic/operator-linebreak": "off",
+            "@stylistic/space-before-function-paren": [
+                "warn",
+                {
+                    anonymous: "always",
+                    named: "never",
+                    asyncArrow: "always",
+                    catch: "never"
+                }
+            ],
             "@stylistic/spaced-comment": "off",
             // Should be the default but somehow it's not enforced if it's not explicitly specified.
             "@stylistic/quote-props": "off",
