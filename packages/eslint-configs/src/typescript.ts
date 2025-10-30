@@ -146,7 +146,7 @@ export function defineTypeScriptConfig(tsconfigRootDir: string, options: TypeScr
                     anonymous: "never",
                     named: "never",
                     asyncArrow: "always",
-                    catch: "never"
+                    catch: "always"
                 }
             ],
             "@stylistic/spaced-comment": "off",
