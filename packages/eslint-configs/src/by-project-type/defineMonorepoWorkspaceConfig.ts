@@ -30,6 +30,7 @@ export function defineMonorepoWorkspaceConfig(tsconfigRootDir: string, options: 
         // node_modules folder is ignored by default.
         globalIgnores([
             "dist",
+            ".playwright",
             ".turbo",
             ...coreGlobalIgnores,
             ...jsonGlobalIgnores,
