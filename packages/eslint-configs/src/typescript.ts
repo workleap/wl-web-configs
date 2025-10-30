@@ -57,6 +57,7 @@ export function defineTypeScriptConfig(tsconfigRootDir: string, options: TypeScr
             "no-use-before-define": "off",
             "no-useless-constructor": "off",
             "object-curly-spacing": "off",
+            "prefer-promise-reject-errors": "off",
             "quotes": "off",
             "semi": "off",
 
@@ -86,6 +87,7 @@ export function defineTypeScriptConfig(tsconfigRootDir: string, options: TypeScr
             "@typescript-eslint/no-unsafe-return": "off",
             "@typescript-eslint/only-throw-error": "off",
             "@typescript-eslint/prefer-nullish-coalescing": "off",
+            "@typescript-eslint/prefer-promise-reject-errors": "off",
             "@typescript-eslint/restrict-template-expressions": "off",
             // This rule should be enabled but it's strangely causing issues with common React Aria patterns
             // when destructuring an object literal returned by a hook like "useFilter".
