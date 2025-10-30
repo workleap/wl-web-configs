@@ -28,7 +28,7 @@ const rule: Rule.RuleModule = {
             url: "https://github.com/workleap/wl-web-configs/blob/main/packages/eslint-plugin/docs/rules/strict-css-modules-names.md"
         }
     },
-    create: function (context) {
+    create: function(context) {
         const parsedPath = parse(getFileName(context));
 
         const getNodeSource = (node: ESTree.ImportDeclaration) => {
@@ -44,7 +44,7 @@ const rule: Rule.RuleModule = {
         };
 
         return {
-            ImportDeclaration: function (node) {
+            ImportDeclaration: function(node) {
                 const importSource = getNodeSource(node);
 
                 if (isCssModule(importSource)) {
