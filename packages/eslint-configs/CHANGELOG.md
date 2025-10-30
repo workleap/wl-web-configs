@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 1.1.3
+
+### Patch Changes
+
+- [#329](https://github.com/workleap/wl-web-configs/pull/329) [`b05864c`](https://github.com/workleap/wl-web-configs/commit/b05864ce3583f7b31e04b86c5d67465a4ddd28b2) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Added testing-library rules to TypeScript Library config.
+
 ## 1.1.2
 
 ### Patch Changes
