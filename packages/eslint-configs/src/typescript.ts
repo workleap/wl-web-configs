@@ -143,7 +143,7 @@ export function defineTypeScriptConfig(tsconfigRootDir: string, options: TypeScr
             "@stylistic/space-before-function-paren": [
                 "warn",
                 {
-                    anonymous: "always",
+                    anonymous: "never",
                     named: "never",
                     asyncArrow: "always",
                     catch: "never"
