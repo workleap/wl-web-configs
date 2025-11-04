@@ -14,7 +14,7 @@ Default tooling configurations for building web applications at [Workleap](https
 | [@workleap/stylelint-plugin](packages/stylelint-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/stylelint-configs)](https://www.npmjs.com/package/@workleap/stylelint-configs) |
 | [@workleap/typescript-configs](packages/typescript-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/typescript-configs)](https://www.npmjs.com/package/@workleap/typescript-configs) |
 | [@workleap/rsbuild-configs](packages/rsbuild-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/rsbuild-configs)](https://www.npmjs.com/package/@workleap/rsbuild-configs) |
-| [@workleap/rslib-configs](packages/rslib-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/rslib-configs)](https://www.npmjs.com/package/@workleap/rslib-configs)
+| [@workleap/rslib-configs](packages/rslib-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/rslib-configs)](https://www.npmjs.com/package/@workleap/rslib-configs) |
 
 ## Have a question or found an issue?
 
