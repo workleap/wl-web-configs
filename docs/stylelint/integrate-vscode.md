@@ -20,7 +20,7 @@ Then, add the following settings to your solution [VS Code settings file](https:
 ```json ./vscode/settings.json
 {
     "editor.codeActionsOnSave": {
-        "source.fixAll": true, // Makes sure Stylelint is run on save
+        "source.fixAll": "explicit", // Makes sure Stylelint is run on save
     },
     "editor.formatOnSave": true,
     "css.validate": false, // Disables the default formatter to use Stylelint instead
