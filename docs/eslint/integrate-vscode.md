@@ -20,8 +20,8 @@ Then, add the following settings to your solution [VS Code settings file](https:
 ```json ./vscode/settings.json
 {
     "editor.codeActionsOnSave": {
-        "source.fixAll": true, // Makes sure ESLint is run on save
-        "source.sortImports": true // Let VS Code handle import sorting, it's snappier and more reliable than ESLint
+        "source.fixAll": "explicit", // Makes sure ESLint is run on save
+        "source.sortImports": "explicit" // Let VS Code handle import sorting, it's snappier and more reliable than ESLint
     },
     "editor.formatOnSave": true,
     "typescript.format.enable": false, // Disables the default formatter to use ESLint instead
