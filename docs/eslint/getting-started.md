@@ -31,7 +31,7 @@ This way, it's pretty straightforward for the consumer to configure ESLint as it
 | ---  | --- |
 | :icon-mark-github: [defineWebApplicationConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineWebApplicationConfig.ts) | For web applications developed with React and TypeScript. |
 | :icon-mark-github: [defineReactLibraryConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineReactLibraryConfig.ts) | For TypeScript libraries developed **with** React. |
-| :icon-mark-github: [defineTypescriptLibraryConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineTypescriptLibraryConfig.ts) | For TypeScript libraries developed **without** React. |
+| :icon-mark-github: [defineTypeScriptLibraryConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineTypescriptLibraryConfig.ts) | For TypeScript libraries developed **without** React. |
 | :icon-mark-github: [defineMonorepoWorkspaceConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineMonorepoWorkspaceConfig.ts) | For the workspace configuration of a monorepo solution. |
 
 ## Prettier

@@ -251,9 +251,9 @@ export default defineReactLibraryConfig(import.meta.dirname, {
 For a TypeScript library developed **without** React, use the following configuration:
 
 ```ts !#3 eslint.config.ts
-import { defineTypescriptLibraryConfig } from "@workleap/eslint-configs";
+import { defineTypeScriptLibraryConfig } from "@workleap/eslint-configs";
 
-export default defineTypescriptLibraryConfig(import.meta.dirname);
+export default defineTypeScriptLibraryConfig(import.meta.dirname);
 ```
 
 ### Add a CLI script
