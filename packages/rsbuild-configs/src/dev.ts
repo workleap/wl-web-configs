@@ -76,7 +76,6 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
     const config: RsbuildConfig = {
         mode: "development",
         dev: {
-            // assetPrefix: assetPrefix ?? `${https ? "https" : "http"}://${host}:${port}`,
             assetPrefix,
             lazyCompilation,
             hmr: hmr || fastRefresh,
