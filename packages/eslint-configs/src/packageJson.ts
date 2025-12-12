@@ -39,8 +39,10 @@ export function definePackageJsonConfig(options: PackageJsonConfigOptions = {}) 
             // I am not sure why, this rule is triggering errors for valid paths.
             "package-json/valid-repository-directory": "off",
             "package-json/valid-scripts": "off",
-            // Doesn't make sense for our products
+            // Doesn't make sense for our products.
             "package-json/require-license": "off",
+            // Not useful when using PNPM and syncpack.
+            "package-json/specify-peers-locally": "off",
             // Positioned last to allow the consumer to override any rules.
             ...rules
         }

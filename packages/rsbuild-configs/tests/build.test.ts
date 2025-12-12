@@ -1,4 +1,4 @@
-import type { RsbuildConfig, RsbuildPlugin, SourceMap } from "@rsbuild/core";
+import type { DistPathConfig, RsbuildConfig, RsbuildPlugin, SourceMap } from "@rsbuild/core";
 import { describe, test, vi } from "vitest";
 import type { RsbuildConfigTransformer } from "../src/applyTransformers.ts";
 import { defineBuildConfig, getOptimizationConfig } from "../src/build.ts";
@@ -20,7 +20,7 @@ test.concurrent("when a dist path is provided, the output.distpath option is the
         }
     });
 
-    expect(result.output!.distPath!.root).toBe("./a-new-output-path");
+    expect((result.output!.distPath as DistPathConfig).root).toBe("./a-new-output-path");
 });
 
 test.concurrent("when an asset prefix is provided, the output.assetPrefix option is the provided value", ({ expect }) => {
@@ -205,7 +205,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
 
     const distPathTransformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
         config.output = config.output ?? {};
-        config.output.distPath = config.output.distPath ?? {};
+        config.output.distPath = (config.output.distPath ?? {}) as DistPathConfig;
         config.output.distPath.js = "a-custom-dist-path-in-a-tranformer";
 
         return config;
@@ -216,7 +216,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     });
 
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
-    expect(result.output!.distPath!.js).toBe("a-custom-dist-path-in-a-tranformer");
+    expect((result.output!.distPath as DistPathConfig).js).toBe("a-custom-dist-path-in-a-tranformer");
 });
 
 test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
