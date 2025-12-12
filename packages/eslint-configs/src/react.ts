@@ -27,7 +27,6 @@ export function defineReactConfig(options: ReactConfigOptions = {}) {
         },
         extends: [
             reactPlugin.configs.flat.recommended,
-            // @ts-expect-error the typings are broken and think there's a ".default" to add.
             reactHooksPlugin.configs.flat.recommended
         ],
         languageOptions: {
