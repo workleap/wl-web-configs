@@ -2,7 +2,7 @@
     "name": "@workleap/browserslist-config",
     "author": "Workleap",
     "description": "Workleap recommended Browserslist configuration.",
-    "version": "2.1.3",
+    "version": "2.1.4",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",

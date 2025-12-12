@@ -2,7 +2,7 @@
     "name": "@workleap/tsup-configs",
     "author": "Workleap",
     "description": "Workleap's recommended tsup configurations.",
-    "version": "3.1.3",
+    "version": "3.1.4",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
