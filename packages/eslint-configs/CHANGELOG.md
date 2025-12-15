@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 1.1.8
+
+### Patch Changes
+
+- [#341](https://github.com/workleap/wl-web-configs/pull/341) [`af33aef`](https://github.com/workleap/wl-web-configs/commit/af33aefdd46666d3b48fe1f4198dc96ff4002b14) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Do not lint the "mockServiceWorker.js" file in the .storybook folder.
+
 ## 1.1.7
 
 ### Patch Changes
