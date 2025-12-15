@@ -9,7 +9,9 @@ export interface StorybookConfigOptions {
 
 export const storybookGlobalIgnores = [
     "!.storybook",
-    "storybook-static"
+    "storybook-static",
+    // Because it's usually included into the ".storybook" folder.
+    "mockServiceWorker.js"
 ];
 
 export function defineStorybookConfig(options: StorybookConfigOptions = {}) {
