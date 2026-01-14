@@ -55,6 +55,10 @@ jobs:
             ${{ runner.os }}-turbo-
           path: .turbo
 
+      - name: Build packages
+        # It's better to always run this one as some scripts depends on the packages to already be built.
+        run: pnpm build-pkg
+
       - name: Lint packages & sample
         # For a PR, only lint the packages that are diverging from the pull request original baseline.
         run: |
@@ -64,26 +68,41 @@ jobs:
                 pnpm lint
             fi
 
-      - name: Build packages
-        # For a PR, only build the packages that are diverging from the pull request original baseline.
+      - name: Build webpack sample
+        # For a PR, only build the sample if it's diverging from the pull request original baseline.
         run: |
             if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm turbo run build --filter={./packages/*}...[${{ github.event.pull_request.base.sha }}]
+                pnpm turbo run build --filter={./samples/webpack/*}...[${{ github.event.pull_request.base.sha }}]
             else
-                pnpm build-pkg
+                pnpm build-webpack
             fi
 
-      - name: Build webpack sample
-        run: pnpm build-webpack
-
       - name: Build Rsbuild sample
-        run: pnpm build-rsbuild
+        # For a PR, only build the sample if it's diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run build --filter={./samples/rsbuild/*}...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm build-rsbuild
+            fi
 
       - name: Build Storybook Rsbuild sample
-        run: pnpm build-storybook-rsbuild
+        # For a PR, only build the sample if it's diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run build --filter={./samples/storybook/rsbuild}...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm build-storybook-rsbuild
+            fi
 
       - name: Build Storybook Rslib sample
-        run: pnpm build-storybook-rslib
+        # For a PR, only build the sample if it's diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run build --filter={./samples/storybook/rslib}...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm build-storybook-rslib
+            fi
 
       - name: Test packages
         # For a PR, only test the packages that are diverging from the pull request original baseline.
