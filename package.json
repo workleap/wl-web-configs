@@ -61,7 +61,7 @@
         "prettier": "3.7.4",
         "retypeapp": "3.11.0",
         "syncpack": "13.0.4",
-        "turbo": "2.7.4",
+        "turbo": "2.7.5-canary.10",
         "typescript": "5.9.3",
         "typescript-eslint": "8.53.0"
     },

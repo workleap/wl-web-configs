@@ -1,15 +1,14 @@
-import type { RsbuildPlugins, SourceMap } from "@rsbuild/core";
 import { pluginReact, type PluginReactOptions } from "@rsbuild/plugin-react";
 import { pluginSvgr, type PluginSvgrOptions } from "@rsbuild/plugin-svgr";
-import { defineConfig } from "@rslib/core";
+import { defineConfig, type Rsbuild } from "@rslib/core";
 import { applyTransformers, type RslibConfigTransformer } from "./applyTransformers.ts";
 
 export type DefineStorybookDefineReactPluginConfigFunction = (defaultOptions: PluginReactOptions) => PluginReactOptions;
 export type DefineStorybookSvgrPluginConfigFunction = (defaultOptions: PluginSvgrOptions) => PluginSvgrOptions;
 
 export interface DefineStorybookConfigOptions {
-    plugins?: RsbuildPlugins;
-    sourceMap?: boolean | SourceMap;
+    plugins?: Rsbuild.RsbuildPlugins;
+    sourceMap?: boolean | Rsbuild.SourceMap;
     react?: false | DefineStorybookDefineReactPluginConfigFunction;
     svgr?: false | DefineStorybookSvgrPluginConfigFunction;
     transformers?: RslibConfigTransformer[];

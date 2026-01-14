@@ -33,7 +33,6 @@
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "peerDependencies": {
-        "@rsbuild/core": "^1.7.2",
         "@rslib/core": "^0.19.2"
     },
     "dependencies": {

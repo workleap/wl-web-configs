@@ -1,7 +1,6 @@
-import type { DistPathConfig, RsbuildPlugins, SourceMap } from "@rsbuild/core";
 import { pluginReact, type PluginReactOptions } from "@rsbuild/plugin-react";
 import { pluginSvgr, type PluginSvgrOptions } from "@rsbuild/plugin-svgr";
-import { defineConfig, type Dts, type RsbuildConfigEntry, type RsbuildConfigOutputTarget, type Syntax } from "@rslib/core";
+import { defineConfig, type Dts, type Rsbuild, type Syntax } from "@rslib/core";
 import { applyTransformers, type RslibConfigTransformer } from "./applyTransformers.ts";
 import { isFunction } from "./assertions.ts";
 
@@ -9,15 +8,15 @@ export type DefineDevDefineReactPluginConfigFunction = (defaultOptions: PluginRe
 export type DefineDevSvgrPluginConfigFunction = (defaultOptions: PluginSvgrOptions) => PluginSvgrOptions;
 
 export interface DefineDevConfigOptions {
-    entry?: RsbuildConfigEntry;
+    entry?: Rsbuild.RsbuildEntry;
     syntax?: Syntax;
     bundle?: boolean;
     tsconfigPath?: string;
     dts?: Dts;
-    target?: RsbuildConfigOutputTarget;
-    distPath?: DistPathConfig;
-    plugins?: RsbuildPlugins;
-    sourceMap?: boolean | SourceMap;
+    target?: Rsbuild.RsbuildTarget;
+    distPath?: Rsbuild.DistPathConfig;
+    plugins?: Rsbuild.RsbuildPlugins;
+    sourceMap?: boolean | Rsbuild.SourceMap;
     react?: true | DefineDevDefineReactPluginConfigFunction;
     svgr?: true | DefineDevSvgrPluginConfigFunction;
     transformers?: RslibConfigTransformer[];
@@ -85,7 +84,7 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
             react && pluginReact(isFunction(react) ? react({}) : {}),
             svgr && pluginSvgr(isFunction(svgr) ? svgr(svgrDefaultOptions) : svgrDefaultOptions),
             ...plugins
-        ] as RsbuildPlugins).filter(Boolean)
+        ] as Rsbuild.RsbuildPlugins).filter(Boolean)
     });
 
     const transformedConfig = applyTransformers(config, transformers, {
