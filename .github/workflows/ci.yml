@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Required for the Turborepo Git filters.
           fetch-depth: 0
@@ -32,7 +32,7 @@ jobs:
           run_install: false
 
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
             node-version: ">=24.0.0"
             check-latest: true
@@ -44,7 +44,7 @@ jobs:
 
       - name: Restore Turborepo cache
         id: cache-turborepo-restore
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           # Using SHA will usually provide cache hit on subsequent commits in a PR
           # but will not provide cache hits between PRs, meaning the first run of a PR
@@ -52,6 +52,7 @@ jobs:
           key: ${{ runner.os }}-turbo-${{ github.sha }}-ci
           restore-keys: |
             ${{ runner.os }}-turbo-${{ github.sha }}
+            ${{ runner.os }}-turbo--ci
             ${{ runner.os }}-turbo-
           path: .turbo
 
@@ -62,15 +63,6 @@ jobs:
                 pnpm turbo run build --filter={./packages/*}...[${{ github.event.pull_request.base.sha }}]
             else
                 pnpm build-pkg
-            fi
-
-      - name: Lint packages & sample
-        # For a PR, only lint the packages that are diverging from the pull request original baseline.
-        run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm lint --filter=...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm lint
             fi
 
       - name: Build webpack sample
@@ -109,19 +101,49 @@ jobs:
                 pnpm build-storybook-rslib
             fi
 
+      - name: ESLint
+        # For a PR, only lint the packages that are diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run eslint --filter=...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm turbo run eslint
+            fi
+
+      - name: Stylelint
+        # For a PR, only lint the packages that are diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run stylelint --filter=...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm turbo run stylelint
+            fi
+
+      - name: Typecheck
+        # For a PR, only lint the packages that are diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run typecheck --filter=...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm turbo run typecheck
+            fi
+
+      - name: Syncpack
+        run: pnpm turbo run syncpack
+
       - name: Test packages
         # For a PR, only test the packages that are diverging from the pull request original baseline.
         run: |
             if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm lint --filter=...[${{ github.event.pull_request.base.sha }}]
+                pnpm test --filter=...[${{ github.event.pull_request.base.sha }}]
             else
-                pnpm lint
+                pnpm test
             fi
 
       - name: Save Turborepo cache
         id: cache-turborepo-save
         if: always() && steps.cache-turborepo-restore.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           key: ${{ steps.cache-turborepo-restore.outputs.cache-primary-key }}
           path: .turbo

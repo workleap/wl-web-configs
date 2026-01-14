@@ -29,21 +29,27 @@
             "dependsOn": ["eslint", "//#eslint", "stylelint", "typecheck", "//#typecheck", "//#syncpack"]
         },
         "//#eslint": {
+            "inputs": ["$TURBO_DEFAULT$", "!packages", "!samples", "!docs", "!README.md", "!CONTRIBUTING.md", "!**/*.css"],
             "outputs": ["node_modules/.cache/eslint"]
         },
         "eslint": {
+            "inputs": ["$TURBO_DEFAULT$", "!README.md", "!src/**/*.css"],
             "outputs": ["node_modules/.cache/eslint"]
         },
         "stylelint": {
             "outputs": ["node_modules/.cache/stylelint"]
         },
         "//#typecheck": {
+            "inputs": ["src/**/*.ts", "src/**/*.tsx", "test/**/*.ts", "test/**/*.tsx", "tsconfig.json", "!packages", "!samples", "!docs"],
             "outputs": ["node_modules/.cache/tsbuildinfo.json"]
         },
         "typecheck": {
+            "inputs": ["src/**/*.ts", "src/**/*.tsx", "test/**/*.ts", "test/**/*.tsx", "tsconfig.json", "tsconfig.build.json"],
             "outputs": ["node_modules/.cache/tsbuildinfo.json"]
         },
-        "//#syncpack": {},
+        "//#syncpack": {
+            "inputs": [".syncpackrc.js", "package.json", "packages/**/package.json", "samples/**/package.json"]
+        },
         "@rsbuild-sample/app#test": {
             "dependsOn": ["@workleap/swc-configs#build", "@rsbuild-sample/rslib-lib#build"],
             "outputs": ["node_modules/.cache/vitest/**"]
