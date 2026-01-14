@@ -43,9 +43,13 @@ jobs:
         id: cache-turborepo-restore
         uses: actions/cache/restore@v4
         with:
-          key: ${{ runner.os }}-turborepo-${{ github.sha }}
+          # Using SHA will usually provide cache hit on subsequent commits in a PR
+          # but will not provide cache hits between PRs, meaning the first run of a PR
+          # will usually only be cache misses.
+          key: ${{ runner.os }}-turbo-${{ github.sha }}-ci
           restore-keys: |
-            ${{ runner.os }}-turborepo-
+            ${{ runner.os }}-turbo-${{ github.sha }}
+            ${{ runner.os }}-turbo-
           path: .turbo
 
       - name: Build packages

@@ -16,7 +16,7 @@ To configure [Rslib](https://lib.rsbuild.dev) for publication, execute the follo
 Open a terminal at the root of the library project and install the following packages:
 
 ```bash
-pnpm add -D @workleap/rslib-configs @rslib/core @rsbuild/core
+pnpm add -D @workleap/rslib-configs @rslib/core
 ```
 
 ## Configure Rslib

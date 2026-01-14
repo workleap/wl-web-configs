@@ -78,7 +78,11 @@ export function defineStorybookConfig(options: DefineStorybookConfigOptions = {}
                     appendOnly: true,
                     level: "verbose",
                     debug: /PackFileCache/
-                } : undefined
+                } : undefined,
+                optimization: {
+                    // Disabling modules concatenation until https://github.com/rstackjs/storybook-rsbuild/issues/403 is fixed.
+                    concatenateModules: false
+                }
             }
         }
     };
