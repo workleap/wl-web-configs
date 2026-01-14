@@ -64,15 +64,6 @@ jobs:
                 pnpm build-pkg
             fi
 
-      - name: Lint packages & sample
-        # For a PR, only lint the packages that are diverging from the pull request original baseline.
-        run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm lint --filter=...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm lint
-            fi
-
       - name: Build webpack sample
         # For a PR, only build the sample if it's diverging from the pull request original baseline.
         run: |
@@ -107,6 +98,17 @@ jobs:
                 pnpm turbo run build --filter={./samples/storybook/rslib}...[${{ github.event.pull_request.base.sha }}]
             else
                 pnpm build-storybook-rslib
+            fi
+
+        # Moved after the build jobs because otherwise the lint job is building all the packages and it's messing with the linting
+        # statistics as it will include the build time of every project.
+      - name: Lint packages & sample
+        # For a PR, only lint the packages that are diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm lint --filter=...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm lint
             fi
 
       - name: Test packages
