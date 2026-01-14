@@ -128,13 +128,7 @@ jobs:
             fi
 
       - name: Syncpack
-        # For a PR, only lint the packages that are diverging from the pull request original baseline.
-        run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm turbo run syncpack --filter=...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm turbo run syncpack
-            fi
+        run: pnpm turbo run syncpack
 
       - name: Test packages
         # For a PR, only test the packages that are diverging from the pull request original baseline.
