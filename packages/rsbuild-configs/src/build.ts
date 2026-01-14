@@ -6,6 +6,7 @@ import { SwcJsMinimizerRspackPlugin, type Optimization } from "@rspack/core";
 import path from "node:path";
 import { applyTransformers, type RsbuildConfigTransformer } from "./applyTransformers.ts";
 
+// TOTOTO
 export type OptimizeOption = boolean | "readable";
 
 export type DefineBuildHtmlPluginConfigFunction = (defaultOptions: HtmlConfig) => HtmlConfig;
