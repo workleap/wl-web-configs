@@ -100,15 +100,40 @@ jobs:
                 pnpm build-storybook-rslib
             fi
 
-        # Moved after the build jobs because otherwise the lint job is building all the packages and it's messing with the linting
-        # statistics as it will include the build time of every project.
-      - name: Lint packages & sample
+      - name: ESLint
         # For a PR, only lint the packages that are diverging from the pull request original baseline.
         run: |
             if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm lint --filter=...[${{ github.event.pull_request.base.sha }}]
+                pnpm turbo run eslint --filter=...[${{ github.event.pull_request.base.sha }}]
             else
-                pnpm lint
+                pnpm turbo run eslint
+            fi
+
+      - name: Stylelint
+        # For a PR, only lint the packages that are diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run stylelint --filter=...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm turbo run stylelint
+            fi
+
+      - name: Typecheck
+        # For a PR, only lint the packages that are diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run typecheck --filter=...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm turbo run typecheck
+            fi
+
+      - name: Syncpack
+        # For a PR, only lint the packages that are diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run syncpack --filter=...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm turbo run syncpack
             fi
 
       - name: Test packages
