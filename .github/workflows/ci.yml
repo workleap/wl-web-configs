@@ -49,7 +49,8 @@ jobs:
           path: .turbo
 
       - name: Lint packages & sample
-        run: pnpm lint
+        # Only execute for the packages that are diverging from the pull request original baseline.
+        run: pnpm lint --filter=...[${{ github.event.pull_request.base.sha }}]
 
       - name: Build packages
         run: pnpm build-pkg
@@ -67,7 +68,7 @@ jobs:
         run: pnpm build-storybook-rslib
 
       - name: Test packages
-        run: pnpm test
+        run: pnpm test --filter=...[${{ github.event.pull_request.base.sha }}]
 
       - name: Save Turborepo cache
         id: cache-turborepo-save
