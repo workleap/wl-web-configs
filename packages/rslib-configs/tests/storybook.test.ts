@@ -1,16 +1,15 @@
-import type { DistPathConfig, RsbuildPlugin, SourceMap } from "@rsbuild/core";
-import type { RslibConfig } from "@rslib/core";
+import type { Rsbuild, RslibConfig } from "@rslib/core";
 import { test, vi } from "vitest";
 import type { RslibConfigTransformer } from "../src/applyTransformers.ts";
 import { defineStorybookConfig } from "../src/storybook.ts";
 
 test.concurrent("when additional plugins are provided, append the provided plugins at the end of the plugins array", ({ expect }) => {
-    const plugin1: RsbuildPlugin = {
+    const plugin1: Rsbuild.RsbuildPlugin = {
         name: "plugin-1",
         setup: () => {}
     };
 
-    const plugin2: RsbuildPlugin = {
+    const plugin2: Rsbuild.RsbuildPlugin = {
         name: "plugin-2",
         setup: () => {}
     };
@@ -37,7 +36,7 @@ test.concurrent("when sourceMap is false, the output.sourceMap option is false",
 });
 
 test.concurrent("when sourceMap is an object, the output.sourceMap option is the object", ({ expect }) => {
-    const sourceMap: SourceMap = {
+    const sourceMap: Rsbuild.SourceMap = {
         js: false,
         css: false
     };
@@ -54,7 +53,7 @@ test.concurrent("when react is false, the react plugin is not included", ({ expe
         react: false
     });
 
-    const plugin = result.plugins?.find(x => (x as RsbuildPlugin).name === "rsbuild:react");
+    const plugin = result.plugins?.find(x => (x as Rsbuild.RsbuildPlugin).name === "rsbuild:react");
 
     expect(plugin).toBeUndefined();
 });
@@ -74,7 +73,7 @@ test.concurrent("when svgr is false, the svgr plugin is not included", ({ expect
         svgr: false
     });
 
-    const plugin = result.plugins?.find(x => (x as RsbuildPlugin).name === "rsbuild:svgr");
+    const plugin = result.plugins?.find(x => (x as Rsbuild.RsbuildPlugin).name === "rsbuild:svgr");
 
     expect(plugin).toBeUndefined();
 });
@@ -136,7 +135,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     const distPathTransformer: RslibConfigTransformer = (config: RslibConfig) => {
         config.output = config.output ?? {};
         config.output.distPath = config.output.distPath ?? {};
-        (config.output.distPath as DistPathConfig).js = "a-custom-dist-path-in-a-tranformer";
+        (config.output.distPath as Rsbuild.DistPathConfig).js = "a-custom-dist-path-in-a-tranformer";
 
         return config;
     };
@@ -146,7 +145,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     });
 
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
-    expect((result.output!.distPath as DistPathConfig).js).toBe("a-custom-dist-path-in-a-tranformer");
+    expect((result.output!.distPath as Rsbuild.DistPathConfig).js).toBe("a-custom-dist-path-in-a-tranformer");
 });
 
 test.concurrent("transformers context environment is \"storybook\"", ({ expect }) => {

@@ -56,8 +56,13 @@ jobs:
           path: .turbo
 
       - name: Build packages
-        # It's better to always run this one as some scripts depends on the packages to already be built.
-        run: pnpm build-pkg
+        # For a PR, only build the packages that are diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run build --filter={./packages/*}...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm build-pkg
+            fi
 
       - name: Lint packages & sample
         # For a PR, only lint the packages that are diverging from the pull request original baseline.
