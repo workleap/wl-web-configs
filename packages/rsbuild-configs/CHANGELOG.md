@@ -1,5 +1,11 @@
 # @workleap/rsbuild-configs
 
+## 3.2.0
+
+### Minor Changes
+
+- [#343](https://github.com/workleap/wl-web-configs/pull/343) [`de86c49`](https://github.com/workleap/wl-web-configs/commit/de86c499bef3d361bd7623256ecde86ebd39e1ff) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Updated the Storybook config to disable module concatenation until the Rspack stats feature is fixed. It was preventing Chromatic's Turbosnap from working properly in a monorepo setup. Also bumped the dependencies.
+
 ## 3.1.5
 
 ### Patch Changes
