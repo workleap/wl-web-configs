@@ -49,10 +49,9 @@ jobs:
           # Using SHA will usually provide cache hit on subsequent commits in a PR
           # but will not provide cache hits between PRs, meaning the first run of a PR
           # will usually only be cache misses.
-          key: ${{ runner.os }}-turbo-${{ github.sha }}-ci
+          key: ${{ runner.os }}-turbo-ci-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-turbo-${{ github.sha }}
-            ${{ runner.os }}-turbo--ci
+            ${{ runner.os }}-turbo-ci
             ${{ runner.os }}-turbo-
           path: .turbo
 
@@ -111,7 +110,7 @@ jobs:
             fi
 
       - name: Stylelint
-        # For a PR, only lint the packages that are diverging from the pull request original baseline.
+        # For a PR, only stylelint the packages that are diverging from the pull request original baseline.
         run: |
             if [ "${{ github.event_name }}" == "pull_request" ]; then
                 pnpm turbo run stylelint --filter=...[${{ github.event.pull_request.base.sha }}]
@@ -120,7 +119,7 @@ jobs:
             fi
 
       - name: Typecheck
-        # For a PR, only lint the packages that are diverging from the pull request original baseline.
+        # For a PR, only typecheck the packages that are diverging from the pull request original baseline.
         run: |
             if [ "${{ github.event_name }}" == "pull_request" ]; then
                 pnpm turbo run typecheck --filter=...[${{ github.event.pull_request.base.sha }}]
