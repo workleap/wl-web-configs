@@ -60,7 +60,6 @@ export function defineReactConfig(options: ReactConfigOptions = {}) {
             ],
             "react/no-unescaped-entities": "off",
             "react/prop-types": "off",
-            // "react/react-in-jsx-scope": "off",
 
             // React extra rules
             "react/button-has-type": "warn",
