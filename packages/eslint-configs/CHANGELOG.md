@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 1.1.10
+
+### Patch Changes
+
+- [#350](https://github.com/workleap/wl-web-configs/pull/350) [`77f7dd6`](https://github.com/workleap/wl-web-configs/commit/77f7dd6661c25a2768faa6865d35c39124ee6d59) Thanks [@patricklafrance](https://github.com/patricklafrance)! - React hook code in JS or TS files is now linted, it was a bug.
+
 ## 1.1.9
 
 ### Patch Changes
