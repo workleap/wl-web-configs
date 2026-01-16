@@ -20,13 +20,14 @@ export function defineReactConfig(options: ReactConfigOptions = {}) {
     const config: ConfigWithExtends[] = [{
         name: "@workleap/eslint-configs/react",
         files: [
-            "**/*.[jt]sx"
+            "**/*.{js,ts,jsx,tsx}"
         ],
         plugins: {
             "@stylistic": stylisticPlugin
         },
         extends: [
             reactPlugin.configs.flat.recommended,
+            reactPlugin.configs.flat["jsx-runtime"],
             reactHooksPlugin.configs.flat.recommended
         ],
         languageOptions: {
@@ -59,7 +60,6 @@ export function defineReactConfig(options: ReactConfigOptions = {}) {
             ],
             "react/no-unescaped-entities": "off",
             "react/prop-types": "off",
-            "react/react-in-jsx-scope": "off",
 
             // React extra rules
             "react/button-has-type": "warn",
