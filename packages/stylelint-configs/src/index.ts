@@ -63,6 +63,8 @@ const config: Config = {
             "deg",
             "vh",
             "vw",
+            "dvh",
+            "dvw",
             "s",
             "ch"
             // px is not allowed because we use rem units instead.
