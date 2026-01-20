@@ -1,5 +1,11 @@
 # @workleap/stylelint-config
 
+## 2.1.6
+
+### Patch Changes
+
+- [#352](https://github.com/workleap/wl-web-configs/pull/352) [`4ac8196`](https://github.com/workleap/wl-web-configs/commit/4ac8196a596587d93aa44a6d9c826872fc801cc1) Thanks [@PatrickDeVries](https://github.com/PatrickDeVries)! - Allow the use of dynamic viewport units
+
 ## 2.1.5
 
 ### Patch Changes
