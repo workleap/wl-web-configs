@@ -1,11 +1,11 @@
 ---
 order: 80
 label: Setup a CI workflow with Turborepo
+toc:
+    depth: 4
 ---
 
 # Setup a CI workflow with Turborepo
-
-## GitHub Actions
 
 To set up a [GitHub Actions](https://github.com/features/actions) CI workflow for a [Turborepo](https://turborepo.com/) project, first, create a `ci.yml` file inside the `.github/workflows` folder at the root of the solution's workspace:
 
@@ -19,10 +19,8 @@ workspace
 
 Then, open the newly created file and copy/paste the following content:
 
-```yaml !#42-49,60-66 .github/workflows/ci.yml
+```yaml !#24-25,43-51,55-60,64-69,73-78,82-87,94-99,101-107 .github/workflows/ci.yml
 name: CI
-
-# PNPM setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
 
 on:
   push:
@@ -43,7 +41,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          # Required for the Turborepo Git filters.
+          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -51,38 +52,78 @@ jobs:
           run_install: false
 
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-            node-version: ">=24.0.0"
-            check-latest: true
-            cache: pnpm
-            cache-dependency-path: pnpm-lock.yaml
+          node-version: ">=24.0.0"
+          check-latest: true
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Restore Turborepo cache
         id: cache-turborepo-restore
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
-          key: ${{ runner.os }}-turborepo-${{ github.sha }}
+          key: ${{ runner.os }}-turbo-ci-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-turborepo-
+            ${{ runner.os }}-turbo-ci-
+            ${{ runner.os }}-turbo-
           path: .turbo
 
-      - name: Lint
-        run: pnpm lint
+      - name: Build apps or packages
+        # For a PR, only build the host if it's diverging from the pull request original baseline.
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run build --filter={YOUR_FILTER}...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm turbo run build --filter=YOUR_FILTER
+          fi
 
-      - name: Build
-        run: pnpm build
+      - name: ESLint
+        # For a PR, only lint the projects that are diverging from the pull request original baseline.
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run eslint --continue --filter=...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm turbo run eslint --continue
+          fi
 
-      - name: Test
-        run: pnpm test
+      - name: Stylelint
+        # For a PR, only lint the projects that are diverging from the pull request original baseline.
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run stylelint --continue --filter=...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm turbo run stylelint --continue
+          fi
+
+      - name: Typecheck
+        # For a PR, only typecheck the projects that are diverging from the pull request original baseline.
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run typecheck --continue --filter=...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm turbo run typecheck --continue
+          fi
+
+      - name: Syncpack
+        run: pnpm turbo run syncpack
+
+      - name: Test packages
+        # For a PR, only test the projects that are diverging from the pull request original baseline.
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                pnpm turbo run test --continue --force --filter=...[${{ github.event.pull_request.base.sha }}]
+            else
+                pnpm turbo run test --continue --force
+            fi
 
       - name: Save Turborepo cache
         id: cache-turborepo-save
         if: always() && steps.cache-turborepo-restore.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           key: ${{ steps.cache-turborepo-restore.outputs.cache-primary-key }}
           path: .turbo
@@ -90,7 +131,7 @@ jobs:
 
 Finally, defines the specific validation steps for the workflow between `Restore Turborepo cache` and `Save Turborepo cache` sections and add a [branch rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule) protecting your `main` branch.
 
-### Try it :rocket:
+## Try it :rocket:
 
 To test your new CI workflow:
 
@@ -108,81 +149,3 @@ Cache Size: ~0 MB (72468 B)
 Cache restored successfully
 Cache restored from key: Linux-turborepo-3c24700252991e8087eab6ddc8e75defab17dc2b
 ```
-
-## Azure Pipelines
-
-To set up an [Azure Pipelines](https://azure.microsoft.com/en-us/products/devops/pipelines) CI workflow for a [Turborepo](https://turborepo.com/) project, first, create a [template file](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops&pivots=templates-includes) named `setup.yml`. Then, create a `ci.yml` file that includes this template and defines the specific validation steps for the workflow.
-
-### setup.yml
-
-To setup a template file, create `setup.yml` file inside the `.pipelines/templates` folder at the root of the solution's workspace
-
-```bash !#4 .pipelines/templates/setup.yml
-workspace
-├── .pipelines
-├──── templates
-├────── setup.yml
-├── package.json
-```
-
-Then, open the newly created file and copy/paste the following content:
-
-```yaml !#8-12,14-17 .pipelines/templates/setup.yml
-steps:
-  - task: UseNode@1
-    displayName: Use Node.js 22
-    inputs:
-      version: 22
-      checkLatest: true
-
-  - task: Cache@2
-    displayName: Cache turbo
-    inputs:
-      key: '"turbo" | "$(Agent.OS)" | turbo.json'
-      path: $(Pipeline.Workspace)/.turbo-cache
-
-  - script: |
-      echo "##vso[task.setvariable variable=TURBO_TELEMETRY_DISABLED;]1"
-      echo "##vso[task.setvariable variable=TURBO_CACHE_DIR;]$(Pipeline.Workspace)/.turbo-cache"
-    displayName: Setup turbo
-
-  - task: Cache@2
-    inputs:
-      key: 'pnpm | "$(Agent.OS)" | pnpm-lock.yaml'
-      path: $(Pipeline.Workspace)/.pnpm-store
-    displayName: Cache pnpm
-
-  - script: |
-      npm install -g pnpm@latest-9
-      pnpm config set store-dir $(Pipeline.Workspace)/.pnpm-store
-    displayName: Setup pnpm
-
-  - script: pnpm install --frozen-lockfile
-    displayName: pnpm install
-```
-
-!!!tip
-Update the [PNPM](https://pnpm.io/) version to match the one used in your repository.
-!!!
-
-### ci.yml
-
-Then, create a `ci.yml` file inside the `.pipelines` folder at the root of the solution's workspace:
-
-```yaml .pipelines/ci.yml
-trigger: none
-
-steps:
-- template: templates/setup.yml
-
-- script: pnpm lint
-  displayName: pnpm lint
-
-- script: pnpm build
-  displayName: pnpm build
-
-- script: pnpm test
-  displayName: pnpm test
-```
-
-Finally, edit the sections of the `ci.yml` file, setup the pipeline in [Azure DevOps](https://azure.microsoft.com/en-us/products/devops) and ensure the pipeline as a required [build validation](https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops&tabs=browser#build-validation) for your `main` branch.

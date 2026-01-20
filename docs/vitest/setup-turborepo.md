@@ -1,5 +1,5 @@
 ---
-order: 70
+order: 100
 label: Setup with Turborepo
 meta:
     title: Setup with Turborepo - Vitest
