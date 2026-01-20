@@ -2,7 +2,7 @@
 order: 100
 label: Best practices
 meta:
-    title: Best practices - Syncpack
+    title: Best practices - Chromatic
 toc:
     depth: 2-3
 ---
@@ -71,7 +71,7 @@ Barrel files (`**/index.ts[x]`) are often problematic and should generally be av
 
 ### Only capture snapshots for Chrome
 
-Chromatic can capture snapshots across [multiple browsers](https://www.chromatic.com/docs/browsers/), which can be useful but also expensive because it multiplies the number of snapshots caputred by the number of browsers enabled.
+Chromatic can capture snapshots across [multiple browsers](https://www.chromatic.com/docs/browsers/), which can be useful but also expensive because it multiplies the number of snapshots captured by the number of browsers enabled.
 
 For example, if both Chrome and Safari are enabled, **2 snapshots** (or TurboSnaps) will be captured for every story.
 
@@ -102,11 +102,11 @@ If you believe that updates to certain large files should not refresh the snapsh
 
 ### Use a modular architecture
 
-By combining a modular monolith architecture with tools like [Turborepo](), local development tools and CI pipelines can be configured to run only for the modules affected by a change. This significantly improves performance and reduces the feedback loop for developers.
+By combining a modular monolith architecture with tools like [Turborepo](https://turborepo.dev/), local development tools and CI pipelines can be configured to run only for the modules affected by a change. This significantly improves performance and reduces the feedback loop for developers.
 
 When applied to Chromatic, this strategy can drastically reduce costs. Even though TurboSnaps reduce snapshot usage, they still have a cost. Skipping Chromatic entirely for modules that are not affected by a change is more efficient than relying on TurboSnaps alone.
 
-:link: [Proof of concept]()
+:link: [Proof of concept](https://github.com/patricklafrance/sg-next-architecture)
 
 ## Optimizations
 
