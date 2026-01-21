@@ -40,7 +40,7 @@ on:
       # To conditionally execute the workflow based on a PR label.
       - labeled
       - unlabeled
-    workflow_dispatch:
+  workflow_dispatch:
 
 env:
   CI: true
