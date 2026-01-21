@@ -5,6 +5,8 @@ label: Setup a CI workflow
 
 # Setup a CI workflow
 
+## Create the workflow file
+
 To set up a [GitHub Actions](https://github.com/features/actions) CI workflow for a project, first, create a `ci.yml` file inside the `.github/workflows` folder at the root of the solution's workspace:
 
 ```bash !#4 .github/workflows/ci.yml
@@ -17,16 +19,19 @@ workspace
 
 Then, open the newly created file and copy/paste the following content:
 
-```yaml !#42-49,60-66 .github/workflows/ci.yml
+```yaml !#45-52,63-69 .github/workflows/ci.yml
 name: CI
 
 # PNPM setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
+    branches:
+      - main
+  workflow_dispatch:
 
 env:
   CI: true
@@ -36,7 +41,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -70,3 +75,9 @@ jobs:
 ```
 
 Finally, defines the specific validation steps for the workflow and add a [branch rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule) protecting your `main` branch.
+
+## Try it :rocket:
+
+To test your new CI workflow:
+
+- Create a pull request in GitHub and confirm that the CI workflow **runs successfully**.

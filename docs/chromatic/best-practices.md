@@ -9,7 +9,11 @@ toc:
 
 # Best practices
 
-To help Workleap stay within its monthly [Chromatic](https://www.chromatic.com/) snapshot budget, we ask teams to follow these best practices:
+To help Workleap stay within its monthly [Chromatic](https://www.chromatic.com/) snapshot budget, we ask teams to follow these best practices.
+
+!!!tip
+For CI workflow examples, see the [setup a Chromatic workflow](./setup-a--workflow.md) and [setup a Chromatic workflow with Turborepo](./setup-turborepo-workflow.md) pages.
+!!!
 
 ## Must follow
 
@@ -87,7 +91,7 @@ Large files referenced by the `.storybook/preview.ts[x]` file will **disable Tur
 
 Examples of such files:
 
-- Centralized localization files
+- Localization files
 - Environment variables
 - Routes
 - Backend constants
