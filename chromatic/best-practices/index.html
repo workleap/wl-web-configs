@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.822344303349">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.822345257164">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0-preview2">
@@ -34,12 +34,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=3.12.0-preview2.822344303349" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.822345257164" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.822344303349" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.822345257164" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.822344303349" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.822344303349" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.822345257164" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.822345257164" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -426,7 +426,7 @@
         <span>Use a modular architecture</span>
     </h3>
 </doc-anchor-target>
-<p>By combining a modular monolith architecture with tools like <a href="https://turborepo.dev/" class="outbound" target="_blank">Turborepo</a>, local development tools and CI pipelines can be configured to run only for the modules affected by a change. This significantly improves performance and reduces the feedback loop for developers.</p>
+<p>By combining a <a href="https://www.geeksforgeeks.org/system-design/what-is-a-modular-monolith/" class="outbound" target="_blank">modular monolith architecture</a> with tools like <a href="https://turborepo.dev/" class="outbound" target="_blank">Turborepo</a>, local development tools and CI pipelines can be configured to run only for the modules affected by a change. This significantly improves performance and reduces the feedback loop for developers.</p>
 <p>When applied to Chromatic, this strategy can drastically reduce costs. Even though TurboSnaps reduce snapshot usage, they still have a cost. Skipping Chromatic entirely for modules that are not affected by a change is more efficient than relying on TurboSnaps alone.</p>
 <p><span class="docs-emoji">&#x1F517;</span> <a href="https://github.com/patricklafrance/sg-next-architecture" class="outbound" target="_blank">Proof of concept</a></p>
 <doc-anchor-target id="optimizations">
