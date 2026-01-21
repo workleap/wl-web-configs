@@ -13,7 +13,7 @@ toc:
 
 To configure Vitest in a monorepo managed with [Turborepo](https://turborepo.com/), follow these steps 👇
 
-## Setup the workspace
+## Prepare the workspace
 
 ### Install the packages
 
@@ -73,7 +73,7 @@ workspace
 }
 ```
 
-## Setup a project
+## Configure a project
 
 ### Install the packages
 

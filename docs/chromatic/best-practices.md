@@ -106,7 +106,7 @@ If you believe that updates to certain large files should not refresh the snapsh
 
 ### Use a modular architecture
 
-By combining a modular monolith architecture with tools like [Turborepo](https://turborepo.dev/), local development tools and CI pipelines can be configured to run only for the modules affected by a change. This significantly improves performance and reduces the feedback loop for developers.
+By combining a [modular monolith architecture](https://www.geeksforgeeks.org/system-design/what-is-a-modular-monolith/) with tools like [Turborepo](https://turborepo.dev/), local development tools and CI pipelines can be configured to run only for the modules affected by a change. This significantly improves performance and reduces the feedback loop for developers.
 
 When applied to Chromatic, this strategy can drastically reduce costs. Even though TurboSnaps reduce snapshot usage, they still have a cost. Skipping Chromatic entirely for modules that are not affected by a change is more efficient than relying on TurboSnaps alone.
 
