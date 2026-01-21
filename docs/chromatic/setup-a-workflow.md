@@ -116,12 +116,12 @@ To do so, add a required status check for the `chromatic` job on the `default` b
 When adding a required status check, search for the **job name**, not the workflow name.
 !!!
 
-### Renovate and Changesets
+### Renovate bot and Changesets
 
-If the repository [Renovate](https://github.com/renovatebot/renovate) or [Changesets](https://github.com/changesets/changesets) automation tools, consider excluding the branches they create from the default branch ruleset:
+If the repository uses [Renovate bot](https://github.com/renovatebot/renovate) or [Changesets](https://github.com/changesets/changesets) automation tools, consider excluding the branches they create from the `default` branch ruleset:
 
 :::align-image-left
-![Exclude Renovate and Changesets branches](../static/chromatic/exclude-renovate-and-changesets.png){width=558}
+![Exclude Renovate bot and Changesets branches](../static/chromatic/exclude-renovate-and-changesets.png){width=558}
 :::
 
 ## Try it :rocket:
