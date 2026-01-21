@@ -6,7 +6,7 @@ label: Setup a workflow with Turborepo
 # Setup a Chromatic workflow with Turborepo
 
 !!!tip
-For simplicity, is not optimized for a [modular architecture](https://www.geeksforgeeks.org/system-design/what-is-a-modular-monolith/). However, we [recommend](./best-practices.md#use-a-modular-architecture) combining Chromatic with a modular architecture to improve performance and reduce costs. For an example, refer to this [proof of concept](https://github.com/patricklafrance/sg-next-architecture).
+For simplicity, this workflow is not optimized for a [modular architecture](https://www.geeksforgeeks.org/system-design/what-is-a-modular-monolith/). However, we [recommend](./best-practices.md#use-a-modular-architecture) combining Chromatic with a modular architecture to improve performance and reduce costs. For an example, refer to this [proof of concept](https://github.com/patricklafrance/sg-next-architecture).
 !!!
 
 ## Create the workflow file
