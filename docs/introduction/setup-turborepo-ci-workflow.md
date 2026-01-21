@@ -1,11 +1,11 @@
 ---
 order: 80
 label: Setup a CI workflow with Turborepo
-toc:
-    depth: 4
 ---
 
 # Setup a CI workflow with Turborepo
+
+## Create the workflow file
 
 To set up a [GitHub Actions](https://github.com/features/actions) CI workflow for a [Turborepo](https://turborepo.com/) project, first, create a `ci.yml` file inside the `.github/workflows` folder at the root of the solution's workspace:
 
@@ -19,14 +19,17 @@ workspace
 
 Then, open the newly created file and copy/paste the following content:
 
-```yaml !#24-25,43-51,55-60,64-69,73-78,82-87,94-99,101-107 .github/workflows/ci.yml
+```yaml !#27-28,46-54,58-63,67-72,76-81,85-90,97-102,104-110 .github/workflows/ci.yml
 name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
+    branches:
+      - main
+  workflow_dispatch:
 
 env:
   CI: true
@@ -36,7 +39,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
