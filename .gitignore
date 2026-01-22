@@ -6,6 +6,7 @@ storybook-static
 .turbo
 .rslib
 .retype
+.claude
 
 # Mac
 .DS_Store

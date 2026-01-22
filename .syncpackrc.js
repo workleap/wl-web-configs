@@ -31,11 +31,6 @@ export default {
     ],
     "versionGroups": [
         {
-            "packages": ["@webpack-sample/*"],
-            "dependencies": ["typescript"],
-            "dependencyTypes": ["prod", "dev"]
-        },
-        {
             "packages": ["**"],
             "dependencyTypes": ["prod", "dev", "peer"],
             "preferVersion": "highestSemver",

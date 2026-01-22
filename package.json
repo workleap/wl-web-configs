@@ -44,7 +44,7 @@
         "list-outdated-deps": "pnpm outdated -r --filter=!@webpack-sample/* --format list !stylelint !stylelint-config-standard",
         "update-outdated-deps": "pnpm run --sequential \"/^update-outdated-deps:.*/\"",
         "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !stylelint !stylelint-config-standard",
-        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !typescript !stylelint !stylelint-config-standard",
+        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !stylelint !stylelint-config-standard",
         "update-outdated-deps:update-peers": "syncpack fix-mismatches"
     },
     "devDependencies": {

@@ -32,7 +32,7 @@
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
         "tsup": "8.5.1",
-        "typescript": "5.5.4",
+        "typescript": "5.9.3",
         "typescript-eslint": "8.53.1"
     }
 }
