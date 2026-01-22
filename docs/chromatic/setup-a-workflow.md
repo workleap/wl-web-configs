@@ -19,7 +19,7 @@ workspace
 
 Then, open the newly created file and copy/paste the following content:
 
-```yaml !#5-20,33-35,38-43,48-50,52-55,73-79,81-91 .github/workflows/chromatic.yml
+```yaml !#5-16,29-31,34-39,44-46,48-51,69-75,77-87 .github/workflows/chromatic.yml
 name: Chromatic
 
 # PNPM setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time.
@@ -32,11 +32,7 @@ on:
     branches:
       - main
     types:
-      # Refer to https://github.com/chromaui/chromatic-cli/blob/main/.github/workflows/chromatic-main-and-prs.yml.
       - opened
-      - synchronize
-      - reopened
-      - ready_for_review
       # To conditionally execute the workflow based on a PR label.
       - labeled
   workflow_dispatch:
