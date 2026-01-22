@@ -32,11 +32,12 @@
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@typescript-eslint/parser": "8.53.0",
+        "@typescript-eslint/parser": "8.53.1",
+        "@typescript/native-preview": "7.0.0-dev.20260122.3",
         "@workleap/eslint-configs": "workspace:*",
         "eslint": "9.39.2",
         "rimraf": "6.1.2",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.53.0"
+        "typescript-eslint": "8.53.1"
     }
 }
