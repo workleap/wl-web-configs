@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.822345257164">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview2.822369101421">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0-preview2">
@@ -34,12 +34,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=3.12.0-preview2.822345257164" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0-preview2.822369101421" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.822345257164" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview2.822369101421" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview2" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.822345257164" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.822345257164" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview2.822369101421" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview2.822369101421" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -324,7 +324,7 @@
 <p>Then, open the newly created file and copy/paste the following content:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.github/workflows/chromatic.yml</div>
-<pre translate="no" class="language-yaml" data-line="5-21,35-40,45-47,49-52,70-78,80-86,88-94"><code v-pre class="language-yaml">name: Chromatic
+<pre translate="no" class="language-yaml" data-line="5-20,33-35,38-43,48-50,52-55,73-81,83-89,91-101,103-109"><code v-pre class="language-yaml">name: Chromatic
 
 # PNPM setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time.
 
@@ -343,7 +343,6 @@ on:
       - ready_for_review
       # To conditionally execute the workflow based on a PR label.
       - labeled
-      - unlabeled
   workflow_dispatch:
 
 env:
@@ -356,6 +355,10 @@ concurrency:
 jobs:
   chromatic:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Early exit if &quot;run chromatic&quot; label is not present
@@ -410,6 +413,18 @@ jobs:
           onlyChanged: true
           exitOnceUploaded: true
           autoAcceptChanges: main
+
+      - name: Remove &quot;run chromatic&quot; label after Chromatic completion
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                name: 'run chromatic'
+            });
 
       - name: Save Turborepo cache
         id: cache-turborepo-save
