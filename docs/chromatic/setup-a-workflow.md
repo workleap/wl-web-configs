@@ -19,7 +19,7 @@ workspace
 
 Then, open the newly created file and copy/paste the following content:
 
-```yaml !#5-16,29-31,34-39,44-46,48-51,69-75,77-87 .github/workflows/chromatic.yml
+```yaml !#5-16,29-30,33-38,43-45,47-50,68-74,76-86 .github/workflows/chromatic.yml
 name: Chromatic
 
 # PNPM setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time.
@@ -49,7 +49,6 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
       pull-requests: write
     
     steps:
