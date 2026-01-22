@@ -19,7 +19,7 @@ workspace
 
 Then, open the newly created file and copy/paste the following content:
 
-```yaml !#5-21,35-40,45-47,49-52,70-76 .github/workflows/chromatic.yml
+```yaml !#5-20,33-35,38-43,48-50,52-55,73-79,81-91 .github/workflows/chromatic.yml
 name: Chromatic
 
 # PNPM setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time.
@@ -39,7 +39,6 @@ on:
       - ready_for_review
       # To conditionally execute the workflow based on a PR label.
       - labeled
-      - unlabeled
   workflow_dispatch:
 
 env:
@@ -52,6 +51,10 @@ concurrency:
 jobs:
   chromatic:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
     
     steps:
       - name: Early exit if "run chromatic" label is not present
@@ -96,6 +99,18 @@ jobs:
           onlyChanged: true
           exitOnceUploaded: true
           autoAcceptChanges: main
+
+      - name: Remove "run chromatic" label after Chromatic completion
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                name: 'run chromatic'
+            });
 ```
 
 ## Create a label
