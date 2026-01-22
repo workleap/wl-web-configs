@@ -41,10 +41,10 @@
         "clean": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf dist storybook-static .turbo .rslib node_modules/.cache",
         "reset": "pnpm clean && pnpm reset:modules",
         "reset:modules": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf node_modules pnpm-lock.yaml",
-        "list-outdated-deps": "pnpm outdated -r --filter=!@webpack-sample/* !stylelint !stylelint-config-standard --format list",
+        "list-outdated-deps": "pnpm outdated -r --filter=!@webpack-sample/* --format list !stylelint !stylelint-config-standard",
         "update-outdated-deps": "pnpm run --sequential \"/^update-outdated-deps:.*/\"",
-        "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* ! !stylelint-config-standard --latest",
-        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* !stylelint !stylelint-config-standard --latest !typescript",
+        "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !stylelint !stylelint-config-standard",
+        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !typescript !stylelint !stylelint-config-standard",
         "update-outdated-deps:update-peers": "syncpack fix-mismatches"
     },
     "devDependencies": {
