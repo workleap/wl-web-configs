@@ -11,11 +11,11 @@ toc:
 
 [TypeScript Go](https://github.com/microsoft/typescript-go) is a reimplementation of the [TypeScript](https://www.typescriptlang.org/) compiler written in Go, designed to dramatically improve performance and scalability compared to the current JavaScript-based compiler. It aims to be a drop-in replacement for `tsc` at the CLI level, providing much faster type-checking, lower memory usage, and better parallelism, especially on large codebases and in CI environments. While still being experimental, and not yet a full replacement for the JavaScript compiler APIs used by tooling like [ESLint](https://eslint.org/), it is already mature enough to be used reliably for type-checking and VS Code built-in [language service](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide).
 
-## Typechecking
+## Typecheck
 
 :large_green_circle: Mature enough to serve as a drop-in replacement.
 
-To migrate to `tsgo` for typechecking, execute the following steps :point_down:
+To migrate to `tsgo` for type-checking, execute the following steps :point_down:
 
 ### Exclude packages from minimum release age
 
