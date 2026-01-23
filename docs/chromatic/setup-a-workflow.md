@@ -1,6 +1,8 @@
 ---
 order: 90
 label: Setup a workflow
+meta:
+    title: Setup a workflow - Chromatic
 ---
 
 # Setup a Chromatic workflow
