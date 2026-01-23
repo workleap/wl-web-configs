@@ -1,4 +1,3 @@
-// @ts-expect-error There's an error because the "module" option must be "CommonJs" for this package.
 import { defineTypeScriptLibraryConfig } from "@workleap/eslint-configs";
 
 export default defineTypeScriptLibraryConfig(

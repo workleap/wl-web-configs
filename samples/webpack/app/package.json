@@ -16,7 +16,7 @@
         "serve-build": "pnpm build && pnpm http-server dist -p 8080 -P http://localhost:8080? -c-1",
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
-        "typecheck": "tsc",
+        "typecheck": "tsgo",
         "test": "jest"
     },
     "dependencies": {
@@ -37,7 +37,7 @@
         "@types/react": "19.2.9",
         "@types/react-dom": "19.2.3",
         "@typescript-eslint/parser": "8.53.1",
-        "@typescript/native-preview": "7.0.0-dev.20260122.3",
+        "@typescript/native-preview": "7.0.0-dev.20260122.4",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/postcss-configs": "workspace:*",

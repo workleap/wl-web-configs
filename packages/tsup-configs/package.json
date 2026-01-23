@@ -29,7 +29,7 @@
     "scripts": {
         "build": "rslib build -c rslib.config.ts",
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
-        "typecheck": "tsc",
+        "typecheck": "tsgo",
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "peerDependencies": {
@@ -41,7 +41,7 @@
         "@rsbuild/core": "1.7.2",
         "@rslib/core": "0.19.3",
         "@typescript-eslint/parser": "8.53.1",
-        "@typescript/native-preview": "7.0.0-dev.20260122.3",
+        "@typescript/native-preview": "7.0.0-dev.20260122.4",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",

@@ -125,7 +125,7 @@ The `typecheck` script will lint the root of the solution's workspace:
 
 ```json package.json
 {
-    "typecheck": "tsc"
+    "typecheck": "tsgo"
 }
 ```
 
@@ -189,7 +189,7 @@ Finally, add the following `typecheck` script to your project `package.json` fil
 
 ```json packages/pkg-1/package.json
 {
-    "typecheck": "tsc"
+    "typecheck": "tsgo"
 }
 ```
 
