@@ -1,6 +1,8 @@
 ---
 order: 80
 label: Setup a workflow with Turborepo
+meta:
+    title: Setup a workflow with Turborepo - Chromatic
 ---
 
 # Setup a Chromatic workflow with Turborepo

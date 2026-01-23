@@ -5,7 +5,6 @@ packages:
 # Failing on the CI because "@typescript/native-preview" install binaries packages like "@typescript/native-preview-linux-x64" and
 # it seems like "minimumReleaseAgeExclude" only works on "direct" dependencies.
 # minimumReleaseAge: 1440
-
 # minimumReleaseAgeExclude:
 #   - '@workleap*'
 #   - '@typescript/native-preview*'
