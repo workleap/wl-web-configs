@@ -19,7 +19,7 @@ To migrate to `tsgo` for typechecking, execute the following steps :point_down:
 
 ### Exclude packages from minimum release age
 
-First, if your package manager is [PNPM](https://pnpm.io/) and you have enabled the [minimumReleaseAge]() feature, add the `tsgo` packages to the exclusion list. These packages are released nightly and will never meet the minimum age threshold.
+First, if your package manager is [PNPM](https://pnpm.io/) and you have enabled the [minimumReleaseAge](https://pnpm.io/settings#minimumreleaseage) feature, add the `tsgo` packages to the exclusion list. These packages are released nightly and will never meet the minimum age threshold.
 
 For a monorepo, open `pnpm-workspace.yaml` and add `@typescript/native-preview*` to `minimumReleaseAgeExclude`:
 
