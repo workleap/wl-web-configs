@@ -28,10 +28,10 @@
         "prebuild": "pnpm rimraf dist",
         "build": "tsc --project tsconfig.build.json",
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
-        "typecheck": "tsc"
+        "typecheck": "tsgo"
     },
     "peerDependencies": {
-        "prettier": "^3.7.4",
+        "prettier": "^3.8.1",
         "stylelint": "^16.26.1"
     },
     "peerDependenciesMeta": {
@@ -48,13 +48,16 @@
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@types/node": "25.0.7",
-        "@typescript-eslint/parser": "8.53.0",
+        "@types/node": "25.0.9",
+        "@typescript-eslint/parser": "8.53.1",
+        "@typescript/native-preview": "7.0.0-dev.20260122.4",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
+        "prettier": "3.8.1",
         "rimraf": "6.1.2",
+        "stylelint": "16.26.1",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.53.0"
+        "typescript-eslint": "8.53.1"
     }
 }

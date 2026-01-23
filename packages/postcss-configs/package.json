@@ -29,7 +29,7 @@
     "scripts": {
         "build": "rslib build -c rslib.config.ts",
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
-        "typecheck": "tsc",
+        "typecheck": "tsgo",
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "peerDependencies": {
@@ -37,19 +37,20 @@
     },
     "dependencies": {
         "postcss-load-config": "^6.0.1",
-        "postcss-preset-env": "^10.6.1"
+        "postcss-preset-env": "^11.1.1"
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@rslib/core": "0.19.2",
-        "@types/node": "25.0.7",
-        "@typescript-eslint/parser": "8.53.0",
+        "@rslib/core": "0.19.3",
+        "@types/node": "25.0.9",
+        "@typescript-eslint/parser": "8.53.1",
+        "@typescript/native-preview": "7.0.0-dev.20260122.4",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.53.0",
+        "typescript-eslint": "8.53.1",
         "vitest": "4.0.17"
     }
 }

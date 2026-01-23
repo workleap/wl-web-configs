@@ -9,7 +9,7 @@
         "build": "storybook build",
         "serve-build": "pnpm http-server storybook-static -p 8080 -P http://localhost:8080? -c-1",
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
-        "typecheck": "tsc"
+        "typecheck": "tsgo"
     },
     "dependencies": {
         "react": "19.2.3",
@@ -18,12 +18,13 @@
     "devDependencies": {
         "@eslint/js": "9.39.2",
         "@rsbuild/core": "1.7.2",
-        "@rslib/core": "0.19.2",
-        "@storybook/addon-a11y": "10.1.11",
-        "@storybook/react": "10.1.11",
-        "@types/react": "19.2.8",
+        "@rslib/core": "0.19.3",
+        "@storybook/addon-a11y": "10.2.0",
+        "@storybook/react": "10.2.0",
+        "@types/react": "19.2.9",
         "@types/react-dom": "19.2.3",
-        "@typescript-eslint/parser": "8.53.0",
+        "@typescript-eslint/parser": "8.53.1",
+        "@typescript/native-preview": "7.0.0-dev.20260122.4",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
@@ -31,10 +32,10 @@
         "browserslist": "4.28.1",
         "eslint": "9.39.2",
         "http-server": "14.1.1",
-        "storybook": "10.1.11",
-        "storybook-addon-rslib": "3.2.0",
-        "storybook-react-rsbuild": "3.2.0",
+        "storybook": "10.2.0",
+        "storybook-addon-rslib": "3.2.2",
+        "storybook-react-rsbuild": "3.2.2",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.53.0"
+        "typescript-eslint": "8.53.1"
     }
 }

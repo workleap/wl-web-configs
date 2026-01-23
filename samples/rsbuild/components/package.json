@@ -13,7 +13,7 @@
     "scripts": {
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
-        "typecheck": "tsc",
+        "typecheck": "tsgo",
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "peerDependencies": {
@@ -23,22 +23,23 @@
     "devDependencies": {
         "@eslint/js": "9.39.2",
         "@rsbuild/core": "1.7.2",
-        "@testing-library/react": "16.3.1",
-        "@types/react": "19.2.8",
+        "@testing-library/react": "16.3.2",
+        "@types/react": "19.2.9",
         "@types/react-dom": "19.2.3",
-        "@typescript-eslint/parser": "8.53.0",
+        "@typescript-eslint/parser": "8.53.1",
+        "@typescript/native-preview": "7.0.0-dev.20260122.4",
         "@vitejs/plugin-react": "5.1.2",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
-        "happy-dom": "20.1.0",
+        "happy-dom": "20.3.4",
         "identity-obj-proxy": "3.0.0",
-        "prettier": "3.7.4",
-        "storybook-react-rsbuild": "3.2.0",
+        "prettier": "3.8.1",
+        "storybook-react-rsbuild": "3.2.2",
         "stylelint": "16.26.1",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.53.0",
+        "typescript-eslint": "8.53.1",
         "vitest": "4.0.17"
     }
 }
