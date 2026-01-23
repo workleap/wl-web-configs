@@ -6,8 +6,7 @@ minimumReleaseAge: 1440
 
 minimumReleaseAgeExclude:
   - '@workleap*'
-  - '@typescript/native-preview'
-  - '@typescript/native-preview-win32-x64'
+  - '@typescript/native-preview*'
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
