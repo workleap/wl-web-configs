@@ -1,5 +1,11 @@
 # @workleap/rsbuild-configs
 
+## 3.2.1
+
+### Patch Changes
+
+- [#365](https://github.com/workleap/wl-web-configs/pull/365) [`613960a`](https://github.com/workleap/wl-web-configs/commit/613960a979c64bcb782552a31a30edc3611faa6b) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Bumped dependencies
+
 ## 3.2.0
 
 ### Minor Changes
