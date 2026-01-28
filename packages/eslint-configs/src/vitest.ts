@@ -37,6 +37,7 @@ export function defineVitestConfig(options: VitestConfigOptions = {}) {
         rules: {
             ...vitestPlugin.configs.recommended.rules,
             "vitest/no-commented-out-tests": "off",
+            "vitest/no-focused-tests": "warn",
             // Positioned last to allow the consumer to override any rules.
             ...rules
         }
