@@ -17,19 +17,19 @@
         "test": "jest"
     },
     "peerDependencies": {
-        "react": "19.2.3",
-        "react-dom": "19.2.3"
+        "react": "19.2.4",
+        "react-dom": "19.2.4"
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@swc/core": "1.15.10",
+        "@swc/core": "1.15.11",
         "@swc/jest": "0.2.39",
         "@testing-library/react": "16.3.2",
         "@types/jest": "30.0.0",
-        "@types/react": "19.2.9",
+        "@types/react": "19.2.10",
         "@types/react-dom": "19.2.3",
-        "@typescript-eslint/parser": "8.53.1",
-        "@typescript/native-preview": "7.0.0-dev.20260122.4",
+        "@typescript-eslint/parser": "8.54.0",
+        "@typescript/native-preview": "7.0.0-dev.20260128.1",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
@@ -39,11 +39,11 @@
         "jest": "30.2.0",
         "jest-environment-jsdom": "30.2.0",
         "prettier": "3.8.1",
-        "react": "19.2.3",
-        "react-dom": "19.2.3",
+        "react": "19.2.4",
+        "react-dom": "19.2.4",
         "stylelint": "16.26.1",
         "ts-node": "10.9.2",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.53.1"
+        "typescript-eslint": "8.54.0"
     }
 }
