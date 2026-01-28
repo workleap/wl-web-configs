@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 1.1.11
+
+### Patch Changes
+
+- [#365](https://github.com/workleap/wl-web-configs/pull/365) [`613960a`](https://github.com/workleap/wl-web-configs/commit/613960a979c64bcb782552a31a30edc3611faa6b) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Update vitest rules to allow trigger a warning rather than a error for focus tests (.only) and bumped dependencies.
+
 ## 1.1.10
 
 ### Patch Changes

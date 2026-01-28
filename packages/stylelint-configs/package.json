@@ -2,7 +2,7 @@
     "name": "@workleap/stylelint-configs",
     "author": "Workleap",
     "description": "Workleap recommended Stylelint configurations.",
-    "version": "2.1.6",
+    "version": "2.1.7",
     "license": "Apache-2.0",
     "publishConfig": {
         "access": "public",
