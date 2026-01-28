@@ -37,7 +37,7 @@
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "peerDependencies": {
-        "@swc/core": "^1.15.10",
+        "@swc/core": "^1.15.11",
         "@swc/helpers": "^0.5.18",
         "@swc/jest": "^0.2.39",
         "browserslist": "^4.28.1"
@@ -54,15 +54,15 @@
         "@eslint/js": "9.39.2",
         "@rsbuild/core": "1.7.2",
         "@rslib/core": "0.19.3",
-        "@types/node": "25.0.9",
-        "@typescript-eslint/parser": "8.53.1",
-        "@typescript/native-preview": "7.0.0-dev.20260122.4",
+        "@types/node": "25.1.0",
+        "@typescript-eslint/parser": "8.54.0",
+        "@typescript/native-preview": "7.0.0-dev.20260128.1",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.53.1",
-        "vitest": "4.0.17"
+        "typescript-eslint": "8.54.0",
+        "vitest": "4.0.18"
     }
 }
