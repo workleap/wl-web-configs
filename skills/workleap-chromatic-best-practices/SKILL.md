@@ -40,11 +40,11 @@ If no Chromatic configuration exists, ask the user if they want to set it up.
 
 ### Step 2: Audit and Fix Each Practice
 
-#### 2.1 Check `untraced` Configuration
+#### 2.1 Check `untraced` Configuration (Optional)
 
 **Find:** `chromatic.config.json`
 
-**Required configuration:**
+**Optional configuration:**
 
 ```json
 {
@@ -53,9 +53,17 @@ If no Chromatic configuration exists, ask the user if they want to set it up.
 }
 ```
 
-**Action if missing:** Create or update `chromatic.config.json` with the `untraced` option.
+**Trade-off:** Adding `package.json` to `untraced` reduces snapshot costs but may cause missed visual regressions when updating NPM packages that include breaking visual changes (e.g., UI library updates like Hopper).
 
-**Why:** Package.json changes trigger full builds but rarely affect visual output.
+**When to use `untraced`:**
+- Projects where dependency updates rarely affect visuals
+- Teams that manually verify visual changes after dependency updates
+
+**When to avoid `untraced`:**
+- Projects heavily dependent on UI libraries (Hopper, design systems)
+- When visual regression detection for dependency updates is critical
+
+**Action:** Ask the user about their preference. If they want to reduce costs and accept the trade-off, add the `untraced` option. Otherwise, skip this optimization.
 
 #### 2.2 Audit Storybook Preview Imports
 
@@ -271,7 +279,7 @@ After completing the audit, provide a summary:
 
 | Practice | Status | Action Required |
 |----------|--------|-----------------|
-| `untraced` config | ✅/❌ | [action] |
+| `untraced` config (optional) | ✅/❌/N/A | [action or user declined] |
 | Preview barrel imports | ✅/❌ | [action] |
 | No local Chromatic scripts | ✅/❌ | [action] |
 | CI label-based triggering | ✅/❌ | [action] |
@@ -288,6 +296,7 @@ After completing the audit, provide a summary:
 
 ### Recommendations
 - [list of suggested improvements that require user decision]
+- Consider adding `untraced` for package.json (trade-off: may miss UI library regressions)
 - Configure branch ruleset to exclude Renovate/Changesets branches
 - Add `run chromatic` as a required status check
 ```
@@ -302,7 +311,7 @@ TurboSnap analyzes Git changes to snapshot only affected stories. These patterns
 |-------------|-------|
 | Storybook preview | `.storybook/preview.ts[x]` |
 | Barrel file dependencies | Any `index.ts[x]` imported by preview |
-| Package dependencies | `**/package.json` (use `untraced`) |
+| Package dependencies | `**/package.json` (optionally use `untraced`) |
 | Large shared files | Routes, constants, localization |
 | Shallow git clone | Missing `fetch-depth: 0` |
 
