@@ -60,9 +60,14 @@ Include source files for debugging with source maps:
 ```ts
 // rslib.build.ts
 import { defineBuildConfig } from "@workleap/rslib-configs";
+import path from "node:path";
 
-export default defineBuildConfig();
+export default defineBuildConfig({
+    tsconfigPath: path.resolve("./tsconfig.build.json")
+});
 ```
+
+**Note**: `tsconfigPath` is required when using bundleless output (the default). It tells Rslib which files to include based on the tsconfig's `include` field.
 
 ### Predefined Options
 
@@ -138,9 +143,14 @@ export default defineBuildConfig({
 ```ts
 // rslib.dev.ts
 import { defineDevConfig } from "@workleap/rslib-configs";
+import path from "node:path";
 
-export default defineDevConfig();
+export default defineDevConfig({
+    tsconfigPath: path.resolve("./tsconfig.build.json")
+});
 ```
+
+**Note**: `tsconfigPath` is required when using bundleless output (the default).
 
 ### Predefined Options
 
