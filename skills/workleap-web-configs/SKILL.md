@@ -25,6 +25,7 @@ Workleap's shared configuration library for web tooling. Provides pre-configured
 ## Philosophy
 
 - **No lock-in**: Default configurations can always be extended or overridden
+- **By project type**: Configurations are composed internally and offered per project type for simplicity
 - **ESM/ESNext by default**: Targets modern JavaScript environments
 - **Distributed via NPM**: Easy to adopt new features by bumping package versions
 
@@ -64,6 +65,15 @@ extends @workleap/browserslist-config
 ```
 
 Only for projects emitting application bundles. Libraries should NOT include Browserslist.
+
+To add custom browser targets while still using the shared config:
+
+```text
+# .browserslistrc
+extends @workleap/browserslist-config
+IE 11
+last 2 OperaMobile 12.1 versions
+```
 
 ## Detailed Documentation
 
