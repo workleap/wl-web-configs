@@ -1,0 +1,1 @@
+Review the `workleap-chromatic-best-practices` skill you created in the `./skills/workleap-chromatic-best-practices` directory and make sure that all the best practices are included. This skill should enable agents to audit a repository, identify violations, make fixes and report findings about Chromatic.
