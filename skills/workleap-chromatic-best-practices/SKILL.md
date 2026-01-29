@@ -12,6 +12,7 @@ description: |
   (6) Refactoring barrel file imports in Storybook preview files
   (7) Reviewing PRs for Chromatic cost impact
   (8) Setting up Chromatic in a new Turborepo project
+  (9) Checking for local Chromatic usage that should be removed
 ---
 
 # Workleap Chromatic Best Practices
@@ -32,6 +33,7 @@ chromatic.config.json
 .storybook/preview.tsx
 .github/workflows/*chromatic*.yml
 .github/workflows/*storybook*.yml
+package.json (scripts section)
 ```
 
 If no Chromatic configuration exists, ask the user if they want to set it up.
@@ -83,39 +85,115 @@ import { I18nProvider } from "@app/providers/I18nProvider";
 
 **Action:** Refactor to direct imports. If the direct path doesn't exist, note it as a recommendation.
 
-#### 2.3 Check CI Workflow for Conditional Execution
+#### 2.3 Check for Local Chromatic Usage
+
+**Find:** `package.json` scripts section
+
+**Bad patterns:**
+
+```json
+{
+  "scripts": {
+    "chromatic": "chromatic",
+    "test:visual": "chromatic --project-token=...",
+    "storybook:test": "chromatic"
+  }
+}
+```
+
+**Action:** Remove or comment out local Chromatic scripts. Chromatic should only run from CI via pull requests, never locally.
+
+**Why:** Running Chromatic locally triggers the entire visual test suite, wasting snapshots.
+
+#### 2.4 Check CI Workflow for Label-Based Triggering
 
 **Find:** GitHub Actions workflow files that run Chromatic
 
-**Required pattern - label-based triggering:**
+**Required pattern:**
 
 ```yaml
 on:
+  push:
+    branches:
+      - main
   pull_request:
-    types: [labeled, synchronize]
+    branches:
+      - main
+    types:
+      - opened
+      - labeled
+  workflow_dispatch:
 
 jobs:
   chromatic:
-    if: contains(github.event.pull_request.labels.*.name, 'ready-for-chromatic')
-    # or similar label-based condition
+    steps:
+      - name: Early exit if "run chromatic" label is not present
+        if: github.event_name == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'run chromatic')
+        run: |
+          echo "No \"run chromatic\" label present. Skipping Chromatic workflow."
+          exit 78
 ```
 
-**Bad patterns to fix:**
+**Bad patterns:**
 
 ```yaml
-# BAD - runs on every PR
+# BAD - runs on every PR without label check
 on:
   pull_request:
 
-# BAD - runs on every push
-on:
-  push:
-    branches: [main]
+jobs:
+  chromatic:
+    # No label check
 ```
 
-**Action:** Update workflow to use label-based triggering. Common label names: `ready-for-chromatic`, `chromatic`, `visual-review`.
+**Action:** Add label-based conditional execution. The label name should be `run chromatic`.
 
-#### 2.4 Check Browser Configuration
+#### 2.5 Check CI Workflow for Required Flags
+
+**Find:** Chromatic action step in CI workflow
+
+**Required flags:**
+
+```yaml
+- name: Chromatic
+  uses: chromaui/action@latest
+  with:
+    projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    onlyChanged: true        # Enables TurboSnap
+    exitOnceUploaded: true   # Faster CI, doesn't wait for build
+    autoAcceptChanges: main  # Auto-accept on main branch
+```
+
+**Check for:**
+- `onlyChanged: true` - Required for TurboSnap
+- `exitOnceUploaded: true` - Recommended for faster CI
+- `autoAcceptChanges: main` - Recommended to auto-accept baseline on main
+
+**Action:** Add missing flags to the Chromatic action.
+
+#### 2.6 Check CI Workflow for Proper Git Checkout
+
+**Find:** Checkout step in CI workflow
+
+**Required configuration:**
+
+```yaml
+- name: Checkout
+  uses: actions/checkout@v6
+  with:
+    fetch-depth: 0  # Required for TurboSnap
+    ref: ${{ github.event.pull_request.head.ref }}
+  env:
+    CHROMATIC_BRANCH: ${{ github.event.pull_request.head.ref || github.ref_name }}
+    CHROMATIC_SHA: ${{ github.event.pull_request.head.sha || github.ref }}
+    CHROMATIC_SLUG: ${{ github.repository }}
+```
+
+**Critical check:** `fetch-depth: 0` is required for TurboSnap to work properly.
+
+**Action:** Add `fetch-depth: 0` and Chromatic environment variables if missing.
+
+#### 2.7 Check Browser Configuration
 
 **Find:** Chromatic CLI flags in CI workflow or `chromatic.config.json`
 
@@ -124,19 +202,23 @@ on:
 ```yaml
 # BAD - doubles/triples snapshot count
 npx chromatic --browsers chrome,firefox
-npx chromatic --browsers chrome,safari,firefox
 ```
 
 **Required:** Chrome only (default, no flag needed)
 
-```yaml
-# GOOD - single browser
-npx chromatic
-```
+**Action:** Remove multi-browser flags unless explicitly required.
 
-**Action:** Remove multi-browser flags unless explicitly required by the project.
+#### 2.8 Check for Renovate/Changesets Exclusion
 
-#### 2.5 Identify Large Files in Preview Dependencies
+**Find:** CI workflow and branch ruleset configuration
+
+**Recommendation:** Exclude Renovate bot and Changesets branches from the required status check ruleset, not from the workflow itself.
+
+**Action:** Document recommendation to configure branch ruleset to exclude:
+- `renovate/*` branches
+- `changeset-release/*` branches
+
+#### 2.9 Identify Large Files in Preview Dependencies
 
 **Scan files imported by `.storybook/preview.ts[x]`** for problematic patterns:
 
@@ -150,6 +232,34 @@ npx chromatic
 
 **Action:** Document findings and recommend splitting into smaller, focused modules.
 
+#### 2.10 Check for Workflow Optimizations
+
+**Find:** CI workflow file
+
+**Recommended patterns:**
+
+```yaml
+# Concurrency to cancel in-progress runs
+concurrency:
+  group: chromatic-${{ github.ref }}
+  cancel-in-progress: true
+
+# Label removal after completion
+- name: Remove "run chromatic" label after Chromatic completion
+  if: github.event_name == 'pull_request'
+  uses: actions/github-script@v8
+  with:
+    script: |
+      github.rest.issues.removeLabel({
+          owner: context.repo.owner,
+          repo: context.repo.repo,
+          issue_number: context.issue.number,
+          name: 'run chromatic'
+      });
+```
+
+**Action:** Add concurrency settings and label removal step if missing.
+
 ### Step 3: Generate Audit Report
 
 After completing the audit, provide a summary:
@@ -161,17 +271,25 @@ After completing the audit, provide a summary:
 
 | Practice | Status | Action Required |
 |----------|--------|-----------------|
-| `untraced` config | ✅/❌ | [action if needed] |
-| Preview imports | ✅/❌ | [action if needed] |
-| CI label trigger | ✅/❌ | [action if needed] |
-| Browser config | ✅/❌ | [action if needed] |
-| Large file deps | ✅/❌ | [action if needed] |
+| `untraced` config | ✅/❌ | [action] |
+| Preview barrel imports | ✅/❌ | [action] |
+| No local Chromatic scripts | ✅/❌ | [action] |
+| CI label-based triggering | ✅/❌ | [action] |
+| CI `onlyChanged: true` flag | ✅/❌ | [action] |
+| CI `fetch-depth: 0` | ✅/❌ | [action] |
+| CI Chromatic env vars | ✅/❌ | [action] |
+| Chrome-only snapshots | ✅/❌ | [action] |
+| CI concurrency settings | ✅/❌ | [action] |
+| CI label auto-removal | ✅/❌ | [action] |
+| Large file dependencies | ✅/❌ | [action] |
 
 ### Changes Made
 - [list of files modified]
 
 ### Recommendations
 - [list of suggested improvements that require user decision]
+- Configure branch ruleset to exclude Renovate/Changesets branches
+- Add `run chromatic` as a required status check
 ```
 
 ## Reference: Why These Practices Matter
@@ -184,8 +302,9 @@ TurboSnap analyzes Git changes to snapshot only affected stories. These patterns
 |-------------|-------|
 | Storybook preview | `.storybook/preview.ts[x]` |
 | Barrel file dependencies | Any `index.ts[x]` imported by preview |
-| Package dependencies | `**/package.json` |
+| Package dependencies | `**/package.json` (use `untraced`) |
 | Large shared files | Routes, constants, localization |
+| Shallow git clone | Missing `fetch-depth: 0` |
 
 ### Snapshot Cost Multipliers
 
@@ -197,10 +316,10 @@ TurboSnap analyzes Git changes to snapshot only affected stories. These patterns
 
 ### CI Trigger Strategy
 
-Running Chromatic on every PR commit wastes snapshots on work-in-progress. Label-based triggering:
-- Developers add label when PR is ready for visual review
-- Prevents snapshot waste on draft/WIP PRs
-- Typical labels: `ready-for-chromatic`, `visual-review`
+Running Chromatic on every PR commit wastes snapshots on work-in-progress:
+- Use `run chromatic` label to trigger workflow
+- Auto-remove label after completion
+- Make workflow a required status check to remind reviewers
 
 ## Monorepo-Specific Audit
 
@@ -208,12 +327,19 @@ For Turborepo/monorepo projects, additional checks:
 
 1. **Per-package Chromatic configs:** Each package with Storybook should have its own `chromatic.config.json`
 
-2. **Filtered CI runs:** Workflow should use Turborepo filtering:
+2. **Turborepo cache in CI:** Workflow should restore/save Turborepo cache:
    ```yaml
-   - run: pnpm turbo run chromatic --filter="...[origin/main]"
+   - name: Restore Turborepo cache
+     uses: actions/cache/restore@v5
+     with:
+       key: ${{ runner.os }}-turbo-chromatic-${{ github.sha }}
+       restore-keys: |
+         ${{ runner.os }}-turbo-chromatic-
+         ${{ runner.os }}-turbo-
+       path: .turbo
    ```
 
-3. **Module-level triggering:** Changes to shared packages should only trigger Chromatic for dependent modules
+3. **Module-level triggering:** For modular architecture, configure CI to run Chromatic only for affected modules
 
 ## Critical Rules
 
