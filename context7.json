@@ -1,15 +1,4 @@
 {
-    "$schema": "https://context7.com/schema/context7.json",
-    "projectTitle": "Workleap Web Configs",
-    "description": "Shared configurations for building web applications at Workleap.",
-    "folders": [
-        "docs"
-    ],
-    "excludeFolders": [
-        "docs/updating",
-        "docs/postcss",
-        "docs/swc",
-        "docs/tsup",
-        "docs/webpack"
-    ]
+    "url": "https://context7.com/workleap/wl-web-configs",
+    "public_key": "pk_8QxhgW07sKCtS7dS26DFe"
 }
