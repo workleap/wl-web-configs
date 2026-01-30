@@ -6,7 +6,7 @@ storybook-static
 .turbo
 .rslib
 .retype
-.claude
+.claude/settings.local.json
 
 # Mac
 .DS_Store
