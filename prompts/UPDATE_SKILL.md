@@ -1,4 +1,4 @@
-Review the `workleap-web-configs` skill you created in the `./skills/workleap-web-configs` directory and make sure that all API definition and examples match the current documentation available in the `./docs` folder. Ignore libraries in maintenance mode, vitest, syncpack, Chromatic or updates. Do not make mistake.
+Review the `workleap-web-configs` skill you created in the `./agent-skills/workleap-web-configs` directory and make sure that all API definition and examples match the current documentation available in the `./docs` folder. Ignore libraries in maintenance mode, vitest, syncpack, Chromatic or updates. Do not make mistake.
 
 Validate that the skill can still answer the following questions:
 
