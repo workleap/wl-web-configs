@@ -9,51 +9,6 @@ toc:
 
 Information about Web Configs libraries can be shared with different agents using [agent skills](https://skills.sh/) or the [Context7](https://context7.com/) MCP server.
 
-<!-- ## Install agent skills
-
-Two skills are currently available:
-
-| Name | Description |
-| --- | --- |
-| [workleap-web-configs](https://skills.sh/workleap/wl-web-configs/workleap-web-configs) | An agent skill that helps developers understand, set up, and customize Workleap's shared web tooling configurations. |
-| [workleap-chromatic-best-practices](https://skills.sh/workleap/wl-web-configs/workleap-chromatic-best-practices) | An agent skill that guides developers on applying Workleap's documented Chromatic best practices. |
-
-!!!tip
-At installation, the `skills.sh` CLI will prompt you to choose whether to install the skill globally or within a project. We recommend installing it **locally** so it is available for code review tools such as [Claude Code code review](https://github.com/anthropics/claude-code-action).
-!!!
-
-### `workleap-web-configs`
-
-:point_right: Open a terminal and install the agent skill by running the following command:
-
-```bash
-npx skills add https://github.com/workleap/wl-web-configs --skill workleap-web-configs
-```
-
-#### Try it :rocket:
-
-Once the skill is installed, start an agent and ask it to set up a new project:
-
-```
-I'm creating a new React + TypeScript web application from scratch. Set up the project to use Workleap shared configs for ESLint, TypeScript and Rsbuild.
-```
-
-### `workleap-chromatic-best-practices`
-
-:point_right: Open a terminal and install the agent skill by running the following command:
-
-```bash
-npx skills add https://github.com/workleap/wl-web-configs --skill workleap-chromatic-best-practices
-```
-
-#### Try it :rocket:
-
-Once the skill is installed, start an agent and ask it to set up a new project:
-
-```
-Audit the Chromatic setup in my project and propose improvements based on Workleap's Chromatic best practices.
-``` -->
-
 ## Install agent skills
 
 Two skills are currently available:
@@ -150,7 +105,7 @@ Open the Extensions view in VS Code and locate the `context7` MCP server. Click 
 
 ### Claude Code
 
-To install Context7 with Claude Code, open a terminal and execute one of the following command:
+To install Context7 with Claude Code, open a terminal and execute one of the following commands:
 
 +++ Remote server connection
 ```bash
