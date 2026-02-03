@@ -12,6 +12,10 @@ toc:
 To help Workleap stay within its monthly [Chromatic](https://www.chromatic.com/) snapshot budget, we ask teams to follow these best practices.
 
 !!!tip
+To audit your repository best practices with an agent, use the [workleap-chromatic-best-practices](../introduction/use-with-agents.md#install-agent-skills) agent skill.
+!!!
+
+!!!tip
 For CI workflow examples, see the [setup a Chromatic workflow](./setup-a-workflow.md) and [setup a Chromatic workflow with Turborepo](./setup-turborepo-workflow.md) pages.
 !!!
 
