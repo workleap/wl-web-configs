@@ -16,6 +16,7 @@ The skill must:
 * Not suggest undocumented, deprecated, or discouraged approaches.
 * Not provide generic ESLint, TypeScript, or build-tool advice unless it directly maps to `wl-web-configs`.
 * Ignore libraries that are in maintenance mode.
+* Not have a description exceeding a maximum length of 1024 characters.
 
 The agent should assume:
 
