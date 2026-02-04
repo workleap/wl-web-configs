@@ -1,21 +1,17 @@
 ---
 name: workleap-web-configs
 description: |
-  Guide for using Workleap's shared web configuration packages (@workleap/eslint-configs, @workleap/typescript-configs, @workleap/rsbuild-configs, @workleap/rslib-configs, @workleap/stylelint-configs, @workleap/browserslist-config).
+  Guide for Workleap's shared web configuration packages: @workleap/eslint-configs, @workleap/typescript-configs, @workleap/rsbuild-configs, @workleap/rslib-configs, @workleap/stylelint-configs, and @workleap/browserslist-config.
 
   Use this skill when:
-  (1) Setting up or modifying shared web tooling configurations for a Workleap project
-  (2) Configuring ESLint with @workleap/eslint-configs (defineWebApplicationConfig, defineReactLibraryConfig, defineTypeScriptLibraryConfig, defineMonorepoWorkspaceConfig)
-  (3) Configuring TypeScript with @workleap/typescript-configs (web-application, library, monorepo-workspace)
-  (4) Configuring Rsbuild with @workleap/rsbuild-configs (defineDevConfig, defineBuildConfig, defineStorybookConfig)
-  (5) Configuring Rslib with @workleap/rslib-configs for library projects
-  (6) Configuring Stylelint with @workleap/stylelint-configs
-  (7) Configuring Browserslist with @workleap/browserslist-config
-  (8) Customizing or extending shared configurations
-  (9) Setting up monorepo (Turborepo) vs polyrepo configuration strategies
-  (10) Troubleshooting configuration or compatibility issues with wl-web-configs packages
-  (11) Questions about ESM/ESNext configuration constraints in Workleap projects
-  (12) Configuring Storybook with Rsbuild or Rslib
+  (1) Setting up or modifying shared web tooling configs in a Workleap project
+  (2) ESLint config with @workleap/eslint-configs (defineWebApplicationConfig, defineReactLibraryConfig, defineTypeScriptLibraryConfig, defineMonorepoWorkspaceConfig)
+  (3) TypeScript config with @workleap/typescript-configs (web-application, library, monorepo-workspace)
+  (4) Rsbuild config with @workleap/rsbuild-configs (defineDevConfig, defineBuildConfig, defineStorybookConfig)
+  (5) Rslib config with @workleap/rslib-configs for libraries
+  (6) Stylelint and Browserslist shared configs
+  (7) Extending configs or monorepo (Turborepo) vs polyrepo strategies
+  (8) Troubleshooting wl-web-configs, ESM/ESNext constraints, or Storybook with Rsbuild/Rslib
 ---
 
 # wl-web-configs
