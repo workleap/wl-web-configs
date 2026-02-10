@@ -17,15 +17,15 @@
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@rsbuild/core": "1.7.2",
-        "@rspack/core": "1.7.4",
-        "@storybook/addon-a11y": "10.2.1",
-        "@storybook/addon-links": "10.2.1",
-        "@storybook/react": "10.2.1",
-        "@types/react": "19.2.10",
+        "@rsbuild/core": "1.7.3",
+        "@rspack/core": "1.7.5",
+        "@storybook/addon-a11y": "10.2.8",
+        "@storybook/addon-links": "10.2.8",
+        "@storybook/react": "10.2.8",
+        "@types/react": "19.2.13",
         "@types/react-dom": "19.2.3",
-        "@typescript-eslint/parser": "8.54.0",
-        "@typescript/native-preview": "7.0.0-dev.20260128.1",
+        "@typescript-eslint/parser": "8.55.0",
+        "@typescript/native-preview": "7.0.0-dev.20260209.1",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rsbuild-configs": "workspace:*",
@@ -33,9 +33,9 @@
         "browserslist": "4.28.1",
         "eslint": "9.39.2",
         "http-server": "14.1.1",
-        "storybook": "10.2.1",
+        "storybook": "10.2.8",
         "storybook-react-rsbuild": "3.2.2",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.54.0"
+        "typescript-eslint": "8.55.0"
     }
 }
