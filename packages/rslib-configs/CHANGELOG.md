@@ -1,5 +1,11 @@
 # @workleap/rslib-configs
 
+## 1.1.7
+
+### Patch Changes
+
+- [#378](https://github.com/workleap/wl-web-configs/pull/378) [`6353d7a`](https://github.com/workleap/wl-web-configs/commit/6353d7a6a27d1ab5ae45e9881126716744bfd826) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Bumped dependencies.
+
 ## 1.1.6
 
 ### Patch Changes
