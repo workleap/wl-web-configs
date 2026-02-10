@@ -33,23 +33,23 @@
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "peerDependencies": {
-        "@rslib/core": "^0.19.3"
+        "@rslib/core": "^0.19.5"
     },
     "dependencies": {
-        "@rsbuild/plugin-react": "^1.4.3",
+        "@rsbuild/plugin-react": "^1.4.5",
         "@rsbuild/plugin-svgr": "^1.3.0"
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@rslib/core": "0.19.3",
-        "@types/node": "25.1.0",
-        "@typescript-eslint/parser": "8.54.0",
-        "@typescript/native-preview": "7.0.0-dev.20260128.1",
+        "@rslib/core": "0.19.5",
+        "@types/node": "25.2.2",
+        "@typescript-eslint/parser": "8.55.0",
+        "@typescript/native-preview": "7.0.0-dev.20260209.1",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.54.0",
+        "typescript-eslint": "8.55.0",
         "vitest": "4.0.18"
     }
 }
