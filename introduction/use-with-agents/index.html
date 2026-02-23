@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview3.824004960148">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0-preview3.825129399414">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0-preview3">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=3.12.0-preview3.824004960148" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0-preview3.825129399414" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview3.824004960148" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0-preview3.825129399414" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0-preview3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview3.824004960148" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview3.824004960148" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0-preview3.825129399414" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0-preview3.825129399414" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -314,6 +314,10 @@
 <td><a href="https://skills.sh/workleap/wl-web-configs/workleap-chromatic-best-practices" class="outbound" target="_blank">workleap-chromatic-best-practices</a></td>
 <td>An agent skill that guides developers on applying Workleap&#x27;s documented Chromatic best practices.</td>
 </tr>
+<tr>
+<td><a href="https://skills.sh/workleap/wl-web-configs/workleap-react-best-practices" class="outbound" target="_blank">workleap-react-best-practices</a></td>
+<td>An agent skill that guides developers in applying Workleap’s documented React best practices. It is inspired by <a href="https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices" class="outbound" target="_blank">vercel-react-best-practices</a>, but adapted for a SPA that does not rely on the Vercel ecosystem.</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -322,13 +326,19 @@
 <doc-tab v-cloak id="workleap-web-configs">
 <template #title>workleap-web-configs</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">npx skills add https://github.com/workleap/wl-web-configs --skill workleap-web-configs</code></pre>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpx skills add https://github.com/workleap/wl-web-configs --skill workleap-web-configs</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 <doc-tab v-cloak id="workleap-chromatic-best-practices">
 <template #title>workleap-chromatic-best-practices</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">npx skills add https://github.com/workleap/wl-web-configs --skill workleap-chromatic-best-practices</code></pre>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpx skills add https://github.com/workleap/wl-web-configs --skill workleap-chromatic-best-practices</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="workleap-react-best-practices">
+<template #title>workleap-react-best-practices</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpx skills add https://github.com/workleap/wl-web-configs --skill workleap-react-best-practices</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 </doc-tabs>
