@@ -21,7 +21,7 @@ workspace
 
 Then, open the newly created file and copy/paste the following content:
 
-```yaml !#5-16,29-30,33-38,43-45,47-50,68-74,76-86 .github/workflows/chromatic.yml
+```yaml !#5-16,29-30,33-37,42-44,46-49,67-73,75-85 .github/workflows/chromatic.yml
 name: Chromatic
 
 # PNPM setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time.
@@ -58,8 +58,7 @@ jobs:
         if: github.event_name == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'run chromatic')
         run: |
           echo "No \"run chromatic\" label present. Skipping Chromatic workflow."
-          # exit as neutral.
-          exit 78
+          exit 1
 
       - name: Checkout
         uses: actions/checkout@v6
