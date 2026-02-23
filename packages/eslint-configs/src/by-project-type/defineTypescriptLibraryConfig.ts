@@ -45,6 +45,7 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
             "**/__snapshots__/*",
             ".playwright",
             ".turbo",
+            ".github/aw",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
             ...jsonGlobalIgnores,

@@ -32,6 +32,7 @@ export function defineMonorepoWorkspaceConfig(tsconfigRootDir: string, options: 
             "dist",
             ".playwright",
             ".turbo",
+            ".github/aw",
             ...coreGlobalIgnores,
             ...jsonGlobalIgnores,
             ...packageJsonGlobalIgnores,

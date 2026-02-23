@@ -54,6 +54,7 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
             "**/__snapshots__/*",
             ".playwright",
             ".turbo",
+            ".github/aw",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
             ...jsonGlobalIgnores,

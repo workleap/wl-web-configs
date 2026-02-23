@@ -17,16 +17,21 @@ Two skills are available:
 | --- | --- |
 | [workleap-web-configs](https://skills.sh/workleap/wl-web-configs/workleap-web-configs) | An agent skill that helps developers understand, set up, and customize Workleap's shared web tooling configurations. |
 | [workleap-chromatic-best-practices](https://skills.sh/workleap/wl-web-configs/workleap-chromatic-best-practices) | An agent skill that guides developers on applying Workleap's documented Chromatic best practices. |
+| [workleap-react-best-practices](https://skills.sh/workleap/wl-web-configs/workleap-react-best-practices) | An agent skill that guides developers in applying Workleap’s documented React best practices. It is inspired by [vercel-react-best-practices](https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices), but adapted for a SPA that does not rely on the Vercel ecosystem. |
 
 Open a terminal and install the agent skills by running the following commands:
 
 +++ workleap-web-configs
 ```bash
-npx skills add https://github.com/workleap/wl-web-configs --skill workleap-web-configs
+pnpx skills add https://github.com/workleap/wl-web-configs --skill workleap-web-configs
 ```
 +++ workleap-chromatic-best-practices
 ```bash
-npx skills add https://github.com/workleap/wl-web-configs --skill workleap-chromatic-best-practices
+pnpx skills add https://github.com/workleap/wl-web-configs --skill workleap-chromatic-best-practices
+```
++++ workleap-react-best-practices
+```bash
+pnpx skills add https://github.com/workleap/wl-web-configs --skill workleap-react-best-practices
 ```
 +++
 

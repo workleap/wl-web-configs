@@ -55,6 +55,7 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
             ".netlify",
             ".playwright",
             ".turbo",
+            ".github/aw",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
             ...jsonGlobalIgnores,
