@@ -12,6 +12,8 @@ description: |
   (6) Stylelint and Browserslist shared configs
   (7) Extending configs or monorepo (Turborepo) vs polyrepo strategies
   (8) Troubleshooting wl-web-configs, ESM/ESNext constraints, or Storybook with Rsbuild/Rslib
+metadata:
+  version: 1.0
 ---
 
 # wl-web-configs
