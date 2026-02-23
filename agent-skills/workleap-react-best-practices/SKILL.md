@@ -1,6 +1,8 @@
 ---
 name: workleap-react-best-practices
 description: React performance optimization guidelines for Single Page Applications (SPA) at Workleap. Use when writing, reviewing, or refactoring React SPA code to ensure optimal performance patterns. Triggers on tasks involving React components, state management, bundle optimization, re-render prevention, rendering performance, or JavaScript performance improvements. Covers async waterfall elimination, bundle size reduction, re-render optimization, rendering efficiency, JS micro-optimizations, and advanced React patterns. Does NOT cover server-side rendering (SSR), Next.js, or server components.
+metadata:
+  version: 1.0
 ---
 
 # Workleap React Best Practices

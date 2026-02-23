@@ -13,6 +13,8 @@ description: |
   (7) Reviewing PRs for Chromatic cost impact
   (8) Setting up Chromatic in a new Turborepo project
   (9) Checking for local Chromatic usage that should be removed
+metadata:
+  version: 1.0
 ---
 
 # Workleap Chromatic Best Practices
