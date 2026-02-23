@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 1.1.13
+
+### Patch Changes
+
+- [#381](https://github.com/workleap/wl-web-configs/pull/381) [`c684f88`](https://github.com/workleap/wl-web-configs/commit/c684f8887dfe9c6a9634a4eec637bf22590b391b) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Added .github/aw to the ignore list
+
 ## 1.1.12
 
 ### Patch Changes
