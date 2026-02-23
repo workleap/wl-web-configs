@@ -434,7 +434,7 @@ export default defineDevConfig({
             svgrOptions: {
                 ...(defaultOptions.svgrOptions ?? {}),
                 ref: true
-            }
+            },
             ...defaultOptions,
 
         }

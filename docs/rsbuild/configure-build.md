@@ -367,7 +367,7 @@ export default defineBuildConfig({
             svgrOptions: {
                 ...(defaultOptions.svgrOptions ?? {}),
                 ref: true
-            }
+            },
             ...defaultOptions,
 
         }
