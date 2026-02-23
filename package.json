@@ -45,7 +45,8 @@
         "update-outdated-deps": "pnpm run --sequential \"/^update-outdated-deps:.*/\"",
         "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !eslint !@eslint/js !stylelint !stylelint-config-standard",
         "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !eslint !@eslint/js !stylelint !stylelint-config-standard",
-        "update-outdated-deps:update-peers": "syncpack fix-mismatches"
+        "update-outdated-deps:update-peers": "syncpack fix",
+        "update-outdated-deps:fix-pkg-json": "eslint --fix --no-cache --no-ignore package.json **/package.json"
     },
     "devDependencies": {
         "@changesets/changelog-github": "0.5.2",
@@ -61,7 +62,7 @@
         "pkg-pr-new": "0.0.63",
         "prettier": "3.8.1",
         "retypeapp": "3.11.0",
-        "syncpack": "13.0.4",
+        "syncpack": "14.0.0",
         "turbo": "2.8.3",
         "typescript": "5.9.3",
         "typescript-eslint": "8.55.0"
