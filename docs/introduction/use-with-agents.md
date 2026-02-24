@@ -11,7 +11,7 @@ Information about Web Configs libraries can be shared with different agents usin
 
 ## Install agent skills
 
-Two skills are available:
+A few skills are available for this library:
 
 | Name | Description |
 | --- | --- |
