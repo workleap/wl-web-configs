@@ -6,13 +6,14 @@ description: |
   (2) A skill's YAML description is verbose or triggers false positives from sibling skills
   (3) Planning or executing a body/reference split for a skill
   (4) Auditing skill token efficiency
+disable-model-invocation: true
 metadata:
   version: 1.1
 ---
 
 # Skill Optimizer
 
-Reduce skill token cost without losing coverage. Every token in SKILL.md body is paid per conversation — references/ files are loaded on-demand.
+Every token in SKILL.md body is paid per conversation — references/ files are loaded on-demand.
 
 ## Optimization Workflow
 
