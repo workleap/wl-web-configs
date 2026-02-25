@@ -73,9 +73,8 @@ Apply the plan. Work in this order:
 
 1. **Compress the description** — rewrite the YAML `description` field. Keep all trigger categories; do not remove any "when to use" signals.
 2. **Remove duplicate sections from body** — delete sections already covered in references.
-3. **Add the Reference Guide section** — add explicit pointers to each reference file with descriptions. See the [playbook](references/optimization-playbook.md#reference-guide-pattern) for the recommended format.
-4. **Add a Maintenance Note** — add a note at the bottom of the body with: (a) the body-line budget (~250 lines), (b) a pointer to the ADR if one exists, and (c) a one-sentence rationale for the split. See the [playbook template](references/optimization-playbook.md#maintenance-note-template).
-5. **Bump version** — increment `metadata.version` minor if the skill uses versioning.
+3. **Add the Reference Guide section** — add explicit pointers to each reference file with descriptions. This section is the primary signal that tells both agents and future editors where detailed content lives. Each entry should clearly describe what the file covers so editors naturally add new content to the appropriate reference file rather than the body. See the [playbook](references/optimization-playbook.md#reference-guide-pattern) for the recommended format.
+4. **Bump version** — increment `metadata.version` minor if the skill uses versioning.
 
 Do NOT:
 - Move "when to use" triggers from description to body (description is the only field read for triggering)
@@ -121,7 +120,3 @@ After validation, produce a summary table:
 ## Reference
 
 For detailed checklists, before/after examples, and the full validation methodology, see [optimization-playbook.md](references/optimization-playbook.md).
-
-## Maintenance Note
-
-Body budget: ~120 lines (general target for optimized skills: ~250). The optimization workflow and decision rules are the core value and stay in the body; expanded examples, checklists, and the decision tree live in the playbook reference.

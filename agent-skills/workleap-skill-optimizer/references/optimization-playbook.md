@@ -7,7 +7,6 @@ Expanded checklists, decision trees, examples, and templates that support the wo
 - [Pre-Optimization Checklist](#pre-optimization-checklist)
 - [Body Retention Decision Tree](#body-retention-decision-tree)
 - [Reference Guide Pattern](#reference-guide-pattern)
-- [Maintenance Note Template](#maintenance-note-template)
 - [Validation Question Generation](#validation-question-generation)
 - [Common Anti-Patterns](#common-anti-patterns)
 - [Recording Decisions in an ADR](#recording-decisions-in-an-adr)
@@ -72,19 +71,6 @@ Rules:
 - List 2-3 specific topics per file so agents can decide whether to read it
 - Every reference file must have a pointer — an unlinked file is undiscoverable
 
-## Maintenance Note Template
-
-Add at the bottom of the optimized SKILL.md:
-
-```markdown
-## Maintenance Note
-
-Body budget: ~N lines. [Brief rationale for the split — what was moved and why].
-[Optional: pointer to the ADR if one was created, e.g., "See [ADR-NNNN](path/to/adr)."]
-New content goes in the appropriate `references/` file — only add to the body
-if it is a critical pattern needed in nearly every conversation.
-```
-
 ## Validation Question Generation
 
 If the user does not provide validation questions, derive them from the description trigger categories:
@@ -116,7 +102,11 @@ Only create reference files that contain real content moved from the body or sup
 
 ## Recording Decisions in an ADR
 
-If the repository uses ADRs, record the optimization decisions. The ADR should capture:
+Recording an ADR is optional. The optimizer does not depend on prior ADRs — it re-derives the split rationale by analyzing the current body and reference files in Phase 1/2. The Reference Guide section in the skill body is the primary record of what lives where.
+
+**If there is no existing ADR directory or ADR convention in the repository, do not create one and do not record optimization decisions anywhere.** Do not add optimization metadata, budgets, or split rationale to the skill file itself — the skill body must only contain content relevant to the skill's domain.
+
+If the repository already uses ADRs (e.g., an existing `docs/adr/` or `decisions/` directory), you may optionally capture the reasoning. Include:
 
 1. Body size before/after (lines and estimated tokens)
 2. Which sections were retained and which retention criterion each met
@@ -126,6 +116,5 @@ If the repository uses ADRs, record the optimization decisions. The ADR should c
 6. The body-line budget for future updates
 
 Then add pointers to the ADR from:
-- The skill's Maintenance Note (for interactive agent sessions)
 - Any automated sync workflow prompts (for CI agents)
 - The ADR README index
