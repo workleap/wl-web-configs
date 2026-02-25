@@ -8,7 +8,7 @@ description: |
   (4) Auditing skill token efficiency
 disable-model-invocation: true
 metadata:
-  version: 1.1
+  version: 1.2
 ---
 
 # Skill Optimizer

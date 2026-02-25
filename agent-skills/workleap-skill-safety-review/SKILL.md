@@ -7,7 +7,7 @@ description: >
   (3) Building a team/org allowlist of approved skills,
   (4) Investigating suspicious skill behavior or answering "is this skill safe?" / "should we adopt this skill?"
 metadata:
-  version: 1.2
+  version: 1.3
 ---
 
 # Agent Skill Safety Evaluation
