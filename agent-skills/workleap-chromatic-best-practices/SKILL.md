@@ -10,7 +10,7 @@ description: |
   (4) Reviewing PRs for Chromatic snapshot cost impact
   (5) Configuring Chromatic in Turborepo/monorepo projects
 metadata:
-  version: 1.1
+  version: 1.2
 ---
 
 # Workleap Chromatic Best Practices

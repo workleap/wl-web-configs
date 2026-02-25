@@ -11,7 +11,7 @@ description: |
   (5) Configuring Stylelint, Browserslist, or monorepo (Turborepo) vs polyrepo strategies
   (6) Extending or customizing shared configs, troubleshooting ESM/ESNext constraints
 metadata:
-  version: 1.1
+  version: 1.2
 ---
 
 # wl-web-configs
