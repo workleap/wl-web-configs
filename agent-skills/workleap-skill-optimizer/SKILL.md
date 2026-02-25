@@ -6,6 +6,7 @@ description: |
   (2) A skill's YAML description is verbose or triggers false positives from sibling skills
   (3) Planning or executing a body/reference split for a skill
   (4) Auditing skill token efficiency
+disable-model-invocation: true
 metadata:
   version: 1.1
 ---
@@ -87,7 +88,7 @@ Do NOT:
 Use the `Task` tool to spawn a subagent (opus model) to challenge coverage. Provide it:
 1. The full SKILL.md (body + frontmatter)
 2. All reference files
-3. A list of 15-25 questions the skill must answer (provided by the user, or derived from trigger categories — see the [playbook](references/optimization-playbook.md#validation-question-generation) for derivation rules)
+3. A list of 15-25 validation questions. **Prompt the user** (via `AskUserQuestion`) to provide questions the skill must answer. If the user declines or has none, derive them from the description trigger categories — see the [playbook](references/optimization-playbook.md#validation-question-generation) for derivation rules.
 
 The subagent evaluates each question:
 - **From SKILL.md alone**: YES / PARTIAL / NO

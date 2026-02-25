@@ -1,19 +1,17 @@
 ---
 name: workleap-web-configs
 description: |
-  Guide for Workleap's shared web configuration packages: @workleap/eslint-configs, @workleap/typescript-configs, @workleap/rsbuild-configs, @workleap/rslib-configs, @workleap/stylelint-configs, and @workleap/browserslist-config.
+  Workleap's shared web configuration packages (@workleap/eslint-configs, typescript-configs, rsbuild-configs, rslib-configs, stylelint-configs, browserslist-config).
 
-  Use this skill when:
-  (1) Setting up or modifying shared web tooling configs in a Workleap project
-  (2) ESLint config with @workleap/eslint-configs (defineWebApplicationConfig, defineReactLibraryConfig, defineTypeScriptLibraryConfig, defineMonorepoWorkspaceConfig)
-  (3) TypeScript config with @workleap/typescript-configs (web-application, library, monorepo-workspace)
-  (4) Rsbuild config with @workleap/rsbuild-configs (defineDevConfig, defineBuildConfig, defineStorybookConfig)
-  (5) Rslib config with @workleap/rslib-configs for libraries
-  (6) Stylelint and Browserslist shared configs
-  (7) Extending configs or monorepo (Turborepo) vs polyrepo strategies
-  (8) Troubleshooting wl-web-configs, ESM/ESNext constraints, or Storybook with Rsbuild/Rslib
+  Use when:
+  (1) Setting up or customizing shared web tooling configs in a Workleap project
+  (2) Configuring ESLint by project type (web app, React library, TS library, monorepo)
+  (3) Configuring TypeScript by project type (web-application, library, monorepo-workspace)
+  (4) Configuring Rsbuild or Rslib bundling (dev, build, Storybook)
+  (5) Configuring Stylelint, Browserslist, or monorepo (Turborepo) vs polyrepo strategies
+  (6) Extending or customizing shared configs, troubleshooting ESM/ESNext constraints
 metadata:
-  version: 1.0
+  version: 1.1
 ---
 
 # wl-web-configs
@@ -73,56 +71,15 @@ IE 11
 last 2 OperaMobile 12.1 versions
 ```
 
-## Detailed Documentation
+## Reference Guide
 
-For comprehensive setup guides and options, read the appropriate reference file:
+For comprehensive setup guides, options, and examples, read the appropriate reference file:
 
-- **ESLint**: See [references/eslint.md](references/eslint.md)
-- **TypeScript**: See [references/typescript.md](references/typescript.md)
-- **Rsbuild**: See [references/rsbuild.md](references/rsbuild.md)
-- **Rslib**: See [references/rslib.md](references/rslib.md)
-- **Stylelint**: See [references/stylelint.md](references/stylelint.md)
-
-## Common Patterns
-
-### Customizing Default Rules
-
-All `define*` functions accept a second argument for customization:
-
-```ts
-// ESLint example
-export default defineWebApplicationConfig(import.meta.dirname, {
-    core: { "no-var": "off" },
-    typescript: { "@stylistic/quote-props": "off" }
-});
-```
-
-```json
-// TypeScript example - tsconfig.json
-{
-    "extends": ["@workleap/typescript-configs/web-application.json"],
-    "compilerOptions": { "strict": false },
-    "exclude": ["dist", "node_modules"]
-}
-```
-
-### Configuration Transformers (Advanced)
-
-For full control over Rsbuild/Rslib configs:
-
-```ts
-import { defineDevConfig, type RsbuildConfigTransformer } from "@workleap/rsbuild-configs";
-
-const customTransformer: RsbuildConfigTransformer = (config) => {
-    config.tools = config.tools ?? {};
-    // modify config
-    return config;
-};
-
-export default defineDevConfig({
-    transformers: [customTransformer]
-});
-```
+- **ESLint** — [references/eslint.md](references/eslint.md): Installation, `define*Config` functions, rule categories, customization, and VS Code integration
+- **TypeScript** — [references/typescript.md](references/typescript.md): Config files by project type, compiler option overrides, path mappings, and CLI scripts
+- **Rsbuild** — [references/rsbuild.md](references/rsbuild.md): Dev/build/Storybook configs, predefined options, transformers, and Turborepo setup
+- **Rslib** — [references/rslib.md](references/rslib.md): Library build/dev/Storybook configs, bundleless vs bundle, transformers, and type declarations
+- **Stylelint** — [references/stylelint.md](references/stylelint.md): Installation, `.stylelintrc.json` setup, Prettier integration, and VS Code settings
 
 ## Critical Rules
 
@@ -131,3 +88,7 @@ export default defineDevConfig({
 3. **ESM by default**: All configs target ESM/ESNext unless migrating legacy code
 4. **Browserslist for apps only**: Libraries should not include Browserslist config
 5. **TypeScript for linting**: The shared TypeScript configs focus on linting; bundlers handle transpilation
+
+## Maintenance Note
+
+Body budget: ~100 lines. The quick-reference tables and Browserslist config stay in the body (primary use case); comprehensive per-tool guides live in `references/`. Customization examples and configuration transformers are documented in each tool's reference file.
