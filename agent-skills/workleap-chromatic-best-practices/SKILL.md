@@ -68,7 +68,3 @@ For detailed documentation beyond the workflow above, consult:
 
 - **`references/audit-checks.md`** — Full check procedures with code examples, detection patterns, fix actions, and the audit report template
 - **`references/background.md`** — TurboSnap preservation rules, snapshot cost multipliers, CI trigger strategy, monorepo-specific checks
-
-## Maintenance Note
-
-Body budget: ~75 lines. The audit workflow overview and check summary table stay in the body as the primary orchestration pattern; detailed per-check code examples and background context live in references. New content goes in the appropriate `references/` file — only add to the body if it is a critical pattern needed in nearly every conversation.

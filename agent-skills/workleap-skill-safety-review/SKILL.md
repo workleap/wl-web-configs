@@ -115,7 +115,3 @@ For detailed analysis checklists and threat intelligence, consult:
 - **`references/static-analysis-checklist.md`** — All 11 static analysis checks with severity, detection patterns, and benign exceptions
 - **`references/known-threats.md`** — Known malicious actors, attack vectors beyond static analysis, and key security research
 - **`references/evaluation-report.md`** — Report template for Phase 5 output and structured evaluation format
-
-## Maintenance Note
-
-Body budget: ~120 lines (target: ~250). The five-phase evaluation workflow and decision logic stay in the body; the detailed static analysis checklist, threat intelligence, and report template live in reference files. New evaluation criteria should go in the appropriate `references/` file — only add to the body if it is a critical decision-making pattern needed in every evaluation.
