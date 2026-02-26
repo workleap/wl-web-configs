@@ -18,7 +18,7 @@ You are an automated code reviewer for this repository. Analyze the PR diff for 
 
 ## Agent skills
 
-When performing code reviews, load and use agent skills from `.agents/skills/`. Apply the skill mapping defined in [agent-skills.md](../../agent-docs/docs/references/agent-skills.md) (both "By file type" and "By import" tables) to the changed lines in the PR diff.
+When performing code reviews, load and use relevant agent skills from `.agents/skills/` based on the file types and libraries present in the changed code.
 
 ## Issues reporting
 

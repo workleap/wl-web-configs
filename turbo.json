@@ -4,13 +4,11 @@
     "tasks": {
         "dev": {
             "dependsOn": ["^build"],
-            "env": ["USE_MSW", "NETLIFY", "VERBOSE"],
             "cache": false,
             "persistent": true
         },
         "dev-msw": {
             "dependsOn": ["^build"],
-            "env": ["USE_MSW", "NETLIFY", "VERBOSE"],
             "cache": false,
             "persistent": true
         },
