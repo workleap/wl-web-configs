@@ -46,6 +46,7 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
             ".playwright",
             ".turbo",
             ".github/aw",
+            "skills-lock.json",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
             ...jsonGlobalIgnores,

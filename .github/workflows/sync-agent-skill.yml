@@ -1,0 +1,76 @@
+name: Sync agent skill
+
+on:
+  push:
+    branches: [main]
+    paths: ["docs/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: sync-agent-skill
+  cancel-in-progress: true
+
+jobs:
+  # claude-code-action does not support "push" events.
+  # Re-dispatch as workflow_dispatch so the action receives a supported event type.
+  dispatch-on-push:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Need 2 commits so the agent can diff against HEAD~1.
+          fetch-depth: 2
+
+      # Skip bot commits (e.g., changeset version-packages, dependency updates) to avoid
+      # invoking the Claude agent unnecessarily. The paths-ignore filter catches most bot
+      # commits, but some (like dependency updates touching packages/) slip through.
+      - name: Check for bot commit
+        id: bot-check
+        run: |
+          AUTHOR=$(git log -1 --format='%an')
+          if [[ "$AUTHOR" == *"[bot]"* ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Re-dispatch as workflow_dispatch
+        if: steps.bot-check.outputs.skip != 'true'
+        run: gh workflow run sync-agent-skill.yml --ref main
+        env:
+          # Required by gh CLI to trigger the workflow_dispatch.
+          GH_TOKEN: ${{ github.token }}
+
+  sync-agent-skill:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync agent skill with docs
+        uses: anthropics/claude-code-action@v1
+        with:
+          prompt: |
+            Read and follow the instructions in .github/prompts/sync-agent-skill.md
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # The dispatch-on-push job re-triggers this workflow via gh workflow run,
+          # which sets the actor to "github-actions" (type: Bot). claude-code-action's
+          # checkHumanActor rejects non-User actors unconditionally; allowed_bots is
+          # the only way to authorize this dispatch pattern.
+          allowed_bots: "github-actions"
+          show_full_output: true
+          claude_args: >-
+            --max-turns 100
+            --allowedTools Edit,Read,Write,Glob,Grep,Task,Bash(git:*),Bash(gh:*)
+        env:
+          # Required by gh CLI to create PRs.
+          GH_TOKEN: ${{ github.token }}

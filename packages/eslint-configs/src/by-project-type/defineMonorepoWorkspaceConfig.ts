@@ -33,6 +33,7 @@ export function defineMonorepoWorkspaceConfig(tsconfigRootDir: string, options: 
             ".playwright",
             ".turbo",
             ".github/aw",
+            "skills-lock.json",
             ...coreGlobalIgnores,
             ...jsonGlobalIgnores,
             ...packageJsonGlobalIgnores,
