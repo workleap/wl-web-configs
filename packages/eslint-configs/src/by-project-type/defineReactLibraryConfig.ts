@@ -55,6 +55,7 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
             ".playwright",
             ".turbo",
             ".github/aw",
+            "skills-lock.json",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
             ...jsonGlobalIgnores,

@@ -56,6 +56,7 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
             ".playwright",
             ".turbo",
             ".github/aw",
+            "skills-lock.json",
             ...coreGlobalIgnores,
             ...jestGlobalIgnores,
             ...jsonGlobalIgnores,

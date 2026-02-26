@@ -5,7 +5,8 @@ export default defineConfig([
     globalIgnores([
         "packages",
         "samples",
-        "docs"
+        "docs",
+        "skills-lock.json"
     ]),
     defineMonorepoWorkspaceConfig(import.meta.dirname)
 ]);

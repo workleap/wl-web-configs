@@ -1,6 +1,5 @@
 {
-    "$schema": "https://turbo.build/schema.json",
-    "globalEnv": ["USE_MSW", "NETLIFY", "VERBOSE"],
+    "$schema": "./node_modules/turbo/schema.json",
     "ui": "tui",
     "tasks": {
         "dev": {
@@ -15,6 +14,7 @@
         },
         "build": {
             "dependsOn": ["^build"],
+            "env": ["USE_MSW", "NETLIFY", "VERBOSE"],
             "outputs": ["dist/**", "storybook-static/**"]
         },
         "serve-build": {
@@ -23,7 +23,8 @@
             "persistent": true
         },
         "deploy": {
-            "dependsOn": ["build"]
+            "dependsOn": ["build"],
+            "cache": false
         },
         "lint": {
             "dependsOn": ["eslint", "//#eslint", "stylelint", "typecheck", "//#typecheck", "//#syncpack"]
