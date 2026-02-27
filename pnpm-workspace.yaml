@@ -15,7 +15,9 @@ onlyBuiltDependencies:
   - agent-browser
   - core-js
   - core-js-pure
+  - edgedriver
   - esbuild
+  - geckodriver
   - msw
   - netlify-cli
   - sharp
