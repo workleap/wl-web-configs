@@ -16,6 +16,11 @@
       "sourceType": "github",
       "computedHash": "d473204df25defd08a7d47b55c6d124b41ebde440b774995952b65223d0d8d6f"
     },
+    "rsbuild-best-practices": {
+      "source": "rstackjs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "f4492b475155e925645753f32276b2aa77b7d565444527f528a8506d0b40477f"
+    },
     "turborepo": {
       "source": "vercel/turborepo",
       "sourceType": "github",
