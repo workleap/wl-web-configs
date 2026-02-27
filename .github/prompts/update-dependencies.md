@@ -83,7 +83,7 @@ All tests must pass. If a test fails, run the failing package's tests directly (
 
 ### Step 2c: Validate the rsbuild sample app
 
-Use `pnpx agent-browser` for all browser interactions in this step. Read the locally installed agent skill at `.agents/skills/agent-browser/` to learn the available commands. **Important**: the skill examples use bare `agent-browser` commands, but you MUST always prefix with `pnpx` (e.g., `agent-browser open <url>` becomes `pnpx agent-browser open <url>`). Running a build is NOT sufficient — you must start the dev server and validate in a real browser.
+Use `agent-browser` for all browser interactions in this step. It is installed as a workspace devDependency. Read the locally installed agent skill at `.agents/skills/agent-browser/` to learn the available commands. **Important**: do NOT use `screenshot` — always use `snapshot` for page verification (it returns an accessibility tree which is faster and more reliable for validation). Running a build is NOT sufficient — you must start the dev server and validate in a real browser.
 
 1. Start the dev server in the background using the shell `&` operator (do NOT use `run_in_background: true`): `pnpm dev-rsbuild > /tmp/rsbuild-dev.log 2>&1 &`
 2. The rsbuild app listens on port **8080**. Wait for it to be ready — do NOT use `sleep`, do NOT write polling loops, do NOT parse the log file for a URL. Instead, immediately run: `curl --retry 30 --retry-delay 5 --retry-connrefused --silent --output /dev/null http://localhost:8080`
@@ -91,12 +91,12 @@ Use `pnpx agent-browser` for all browser interactions in this step. Read the loc
    - `/` (Home page)
    - `/about`
    - `/fetch`
-4. For each page, use `pnpx agent-browser snapshot` to verify the page rendered content, and use `pnpx agent-browser console` to check for console errors (ignore warnings and known noise like network errors from `/api/pokemons` when MSW is not enabled)
+4. For each page, use `agent-browser snapshot` to verify the page rendered content, and use `agent-browser console` to check for console errors (ignore warnings and known noise like network errors from `/api/pokemons` when MSW is not enabled)
 5. Stop the dev server process when done: `kill $(lsof -t -i:8080) 2>/dev/null || true; fuser -k 8080/tcp 2>/dev/null || true`
 
 ### Step 2d: Validate the webpack sample app
 
-Use `pnpx agent-browser` for all browser interactions in this step. Running a build is NOT sufficient — you must start the dev server and validate in a real browser.
+Use `agent-browser` for all browser interactions in this step. It is installed as a workspace devDependency. **Important**: do NOT use `screenshot` — always use `snapshot` for page verification. Running a build is NOT sufficient — you must start the dev server and validate in a real browser.
 
 1. Ensure port 8080 is free (it was used by the rsbuild app in Step 2c).
 2. Start the dev server in the background using the shell `&` operator (do NOT use `run_in_background: true`): `pnpm dev-webpack > /tmp/webpack-dev.log 2>&1 &`
@@ -105,17 +105,17 @@ Use `pnpx agent-browser` for all browser interactions in this step. Running a bu
    - `/` (Home page)
    - `/about`
    - `/fetch`
-5. For each page, use `pnpx agent-browser snapshot` to verify the page rendered content, and use `pnpx agent-browser console` to check for console errors (ignore warnings and known noise like network errors from `/api/pokemons` when MSW is not enabled)
+5. For each page, use `agent-browser snapshot` to verify the page rendered content, and use `agent-browser console` to check for console errors (ignore warnings and known noise like network errors from `/api/pokemons` when MSW is not enabled)
 6. Stop the dev server process when done: `kill $(lsof -t -i:8080) 2>/dev/null || true; fuser -k 8080/tcp 2>/dev/null || true`
 
 ### Step 2e: Validate the rsbuild storybook
 
-Use `pnpx agent-browser` for all browser interactions in this step. Running a build is NOT sufficient — you must start the dev server and validate in a real browser.
+Use `agent-browser` for all browser interactions in this step. It is installed as a workspace devDependency. **Important**: do NOT use `screenshot` — always use `snapshot` for page verification. Running a build is NOT sufficient — you must start the dev server and validate in a real browser.
 
 1. Start the dev server in the background using the shell `&` operator (do NOT use `run_in_background: true`): `pnpm dev-storybook-rsbuild > /tmp/storybook-rsbuild-dev.log 2>&1 &`
 2. The storybook app listens on port **6006**. Wait for it to be ready — do NOT use `sleep`, do NOT write polling loops, do NOT parse the log file for a URL. Instead, immediately run: `curl --retry 30 --retry-delay 5 --retry-connrefused --silent --output /dev/null http://localhost:6006`
 3. Navigate to http://localhost:6006 and verify it loads correctly
-4. Click on at least one story in the sidebar (e.g., the **Button** story) and verify it renders without errors. Use `pnpx agent-browser snapshot` to verify the rendered content and `pnpx agent-browser console` to check for console errors (ignore warnings and known noise)
+4. Click on at least one story in the sidebar (e.g., the **Button** story) and verify it renders without errors. Use `agent-browser snapshot` to verify the rendered content and `agent-browser console` to check for console errors (ignore warnings and known noise)
 5. Stop the dev server process when done: `kill $(lsof -t -i:6006) 2>/dev/null || true; fuser -k 6006/tcp 2>/dev/null || true`
 
 ## Step 3: Success
