@@ -1,7 +1,7 @@
 ---
 name: workleap-web-configs
 description: |
-  Workleap's shared web configuration packages (@workleap/eslint-configs, typescript-configs, rsbuild-configs, rslib-configs, stylelint-configs, browserslist-config).
+  Workleap's shared web configuration packages (@workleap/eslint-configs, @workleap/typescript-configs, @workleap/rsbuild-configs, @workleap/rslib-configs, @workleap/stylelint-configs, @workleap/browserslist-config).
 
   Use when:
   (1) Setting up or customizing shared web tooling configs in a Workleap project
