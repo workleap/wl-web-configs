@@ -30,6 +30,14 @@ When in doubt, do NOT report the finding.
 - A workspace glob like `samples/**` that correctly matches the actual directory structure
 - An env var that exists at runtime but isn't in `globalEnv` — only flag it if there's evidence of actual cache correctness issues, not just because it's "missing" from a list
 
+## Accepted findings (ignore list)
+
+The following patterns have been reviewed and accepted by maintainers. Do NOT report them, even if they technically violate a best practice from the skill documentation.
+
+- **CI test step uses `pnpm test --filter=` instead of `pnpm turbo run test`** — The PR test step in `.github/workflows/ci.yml` intentionally uses `pnpm test --filter=...` to run tests directly rather than through turbo orchestration. The `dependsOn` for the test task is satisfied by explicit earlier CI steps that build all packages, so turbo orchestration is not required here.
+
+- **`prelint` lifecycle hook builds packages outside turbo.json dependency graph** — The root `package.json` uses `"prelint": "turbo run build --filter=./packages/*"` to ensure packages are built before linting. This is intentional and necessary because most packages export from `dist/` (not source), so TypeScript type-checking and Stylelint config resolution fail without built artifacts. The transit node pattern alone cannot replace this because it only provides cache invalidation, not actual builds. Converting all packages to source-first exports (`publishConfig.exports`) was evaluated and rejected due to the scope of changes required.
+
 ---
 
 ## Step 1: Load skill documentation

@@ -2,6 +2,10 @@
     "$schema": "./node_modules/turbo/schema.json",
     "ui": "tui",
     "tasks": {
+        "transit": {
+            "dependsOn": ["^transit"],
+            "outputs": []
+        },
         "dev": {
             "dependsOn": ["^build"],
             "cache": false,
@@ -34,10 +38,12 @@
             "outputs": ["node_modules/.cache/eslint"]
         },
         "eslint": {
+            "dependsOn": ["transit"],
             "inputs": ["$TURBO_DEFAULT$", "!README.md", "!src/**/*.css"],
             "outputs": ["node_modules/.cache/eslint"]
         },
         "stylelint": {
+            "dependsOn": ["transit"],
             "outputs": ["node_modules/.cache/stylelint"]
         },
         "//#typecheck": {
@@ -45,6 +51,7 @@
             "outputs": ["node_modules/.cache/tsbuildinfo.json"]
         },
         "typecheck": {
+            "dependsOn": ["transit"],
             "inputs": ["src/**/*.ts", "src/**/*.tsx", "test/**/*.ts", "test/**/*.tsx", "tsconfig.json", "tsconfig.build.json"],
             "outputs": ["node_modules/.cache/tsbuildinfo.json"]
         },
