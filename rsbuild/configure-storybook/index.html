@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Configure for Storybook - Rsbuild</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -294,7 +294,7 @@
     </h2>
 </doc-anchor-target>
 <p>Open a terminal at the root of the Storybook project and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/rsbuild-configs @workleap/browserslist-config @rsbuild/core @rspack/core browserslist storybook-react-rsbuild</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-rsbuild">
@@ -311,7 +311,7 @@
 </doc-anchor-target>
 <p>First, let&#x27;s set up <a href="https://github.com/browserslist/browserslist" class="outbound" target="_blank">Browserlist</a> to define the minimum browser versions supported by the application. Rsbuild will automatically detect and load the browser versions from the nearest <code translate="no" v-pre>.browserslistrc</code> configuration file.</p>
 <p>First, create a <code translate="no" v-pre>browserslistrc</code> file at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="browserslist-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">storybook
 ├── .storybook
 ├──── main.ts
@@ -320,7 +320,7 @@
 ├── package.json</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and extend the default configuration with the shared configuration provided by <code translate="no" v-pre>@workleap/browserslist-config</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="browserslist-code-2" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.browserslistrc</div>
 <pre translate="no" class="language-none"><code v-pre class="language-none">extends @workleap/browserslist-config</code></pre>
 </doc-codeblock></div>
@@ -331,7 +331,7 @@
     </h3>
 </doc-anchor-target>
 <p>Next, create a configuration file named <code translate="no" v-pre>rsbuild.config.ts</code> under the <code translate="no" v-pre>.storybook</code> folder:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="rsbuildconfigts-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">storybook
 ├── .storybook
 ├──── main.ts
@@ -341,7 +341,7 @@
 ├── package.json</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and <code translate="no" v-pre>export</code> the Rsbuild configuration by using the <code translate="no" v-pre>defineStorybookConfig(options)</code> function:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="rsbuildconfigts-rsbuildconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -354,7 +354,7 @@ export default defineStorybookConfig();</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Finally, open the <code translate="no" v-pre>.storybook/main.ts</code> file and set <code translate="no" v-pre>storybook-react-rsbuild</code> as the framework to use:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="maints-maints" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">main.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import type { StorybookConfig } from &quot;storybook-react-rsbuild&quot;;
 
@@ -383,7 +383,7 @@ export default storybookConfig;</code></pre>
 <li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
 <p>Append the provided Rsbuild plugins to the configuration.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="plugins-rsbuildconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="5"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 import { pluginAssetsRetry } from &quot;@rsbuild/plugin-assets-retry&quot;;
@@ -403,7 +403,7 @@ export default defineStorybookConfig({
 <li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
 <p>Whether or not to use <a href="https://rsbuild.dev/config/dev/lazy-compilation" class="outbound" target="_blank">lazy compilation</a>. To enable lazy compilation, set the option to <code translate="no" v-pre>true</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="lazycompilation-rsbuilddevts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -422,7 +422,7 @@ export default defineStorybookConfig({
 <li><strong>Default</strong>: <code translate="no" v-pre>{ js: &quot;cheap-module-source-map&quot;, css: true }</code></li>
 </ul>
 <p>Whether or not to generate <a href="https://rsbuild.dev/config/output/source-map" class="outbound" target="_blank">source map</a>. To disable source map, set the option to <code translate="no" v-pre>false</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="sourcemap-rsbuildconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -431,7 +431,7 @@ export default defineStorybookConfig({
 });</code></pre>
 </doc-codeblock></div>
 <p>To customize the source map <a href="https://rsbuild.dev/config/output/source-map" class="outbound" target="_blank">configuration</a>, provide an object literal.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="sourcemap-rsbuildconfigts-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -452,7 +452,7 @@ export default defineStorybookConfig({
 <li><strong>Default</strong>: <code translate="no" v-pre>defaultOptions =&gt; defaultOptions</code></li>
 </ul>
 <p>Whether or not to transform React code. To disable React code transformation, set the option to <code translate="no" v-pre>false</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="react-rsbuildconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -461,7 +461,7 @@ export default defineStorybookConfig({
 });</code></pre>
 </doc-codeblock></div>
 <p>To customize <a href="https://rsbuild.dev/plugins/list/plugin-react" class="outbound" target="_blank">plugin-react</a>, provide a function to extend the default options.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="react-rsbuildconfigts-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-12"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -488,7 +488,7 @@ export default defineStorybookConfig({
 <li><strong>Default</strong>: <code translate="no" v-pre>defaultOptions =&gt; defaultOptions</code></li>
 </ul>
 <p>Whether or not to handle <code translate="no" v-pre>.svg</code> files with <a href="https://rsbuild.dev/plugins/list/plugin-svgr" class="outbound" target="_blank">plugin-svgr</a>. When the option is set to <code translate="no" v-pre>false</code>, the <code translate="no" v-pre>.svg</code> files will be handled by the <code translate="no" v-pre>asset/resource</code> rule.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="svgr-rsbuildconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -497,7 +497,7 @@ export default defineStorybookConfig({
 });</code></pre>
 </doc-codeblock></div>
 <p>To customize <a href="https://rsbuild.dev/plugins/list/plugin-svgr" class="outbound" target="_blank">plugin-svgr</a>, provide a function extending the default options.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="svgr-rsbuildconfigts-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-13"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -521,11 +521,11 @@ export default defineStorybookConfig({
     </h4>
 </doc-anchor-target>
 <p>When an SVG asset in referenced in TypeScript code, TypeScript may prompt that the module is missing a type definition:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="typings-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">TS2307: Cannot find module './logo.svg' or its corresponding type declarations.</code></pre>
 </doc-codeblock></div>
 <p>To fix this, add a type declaration for the SVG assets, by creating a <code translate="no" v-pre>src/env.d.ts</code> file, and add the type declaration.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="typings-srcenvdts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">src/env.d.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">declare module '*.svg' {
   export const ReactComponent: React.FunctionComponent&lt;
@@ -545,7 +545,7 @@ declare module '*.svg?react' {
     </h4>
 </doc-anchor-target>
 <p>By default, <code translate="no" v-pre>plugin-svgr</code> is configured to support <a href="https://rsbuild.dev/plugins/list/plugin-svgr#named-import" class="outbound" target="_blank">named import</a> for <code translate="no" v-pre>ReactComponent</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="import-images-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-tsx"><code v-pre class="language-tsx">import { ReactComponent as Logo } from &quot;./logo.svg&quot;;
 
 export const App = () =&gt; &lt;Logo /&gt;;</code></pre>
@@ -561,7 +561,7 @@ export const App = () =&gt; &lt;Logo /&gt;;</code></pre>
 <li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
 <p>Start the Rsbuild process with verbose logging turned on.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="verbose-rsbuildconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -603,10 +603,10 @@ export default defineStorybookConfig({
 <li><strong>Type</strong>: <code translate="no" v-pre>((config: RsbuildConfig, context: RsbuildConfigTransformerContext) =&gt; RsbuildConfig)[]</code></li>
 <li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">transformer(config: RsbuildConfig, context: RsbuildConfigTransformerContext) =&gt; RsbuildConfig</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-rsbuildconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-11,14"><code v-pre class="language-typescript">import { defineStorybookConfig, type RsbuildConfigTransformer } from &quot;@workleap/rsbuild-configs&quot;;
 import type { RsbuildConfig } from &quot;@rsbuild/core&quot;;
@@ -631,7 +631,7 @@ export default defineStorybookConfig({
     </h3>
 </doc-anchor-target>
 <p>Generic transformers can use the <code translate="no" v-pre>context</code> parameter to gather additional information about their execution context, like the <code translate="no" v-pre>environment</code> they are operating in.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="execution-context-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="5"><code v-pre class="language-typescript">import type { RsbuildConfigTransformer } from &quot;@workleap/rsbuild-configs&quot;;
 import type { RsbuildConfig } from &quot;@rsbuild/core&quot;;
@@ -658,7 +658,7 @@ export const transformer: RsbuildConfigTransformer = (config: RsbuildConfig) =&g
     </h2>
 </doc-anchor-target>
 <p>Add the following scripts to the project <code translate="no" v-pre>package.json</code> file:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-cli-scripts-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;dev&quot;: &quot;storybook dev -p 6006&quot;,
@@ -678,14 +678,14 @@ export const transformer: RsbuildConfigTransformer = (config: RsbuildConfig) =&g
     </h3>
 </doc-anchor-target>
 <p>We recommend instead to define environment variables using <a href="https://github.com/kentcdodds/cross-env" class="outbound" target="_blank">cross-env</a>. With <code translate="no" v-pre>cross-env</code>, the environment variables will be made available to any Node.js files that are executed by the script process (<code translate="no" v-pre>dev</code> and <code translate="no" v-pre>build</code> in the example below <span class="docs-emoji">&#x1F447;</span>):</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="cross-env-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;dev&quot;: &quot;cross-env DEBUG=true storybook dev -p 6006&quot;,
     &quot;build&quot;: &quot;cross-env DEBUG=true storybook build&quot;
 }</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="cross-env-rsbuildconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="3"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -708,7 +708,7 @@ export default defineStorybookConfig();</code></pre>
 <li><strong>Default</strong>: <code translate="no" v-pre>{}</code></li>
 </ul>
 <p>First, define the variables with <code translate="no" v-pre>environmentVariables</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="environmentvariables-rsbuildconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineStorybookConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -719,7 +719,7 @@ export default defineStorybookConfig({
 });</code></pre>
 </doc-codeblock></div>
 <p>Then, use the variables in any file:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="environmentvariables-srcbuttontsx" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">src/Button.tsx</div>
 <pre translate="no" class="language-tsx" data-line="2"><code v-pre class="language-tsx">export function Button() {
     if (process.env.DEBUG) {

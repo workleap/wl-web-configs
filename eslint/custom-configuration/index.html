@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Custom configuration - ESLint</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -309,7 +309,7 @@
     </h2>
 </doc-anchor-target>
 <p>Each <code translate="no" v-pre>define</code> function accepts an object literal as its second argument. This object allows you to configure options for every <doc-anchor-trigger to="#rules-by-category">rule category</doc-anchor-trigger>. You can disable a default rule by redefining it locally and setting its value to <code translate="no" v-pre>&quot;off&quot;</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="disable-a-default-rule-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 
@@ -326,7 +326,7 @@ export default defineWebApplicationConfig(import.meta.dirname, {
     </h2>
 </doc-anchor-target>
 <p>Each <code translate="no" v-pre>define</code> function accepts an object literal as its second argument. This object allows you to configure options for every <doc-anchor-trigger to="#rules-by-category">rule category</doc-anchor-trigger>. You can update the severity of a rule by defining the rule locally with either the <code translate="no" v-pre>&quot;warn&quot;</code> or <code translate="no" v-pre>&quot;error&quot;</code> severity:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="change-a-default-rule-severity-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 
@@ -343,7 +343,7 @@ export default defineWebApplicationConfig(import.meta.dirname, {
     </h2>
 </doc-anchor-target>
 <p>Each <code translate="no" v-pre>define</code> function accepts an object literal as its second argument. This object allows you to configure options for every <doc-anchor-trigger to="#rules-by-category">rule category</doc-anchor-trigger>. You can update a default rule value by defining the rule locally with its new value:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="change-a-default-rule-value-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 
@@ -360,7 +360,7 @@ export default defineWebApplicationConfig(import.meta.dirname, {
     </h2>
 </doc-anchor-target>
 <p>You can configure additional rules from a third-party <a href="https://eslint.org/docs/latest/use/configure/plugins" class="outbound" target="_blank">ESLint plugin</a> using the plugin&#x27;s extends option, if the plugin supports it:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-plugin-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="6-13"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 import { defineConfig } from &quot;eslint/config&quot;;
@@ -379,7 +379,7 @@ export default defineConfig([
 ]);</code></pre>
 </doc-codeblock></div>
 <p>Or by registering manually the plugin:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-plugin-eslintconfigts-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="6-13"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 import { defineConfig } from &quot;eslint/config&quot;;
@@ -404,7 +404,7 @@ export default defineConfig([
     </h2>
 </doc-anchor-target>
 <p>You can <a href="https://eslint.org/docs/latest/use/configure/ignore" class="outbound" target="_blank">ignore</a> certain files and folders by specifying one or more glob patterns:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="ignore-files-and-folders-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="5-9"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 import { defineConfig, globalIgnores } from &quot;eslint/config&quot;;
@@ -425,7 +425,7 @@ export default defineConfig([
     </h2>
 </doc-anchor-target>
 <p>By default, the <a href="https://vitest.dev/" class="outbound" target="_blank">Vitest</a> ESLint rules are enabled. If your project uses <a href="https://jestjs.io/" class="outbound" target="_blank">Jest</a> instead of Vitest, disable the Vitest rules and enable the Jest rules:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="enable-rules-for-jest-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 

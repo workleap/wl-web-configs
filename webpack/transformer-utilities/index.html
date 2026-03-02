@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Transformer utilities - webpack</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -333,7 +333,7 @@
     </h3>
 </doc-anchor-target>
 <p>Returns a <strong>matcher function</strong> that can be utilized alongside module rules utility functions. The returned matcher function will return <code translate="no" v-pre>true</code> when it encounters a module rule with a loader <strong>matching</strong> the provided <strong>name</strong> value.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="matchloadername-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">const matcher = matchLoaderName(name: string)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters">
@@ -358,7 +358,7 @@
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-webpackconfigjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.config.js</div>
 <pre translate="no" class="language-javascript" data-line="6"><code v-pre class="language-javascript">export default {
     module: {
@@ -371,7 +371,7 @@
     }
 }</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { matchLoaderName } from &quot;@workleap/webpack-configs&quot;;
 
@@ -384,7 +384,7 @@ const matcher = matchLoaderName(&quot;swc-loader&quot;);</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Returns a <strong>matcher function</strong> that can be utilized alongside module rules utility functions. The returned matcher function will return <code translate="no" v-pre>true</code> when it encounters a module rule with a loader <strong>matching</strong> the provided <strong>asset type</strong> value.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="matchassetmoduletype-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">const matcher = matchAssetModuleType(type: AssetModuleType)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-1">
@@ -409,7 +409,7 @@ const matcher = matchLoaderName(&quot;swc-loader&quot;);</code></pre>
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-1-webpackconfigjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.config.js</div>
 <pre translate="no" class="language-javascript" data-line="6"><code v-pre class="language-javascript">export default {
     module: {
@@ -422,7 +422,7 @@ const matcher = matchLoaderName(&quot;swc-loader&quot;);</code></pre>
     }
 }</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-1-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { matchAssetModuleType } from &quot;@workleap/webpack-configs&quot;;
 
@@ -435,7 +435,7 @@ const matcher = matchAssetModuleType(&quot;asset/resource&quot;);</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Returns a <strong>matcher function</strong> that can be utilized alongside module rules utility functions. The returned matcher function will return <code translate="no" v-pre>true</code> when it encounters a module rule with a loader <strong>matching</strong> the provided <strong>test</strong> value.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="matchtest-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">const matcher = matchTest(test: string | RegExp)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-2">
@@ -460,7 +460,7 @@ const matcher = matchAssetModuleType(&quot;asset/resource&quot;);</code></pre>
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-2-webpackconfigjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.config.js</div>
 <pre translate="no" class="language-javascript" data-line="5"><code v-pre class="language-javascript">export default {
     module: {
@@ -473,7 +473,7 @@ const matcher = matchAssetModuleType(&quot;asset/resource&quot;);</code></pre>
     }
 }</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-2-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { matchTest } from &quot;@workleap/webpack-configs&quot;;
 
@@ -486,7 +486,7 @@ const matcher = matchTest(/\.css/i);</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Retrieve the <strong>first</strong> module rule for which the matcher function returns true. If there is more than one match, an error will be thrown.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="findmodulerule-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">const moduleRule = findModuleRule(config: WebpackConfig, matcher: ModuleRuleMatcher)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-3">
@@ -512,7 +512,7 @@ const matcher = matchTest(/\.css/i);</code></pre>
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-3-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { matchAssetModuleType, findModuleRule, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 
@@ -532,7 +532,7 @@ function transformer(config: WebpackConfig) {
     </h3>
 </doc-anchor-target>
 <p>Retrieve <strong>any</strong> module rules for which the matcher function returns true.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="findmodulerules-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">const moduleRules = findModuleRules(config: WebpackConfig, matcher: ModuleRuleMatcher)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-4">
@@ -558,7 +558,7 @@ function transformer(config: WebpackConfig) {
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-4-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { matchAssetModuleType, findModuleRules, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 
@@ -580,7 +580,7 @@ function transformer(config: WebpackConfig) {
     </h3>
 </doc-anchor-target>
 <p>Add the provided module rules <strong>before</strong> the matching module rule. If no matching rule has been found, an error will be thrown.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="addbeforemodulerule-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">addBeforeModuleRule(config: WebpackConfig, matcher: ModuleRuleMatcher, newModuleRules: RuleSetRule[] | RuleSetUseItem[]);</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-5">
@@ -607,7 +607,7 @@ function transformer(config: WebpackConfig) {
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-5-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="10"><code v-pre class="language-typescript">import { matchAssetModuleType, addBeforeModuleRule, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 import type { RuleSetRule } from &quot;webpack&quot;;
@@ -630,7 +630,7 @@ function transformer(config: WebpackConfig) {
     </h3>
 </doc-anchor-target>
 <p>Add the provided module rules <strong>after</strong> the matching module rule. If no matching rule has been found, an error will be thrown.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="addaftermodulerule-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">addAfterModuleRule(config: WebpackConfig, matcher: ModuleRuleMatcher, newModuleRules: RuleSetRule[] | RuleSetUseItem[]);</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-6">
@@ -657,7 +657,7 @@ function transformer(config: WebpackConfig) {
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-6-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="9"><code v-pre class="language-typescript">import { matchAssetModuleType, addAfterModuleRule, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 
@@ -679,7 +679,7 @@ function transformer(config: WebpackConfig) {
     </h3>
 </doc-anchor-target>
 <p>Replace the matching module rule by the new one. If no matching rule has been found, an error will be thrown.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="replacemodulerule-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">replaceModuleRule(config: WebpackConfig, matcher: ModuleRuleMatcher, newModuleRule: RuleSetRule | RuleSetUseItem)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-7">
@@ -706,7 +706,7 @@ function transformer(config: WebpackConfig) {
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-7-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="9"><code v-pre class="language-typescript">import { matchAssetModuleType, replaceModuleRule, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 
@@ -728,7 +728,7 @@ function transformer(config: WebpackConfig) {
     </h3>
 </doc-anchor-target>
 <p>Remove the matching module rules. If no matching rule has been found, an error will be thrown.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="removemodulerules-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">removeModuleRules(config: WebpackConfig, matcher: ModuleRuleMatcher)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-8">
@@ -754,7 +754,7 @@ function transformer(config: WebpackConfig) {
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-8-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { matchAssetModuleType, removeModuleRules, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 
@@ -778,7 +778,7 @@ function transformer(config: WebpackConfig) {
     </h3>
 </doc-anchor-target>
 <p>Returns a <strong>matcher function</strong> that can be utilized alongside plugin utility functions. The returned matcher function will return <code translate="no" v-pre>true</code> when it encounters a plugin <strong>matching</strong> the provided <strong>constructor name</strong> value.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="matchconstructorname-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">const matcher = matchConstructorName(name: string)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-9">
@@ -803,7 +803,7 @@ function transformer(config: WebpackConfig) {
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-9-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { matchConstructorName } from &quot;@workleap/webpack-configs&quot;;
 import HtmlWebpackPlugin from &quot;html-webpack-plugin&quot;;
@@ -817,7 +817,7 @@ const matcher = matchConstructorName(HtmlWebpackPlugin.name);</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Retrieve the <strong>first</strong> plugin for which the matcher function returns true. If there is more than one match, an error will be thrown.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="findplugin-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">const plugin = findPlugin(config: WebpackConfig, matcher: PluginMatcher)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-10">
@@ -843,7 +843,7 @@ const matcher = matchConstructorName(HtmlWebpackPlugin.name);</code></pre>
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-10-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="5"><code v-pre class="language-typescript">import { matchConstructorName, findPlugin, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 import HtmlWebpackPlugin from &quot;html-webpack-plugin&quot;;
@@ -863,7 +863,7 @@ function transformer(config: WebpackConfig) {
     </h3>
 </doc-anchor-target>
 <p>Add the provided plugins <strong>before</strong> the matching plugin. If no plugin has been found, an error will be thrown.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="addbeforeplugin-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">addBeforePlugin(config: WebpackConfig, matcher: PluginMatcher, newPlugins: WebpackPlugin[])</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-11">
@@ -890,7 +890,7 @@ function transformer(config: WebpackConfig) {
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-11-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="11"><code v-pre class="language-typescript">import { matchConstructorName, addBeforePlugin, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 import CircularDependencyPlugin from &quot;circular-dependency-plugin&quot;;
@@ -914,7 +914,7 @@ function transformer(config: WebpackConfig) {
     </h3>
 </doc-anchor-target>
 <p>Add the provided plugins <strong>after</strong> the matching plugin. If no plugin has been found, an error will be thrown.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="addafterplugin-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">addAfterPlugin(config: WebpackConfig, matcher: PluginMatcher, newPlugins: WebpackPlugin[])</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-12">
@@ -941,7 +941,7 @@ function transformer(config: WebpackConfig) {
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-12-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="11"><code v-pre class="language-typescript">import { matchConstructorName, addAfterPlugin, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 import CircularDependencyPlugin from &quot;circular-dependency-plugin&quot;;
@@ -965,7 +965,7 @@ function transformer(config: WebpackConfig) {
     </h3>
 </doc-anchor-target>
 <p>Replace the matching plugin by the new one. If no plugin has been found, an error will be thrown.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="replaceplugin-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">replacePlugin(config: WebpackConfig, matcher: PluginMatcher, newPlugin: WebpackPlugin)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-13">
@@ -992,7 +992,7 @@ function transformer(config: WebpackConfig) {
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-13-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="11"><code v-pre class="language-typescript">import { matchConstructorName, replacePlugin, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 import HtmlWebpackPlugin from &quot;html-webpack-plugin&quot;;
@@ -1016,7 +1016,7 @@ function transformer(config: WebpackConfig) {
     </h3>
 </doc-anchor-target>
 <p>Remove the matching plugin. If no plugin has been found, an error will be thrown.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="removeplugin-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">removePlugin(config: WebpackConfig, matcher: PluginMatcher)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="parameters-14">
@@ -1042,7 +1042,7 @@ function transformer(config: WebpackConfig) {
         <span>Usage</span>
     </h4>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="usage-14-transformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="5"><code v-pre class="language-typescript">import { matchConstructorName, removePlugin, type WebpackConfig } from &quot;@workleap/webpack-configs&quot;;
 import HtmlWebpackPlugin from &quot;html-webpack-plugin&quot;;

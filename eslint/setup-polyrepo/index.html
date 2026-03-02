@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Configure a polyrepo - ESLint</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -294,7 +294,7 @@
     </h2>
 </doc-anchor-target>
 <p>Open a terminal at the root of the solution and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/eslint-configs @eslint/js @typescript-eslint/parser @types/node eslint typescript-eslint</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-eslint">
@@ -304,7 +304,7 @@
     </h2>
 </doc-anchor-target>
 <p>First, create a configuration file named <code translate="no" v-pre>eslint.config.ts</code> at the root of the solution:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-eslint-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">root
 ├── src
 ├──── ...
@@ -319,7 +319,7 @@
     </h3>
 </doc-anchor-target>
 <p>For an application developed with TypeScript and React, use the following configuration:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="web-application-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="3"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 
@@ -332,7 +332,7 @@ export default defineWebApplicationConfig(import.meta.dirname);</code></pre>
     </h3>
 </doc-anchor-target>
 <p>For a TypeScript library developed <strong>with</strong> React, use the following configuration:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="react-library-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="3"><code v-pre class="language-typescript">import { defineReactLibraryConfig } from &quot;@workleap/eslint-configs&quot;;
 
@@ -345,7 +345,7 @@ export default defineReactLibraryConfig(import.meta.dirname);</code></pre>
     </h4>
 </doc-anchor-target>
 <p>If your application is set up with the <a href="https://react.dev/learn/react-compiler" class="outbound" target="_blank">React compiler</a>, enable the React Compiler rules:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="react-compiler-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineReactLibraryConfig } from &quot;@workleap/eslint-configs&quot;;
 
@@ -362,7 +362,7 @@ export default defineReactLibraryConfig(import.meta.dirname, {
     </h3>
 </doc-anchor-target>
 <p>For a TypeScript library developed <strong>without</strong> React, use the following configuration:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="typescript-library-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="3"><code v-pre class="language-typescript">import { defineTypeScriptLibraryConfig } from &quot;@workleap/eslint-configs&quot;;
 
@@ -376,7 +376,7 @@ export default defineTypeScriptLibraryConfig(import.meta.dirname);</code></pre>
 </doc-anchor-target>
 <p>ESLint can be configured to <a href="https://eslint.org/docs/latest/use/configure/ignore" class="outbound" target="_blank">ignore</a> certain files and folders by specifying one or more glob patterns.</p>
 <p>To do so, extend the <code translate="no" v-pre>eslint.config.ts</code> file configuration at the root of the solution:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="ignore-files-and-folders-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="5-9"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 import { defineConfig, globalIgnores } from &quot;eslint/config&quot;;
@@ -414,7 +414,7 @@ export default defineConfig([
 <p><a href="https://eslint.style/" class="outbound" target="_blank">@stylistic/eslint-plugin</a> offers built-in rules for configuring the indentation style of a codebase. However, there&#x27;s a catch: when <a href="https://code.visualstudio.com/docs/editor/codebasics#_formatting" class="outbound" target="_blank">VS Code auto-formatting</a> feature is enabled, it might conflict with the configured indentation rules if they are set differently.</p>
 <p>To guarantee a consistent indentation, we recommend using <a href="https://editorconfig.org/" class="outbound" target="_blank">EditorConfig</a> on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and <a href="https://code.visualstudio.com/" class="outbound" target="_blank">VS Code</a>.</p>
 <p>First, create a <code translate="no" v-pre>.editorconfig</code> file at the root of the solution:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-the-indent-style-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="6"><code v-pre class="language-none">root
 ├── src
 ├──── ...
@@ -423,7 +423,7 @@ export default defineConfig([
 ├── .editorconfig</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and paste the following configuration:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-the-indent-style-editorconfig" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.editorconfig</div>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">root = true
 
@@ -446,7 +446,7 @@ trim_trailing_whitespace = false</code></pre>
     </h2>
 </doc-anchor-target>
 <p>At times, especially when running the CI build, it&#x27;s useful to lint the entire solution using a single command. To do so, add the following script to your solution&#x27;s <code translate="no" v-pre>package.json</code> file:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-cli-script-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;lint:eslint&quot;: &quot;eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint&quot;
@@ -469,7 +469,7 @@ trim_trailing_whitespace = false</code></pre>
     </h2>
 </doc-anchor-target>
 <p>To test your new ESLint setup, open a JavaScript file, type invalid code (e.g. <code translate="no" v-pre>var x = 0;</code>), then save. Open a terminal at the root of the solution and execute the <doc-anchor-trigger to="#add-a-cli-script">CLI script added earlier</doc-anchor-trigger>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm lint:eslint</code></pre>
 </doc-codeblock></div>
 <p>The terminal should output a linting error.</p>

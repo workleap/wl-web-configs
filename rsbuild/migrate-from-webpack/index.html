@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Migrate from webpack - Rsbuild</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -294,11 +294,11 @@
     </h2>
 </doc-anchor-target>
 <p>Open a terminal at the root of the web application project and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="update-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/rsbuild-configs @rsbuild/core @rspack/core</code></pre>
 </doc-codeblock></div>
 <p>Then, using the same terminal, remove the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="update-packages-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm remove @workleap/webpack-configs @swc/core @swc/helpers @workleap/swc-configs webpack webpack-cli webpack-dev-server @workleap/postcss-configs postcss</code></pre>
 </doc-codeblock></div>
 <div class="flex mb-6">
@@ -323,7 +323,7 @@
         <span>Update files</span>
     </h2>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="update-files-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">web-project
 ├── public
 ├──── index.html       --&gt;  U
@@ -349,7 +349,7 @@
 <li>Remove <code translate="no" v-pre>// @ts-check</code>.</li>
 </ul>
 <p>Before:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="webpackdevjs-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">// @ts-check
 
@@ -359,7 +359,7 @@ import { swcConfig } from &quot;./swc.dev.js&quot;;
 export default defineDevConfig(swcConfig);</code></pre>
 </doc-codeblock></div>
 <p>After:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="webpackdevjs-rsbuilddevts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -380,7 +380,7 @@ export default defineDevConfig();</code></pre>
 <li>Remove <code translate="no" v-pre>// @ts-check</code>.</li>
 </ul>
 <p>Before:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="webpackbuildjs-webpackbuildjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.build.js</div>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">// @ts-check
 
@@ -390,7 +390,7 @@ import { swcConfig } from &quot;./swc.build.js&quot;;
 export default defineBuildConfig(swcConfig);</code></pre>
 </doc-codeblock></div>
 <p>After:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="webpackbuildjs-rsbuildbuildts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.build.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { defineBuildConfig } from &quot;@workleap/rsbuild-configs&quot;;
 
@@ -425,7 +425,7 @@ export default defineBuildConfig();</code></pre>
 </doc-anchor-target>
 <p>Replace <code translate="no" v-pre>&lt;%=webpackConfig.output.publicPath%&gt;</code> by <code translate="no" v-pre>&lt;%=assetPrefix%&gt;/</code> (the <code translate="no" v-pre>/</code> is important).</p>
 <p>Before:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="indexhtml-publicindexhtml" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">public/index.html</div>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -438,7 +438,7 @@ export default defineBuildConfig();</code></pre>
 &lt;/html&gt;</code></pre>
 </doc-codeblock></div>
 <p>After:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="indexhtml-publicindexhtml-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">public/index.html</div>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -464,14 +464,14 @@ export default defineBuildConfig();</code></pre>
 </doc-anchor-target>
 <p>Update the <code translate="no" v-pre>dev</code> script to run Rsbuild instead of webpack.</p>
 <p>Before:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="dev-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">&quot;scripts&quot;: {
     &quot;dev&quot;: &quot;webpack serve --config webpack.dev.js&quot;
 }</code></pre>
 </doc-codeblock></div>
 <p>After:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="dev-packagejson-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">&quot;scripts&quot;: {
     &quot;dev&quot;: &quot;rsbuild dev --config rsbuild.dev.ts&quot;
@@ -485,14 +485,14 @@ export default defineBuildConfig();</code></pre>
 </doc-anchor-target>
 <p>Update the <code translate="no" v-pre>build</code> script to run Rsbuild instead of webpack.</p>
 <p>Before:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="build-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">&quot;scripts&quot;: {
     &quot;build&quot;: &quot;webpack --config webpack.build.js&quot;
 }</code></pre>
 </doc-codeblock></div>
 <p>After:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="build-packagejson-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">&quot;scripts&quot;: {
     &quot;build&quot;: &quot;rsbuild build --config rsbuild.build.ts&quot;

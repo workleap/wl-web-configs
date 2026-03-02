@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Configure for build - tsup</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -310,7 +310,7 @@
     </h2>
 </doc-anchor-target>
 <p>Open a terminal at the root of the project and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/tsup-configs tsup typescript</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-tsup">
@@ -320,7 +320,7 @@
     </h2>
 </doc-anchor-target>
 <p>First, create a configuration file named <code translate="no" v-pre>tsup.build.ts</code> at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-tsup-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">web-project
 ├── src
 ├──── ...
@@ -328,7 +328,7 @@
 ├── tsup.build.ts</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and export the tsup configuration by using the <code translate="no" v-pre>defineBuildConfig(options)</code> function:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-tsup-tsupbuildts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">tsup.build.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { defineBuildConfig } from &quot;@workleap/tsup-configs&quot;;
 
@@ -341,7 +341,7 @@ export default defineBuildConfig();</code></pre>
     </h2>
 </doc-anchor-target>
 <p>The <code translate="no" v-pre>defineBuildConfig(options)</code> function can be used as shown in the previous example, however, if you wish to customize the default configuration, the function also accepts any <a href="https://tsup.egoist.dev/#usage" class="outbound" target="_blank">tsup options</a>, <strong>no locked in</strong> <span class="docs-emoji">&#x2764;&#xFE0F;</span><span class="docs-emoji">&#x270C;&#xFE0F;</span>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="use-predefined-options-tsupbuildts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">tsup.build.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineBuildConfig } from &quot;@workleap/tsup-configs&quot;;
 
@@ -383,7 +383,7 @@ export default defineBuildConfig({
 <li><strong>Type</strong>: <code translate="no" v-pre>((config: TsupConfig, context: TsupConfigTransformerContext) =&gt; TsupConfig)[]</code></li>
 <li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-mycustomtransformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">myCustomTransformer.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { type TsupConfigTransformer, type TsupConfig } from &quot;@workleap/tsup-configs&quot;;
 
@@ -395,7 +395,7 @@ export const myCustomTsupTransformer: TsupConfigTransformer = (config: TsupConfi
     return config;
 };</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-tsupbuildts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">tsup.build.ts</div>
 <pre translate="no" class="language-typescript" data-line="5"><code v-pre class="language-typescript">import { defineBuildConfig } from &quot;@workleap/tsup-configs&quot;;
 import { myCustomTsupTransformer } from &quot;@my-library/myCustomTsupTransformer&quot;;
@@ -411,7 +411,7 @@ export default defineBuildConfig({
     </h3>
 </doc-anchor-target>
 <p>Generic transformers can use the <code translate="no" v-pre>context</code> parameter to gather additional information about their execution context, like the <code translate="no" v-pre>environment</code> they are operating in:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="execution-context-mycustomtransformerts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">myCustomTransformer.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import type { TsupConfigTransformer, TsupConfigTransformerContext, TsupConfig } from &quot;@workleap/tsup-configs&quot;;
 
@@ -437,7 +437,7 @@ export const myCustomTsupTransformer: TsupConfigTransformer = (config: TsupConfi
     </h2>
 </doc-anchor-target>
 <p>To build the bundle files for production, add the following script to your project <code translate="no" v-pre>package.json</code> file:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-cli-script-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;build&quot;: &quot;tsup --config ./tsup.build.ts&quot;

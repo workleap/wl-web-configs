@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Setup with Turborepo - Stylelint</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -300,7 +300,7 @@
     </h3>
 </doc-anchor-target>
 <p>Open a terminal at the root of the solution&#x27;s workspace (the <strong>root</strong> of the repository) and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/stylelint-configs stylelint prettier turbo</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-turborepo">
@@ -310,7 +310,7 @@
     </h3>
 </doc-anchor-target>
 <p>First, create a configuration file named <code translate="no" v-pre>turbo.json</code> at the root of the solution&#x27;s workspace:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-turborepo-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="8"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -322,7 +322,7 @@
 ├── .eslintrc.json</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and copy/paste the following content:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-turborepo-turbojson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">turbo.json</div>
 <pre translate="no" class="language-json" data-line="5-10"><code v-pre class="language-json">{
     &quot;$schema&quot;: &quot;https://turbo.build/schema.json&quot;,
@@ -360,7 +360,7 @@
     </h3>
 </doc-anchor-target>
 <p>Next, let&#x27;s configure Stylelint. Create a configuration file named <code translate="no" v-pre>.stylelintrc.json</code> at the root of the solution&#x27;s workspace:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-stylelint-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="9"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -372,7 +372,7 @@
 ├── .stylelintrc.json</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and extend the default configuration with the shared configurations provided by <code translate="no" v-pre>@workleap/stylelint-configs</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-stylelint-stylelintrcjson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.stylelintrc.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;$schema&quot;: &quot;https://json.schemastore.org/stylelintrc&quot;,
@@ -387,7 +387,7 @@
 </doc-anchor-target>
 <p>Stylelint can be configured to <a href="https://stylelint.io/user-guide/ignore-code#files-entirely" class="outbound" target="_blank">ignore</a> certain files and directories while linting by specifying one or more glob patterns.</p>
 <p>To do so, first, create an <code translate="no" v-pre>.stylelintignore</code> file at the root of the solution&#x27;s workspace:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="stylelintignore-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="10"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -400,7 +400,7 @@
 ├── .stylelintignore</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and paste the following ignore rules:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="stylelintignore-stylelintignore" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.stylelintignore</div>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">**/dist/*
 node_modules
@@ -415,7 +415,7 @@ storybook-static
 </doc-anchor-target>
 <p>Since we choose to <a href="../../eslint/getting-started/#prettier">stick with ESLint for JavaScript and JSON stylistic rules</a>, a <code translate="no" v-pre>.prettierignore</code> file must be added at the root of the solution&#x27;s workspace to ignore everything but CSS files.</p>
 <p>To do so, first, create a <code translate="no" v-pre>.prettierignore</code> file at the root of the solution&#x27;s workspace:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="prettierignore-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="11"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -429,7 +429,7 @@ storybook-static
 ├── .prettierignore</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and paste the following ignore rules:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="prettierignore-code-2" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.prettierignore</div>
 <pre translate="no" class="language-none"><code v-pre class="language-none">*
 !**/*.css</code></pre>
@@ -443,7 +443,7 @@ storybook-static
 <p>Prettier offers <a href="https://prettier.io/docs/en/options#tab-width" class="outbound" target="_blank">built-in rules</a> for configuring the indentation style of a codebase. However, there&#x27;s a catch: when <a href="https://code.visualstudio.com/docs/editor/codebasics#_formatting" class="outbound" target="_blank">VS Code auto-formatting</a> feature is enabled, it might conflict with the configured indentation rules if they are set differently.</p>
 <p>To guarantee a consistent indentation, we recommend using <a href="https://editorconfig.org/" class="outbound" target="_blank">EditorConfig</a> on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and VS Code.</p>
 <p>First, create a <code translate="no" v-pre>.editorconfig</code> file at the root of the solution&#x27;s workspace:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-the-indent-style-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="11"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -457,7 +457,7 @@ storybook-static
 ├── .editorconfig</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and paste the following configuration:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-the-indent-style-editorconfig" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.editorconfig</div>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">root = true
 
@@ -479,7 +479,7 @@ trim_trailing_whitespace = false</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Finally, add the following script to your solution&#x27;s workspace <code translate="no" v-pre>package.json</code> file:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-cli-script-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="7"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -492,7 +492,7 @@ trim_trailing_whitespace = false</code></pre>
 ├── .stylelintignore
 ├── .editorconfig</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-cli-script-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;lint&quot;: &quot;turbo run lint --continue&quot;
@@ -511,7 +511,7 @@ trim_trailing_whitespace = false</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Open a terminal at the root of the project (<code translate="no" v-pre>packages/pkg-1</code> for this example) and install the following package:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-1-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/stylelint-configs</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-stylelint-1">
@@ -521,7 +521,7 @@ trim_trailing_whitespace = false</code></pre>
     </h3>
 </doc-anchor-target>
 <p>First, create a configuration file named <code translate="no" v-pre>.stylelintrc.json</code> at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-stylelint-1-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="7"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -535,7 +535,7 @@ trim_trailing_whitespace = false</code></pre>
 ├── .editorconfig</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and extend the default configuration with the shared configurations provided by <code translate="no" v-pre>@workleap/stylelint-configs</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-stylelint-1-packagespkg-1stylelintrcjson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">packages/pkg-1/.stylelintrc.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;$schema&quot;: &quot;https://json.schemastore.org/stylelintrc&quot;,
@@ -549,7 +549,7 @@ trim_trailing_whitespace = false</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Finally, add the following <code translate="no" v-pre>eslint</code> script to your project <code translate="no" v-pre>package.json</code> file. This script will be executed by Turborepo:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-cli-script-1-packagespkg-1packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">packages/pkg-1/package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;stylelint&quot;: &quot;stylelint \&quot;**/*.css\&quot; --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0&quot;
@@ -569,7 +569,7 @@ trim_trailing_whitespace = false</code></pre>
     </h2>
 </doc-anchor-target>
 <p>To test your new setup, open a CSS file, type invalid code (e.g. <code translate="no" v-pre>color: #fff</code>), then save. Open a terminal at the root of the solution and execute the CLI script added earlier:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm lint</code></pre>
 </doc-codeblock></div>
 <p>The terminal should output a linting error.</p>

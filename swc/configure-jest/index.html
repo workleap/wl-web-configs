@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Configure for Jest - SWC</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -294,7 +294,7 @@
     </h2>
 </doc-anchor-target>
 <p>Open a terminal at the root of the project and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/swc-configs @swc/jest @swc/core @swc/helpers</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-swc">
@@ -319,7 +319,7 @@
     </div>
 </div>
 <p>First, create a configuration file named <code translate="no" v-pre>swc.jest.ts</code> at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-swc-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">web-project
 ├── src
 ├──── ...
@@ -328,7 +328,7 @@
 ├── jest.config.ts</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and export the SWC configuration by using the <code translate="no" v-pre>defineJestConfig(options)</code> function:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-swc-swcjestts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.jest.ts</div>
 <pre translate="no" class="language-typescript" data-line="6-8"><code v-pre class="language-typescript">import { defineJestConfig } from &quot;@workleap/swc-configs&quot;;
 
@@ -351,7 +351,7 @@ export const swcConfig = defineJestConfig();</code></pre>
 <li><strong>Type</strong>: <code translate="no" v-pre>string</code></li>
 </ul>
 <p>Sets a base directory from which to resolve module names. This option is usually provided when custom <doc-anchor-trigger to="#paths">paths</doc-anchor-trigger> are provided. Note that SWC requires the <code translate="no" v-pre>baseUrl</code> to be an absolute path.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="baseurl-swcbuildjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.build.js</div>
 <pre translate="no" class="language-javascript" data-line="9"><code v-pre class="language-javascript">// @ts-check
 
@@ -375,7 +375,7 @@ export const swcConfig = defineJestConfig(targets, {
 <li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
 <p>Whether or not to transform React code.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="react-swcjestts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.jest.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineJestConfig } from &quot;@workleap/swc-configs&quot;;
 
@@ -394,7 +394,7 @@ export const swcConfig = defineJestConfig({
 <li><strong>Default</strong>: <code translate="no" v-pre>&quot;typescript&quot;</code></li>
 </ul>
 <p>Whether SWC should expect to parse JavaScript or TypeScript code.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="parser-swcjestts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.jest.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineJestConfig } from &quot;@workleap/swc-configs&quot;;
 
@@ -428,7 +428,7 @@ export const swcConfig = defineJestConfig({
 <li><strong>Type</strong>: <code translate="no" v-pre>Record&lt;string, string[]&gt;</code></li>
 </ul>
 <p>A series of entries which re-map imports to lookup locations relative to the <doc-anchor-trigger to="#baseurl">baseUrl</doc-anchor-trigger> if set.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="paths-swcdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="10-12"><code v-pre class="language-javascript">// @ts-check
 
@@ -478,10 +478,10 @@ export const swcConfig = defineJestConfig(targets, {
 <li><strong>Type</strong>: <code translate="no" v-pre>((config: SwcConfig, context: SwcConfigTransformerContext) =&gt; SwcConfig)[]</code></li>
 <li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">transformer(config: SwcConfig, context: SwcConfigTransformerContext) =&gt; SwcConfig</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-swcjestts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.jest.ts</div>
 <pre translate="no" class="language-typescript" data-line="3-7,10"><code v-pre class="language-typescript">import { defineJestConfig, type SwcConfigTransformer, type SwcConfig } from &quot;@workleap/swc-configs&quot;;
 
@@ -502,7 +502,7 @@ export const swcConfig = defineJestConfig({
     </h2>
 </doc-anchor-target>
 <p>To configure Jest, open the project <code translate="no" v-pre>jest.config.ts</code> file and add the following code:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-jest-jestconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">jest.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { swcConfig } from &quot;./swc.jest.ts&quot;;
 
@@ -519,7 +519,7 @@ const config = {
     </h2>
 </doc-anchor-target>
 <p>To test your new SWC configuration, create a Jest test in Typescript:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-appendworldtestts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">appendWorld.test.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">export function appendWorld(string: value) {
     console.log(`${string} world!`);
@@ -530,7 +530,7 @@ test(&quot;should append \&quot;world!\&quot;&quot;, () =&gt; {
 }</code></pre>
 </doc-codeblock></div>
 <p>Open a terminal and run Jest directly from the CLI:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm jest</code></pre>
 </doc-codeblock></div>
 <p>The test should succeed without any error outputted to the console.</p>

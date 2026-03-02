@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Setup with Turborepo - Vitest</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -301,7 +301,7 @@
     </h3>
 </doc-anchor-target>
 <p>Open a terminal at the root of the solution&#x27;s workspace (the root of the repository) and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D turbo</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-turborepo">
@@ -311,7 +311,7 @@
     </h3>
 </doc-anchor-target>
 <p>First, create a configuration file named <code translate="no" v-pre>turbo.json</code> at the root of the solution&#x27;s workspace:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-turborepo-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="8"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -322,7 +322,7 @@
 ├── turbo.json</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and copy/paste the following content:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-turborepo-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-json" data-line="5-7"><code v-pre class="language-json">{
     &quot;$schema&quot;: &quot;https://turbo.build/schema.json&quot;,
     &quot;ui&quot;: &quot;tui&quot;,
@@ -340,7 +340,7 @@
     </h3>
 </doc-anchor-target>
 <p>Finally, add the following script to your solution&#x27;s workspace <code translate="no" v-pre>package.json</code> file:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-cli-script-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="7"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -350,7 +350,7 @@
 ├── package.json    &lt;------- (this one!)
 ├── turbo.json</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-cli-script-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;test&quot;: &quot;turbo run test --continue&quot;
@@ -369,7 +369,7 @@
     </h3>
 </doc-anchor-target>
 <p>Open a terminal at the root of the project (<code translate="no" v-pre>packages/pkg-1</code> for this example) and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-1-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D vitest</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-vitest">
@@ -396,7 +396,7 @@
     </div>
 </div>
 <p>First, create a configuration file named <code translate="no" v-pre>vitest.config.ts</code> at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-vitest-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="7"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -408,7 +408,7 @@
 ├── turbo.json</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and copy/paste the following content:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-vitest-packagespkg-1vitestconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">packages/pkg-1/vitest.config.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { defineConfig } from &quot;vitest/config&quot;;
 
@@ -443,7 +443,7 @@ export default defineConfig({
     </h3>
 </doc-anchor-target>
 <p>Finally, add the following <code translate="no" v-pre>test</code> script to your project <code translate="no" v-pre>package.json</code> file. This script will be executed by Turborepo:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-cli-script-1-packagespkg-1packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">packages/pkg-1/package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;test&quot;: &quot;vitest --config vitest.config.ts --no-watch&quot;
@@ -456,7 +456,7 @@ export default defineConfig({
     </h2>
 </doc-anchor-target>
 <p>To test your new setup, add a test to the <code translate="no" v-pre>packages/pkg-1</code> project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-packagespkg-1testsfootestts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">packages/pkg-1/tests/foo.test.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">import { test } from &quot;vitest&quot;;
 
@@ -465,7 +465,7 @@ test(&quot;will always pass&quot;, ({ expect }) =&gt; {
 });</code></pre>
 </doc-codeblock></div>
 <p>Open a terminal at the root of the solution and execute the CLI script added earlier:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm test</code></pre>
 </doc-codeblock></div>
 <p>The terminal output should indicate that the test suite completed successfully.</p>

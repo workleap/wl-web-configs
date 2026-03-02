@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Stylelint</title>
@@ -29,11 +29,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -301,7 +301,7 @@
 <p>Since <code translate="no" v-pre>v15.0.0</code>, Stylelint&#x27;s stylistic rules <a href="https://stylelint.io/migration-guide/to-15#deprecated-stylistic-rules" class="outbound" target="_blank">has been deprecated</a>. The current recommendation is to use <a href="https://prettier.io/" class="outbound" target="_blank">Prettier</a> instead to format CSS files.</p>
 <p>For that reason, <code translate="no" v-pre>@workleap/stylelint-configs</code> shared configurations includes the <a href="https://github.com/prettier/stylelint-prettier" class="outbound" target="_blank">stylelint-prettier</a> plugin. Using this plugin, Prettier changes are exposed as Stylelint&#x27;s rule violations.</p>
 <p>Since we choose to <a href="../../eslint/getting-started/#prettier">stick with ESLint for JavaScript and JSON stylistic rules</a>, a <code translate="no" v-pre>.prettierignore</code> file must be added at the root of the solution to ignore everything but CSS files:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="embedding-prettier-code-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.prettierignore</div>
 <pre translate="no" class="language-none"><code v-pre class="language-none">*
 !**/*.css</code></pre>

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Configure for development - webpack</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -310,7 +310,7 @@
     </h2>
 </doc-anchor-target>
 <p>Open a terminal at the root of the project and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/webpack-configs webpack webpack-cli webpack-dev-server @swc/core @swc/helpers browserslist postcss nodemon</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-webpack">
@@ -326,7 +326,7 @@
     </h3>
 </doc-anchor-target>
 <p>First, create a <code translate="no" v-pre>public</code> folder with an <code translate="no" v-pre>index.html</code> file at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="html-template-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="2-3"><code v-pre class="language-none">web-project
 ├── public
 ├──── index.html
@@ -335,7 +335,7 @@
 ├── package.json</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created <code translate="no" v-pre>index.html</code> file and copy/paste the following content:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="html-template-publicindexhtml" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">public/index.html</div>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -355,7 +355,7 @@
 </doc-anchor-target>
 <p>To reference local assets such as a <code translate="no" v-pre>favicon.png</code> in the default HTML template, it is recommended to preprend the <strong>relative</strong> path of every asset with the <code translate="no" v-pre>publicPath</code> option of the webpack config.</p>
 <p>First, add the asset to the <code translate="no" v-pre>public</code> folder at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="reference-local-assets-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="4"><code v-pre class="language-none">web-project
 ├── public
 ├──── index.html
@@ -365,7 +365,7 @@
 ├── package.json</code></pre>
 </doc-codeblock></div>
 <p>Then, add the assets to the <code translate="no" v-pre>index.html</code> file:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="reference-local-assets-publicindexhtml" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">public/index.html</div>
 <pre translate="no" class="language-markup" data-line="4"><code v-pre class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -399,7 +399,7 @@
     </h3>
 </doc-anchor-target>
 <p>Next, create a configuration file named <code translate="no" v-pre>webpack.dev.js</code> at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="webpackdevjs-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="7"><code v-pre class="language-none">web-project
 ├── public
 ├──── index.html
@@ -409,7 +409,7 @@
 ├── webpack.dev.js</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and <code translate="no" v-pre>export</code> the webpack configuration by using the <code translate="no" v-pre>defineDevConfig(swcConfig, options)</code> function:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="webpackdevjs-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="6"><code v-pre class="language-javascript">// @ts-check
 
@@ -445,7 +445,7 @@ export default defineDevConfig(swcConfig);</code></pre>
 <li><strong>Default</strong>: <code translate="no" v-pre>./src/index.tsx</code></li>
 </ul>
 <p>Set webpack <a href="https://webpack.js.org/configuration/entry-context/#entry" class="outbound" target="_blank">entry option</a>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="entry-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -467,7 +467,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
 <p>Set webpack DevServer <a href="https://webpack.js.org/configuration/dev-server/#devserverhttps" class="outbound" target="_blank">https option</a> and format webpack <a href="https://webpack.js.org/configuration/output/#outputpublicpath" class="outbound" target="_blank">publicPath option</a> accordingly.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="https-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -489,7 +489,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>localhost</code></li>
 </ul>
 <p>Set webpack DevServer <a href="https://webpack.js.org/configuration/dev-server/#devserverhost" class="outbound" target="_blank">host option</a> and format webpack <a href="https://webpack.js.org/configuration/output/#outputpublicpath" class="outbound" target="_blank">publicPath option</a> accordingly.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="host-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -511,7 +511,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>8080</code></li>
 </ul>
 <p>Set webpack DevServer <a href="https://webpack.js.org/configuration/dev-server/#devserverport" class="outbound" target="_blank">port option</a> and format webpack <a href="https://webpack.js.org/configuration/output/#outputpublicpath" class="outbound" target="_blank">publicPath option</a> accordingly.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="port-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -533,7 +533,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>${https ? &quot;https&quot; : &quot;http&quot;}://${host}:${port}/</code></li>
 </ul>
 <p>Set webpack <a href="https://webpack.js.org/configuration/output/#outputpublicpath" class="outbound" target="_blank">public path</a>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="publicpath-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="8"><code v-pre class="language-javascript">// @ts-check
 
@@ -546,7 +546,7 @@ export default defineDevConfig(swcConfig, {
 });</code></pre>
 </doc-codeblock></div>
 <p>Or for an <a href="https://webpack.js.org/guides/public-path/#automatic-publicpath" class="outbound" target="_blank">automatic</a> public path:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="publicpath-webpackbuildjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.build.js</div>
 <pre translate="no" class="language-javascript" data-line="7,11"><code v-pre class="language-javascript">// @ts-check
 
@@ -573,7 +573,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>true</code></li>
 </ul>
 <p>Whether or not webpack <a href="https://webpack.js.org/configuration/cache/#cache" class="outbound" target="_blank">memory cache</a> is enabled. This will also set <a href="https://webpack.js.org/configuration/cache/#cachemaxgenerations" class="outbound" target="_blank">maxGenerations</a> to 1 to remove cache entries from memory when they are no longer needed.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="cache-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -595,7 +595,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
 <p>Append the provided webpack module rules to the configuration.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="modulerules-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7-12"><code v-pre class="language-javascript">// @ts-check
 
@@ -622,7 +622,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
 <p>Append the provided webpack plugins to the configuration.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="plugins-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="8-13"><code v-pre class="language-javascript">// @ts-check
 
@@ -650,7 +650,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>{ template: &quot;./public/index.html&quot; }</code></li>
 </ul>
 <p>To remove the default instance of <a href="https://webpack.js.org/plugins/html-webpack-plugin/" class="outbound" target="_blank">html-webpack-plugin</a>, set the property to <code translate="no" v-pre>false</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="htmlwebpackplugin-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -662,7 +662,7 @@ export default defineDevConfig(swcConfig, {
 });</code></pre>
 </doc-codeblock></div>
 <p>To extend/replace the default <code translate="no" v-pre>html-webpack-plugin</code> configuration, use the <code translate="no" v-pre>defineDevHtmlWebpackPluginConfig(options)</code> function.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="htmlwebpackplugin-webpackdevjs-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="8-11"><code v-pre class="language-javascript">// @ts-check
 
@@ -688,7 +688,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>true</code></li>
 </ul>
 <p>Replace webpack <a href="https://webpack.js.org/concepts/hot-module-replacement/" class="outbound" target="_blank">HMR</a> by <a href="https://www.npmjs.com/package/react-refresh" class="outbound" target="_blank">Fast Refresh</a>. Desactivating webpack fast refresh will automatically <a href="../../swc/configure-dev/#fastrefresh">disable fast refresh for SWC</a>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="fastrefresh-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -700,7 +700,7 @@ export default defineDevConfig(swcConfig, {
 });</code></pre>
 </doc-codeblock></div>
 <p>To extend/replace the default Fast Refresh configuration, use the <code translate="no" v-pre>defineFastRefreshPluginConfig(options)</code> function.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="fastrefresh-webpackdevjs-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -725,7 +725,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
 <p>Enable <code translate="no" v-pre>css-loader</code> <a href="https://webpack.js.org/loaders/css-loader/#modules" class="outbound" target="_blank">modules</a> feature.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="cssmodules-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -747,7 +747,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>undefined</code></li>
 </ul>
 <p>Whether or not a full-screen overlay should be in the browser when there are compiler errors or warnings.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="overlay-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -769,7 +769,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>true</code></li>
 </ul>
 <p>Whether or not to handle <code translate="no" v-pre>.svg</code> files with <code translate="no" v-pre>@svgr/webpack</code>. If <code translate="no" v-pre>@svgr/webpack</code> is desactived, the <code translate="no" v-pre>.svg</code> files will be handled by the <code translate="no" v-pre>asset/resource</code> rule.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="svgr-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -781,7 +781,7 @@ export default defineDevConfig(swcConfig, {
 });</code></pre>
 </doc-codeblock></div>
 <p>To extends the <code translate="no" v-pre>@svgr/webpack</code> rule configuration, provide an object literal instead.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="svgr-webpackdevjs-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7-9"><code v-pre class="language-javascript">// @ts-check
 
@@ -805,7 +805,7 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
 <p>Start the webpack process with verbose logging turned on.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="verbose-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7"><code v-pre class="language-javascript">// @ts-check
 
@@ -850,10 +850,10 @@ export default defineDevConfig(swcConfig, {
 <li><strong>Type</strong>: <code translate="no" v-pre>((config: WebpackConfig, context: WebpackConfigTransformerContext) =&gt; WebpackConfig)[]</code></li>
 <li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">transformer(config: WebpackConfig, context: WebpackConfigTransformerContext) =&gt; WebpackConfig</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="9-15,19"><code v-pre class="language-javascript">// @ts-check
 
@@ -883,7 +883,7 @@ export default defineDevConfig(swcConfig, {
     </h3>
 </doc-anchor-target>
 <p>Generic transformers can use the <code translate="no" v-pre>context</code> parameter to gather additional information about their execution context, like the <code translate="no" v-pre>environment</code> they are operating in.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="execution-context-transformerjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.js</div>
 <pre translate="no" class="language-typescript" data-line="7"><code v-pre class="language-typescript">// @ts-check
 
@@ -933,7 +933,7 @@ export function transformer(config, context) {
 </doc-anchor-target>
 <p><a href="https://nodemon.io/" class="outbound" target="_blank">Nodemon</a> is a utility that will monitor for any changes in the <code translate="no" v-pre>swc.dev.js</code> and <code translate="no" v-pre>webpack.dev.dev.js</code> files and restart the webpack development server whenever a change occurs.</p>
 <p>First, add a <code translate="no" v-pre>nodemon.json</code> file at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="setup-nodemon-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="8"><code v-pre class="language-none">web-project
 ├── public
 ├──── index.html
@@ -944,7 +944,7 @@ export function transformer(config, context) {
 ├── nodemon.json</code></pre>
 </doc-codeblock></div>
 <p>Then, open the <code translate="no" v-pre>nodemon.json</code> file and copy/paste the following content:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="setup-nodemon-nodemonjson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">nodemon.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;watch&quot;: [&quot;swc.dev.js&quot;, &quot;webpack.dev.js&quot;],
@@ -959,7 +959,7 @@ export function transformer(config, context) {
     </h2>
 </doc-anchor-target>
 <p>To initiate the development server, add the following script to your project <code translate="no" v-pre>package.json</code> file:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-a-cli-script-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;dev&quot;: &quot;nodemon&quot;
@@ -979,13 +979,13 @@ export function transformer(config, context) {
     </h3>
 </doc-anchor-target>
 <p>We recommend instead to define environment variables using <a href="https://github.com/kentcdodds/cross-env" class="outbound" target="_blank">cross-env</a>. With <code translate="no" v-pre>cross-env</code>, the environment variables will be made available to any Node.js files that are executed by the script process (<code translate="no" v-pre>dev</code> in the example below <span class="docs-emoji">&#x1F447;</span>):</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="cross-env-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;dev&quot;: &quot;cross-env DEBUG=true nodemon&quot;
 }</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="cross-env-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="6"><code v-pre class="language-javascript">// @ts-check
 
@@ -1011,7 +1011,7 @@ export default defineDevConfig(swcConfig);</code></pre>
 <li><strong>Default</strong>: <code translate="no" v-pre>{}</code></li>
 </ul>
 <p>First, define the variables with <code translate="no" v-pre>environmentVariables</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="environmentvariables-webpackdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="7-9"><code v-pre class="language-javascript">// @ts-check
 
@@ -1025,7 +1025,7 @@ export default defineDevConfig(swcConfig, {
 });</code></pre>
 </doc-codeblock></div>
 <p>Then, use the variables in any application files:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="environmentvariables-srcapptsx" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">src/App.tsx</div>
 <pre translate="no" class="language-tsx" data-line="2"><code v-pre class="language-tsx">export function App() {
     if (process.env.DEBUG) {

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Migrate to tsgo - TypeScript</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -303,7 +303,7 @@
 </doc-anchor-target>
 <p>First, if your package manager is <a href="https://pnpm.io/" class="outbound" target="_blank">PNPM</a> and you have enabled the <a href="https://pnpm.io/settings#minimumreleaseage" class="outbound" target="_blank">minimumReleaseAge</a> feature, add the <code translate="no" v-pre>tsgo</code> packages to the exclusion list. These packages are released nightly and will never meet the minimum age threshold.</p>
 <p>For a monorepo, open <code translate="no" v-pre>pnpm-workspace.yaml</code> and add <code translate="no" v-pre>@typescript/native-preview*</code> to <code translate="no" v-pre>minimumReleaseAgeExclude</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="exclude-packages-from-minimum-release-age-pnpm-workspaceyaml" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">pnpm-workspace.yaml</div>
 <pre translate="no" class="language-yaml" data-line="4"><code v-pre class="language-yaml">minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
@@ -311,7 +311,7 @@ minimumReleaseAgeExclude:
   - '@typescript/native-preview*'</code></pre>
 </doc-codeblock></div>
 <p>For a polyrepo, open <code translate="no" v-pre>.npmrc</code> and add <code translate="no" v-pre>@typescript/native-preview*</code> to <code translate="no" v-pre>minimum-release-age-exclude</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="exclude-packages-from-minimum-release-age-npmrc" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.npmrc</div>
 <pre translate="no" class="language-ini" data-line="2"><code v-pre class="language-ini">minimum-release-age=1440
 minimum-release-age-exclude=@workleap*,@typescript/native-preview*</code></pre>
@@ -339,7 +339,7 @@ minimum-release-age-exclude=@workleap*,@typescript/native-preview*</code></pre>
 </doc-anchor-target>
 <p>Next, install the <code translate="no" v-pre>@typescript/native-preview</code> package alongside the existing <code translate="no" v-pre>typescript</code> package. This means adding <code translate="no" v-pre>@typescript/native-preview</code> as a dev dependency in every <code translate="no" v-pre>package.json</code> that already includes <code translate="no" v-pre>typescript</code>.</p>
 <p>To do so, open a terminal, navigate to each directory that contains a <code translate="no" v-pre>package.json</code> file with the <code translate="no" v-pre>typescript</code> dependency, and run the following command:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-package-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @typescript/native-preview</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="update-typecheck-scripts-to-use-tsgo">
@@ -350,14 +350,14 @@ minimum-release-age-exclude=@workleap*,@typescript/native-preview*</code></pre>
 </doc-anchor-target>
 <p>Finally, update the <code translate="no" v-pre>typecheck</code> scripts of the <code translate="no" v-pre>package.json</code> files to replace <code translate="no" v-pre>tsc</code> by <code translate="no" v-pre>tsgo</code>.</p>
 <p>Before:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="update-typecheck-scripts-to-use-tsgo-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json" data-line="2"><code v-pre class="language-json">&quot;scripts&quot;: {
     &quot;typecheck&quot;: &quot;tsc&quot;
 }</code></pre>
 </doc-codeblock></div>
 <p>Now:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="update-typecheck-scripts-to-use-tsgo-packagejson-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json" data-line="2"><code v-pre class="language-json">&quot;scripts&quot;: {
     &quot;typecheck&quot;: &quot;tsgo&quot;
@@ -370,7 +370,7 @@ minimum-release-age-exclude=@workleap*,@typescript/native-preview*</code></pre>
     </h3>
 </doc-anchor-target>
 <p>If your CI encounters the following error:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="troubleshoot-issues-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">throw new Error(&quot;Unable to resolve &quot; + platformPackageName + &quot;. Either your platform is unsupported, or you are missing the package on disk.&quot;);</code></pre>
 </doc-codeblock></div>
 <p>consider temporarily disabling the pnpm <code translate="no" v-pre>minimumReleaseAge</code> feature.</p>
@@ -382,7 +382,7 @@ minimum-release-age-exclude=@workleap*,@typescript/native-preview*</code></pre>
 </doc-anchor-target>
 <p><span class="docs-emoji">&#x1F7E2;</span> Mature enough to serve as a drop-in replacement</p>
 <p>The built-in language service that powers TypeScript and JavaScript editing features can also be configured to use <code translate="no" v-pre>tsgo</code>. To do so, open the project&#x27;s <code translate="no" v-pre>.vscode/settings.json</code> file and add or update the following settings:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="vs-code-vscodesettingsjson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.vscode/settings.json</div>
 <pre translate="no" class="language-json" data-line="3,5-6"><code v-pre class="language-json">{
     // Comment out the existing library path until @typescript/native-preview is merged into the typescript package.

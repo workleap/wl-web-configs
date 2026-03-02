@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Configure for build - SWC</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -310,7 +310,7 @@
     </h2>
 </doc-anchor-target>
 <p>Open a terminal at the root of the project and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/swc-configs @swc/core @swc/helpers</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-swc">
@@ -320,7 +320,7 @@
     </h2>
 </doc-anchor-target>
 <p>First, create a configuration file named <code translate="no" v-pre>swc.build.js</code> at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-swc-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">web-project
 ├── src
 ├──── ...
@@ -328,7 +328,7 @@
 ├── swc.build.js</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and export the SWC configuration by using the <code translate="no" v-pre>defineBuildConfig(targets, options)</code> function:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-swc-swcbuildjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.build.js</div>
 <pre translate="no" class="language-javascript" data-line="5,7"><code v-pre class="language-javascript">// @ts-check
 
@@ -346,7 +346,7 @@ export const swcConfig = defineBuildConfig(targets);</code></pre>
 </doc-anchor-target>
 <p>In the previous code sample, the <code translate="no" v-pre>defineBuildConfig(targets, options)</code> function receives a list of <strong>minimal browser versions to support</strong> through the <code translate="no" v-pre>targets</code> parameter.</p>
 <p>The expected behavior for the supported browsers would be for SWC to automatically load the minimal browser versions from the closest <code translate="no" v-pre>.browserslistrc</code> <a href="https://github.com/browserslist/browserslist#browserslistrc" class="outbound" target="_blank">configuration file</a>. However, there is currently an <a href="https://github.com/swc-project/swc/issues/3365" class="outbound" target="_blank">issue</a> preventing SWC from doing so when the configuration file include a query referencing an external <a href="https://browsersl.ist/" class="outbound" target="_blank">Browserslist</a> configuration:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="targets-code-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.browserslistrc</div>
 <pre translate="no" class="language-none"><code v-pre class="language-none">extends @workleap/browserslist-config</code></pre>
 </doc-codeblock></div>
@@ -359,7 +359,7 @@ export const swcConfig = defineBuildConfig(targets);</code></pre>
 </doc-anchor-target>
 <p>To help consumers provide SWC <a href="https://swc.rs/docs/configuration/supported-browsers#targets" class="outbound" target="_blank">targets</a> from a Browserslist configuration, <code translate="no" v-pre>@workleap/swc-configs</code> offers the <code translate="no" v-pre>browserslistToSwc(options)</code> utility function.</p>
 <p>This function can either transform an array of Browserslist <a href="https://github.com/browserslist/browserslist#queries" class="outbound" target="_blank">queries</a> to SWC targets:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="browserslisttoswc-swcdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="5"><code v-pre class="language-javascript">// @ts-check
 
@@ -370,11 +370,11 @@ const targets = browserslistToSwc({ queries: [&quot;extends @workleap/browsersli
 export const swcConfig = defineBuildConfig(targets);</code></pre>
 </doc-codeblock></div>
 <p>Or load the closest <code translate="no" v-pre>.browserslistrc</code> configuration file and convert the queries into SWC targets:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="browserslisttoswc-code-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.browserslistrc</div>
 <pre translate="no" class="language-none"><code v-pre class="language-none">extends @workleap/browserslist-config</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="browserslisttoswc-swcbuildjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.build.js</div>
 <pre translate="no" class="language-javascript" data-line="5"><code v-pre class="language-javascript">// @ts-check
 
@@ -405,7 +405,7 @@ export const swcConfig = defineBuildConfig(targets);</code></pre>
 <li><strong>Type</strong>: <code translate="no" v-pre>string</code></li>
 </ul>
 <p>Sets a base directory from which to resolve module names. This option is usually provided when custom <doc-anchor-trigger to="#paths">paths</doc-anchor-trigger> are provided. Note that SWC requires the <code translate="no" v-pre>baseUrl</code> to be an absolute path.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="baseurl-swcbuildjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.build.js</div>
 <pre translate="no" class="language-javascript" data-line="9"><code v-pre class="language-javascript">// @ts-check
 
@@ -429,7 +429,7 @@ export const swcConfig = defineBuildConfig(targets, {
 <li><strong>Default</strong>: <code translate="no" v-pre>&quot;typescript&quot;</code></li>
 </ul>
 <p>Whether SWC should expect to parse JavaScript or TypeScript code.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="parser-swcbuildjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.build.js</div>
 <pre translate="no" class="language-javascript" data-line="8"><code v-pre class="language-javascript">// @ts-check
 
@@ -467,7 +467,7 @@ export const swcConfig = defineBuildConfig(targets, {
 <li><strong>Type</strong>: <code translate="no" v-pre>Record&lt;string, string[]&gt;</code></li>
 </ul>
 <p>A series of entries which re-map imports to lookup locations relative to the <doc-anchor-trigger to="#baseurl">baseUrl</doc-anchor-trigger> if set.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="paths-swcdevjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.dev.js</div>
 <pre translate="no" class="language-javascript" data-line="10-12"><code v-pre class="language-javascript">// @ts-check
 
@@ -517,10 +517,10 @@ export const swcConfig = defineBuildConfig(targets, {
 <li><strong>Type</strong>: <code translate="no" v-pre>((config: SwcConfig, context: SwcConfigTransformerContext) =&gt; SwcConfig)[]</code></li>
 <li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">transformer(config: SwcConfig, context: SwcConfigTransformerContext) =&gt; SwcConfig</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-swcbuildjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">swc.build.js</div>
 <pre translate="no" class="language-javascript" data-line="10-14,17"><code v-pre class="language-javascript">// @ts-check
 
@@ -548,7 +548,7 @@ export const swcConfig = defineBuildConfig(targets, {
     </h3>
 </doc-anchor-target>
 <p>Generic transformers can use the <code translate="no" v-pre>context</code> parameter to gather additional information about their execution context, like the <code translate="no" v-pre>environment</code> they are operating in:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="execution-context-transformerjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">transformer.js</div>
 <pre translate="no" class="language-typescript" data-line="7"><code v-pre class="language-typescript">// @ts-check
 
@@ -573,7 +573,7 @@ export function transformer(config, context) {
     </h2>
 </doc-anchor-target>
 <p>To integrate with webpack, update your configuration file to include an <a href="https://swc.rs/docs/usage/swc-loader" class="outbound" target="_blank">swc-loader</a>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-webpack-webpackconfigjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.config.js</div>
 <pre translate="no" class="language-javascript" data-line="10"><code v-pre class="language-javascript">// @ts-check
 
@@ -602,7 +602,7 @@ export default {
     </h2>
 </doc-anchor-target>
 <p>To test your new <a href="https://swc.rs/" class="outbound" target="_blank">SWC</a> configuration, create a Typescript file with the following code:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-sayts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">say.ts</div>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">export function say(string: value) {
     console.log(value);
@@ -610,15 +610,15 @@ export default {
 </doc-codeblock></div>
 <p>If you integrated SWC with webpack, make sure to import the previously created file in one of your webpack <a href="https://webpack.js.org/concepts/entry-points/" class="outbound" target="_blank">entry points</a>, then execute your webpack build and find the transpiled code in the generated bundle files of your <code translate="no" v-pre>dist</code> folder.</p>
 <p>Otherwise, open a terminal at the root of your project and install <a href="https://swc.rs/docs/usage/cli" class="outbound" target="_blank">@swc/cli</a>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @swc/cli @swc/core</code></pre>
 </doc-codeblock></div>
 <p>Then, process the file with <code translate="no" v-pre>@swc/cli</code> by executing the following command in the same terminal:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">npx swc ./say.ts -o say.js --config-file swc.build.js</code></pre>
 </doc-codeblock></div>
 <p>Whether you processed the file with webpack or <code translate="no" v-pre>@swc/cli</code>, the transpiled code should be:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-sayjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">say.js</div>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">export function say(value) {
     console.log(value);

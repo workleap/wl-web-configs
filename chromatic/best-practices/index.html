@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Best practices - Chromatic</title>
@@ -33,12 +33,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -380,7 +380,7 @@
 </p>
 </div>
 <p>If you believe that updates to certain large files, you can play with the <a href="https://www.chromatic.com/docs/configure/#untraced" class="outbound" target="_blank">untraced</a> setting of your project&#x27;s <code translate="no" v-pre>chromatic.config.json</code> file to tell chromatic to ignore some of these files:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="create-small-fast-merging-prs-for-changes-that-disable-turbosnap-chromaticconfigjson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">chromatic.config.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;$schema&quot;: &quot;https://www.chromatic.com/config-file.schema.json&quot;,
@@ -465,7 +465,7 @@
 </doc-anchor-target>
 <p>Changes to <code translate="no" v-pre>package.json</code> files will <strong>disable TurboSnap</strong> and trigger a <em>&quot;full build&quot;</em>. While this can be useful if the updated package impacts the UI (e.g. Hopper), it is sometimes unnecessary.</p>
 <p>If you believe that changes to the <code translate="no" v-pre>package.json</code> files should not refresh the snapshot baseline, add the <a href="https://www.chromatic.com/docs/configure/#untraced" class="outbound" target="_blank">untraced</a> setting to your project&#x27;s <code translate="no" v-pre>chromatic.config.json</code> file and instruct chromatic to ignore <code translate="no" v-pre>package.json</code> files:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="ignore-packagejson-files-chromaticconfigjson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">chromatic.config.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;$schema&quot;: &quot;https://www.chromatic.com/config-file.schema.json&quot;,

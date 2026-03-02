@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Configure a project - PostCSS</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -310,7 +310,7 @@
     </h2>
 </doc-anchor-target>
 <p>Open a terminal at the root of the project and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/postcss-configs postcss</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-postcss">
@@ -320,7 +320,7 @@
     </h2>
 </doc-anchor-target>
 <p>First, create a configuration file named <code translate="no" v-pre>postcss.config.ts</code> at the root of the project:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-postcss-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="5"><code v-pre class="language-none">project
 ├── src
 ├──── ...
@@ -328,7 +328,7 @@
 ├── postcss.config.ts</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and <code translate="no" v-pre>export</code> the PostCSS configuration by using the <code translate="no" v-pre>defineConfig(options)</code> function:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-postcss-postcssconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">postcss.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="3"><code v-pre class="language-typescript">import { defineConfig } from &quot;@workleap/postcss-configs&quot;;
 
@@ -352,7 +352,7 @@ export default defineConfig();</code></pre>
 <li><strong>Default</strong>: When available, will load the supported browser versions from the closest <code translate="no" v-pre>.browserslistrc</code> file</li>
 </ul>
 <p>Set <code translate="no" v-pre>postcss-preset-env</code> <a href="https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#browsers" class="outbound" target="_blank">browsers option</a>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="browsers-postcssconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">postcss.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineConfig } from &quot;@workleap/postcss-configs&quot;;
 
@@ -371,7 +371,7 @@ export default defineConfig({
 <li><strong>Default</strong>: <code translate="no" v-pre>{ autoprefixer: { flexbox: &quot;no-2009&quot; }, stage: 3 }</code></li>
 </ul>
 <p>Forward the provided object literal to the <a href="https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env" class="outbound" target="_blank">postcss-preset-env</a> plugin.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="presetenvoptions-postcssconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">postcss.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineConfig } from &quot;@workleap/postcss-configs&quot;;
 
@@ -388,7 +388,7 @@ export default defineConfig({
     </h4>
 </doc-anchor-target>
 <p>When provided, the <code translate="no" v-pre>presetEnvOptions</code> option will override the default <a href="https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env" class="outbound" target="_blank">postcss-preset-env</a> plugin configuration. If you wish to <strong>extend</strong> the default configuration rather than overriding it, you can do so by importing the <code translate="no" v-pre>DefaultPresetEnvOptions</code> object:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="extends-presetenvoptions-options-postcssconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">postcss.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="5,7"><code v-pre class="language-typescript">import { defineConfig, DefaultPresetEnvOptions } from &quot;@workleap/postcss-configs&quot;;
 
@@ -437,10 +437,10 @@ export default defineConfig({
 <li><strong>Type</strong>: <code translate="no" v-pre>((config: PostCSSConfig) =&gt; PostCSSConfig)[]</code></li>
 <li><strong>Default</strong>: <code translate="no" v-pre>[]</code></li>
 </ul>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">transformer(config: PostCSSConfig) =&gt; PostCSSConfig</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="transformers-postcssconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">postcss.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="3-7,10"><code v-pre class="language-typescript">import { defineConfig, type PostcssConfigTransformer, type PostCSSConfig } from &quot;@workleap/postcss-configs&quot;;
 
@@ -461,7 +461,7 @@ export default defineConfig({
     </h4>
 </doc-anchor-target>
 <p>Configuration transformer functions are ideal to configure additional <a href="https://www.postcss.parts/" class="outbound" target="_blank">PostCSS plugins</a>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="additional-postcss-plugins-postcssconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">postcss.config.ts</div>
 <pre translate="no" class="language-typescript" data-line="11"><code v-pre class="language-typescript">import { defineConfig, type PostcssConfigTransformer, type PostCSSConfig } from &quot;@workleap/postcss-configs&quot;;
 import tailwindcss from &quot;tailwindcss&quot;;
@@ -498,7 +498,7 @@ export default defineConfig({
     </div>
 </div>
 <p>To integrate with webpack, update your configuration file to include a <a href="https://www.npmjs.com/package/postcss-loader" class="outbound" target="_blank">postcss-loader</a>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-webpack-webpackconfigjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">webpack.config.js</div>
 <pre translate="no" class="language-javascript" data-line="12"><code v-pre class="language-javascript">// @ts-check
 
@@ -525,7 +525,7 @@ export default {
     </h2>
 </doc-anchor-target>
 <p>To test your new PostCSS configuration, create and import a CSS file with the following code:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-examplecss" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">example.css</div>
 <pre translate="no" class="language-css"><code v-pre class="language-css">.example {
     display: grid;
@@ -536,15 +536,15 @@ export default {
 </doc-codeblock></div>
 <p>If you integrated PostCSS with webpack, execute your webpack build and find the outputted <code translate="no" v-pre>.example</code> CSS class in the generated bundle files of your <code translate="no" v-pre>dist</code> folder.</p>
 <p>Otherwise, open a terminal at the root of your project and install <a href="https://github.com/postcss/postcss-cli" class="outbound" target="_blank">postcss-cli</a>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D postcss-cli postcss</code></pre>
 </doc-codeblock></div>
 <p>Then, process the file with <code translate="no" v-pre>postcss-cli</code> by executing the following command in the same terminal:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">npx postcss example.css -o out.css</code></pre>
 </doc-codeblock></div>
 <p>Whether you processed the CSS with webpack or <code translate="no" v-pre>postcss-cli</code>, most of the CSS properties in the <code translate="no" v-pre>.example</code> CSS class should have been prefixed (it can vary based on your Browserslist configuration):</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-outcss" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">out.css</div>
 <pre translate="no" class="language-css"><code v-pre class="language-css">.example {
     display: -ms-grid;

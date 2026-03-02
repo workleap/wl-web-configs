@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825531358449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825792160249">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Setup with Turborepo - Syncpack</title>
@@ -29,12 +29,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.0.1.825531358449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825792160249" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825531358449" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825531358449" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825792160249" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825792160249" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -295,7 +295,7 @@
     </h2>
 </doc-anchor-target>
 <p>Open a terminal at the root of the solution&#x27;s workspace (the root of the repository) and install the following packages:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="install-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D syncpack turbo</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="configure-turborepo">
@@ -305,7 +305,7 @@
     </h2>
 </doc-anchor-target>
 <p>First, create a configuration file named <code translate="no" v-pre>turbo.json</code> at the root of the solution&#x27;s workspace:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-turborepo-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="8"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -316,7 +316,7 @@
 ├── turbo.json</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and copy/paste the following content:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-turborepo-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-json" data-line="5-8"><code v-pre class="language-json">{
     &quot;$schema&quot;: &quot;https://turbo.build/schema.json&quot;,
     &quot;ui&quot;: &quot;tui&quot;,
@@ -374,7 +374,7 @@
     </div>
 </div>
 <p>Next, let&#x27;s configure Syncpack. Create a configuration file named <code translate="no" v-pre>.syncpackrc.js</code> at the root of the solution&#x27;s workspace:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-syncpack-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="9"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -386,7 +386,7 @@
 ├── .syncpackrc.js</code></pre>
 </doc-codeblock></div>
 <p>Then, open the newly created file and copy/paste the following boilerplate configuration:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configure-syncpack-syncpackrcjs" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">.syncpackrc.js</div>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">// @ts-check
 
@@ -431,7 +431,7 @@ export default {
     </h2>
 </doc-anchor-target>
 <p>Finally, add the <code translate="no" v-pre>lint</code> and <code translate="no" v-pre>syncpack</code> scripts to your solution&#x27;s workspace <code translate="no" v-pre>package.json</code> file.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-cli-scripts-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none" data-line="7"><code v-pre class="language-none">workspace
 ├── packages
 ├──── pkg-1
@@ -443,14 +443,14 @@ export default {
 ├── .syncpackrc.js</code></pre>
 </doc-codeblock></div>
 <p>The <code translate="no" v-pre>lint</code> script will execute the <code translate="no" v-pre>lint</code> task and its dependencies configured earlier in the <code translate="no" v-pre>turbo.json</code> file:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-cli-scripts-packagejson" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;lint&quot;: &quot;turbo run lint --continue&quot;
 }</code></pre>
 </doc-codeblock></div>
 <p>The <code translate="no" v-pre>//#syncpack</code> script will lint the root of the solution&#x27;s workspace:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="add-cli-scripts-packagejson-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">package.json</div>
 <pre translate="no" class="language-json"><code v-pre class="language-json">{
     &quot;syncpack&quot;: &quot;syncpack lint&quot;
@@ -482,13 +482,13 @@ export default {
 <li>Identify a dependency that is installed in multiple projects within the monorepo.</li>
 <li>Open a terminal at the root of the workspace and run the CLI script added earlier. Syncpack should complete without reporting any errors:</li>
 </ol>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm lint</code></pre>
 </doc-codeblock></div>
 <ol start="3">
 <li>In one of the projects, bump the version of that dependency, and run the script again:</li>
 </ol>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="try-it-rocket-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm lint</code></pre>
 </doc-codeblock></div>
 <ol start="4">
