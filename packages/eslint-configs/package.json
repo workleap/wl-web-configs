@@ -77,7 +77,7 @@
         "@types/eslint-plugin-jsx-a11y": "6.10.1",
         "@types/estree": "1.0.8",
         "@types/node": "25.3.3",
-        "@typescript/native-preview": "7.0.0-dev.20260209.1",
+        "@typescript/native-preview": "7.0.0-dev.20260303.1",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
         "typescript": "5.9.3",
