@@ -37,7 +37,7 @@
         "@types/react": "19.2.14",
         "@types/react-dom": "19.2.3",
         "@typescript-eslint/parser": "8.56.1",
-        "@typescript/native-preview": "7.0.0-dev.20260209.1",
+        "@typescript/native-preview": "7.0.0-dev.20260303.1",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/postcss-configs": "workspace:*",

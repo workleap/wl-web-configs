@@ -6,6 +6,7 @@ description: >
   (2) Auditing skills for security risks or reviewing PRs that add/update skill dependencies,
   (3) Building a team/org allowlist of approved skills,
   (4) Investigating suspicious skill behavior or answering "is this skill safe?" / "should we adopt this skill?"
+disable-model-invocation: true
 metadata:
   version: 1.3
 ---
