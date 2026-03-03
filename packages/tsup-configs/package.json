@@ -21,6 +21,7 @@
             "default": "./dist/index.js"
         }
     },
+    "sideEffects": false,
     "files": [
         "src",
         "dist",
@@ -39,15 +40,15 @@
     "devDependencies": {
         "@eslint/js": "9.39.2",
         "@rsbuild/core": "1.7.3",
-        "@rslib/core": "0.19.5",
-        "@typescript-eslint/parser": "8.55.0",
+        "@rslib/core": "0.19.6",
+        "@typescript-eslint/parser": "8.56.1",
         "@typescript/native-preview": "7.0.0-dev.20260209.1",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.55.0",
+        "typescript-eslint": "8.56.1",
         "vitest": "4.0.18"
     }
 }

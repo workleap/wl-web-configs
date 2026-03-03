@@ -25,7 +25,7 @@
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@typescript-eslint/parser": "8.55.0",
+        "@typescript-eslint/parser": "8.56.1",
         "@typescript/native-preview": "7.0.0-dev.20260209.1",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/tsup-configs": "workspace:*",
@@ -33,6 +33,6 @@
         "eslint": "9.39.2",
         "tsup": "8.5.1",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.55.0"
+        "typescript-eslint": "8.56.1"
     }
 }

@@ -1,4 +1,5 @@
 {
+    "type": "commonjs",
     "name": "@workleap/typescript-configs",
     "author": "Workleap",
     "description": "Workleap recommended typescript configurations.",
@@ -13,6 +14,22 @@
         "access": "public",
         "provenance": true
     },
+    "exports": {
+        "./core.json": "./core.json",
+        "./library.json": "./library.json",
+        "./monorepo-workspace.json": "./monorepo-workspace.json",
+        "./react.json": "./react.json",
+        "./web-application.json": "./web-application.json"
+    },
+    "files": [
+        "core.json",
+        "library.json",
+        "monorepo-workspace.json",
+        "react.json",
+        "web-application.json",
+        "CHANGELOG.md"
+    ],
+    "sideEffects": false,
     "peerDependencies": {
         "typescript": "^5.9.3"
     }

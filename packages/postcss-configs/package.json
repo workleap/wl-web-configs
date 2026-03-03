@@ -21,6 +21,7 @@
             "default": "./dist/index.js"
         }
     },
+    "sideEffects": false,
     "files": [
         "src",
         "dist",
@@ -33,24 +34,24 @@
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "peerDependencies": {
-        "postcss": "^8.5.6"
+        "postcss": "^8.5.8"
     },
     "dependencies": {
         "postcss-load-config": "^6.0.1",
-        "postcss-preset-env": "^11.1.3"
+        "postcss-preset-env": "^11.2.0"
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@rslib/core": "0.19.5",
-        "@types/node": "25.2.2",
-        "@typescript-eslint/parser": "8.55.0",
+        "@rslib/core": "0.19.6",
+        "@types/node": "25.3.3",
+        "@typescript-eslint/parser": "8.56.1",
         "@typescript/native-preview": "7.0.0-dev.20260209.1",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.55.0",
+        "typescript-eslint": "8.56.1",
         "vitest": "4.0.18"
     }
 }

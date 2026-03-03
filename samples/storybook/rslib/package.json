@@ -18,12 +18,12 @@
     "devDependencies": {
         "@eslint/js": "9.39.2",
         "@rsbuild/core": "1.7.3",
-        "@rslib/core": "0.19.5",
-        "@storybook/addon-a11y": "10.2.8",
-        "@storybook/react": "10.2.8",
-        "@types/react": "19.2.13",
+        "@rslib/core": "0.19.6",
+        "@storybook/addon-a11y": "10.2.14",
+        "@storybook/react": "10.2.14",
+        "@types/react": "19.2.14",
         "@types/react-dom": "19.2.3",
-        "@typescript-eslint/parser": "8.55.0",
+        "@typescript-eslint/parser": "8.56.1",
         "@typescript/native-preview": "7.0.0-dev.20260209.1",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-configs": "workspace:*",
@@ -32,10 +32,10 @@
         "browserslist": "4.28.1",
         "eslint": "9.39.2",
         "http-server": "14.1.1",
-        "storybook": "10.2.8",
-        "storybook-addon-rslib": "3.2.2",
-        "storybook-react-rsbuild": "3.2.2",
+        "storybook": "10.2.14",
+        "storybook-addon-rslib": "3.3.0",
+        "storybook-react-rsbuild": "3.3.0",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.55.0"
+        "typescript-eslint": "8.56.1"
     }
 }
