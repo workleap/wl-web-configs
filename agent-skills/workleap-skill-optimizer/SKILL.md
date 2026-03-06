@@ -1,14 +1,10 @@
 ---
 name: workleap-skill-optimizer
 description: |
-  Optimize agent skills to reduce context bloat while preserving answer coverage. Use when:
-  (1) A skill's SKILL.md body exceeds ~250 lines or duplicates its references/ files
-  (2) A skill's YAML description is verbose or triggers false positives from sibling skills
-  (3) Planning or executing a body/reference split for a skill
-  (4) Auditing skill token efficiency
+  Optimize agent skills to reduce context bloat while preserving answer coverage. Use when a skill's body exceeds ~250 lines, duplicates its references, has a verbose description, or triggers false positives. Also activate proactively when reviewing any skill with both a body and reference files.
 disable-model-invocation: true
 metadata:
-  version: 1.2
+  version: 1.3
 ---
 
 # Skill Optimizer
@@ -45,7 +41,7 @@ Output a table:
 
 Decide what stays in the body, what moves to references, and what gets compressed.
 
-**Body retention criteria** — keep a section in the body ONLY if it meets at least one:
+**Body retention criteria** — keep a section in the body only if it meets at least one:
 - Complex multi-step pattern requiring coordination across multiple sections or files
 - Non-obvious logic, parameters, or decision rules that agents frequently get wrong without inline guidance
 - A concept unique to this skill with no external documentation

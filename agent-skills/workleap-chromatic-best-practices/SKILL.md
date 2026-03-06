@@ -1,16 +1,9 @@
 ---
 name: workleap-chromatic-best-practices
 description: |
-  Workleap's Chromatic best practices for snapshot cost control and CI optimization.
-
-  Use this skill when:
-  (1) Auditing or implementing Chromatic cost optimizations in a repository
-  (2) Fixing Chromatic TurboSnap-disabling patterns (barrel imports, large preview dependencies, local scripts)
-  (3) Setting up or updating chromatic.config.json and GitHub Actions CI workflows for Chromatic
-  (4) Reviewing PRs for Chromatic snapshot cost impact
-  (5) Configuring Chromatic in Turborepo/monorepo projects
+  Workleap's Chromatic best practices for snapshot cost control and CI optimization. Use when auditing, setting up, or fixing Chromatic configurations — including TurboSnap-disabling patterns, CI workflows, chromatic.config.json, and monorepo setups. Also activate when reviewing PRs that touch Storybook or Chromatic-related files.
 metadata:
-  version: 1.2
+  version: 1.3
 ---
 
 # Workleap Chromatic Best Practices
@@ -57,10 +50,10 @@ After completing all checks, generate a findings table with pass/fail status and
 
 ## Critical Rules
 
-1. **Never invent Chromatic options** — Only use documented configuration
-2. **CI-only execution** — Never recommend running Chromatic locally
-3. **Preserve TurboSnap** — Every recommendation should maintain TurboSnap effectiveness
-4. **Cost awareness** — Every snapshot counts toward monthly budget
+1. **Stick to documented Chromatic options** — inventing undocumented flags can silently break TurboSnap or produce invalid builds
+2. **Run Chromatic from CI only** — local runs trigger the entire visual test suite and waste snapshots against the monthly budget
+3. **Preserve TurboSnap** — TurboSnap is the primary cost-saving mechanism; every recommendation should maintain its effectiveness
+4. **Cost awareness** — every snapshot counts toward the monthly budget, so always consider the snapshot cost impact of changes
 
 ## Reference Guide
 

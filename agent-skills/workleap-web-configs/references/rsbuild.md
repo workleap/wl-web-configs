@@ -1,5 +1,20 @@
 # Rsbuild Configuration
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Available Functions](#available-functions)
+- [Installation](#installation)
+- [Setup Requirements](#setup-requirements)
+- [Development Configuration](#development-configuration)
+- [Build Configuration](#build-configuration)
+- [Storybook Configuration](#storybook-configuration)
+- [Configuration Transformers](#configuration-transformers)
+- [CLI Scripts](#cli-scripts)
+- [Type Declarations](#type-declarations)
+- [SVG Import](#svg-import)
+- [Turborepo Setup](#turborepo-setup)
+
 ## Overview
 
 `@workleap/rsbuild-configs` provides Rsbuild configurations for web applications. Rsbuild is a high-performance bundler powered by Rspack (Rust-based webpack port).

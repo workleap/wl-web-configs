@@ -1,14 +1,10 @@
 ---
 name: workleap-skill-safety-review
 description: >
-  Evaluate third-party agent skills for security risks before adoption or update. Use when:
-  (1) Installing or updating a skill from skills.sh, ClawHub, or any public registry,
-  (2) Auditing skills for security risks or reviewing PRs that add/update skill dependencies,
-  (3) Building a team/org allowlist of approved skills,
-  (4) Investigating suspicious skill behavior or answering "is this skill safe?" / "should we adopt this skill?"
+  Evaluate third-party agent skills for security risks before adoption or update. Use when installing, updating, or auditing skills from any source (skills.sh, ClawHub, public registries, PRs). Also activate when building allowlists, investigating suspicious behavior, or answering "is this skill safe?"
 disable-model-invocation: true
 metadata:
-  version: 1.3
+  version: 1.4
 ---
 
 # Agent Skill Safety Evaluation
@@ -37,7 +33,7 @@ Follow these phases in order:
 
 ## Phase 1: Provenance gate
 
-Check these criteria. **Fail any one = REJECT the skill immediately.**
+Check these criteria. **Fail any one = REJECT the skill immediately.** Provenance failures indicate high risk regardless of content quality — a well-written skill from an unverifiable source is still dangerous.
 
 | Check | Pass criteria |
 |---|---|
@@ -95,19 +91,19 @@ Determine the verdict:
 - **NEEDS REVIEW**: Phase 2 score 60-80, or vett.sh Medium with unresolved findings, or Phase 4 inconclusive
 - **REJECT**: Phase 1 failed, any CRITICAL finding without benign exception, Phase 2 score < 60, or vett.sh 41+
 
-**You MUST load and follow the report template** in [references/evaluation-report.md](references/evaluation-report.md). Do not produce a freeform report.
+Load and follow the report template in [references/evaluation-report.md](references/evaluation-report.md) — a structured report ensures consistent evaluation records and makes it easy to compare skills over time.
 
 ## Operational controls for adopted skills
 
 Apply these controls to every adopted third-party skill:
 
-1. **Pin to specific commit SHA** -- never use `latest` or branch references
-2. **Restrict allowed-tools** -- verify that `allowed-tools` is minimally scoped
-3. **Credential isolation** -- never run skills in environments with production credentials, SSH keys, or cloud provider tokens
-4. **Periodic re-evaluation** -- re-run Phase 2 checks on every update. Frequency based on initial score: >90 quarterly, 80-90 monthly, 60-80 bi-weekly
-5. **Prefer trusted publisher skills** -- strongly prefer skills from trusted publishers over community skills
-6. **Minimize skill count** -- fewer skills = smaller attack surface and less context bloat
-7. **Audit agent memory** -- periodically check `.claude/` directories for unauthorized modifications
+1. **Pin to specific commit SHA** — skills can be updated with malicious content after initial approval (rug pull attacks), so pinning ensures you only run the version you reviewed
+2. **Restrict allowed-tools** — minimally scoped permissions limit the blast radius if a skill is compromised
+3. **Credential isolation** — running skills near production credentials, SSH keys, or cloud tokens turns a skill compromise into a full infrastructure breach
+4. **Periodic re-evaluation** — re-run Phase 2 checks on every update; frequency based on initial score: >90 quarterly, 80-90 monthly, 60-80 bi-weekly
+5. **Prefer trusted publisher skills** — trusted publishers have stronger accountability, reducing supply-chain risk
+6. **Minimize skill count** — fewer skills means a smaller attack surface and less context bloat
+7. **Audit agent memory** — periodically check `.claude/` directories for unauthorized modifications, as compromised skills may persist state between sessions
 
 ## Reference Guide
 
