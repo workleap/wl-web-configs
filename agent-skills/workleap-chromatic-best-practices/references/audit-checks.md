@@ -116,6 +116,8 @@ jobs:
     # No label check
 ```
 
+**Why:** Without label gating, every PR push triggers a full Chromatic run, burning through the monthly snapshot budget on routine changes that don't affect visuals.
+
 **Action:** Add label-based conditional execution. The label name should be `run chromatic`.
 
 ## 2.5 Check CI Workflow for Required Flags
@@ -139,6 +141,8 @@ jobs:
 - `exitOnceUploaded: true` - Recommended for faster CI
 - `autoAcceptChanges: main` - Recommended to auto-accept baseline on main
 
+**Why:** `onlyChanged` enables TurboSnap (the primary cost saver), `exitOnceUploaded` avoids blocking CI on Chromatic's build queue, and `autoAcceptChanges` prevents stale baselines on the main branch.
+
 **Action:** Add missing flags to the Chromatic action.
 
 ## 2.6 Check CI Workflow for Proper Git Checkout
@@ -161,6 +165,8 @@ jobs:
 
 **Critical check:** `fetch-depth: 0` is required for TurboSnap to work properly.
 
+**Why:** TurboSnap needs full git history to determine which files changed between commits. A shallow clone makes it fall back to snapshotting everything.
+
 **Action:** Add `fetch-depth: 0` and Chromatic environment variables if missing.
 
 ## 2.7 Check Browser Configuration
@@ -176,6 +182,8 @@ npx chromatic --browsers chrome,firefox
 
 **Required:** Chrome only (default, no flag needed)
 
+**Why:** Each additional browser multiplies the snapshot count (2 browsers = 2x cost, 3 = 3x). Chrome alone catches the vast majority of visual regressions.
+
 **Action:** Remove multi-browser flags unless explicitly required.
 
 ## 2.8 Check for Renovate/Changesets Exclusion
@@ -183,6 +191,8 @@ npx chromatic --browsers chrome,firefox
 **Find:** CI workflow and branch ruleset configuration
 
 **Recommendation:** Exclude Renovate bot and Changesets branches from the required status check ruleset, not from the workflow itself.
+
+**Why:** Bot-generated branches (dependency updates, version bumps) rarely introduce visual regressions, and requiring Chromatic runs on them wastes snapshots and slows down automated workflows.
 
 **Action:** Document recommendation to configure branch ruleset to exclude:
 - `renovate/*` branches
@@ -199,6 +209,8 @@ npx chromatic --browsers chrome,firefox
 - Utility files with many exports
 
 **Detection:** Files with >20 exports or >500 lines that are imported by preview.
+
+**Why:** Large files imported by preview become TurboSnap "hot nodes" — any change to them triggers snapshots for every story, defeating the purpose of incremental testing.
 
 **Action:** Document findings and recommend splitting into smaller, focused modules.
 
@@ -227,6 +239,8 @@ concurrency:
           name: 'run chromatic'
       });
 ```
+
+**Why:** Without concurrency limits, multiple pushes to the same PR spawn parallel Chromatic runs that all consume snapshots. Auto-removing the label prevents accidental re-runs on subsequent pushes.
 
 **Action:** Add concurrency settings and label removal step if missing.
 

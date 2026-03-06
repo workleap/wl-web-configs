@@ -1,15 +1,7 @@
 ---
 name: workleap-web-configs
 description: |
-  Workleap's shared web configuration packages (@workleap/eslint-configs, @workleap/typescript-configs, @workleap/rsbuild-configs, @workleap/rslib-configs, @workleap/stylelint-configs, @workleap/browserslist-config).
-
-  Use when:
-  (1) Setting up or customizing shared web tooling configs in a Workleap project
-  (2) Configuring ESLint by project type (web app, React library, TS library, monorepo)
-  (3) Configuring TypeScript by project type (web-application, library, monorepo-workspace)
-  (4) Configuring Rsbuild or Rslib bundling (dev, build, Storybook)
-  (5) Configuring Stylelint, Browserslist, or monorepo (Turborepo) vs polyrepo strategies
-  (6) Extending or customizing shared configs, troubleshooting ESM/ESNext constraints
+  Workleap's shared web configuration packages (@workleap/eslint-configs, @workleap/typescript-configs, @workleap/rsbuild-configs, @workleap/rslib-configs, @workleap/stylelint-configs, @workleap/browserslist-config). Use when setting up, customizing, extending, or troubleshooting shared web tooling configs in a Workleap project — including ESLint, TypeScript, Rsbuild, Rslib, Stylelint, Browserslist, and monorepo (Turborepo) strategies. Activate even if only one tool is mentioned, as the packages are designed to work together.
 metadata:
   version: 1.2
 ---
@@ -60,7 +52,7 @@ pnpm add -D @workleap/browserslist-config browserslist
 extends @workleap/browserslist-config
 ```
 
-Only for projects emitting application bundles. Libraries should NOT include Browserslist.
+Only for projects emitting application bundles. Libraries should not include Browserslist — the consuming application's Browserslist controls the final output targets.
 
 To add custom browser targets while still using the shared config:
 
@@ -83,8 +75,8 @@ For comprehensive setup guides, options, and examples, read the appropriate refe
 
 ## Critical Rules
 
-1. **Never invent APIs**: Only suggest documented options and patterns
-2. **Respect maintenance mode**: Do not recommend PostCSS, SWC, webpack, or tsup configs
-3. **ESM by default**: All configs target ESM/ESNext unless migrating legacy code
-4. **Browserslist for apps only**: Libraries should not include Browserslist config
-5. **TypeScript for linting**: The shared TypeScript configs focus on linting; bundlers handle transpilation
+1. **Stick to documented APIs** — these packages are thin wrappers, and undocumented options won't be passed through to the underlying tool
+2. **Avoid maintenance-mode packages** — PostCSS, SWC, webpack, and tsup configs won't receive new features; recommend the active alternatives (Rsbuild, Rslib, Stylelint) instead
+3. **ESM by default** — all configs target ESM/ESNext because Workleap's toolchain assumes modern JavaScript environments
+4. **Browserslist for apps only** — libraries omit Browserslist because the consuming application's config controls the final output targets
+5. **TypeScript for linting** — the shared TypeScript configs focus on type-checking; bundlers handle transpilation, so don't mix concerns

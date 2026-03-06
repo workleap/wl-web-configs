@@ -1,5 +1,20 @@
 # Rslib Configuration
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Available Functions](#available-functions)
+- [Installation](#installation)
+- [Setup Requirements](#setup-requirements)
+- [Build Configuration](#build-configuration)
+- [Development Configuration](#development-configuration)
+- [Storybook Configuration](#storybook-configuration)
+- [Configuration Transformers](#configuration-transformers)
+- [CLI Scripts](#cli-scripts)
+- [Type Declarations](#type-declarations)
+- [Bundleless vs Bundle](#bundleless-vs-bundle)
+- [Turborepo Setup](#turborepo-setup)
+
 ## Overview
 
 `@workleap/rslib-configs` provides Rslib configurations for library projects. Rslib is powered by Rsbuild and Rspack.
