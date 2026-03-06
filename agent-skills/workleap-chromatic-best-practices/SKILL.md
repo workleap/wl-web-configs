@@ -3,7 +3,7 @@ name: workleap-chromatic-best-practices
 description: |
   Workleap's Chromatic best practices for snapshot cost control and CI optimization. Use when auditing, setting up, or fixing Chromatic configurations — including TurboSnap-disabling patterns, CI workflows, chromatic.config.json, and monorepo setups. Also activate when reviewing PRs that touch Storybook or Chromatic-related files.
 metadata:
-  version: 1.2
+  version: 1.3
 ---
 
 # Workleap Chromatic Best Practices

@@ -4,7 +4,7 @@ description: |
   Optimize agent skills to reduce context bloat while preserving answer coverage. Use when a skill's body exceeds ~250 lines, duplicates its references, has a verbose description, or triggers false positives. Also activate proactively when reviewing any skill with both a body and reference files.
 disable-model-invocation: true
 metadata:
-  version: 1.2
+  version: 1.3
 ---
 
 # Skill Optimizer

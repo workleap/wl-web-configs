@@ -4,7 +4,7 @@ description: >
   Evaluate third-party agent skills for security risks before adoption or update. Use when installing, updating, or auditing skills from any source (skills.sh, ClawHub, public registries, PRs). Also activate when building allowlists, investigating suspicious behavior, or answering "is this skill safe?"
 disable-model-invocation: true
 metadata:
-  version: 1.3
+  version: 1.4
 ---
 
 # Agent Skill Safety Evaluation
