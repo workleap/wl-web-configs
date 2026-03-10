@@ -9,6 +9,10 @@ packages:
 #   - '@workleap*'
 #   - '@typescript/native-preview*'
 
+overrides:
+  # fast-xml-parser@5.5.0 was published with a broken local file: dependency
+  fast-xml-parser: <5.5.0
+
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - '@swc/core'
