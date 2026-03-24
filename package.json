@@ -53,20 +53,20 @@
         "@changesets/cli": "2.30.0",
         "@eslint/js": "9.39.2",
         "@types/node": "25.5.0",
-        "@typescript-eslint/parser": "8.57.1",
-        "@typescript/native-preview": "7.0.0-dev.20260303.1",
+        "@typescript-eslint/parser": "8.57.2",
+        "@typescript/native-preview": "7.0.0-dev.20260324.1",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
-        "agent-browser": "0.20.14",
+        "agent-browser": "0.22.1",
         "cross-env": "10.1.0",
         "eslint": "9.39.2",
         "pkg-pr-new": "0.0.66",
         "prettier": "3.8.1",
-        "retypeapp": "4.3.0",
-        "syncpack": "14.2.0",
-        "turbo": "2.8.17",
-        "typescript": "5.9.3",
-        "typescript-eslint": "8.57.1"
+        "retypeapp": "4.4.0",
+        "syncpack": "14.2.1",
+        "turbo": "2.8.20",
+        "typescript": "6.0.2",
+        "typescript-eslint": "8.57.2"
     },
     "pnpm": {
         "overrides": {
