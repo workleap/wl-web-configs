@@ -1,5 +1,11 @@
 # @workleap/tsup-configs
 
+## 4.0.1
+
+### Patch Changes
+
+- [#414](https://github.com/workleap/wl-web-configs/pull/414) [`1113edf`](https://github.com/workleap/wl-web-configs/commit/1113edfcea611bdb29575b2ec18d742dd891fa72) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Update dependencies
+
 ## 4.0.0
 
 ### Major Changes

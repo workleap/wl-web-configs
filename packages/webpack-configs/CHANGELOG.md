@@ -1,5 +1,11 @@
 # @workleap/webpack-configs
 
+## 1.6.11
+
+### Patch Changes
+
+- [#414](https://github.com/workleap/wl-web-configs/pull/414) [`1113edf`](https://github.com/workleap/wl-web-configs/commit/1113edfcea611bdb29575b2ec18d742dd891fa72) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Update dependencies
+
 ## 1.6.10
 
 ### Patch Changes
