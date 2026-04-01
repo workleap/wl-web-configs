@@ -22,24 +22,24 @@
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@rsbuild/core": "1.7.3",
+        "@rsbuild/core": "1.7.5",
         "@testing-library/react": "16.3.2",
         "@types/react": "19.2.14",
         "@types/react-dom": "19.2.3",
-        "@typescript-eslint/parser": "8.57.1",
+        "@typescript-eslint/parser": "8.58.0",
         "@typescript/native-preview": "7.0.0-dev.20260303.1",
         "@vitejs/plugin-react": "5.1.4",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
-        "happy-dom": "20.8.4",
+        "happy-dom": "20.8.9",
         "identity-obj-proxy": "3.0.0",
         "prettier": "3.8.1",
         "storybook-react-rsbuild": "3.3.2",
         "stylelint": "16.26.1",
-        "typescript": "5.9.3",
-        "typescript-eslint": "8.57.1",
-        "vitest": "4.1.0"
+        "typescript": "6.0.2",
+        "typescript-eslint": "8.58.0",
+        "vitest": "4.1.2"
     }
 }

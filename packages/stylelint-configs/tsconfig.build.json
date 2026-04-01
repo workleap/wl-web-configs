@@ -2,7 +2,9 @@
     "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
         "outDir": "dist",
+        "rootDir": "./src",
 
+        "ignoreDeprecations": "6.0",
         "moduleResolution": "Node",
         "module": "CommonJS",
         "target": "ESNext",

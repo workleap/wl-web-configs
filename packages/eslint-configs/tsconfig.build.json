@@ -1,5 +1,9 @@
 {
     "extends": "@workleap/typescript-configs/library.json",
+    "compilerOptions": {
+        "rootDir": "./src",
+        "types": ["node"]
+    },
     "include": ["src"],
     "exclude": ["dist", "node_modules"]
 }
