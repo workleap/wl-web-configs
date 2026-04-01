@@ -3,6 +3,7 @@
     "compilerOptions": {
         "incremental": true,
         "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+        "types": ["node", "jest"],
         "paths": {
             "@webpack-sample/tsup-lib": ["../tsup-lib/src/index.ts"]
         }

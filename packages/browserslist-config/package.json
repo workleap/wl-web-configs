@@ -35,7 +35,7 @@
     "devDependencies": {
         "@eslint/js": "9.39.2",
         "@typescript-eslint/parser": "8.58.0",
-        "@typescript/native-preview": "7.0.0-dev.20260303.1",
+        "@typescript/native-preview": "7.0.0-dev.20260331.1",
         "@workleap/eslint-configs": "workspace:*",
         "eslint": "9.39.2",
         "rimraf": "6.1.3",

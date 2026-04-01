@@ -1,9 +1,11 @@
 {
     "extends": "@workleap/typescript-configs/library.json",
     "compilerOptions": {
+        // Required because tsup internally sets "baseUrl" during DTS generation, which is deprecated in TypeScript 7.0.
+        "ignoreDeprecations": "6.0",
         "incremental": true,
         "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
-        "ignoreDeprecations": "6.0"
+        "types": ["node"]
     },
     "exclude": ["dist", "node_modules"]
 }
