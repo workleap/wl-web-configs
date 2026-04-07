@@ -1,0 +1,100 @@
+﻿
+- [Samples](https://workleap.github.io/wl-web-configs/samples.md): Web application
+- [About](https://workleap.github.io/wl-web-configs/about.md): To ask a question or propose an idea, feel free to start a new GitHub discussion. If you found a bug, please open a GitHub issue.
+
+## Introduction
+
+- [Getting started](https://workleap.github.io/wl-web-configs/introduction/getting-started.md): Welcome to workleap/web-configs, a collection of configuration libraries for building web applications at Workleap. On this getting started page, you'll find an overview of the project and a list of supported tools.
+- [Setup a CI workflow](https://workleap.github.io/wl-web-configs/introduction/setup-a-ci-workflow.md): To set up a GitHub Actions CI workflow for a project, first, create a ci.yml file inside the .github/workflows folder at the root of the solution's
+- [Setup a CI workflow with Turborepo](https://workleap.github.io/wl-web-configs/introduction/setup-turborepo-ci-workflow.md): To set up a GitHub Actions CI workflow for a Turborepo project, first, create a ci.yml file inside the .github/workflows folder at the root of the
+- [Use with agents](https://workleap.github.io/wl-web-configs/introduction/use-with-agents.md): Information about Web Configs libraries can be shared with different agents using agent skills.
+
+## Browserslist
+
+- [Browserslist](https://workleap.github.io/wl-web-configs/browserslist/getting-started.md): You can find an exhaustive list of the browser versions included with this shared configuration on https://browsersl.ist.
+- [Configure a project](https://workleap.github.io/wl-web-configs/browserslist/configure-project.md): Only setup Browserslist for projects that are emitting application bundles. For example, a library project shouldn't include Browserslist but a web application project should.
+
+## ESLint
+
+- [ESLint](https://workleap.github.io/wl-web-configs/eslint/getting-started.md): Typically, ESLint shareable configuration libraries are architectured around the idea that shared configurations should be small and composable to accommodate any potential use cases that a development team might encounter.
+- [Setup a polyrepo](https://workleap.github.io/wl-web-configs/eslint/setup-polyrepo.md): Execute the following steps to setup ESLint for a polyrepo solution (single project per repository) 👇
+- [Setup with Turborepo](https://workleap.github.io/wl-web-configs/eslint/setup-turborepo.md): Execute the following steps to set up ESLint for a monorepo solution managed with Turborepo 👇
+- [Custom configuration](https://workleap.github.io/wl-web-configs/eslint/custom-configuration.md): If you are in the process of migrating an existing project to use @workleap/eslint-configs or encountering a challenging situation that is not currently handled by this library, you might want to customize the default shared configurations.
+- [Integrate with VS Code](https://workleap.github.io/wl-web-configs/eslint/integrate-vscode.md): ESLint VS Code extension greatly improve the development experience by automatically linting the code as you type and automatically formatting the code according to your ESLint configuration whenever you save.
+- [Troubleshooting](https://workleap.github.io/wl-web-configs/eslint/troubleshooting.md): If the ESLint CLI throws the following error:
+- [Migrate from ESLint 8](https://workleap.github.io/wl-web-configs/eslint/migrate-from-eslint-8.md): More than a year ago, ESLint released version v9, a major update introducing the new flat configuration system, which significantly changed how configurations are defined and consumed.
+
+## Stylelint
+
+- [Stylelint](https://workleap.github.io/wl-web-configs/stylelint/getting-started.md): While SCSS still offers numerous advantages, as we actively work on improving our build time and minimize the number of tools compiling/transpiling frontend code, we choose to move away from Sass and not provide any Stylelint's rules for Sass.
+- [Setup a polyrepo](https://workleap.github.io/wl-web-configs/stylelint/setup-polyrepo.md): Execute the following steps to setup Stylelint for a polyrepo solution (single project per repository) 👇
+- [Setup with Turborepo](https://workleap.github.io/wl-web-configs/stylelint/setup-turborepo.md): Execute the following steps to set up Stylelint for a monorepo solution managed with Turborepo 👇
+- [Custom configuration](https://workleap.github.io/wl-web-configs/stylelint/custom-configuration.md): If you are in the process of migrating an existing project to use @workleap/stylelint-configs or encountering a challenging situation that is not currently handled by this library, you might want to customize the default shared configurations.
+- [Integrate with VS Code](https://workleap.github.io/wl-web-configs/stylelint/integrate-vscode.md): Stylelint VS Code extension greatly improves the development experience by automatically linting the code as you type and automatically formatting the code according to your Stylelint configuration whenever you save.
+
+## Typescript
+
+- [Typescript](https://workleap.github.io/wl-web-configs/typescript/getting-started.md): Typically, TypeScript shareable configuration libraries are architectured around the idea that shared configurations should be small and composable to accomodate any potential use cases that a development team might encounter.
+- [Setup a polyrepo](https://workleap.github.io/wl-web-configs/typescript/setup-polyrepo.md): Execute the following steps to setup TypeScript for a polyrepo solution (single project per repository) 👇
+- [Setup with Turborepo](https://workleap.github.io/wl-web-configs/typescript/setup-turborepo.md): Execute the following steps to set up TypeScript for a monorepo solution managed with Turborepo 👇
+- [Custom configuration](https://workleap.github.io/wl-web-configs/typescript/custom-configuration.md): If you are in the process of migrating an existing project to use @workleap/typescript-configs or encountering a challenging situation that is not currently handled by this library, you might want to customize the default shared configurations.
+- [Advanced composition](https://workleap.github.io/wl-web-configs/typescript/advanced-composition.md): If the default by project type configurations doesn't fits your needs, rather than writing your own configuration from scratch, you can compose a new one from the underlying configuration pieces of @workleap/typescript-configs.
+- [Migrate to tsgo](https://workleap.github.io/wl-web-configs/typescript/migrate-to-tsgo.md): TypeScript Go is a reimplementation of the TypeScript compiler written in Go, designed to dramatically improve performance and scalability compared to the current JavaScript-based compiler.
+
+## Rsbuild
+
+- [Rsbuild](https://workleap.github.io/wl-web-configs/rsbuild/getting-started.md): Rsbuild is a high-performance build tool powered by Rspack, a Rust-based port of webpack designed for efficiency and speed. Those new Rsbuild shared configurations are a modern replacement for previous Workleap's shared webpack configurations.
+- [Configure for development](https://workleap.github.io/wl-web-configs/rsbuild/configure-dev.md): To configure Rsbuild for a development environment, execute the following steps 👇
+- [Configure for build](https://workleap.github.io/wl-web-configs/rsbuild/configure-build.md): To configure Rsbuild for a production environment, execute the following steps 👇
+- [Configure for Storybook](https://workleap.github.io/wl-web-configs/rsbuild/configure-storybook.md): To configure Rsbuild for Storybook, execute the following steps 👇
+- [Setup with Turborepo](https://workleap.github.io/wl-web-configs/rsbuild/setup-turborepo.md): To configure Rsbuild in a monorepo managed with Turborepo, follow these steps 👇
+- [Deploy to Netlify](https://workleap.github.io/wl-web-configs/rsbuild/deploy-to-netlify.md): The deployment process for web applications can vary depending on various factors. Therefore, we do not recommend any specific deployment setup. However, there are a few essential configurations that need to be made regardless of your architectural and deployment choices.
+- [Migrate from webpack](https://workleap.github.io/wl-web-configs/rsbuild/migrate-from-webpack.md): To migrate from @workleap/webpack-configs to @workleap/rsbuild-configs, execute the following steps 👇
+
+## Rslib
+
+- [Rslib](https://workleap.github.io/wl-web-configs/rslib/getting-started.md): Rslib is a high-performance build tool powered by Rsbuild and Rspack, Rust-based ports of webpack designed for efficiency and speed. Those new Rslib shared configurations are a modern replacement for previous Workleap's shared tsup configurations.
+- [Configure for development](https://workleap.github.io/wl-web-configs/rslib/configure-dev.md): To configure Rslib for a development environment, execute the following steps 👇
+- [Configure for build](https://workleap.github.io/wl-web-configs/rslib/configure-build.md): To configure Rslib for publication, execute the following steps 👇
+- [Configure for Storybook](https://workleap.github.io/wl-web-configs/rslib/configure-storybook.md): To configure Rslib for Storybook, execute the following steps 👇
+- [Setup with Turborepo](https://workleap.github.io/wl-web-configs/rslib/setup-turborepo.md): To configure Rslib in a monorepo managed with Turborepo, follow these steps 👇
+- [Migrate from tsup](https://workleap.github.io/wl-web-configs/rslib/migrate-from-tsup.md): To migrate from @workleap/tsup-configs to @workleap/rslib-configs, execute the following steps 👇
+
+## Vitest
+
+- [Setup with Turborepo](https://workleap.github.io/wl-web-configs/vitest/setup-turborepo.md): Vitest is a fast and modern unit testing framework. It provides a familiar developer experience by offering a Jest-compatible API, allowing most existing test setups to be ported easily.
+
+## Syncpack
+
+- [Setup with Turborepo](https://workleap.github.io/wl-web-configs/syncpack/setup-turborepo.md): Syncpack is a developer tool designed to keep your package.json dependencies in sync in a monorepo setup. It can be used both as a linter to detect version mismatches and as a fixer to automatically resolve them.
+
+## Chromatic
+
+- [Best practices](https://workleap.github.io/wl-web-configs/chromatic/best-practices.md): To help Workleap stay within its monthly Chromatic snapshot budget, we ask teams to follow these best practices.
+- [Setup a Chromatic workflow](https://workleap.github.io/wl-web-configs/chromatic/setup-a-workflow.md): To set up a GitHub Actions Chromatic workflow for a project, first, create a chromatic.yml file inside the .github/workflows folder at the root of the
+- [Setup a Chromatic workflow with Turborepo](https://workleap.github.io/wl-web-configs/chromatic/setup-turborepo-workflow.md): For simplicity, this workflow is not optimized for a modular architecture. However, we recommend combining Chromatic with a modular architecture to improve performance and reduce costs.
+
+## PostCSS
+
+- [PostCSS](https://workleap.github.io/wl-web-configs/postcss/getting-started.md): @workleap/postcss-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rsbuild-configs instead of @workleap/webpack-configs, which eliminates the need for PostCSS.
+- [Configure a project](https://workleap.github.io/wl-web-configs/postcss/configure-project.md): @workleap/postcss-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rsbuild-configs instead of @workleap/webpack-configs, which eliminates the need for PostCSS.
+
+## SWC
+
+- [SWC](https://workleap.github.io/wl-web-configs/swc/getting-started.md): @workleap/swc-configs is now in maintenance mode, with the exception of the Jest shared configurations, which remain actively maintained. If you're starting a new project, consider using @workleap/rsbuild-configs or @workleap/rslib-configs instead for better performance and modern tooling.
+- [Configure for development](https://workleap.github.io/wl-web-configs/swc/configure-dev.md): @workleap/swc-configs is now in maintenance mode for the shared development configuration. If you're starting a new project, consider using @workleap/rsbuild-configs instead for better performance and modern tooling which eliminates the needs for a custom SWC configuration.
+- [Configure for build](https://workleap.github.io/wl-web-configs/swc/configure-build.md): @workleap/swc-configs is now in maintenance mode for the shared build configuration. If you're starting a new project, consider using @workleap/rsbuild-configs instead for better performance and modern tooling which eliminates the needs for a custom SWC configuration.
+- [Configure for Jest](https://workleap.github.io/wl-web-configs/swc/configure-jest.md): To configure SWC for a Jest environment, execute the following steps 👇
+
+## webpack
+
+- [Webpack](https://workleap.github.io/wl-web-configs/webpack/getting-started.md): @workleap/webpack-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rsbuild-configs instead for better performance and modern tooling.
+- [Configure for development](https://workleap.github.io/wl-web-configs/webpack/configure-dev.md): @workleap/webpack-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rsbuild-configs instead for better performance and modern tooling.
+- [Configure for build](https://workleap.github.io/wl-web-configs/webpack/configure-build.md): @workleap/webpack-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rsbuild-configs instead for better performance and modern tooling.
+- [Transformer utilities](https://workleap.github.io/wl-web-configs/webpack/transformer-utilities.md): @workleap/webpack-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rsbuild-configs instead for better performance and modern tooling.
+
+## tsup
+
+- [tsup](https://workleap.github.io/wl-web-configs/tsup/getting-started.md): @workleap/tsup-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rslib-configs instead for better performance and modern tooling.
+- [Configure for development](https://workleap.github.io/wl-web-configs/tsup/configure-dev.md): @workleap/tsup-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rslib-configs instead for better performance and modern tooling.
+- [Configure for build](https://workleap.github.io/wl-web-configs/tsup/configure-build.md): @workleap/tsup-configs is now in maintenance mode. If you're starting a new project, consider using @workleap/rslib-configs instead for better performance and modern tooling.
