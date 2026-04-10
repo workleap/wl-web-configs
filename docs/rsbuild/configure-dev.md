@@ -180,8 +180,9 @@ export default defineDevConfig({
 
 To manually set a certificate, follow Rsbuild [instructions](https://rsbuild.dev/config/server/https#set-certificate) and provide an object literal.
 
-```ts !#4-7 rsbuild.dev.ts
+```ts !#5-8 rsbuild.dev.ts
 import { defineDevConfig } from "@workleap/rsbuild-configs";
+import fs from "node:fs";
 
 export default defineDevConfig({
     https: {

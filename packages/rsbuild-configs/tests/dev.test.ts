@@ -1,6 +1,5 @@
 import type { DistPathConfig, RsbuildConfig, RsbuildPlugin, SourceMap } from "@rsbuild/core";
 import { test, vi } from "vitest";
-import { testingLibraryGlobalIgnores } from "../../eslint-configs/src/testingLibrary.ts";
 import type { RsbuildConfigTransformer } from "../src/applyTransformers.ts";
 import { defineDevConfig } from "../src/dev.ts";
 
