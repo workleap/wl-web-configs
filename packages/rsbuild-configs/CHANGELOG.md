@@ -1,5 +1,11 @@
 # @workleap/rsbuild-configs
 
+## 3.2.7
+
+### Patch Changes
+
+- [#420](https://github.com/workleap/wl-web-configs/pull/420) [`a0f5806`](https://github.com/workleap/wl-web-configs/commit/a0f58067a91bea18d1e8c5d3dc024a94d5d9a071) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Updated the dev config interface to accept options for the basic SSL plugin through the `https` option.
+
 ## 3.2.6
 
 ### Patch Changes
