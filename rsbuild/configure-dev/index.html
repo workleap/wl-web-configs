@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.2.828902819741">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829163427292">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.2">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Configure for development - Rsbuild</title>
@@ -39,12 +39,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.5.2.828902819741" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.829163427292" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.2.828902819741" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.2" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.2.828902819741" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.2.828902819741" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829163427292" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829163427292" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.829163427292" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -379,10 +379,16 @@ export default defineDevConfig({
 </doc-codeblock></div>
 <h3 id="https"><code translate="no" v-pre>https</code></h3>
 <ul>
-<li><strong>Type</strong>: <code translate="no" v-pre>boolean</code> or an object literal accepting any <a href="https://rsbuild.dev/config/server/https" class="outbound" target="_blank">server.https</a> options.</li>
+<li><strong>Type</strong>:
+<ul>
+<li><code translate="no" v-pre>boolean</code></li>
+<li>or <code translate="no" v-pre>(defaultOptions: PluginBasicSslOptions) =&gt; PluginBasicSslOptions</code></li>
+<li>or an object literal accepting any <a href="https://rsbuild.dev/config/server/https" class="outbound" target="_blank">server.https</a> options</li>
+</ul>
+</li>
 <li><strong>Default</strong>: <code translate="no" v-pre>false</code></li>
 </ul>
-<p>Set Rsbuild <a href="https://rsbuild.dev/config/server/https" class="outbound" target="_blank">server.https</a> option and format Rsbuild <a href="https://rsbuild.dev/config/dev/asset-prefix" class="outbound" target="_blank">dev.assetPrefix</a> option accordingly.</p>
+<p>Whether or not to setup Rsbuild server to use https and format Rsbuild <a href="https://rsbuild.dev/config/dev/asset-prefix" class="outbound" target="_blank">dev.assetPrefix</a> option accordingly.</p>
 <div id="https-rsbuilddevts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rsbuild.dev.ts</div>
 <pre translate="no" class="language-typescript" data-line="4"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
@@ -391,7 +397,33 @@ export default defineDevConfig({
     https: true
 });</code></pre>
 </doc-codeblock></div>
-<p>When <code translate="no" v-pre>true</code>, a self-signed certificate will be generated with <a href="https://github.com/rspack-contrib/rsbuild-plugin-basic-ssl" class="outbound" target="_blank">rsbuild-plugin-basic-ssl</a>. To manually set a certificate, follow Rsbuild <a href="https://rsbuild.dev/config/server/https#set-certificate" class="outbound" target="_blank">instructions</a>.</p>
+<p>When <code translate="no" v-pre>true</code>, a self-signed certificate will be generated with <a href="https://github.com/rspack-contrib/rsbuild-plugin-basic-ssl" class="outbound" target="_blank">rsbuild-plugin-basic-ssl</a>. To customize <a href="https://github.com/rspack-contrib/rsbuild-plugin-basic-ssl" class="outbound" target="_blank">rsbuild-plugin-basic-ssl</a>, provide a function to extend the default options.</p>
+<div id="https-rsbuilddevts-1" class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">rsbuild.dev.ts</div>
+<pre translate="no" class="language-typescript" data-line="4-9"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
+
+export default defineDevConfig({
+    https: defaultOptions =&gt; {
+        return {
+            selfsignedAttrs: [{ name: &quot;commonName&quot;, value: &quot;localworkleap.com&quot; }],
+            ...defaultOptions
+        };
+    }
+});</code></pre>
+</doc-codeblock></div>
+<p>To manually set a certificate, follow Rsbuild <a href="https://rsbuild.dev/config/server/https#set-certificate" class="outbound" target="_blank">instructions</a> and provide an object literal.</p>
+<div id="https-rsbuilddevts-2" class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">rsbuild.dev.ts</div>
+<pre translate="no" class="language-typescript" data-line="5-8"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
+import fs from &quot;node:fs&quot;;
+
+export default defineDevConfig({
+    https: {
+        key: fs.readFileSync('certificates/private.pem'),
+        cert: fs.readFileSync('certificates/public.pem'),
+    }
+});</code></pre>
+</doc-codeblock></div>
 <h3 id="host"><code translate="no" v-pre>host</code></h3>
 <ul>
 <li><strong>Type</strong>: <code translate="no" v-pre>string</code></li>
