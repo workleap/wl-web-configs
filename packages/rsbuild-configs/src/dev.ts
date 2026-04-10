@@ -1,18 +1,19 @@
 import { defineConfig, type HtmlConfig, type RsbuildConfig, type RsbuildEntry, type RsbuildPlugins, type ServerConfig, type SourceMap } from "@rsbuild/core";
-import { pluginBasicSsl } from "@rsbuild/plugin-basic-ssl";
+import { pluginBasicSsl, type PluginBasicSslOptions } from "@rsbuild/plugin-basic-ssl";
 import { pluginReact, type PluginReactOptions } from "@rsbuild/plugin-react";
 import { pluginSvgr, type PluginSvgrOptions } from "@rsbuild/plugin-svgr";
 import path from "node:path";
 import { applyTransformers, type RsbuildConfigTransformer } from "./applyTransformers.ts";
-import { isBoolean } from "./assertions.ts";
+import { isBoolean, isFunction } from "./assertions.ts";
 
 export type DefineDevHtmlPluginConfigFunction = (defaultOptions: HtmlConfig) => HtmlConfig;
 export type DefineDevDefineReactPluginConfigFunction = (defaultOptions: PluginReactOptions) => PluginReactOptions;
 export type DefineDevSvgrPluginConfigFunction = (defaultOptions: PluginSvgrOptions) => PluginSvgrOptions;
+export type DefineBasicSslConfigFunction = (defaultOptions: PluginBasicSslOptions) => PluginBasicSslOptions;
 
 export interface DefineDevConfigOptions {
     entry?: RsbuildEntry;
-    https?: boolean | ServerConfig["https"];
+    https?: boolean | DefineBasicSslConfigFunction | ServerConfig["https"];
     host?: string;
     port?: number;
     // Similar to webpack.publicPath.
@@ -85,7 +86,7 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
             writeToDisk
         },
         server: {
-            https: isBoolean(https) ? undefined : https,
+            https: isBoolean(https) || isFunction(https) ? undefined : https,
             host,
             port,
             historyApiFallback: true
@@ -112,7 +113,7 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
             ? html({ template: path.resolve("./public/index.html") })
             : undefined,
         plugins: [
-            isBoolean(https) && https && pluginBasicSsl(),
+            https && (isBoolean(https) || isFunction(https)) && pluginBasicSsl(isFunction(https) ? https({}) : undefined),
             react && pluginReact(react({
                 fastRefresh,
                 reactRefreshOptions: {
