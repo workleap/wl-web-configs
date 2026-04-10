@@ -147,10 +147,13 @@ export default defineDevConfig({
 
 ### `https`
 
-- **Type**: `boolean` or an object literal accepting any [server.https](https://rsbuild.dev/config/server/https) options.
+- **Type**:
+    - `boolean`
+    - or `(defaultOptions: PluginBasicSslOptions) => PluginBasicSslOptions`
+    - or an object literal accepting any [server.https](https://rsbuild.dev/config/server/https) options
 - **Default**: `false`
 
-Set Rsbuild [server.https](https://rsbuild.dev/config/server/https) option and format Rsbuild [dev.assetPrefix](https://rsbuild.dev/config/dev/asset-prefix) option accordingly.
+Whether or not to setup Rsbuild server to use https and format Rsbuild [dev.assetPrefix](https://rsbuild.dev/config/dev/asset-prefix) option accordingly. 
 
 ```ts !#4 rsbuild.dev.ts
 import { defineDevConfig } from "@workleap/rsbuild-configs";
@@ -160,7 +163,33 @@ export default defineDevConfig({
 });
 ```
 
-When `true`, a self-signed certificate will be generated with [rsbuild-plugin-basic-ssl](https://github.com/rspack-contrib/rsbuild-plugin-basic-ssl). To manually set a certificate, follow Rsbuild [instructions](https://rsbuild.dev/config/server/https#set-certificate).
+When `true`, a self-signed certificate will be generated with [rsbuild-plugin-basic-ssl](https://github.com/rspack-contrib/rsbuild-plugin-basic-ssl). To customize [rsbuild-plugin-basic-ssl](https://github.com/rspack-contrib/rsbuild-plugin-basic-ssl), provide a function to extend the default options.
+
+```ts !#4-9 rsbuild.dev.ts
+import { defineDevConfig } from "@workleap/rsbuild-configs";
+
+export default defineDevConfig({
+    https: defaultOptions => {
+        return {
+            selfsignedAttrs: [{ name: "commonName", value: "localworkleap.com" }],
+            ...defaultOptions
+        };
+    }
+});
+```
+
+To manually set a certificate, follow Rsbuild [instructions](https://rsbuild.dev/config/server/https#set-certificate) and provide an object literal.
+
+```ts !#4-7 rsbuild.dev.ts
+import { defineDevConfig } from "@workleap/rsbuild-configs";
+
+export default defineDevConfig({
+    https: {
+        key: fs.readFileSync('certificates/private.pem'),
+        cert: fs.readFileSync('certificates/public.pem'),
+    }
+});
+```
 
 ### `host`
 

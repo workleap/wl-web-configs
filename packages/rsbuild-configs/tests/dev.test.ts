@@ -1,5 +1,6 @@
 import type { DistPathConfig, RsbuildConfig, RsbuildPlugin, SourceMap } from "@rsbuild/core";
 import { test, vi } from "vitest";
+import { testingLibraryGlobalIgnores } from "../../eslint-configs/src/testingLibrary.ts";
 import type { RsbuildConfigTransformer } from "../src/applyTransformers.ts";
 import { defineDevConfig } from "../src/dev.ts";
 
@@ -20,6 +21,18 @@ test.concurrent("when https is true, the server option is configured with a self
 
     expect(result.server?.https).toBeUndefined();
     expect(result.plugins?.find(x => (x as RsbuildPlugin).name === "rsbuild:basic-ssl")).toBeDefined();
+});
+
+test.concurrent("when https is a function, the function is executed and the server option is configured with a self signed certificate", ({ expect }) => {
+    const fct = vi.fn();
+
+    const result = defineDevConfig({
+        https: fct
+    });
+
+    expect(result.server?.https).toBeUndefined();
+    expect(result.plugins?.find(x => (x as RsbuildPlugin).name === "rsbuild:basic-ssl")).toBeDefined();
+    expect(fct).toHaveBeenCalledTimes(1);
 });
 
 test.concurrent("when https is a certificate, the server option is configured with the provided certificate", ({ expect }) => {
