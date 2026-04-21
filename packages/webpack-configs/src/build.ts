@@ -228,7 +228,7 @@ export function defineBuildConfig(swcConfig: SwcConfig, options: DefineBuildConf
                 }, {} as Record<string, string>)
             }),
             ...plugins
-        ].filter(Boolean) as WebpackConfig["plugins"]
+        ].filter(Boolean)
     };
 
     const transformedConfig = applyTransformers(config, transformers, {

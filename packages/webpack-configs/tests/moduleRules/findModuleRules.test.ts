@@ -1,5 +1,5 @@
 import { test } from "vitest";
-import type { RuleSetRule, RuleSetUseItem, Configuration as WebpackConfig } from "webpack";
+import type { RuleSetRule, Configuration as WebpackConfig } from "webpack";
 import { findModuleRules, matchAssetModuleType, matchLoaderName } from "../../src/transformers/moduleRules.ts";
 
 test.concurrent("when the webpack configuration doesn't have a module section, return undefined", ({ expect }) => {
@@ -127,11 +127,11 @@ test.concurrent("when multiple matching rules are found in a \"use\" prop, retur
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    expect((result![0].moduleRule as RuleSetUseItem).loader).toBe("swc-loader");
+    expect(result![0].moduleRule.loader).toBe("swc-loader");
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    expect((result![1].moduleRule as RuleSetUseItem).loader).toBe("swc-loader");
+    expect(result![1].moduleRule.loader).toBe("swc-loader");
 });
 
 test.concurrent("when multiple matching rules are found in the rules array and a \"oneOf\" prop, return the module rules", ({ expect }) => {
@@ -207,11 +207,11 @@ test.concurrent("when multiple matching rules are found in the rules array and a
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    expect((result![0].moduleRule as RuleSetUseItem).loader).toBe("swc-loader");
+    expect(result![0].moduleRule.loader).toBe("swc-loader");
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    expect((result![1].moduleRule as RuleSetUseItem).loader).toBe("swc-loader");
+    expect(result![1].moduleRule.loader).toBe("swc-loader");
 });
 
 test.concurrent("when there are no matching rule, return an empty array", ({ expect }) => {

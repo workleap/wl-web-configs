@@ -343,8 +343,8 @@ test.concurrent("when multiple transformers are provided, all the transformers a
 
     const distPathTransformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
         config.output = config.output ?? {};
-        config.output.distPath = (config.output.distPath ?? {}) as DistPathConfig;
-        config.output.distPath.js = "a-custom-dist-path-in-a-tranformer";
+        config.output.distPath = config.output.distPath ?? {};
+        (config.output.distPath as DistPathConfig).js = "a-custom-dist-path-in-a-tranformer";
 
         return config;
     };
