@@ -14,12 +14,6 @@ pnpm add -D @workleap/rsbuild-configs@^4.0.0 @rsbuild/core@^2.0.0 @rspack/core@^
 
 Rsbuild 2.0 requires **Node.js `20.19+` or `22.12+`**. Node.js 18 is no longer supported because it reached end of life in April 2025.
 
-Make sure your CI runners and local development environment are running a supported version. The recommended pattern is to pin a version in the project [`.nvmrc`](https://github.com/nvm-sh/nvm#nvmrc) (or equivalent) file:
-
-```text .nvmrc
-22
-```
-
 ## Review changed defaults
 
 The following defaults changed upstream. Most projects don't need to react to them, but they're worth knowing about.

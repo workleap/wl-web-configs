@@ -50,7 +50,7 @@
 - [Setup with Turborepo](https://workleap.github.io/wl-web-configs/rsbuild/setup-turborepo.md): To configure Rsbuild in a monorepo managed with Turborepo, follow these steps 👇
 - [Deploy to Netlify](https://workleap.github.io/wl-web-configs/rsbuild/deploy-to-netlify.md): The deployment process for web applications can vary depending on various factors. Therefore, we do not recommend any specific deployment setup. However, there are a few essential configurations that need to be made regardless of your architectural and deployment choices.
 - [Migrate from webpack](https://workleap.github.io/wl-web-configs/rsbuild/migrate-from-webpack.md): To migrate from @workleap/webpack-configs to @workleap/rsbuild-configs, execute the following steps 👇
-- [Migrate to Rsbuild v2.0](https://workleap.github.io/wl-web-configs/rsbuild/migrate-to-v2.md): @workleap/rsbuild-configs v4.0 upgrades to Rsbuild 2.0 and Rspack 2.0. The upgrade is designed to be mostly transparent, but a few defaults and dependencies changed upstream.
+- [Migrate to Rsbuild v2.0](https://workleap.github.io/wl-web-configs/rsbuild/migrate-to-rsbuild-v2.md): @workleap/rsbuild-configs v4.0 upgrades to Rsbuild 2.0 and Rspack 2.0. The upgrade is designed to be mostly transparent, but a few defaults and dependencies changed upstream.
 
 ## Rslib
 
