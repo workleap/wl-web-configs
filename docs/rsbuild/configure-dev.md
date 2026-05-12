@@ -405,6 +405,28 @@ export default defineDevConfig({
 });
 ```
 
+### `setup`
+
+- **Type**: `ServerSetupFn | ServerSetupFn[]`
+- **Default**: `undefined`
+
+Set Rsbuild [server.setup](https://rsbuild.rs/config/server/setup) hook to run logic when the dev server starts. This is useful for registering custom middleware or running pre-start tasks. The hook can return a callback that runs *after* Rsbuild's default middleware are registered.
+
+```ts !#4-11 rsbuild.dev.ts
+import { defineDevConfig } from "@workleap/rsbuild-configs";
+
+export default defineDevConfig({
+    setup: ({ server, action }) => {
+        if (action === "dev") {
+            server.middlewares.use((req, res, next) => {
+                console.log("dev middleware");
+                next();
+            });
+        }
+    }
+});
+```
+
 ### `react`
 
 - **Type**: `false` or `(defaultOptions: PluginReactOptions) => PluginReactOptions`

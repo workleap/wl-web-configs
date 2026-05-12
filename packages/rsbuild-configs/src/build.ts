@@ -1,8 +1,8 @@
-import { defineConfig, type DistPathConfig, type HtmlConfig, type Minify, type RsbuildConfig, type RsbuildEntry, type RsbuildPlugins, type SourceMap } from "@rsbuild/core";
+import { defineConfig, type DistPathConfig, type HtmlConfig, type Minify, type Polyfill, type RsbuildConfig, type RsbuildEntry, type RsbuildPlugins, type SourceMap, type SplitChunksConfig } from "@rsbuild/core";
 import { pluginImageCompress, type PluginImageCompressOptions } from "@rsbuild/plugin-image-compress";
 import { pluginReact, type PluginReactOptions } from "@rsbuild/plugin-react";
 import { pluginSvgr, type PluginSvgrOptions } from "@rsbuild/plugin-svgr";
-import { SwcJsMinimizerRspackPlugin, type Optimization } from "@rspack/core";
+import type { Optimization } from "@rspack/core";
 import path from "node:path";
 import { applyTransformers, type RsbuildConfigTransformer } from "./applyTransformers.ts";
 
@@ -24,6 +24,8 @@ export interface DefineBuildConfigOptions {
     minify?: Minify;
     optimize?: OptimizeOption;
     sourceMap?: boolean | SourceMap;
+    polyfill?: Polyfill;
+    splitChunks?: SplitChunksConfig | false;
     react?: false | DefineBuildDefineReactPluginConfigFunction;
     svgr?: false | DefineBuildSvgrPluginConfigFunction;
     compressImage?: false | DefineBuildImageCompressPluginConfigFunction;
@@ -48,40 +50,49 @@ function defineImageCompressPluginConfig(options: PluginImageCompressOptions) {
     return options;
 }
 
-export function getOptimizationConfig(optimize: OptimizeOption): Optimization {
-    if (optimize === true) {
+export function getMinifyConfig(optimize: OptimizeOption, minify: Minify): Minify {
+    if (optimize === false) {
+        return false;
+    }
+
+    if (optimize === "readable") {
         return {
-            minimize: true
-        };
-    } else if (optimize === "readable") {
-        return {
-            minimize: true,
-            minimizer: [
-                new SwcJsMinimizerRspackPlugin({
-                    minimizerOptions: {
-                        mangle: false,
-                        compress: {
-                            toplevel: true,
-                            hoist_props: false
-                        }
+            jsOptions: {
+                minimizerOptions: {
+                    mangle: false,
+                    compress: {
+                        toplevel: true,
+                        hoist_props: false
                     }
-                })
-            ],
+                }
+            }
+        };
+    }
+
+    return minify;
+}
+
+export function getOptimizationConfig(optimize: OptimizeOption): Optimization | undefined {
+    if (optimize === "readable") {
+        return {
             chunkIds: "named",
             moduleIds: "named",
             mangleExports: false
         };
     }
 
-    // Doesn't turnoff everything but is good enough to help with debugging scenarios.
-    return {
-        minimize: false,
-        chunkIds: "named",
-        moduleIds: "named",
-        concatenateModules: false,
-        mangleExports: false,
-        usedExports: false
-    };
+    if (optimize === false) {
+        // Doesn't turnoff everything but is good enough to help with debugging scenarios.
+        return {
+            chunkIds: "named",
+            moduleIds: "named",
+            concatenateModules: false,
+            mangleExports: false,
+            usedExports: false
+        };
+    }
+
+    return undefined;
 }
 
 export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
@@ -101,6 +112,11 @@ export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
             js: "source-map",
             css: true
         },
+        polyfill = "usage",
+        splitChunks = {
+            preset: "per-package",
+            chunks: "all"
+        } satisfies SplitChunksConfig,
         react = defaultDefineReactPluginConfig,
         svgr = defineSvgrPluginConfig,
         compressImage = defineImageCompressPluginConfig,
@@ -131,9 +147,11 @@ export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
             distPath,
             cleanDistPath: true,
             assetPrefix,
-            minify,
-            sourceMap
+            minify: getMinifyConfig(optimize, minify),
+            sourceMap,
+            polyfill
         },
+        splitChunks,
         html: html
             ? html({ template: path.resolve("./public/index.html") })
             : undefined,
