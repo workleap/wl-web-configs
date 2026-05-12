@@ -26,6 +26,7 @@ export interface DefineDevConfigOptions {
     sourceMap?: false | SourceMap;
     overlay?: false;
     writeToDisk?: true;
+    setup?: ServerConfig["setup"];
     react?: false | DefineDevDefineReactPluginConfigFunction;
     svgr?: false | DefineDevSvgrPluginConfigFunction;
     environmentVariables?: Record<string, unknown>;
@@ -65,6 +66,7 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
         },
         overlay,
         writeToDisk,
+        setup,
         react = defaultDefineReactPluginConfig,
         svgr = defineSvgrPluginConfig,
         // Using an empty object literal as the default value to ensure
@@ -89,7 +91,8 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
             https: isBoolean(https) || isFunction(https) ? undefined : https,
             host,
             port,
-            historyApiFallback: true
+            historyApiFallback: true,
+            setup
         },
         source: {
             entry,

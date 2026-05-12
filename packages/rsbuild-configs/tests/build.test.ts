@@ -1,4 +1,4 @@
-import type { DistPathConfig, RsbuildConfig, RsbuildPlugin, SourceMap } from "@rsbuild/core";
+import type { DistPathConfig, Minify, RsbuildConfig, RsbuildPlugin, SourceMap, SplitChunksConfig } from "@rsbuild/core";
 import { describe, test, vi } from "vitest";
 import type { RsbuildConfigTransformer } from "../src/applyTransformers.ts";
 import { defineBuildConfig, getOptimizationConfig } from "../src/build.ts";
@@ -241,58 +241,96 @@ test.concurrent("when the verbose option is true, the transformers context verbo
     expect(mockTransformer).toHaveBeenCalledWith(expect.anything(), { environment: "build", verbose: true });
 });
 
+describe("output.minify", () => {
+    test.concurrent("when optimize is true, output.minify equals the provided minify value", ({ expect }) => {
+        expect(defineBuildConfig({ optimize: true, minify: true }).output?.minify).toBe(true);
+        expect(defineBuildConfig({ optimize: true, minify: false }).output?.minify).toBe(false);
+    });
+
+    test.concurrent("when optimize is false, output.minify is forced to false", ({ expect }) => {
+        expect(defineBuildConfig({ optimize: false, minify: true }).output?.minify).toBe(false);
+    });
+
+    test.concurrent("when optimize is \"readable\", output.minify configures SWC with mangle disabled", ({ expect }) => {
+        const result = defineBuildConfig({ optimize: "readable" }).output?.minify as Exclude<Minify, boolean>;
+
+        expect(result.jsOptions?.minimizerOptions?.mangle).toBe(false);
+    });
+});
+
 describe("getOptimizationConfig", () => {
-    test.concurrent("when optimize is true, minimize is set to true", ({ expect }) => {
-        const result = getOptimizationConfig(true);
-
-        expect(result.minimize).toBeTruthy();
+    test.concurrent("when optimize is true, return undefined to defer to Rsbuild defaults", ({ expect }) => {
+        expect(getOptimizationConfig(true)).toBeUndefined();
     });
 
-    test.concurrent("when optimize is false, minimize is set to false", ({ expect }) => {
+    test.concurrent("when optimize is false, chunkIds and moduleIds are set to \"named\"", ({ expect }) => {
         const result = getOptimizationConfig(false);
 
-        expect(result.minimize).toBeFalsy();
+        expect(result?.chunkIds).toBe("named");
+        expect(result?.moduleIds).toBe("named");
     });
 
-    test.concurrent("when optimize is \"readable\", minimize is set to true", ({ expect }) => {
-        const result = getOptimizationConfig("readable");
-
-        expect(result.minimize).toBeTruthy();
-    });
-
-    test.concurrent("when optimize is false, chunkIds is set to \"named\"", ({ expect }) => {
+    test.concurrent("when optimize is false, concatenateModules and usedExports are disabled", ({ expect }) => {
         const result = getOptimizationConfig(false);
 
-        expect(result.chunkIds).toBe("named");
+        expect(result?.concatenateModules).toBe(false);
+        expect(result?.usedExports).toBe(false);
     });
 
-    test.concurrent("when optimize is false, moduleIds is set to \"named\"", ({ expect }) => {
-        const result = getOptimizationConfig(false);
-
-        expect(result.chunkIds).toBe("named");
-    });
-
-    test.concurrent("when optimize is \"readable\", chunkIds is set to \"named\"", ({ expect }) => {
+    test.concurrent("when optimize is \"readable\", chunkIds and moduleIds are set to \"named\"", ({ expect }) => {
         const result = getOptimizationConfig("readable");
 
-        expect(result.chunkIds).toBe("named");
+        expect(result?.chunkIds).toBe("named");
+        expect(result?.moduleIds).toBe("named");
     });
 
-    test.concurrent("when optimize is \"readable\", moduleIds is set to \"named\"", ({ expect }) => {
+    test.concurrent("when optimize is \"readable\", mangleExports is disabled", ({ expect }) => {
         const result = getOptimizationConfig("readable");
 
-        expect(result.chunkIds).toBe("named");
+        expect(result?.mangleExports).toBe(false);
+    });
+});
+
+test.concurrent("by default, the output.polyfill option is set to \"usage\"", ({ expect }) => {
+    const result = defineBuildConfig();
+
+    expect(result.output?.polyfill).toBe("usage");
+});
+
+test.concurrent("when polyfill is provided, the output.polyfill option is the provided value", ({ expect }) => {
+    const result = defineBuildConfig({
+        polyfill: "off"
     });
 
-    test.concurrent("when optimize is false, do not include minimizer configuration", ({ expect }) => {
-        const result = getOptimizationConfig(false);
+    expect(result.output?.polyfill).toBe("off");
+});
 
-        expect(result.minimizer).toBeUndefined();
+test.concurrent("by default, the splitChunks option uses the \"per-package\" preset", ({ expect }) => {
+    const result = defineBuildConfig();
+
+    const splitChunks = result.splitChunks as SplitChunksConfig;
+
+    expect(splitChunks.preset).toBe("per-package");
+    expect(splitChunks.chunks).toBe("all");
+});
+
+test.concurrent("when splitChunks is provided, the splitChunks option is the provided value", ({ expect }) => {
+    const splitChunks: SplitChunksConfig = {
+        preset: "single-vendor",
+        chunks: "all"
+    };
+
+    const result = defineBuildConfig({
+        splitChunks
     });
 
-    test.concurrent("when optimize is \"readable\", include minify configuration", ({ expect }) => {
-        const result = getOptimizationConfig("readable");
+    expect(result.splitChunks).toBe(splitChunks);
+});
 
-        expect(result.minimizer).toBeDefined();
+test.concurrent("when splitChunks is false, the splitChunks option is false", ({ expect }) => {
+    const result = defineBuildConfig({
+        splitChunks: false
     });
+
+    expect(result.splitChunks).toBe(false);
 });

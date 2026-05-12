@@ -102,9 +102,9 @@ export default defineStorybookConfig({
 ### `lazyCompilation`
 
 - **Type**: `boolean`
-- **Default**: `false`
+- **Default**: `true`
 
-Whether or not to use [lazy compilation](https://rsbuild.dev/config/dev/lazy-compilation). To enable lazy compilation, set the option to `true`.
+Whether or not to use [lazy compilation](https://rsbuild.dev/config/dev/lazy-compilation). To disable lazy compilation, set the option to `false`.
 
 ```ts !#4 rsbuild.dev.ts
 import { defineStorybookConfig } from "@workleap/rsbuild-configs";

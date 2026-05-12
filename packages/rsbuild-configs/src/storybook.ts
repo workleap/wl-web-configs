@@ -28,7 +28,7 @@ function defineSvgrPluginConfig(options: PluginSvgrOptions) {
 export function defineStorybookConfig(options: DefineStorybookConfigOptions = {}) {
     const {
         plugins = [],
-        lazyCompilation = false,
+        lazyCompilation = true,
         sourceMap = {
             js: "cheap-module-source-map",
             css: true

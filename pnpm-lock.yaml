@@ -146,10 +146,10 @@ importers:
         version: 9.39.2
       '@rsbuild/core':
         specifier: 2.0.5
-        version: 2.0.5
+        version: 2.0.5(core-js@3.49.0)
       '@rslib/core':
         specifier: 0.21.4
-        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
+        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)
       '@types/eslint-plugin-jsx-a11y':
         specifier: 6.10.1
         version: 6.10.1(jiti@2.7.0)
@@ -192,7 +192,7 @@ importers:
         version: 9.39.2
       '@rslib/core':
         specifier: 0.21.4
-        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
+        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)
       '@types/node':
         specifier: 25.7.0
         version: 25.7.0
@@ -228,26 +228,29 @@ importers:
     dependencies:
       '@rsbuild/plugin-basic-ssl':
         specifier: ^1.2.2
-        version: 1.2.2(@rsbuild/core@2.0.5)
+        version: 1.2.2(@rsbuild/core@2.0.5(core-js@3.49.0))
       '@rsbuild/plugin-image-compress':
         specifier: ^1.3.3
-        version: 1.3.3(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@rsbuild/core@2.0.5)
+        version: 1.3.3(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@rsbuild/core@2.0.5(core-js@3.49.0))
       '@rsbuild/plugin-react':
         specifier: ^2.0.0
-        version: 2.0.0(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))
+        version: 2.0.0(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))
       '@rsbuild/plugin-svgr':
         specifier: ^2.0.2
-        version: 2.0.2(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(typescript@6.0.3)
+        version: 2.0.2(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(typescript@6.0.3)
+      core-js:
+        specifier: ^3.49.0
+        version: 3.49.0
     devDependencies:
       '@eslint/js':
         specifier: 9.39.2
         version: 9.39.2
       '@rsbuild/core':
         specifier: 2.0.5
-        version: 2.0.5
+        version: 2.0.5(core-js@3.49.0)
       '@rslib/core':
         specifier: 0.21.4
-        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
+        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)
       '@rspack/core':
         specifier: 2.0.3
         version: 2.0.3(@swc/helpers@0.5.21)
@@ -286,17 +289,17 @@ importers:
     dependencies:
       '@rsbuild/plugin-react':
         specifier: ^2.0.0
-        version: 2.0.0(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))
+        version: 2.0.0(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))
       '@rsbuild/plugin-svgr':
         specifier: ^2.0.2
-        version: 2.0.2(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(typescript@6.0.3)
+        version: 2.0.2(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(typescript@6.0.3)
     devDependencies:
       '@eslint/js':
         specifier: 9.39.2
         version: 9.39.2
       '@rslib/core':
         specifier: 0.21.4
-        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
+        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)
       '@types/node':
         specifier: 25.7.0
         version: 25.7.0
@@ -391,10 +394,10 @@ importers:
         version: 9.39.2
       '@rsbuild/core':
         specifier: 2.0.5
-        version: 2.0.5
+        version: 2.0.5(core-js@3.49.0)
       '@rslib/core':
         specifier: 0.21.4
-        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
+        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)
       '@types/node':
         specifier: 25.7.0
         version: 25.7.0
@@ -437,10 +440,10 @@ importers:
         version: 9.39.2
       '@rsbuild/core':
         specifier: 2.0.5
-        version: 2.0.5
+        version: 2.0.5(core-js@3.49.0)
       '@rslib/core':
         specifier: 0.21.4
-        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
+        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)
       '@types/node':
         specifier: 25.7.0
         version: 25.7.0
@@ -534,10 +537,10 @@ importers:
         version: 9.39.2
       '@rsbuild/core':
         specifier: 2.0.5
-        version: 2.0.5
+        version: 2.0.5(core-js@3.49.0)
       '@rslib/core':
         specifier: 0.21.4
-        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
+        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)
       '@svgr/core':
         specifier: 8.1.0
         version: 8.1.0(typescript@6.0.3)
@@ -598,7 +601,7 @@ importers:
         version: 9.39.2
       '@rsbuild/core':
         specifier: 2.0.5
-        version: 2.0.5
+        version: 2.0.5(core-js@3.49.0)
       '@rspack/core':
         specifier: 2.0.3
         version: 2.0.3(@swc/helpers@0.5.21)
@@ -689,7 +692,7 @@ importers:
         version: 9.39.2
       '@rsbuild/core':
         specifier: 2.0.5
-        version: 2.0.5
+        version: 2.0.5(core-js@3.49.0)
       '@testing-library/react':
         specifier: 16.3.2
         version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -734,7 +737,7 @@ importers:
         version: 3.8.3
       storybook-react-rsbuild:
         specifier: 3.3.3
-        version: 3.3.3(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.60.3)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)(webpack@5.106.2)
+        version: 3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.60.3)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)(webpack@5.106.2)
       stylelint:
         specifier: 16.26.1
         version: 16.26.1(typescript@6.0.3)
@@ -755,7 +758,7 @@ importers:
         version: 9.39.2
       '@rslib/core':
         specifier: 0.21.4
-        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
+        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)
       '@types/node':
         specifier: 25.7.0
         version: 25.7.0
@@ -798,7 +801,7 @@ importers:
         version: 9.39.2
       '@rsbuild/core':
         specifier: 2.0.5
-        version: 2.0.5
+        version: 2.0.5(core-js@3.49.0)
       '@rspack/core':
         specifier: 2.0.3
         version: 2.0.3(@swc/helpers@0.5.21)
@@ -852,7 +855,7 @@ importers:
         version: 10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       storybook-react-rsbuild:
         specifier: 3.3.3
-        version: 3.3.3(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.60.3)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)(webpack@5.106.2)
+        version: 3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.60.3)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)(webpack@5.106.2)
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -874,10 +877,10 @@ importers:
         version: 9.39.2
       '@rsbuild/core':
         specifier: 2.0.5
-        version: 2.0.5
+        version: 2.0.5(core-js@3.49.0)
       '@rslib/core':
         specifier: 0.21.4
-        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
+        version: 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)
       '@storybook/addon-a11y':
         specifier: 10.3.6
         version: 10.3.6(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))
@@ -925,10 +928,10 @@ importers:
         version: 10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       storybook-addon-rslib:
         specifier: 3.3.3
-        version: 3.3.3(@rsbuild/core@2.0.5)(@rslib/core@0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3))(storybook-builder-rsbuild@3.3.3(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3))(typescript@6.0.3)
+        version: 3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rslib/core@0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3))(storybook-builder-rsbuild@3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3))(typescript@6.0.3)
       storybook-react-rsbuild:
         specifier: 3.3.3
-        version: 3.3.3(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.60.3)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)(webpack@5.106.2)
+        version: 3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.60.3)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)(webpack@5.106.2)
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -6083,6 +6086,9 @@ packages:
 
   core-js-pure@3.49.0:
     resolution: {integrity: sha512-XM4RFka59xATyJv/cS3O3Kml72hQXUeGRuuTmMYFxwzc9/7C8OYTaIR/Ji+Yt8DXzsFLNhat15cE/JP15HrCgw==}
+
+  core-js@3.49.0:
+    resolution: {integrity: sha512-es1U2+YTtzpwkxVLwAFdSpaIMyQaq0PBgm3YD1W3Qpsn1NAmO3KSgZfu+oGSWVu6NvLHoHCV/aYcsE5wiB7ALg==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -15161,70 +15167,72 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.60.3':
     optional: true
 
-  '@rsbuild/core@2.0.5':
+  '@rsbuild/core@2.0.5(core-js@3.49.0)':
     dependencies:
       '@rspack/core': 2.0.3(@swc/helpers@0.5.21)
       '@swc/helpers': 0.5.21
+    optionalDependencies:
+      core-js: 3.49.0
     transitivePeerDependencies:
       - '@module-federation/runtime-tools'
 
-  '@rsbuild/plugin-basic-ssl@1.2.2(@rsbuild/core@2.0.5)':
+  '@rsbuild/plugin-basic-ssl@1.2.2(@rsbuild/core@2.0.5(core-js@3.49.0))':
     dependencies:
       selfsigned: 3.0.1
     optionalDependencies:
-      '@rsbuild/core': 2.0.5
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
 
-  '@rsbuild/plugin-image-compress@1.3.3(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@rsbuild/core@2.0.5)':
+  '@rsbuild/plugin-image-compress@1.3.3(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@rsbuild/core@2.0.5(core-js@3.49.0))':
     dependencies:
       '@napi-rs/image': 1.11.2(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
       svgo: 3.3.3
     optionalDependencies:
-      '@rsbuild/core': 2.0.5
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
 
-  '@rsbuild/plugin-react@2.0.0(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))':
+  '@rsbuild/plugin-react@2.0.0(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))':
     dependencies:
       '@rspack/plugin-react-refresh': 2.0.0(@rspack/core@2.0.3(@swc/helpers@0.5.21))(react-refresh@0.18.0)
       react-refresh: 0.18.0
     optionalDependencies:
-      '@rsbuild/core': 2.0.5
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
     transitivePeerDependencies:
       - '@rspack/core'
 
-  '@rsbuild/plugin-svgr@2.0.2(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(typescript@6.0.3)':
+  '@rsbuild/plugin-svgr@2.0.2(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(typescript@6.0.3)':
     dependencies:
-      '@rsbuild/plugin-react': 2.0.0(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))
+      '@rsbuild/plugin-react': 2.0.0(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))
       '@svgr/core': 8.1.0(typescript@6.0.3)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@6.0.3))
       '@svgr/plugin-svgo': 8.1.0(@svgr/core@8.1.0(typescript@6.0.3))(typescript@6.0.3)
       deepmerge: 4.3.1
       loader-utils: 3.3.1
     optionalDependencies:
-      '@rsbuild/core': 2.0.5
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
     transitivePeerDependencies:
       - '@rspack/core'
       - supports-color
       - typescript
 
-  '@rsbuild/plugin-type-check@1.3.4(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(tslib@2.8.1)(typescript@6.0.3)':
+  '@rsbuild/plugin-type-check@1.3.4(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(tslib@2.8.1)(typescript@6.0.3)':
     dependencies:
       deepmerge: 4.3.1
       json5: 2.2.3
       reduce-configs: 1.1.2
       ts-checker-rspack-plugin: 1.3.0(@rspack/core@2.0.3(@swc/helpers@0.5.21))(tslib@2.8.1)(typescript@6.0.3)
     optionalDependencies:
-      '@rsbuild/core': 2.0.5
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
     transitivePeerDependencies:
       - '@rspack/core'
       - tslib
       - typescript
 
-  '@rslib/core@0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)':
+  '@rslib/core@0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)':
     dependencies:
-      '@rsbuild/core': 2.0.5
-      rsbuild-plugin-dts: 0.21.4(@rsbuild/core@2.0.5)(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
+      rsbuild-plugin-dts: 0.21.4(@rsbuild/core@2.0.5(core-js@3.49.0))(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
     optionalDependencies:
       typescript: 6.0.3
     transitivePeerDependencies:
@@ -17172,6 +17180,8 @@ snapshots:
       browserslist: 4.28.2
 
   core-js-pure@3.49.0: {}
+
+  core-js@3.49.0: {}
 
   core-util-is@1.0.3: {}
 
@@ -21926,20 +21936,20 @@ snapshots:
 
   rrweb-cssom@0.8.0: {}
 
-  rsbuild-plugin-dts@0.21.4(@rsbuild/core@2.0.5)(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3):
+  rsbuild-plugin-dts@0.21.4(@rsbuild/core@2.0.5(core-js@3.49.0))(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3):
     dependencies:
       '@ast-grep/napi': 0.37.0
-      '@rsbuild/core': 2.0.5
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
     optionalDependencies:
       '@typescript/native-preview': 7.0.0-dev.20260512.1
       typescript: 6.0.3
 
-  rsbuild-plugin-html-minifier-terser@1.1.3(@rsbuild/core@2.0.5):
+  rsbuild-plugin-html-minifier-terser@1.1.3(@rsbuild/core@2.0.5(core-js@3.49.0)):
     dependencies:
       '@types/html-minifier-terser': 7.0.2
       html-minifier-terser: 7.2.0
     optionalDependencies:
-      '@rsbuild/core': 2.0.5
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
 
   run-applescript@7.1.0: {}
 
@@ -22344,18 +22354,18 @@ snapshots:
       es-errors: 1.3.0
       internal-slot: 1.1.0
 
-  storybook-addon-rslib@3.3.3(@rsbuild/core@2.0.5)(@rslib/core@0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3))(storybook-builder-rsbuild@3.3.3(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3))(typescript@6.0.3):
+  storybook-addon-rslib@3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rslib/core@0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3))(storybook-builder-rsbuild@3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3))(typescript@6.0.3):
     dependencies:
-      '@rsbuild/core': 2.0.5
-      '@rslib/core': 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(typescript@6.0.3)
-      storybook-builder-rsbuild: 3.3.3(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
+      '@rslib/core': 0.21.4(@typescript/native-preview@7.0.0-dev.20260512.1)(core-js@3.49.0)(typescript@6.0.3)
+      storybook-builder-rsbuild: 3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)
     optionalDependencies:
       typescript: 6.0.3
 
-  storybook-builder-rsbuild@3.3.3(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3):
+  storybook-builder-rsbuild@3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3):
     dependencies:
-      '@rsbuild/core': 2.0.5
-      '@rsbuild/plugin-type-check': 1.3.4(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(tslib@2.8.1)(typescript@6.0.3)
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
+      '@rsbuild/plugin-type-check': 1.3.4(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(tslib@2.8.1)(typescript@6.0.3)
       '@vitest/mocker': 3.2.4(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))
       browser-assert: 1.2.1
       case-sensitive-paths-webpack-plugin: 2.4.0
@@ -22367,7 +22377,7 @@ snapshots:
       path-browserify: 1.0.1
       picocolors: 1.1.1
       process: 0.11.10
-      rsbuild-plugin-html-minifier-terser: 1.1.3(@rsbuild/core@2.0.5)
+      rsbuild-plugin-html-minifier-terser: 1.1.3(@rsbuild/core@2.0.5(core-js@3.49.0))
       sirv: 2.0.4
       storybook: 10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       ts-dedent: 2.2.0
@@ -22384,10 +22394,10 @@ snapshots:
       - tslib
       - vite
 
-  storybook-react-rsbuild@3.3.3(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.60.3)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)(webpack@5.106.2):
+  storybook-react-rsbuild@3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.60.3)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)(webpack@5.106.2):
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.60.3)
-      '@rsbuild/core': 2.0.5
+      '@rsbuild/core': 2.0.5(core-js@3.49.0)
       '@storybook/react': 10.3.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(typescript@6.0.3)
       '@storybook/react-docgen-typescript-plugin': 1.0.1(typescript@6.0.3)(webpack@5.106.2)
       find-up: 5.0.0
@@ -22398,7 +22408,7 @@ snapshots:
       react-dom: 19.2.6(react@19.2.6)
       resolve: 1.22.12
       storybook: 10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      storybook-builder-rsbuild: 3.3.3(@rsbuild/core@2.0.5)(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)
+      storybook-builder-rsbuild: 3.3.3(@rsbuild/core@2.0.5(core-js@3.49.0))(@rspack/core@2.0.3(@swc/helpers@0.5.21))(msw@2.14.6(@types/node@25.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(tslib@2.8.1)(typescript@6.0.3)
       tsconfig-paths: 4.2.0
     optionalDependencies:
       typescript: 6.0.3

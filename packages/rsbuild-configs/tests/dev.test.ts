@@ -337,3 +337,13 @@ test.concurrent("when the verbose option is true, the transformers context verbo
     expect(mockTransformer).toHaveBeenCalledWith(expect.anything(), { environment: "dev", verbose: true });
 });
 
+test.concurrent("when setup is provided, the server.setup option is the provided value", ({ expect }) => {
+    const setup = vi.fn();
+
+    const result = defineDevConfig({
+        setup
+    });
+
+    expect(result.server?.setup).toBe(setup);
+});
+
