@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831926991924">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831943097966">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -39,12 +39,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.5.3.831926991924" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.831943097966" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.831926991924" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.831943097966" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.831926991924" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.831926991924" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.831943097966" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.831943097966" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -541,6 +541,16 @@ export const transformer: RslibConfigTransformer = (config: RslibConfig) =&gt; {
                 <span class="card-compact-title">Migrate from tsup</span>
             </div>
             <p class="card-compact-description">To migrate from @workleap/tsup-configs to @workleap/rslib-configs, execute the following steps 👇</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/wl-web-configs/rslib/migrate-to-v2/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">Migrate to v2.0</span>
+            </div>
+            <p class="card-compact-description">@workleap/rslib-configs has been updated to track Rslib 0.21+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.</p>
         </div>
     </a>
 </div>

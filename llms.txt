@@ -50,6 +50,7 @@
 - [Setup with Turborepo](https://workleap.github.io/wl-web-configs/rsbuild/setup-turborepo.md): To configure Rsbuild in a monorepo managed with Turborepo, follow these steps 👇
 - [Deploy to Netlify](https://workleap.github.io/wl-web-configs/rsbuild/deploy-to-netlify.md): The deployment process for web applications can vary depending on various factors. Therefore, we do not recommend any specific deployment setup. However, there are a few essential configurations that need to be made regardless of your architectural and deployment choices.
 - [Migrate from webpack](https://workleap.github.io/wl-web-configs/rsbuild/migrate-from-webpack.md): To migrate from @workleap/webpack-configs to @workleap/rsbuild-configs, execute the following steps 👇
+- [Migrate to Rsbuild v2.0](https://workleap.github.io/wl-web-configs/rsbuild/migrate-to-v2.md): @workleap/rsbuild-configs v4.0 upgrades to Rsbuild 2.0 and Rspack 2.0. The upgrade is designed to be mostly transparent, but a few defaults and dependencies changed upstream.
 
 ## Rslib
 
@@ -59,6 +60,7 @@
 - [Configure for Storybook](https://workleap.github.io/wl-web-configs/rslib/configure-storybook.md): To configure Rslib for Storybook, execute the following steps 👇
 - [Setup with Turborepo](https://workleap.github.io/wl-web-configs/rslib/setup-turborepo.md): To configure Rslib in a monorepo managed with Turborepo, follow these steps 👇
 - [Migrate from tsup](https://workleap.github.io/wl-web-configs/rslib/migrate-from-tsup.md): To migrate from @workleap/tsup-configs to @workleap/rslib-configs, execute the following steps 👇
+- [Migrate to v2.0](https://workleap.github.io/wl-web-configs/rslib/migrate-to-v2.md): @workleap/rslib-configs has been updated to track Rslib 0.21+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.
 
 ## Vitest
 

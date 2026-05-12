@@ -299,6 +299,57 @@ export default defineBuildConfig({
 });
 ```
 
+### `polyfill`
+
+- **Type**: `"entry"` | `"usage"` | `"off"`
+- **Default**: `"usage"`
+
+Set Rsbuild [output.polyfill](https://rsbuild.dev/config/output/polyfill) option.
+
+`@workleap/rsbuild-configs` bundles [core-js](https://github.com/zloirock/core-js) so polyfills work out of the box. By default, Rsbuild injects polyfills based on actual API usage, which keeps the bundle small while still meeting the Browserslist targets.
+
+```ts !#4 rsbuild.build.ts
+import { defineBuildConfig } from "@workleap/rsbuild-configs";
+
+export default defineBuildConfig({
+    polyfill: "off"
+});
+```
+
+!!!info
+Starting with [Rsbuild 2.0](https://rsbuild.rs/blog/v2-0), `core-js` is no longer installed by default. `@workleap/rsbuild-configs` keeps the previous behavior by depending on `core-js` directly so applications continue to be polyfilled out of the box.
+!!!
+
+### `splitChunks`
+
+- **Type**: An object literal accepting any [splitChunks](https://rsbuild.rs/config/split-chunks) options, or `false`
+- **Default**: `{ preset: "per-package", chunks: "all" }`
+
+Set Rsbuild [splitChunks](https://rsbuild.rs/config/split-chunks) option. By default, every npm package is split into its own chunk, which maximizes long-term caching: rebuilding the application only invalidates the chunks of the packages that actually changed.
+
+To disable code splitting, set the option to `false`:
+
+```ts !#4 rsbuild.build.ts
+import { defineBuildConfig } from "@workleap/rsbuild-configs";
+
+export default defineBuildConfig({
+    splitChunks: false
+});
+```
+
+To customize the strategy, provide a configuration object:
+
+```ts !#4-7 rsbuild.build.ts
+import { defineBuildConfig } from "@workleap/rsbuild-configs";
+
+export default defineBuildConfig({
+    splitChunks: {
+        preset: "single-vendor",
+        chunks: "all"
+    }
+});
+```
+
 ### `react`
 
 - **Type**: `false` or `(defaultOptions: PluginReactOptions) => PluginReactOptions`

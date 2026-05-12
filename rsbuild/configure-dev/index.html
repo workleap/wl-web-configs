@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831926991924">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831943097966">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -39,12 +39,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.5.3.831926991924" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.831943097966" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.831926991924" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.831943097966" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.831926991924" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.831926991924" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.831943097966" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.831943097966" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -624,6 +624,27 @@ export default defineDevConfig({
     writeToDisk: true
 });</code></pre>
 </doc-codeblock></div>
+<h3 id="setup"><code translate="no" v-pre>setup</code></h3>
+<ul>
+<li><strong>Type</strong>: <code translate="no" v-pre>ServerSetupFn | ServerSetupFn[]</code></li>
+<li><strong>Default</strong>: <code translate="no" v-pre>undefined</code></li>
+</ul>
+<p>Set Rsbuild <a href="https://rsbuild.rs/config/server/setup" class="outbound" target="_blank">server.setup</a> hook to run logic when the dev server starts. This is useful for registering custom middleware or running pre-start tasks. The hook can return a callback that runs <em>after</em> Rsbuild&#x27;s default middleware are registered.</p>
+<div id="setup-rsbuilddevts" class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">rsbuild.dev.ts</div>
+<pre translate="no" class="language-typescript" data-line="4-11"><code v-pre class="language-typescript">import { defineDevConfig } from &quot;@workleap/rsbuild-configs&quot;;
+
+export default defineDevConfig({
+    setup: ({ server, action }) =&gt; {
+        if (action === &quot;dev&quot;) {
+            server.middlewares.use((req, res, next) =&gt; {
+                console.log(&quot;dev middleware&quot;);
+                next();
+            });
+        }
+    }
+});</code></pre>
+</doc-codeblock></div>
 <h3 id="react"><code translate="no" v-pre>react</code></h3>
 <ul>
 <li><strong>Type</strong>: <code translate="no" v-pre>false</code> or <code translate="no" v-pre>(defaultOptions: PluginReactOptions) =&gt; PluginReactOptions</code></li>
@@ -968,6 +989,16 @@ export default defineDevConfig({
                 <span class="card-compact-title">Migrate from webpack</span>
             </div>
             <p class="card-compact-description">To migrate from @workleap/webpack-configs to @workleap/rsbuild-configs, execute the following steps 👇</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/wl-web-configs/rsbuild/migrate-to-v2/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">Migrate to Rsbuild v2.0</span>
+            </div>
+            <p class="card-compact-description">@workleap/rsbuild-configs v4.0 upgrades to Rsbuild 2.0 and Rspack 2.0. The upgrade is designed to be mostly transparent, but a few defaults and dependencies changed upstream.</p>
         </div>
     </a>
 </div>
