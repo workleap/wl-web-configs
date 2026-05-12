@@ -1,7 +1,7 @@
 import type { DistPathConfig, Minify, RsbuildConfig, RsbuildPlugin, SourceMap, SplitChunksConfig } from "@rsbuild/core";
 import { describe, test, vi } from "vitest";
 import type { RsbuildConfigTransformer } from "../src/applyTransformers.ts";
-import { defineBuildConfig, getMinifyConfig, getOptimizationConfig } from "../src/build.ts";
+import { defineBuildConfig, getOptimizationConfig } from "../src/build.ts";
 
 test.concurrent("when an entry prop is provided, the source.entry option is the provided value", ({ expect }) => {
     const result = defineBuildConfig({
@@ -241,18 +241,18 @@ test.concurrent("when the verbose option is true, the transformers context verbo
     expect(mockTransformer).toHaveBeenCalledWith(expect.anything(), { environment: "build", verbose: true });
 });
 
-describe("getMinifyConfig", () => {
-    test.concurrent("when optimize is true, return the provided minify value", ({ expect }) => {
-        expect(getMinifyConfig(true, true)).toBe(true);
-        expect(getMinifyConfig(true, false)).toBe(false);
+describe("output.minify", () => {
+    test.concurrent("when optimize is true, output.minify equals the provided minify value", ({ expect }) => {
+        expect(defineBuildConfig({ optimize: true, minify: true }).output?.minify).toBe(true);
+        expect(defineBuildConfig({ optimize: true, minify: false }).output?.minify).toBe(false);
     });
 
-    test.concurrent("when optimize is false, minify is forced to false", ({ expect }) => {
-        expect(getMinifyConfig(false, true)).toBe(false);
+    test.concurrent("when optimize is false, output.minify is forced to false", ({ expect }) => {
+        expect(defineBuildConfig({ optimize: false, minify: true }).output?.minify).toBe(false);
     });
 
-    test.concurrent("when optimize is \"readable\", return SWC options with mangle disabled", ({ expect }) => {
-        const result = getMinifyConfig("readable", true) as Exclude<Minify, boolean>;
+    test.concurrent("when optimize is \"readable\", output.minify configures SWC with mangle disabled", ({ expect }) => {
+        const result = defineBuildConfig({ optimize: "readable" }).output?.minify as Exclude<Minify, boolean>;
 
         expect(result.jsOptions?.minimizerOptions?.mangle).toBe(false);
     });

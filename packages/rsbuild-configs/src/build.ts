@@ -50,7 +50,7 @@ function defineImageCompressPluginConfig(options: PluginImageCompressOptions) {
     return options;
 }
 
-export function getMinifyConfig(optimize: OptimizeOption, minify: Minify): Minify {
+function getMinifyConfig(optimize: OptimizeOption, minify: Minify): Minify {
     if (optimize === false) {
         return false;
     }
@@ -82,7 +82,7 @@ export function getOptimizationConfig(optimize: OptimizeOption): Optimization | 
     }
 
     if (optimize === false) {
-        // Doesn't turnoff everything but is good enough to help with debugging scenarios.
+        // Doesn't turn off everything but is good enough to help with debugging scenarios.
         return {
             chunkIds: "named",
             moduleIds: "named",
