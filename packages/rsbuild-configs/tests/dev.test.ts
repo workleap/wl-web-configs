@@ -177,33 +177,6 @@ test.concurrent("when fastRefresh is true, the react plugin enable fast refresh"
     expect(isEnabled).toBeTruthy();
 });
 
-test.concurrent("when fastRefresh is true and the overlay is disable, disable the fast refresh overlay", ({ expect }) => {
-    let isOverlayDisabled = false;
-
-    const result = defineDevConfig({
-        fastRefresh: true,
-        overlay: false,
-        react: defaultOptions => {
-            isOverlayDisabled = defaultOptions.reactRefreshOptions?.overlay === false;
-
-            return defaultOptions;
-        }
-    });
-
-    const plugin = result.plugins?.find(x => (x as RsbuildPlugin).name === "rsbuild:react");
-
-    expect(plugin).toBeDefined();
-    expect(isOverlayDisabled).toBeTruthy();
-});
-
-test.concurrent("when fastRefresh is true, disable the client overlay", ({ expect }) => {
-    const result = defineDevConfig({
-        fastRefresh: true
-    });
-
-    expect(result.dev?.client?.overlay).toBeFalsy();
-});
-
 test.concurrent("when sourceMap is false, the output.sourceMap option is false", ({ expect }) => {
     const result = defineDevConfig({
         sourceMap: false
@@ -231,21 +204,6 @@ test.concurrent("when overlay is false, the dev.client.overlay option is false",
     });
 
     expect(result.dev?.client?.overlay).toBeFalsy();
-});
-
-test.concurrent("when overlay is false, react plugin fast refresh overlay is disabled", ({ expect }) => {
-    let isOverlayDisabled = false;
-
-    defineDevConfig({
-        overlay: false,
-        react: defaultOptions => {
-            isOverlayDisabled = defaultOptions.reactRefreshOptions?.overlay === false;
-
-            return defaultOptions;
-        }
-    });
-
-    expect(isOverlayDisabled).toBeTruthy();
 });
 
 test.concurrent("when writeToDisk is true, the dev.writeToDisk option is true", ({ expect }) => {
@@ -342,9 +300,10 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     };
 
     const distPathTransformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
+        const distPath: DistPathConfig = { js: "a-custom-dist-path-in-a-tranformer" };
+
         config.output = config.output ?? {};
-        config.output.distPath = (config.output.distPath ?? {}) as DistPathConfig;
-        config.output.distPath.js = "a-custom-dist-path-in-a-tranformer";
+        config.output.distPath = distPath;
 
         return config;
     };

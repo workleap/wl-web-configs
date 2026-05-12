@@ -80,7 +80,6 @@ export function getOptimizationConfig(optimize: OptimizeOption): Optimization {
         moduleIds: "named",
         concatenateModules: false,
         mangleExports: false,
-        removeAvailableModules: false,
         usedExports: false
     };
 }
