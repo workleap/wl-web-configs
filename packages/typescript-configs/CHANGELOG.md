@@ -1,5 +1,11 @@
 # @workleap/typescript-configs
 
+## 4.0.1
+
+### Patch Changes
+
+- [#425](https://github.com/workleap/wl-web-configs/pull/425) [`8de3e5a`](https://github.com/workleap/wl-web-configs/commit/8de3e5a26effe1f00cb905b4be5a24a961f50c5b) Thanks [@claude](https://github.com/apps/claude)! - Updated dependencies to their latest versions. Migrated `@workleap/rsbuild-configs` to `@rsbuild/core` 2.x, `@rspack/core` 2.x, and `@rsbuild/plugin-react` 2.x — `removeAvailableModules` was removed from the rspack `Optimization` type and `reactRefreshOptions.overlay` was removed from the react plugin (overlay is now controlled solely via `dev.client.overlay`).
+
 ## 4.0.0
 
 ### Major Changes
