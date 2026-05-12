@@ -80,7 +80,7 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
             assetPrefix,
             lazyCompilation,
             hmr: hmr || fastRefresh,
-            client: (overlay === false || fastRefresh) ? {
+            client: overlay === false ? {
                 overlay: false
             } : undefined,
             writeToDisk
@@ -115,10 +115,7 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
         plugins: [
             https && (isBoolean(https) || isFunction(https)) && pluginBasicSsl(isFunction(https) ? https({}) : undefined),
             react && pluginReact(react({
-                fastRefresh,
-                reactRefreshOptions: {
-                    overlay: overlay !== false
-                }
+                fastRefresh
             })),
             svgr && pluginSvgr(svgr({
                 svgrOptions: {

@@ -6,7 +6,7 @@ const config: Config = {
     testPathIgnorePatterns: ["/node_modules/", "/dist/"],
     testEnvironment: "jsdom",
     transform: {
-        "^.+\\.(ts|tsx)$": ["@swc/jest", swcConfig as Record<string, unknown>]
+        "^.+\\.(ts|tsx)$": ["@swc/jest", swcConfig]
     },
     moduleNameMapper: {
         "\\.css$": "identity-obj-proxy"
