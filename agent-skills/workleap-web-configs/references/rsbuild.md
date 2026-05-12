@@ -14,6 +14,7 @@
 - [Type Declarations](#type-declarations)
 - [SVG Import](#svg-import)
 - [Turborepo Setup](#turborepo-setup)
+- [Migrate to Rsbuild v2.0](#migrate-to-rsbuild-v20)
 
 ## Overview
 
@@ -391,3 +392,83 @@ export const App = () => <Logo />;
     "build-app": "turbo run build --filter=./apps/app"
 }
 ```
+
+## Migrate to Rsbuild v2.0
+
+`@workleap/rsbuild-configs` v4.0 upgrades to Rsbuild 2.0 and Rspack 2.0.
+
+### Update packages
+
+```bash
+pnpm add -D @workleap/rsbuild-configs@^4.0.0 @rsbuild/core@^2.0.0 @rspack/core@^2.0.0
+```
+
+### Bump Node.js
+
+Rsbuild 2.0 requires **Node.js 20.19+ or 22.12+**. Node.js 18 reached end of life in April 2025 and is no longer supported.
+
+### Changed upstream defaults
+
+- **Browserslist targets** raised (Chrome 87→107, Firefox 78→104, Safari 14→16, Node 16→20). Only matters if the project does not ship a `.browserslistrc` — Workleap projects extending `@workleap/browserslist-config` keep explicit targets.
+- **`server.host`** now defaults to `'localhost'` upstream (was `'0.0.0.0'`). `@workleap/rsbuild-configs` already defaulted to `'localhost'`, so no behavior change.
+- **Decorators** default proposal moved from `'2022-03'` to `'2023-11'`. If you rely on the older proposal, override via `source.decorators` through a transformer.
+- **Pure ESM `@rsbuild/core`**: now published as pure ESM. Transparent for Node.js 20+ which supports loading ESM through `require()`. If you import `@rsbuild/core` from a CommonJS file, migrate that file to ESM.
+- **Node.js library output**: when building libraries for Node.js with `@rsbuild/core`, the output is now unminified ESM by default (previously minified CommonJS). Does not affect web applications.
+
+### `core-js` no longer a direct dependency
+
+Rsbuild 2.0 no longer installs `core-js` by default. `@workleap/rsbuild-configs` now declares `core-js` as a **direct dependency** and the new `polyfill` option defaults to `"usage"`. Remove `core-js` from the application `package.json` if it was previously added:
+
+```bash
+pnpm remove core-js
+```
+
+If you previously disabled polyfilling through a transformer, switch to the new `polyfill` option:
+
+```ts
+export default defineBuildConfig({
+    polyfill: "off"
+});
+```
+
+### Code splitting
+
+The deprecated `performance.chunkSplit` option has been replaced by the top-level `splitChunks` option. `@workleap/rsbuild-configs` exposes it as the `splitChunks` predefined option and defaults to `{ preset: "per-package", chunks: "all" }`. This may change the `dist/` chunk layout from v1 — review any downstream caching, prefetching, or service worker logic that depends on specific chunk names.
+
+To restore the v1 behavior, opt out of code splitting:
+
+```ts
+export default defineBuildConfig({
+    splitChunks: false
+});
+```
+
+If you previously customized splitting through `performance.chunkSplit` in a transformer, migrate to the new `splitChunks` option.
+
+### Custom dev-server middleware
+
+If your project previously used a transformer to set `server.setupMiddlewares`, migrate to the new `setup` hook (works during both `dev` and `preview`):
+
+```ts
+export default defineDevConfig({
+    setup: ({ server, action }) => {
+        if (action === "dev") {
+            server.middlewares.use((req, res, next) => {
+                next();
+            });
+        }
+    }
+});
+```
+
+### Module Federation
+
+`@module-federation/runtime-tools` is no longer transitively installed by `@rsbuild/core`. Install it explicitly if needed:
+
+```bash
+pnpm add -D @module-federation/runtime-tools
+```
+
+### `optimize` and `minify` internals
+
+The internal `getOptimizationConfig` helper was rewritten on top of the new `output.minify` object shape. The user-facing `optimize` option behaves identically, but if a transformer inspects `tools.rspack.optimization.minimizer`, switch to inspecting `output.minify` instead.
