@@ -97,6 +97,7 @@ export default defineDevConfig();
 | `sourceMap` | false/object | `{ js: "cheap-module-source-map", css: true }` | Source maps |
 | `overlay` | false | undefined | Error overlay |
 | `writeToDisk` | true | undefined | Write output to disk |
+| `setup` | function/array | undefined | `server.setup` hook for custom middleware |
 | `react` | false/function | enabled | React transformation |
 | `svgr` | false/function | enabled | SVG as React components |
 | `verbose` | boolean | `false` | Verbose logging |
@@ -139,6 +140,20 @@ export default defineDevConfig({
 });
 ```
 
+Custom dev-server middleware via `setup`:
+
+```ts
+export default defineDevConfig({
+    setup: ({ server, action }) => {
+        if (action === "dev") {
+            server.middlewares.use((req, res, next) => {
+                next();
+            });
+        }
+    }
+});
+```
+
 ## Build Configuration
 
 ### Basic Setup
@@ -162,6 +177,8 @@ export default defineBuildConfig();
 | `minify` | false/object | `true` | Code minification |
 | `optimize` | boolean/"readable" | `true` | Production optimization |
 | `sourceMap` | false/object | `{ js: "source-map", css: true }` | Source maps |
+| `polyfill` | "entry"/"usage"/"off" | `"usage"` | `output.polyfill` mode (core-js polyfills) |
+| `splitChunks` | object/false | `{ preset: "per-package", chunks: "all" }` | `splitChunks` strategy |
 | `react` | false/function | enabled | React transformation |
 | `svgr` | false/function | enabled | SVG as React components |
 | `compressImage` | false/function | enabled | Image compression |
@@ -196,6 +213,33 @@ export default defineBuildConfig({
 });
 ```
 
+Disable polyfills:
+
+```ts
+export default defineBuildConfig({
+    polyfill: "off"
+});
+```
+
+Opt out of code splitting (restores v1 behavior):
+
+```ts
+export default defineBuildConfig({
+    splitChunks: false
+});
+```
+
+Customize the split-chunks strategy:
+
+```ts
+export default defineBuildConfig({
+    splitChunks: {
+        preset: "single-vendor",
+        chunks: "all"
+    }
+});
+```
+
 ## Storybook Configuration
 
 ### Setup
@@ -224,7 +268,7 @@ export default storybookConfig;
 | Option | Type | Default |
 |--------|------|---------|
 | `plugins` | array | `[]` |
-| `lazyCompilation` | boolean | `false` |
+| `lazyCompilation` | boolean | `true` |
 | `sourceMap` | false/object | `{ js: "cheap-module-source-map", css: true }` |
 | `react` | false/function | enabled |
 | `svgr` | false/function | enabled |
