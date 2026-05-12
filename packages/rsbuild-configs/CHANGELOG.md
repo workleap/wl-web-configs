@@ -1,5 +1,22 @@
 # @workleap/rsbuild-configs
 
+## 4.1.0
+
+### Minor Changes
+
+- [#430](https://github.com/workleap/wl-web-configs/pull/430) [`0243027`](https://github.com/workleap/wl-web-configs/commit/02430272d8e9eb714b9c0b3a7e68fec91c750c6b) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Add new options aligned with [Rsbuild 2.0](https://rsbuild.rs/blog/v2-0):
+  - New `polyfill` option on `defineBuildConfig`. Defaults to `"usage"`. `core-js` is now declared as a direct dependency of `@workleap/rsbuild-configs` to preserve out-of-the-box polyfill support after Rsbuild 2.0 stopped installing it by default.
+  - New `splitChunks` option on `defineBuildConfig`. Defaults to `{ preset: "per-package", chunks: "all" }`, replacing the deprecated `performance.chunkSplit`. Each npm package is now emitted in its own chunk for better long-term caching.
+  - New `setup` option on `defineDevConfig`, exposing Rsbuild's `server.setup` hook.
+
+  Internal refactor of `getOptimizationConfig` to use Rsbuild's `output.minify` shape. The user-facing `optimize` and `minify` options behave identically.
+
+  A new [Migrate to v2.0](https://workleap.github.io/wl-web-configs/rsbuild/migrate-to-v2/) page is available in the documentation.
+
+### Patch Changes
+
+- [#430](https://github.com/workleap/wl-web-configs/pull/430) [`0243027`](https://github.com/workleap/wl-web-configs/commit/02430272d8e9eb714b9c0b3a7e68fec91c750c6b) Thanks [@patricklafrance](https://github.com/patricklafrance)! - (Should have been 4.0.0 my bad) - Update the package configurations and API to match the new Rsbuild 2.0 features / improvements / deprecation.
+
 ## 4.0.0
 
 ### Major Changes
