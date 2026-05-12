@@ -6,6 +6,7 @@
         "module": "NodeNext",
         "target": "ESNext",
         "lib": ["ESNext", "DOM"],
+        "types": ["node"],
 
         "isolatedModules": true,
         "allowSyntheticDefaultImports": true,
