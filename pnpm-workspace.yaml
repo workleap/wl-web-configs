@@ -2,28 +2,21 @@ packages:
   - packages/*
   - samples/**
 
-# Failing on the CI because "@typescript/native-preview" install binaries packages like "@typescript/native-preview-linux-x64" and
-# it seems like "minimumReleaseAgeExclude" only works on "direct" dependencies.
-# minimumReleaseAge: 1440
-# minimumReleaseAgeExclude:
-#   - '@workleap*'
-#   - '@typescript/native-preview*'
+minimumReleaseAgeExclude:
+  - '@workleap/*'
+  - '@typescript/native-preview*'
 
-overrides:
-  # fast-xml-parser@5.5.0 was published with a broken local file: dependency
-  fast-xml-parser: <5.5.0
-
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@swc/core'
-  - agent-browser
-  - core-js
-  - core-js-pure
-  - edgedriver
-  - esbuild
-  - geckodriver
-  - msw
-  - netlify-cli
-  - sharp
-  - unix-dgram
-  - unrs-resolver
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  agent-browser: true
+  core-js: true
+  core-js-pure: true
+  edgedriver: true
+  esbuild: true
+  geckodriver: true
+  msw: true
+  netlify-cli: true
+  sharp: true
+  unix-dgram: true
+  unrs-resolver: true
