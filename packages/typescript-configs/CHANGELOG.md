@@ -1,5 +1,11 @@
 # @workleap/typescript-configs
 
+## 4.0.2
+
+### Patch Changes
+
+- [#427](https://github.com/workleap/wl-web-configs/pull/427) [`c43afaa`](https://github.com/workleap/wl-web-configs/commit/c43afaa8999ca47ca34285e16a4afdafcf75ef17) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Adding Node types by default to TypeScript configs.
+
 ## 4.0.1
 
 ### Patch Changes
