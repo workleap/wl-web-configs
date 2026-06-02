@@ -22,7 +22,6 @@ export function defineYamlConfig(options: YamlConfigOptions = {}) {
             "**/*.yml"
         ],
         extends: [
-            // @ts-expect-error the typings are broken.
             yamlPlugin.configs.recommended
         ],
         rules

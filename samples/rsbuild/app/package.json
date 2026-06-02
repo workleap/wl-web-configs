@@ -23,21 +23,21 @@
     "dependencies": {
         "@rsbuild-sample/components": "workspace:*",
         "@rsbuild-sample/rslib-lib": "workspace:*",
-        "react": "19.2.6",
-        "react-dom": "19.2.6",
-        "react-router": "7.15.0"
+        "react": "19.2.7",
+        "react-dom": "19.2.7",
+        "react-router": "7.16.0"
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@rsbuild/core": "2.0.5",
-        "@rspack/core": "2.0.3",
+        "@rsbuild/core": "2.0.9",
+        "@rspack/core": "2.0.6",
         "@testing-library/react": "16.3.2",
-        "@types/node": "25.7.0",
-        "@types/react": "19.2.14",
+        "@types/node": "25.9.1",
+        "@types/react": "19.2.16",
         "@types/react-dom": "19.2.3",
-        "@typescript-eslint/parser": "8.59.3",
-        "@typescript/native-preview": "7.0.0-dev.20260512.1",
-        "@vitejs/plugin-react": "6.0.1",
+        "@typescript-eslint/parser": "8.60.1",
+        "@typescript/native-preview": "7.0.0-dev.20260602.1",
+        "@vitejs/plugin-react": "6.0.2",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rsbuild-configs": "workspace:*",
@@ -49,12 +49,12 @@
         "happy-dom": "20.9.0",
         "http-server": "14.1.1",
         "msw": "2.14.6",
-        "netlify-cli": "26.0.1",
+        "netlify-cli": "26.1.0",
         "prettier": "3.8.3",
         "stylelint": "16.26.1",
         "typescript": "6.0.3",
-        "typescript-eslint": "8.59.3",
-        "vitest": "4.1.6"
+        "typescript-eslint": "8.60.1",
+        "vitest": "4.1.8"
     },
     "msw": {
         "workerDirectory": "public"
