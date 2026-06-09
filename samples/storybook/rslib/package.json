@@ -12,20 +12,20 @@
         "typecheck": "tsgo"
     },
     "dependencies": {
-        "react": "19.2.6",
-        "react-dom": "19.2.6"
+        "react": "19.2.7",
+        "react-dom": "19.2.7"
     },
     "devDependencies": {
         "@eslint/js": "9.39.2",
-        "@rsbuild/core": "2.0.5",
-        "@rslib/core": "0.21.4",
-        "@storybook/addon-a11y": "10.3.6",
-        "@storybook/react": "10.3.6",
-        "@types/node": "25.7.0",
-        "@types/react": "19.2.14",
+        "@rsbuild/core": "2.0.11",
+        "@rslib/core": "0.22.0",
+        "@storybook/addon-a11y": "10.4.2",
+        "@storybook/react": "10.4.2",
+        "@types/node": "25.9.2",
+        "@types/react": "19.2.17",
         "@types/react-dom": "19.2.3",
-        "@typescript-eslint/parser": "8.59.3",
-        "@typescript/native-preview": "7.0.0-dev.20260512.1",
+        "@typescript-eslint/parser": "8.61.0",
+        "@typescript/native-preview": "7.0.0-dev.20260609.1",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
@@ -33,10 +33,10 @@
         "browserslist": "4.28.2",
         "eslint": "9.39.2",
         "http-server": "14.1.1",
-        "storybook": "10.3.6",
-        "storybook-addon-rslib": "3.3.3",
-        "storybook-react-rsbuild": "3.3.3",
+        "storybook": "10.4.2",
+        "storybook-addon-rslib": "3.3.4",
+        "storybook-react-rsbuild": "3.3.4",
         "typescript": "6.0.3",
-        "typescript-eslint": "8.59.3"
+        "typescript-eslint": "8.61.0"
     }
 }
