@@ -1,5 +1,15 @@
 # @workleap/typescript-configs
 
+## 5.0.0
+
+### Major Changes
+
+- [#440](https://github.com/workleap/wl-web-configs/pull/440) [`d31398f`](https://github.com/workleap/wl-web-configs/commit/d31398f9f902a300ec26f640298c319ad184dc81) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Enable `erasableSyntaxOnly` in the core TypeScript config.
+
+  TypeScript syntax that compiles to runtime code is now a type error: `enum`, constructor parameter properties, value `namespace`s, and `import =` aliases. This keeps the codebase compatible with type-stripping runtimes (Node `--experimental-strip-types`) and erasure-only toolchains.
+
+  This is a breaking change for consumers using any of those constructs — replace `enum`s with `as const` object literals and constructor parameter properties with explicit field assignments, or set `"erasableSyntaxOnly": false` in your own `tsconfig.json` to opt out.
+
 ## 4.0.2
 
 ### Patch Changes
