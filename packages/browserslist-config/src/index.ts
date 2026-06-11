@@ -5,7 +5,7 @@ const config: string[] = [
     "not dead"
 ];
 
-// Using TypeScript "export" keyword until browserlist support ESM.
-// Otherwise we must deal with a weird CommonJS output from esbuild which is not worth it.
-// For more info, see: https://github.com/evanw/esbuild/issues/1079
+// Using TypeScript "export =" until browserslist supports ESM configs.
+// It's the only syntax emitting `module.exports = config`, which browserslist
+// expects since it loads configs via require().
 export = config;
