@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831944827874">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834529661467">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Getting started</title>
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.5.3.831944827874" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.834529661467" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.831944827874" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.831944827874" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.834529661467" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.834529661467" data-turbo-eval="false" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -289,6 +289,21 @@
 <h2 id="target-environment">Target environment</h2>
 <p>The majority of the shared tooling configurations targets <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" class="outbound" target="_blank">ESM</a> and the latest <a href="https://en.wikipedia.org/wiki/ECMAScript" class="outbound" target="_blank">ECMAScript</a> version (ESNext). If you are in the process of migrating an existing project to <code translate="no" v-pre>workleap/web-configs</code>, and would rather delay transitioning to ESM, have a look at the <em>Target environment</em> section of each tool for additional information about how to support <strong>non ESM compliant</strong> solutions.</p>
 <h2 id="supported-tools">Supported tools</h2>
+<retype-table copy-text="| Name | NPM | Documentation |
+| --- | --- | --- |
+| ![](../static/browserslist.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Browserslist](https://browsersl.ist/) | [![npm version](https://img.shields.io/npm/v/@workleap/browserslist-config)](https://www.npmjs.com/package/@workleap/browserslist-config) | [Getting started](../browserslist/getting-started.md) |
+| ![](../static/eslint.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[ESLint](https://eslint.org/) | [![npm version](https://img.shields.io/npm/v/@workleap/eslint-configs)](https://www.npmjs.com/package/@workleap/eslint-configs) | [Getting started](../eslint/getting-started.md) |
+| ![](../static/stylelint.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Stylelint](https://stylelint.io/) | [![npm version](https://img.shields.io/npm/v/@workleap/stylelint-configs)](https://www.npmjs.com/package/@workleap/stylelint-configs) | [Getting started](../stylelint/getting-started.md) |
+| ![](../static/typescript.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Typescript](https://www.typescriptlang.org/) | [![npm version](https://img.shields.io/npm/v/@workleap/typescript-configs)](https://www.npmjs.com/package/@workleap/typescript-configs) | [Getting started](../typescript/getting-started.md) |
+| ![](../static/rsbuild.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Rsbuild](https://rsbuild.dev/) | [![npm version](https://img.shields.io/npm/v/@workleap/rsbuild-configs)](https://www.npmjs.com/package/@workleap/rsbuild-configs) | [Getting started](../rsbuild/getting-started.md) |
+| ![](../static/rslib.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Rslib](https://lib.rsbuild.dev/) | [![npm version](https://img.shields.io/npm/v/@workleap/rslib-configs)](https://www.npmjs.com/package/@workleap/rslib-configs) | [Getting started](../rslib/getting-started.md) |
+| ![](../static/vitest.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Vitest](https://vitest.dev/) | - | [Getting started](../vitest/setup-turborepo.md) |
+| ![](../static/syncpack.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Syncpack](https://jamiemason.github.io/syncpack/) | - | [Getting started](../syncpack/setup-turborepo.md) |
+| ![](../static/chromatic.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Chromatic](https://www.chromatic.com/) | - | [Getting started](../chromatic/best-practices.md) |
+| ![](../static/postcss.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[PostCSS](https://postcss.org/){.mr-2} [!badge variant=&quot;secondary&quot; size=&quot;s&quot; text=&quot;in maintenance mode&quot;] | [![npm version](https://img.shields.io/npm/v/@workleap/postcss-configs)](https://www.npmjs.com/package/@workleap/postcss-configs) | [Getting started](../postcss/getting-started.md) |
+| ![](../static/swc.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[SWC](https://swc.rs/){.mr-2} [!badge variant=&quot;secondary&quot; size=&quot;s&quot; text=&quot;in maintenance mode&quot;] | [![npm version](https://img.shields.io/npm/v/@workleap/swc-configs)](https://www.npmjs.com/package/@workleap/swc-configs) | [Getting started](../swc/getting-started.md) |
+| ![](../static/webpack.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[webpack](https://webpack.js.org/){.mr-2} [!badge variant=&quot;secondary&quot; size=&quot;s&quot; text=&quot;in maintenance mode&quot;] | [![npm version](https://img.shields.io/npm/v/@workleap/webpack-configs)](https://www.npmjs.com/package/@workleap/webpack-configs) | [Getting started](../webpack/getting-started.md) |
+| ![](../static/tsup.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[tsup](https://tsup.egoist.dev/){.mr-2} [!badge variant=&quot;secondary&quot; size=&quot;s&quot; text=&quot;in maintenance mode&quot;] | [![npm version](https://img.shields.io/npm/v/@workleap/tsup-configs)](https://www.npmjs.com/package/@workleap/tsup-configs) | [Getting started](../tsup/getting-started.md) |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -300,73 +315,73 @@
 </thead>
 <tbody>
 <tr>
-<td><img src="../../static/browserslist.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="256" height="256" /><a href="https://browsersl.ist/" class="outbound" target="_blank">Browserslist</a></td>
+<td><img src="../../static/browserslist.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="256" height="256" /><a href="https://browsersl.ist/" class="outbound" target="_blank">Browserslist</a></td>
 <td><a href="https://www.npmjs.com/package/@workleap/browserslist-config" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/browserslist-config" alt="npm version" class="max-w-full h-auto" /></a></td>
 <td><a href="../../browserslist/getting-started/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/eslint.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="256" height="225" /><a href="https://eslint.org/" class="outbound" target="_blank">ESLint</a></td>
+<td><img src="../../static/eslint.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="256" height="225" /><a href="https://eslint.org/" class="outbound" target="_blank">ESLint</a></td>
 <td><a href="https://www.npmjs.com/package/@workleap/eslint-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/eslint-configs" alt="npm version" class="max-w-full h-auto" /></a></td>
 <td><a href="../../eslint/getting-started/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/stylelint.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="32" height="32" /><a href="https://stylelint.io/" class="outbound" target="_blank">Stylelint</a></td>
+<td><img src="../../static/stylelint.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="32" height="32" /><a href="https://stylelint.io/" class="outbound" target="_blank">Stylelint</a></td>
 <td><a href="https://www.npmjs.com/package/@workleap/stylelint-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/stylelint-configs" alt="npm version" class="max-w-full h-auto" /></a></td>
 <td><a href="../../stylelint/getting-started/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/typescript.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="256" height="256" /><a href="https://www.typescriptlang.org/" class="outbound" target="_blank">Typescript</a></td>
+<td><img src="../../static/typescript.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="256" height="256" /><a href="https://www.typescriptlang.org/" class="outbound" target="_blank">Typescript</a></td>
 <td><a href="https://www.npmjs.com/package/@workleap/typescript-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/typescript-configs" alt="npm version" class="max-w-full h-auto" /></a></td>
 <td><a href="../../typescript/getting-started/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/rsbuild.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="2500" height="2345" /><a href="https://rsbuild.dev/" class="outbound" target="_blank">Rsbuild</a></td>
+<td><img src="../../static/rsbuild.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="2500" height="2345" /><a href="https://rsbuild.dev/" class="outbound" target="_blank">Rsbuild</a></td>
 <td><a href="https://www.npmjs.com/package/@workleap/rsbuild-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/rsbuild-configs" alt="npm version" class="max-w-full h-auto" /></a></td>
 <td><a href="../../rsbuild/getting-started/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/rslib.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="1110" height="983" /><a href="https://lib.rsbuild.dev/" class="outbound" target="_blank">Rslib</a></td>
+<td><img src="../../static/rslib.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="1110" height="983" /><a href="https://lib.rsbuild.dev/" class="outbound" target="_blank">Rslib</a></td>
 <td><a href="https://www.npmjs.com/package/@workleap/rslib-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/rslib-configs" alt="npm version" class="max-w-full h-auto" /></a></td>
 <td><a href="../../rslib/getting-started/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/vitest.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="260" height="260" /><a href="https://vitest.dev/" class="outbound" target="_blank">Vitest</a></td>
+<td><img src="../../static/vitest.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="260" height="260" /><a href="https://vitest.dev/" class="outbound" target="_blank">Vitest</a></td>
 <td>-</td>
 <td><a href="../../vitest/setup-turborepo/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/syncpack.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="1784" height="1601" /><a href="https://jamiemason.github.io/syncpack/" class="outbound" target="_blank">Syncpack</a></td>
+<td><img src="../../static/syncpack.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="1784" height="1601" /><a href="https://jamiemason.github.io/syncpack/" class="outbound" target="_blank">Syncpack</a></td>
 <td>-</td>
 <td><a href="../../syncpack/setup-turborepo/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/chromatic.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="800" height="800" /><a href="https://www.chromatic.com/" class="outbound" target="_blank">Chromatic</a></td>
+<td><img src="../../static/chromatic.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="800" height="800" /><a href="https://www.chromatic.com/" class="outbound" target="_blank">Chromatic</a></td>
 <td>-</td>
 <td><a href="../../chromatic/best-practices/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/postcss.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="256" height="256" /><a href="https://postcss.org/" class="mr-2 outbound" target="_blank">PostCSS</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-badge-secondary-text bg-badge-secondary border border-badge-secondary-border h-5 px-1.5 text-2xs rounded">
+<td><img src="../../static/postcss.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="256" height="256" /><a href="https://postcss.org/" class="mr-2 outbound" target="_blank">PostCSS</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-badge-secondary-text bg-badge-secondary border border-badge-secondary-border h-5 px-1.5 text-2xs rounded">
     <span>in maintenance mode</span>
 </span></td>
 <td><a href="https://www.npmjs.com/package/@workleap/postcss-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/postcss-configs" alt="npm version" class="max-w-full h-auto" /></a></td>
 <td><a href="../../postcss/getting-started/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/swc.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="512" height="180" /><a href="https://swc.rs/" class="mr-2 outbound" target="_blank">SWC</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-badge-secondary-text bg-badge-secondary border border-badge-secondary-border h-5 px-1.5 text-2xs rounded">
+<td><img src="../../static/swc.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="512" height="180" /><a href="https://swc.rs/" class="mr-2 outbound" target="_blank">SWC</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-badge-secondary-text bg-badge-secondary border border-badge-secondary-border h-5 px-1.5 text-2xs rounded">
     <span>in maintenance mode</span>
 </span></td>
 <td><a href="https://www.npmjs.com/package/@workleap/swc-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/swc-configs" alt="npm version" class="max-w-full h-auto" /></a></td>
 <td><a href="../../swc/getting-started/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/webpack.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="256" height="290" /><a href="https://webpack.js.org/" class="mr-2 outbound" target="_blank">webpack</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-badge-secondary-text bg-badge-secondary border border-badge-secondary-border h-5 px-1.5 text-2xs rounded">
+<td><img src="../../static/webpack.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="256" height="290" /><a href="https://webpack.js.org/" class="mr-2 outbound" target="_blank">webpack</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-badge-secondary-text bg-badge-secondary border border-badge-secondary-border h-5 px-1.5 text-2xs rounded">
     <span>in maintenance mode</span>
 </span></td>
 <td><a href="https://www.npmjs.com/package/@workleap/webpack-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/webpack-configs" alt="npm version" class="max-w-full h-auto" /></a></td>
 <td><a href="../../webpack/getting-started/">Getting started</a></td>
 </tr>
 <tr>
-<td><img src="../../static/tsup.svg" alt="" class="max-w-full h-auto" class="h-5 w-5 mr-2 -mt-1" width="48" height="48" /><a href="https://tsup.egoist.dev/" class="mr-2 outbound" target="_blank">tsup</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-badge-secondary-text bg-badge-secondary border border-badge-secondary-border h-5 px-1.5 text-2xs rounded">
+<td><img src="../../static/tsup.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="48" height="48" /><a href="https://tsup.egoist.dev/" class="mr-2 outbound" target="_blank">tsup</a> <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-badge-secondary-text bg-badge-secondary border border-badge-secondary-border h-5 px-1.5 text-2xs rounded">
     <span>in maintenance mode</span>
 </span></td>
 <td><a href="https://www.npmjs.com/package/@workleap/tsup-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/tsup-configs" alt="npm version" class="max-w-full h-auto" /></a></td>
@@ -375,6 +390,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 
                 
                 <!-- Required only on API pages -->

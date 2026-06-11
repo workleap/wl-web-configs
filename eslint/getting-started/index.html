@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831944827874">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834529661467">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>ESLint</title>
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.5.3.831944827874" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.834529661467" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.831944827874" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.831944827874" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.834529661467" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.834529661467" data-turbo-eval="false" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -280,6 +280,12 @@
 <li>Node</li>
 </ul>
 <h3 id="available-configurations">Available configurations</h3>
+<retype-table copy-text="| Name | Description |
+| ---  | --- |
+| :icon-mark-github: [defineWebApplicationConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineWebApplicationConfig.ts) | For web applications developed with React and TypeScript. |
+| :icon-mark-github: [defineReactLibraryConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineReactLibraryConfig.ts) | For TypeScript libraries developed **with** React. |
+| :icon-mark-github: [defineTypeScriptLibraryConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineTypescriptLibraryConfig.ts) | For TypeScript libraries developed **without** React. |
+| :icon-mark-github: [defineMonorepoWorkspaceConfig](https://github.com/workleap/wl-web-configs/tree/main/packages/eslint-configs/src/by-project-type/defineMonorepoWorkspaceConfig.ts) | For the workspace configuration of a monorepo solution. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -308,6 +314,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h2 id="prettier">Prettier</h2>
 <p>For a complete explanation of why we chose to stick with ESLint for stylistic rules rather than migrating to Prettier, read the following <a href="https://antfu.me/posts/why-not-prettier" class="outbound" target="_blank">article</a>.</p>
 <h2 id="getting-started">Getting started</h2>

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831944827874">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834529661467">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Migrate to Rsbuild v2.0</title>
@@ -39,12 +39,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.5.3.831944827874" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.834529661467" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.831944827874" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.831944827874" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.831944827874" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.834529661467" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.834529661467" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.834529661467" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -280,6 +280,12 @@
 <p>The following defaults changed upstream. Most projects don&#x27;t need to react to them, but they&#x27;re worth knowing about.</p>
 <h3 id="browserslist-targets">Browserslist targets</h3>
 <p>The default Rsbuild target versions have been raised:</p>
+<retype-table copy-text="| Browser   | v1 default | v2 default |
+| --------- | ---------- | ---------- |
+| Chrome    | 87         | 107        |
+| Firefox   | 78         | 104        |
+| Safari    | 14         | 16         |
+| Node.js   | 16         | 20         |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -313,6 +319,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <p>This only matters if your project does <strong>not</strong> ship a <a href="../configure-build/#browserslist"><code translate="no" v-pre>.browserslistrc</code></a>. Workleap projects following the <a href="../getting-started/">getting started</a> guide already extend <code translate="no" v-pre>@workleap/browserslist-config</code>, which keeps targets explicit.</p>
 <h3 id="serverhost"><code translate="no" v-pre>server.host</code></h3>
 <p><code translate="no" v-pre>server.host</code> now defaults to <code translate="no" v-pre>'localhost'</code> (it was <code translate="no" v-pre>'0.0.0.0'</code> in v1). <code translate="no" v-pre>@workleap/rsbuild-configs</code> already defaulted to <code translate="no" v-pre>'localhost'</code> in <code translate="no" v-pre>defineDevConfig</code>, so there is no behavior change for Workleap consumers.</p>

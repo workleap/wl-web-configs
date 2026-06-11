@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831944827874">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834529661467">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Use with agents</title>
@@ -39,12 +39,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.5.3.831944827874" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.834529661467" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.831944827874" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.831944827874" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.831944827874" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.834529661467" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.834529661467" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.834529661467" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -271,6 +271,11 @@
 <p>Information about Web Configs libraries can be shared with different agents using <a href="https://skills.sh/" class="outbound" target="_blank">agent skills</a>.</p>
 <h2 id="install-agent-skills">Install agent skills</h2>
 <p>A few skills are available for this library:</p>
+<retype-table copy-text="| Name | Description |
+| --- | --- |
+| [workleap-web-configs](https://skills.sh/workleap/wl-web-configs/workleap-web-configs) | An agent skill that helps developers understand, set up, and customize Workleap's shared web tooling configurations. |
+| [workleap-chromatic-best-practices](https://skills.sh/workleap/wl-web-configs/workleap-chromatic-best-practices) | An agent skill that guides developers on applying Workleap's documented Chromatic best practices. |
+| [workleap-react-best-practices](https://skills.sh/workleap/wl-web-configs/workleap-react-best-practices) | An agent skill that guides developers in applying Workleap’s documented React best practices. It is inspired by [vercel-react-best-practices](https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices), but adapted for a SPA that does not rely on the Vercel ecosystem. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -295,6 +300,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <p>Open a terminal and install the agent skills by running the following commands:</p>
 <doc-tabs>
 <doc-tab v-cloak id="workleap-web-configs">

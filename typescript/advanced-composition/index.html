@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831944827874">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834529661467">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Advanced composition - TypeScript</title>
@@ -39,12 +39,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.5.3.831944827874" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.834529661467" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.831944827874" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.831944827874" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.831944827874" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.834529661467" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.834529661467" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.834529661467" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -270,6 +270,10 @@
 <h1 id="advanced-composition">Advanced composition</h1>
 <p>If the default <a href="../getting-started/#available-configurations">by project type configurations</a> doesn&#x27;t fits your needs, rather than writing your own configuration from scratch, you can <strong>compose a new one</strong> from the underlying configuration pieces of <code translate="no" v-pre>@workleap/typescript-configs</code>.</p>
 <h2 id="available-pieces">Available pieces</h2>
+<retype-table copy-text="| Name | Description |
+| ---  | --- |
+| :icon-mark-github: [core](https://github.com/workleap/wl-web-configs/blob/main/packages/typescript-configs/core.json) | Basic rules shared by every configuration. |
+| :icon-mark-github: [react](https://github.com/workleap/wl-web-configs/blob/main/packages/typescript-configs/react.json) | Rules for [React](https://react.dev/) applications and libraries. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -290,6 +294,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h2 id="compose-a-new-configuration">Compose a new configuration</h2>
 <p>Each configuration piece can be extended individually, or in combination with other pieces, to compose your own custom TypeScript configuration.</p>
 <h3 id="react-configuration">React configuration</h3>
