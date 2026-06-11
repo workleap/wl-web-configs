@@ -75,7 +75,7 @@ const config: Config = {
     }
 };
 
-// Using TypeScript "export" keyword until StyleLint support ESM.
-// Otherwise we must deal with a weird CommonJS output from esbuild which is not worth it.
-// For more info, see: https://github.com/evanw/esbuild/issues/1079
+// Using TypeScript "export =" until Stylelint supports ESM configs.
+// It's the only syntax emitting `module.exports = config`, which Stylelint
+// expects since it loads configs via require().
 export = config;

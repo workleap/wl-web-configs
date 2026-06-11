@@ -3,7 +3,11 @@
     "compilerOptions": {
         "incremental": true,
         "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
-        "types": ["node"]
+        "types": ["node"],
+        // This package must use `export =` so the emitted CJS sets `module.exports` to the
+        // config object itself, as browserslist loads configs via require() and doesn't
+        // support ESM configs.
+        "erasableSyntaxOnly": false
     },
     "exclude": ["dist", "node_modules"]
 }
