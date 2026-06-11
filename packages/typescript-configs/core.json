@@ -9,6 +9,7 @@
         "types": ["node"],
 
         "isolatedModules": true,
+        "erasableSyntaxOnly": true,
         "allowSyntheticDefaultImports": true,
         "resolveJsonModule": true,
 
