@@ -1,5 +1,9 @@
 ---
-"@workleap/webpack-configs": patch
+"@workleap/webpack-configs": minor
 ---
 
-Fixed a crash on webpack 5.108+ when `@workleap/webpack-configs` and the consuming application resolve to two different physical copies of webpack in a pnpm workspace (for example when the app depends on `webpack-cli`). `DefinePlugin` is now created from the compiler's own webpack instance (`compiler.webpack`) at apply time instead of from this package's statically imported copy, so it no longer trips webpack 5.108's stricter `instanceof Compilation` check (`The 'compilation' argument must be an instance of Compilation`).
+Added support for webpack 5.108+.
+
+Previously, on webpack 5.108+, a pnpm workspace that resolved two physical copies of webpack (for example when the app depends on `webpack-cli`) crashed with `The 'compilation' argument must be an instance of Compilation`, because `DefinePlugin` was created from this package's own webpack copy instead of the one that owns the compilation. `DefinePlugin` is now created from the compiler's own webpack instance (`compiler.webpack`) at apply time, so it works regardless of how pnpm resolves the peer graph.
+
+The minimum supported `webpack` peer version is now `^5.108.4`.
