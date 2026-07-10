@@ -2,14 +2,6 @@ packages:
   - packages/*
   - samples/**
 
-# webpack 5.108.4 tightened DefinePlugin.getCompilationHooks to reject a Compilation from a
-# different webpack instance. This monorepo has always resolved two webpack peer-variants
-# (webpack-configs pulls terser's optional esbuild peer; the app pulls webpack-cli), which
-# 5.106.2 tolerated but 5.108.4 does not. Pin webpack to the last tolerant release until the
-# duplicate-instance resolution is addressed. (Only the webpack sample + webpack-configs use webpack.)
-overrides:
-  webpack: 5.106.2
-
 minimumReleaseAgeExclude:
   - '@workleap/*'
   - '@typescript/native-preview*'
