@@ -192,6 +192,14 @@ test.concurrent("when htmlWebpackPlugin is \"true\", an html-webpack-plugin inst
     expect(result).toBeDefined();
 });
 
+test.concurrent("the environment variables plugin is discoverable via matchConstructorName(\"DefinePlugin\")", ({ expect }) => {
+    const config = defineBuildConfig(DefaultSwcConfig);
+
+    const result = findPlugin(config, matchConstructorName("DefinePlugin"));
+
+    expect(result).toBeDefined();
+});
+
 test.concurrent("when css modules is enabled, include css modules configuration", ({ expect }) => {
     const result = defineBuildConfig(DefaultSwcConfig, {
         cssModules: true
