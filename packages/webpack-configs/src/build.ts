@@ -5,13 +5,10 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { createRequire } from "node:module";
 import path from "node:path";
 import TerserPlugin from "terser-webpack-plugin";
-import webpack from "webpack";
+import { DefineEnvironmentPlugin } from "./defineEnvironmentPlugin.ts";
 import { applyTransformers, type WebpackConfigTransformer } from "./transformers/applyTransformers.ts";
 import type { WebpackConfig } from "./types.ts";
 import { isObject } from "./utils.ts";
-
-// Aliases
-const DefinePlugin = webpack.DefinePlugin;
 
 // Using node:module.createRequire until
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta/resolve
@@ -220,7 +217,7 @@ export function defineBuildConfig(swcConfig: SwcConfig, options: DefineBuildConf
             // Stringify the environment variables because the plugin does a direct text replacement. Otherwise, "production" would become production
             // after replacement and cause an undefined var error because the production var doesn't exist.
             // For more information, view: https://webpack.js.org/plugins/define-plugin.
-            new DefinePlugin({
+            new DefineEnvironmentPlugin({
                 "process.env": Object.keys(environmentVariables).reduce((acc, key) => {
                     acc[key] = JSON.stringify(environmentVariables[key]);
 

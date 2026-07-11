@@ -38,7 +38,7 @@
         "@swc/helpers": "^0.5.23",
         "browserslist": "^4.28.5",
         "postcss": "^8.5.16",
-        "webpack": "^5.106.2",
+        "webpack": "^5.108.4",
         "webpack-dev-server": "^5.2.4"
     },
     "peerDependenciesMeta": {

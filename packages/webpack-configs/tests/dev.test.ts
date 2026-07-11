@@ -183,6 +183,14 @@ test.concurrent("when htmlWebpackPlugin is \"true\", an html-webpack-plugin inst
     expect(result).toBeDefined();
 });
 
+test.concurrent("the environment variables plugin is discoverable via matchConstructorName(\"DefinePlugin\")", ({ expect }) => {
+    const config = defineDevConfig(DefaultSwcConfig);
+
+    const result = findPlugin(config, matchConstructorName("DefinePlugin"));
+
+    expect(result).toBeDefined();
+});
+
 test.concurrent("when fast refresh is disabled, dev server hot module reload is enabled", ({ expect }) => {
     const result = defineDevConfig(DefaultSwcConfig, {
         fastRefresh: false

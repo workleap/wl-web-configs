@@ -23,6 +23,10 @@ Open a terminal at the root of the project and install the following packages:
 pnpm add -D @workleap/webpack-configs webpack webpack-cli webpack-dev-server @swc/core @swc/helpers browserslist postcss nodemon
 ```
 
+!!!warning
+`@workleap/webpack-configs` supports `webpack-dev-server@5` only. `webpack-dev-server@6` removed the SockJS client that [`@pmmmwh/react-refresh-webpack-plugin`](https://github.com/pmmmwh/react-refresh-webpack-plugin) still relies on, which breaks Fast Refresh — stay on `webpack-dev-server@5` for now. Follow [#452](https://github.com/workleap/wl-web-configs/issues/452) for updates.
+!!!
+
 ## Configure webpack
 
 ### HTML template
