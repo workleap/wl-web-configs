@@ -391,3 +391,22 @@ export const App = () => <Logo />;
     "build-app": "turbo run build --filter=./apps/app"
 }
 ```
+
+## Deployment (SPA Redirect)
+
+No specific deployment setup is recommended, but SPAs must serve `index.html` for direct URL access (refresh / deep links) instead of returning a 404. Add a `_redirects` file to the `public` folder — Rspack copies it into `dist` at build time:
+
+```text
+# public/_redirects
+/* /index.html 200
+```
+
+## Version Requirements (v2.0)
+
+`@workleap/rsbuild-configs` v4.0 upgrades to Rsbuild 2.0 / Rspack 2.0.
+
+- **Node.js `20.19+` or `22.12+`** required (Node.js 18 is no longer supported).
+- Upgrade command: `pnpm add -D @workleap/rsbuild-configs@^4.0.0 @rsbuild/core@^2.0.0 @rspack/core@^2.0.0`
+- `core-js` is now a **direct dependency** of `@workleap/rsbuild-configs`; you can `pnpm remove core-js` from the app. The `polyfill` option defaults to `"usage"`.
+- `@rsbuild/core` is now pure ESM — import it from ESM files.
+- Module Federation users must explicitly `pnpm add -D @module-federation/runtime-tools` (no longer transitive via `@rsbuild/core`).

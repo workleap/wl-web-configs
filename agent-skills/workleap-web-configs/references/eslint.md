@@ -99,6 +99,14 @@ export default defineWebApplicationConfig(import.meta.dirname, {
 });
 ```
 
+### Change Rule Value
+
+```ts
+export default defineWebApplicationConfig(import.meta.dirname, {
+    typescript: { "@stylistic/quote-props": "off" }
+});
+```
+
 ### Use Jest Instead of Vitest
 
 ```ts
@@ -108,6 +116,24 @@ export default defineWebApplicationConfig(import.meta.dirname, {
 ```
 
 ### Add a Plugin
+
+Prefer the plugin's `extends` option when the plugin supports it:
+
+```ts
+import { defineWebApplicationConfig } from "@workleap/eslint-configs";
+import { defineConfig } from "eslint/config";
+import myPlugin from "eslint-plugin-myplugin";
+
+export default defineConfig([
+    {
+        extends: [myPlugin],
+        rules: { "myPlugin/rule": "warn" }
+    },
+    defineWebApplicationConfig(import.meta.dirname)
+]);
+```
+
+Or register the plugin manually:
 
 ```ts
 import { defineWebApplicationConfig } from "@workleap/eslint-configs";
