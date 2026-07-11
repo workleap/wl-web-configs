@@ -337,3 +337,13 @@ export default defineBuildConfig({
     "build-lib": "turbo run build --filter=./packages/lib"
 }
 ```
+
+## Version Requirements (v2.0)
+
+`@workleap/rslib-configs` v2.0 tracks Rslib `0.21+` (Rsbuild 2.0 / Rspack 2.0). No public API of `defineBuildConfig`, `defineDevConfig`, or `defineStorybookConfig` changed in this release — most changes are upstream.
+
+- **Node.js `20.19+` or `22.12+`** required (Node.js 18 is no longer supported).
+- Upgrade command: `pnpm add -D @workleap/rslib-configs @rslib/core@^0.21.0`
+- `@rsbuild/core` is now pure ESM — import it from ESM files.
+- `experiments.advancedEsm` is now the default (the option is ignored); remove it if previously set via a transformer.
+- Type rename: `StartServerResult` → `StartDevServerResult` in `@rslib/core`.
