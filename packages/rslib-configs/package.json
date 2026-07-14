@@ -43,9 +43,9 @@
     "devDependencies": {
         "@eslint/js": "9.39.2",
         "@rslib/core": "0.23.2",
-        "@types/node": "26.1.0",
+        "@types/node": "26.1.1",
         "@typescript-eslint/parser": "8.63.0",
-        "@typescript/native-preview": "7.0.0-dev.20260512.1",
+        "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "eslint": "9.39.2",
