@@ -253,8 +253,9 @@ describe("output.minify", () => {
 
     test.concurrent("when optimize is \"readable\", output.minify configures SWC with mangle disabled", ({ expect }) => {
         const result = defineBuildConfig({ optimize: "readable" }).output?.minify as Exclude<Minify, boolean>;
+        const jsOptions = result.jsOptions as Exclude<typeof result.jsOptions, unknown[]>;
 
-        expect(result.jsOptions?.minimizerOptions?.mangle).toBe(false);
+        expect(jsOptions?.minimizerOptions?.mangle).toBe(false);
     });
 });
 
