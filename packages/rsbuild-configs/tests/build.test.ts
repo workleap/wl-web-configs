@@ -253,8 +253,10 @@ describe("output.minify", () => {
 
     test.concurrent("when optimize is \"readable\", output.minify configures SWC with mangle disabled", ({ expect }) => {
         const result = defineBuildConfig({ optimize: "readable" }).output?.minify as Exclude<Minify, boolean>;
+        // Since Rsbuild 2.2.0, "jsOptions" accepts either a single options object or an array of them.
+        const jsOptions = result.jsOptions as Exclude<typeof result.jsOptions, unknown[]>;
 
-        expect(result.jsOptions?.minimizerOptions?.mangle).toBe(false);
+        expect(jsOptions?.minimizerOptions?.mangle).toBe(false);
     });
 });
 

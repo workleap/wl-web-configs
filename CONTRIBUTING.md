@@ -290,6 +290,16 @@ Updated outdated dependencies to their latest version. For more information, vie
 pnpm update-outdated-deps
 ```
 
+#### Held-back dependencies
+
+Some dependencies are deliberately excluded from `update-outdated-deps` with `!<name>` arguments. They are **not** excluded from `list-outdated-deps`, so the hold-back stays visible whenever a newer version ships.
+
+| Dependency | Why | When to lift |
+| --- | --- | --- |
+| `eslint`, `@eslint/js` | v10 is a breaking change for consumers of `@workleap/eslint-configs` (peer `^9`). Requires a coordinated major release and a migration guide. | When an `@workleap/eslint-configs` major is planned. |
+| `stylelint`, `stylelint-config-standard` | Same, for `@workleap/stylelint-configs` (peers `^16` / `^39`). | When an `@workleap/stylelint-configs` major is planned. |
+| `typescript` | `typescript-eslint` 8.x rejects TS 7.0 (`typescript-eslint does not support TS 7.0`), which breaks loading `eslint.config.ts`. `typescript@6` stays for ESLint and VS Code, while `@typescript/native-preview` (`tsgo`) already provides TS 7 for `typecheck`. See [#468](https://github.com/workleap/wl-web-configs/issues/468). | When `typescript-eslint` ships TS 7.0 support ([typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940)). |
+
 ## CI
 
 We use [GitHub Actions](https://docs.github.com/en/actions) for this repository.
