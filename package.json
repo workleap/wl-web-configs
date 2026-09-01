@@ -57,7 +57,7 @@
         "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "@workleap/eslint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
-        "agent-browser": "0.35.1",
+        "agent-browser": "0.35.2",
         "cross-env": "10.1.0",
         "eslint": "9.39.2",
         "pkg-pr-new": "0.0.88",
