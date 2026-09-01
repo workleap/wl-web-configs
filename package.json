@@ -43,8 +43,8 @@
         "reset:modules": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf node_modules pnpm-lock.yaml",
         "list-outdated-deps": "pnpm outdated -r --filter=!@webpack-sample/* --format list !eslint !@eslint/js !stylelint !stylelint-config-standard",
         "update-outdated-deps": "pnpm run --sequential \"/^update-outdated-deps:.*/\"",
-        "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !eslint !@eslint/js !stylelint !stylelint-config-standard !typescript",
-        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !eslint !@eslint/js !stylelint !stylelint-config-standard !typescript",
+        "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !eslint !@eslint/js !stylelint !stylelint-config-standard !typescript !webpack-dev-server",
+        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !eslint !@eslint/js !stylelint !stylelint-config-standard !typescript !webpack-dev-server",
         "update-outdated-deps:update-peers": "syncpack fix",
         "update-outdated-deps:fix-pkg-json": "eslint --fix --no-cache --no-ignore package.json **/package.json"
     },

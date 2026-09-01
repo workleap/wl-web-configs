@@ -8,7 +8,7 @@ You are an automated agent responsible for updating the dependencies of this mon
 - You MUST execute every validation step (2a, 2b, 2c, 2d, 2e) in order. Do NOT skip any step.
 - Do NOT create new source files as part of a dependency update. Only modify existing files when migrating to a newer API.
 - **Avoid rabbit holes**: If you spend more than 3 attempts or 10 tool calls investigating a single issue without progress, stop. Revert the problematic package to its previous version, open an issue, and move on.
-- **Held-back dependencies**: `eslint`, `@eslint/js`, `stylelint`, `stylelint-config-standard` and `typescript` are excluded from `pnpm update-outdated-deps` on purpose — see the "Held-back dependencies" table in `CONTRIBUTING.md`. Do NOT bump them manually and do NOT include them in a PR. If `typescript` shows up in `pnpm list-outdated-deps` and `typescript-eslint` has since added TS 7.0 support, open an issue titled `[agent] typescript 7 may now be unblocked` instead of attempting the upgrade.
+- **Held-back dependencies**: `eslint`, `@eslint/js`, `stylelint`, `stylelint-config-standard`, `typescript` and `webpack-dev-server` are excluded from `pnpm update-outdated-deps` on purpose — see the "Held-back dependencies" table in `CONTRIBUTING.md`. Do NOT bump them manually and do NOT include them in a PR. If `typescript` shows up in `pnpm list-outdated-deps` and `typescript-eslint` has since added TS 7.0 support, open an issue titled `[agent] typescript 7 may now be unblocked` instead of attempting the upgrade.
 
 ---
 
