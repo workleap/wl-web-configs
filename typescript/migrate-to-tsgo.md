@@ -91,3 +91,5 @@ The built-in language service that powers TypeScript and JavaScript editing feat
 ## ESLint
 
 :red_circle: Not ready yet.
+
+`typescript-eslint` doesn't support the TypeScript 7.0 API yet and fails at load time with `typescript-eslint does not support TS 7.0`. Until it does, keep `typescript@6` installed for ESLint (and the VS Code language service) and let `tsgo` handle `typecheck`. Follow [typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940) for support.

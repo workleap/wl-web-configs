@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837049322260">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841548698302">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,12 +39,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.837049322260" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.841548698302" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837049322260" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.841548698302" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837049322260" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837049322260" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.841548698302" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.841548698302" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -346,6 +346,7 @@ minimum-release-age-exclude=@workleap*,@typescript/native-preview*</code></pre>
 </doc-codeblock></div>
 <h2 id="eslint">ESLint</h2>
 <p><span class="docs-emoji">&#x1F534;</span> Not ready yet.</p>
+<p><code translate="no" v-pre>typescript-eslint</code> doesn&#x27;t support the TypeScript 7.0 API yet and fails at load time with <code translate="no" v-pre>typescript-eslint does not support TS 7.0</code>. Until it does, keep <code translate="no" v-pre>typescript@6</code> installed for ESLint (and the VS Code language service) and let <code translate="no" v-pre>tsgo</code> handle <code translate="no" v-pre>typecheck</code>. Follow <a href="https://github.com/typescript-eslint/typescript-eslint/issues/10940" class="outbound" target="_blank">typescript-eslint#10940</a> for support.</p>
 
                 
                 <!-- Required only on API pages -->
