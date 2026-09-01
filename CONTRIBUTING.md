@@ -290,6 +290,17 @@ Updated outdated dependencies to their latest version. For more information, vie
 pnpm update-outdated-deps
 ```
 
+#### Held-back dependencies
+
+Some dependencies are deliberately excluded from `update-outdated-deps` with `!<name>` arguments. `typescript` is excluded from the update scripts only — it stays in `list-outdated-deps`, so the hold-back surfaces whenever a newer version ships. The others are excluded from both scripts, so revisiting them is driven by the "When to lift" column rather than by tooling.
+
+| Dependency | Why | When to lift |
+| --- | --- | --- |
+| `eslint`, `@eslint/js` | v10 is a breaking change for consumers of `@workleap/eslint-configs` (peer `^9`). Requires a coordinated major release and a migration guide. | When an `@workleap/eslint-configs` major is planned. |
+| `stylelint`, `stylelint-config-standard` | `stylelint` v17 is a breaking change for consumers of `@workleap/stylelint-configs` (peer `^16`). `stylelint-config-standard` is a direct dependency (`^39`), so a major silently changes the rule set every consumer inherits. | When an `@workleap/stylelint-configs` major is planned. |
+| `typescript` | `typescript-eslint` 8.x rejects TS 7.0 (`typescript-eslint does not support TS 7.0`), which breaks loading `eslint.config.ts`. `typescript@6` stays for ESLint and VS Code, while `@typescript/native-preview` (`tsgo`) already provides TS 7 for `typecheck`. See [#468](https://github.com/workleap/wl-web-configs/issues/468). | When `typescript-eslint` ships TS 7.0 support ([typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940)). |
+| `webpack-dev-server` | v6 is only safe as a *widening* of the `@workleap/webpack-configs` peer to `"^5.2.4 \|\| ^6.0.0"` (consumers also need `webpack-cli >= 7.2.1`). `syncpack fix` cannot express a multi-range peer, so it narrows the peer to `^6.0.0` and drops wds5 for every consumer. See [#452](https://github.com/workleap/wl-web-configs/issues/452). | When the peer is manually widened to `"^5.2.4 \|\| ^6.0.0"` as part of #452. |
+
 ## CI
 
 We use [GitHub Actions](https://docs.github.com/en/actions) for this repository.
