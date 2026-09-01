@@ -70,7 +70,7 @@
     },
     "engines": {
         "node": ">=24.0.0",
-        "pnpm": ">=11"
+        "pnpm": ">=12"
     },
     "packageManager": "pnpm@12.2.1"
 }
