@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 2.0.5
+
+### Patch Changes
+
+- [#469](https://github.com/workleap/wl-web-configs/pull/469) [`d52b6d7`](https://github.com/workleap/wl-web-configs/commit/d52b6d7bd0455eb902296e7a07dbbbf3d636331f) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Updated dependencies to their latest versions.
+
 ## 2.0.4
 
 ### Patch Changes
