@@ -29,10 +29,16 @@
 pnpm add -D @workleap/typescript-configs typescript
 ```
 
-### Turborepo (Workspace + Projects)
+### Turborepo (Workspace Root)
 
 ```bash
 pnpm add -D @workleap/typescript-configs typescript turbo
+```
+
+### Turborepo (Project)
+
+```bash
+pnpm add -D @workleap/typescript-configs typescript
 ```
 
 ## Configuration Examples
@@ -265,3 +271,7 @@ Replace `tsc` with `tsgo`:
 ```
 
 If CI fails with `Unable to resolve ... platform`, temporarily disable the PNPM `minimumReleaseAge` feature.
+
+### 5. ESLint (not ready)
+
+`typescript-eslint` does not support the TypeScript 7.0 API yet and fails at load time with `typescript-eslint does not support TS 7.0`. Keep `typescript@6` installed for ESLint (and the VS Code language service) and let `tsgo` handle `typecheck` only.
