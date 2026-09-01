@@ -3,7 +3,7 @@ name: workleap-web-configs
 description: |
   Workleap's shared web configuration packages (@workleap/eslint-configs, @workleap/typescript-configs, @workleap/rsbuild-configs, @workleap/rslib-configs, @workleap/stylelint-configs, @workleap/browserslist-config). Use when setting up, customizing, extending, or troubleshooting shared web tooling configs in a Workleap project — including ESLint, TypeScript, Rsbuild, Rslib, Stylelint, Browserslist, and monorepo (Turborepo) strategies. Activate even if only one tool is mentioned, as the packages are designed to work together.
 metadata:
-  version: 1.5
+  version: 1.6
 ---
 
 # wl-web-configs
@@ -67,11 +67,12 @@ last 2 OperaMobile 12.1 versions
 
 For comprehensive setup guides, options, and examples, read the appropriate reference file:
 
-- **ESLint** — [references/eslint.md](references/eslint.md): Installation, `define*Config` functions, rule categories, customization, and VS Code integration
-- **TypeScript** — [references/typescript.md](references/typescript.md): Config files by project type, compiler option overrides, path mappings, and CLI scripts
-- **Rsbuild** — [references/rsbuild.md](references/rsbuild.md): Dev/build/Storybook configs, predefined options, transformers, and Turborepo setup
-- **Rslib** — [references/rslib.md](references/rslib.md): Library build/dev/Storybook configs, bundleless vs bundle, transformers, and type declarations
+- **ESLint** — [references/eslint.md](references/eslint.md): Installation, `define*Config` functions, rule categories, customization, VS Code integration, and migrating from ESLint 8
+- **TypeScript** — [references/typescript.md](references/typescript.md): Config files by project type, compiler option overrides, path mappings, CLI scripts, and migrating to `tsgo`
+- **Rsbuild** — [references/rsbuild.md](references/rsbuild.md): Dev/build/Storybook configs, predefined options, transformers, Turborepo setup, and migrating from webpack
+- **Rslib** — [references/rslib.md](references/rslib.md): Library build/dev/Storybook configs, bundleless vs bundle, transformers, type declarations, and migrating from tsup
 - **Stylelint** — [references/stylelint.md](references/stylelint.md): Installation, `.stylelintrc.json` setup, Prettier integration, and VS Code settings
+- **CI** — [references/ci.md](references/ci.md): GitHub Actions workflows for polyrepo and Turborepo solutions, including Turborepo caching and PR filters
 
 ## Critical Rules
 
