@@ -1,5 +1,13 @@
 # @workleap/browserslist-config
 
+## 3.0.0
+
+### Major Changes
+
+- [#480](https://github.com/workleap/wl-web-configs/pull/480) [`98c3981`](https://github.com/workleap/wl-web-configs/commit/98c39815445e8799afaeeca55134f624021ec979) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Excluded Opera Mini, KaiOS, UC Browser and QQ Browser from the supported browsers. These browsers were pulled in by the `> 0.2%` global market share clause and forced consumers building with `polyfill: "usage"` to ship ~30 KB gzip of core-js polyfills that only exist for them.
+  
+  This is a breaking change because these browsers are no longer supported by default. Projects that still need them can add them back in their `.browserslistrc`, for example with `op_mini all`.
+
 ## 2.1.8
 
 ### Patch Changes
