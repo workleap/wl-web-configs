@@ -20,7 +20,7 @@ test.concurrent("when a syntax prop is provided, the lib.syntax option is the pr
         tsconfigPath: "./build.json"
     });
 
-    expect(result.lib[0]?.syntax).toBe("es2015");
+    expect(result.lib?.[0]?.syntax).toBe("es2015");
 });
 
 test.concurrent("when bundle is false and the tsconfigPath option is not provided, throw an error", ({ expect }) => {
@@ -45,7 +45,7 @@ test.concurrent("when bundle is true, the lib.bundle option is true", ({ expect 
         bundle: true
     });
 
-    expect(result.lib[0]?.bundle).toBeTruthy();
+    expect(result.lib?.[0]?.bundle).toBeTruthy();
 });
 
 test.concurrent("when bundle is true, the default source.entry option is [\"./src/index.ts\", \"./src/index.js\"]", ({ expect }) => {
@@ -62,7 +62,7 @@ test.concurrent("when dts is false, the lib.dts option is true", ({ expect }) =>
         tsconfigPath: "./build.json"
     });
 
-    expect(result.lib[0]?.dts).toBeFalsy();
+    expect(result.lib?.[0]?.dts).toBeFalsy();
 });
 
 test.concurrent("when a target is provided, the output.target option is the provided value", ({ expect }) => {
