@@ -1,5 +1,15 @@
 # @workleap/tsup-configs
 
+## 5.0.0
+
+### Major Changes
+
+- [#485](https://github.com/workleap/wl-web-configs/pull/485) [`2d1b0c2`](https://github.com/workleap/wl-web-configs/commit/2d1b0c222ed03e4b0168e1ea206d804651a0d2e3) Thanks [@claude](https://github.com/apps/claude)! - Updated dependencies to their latest versions.
+  
+  - `@workleap/rslib-configs` now requires `@rslib/core` `^1.0.3` as a peer dependency.
+  - `@workleap/tsup-configs` now requires `tsup` `^9.0.0` as a peer dependency.
+  - `@workleap/rsbuild-configs` now uses `@rsbuild/plugin-basic-ssl` 2.x. When customizing HTTPS with `https: (defaults) => ({ ... })`, the `selfsignedOptions.days` option has been removed; use `selfsignedOptions.notAfterDate` instead. Self-signed certificates are now cached in `node_modules/.cache/basic-ssl`, so a new certificate is generated (and must be trusted again) on first run after upgrading.
+
 ## 4.0.2
 
 ### Patch Changes
