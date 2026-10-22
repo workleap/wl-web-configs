@@ -1,12 +1,14 @@
 # Update Dependencies
 
-You are an automated agent responsible for updating the dependencies of this monorepo and validating that everything still works correctly.
+You are an automated agent responsible for updating the dependencies and agent skills of this monorepo and validating that everything still works correctly.
 
 ## Constraints
 
-- You have a maximum of **10 attempts** to pass all validation steps. If you exhaust all attempts, go to Step 4 (Failure).
-- You MUST execute every validation step (2a, 2b, 2c, 2d, 2e) in order. Do NOT skip any step.
-- Do NOT create new source files as part of a dependency update. Only modify existing files when migrating to a newer API.
+- You run unattended. When a skill below tells you to ask the user something, follow the override given in this prompt instead — never prompt.
+- You have a maximum of **10 attempts** to pass all validation steps. If you exhaust all attempts, go to Step 5 (Failure).
+- You MUST execute every validation step (2a, 2b, 2c, 2d, 2e) in order. Do NOT skip any step. The only exception: Step 1 finds no dependency updates, which skips Step 2 entirely.
+- Run each skill below in a subagent (`Task` tool): brief it to invoke the named skill with the `Skill` tool, never prompt, and end its final message with the skill's report. Never invoke these skills inline — they switch the model for the rest of the run.
+- Do NOT create new source files as part of a dependency update. Only modify existing files when migrating to a newer API. Files written by the skills installer in Step 3 are exempt.
 - **Avoid rabbit holes**: If you spend more than 3 attempts or 10 tool calls investigating a single issue without progress, stop. Revert the problematic package to its previous version, open an issue, and move on.
 - **Held-back dependencies**: `eslint`, `@eslint/js`, `stylelint`, `stylelint-config-standard`, `typescript` and `webpack-dev-server` are excluded from `pnpm update-outdated-deps` on purpose — see the "Held-back dependencies" table in `CONTRIBUTING.md`. Do NOT bump them manually and do NOT include them in a PR. If `typescript` shows up in `pnpm list-outdated-deps` and `typescript-eslint` has since added TS 7.0 support, open an issue titled `[agent] typescript 7 may now be unblocked` instead of attempting the upgrade.
 
@@ -14,13 +16,9 @@ You are an automated agent responsible for updating the dependencies of this mon
 
 ## Step 1: Update dependencies
 
-Update all dependencies to their latest versions:
+Run the `_update-dependencies` skill (`.claude/skills/_update-dependencies/`) in a subagent. Brief it to skip the skill's step-1 prompt and proceed as if neither follow-up was selected — Step 2 below is the validation. Keep its report: the bumped packages, major-version jumps and peer range narrowing feed the PR summary.
 
-```bash
-pnpm update-outdated-deps
-```
-
-**If the command fails** (non-zero exit code), create an issue and STOP:
+**If `pnpm update-outdated-deps` fails** (non-zero exit code), create an issue and STOP:
 
 ```bash
 gh issue create \
@@ -40,13 +38,13 @@ $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
 Then STOP. You are done.
 
-**If the command succeeds**, check if any `package.json` files were modified:
+**If it succeeds**, check if any `package.json` files were modified:
 
 ```bash
 git diff --name-only -- '**/package.json' ':!node_modules'
 ```
 
-If the output is empty, there are no dependency updates. STOP immediately. You are done.
+If the output is empty, there are no dependency updates. Discard any lockfile-only churn with `git checkout -- pnpm-lock.yaml`, skip Step 2 and go to Step 3.
 
 Otherwise, install the updated dependencies:
 
@@ -139,11 +137,25 @@ Use `agent-browser` for all browser interactions in this step. It is installed a
 4. Click on at least one story in the sidebar (e.g., the **Button** story) and verify it renders without errors. Use `agent-browser snapshot` to verify the rendered content and `agent-browser console` to check for console errors (ignore warnings and known noise)
 5. Stop the dev server process when done: `kill $(lsof -t -i:6006) 2>/dev/null || true; fuser -k 6006/tcp 2>/dev/null || true`
 
-## Step 3: Success
+## Step 3: Update agent skills
 
-All validations passed.
+Run the `_update-skills` skill (`.claude/skills/_update-skills/`) in a subagent. It runs after Step 2 so its version gates read the bumped `package.json` files; a validation failure (Step 5) never gets here, and skills are retried on the next run. It only touches `.agents/skills/` and `skills-lock.json`, so it needs no validation.
 
-### 3a: Create a changeset (if needed)
+A skills failure (drift audit stop, `skills add` error) never blocks the dependency PR: discard any partial changes with `git checkout -- .agents/skills skills-lock.json && git clean -fd .agents/skills`, keep the skill's report, and continue.
+
+Then check whether anything changed at all:
+
+```bash
+git status --porcelain
+```
+
+If the output is empty, there are no dependency or skill updates. STOP immediately. You are done.
+
+## Step 4: Success
+
+All validations passed (or there were no dependency updates to validate).
+
+### 4a: Create a changeset (if needed)
 
 Only include `@workleap/*` packages whose `dependencies` or `peerDependencies` have actually changed. Do NOT include packages where only `devDependencies` changed — devDependency-only changes do not affect the published package. If no `@workleap/*` packages qualify (i.e., every change is devDependency-only), skip this step entirely — do NOT create a changeset file.
 
@@ -159,7 +171,7 @@ Example format:
 Updated dependencies to their latest versions.
 ```
 
-### 3b: Commit and create pull request
+### 4b: Commit and create pull request
 
 Close any existing open dependency-update PRs before creating a new one:
 
@@ -183,10 +195,16 @@ Before writing the summary, run `git diff main -- '**/package.json'` to see the 
 
 #### PR body template
 
+Omit the Summary and Validation checklist sections when there were no dependency updates. Omit the Agent skills section when `_update-skills` changed nothing on disk and reported no skips or failures.
+
 ```markdown
 ## Summary
 
 <list the updated dependencies here, following the rules above>
+
+## Agent skills
+
+<from the `_update-skills` report: skills whose files changed, skills skipped with their lagging package (installed vs latest), and any failure>
 
 ## Validation checklist
 - [x] Step 2a: Linting
@@ -214,7 +232,7 @@ gh pr create \
 
 Then STOP. You are done.
 
-## Step 4: Failure
+## Step 5: Failure
 
 You have exhausted 10 validation attempts. Do NOT create a pull request.
 
