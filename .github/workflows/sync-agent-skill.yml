@@ -56,6 +56,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Required by the agent to run the package skills validation script, which uses "pnpm pack".
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ">=24.0.0"
+          check-latest: true
+
       - name: Sync agent skill with docs
         uses: anthropics/claude-code-action@v1
         with:
@@ -70,7 +82,7 @@ jobs:
           show_full_output: true
           claude_args: >-
             --max-turns 100
-            --allowedTools Edit,Read,Write,Glob,Grep,Task,Bash(git:*),Bash(gh:*)
+            --allowedTools Edit,Read,Write,Glob,Grep,Task,Bash(git:*),Bash(gh:*),Bash(node ./scripts/validate-package-skills.ts)
         env:
           # Required by gh CLI to create PRs.
           GH_TOKEN: ${{ github.token }}

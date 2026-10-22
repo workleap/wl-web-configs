@@ -34,6 +34,7 @@
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsgo",
         "syncpack": "syncpack lint",
+        "validate-package-skills": "node ./scripts/validate-package-skills.ts",
         "test": "turbo run test --continue",
         "changeset": "changeset",
         "publish-pkg": "changeset publish",
