@@ -29,13 +29,16 @@ function parseFrontmatter(content: string) {
         return undefined;
     }
 
-    const name = /^name:\s*(.+)$/m.exec(match[1])?.[1].trim();
-    // Supports both inline and "|" block scalar descriptions.
-    const description = /^description:\s*(?:\|\s*\r?\n((?:\s+.*\r?\n?)+)|(.+))/m.exec(match[1]);
+    const name = /^name:[ \t]*(.+)$/m.exec(match[1])?.[1].trim();
+    // Supports inline descriptions and block scalar descriptions (|, >, with optional chomping indicator),
+    // where every continuation line must be indented.
+    const description = /^description:[ \t]*(?:[|>][+-]?[ \t]*\r?\n((?:[ \t]+.*(?:\r?\n|$))+)|(?![ \t]*[|>][+-]?[ \t]*$)(.+))/m.exec(match[1]);
+    // Strips the quotes of an inline quoted description, so an empty quoted string is reported as missing.
+    const value = (description?.[1] ?? description?.[2])?.trim().replace(/^(["'])(.*)\1$/, "$2").trim();
 
     return {
         name,
-        description: (description?.[1] ?? description?.[2])?.trim()
+        description: value
     };
 }
 

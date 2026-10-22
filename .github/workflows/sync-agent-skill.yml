@@ -82,7 +82,7 @@ jobs:
           show_full_output: true
           claude_args: >-
             --max-turns 100
-            --allowedTools Edit,Read,Write,Glob,Grep,Task,Bash(git:*),Bash(gh:*),Bash(node ./scripts/validate-package-skills.ts)
+            --allowedTools "Edit,Read,Write,Glob,Grep,Task,Bash(git:*),Bash(gh:*),Bash(node ./scripts/validate-package-skills.ts)"
         env:
           # Required by gh CLI to create PRs.
           GH_TOKEN: ${{ github.token }}
