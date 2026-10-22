@@ -1,6 +1,6 @@
 ---
-name: update-third-parties
-description: Update the repo's third-party sources — npm dependencies and agent skills — together or either one. Use as "/update-third-parties". Prompts up front for which targets to update, then delegates to the `_update-dependencies` and `_update-skills` skills.
+name: _update-third-parties
+description: Update the repo's third-party sources — npm dependencies and agent skills — together or either one. Use as "/_update-third-parties". Prompts up front for which targets to update, then delegates to the `_update-dependencies` and `_update-skills` skills.
 disable-model-invocation: true
 model: sonnet
 effort: medium
