@@ -1,0 +1,25 @@
+{
+    "name": "wl-web-configs",
+    "owner": {
+        "name": "Workleap"
+    },
+    "plugins": [
+        {
+            "name": "wl-web-configs",
+            "source": "./",
+            "skills": [
+                "./agent-skills/workleap-chromatic-best-practices",
+                "./agent-skills/workleap-react-best-practices",
+                "./agent-skills/workleap-skill-optimizer",
+                "./agent-skills/workleap-skill-safety-review",
+                "./agent-skills/workleap-web-configs",
+                "./packages/browserslist-config/skills/workleap-browserslist-config",
+                "./packages/eslint-configs/skills/workleap-eslint-configs",
+                "./packages/rsbuild-configs/skills/workleap-rsbuild-configs",
+                "./packages/rslib-configs/skills/workleap-rslib-configs",
+                "./packages/stylelint-configs/skills/workleap-stylelint-configs",
+                "./packages/typescript-configs/skills/workleap-typescript-configs"
+            ]
+        }
+    ]
+}
