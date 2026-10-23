@@ -56,6 +56,7 @@ import type { StorybookConfig } from "storybook-react-rsbuild";
 const storybookConfig: StorybookConfig = {
     framework: "storybook-react-rsbuild",
     addons: ["storybook-addon-rslib"],
+    // Relative to the ".storybook" folder, adjust to where the stories are located.
     stories: ["../../src/**/*.stories.(tsx|mdx)"]
 };
 

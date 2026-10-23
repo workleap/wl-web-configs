@@ -32,13 +32,13 @@ pnpm add -D @workleap/typescript-configs typescript
 ### Turborepo (Workspace Root)
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript turbo
+pnpm add -D @workleap/typescript-configs typescript @typescript/native-preview turbo
 ```
 
 ### Turborepo (Project)
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript
+pnpm add -D @workleap/typescript-configs typescript @typescript/native-preview
 ```
 
 ## Configuration Examples

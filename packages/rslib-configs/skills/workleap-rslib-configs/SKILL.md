@@ -103,7 +103,7 @@ export default defineBuildConfig({
 | `tsconfigPath` | string | undefined | Path to tsconfig (required for bundleless) |
 | `dts` | object/false | `true` | Generate .d.ts files |
 | `target` | string | `web` | Output target |
-| `distPath` | string | `dist` | Output directory |
+| `distPath` | object | `{ root: "./dist" }` | Output directory (Rsbuild `output.distPath`) |
 | `plugins` | array | `[]` | Rsbuild plugins |
 | `sourceMap` | false/object | `{ js: "source-map", css: true }` | Source maps |
 | `react` | true/function | disabled | React transformation |
@@ -215,6 +215,7 @@ import type { StorybookConfig } from "storybook-react-rsbuild";
 const storybookConfig: StorybookConfig = {
     framework: "storybook-react-rsbuild",
     addons: ["storybook-addon-rslib"],
+    // Relative to the ".storybook" folder, adjust to where the stories are located.
     stories: ["../../src/**/*.stories.(tsx|mdx)"]
 };
 
@@ -235,6 +236,7 @@ export default storybookConfig;
 ```ts
 import { defineBuildConfig, type RslibConfigTransformer } from "@workleap/rslib-configs";
 import type { RslibConfig } from "@rslib/core";
+import path from "node:path";
 
 const customTransformer: RslibConfigTransformer = (config: RslibConfig, context) => {
     if (context.environment === "build") {
@@ -244,6 +246,7 @@ const customTransformer: RslibConfigTransformer = (config: RslibConfig, context)
 };
 
 export default defineBuildConfig({
+    tsconfigPath: path.resolve("./tsconfig.build.json"),
     transformers: [customTransformer]
 });
 ```
@@ -349,10 +352,10 @@ export default defineBuildConfig({
 
 ## Version Requirements (v2.0)
 
-`@workleap/rslib-configs` v2.0 tracks Rslib `0.21+` (Rsbuild 2.0 / Rspack 2.0). No public API of `defineBuildConfig`, `defineDevConfig`, or `defineStorybookConfig` changed in this release — most changes are upstream.
+`@workleap/rslib-configs` v2.0 tracks Rslib `1.0+` (Rsbuild 2.0 / Rspack 2.0). No public API of `defineBuildConfig`, `defineDevConfig`, or `defineStorybookConfig` changed in this release — most changes are upstream.
 
 - **Node.js `20.19+` or `22.12+`** required (Node.js 18 is no longer supported). Pin the version in `.nvmrc` so CI runners and local environments match.
-- Upgrade command: `pnpm add -D @workleap/rslib-configs @rslib/core@^0.21.0`
+- Upgrade command: `pnpm add -D @workleap/rslib-configs@^2.0.0 @rslib/core@^1.0.3`
 - `@rsbuild/core` is now pure ESM — import it from ESM files.
 - `experiments.advancedEsm` is now the default (the option is ignored); remove it if previously set via a transformer.
 - Type rename: `StartServerResult` → `StartDevServerResult` in `@rslib/core`.

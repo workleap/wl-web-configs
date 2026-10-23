@@ -17,7 +17,7 @@ Execute the following steps to set up [TypeScript](https://www.typescriptlang.or
 Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript turbo
+pnpm add -D @workleap/typescript-configs typescript @typescript/native-preview turbo
 ```
 
 ### Configure Turborepo
@@ -140,7 +140,7 @@ While the `lint` task may seem redundant for now, it's important to note that as
 Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following packages:
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript
+pnpm add -D @workleap/typescript-configs typescript @typescript/native-preview
 ```
 
 ### Configure TypeScript

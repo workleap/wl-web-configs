@@ -180,7 +180,7 @@ export default defineBuildConfig();
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `entry` | object | `{ index: "./src/index.tsx" }` | Entry points |
-| `distPath` | string | `dist` | Output directory |
+| `distPath` | object | `{ root: "./dist" }` | Output directory (Rsbuild `output.distPath`) |
 | `assetPrefix` | string | `/` | Asset URL prefix |
 | `plugins` | array | `[]` | Rsbuild plugins |
 | `html` | false/function | default template | HTML template config |
@@ -203,7 +203,7 @@ Custom output path:
 import path from "node:path";
 
 export default defineBuildConfig({
-    distPath: path.resolve("./build")
+    distPath: { root: path.resolve("./build") }
 });
 ```
 
@@ -267,6 +267,7 @@ import type { StorybookConfig } from "storybook-react-rsbuild";
 
 const storybookConfig: StorybookConfig = {
     framework: "storybook-react-rsbuild",
+    // Relative to the ".storybook" folder, adjust to where the stories are located.
     stories: ["../../src/**/*.stories.(tsx|mdx)"]
 };
 

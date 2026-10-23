@@ -93,7 +93,7 @@ export default defineMonorepoWorkspaceConfig(import.meta.dirname);
 
 ```ts
 export default defineWebApplicationConfig(import.meta.dirname, {
-    core: { "no-var": "off" }
+    core: { rules: { "no-var": "off" } }
 });
 ```
 
@@ -101,7 +101,7 @@ export default defineWebApplicationConfig(import.meta.dirname, {
 
 ```ts
 export default defineWebApplicationConfig(import.meta.dirname, {
-    jsxAlly: { "jsx-a11y/alt-text": "error" }
+    jsxAlly: { rules: { "jsx-a11y/alt-text": "error" } }
 });
 ```
 
@@ -109,7 +109,7 @@ export default defineWebApplicationConfig(import.meta.dirname, {
 
 ```ts
 export default defineWebApplicationConfig(import.meta.dirname, {
-    typescript: { "@stylistic/quote-props": "off" }
+    typescript: { rules: { "@stylistic/quote-props": "off" } }
 });
 ```
 
