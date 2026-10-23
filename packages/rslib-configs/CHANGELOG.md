@@ -1,5 +1,11 @@
 # @workleap/rslib-configs
 
+## 2.1.0
+
+### Minor Changes
+
+- [#488](https://github.com/workleap/wl-web-configs/pull/488) [`0f5290d`](https://github.com/workleap/wl-web-configs/commit/0f5290d4013703b8392158bd0ec8ebf7c014b402) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Ship an agent skill inside the package. With pnpm `>=12.11`, approve it with `pnpm approve` to have it linked into your agent skills folders (e.g. `.claude/skills`).
+
 ## 2.0.0
 
 ### Major Changes
