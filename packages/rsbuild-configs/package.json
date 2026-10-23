@@ -25,6 +25,7 @@
     "files": [
         "src",
         "dist",
+        "skills",
         "CHANGELOG.md"
     ],
     "scripts": {

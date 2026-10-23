@@ -130,6 +130,9 @@ jobs:
       - name: Syncpack
         run: pnpm turbo run syncpack
 
+      - name: Validate package skills
+        run: pnpm validate-package-skills
+
       - name: Test packages
         # For a PR, only test the projects that are diverging from the pull request original baseline.
         run: |

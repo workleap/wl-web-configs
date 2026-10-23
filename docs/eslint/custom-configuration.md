@@ -16,12 +16,14 @@ For a list of the rules included with the default shared configurations, refer t
 
 Each `define` function accepts an object literal as its second argument. This object allows you to configure options for every [rule category](#rules-by-category). You can disable a default rule by redefining it locally and setting its value to `"off"`:
 
-```ts !#4-6 eslint.config.ts
+```ts !#4-8 eslint.config.ts
 import { defineWebApplicationConfig } from "@workleap/eslint-configs";
 
 export default defineWebApplicationConfig(import.meta.dirname, {
     core: {
-        "no-var": "off"
+        rules: {
+            "no-var": "off"
+        }
     }
 });
 ```
@@ -30,12 +32,14 @@ export default defineWebApplicationConfig(import.meta.dirname, {
 
 Each `define` function accepts an object literal as its second argument. This object allows you to configure options for every [rule category](#rules-by-category). You can update the severity of a rule by defining the rule locally with either the `"warn"` or `"error"` severity:
 
-```ts !#4-6 eslint.config.ts
+```ts !#4-8 eslint.config.ts
 import { defineWebApplicationConfig } from "@workleap/eslint-configs";
 
 export default defineWebApplicationConfig(import.meta.dirname, {
     jsxAlly: {
-        "jsx-a11y/alt-text": "error"
+        rules: {
+            "jsx-a11y/alt-text": "error"
+        }
     }
 });
 ```
@@ -44,12 +48,14 @@ export default defineWebApplicationConfig(import.meta.dirname, {
 
 Each `define` function accepts an object literal as its second argument. This object allows you to configure options for every [rule category](#rules-by-category). You can update a default rule value by defining the rule locally with its new value:
 
-```ts !#4-6 eslint.config.ts
+```ts !#4-8 eslint.config.ts
 import { defineWebApplicationConfig } from "@workleap/eslint-configs";
 
 export default defineWebApplicationConfig(import.meta.dirname, {
     typescript: {
-        "@stylistic/quote-props": "off"
+        rules: {
+            "@stylistic/quote-props": "off"
+        }
     }
 });
 ```

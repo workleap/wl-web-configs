@@ -34,6 +34,7 @@
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsgo",
         "syncpack": "syncpack lint",
+        "validate-package-skills": "node ./scripts/validate-package-skills.ts",
         "test": "turbo run test --continue",
         "changeset": "changeset",
         "publish-pkg": "changeset publish",
@@ -72,5 +73,5 @@
         "node": ">=24.0.0",
         "pnpm": ">=12"
     },
-    "packageManager": "pnpm@12.2.1"
+    "packageManager": "pnpm@12.15.0+sha512.b3951d6d6ff4a9f13dc7cf56cd28d2b8eb37dbcc9c68e52e1e1191873ea9f82a017287ab50baadc5ccc494f036c67c0e47eb13608c2fa36f47711b61ea128e61"
 }

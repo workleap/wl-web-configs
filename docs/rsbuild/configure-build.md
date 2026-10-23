@@ -149,17 +149,19 @@ export default defineBuildConfig({
 
 > This option is the Rsbuild equivalent of webpack [outputPath](../webpack/configure-build.md#outputpath) option.
 
-- **Type**: `string`
-- **Default**: `dist`
+- **Type**: Rsbuild [DistPathConfig](https://rsbuild.dev/config/output/dist-path) object
+- **Default**: `{ root: "./dist" }`
 
 Set Rsbuild [output.distPath](https://rsbuild.dev/config/output/dist-path) option.
 
-```ts !#8 rsbuild.build.ts
+```ts !#5-7 rsbuild.build.ts
 import { defineBuildConfig } from "@workleap/rsbuild-configs";
 import path from "node:path";
 
 export default defineBuildConfig({
-    distPath: path.resolve("./a-custom-folder")
+    distPath: {
+        root: path.resolve("./a-custom-folder")
+    }
 });
 ```
 

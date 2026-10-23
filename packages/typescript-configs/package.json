@@ -27,6 +27,7 @@
         "monorepo-workspace.json",
         "react.json",
         "web-application.json",
+        "skills",
         "CHANGELOG.md"
     ],
     "sideEffects": false,
