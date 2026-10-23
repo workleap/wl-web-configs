@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.846003384154">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.846031707482">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,12 +39,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.846003384154" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.846031707482" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.846003384154" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.846031707482" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.846003384154" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.846003384154" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.846031707482" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.846031707482" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -461,17 +461,19 @@ export default defineBuildConfig({
 </doc-codeblock></div>
 <h3 id="distpath"><code translate="no" v-pre>distPath</code></h3>
 <ul>
-<li><strong>Type</strong>: <code translate="no" v-pre>string</code></li>
-<li><strong>Default</strong>: <code translate="no" v-pre>dist</code></li>
+<li><strong>Type</strong>: Rsbuild <a href="https://rsbuild.dev/config/output/dist-path" class="outbound" target="_blank">DistPathConfig</a> object</li>
+<li><strong>Default</strong>: <code translate="no" v-pre>{ root: &quot;./dist&quot; }</code></li>
 </ul>
 <p>Set Rsbuild <a href="https://rsbuild.dev/config/output/dist-path" class="outbound" target="_blank">output.distPath</a> option.</p>
 <div id="distpath-rslibbuildts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rslib.build.ts</div>
-<pre translate="no" class="language-typescript" data-line="5"><code v-pre class="language-typescript">import { defineBuildConfig } from &quot;@workleap/rslib-configs&quot;;
+<pre translate="no" class="language-typescript" data-line="5-7"><code v-pre class="language-typescript">import { defineBuildConfig } from &quot;@workleap/rslib-configs&quot;;
 import path from &quot;node:path&quot;;
 
 export default defineBuildConfig({
-    distPath: path.resolve(&quot;./a-custom-folder&quot;)
+    distPath: {
+        root: path.resolve(&quot;./a-custom-folder&quot;)
+    }
 });</code></pre>
 </doc-codeblock></div>
 <h3 id="plugins"><code translate="no" v-pre>plugins</code></h3>
@@ -632,8 +634,9 @@ export const App = () =&gt; &lt;Logo /&gt;;</code></pre>
 </doc-codeblock></div>
 <div id="transformers-rslibbuildts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">rslib.build.ts</div>
-<pre translate="no" class="language-typescript" data-line="4-14,17"><code v-pre class="language-typescript">import { defineBuildConfig, type RslibConfigTransformer } from &quot;@workleap/rslib-configs&quot;;
+<pre translate="no" class="language-typescript" data-line="5-15,19"><code v-pre class="language-typescript">import { defineBuildConfig, type RslibConfigTransformer } from &quot;@workleap/rslib-configs&quot;;
 import type { RslibConfig } from &quot;@rslib/core&quot;;
+import path from &quot;node:path&quot;;
 
 const forceNamedChunkIdsTransformer: RslibConfigTransformer = (config: RslibConfig) =&gt; {
     config.tools = config.tools ?? {};
@@ -648,6 +651,7 @@ const forceNamedChunkIdsTransformer: RslibConfigTransformer = (config: RslibConf
 };
 
 export default defineBuildConfig({
+    tsconfigPath: path.resolve(&quot;./tsconfig.build.json&quot;),
     transformers: [forceNamedChunkIdsTransformer]
 });</code></pre>
 </doc-codeblock></div>
@@ -764,7 +768,7 @@ export const transformer: RslibConfigTransformer = (config: RslibConfig) =&gt; {
             <div class="card-compact-header">
                 <span class="card-compact-title">Migrate to v2.0</span>
             </div>
-            <p class="card-compact-description">@workleap/rslib-configs has been updated to track Rslib 0.21+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.</p>
+            <p class="card-compact-description">@workleap/rslib-configs has been updated to track Rslib 1.0+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.</p>
         </div>
     </a>
 </div>

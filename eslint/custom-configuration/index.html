@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.846003384154">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.846031707482">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,12 +39,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.846003384154" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.846031707482" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.846003384154" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.846031707482" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.846003384154" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.846003384154" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.846031707482" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.846031707482" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -288,11 +288,13 @@
 <p>Each <code translate="no" v-pre>define</code> function accepts an object literal as its second argument. This object allows you to configure options for every <doc-anchor-trigger to="#rules-by-category">rule category</doc-anchor-trigger>. You can disable a default rule by redefining it locally and setting its value to <code translate="no" v-pre>&quot;off&quot;</code>:</p>
 <div id="disable-a-default-rule-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
-<pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
+<pre translate="no" class="language-typescript" data-line="4-8"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 
 export default defineWebApplicationConfig(import.meta.dirname, {
     core: {
-        &quot;no-var&quot;: &quot;off&quot;
+        rules: {
+            &quot;no-var&quot;: &quot;off&quot;
+        }
     }
 });</code></pre>
 </doc-codeblock></div>
@@ -300,11 +302,13 @@ export default defineWebApplicationConfig(import.meta.dirname, {
 <p>Each <code translate="no" v-pre>define</code> function accepts an object literal as its second argument. This object allows you to configure options for every <doc-anchor-trigger to="#rules-by-category">rule category</doc-anchor-trigger>. You can update the severity of a rule by defining the rule locally with either the <code translate="no" v-pre>&quot;warn&quot;</code> or <code translate="no" v-pre>&quot;error&quot;</code> severity:</p>
 <div id="change-a-default-rule-severity-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
-<pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
+<pre translate="no" class="language-typescript" data-line="4-8"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 
 export default defineWebApplicationConfig(import.meta.dirname, {
     jsxAlly: {
-        &quot;jsx-a11y/alt-text&quot;: &quot;error&quot;
+        rules: {
+            &quot;jsx-a11y/alt-text&quot;: &quot;error&quot;
+        }
     }
 });</code></pre>
 </doc-codeblock></div>
@@ -312,11 +316,13 @@ export default defineWebApplicationConfig(import.meta.dirname, {
 <p>Each <code translate="no" v-pre>define</code> function accepts an object literal as its second argument. This object allows you to configure options for every <doc-anchor-trigger to="#rules-by-category">rule category</doc-anchor-trigger>. You can update a default rule value by defining the rule locally with its new value:</p>
 <div id="change-a-default-rule-value-eslintconfigts" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">eslint.config.ts</div>
-<pre translate="no" class="language-typescript" data-line="4-6"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
+<pre translate="no" class="language-typescript" data-line="4-8"><code v-pre class="language-typescript">import { defineWebApplicationConfig } from &quot;@workleap/eslint-configs&quot;;
 
 export default defineWebApplicationConfig(import.meta.dirname, {
     typescript: {
-        &quot;@stylistic/quote-props&quot;: &quot;off&quot;
+        rules: {
+            &quot;@stylistic/quote-props&quot;: &quot;off&quot;
+        }
     }
 });</code></pre>
 </doc-codeblock></div>

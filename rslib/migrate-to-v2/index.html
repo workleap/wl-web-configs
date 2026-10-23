@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.846003384154">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.846031707482">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Migrate to v2.0 - Rslib</title>
     <meta name="title" content="Migrate to v2.0 - Rslib">
-    <meta name="description" content="@workleap/rslib-configs has been updated to track Rslib 0.21+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.">
+    <meta name="description" content="@workleap/rslib-configs has been updated to track Rslib 1.0+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://workleap.github.io/wl-web-configs/rslib/migrate-to-v2/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://workleap.github.io/wl-web-configs/rslib/migrate-to-v2/">
     <meta property="og:title" content="Migrate to v2.0 - Rslib">
-    <meta property="og:description" content="@workleap/rslib-configs has been updated to track Rslib 0.21+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.">
+    <meta property="og:description" content="@workleap/rslib-configs has been updated to track Rslib 1.0+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.">
     <meta property="og:site_name" content="Web Configs">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://workleap.github.io/wl-web-configs/rslib/migrate-to-v2/">
     <meta name="twitter:title" content="Migrate to v2.0 - Rslib">
-    <meta name="twitter:description" content="@workleap/rslib-configs has been updated to track Rslib 0.21+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.">
+    <meta name="twitter:description" content="@workleap/rslib-configs has been updated to track Rslib 1.0+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://workleap.github.io/wl-web-configs/rslib/migrate-to-v2.md">
@@ -39,12 +39,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.846003384154" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.846031707482" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.846003384154" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.846031707482" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.846003384154" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.846003384154" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.846031707482" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.846031707482" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
@@ -268,12 +268,12 @@
 
                 <!-- Page content  -->
 <h1 id="migrate-to-v20">Migrate to v2.0</h1>
-<p><code translate="no" v-pre>@workleap/rslib-configs</code> has been updated to track <a href="https://github.com/web-infra-dev/rslib/releases" class="outbound" target="_blank">Rslib <code translate="no" v-pre>0.21+</code></a>, which integrates <a href="https://rsbuild.rs/blog/v2-0" class="outbound" target="_blank">Rsbuild 2.0</a> and <a href="https://www.rspack.dev/blog/announcing-2-0" class="outbound" target="_blank">Rspack 2.0</a>. Unlike <code translate="no" v-pre>@workleap/rsbuild-configs</code>, no public API surface of <code translate="no" v-pre>@workleap/rslib-configs</code> changed during this upgrade — most of the migration work is upstream.</p>
+<p><code translate="no" v-pre>@workleap/rslib-configs</code> has been updated to track <a href="https://github.com/web-infra-dev/rslib/releases" class="outbound" target="_blank">Rslib <code translate="no" v-pre>1.0+</code></a>, which integrates <a href="https://rsbuild.rs/blog/v2-0" class="outbound" target="_blank">Rsbuild 2.0</a> and <a href="https://www.rspack.dev/blog/announcing-2-0" class="outbound" target="_blank">Rspack 2.0</a>. Unlike <code translate="no" v-pre>@workleap/rsbuild-configs</code>, no public API surface of <code translate="no" v-pre>@workleap/rslib-configs</code> changed during this upgrade — most of the migration work is upstream.</p>
 <p>This page documents the changes that consumers of <code translate="no" v-pre>@workleap/rslib-configs</code> should be aware of. For an exhaustive list of upstream changes, refer to the <a href="https://rsbuild.rs/blog/v2-0" class="outbound" target="_blank">Rsbuild 2.0 announcement</a> and the <a href="https://github.com/web-infra-dev/rslib/releases" class="outbound" target="_blank">Rslib releases</a>.</p>
 <h2 id="update-the-packages">Update the packages</h2>
 <p>Open a terminal at the root of the library project and upgrade the following packages:</p>
 <div id="update-the-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/rslib-configs @rslib/core@^0.21.0</code></pre>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">pnpm add -D @workleap/rslib-configs@^2.0.0 @rslib/core@^1.0.3</code></pre>
 </doc-codeblock></div>
 <h2 id="bump-nodejs">Bump Node.js</h2>
 <p>Rsbuild 2.0 (and therefore Rslib <code translate="no" v-pre>0.20+</code>) requires <strong>Node.js <code translate="no" v-pre>20.19+</code> or <code translate="no" v-pre>22.12+</code></strong>. Node.js 18 is no longer supported because it reached end of life in April 2025.</p>
@@ -300,7 +300,7 @@
 <p>No public option of <a href="../configure-build/"><code translate="no" v-pre>defineBuildConfig</code></a>, <a href="../configure-dev/"><code translate="no" v-pre>defineDevConfig</code></a>, or <a href="../configure-storybook/"><code translate="no" v-pre>defineStorybookConfig</code></a> changed in this release. The package continues to expose the same defaults and signature as before.</p>
 <p>If you previously customized the library configuration through a <a href="../configure-build/#transformers">transformer</a>, be aware that:</p>
 <ul>
-<li>The underlying configuration is now produced by Rslib <code translate="no" v-pre>0.21+</code> on top of Rsbuild 2.0 and Rspack 2.0.</li>
+<li>The underlying configuration is now produced by Rslib <code translate="no" v-pre>1.0+</code> on top of Rsbuild 2.0 and Rspack 2.0.</li>
 <li>Transformer functions that rely on internal v1 shapes (e.g. inspecting <code translate="no" v-pre>tools.rspack.optimization.minimizer</code> instances) may need adjustments. Refer to the Rsbuild <a href="https://rsbuild.rs/guide/migration/rsbuild-0-x" class="outbound" target="_blank">migration guide</a> for the full list of internal changes.</li>
 </ul>
 <div class="flex mb-6">

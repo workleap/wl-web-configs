@@ -1,6 +1,6 @@
 # Migrate to v2.0
 
-`@workleap/rslib-configs` has been updated to track [Rslib `0.21+`](https://github.com/web-infra-dev/rslib/releases), which integrates [Rsbuild 2.0](https://rsbuild.rs/blog/v2-0) and [Rspack 2.0](https://www.rspack.dev/blog/announcing-2-0). Unlike `@workleap/rsbuild-configs`, no public API surface of `@workleap/rslib-configs` changed during this upgrade — most of the migration work is upstream.
+`@workleap/rslib-configs` has been updated to track [Rslib `1.0+`](https://github.com/web-infra-dev/rslib/releases), which integrates [Rsbuild 2.0](https://rsbuild.rs/blog/v2-0) and [Rspack 2.0](https://www.rspack.dev/blog/announcing-2-0). Unlike `@workleap/rsbuild-configs`, no public API surface of `@workleap/rslib-configs` changed during this upgrade — most of the migration work is upstream.
 
 This page documents the changes that consumers of `@workleap/rslib-configs` should be aware of. For an exhaustive list of upstream changes, refer to the [Rsbuild 2.0 announcement](https://rsbuild.rs/blog/v2-0) and the [Rslib releases](https://github.com/web-infra-dev/rslib/releases).
 
@@ -9,7 +9,7 @@ This page documents the changes that consumers of `@workleap/rslib-configs` shou
 Open a terminal at the root of the library project and upgrade the following packages:
 
 ```bash
-pnpm add -D @workleap/rslib-configs @rslib/core@^0.21.0
+pnpm add -D @workleap/rslib-configs@^2.0.0 @rslib/core@^1.0.3
 ```
 
 ## Bump Node.js
@@ -53,7 +53,7 @@ No public option of [`defineBuildConfig`](./configure-build.md), [`defineDevConf
 
 If you previously customized the library configuration through a [transformer](./configure-build.md#transformers), be aware that:
 
-- The underlying configuration is now produced by Rslib `0.21+` on top of Rsbuild 2.0 and Rspack 2.0.
+- The underlying configuration is now produced by Rslib `1.0+` on top of Rsbuild 2.0 and Rspack 2.0.
 - Transformer functions that rely on internal v1 shapes (e.g. inspecting `tools.rspack.optimization.minimizer` instances) may need adjustments. Refer to the Rsbuild [migration guide](https://rsbuild.rs/guide/migration/rsbuild-0-x) for the full list of internal changes.
 
 !!!info

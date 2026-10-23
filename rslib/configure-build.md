@@ -184,17 +184,19 @@ export default defineBuildConfig({
 
 ### `distPath`
 
-- **Type**: `string`
-- **Default**: `dist`
+- **Type**: Rsbuild [DistPathConfig](https://rsbuild.dev/config/output/dist-path) object
+- **Default**: `{ root: "./dist" }`
 
 Set Rsbuild [output.distPath](https://rsbuild.dev/config/output/dist-path) option.
 
-```ts !#5 rslib.build.ts
+```ts !#5-7 rslib.build.ts
 import { defineBuildConfig } from "@workleap/rslib-configs";
 import path from "node:path";
 
 export default defineBuildConfig({
-    distPath: path.resolve("./a-custom-folder")
+    distPath: {
+        root: path.resolve("./a-custom-folder")
+    }
 });
 ```
 
@@ -361,9 +363,10 @@ To view the default build configuration of `@workleap/rslib-configs`, have a loo
 transformer(config: RslibConfig, context: RslibConfigTransformerContext) => RslibConfig
 ```
 
-```ts !#4-14,17 rslib.build.ts
+```ts !#5-15,19 rslib.build.ts
 import { defineBuildConfig, type RslibConfigTransformer } from "@workleap/rslib-configs";
 import type { RslibConfig } from "@rslib/core";
+import path from "node:path";
 
 const forceNamedChunkIdsTransformer: RslibConfigTransformer = (config: RslibConfig) => {
     config.tools = config.tools ?? {};
@@ -378,6 +381,7 @@ const forceNamedChunkIdsTransformer: RslibConfigTransformer = (config: RslibConf
 };
 
 export default defineBuildConfig({
+    tsconfigPath: path.resolve("./tsconfig.build.json"),
     transformers: [forceNamedChunkIdsTransformer]
 });
 ```

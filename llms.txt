@@ -60,7 +60,7 @@
 - [Configure for Storybook](https://workleap.github.io/wl-web-configs/rslib/configure-storybook.md): To configure Rslib for Storybook, execute the following steps 👇
 - [Setup with Turborepo](https://workleap.github.io/wl-web-configs/rslib/setup-turborepo.md): To configure Rslib in a monorepo managed with Turborepo, follow these steps 👇
 - [Migrate from tsup](https://workleap.github.io/wl-web-configs/rslib/migrate-from-tsup.md): To migrate from @workleap/tsup-configs to @workleap/rslib-configs, execute the following steps 👇
-- [Migrate to v2.0](https://workleap.github.io/wl-web-configs/rslib/migrate-to-v2.md): @workleap/rslib-configs has been updated to track Rslib 0.21+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.
+- [Migrate to v2.0](https://workleap.github.io/wl-web-configs/rslib/migrate-to-v2.md): @workleap/rslib-configs has been updated to track Rslib 1.0+, which integrates Rsbuild 2.0 and Rspack 2.0. Unlike @workleap/rsbuild-configs, no public API surface of @workleap/rslib-configs changed during this upgrade — most of the migration work is upstream.
 
 ## Vitest
 
