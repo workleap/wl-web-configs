@@ -1,8 +1,10 @@
 ---
-name: _update-skills
+name: update-skills
 description: Refresh the agent skills installed in `.agents/skills/`, but only when the matching monorepo package is on the latest minor (patch ignored). Skills with no package gate are always updated.
 model: sonnet
 effort: medium
+metadata:
+  internal: true
 ---
 
 # Update Skills
