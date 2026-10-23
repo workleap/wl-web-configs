@@ -2,7 +2,7 @@
     "name": "@workleap/rslib-configs",
     "author": "Workleap",
     "description": "Workleap recommended Rslib configurations.",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
