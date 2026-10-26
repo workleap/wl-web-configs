@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 2.1.1
+
+### Patch Changes
+
+- [#492](https://github.com/workleap/wl-web-configs/pull/492) [`019a6c7`](https://github.com/workleap/wl-web-configs/commit/019a6c7c02b666898a24f7053f953890bf0ba50f) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Update the CI workflow examples in the bundled agent skill to use Node.js `>=26.0.0`.
+
 ## 2.1.0
 
 ### Minor Changes
