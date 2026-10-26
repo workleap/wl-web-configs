@@ -61,7 +61,7 @@ jobs:
           exit 1
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           # Refer to: https://www.chromatic.com/docs/github-actions/#recommended-configuration-for-build-events.
@@ -73,12 +73,12 @@ jobs:
           CHROMATIC_SLUG: ${{ github.repository }}
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           run_install: false
 
       - name: Install Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: '>=26.0.0'
           check-latest: true
@@ -98,7 +98,7 @@ jobs:
 
       - name: Remove "run chromatic" label after Chromatic completion
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             github.rest.issues.removeLabel({

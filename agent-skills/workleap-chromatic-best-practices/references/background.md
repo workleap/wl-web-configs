@@ -43,7 +43,7 @@ Workflow should restore/save Turborepo cache:
 
 ```yaml
 - name: Restore Turborepo cache
-  uses: actions/cache/restore@v5
+  uses: actions/cache/restore@v6
   with:
     key: ${{ runner.os }}-turbo-chromatic-${{ github.sha }}
     restore-keys: |

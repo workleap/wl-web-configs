@@ -153,7 +153,7 @@ jobs:
 
 ```yaml
 - name: Checkout
-  uses: actions/checkout@v6
+  uses: actions/checkout@v7
   with:
     fetch-depth: 0  # Required for TurboSnap
     ref: ${{ github.event.pull_request.head.ref }}
@@ -229,7 +229,7 @@ concurrency:
 # Label removal after completion
 - name: Remove "run chromatic" label after Chromatic completion
   if: github.event_name == 'pull_request'
-  uses: actions/github-script@v8
+  uses: actions/github-script@v9
   with:
     script: |
       github.rest.issues.removeLabel({
