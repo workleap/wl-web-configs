@@ -44,7 +44,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-            node-version: ">=24.0.0"
+            node-version: ">=26.0.0"
             check-latest: true
             cache: pnpm
             cache-dependency-path: pnpm-lock.yaml
@@ -105,7 +105,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: ">=24.0.0"
+          node-version: ">=26.0.0"
           check-latest: true
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml

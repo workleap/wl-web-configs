@@ -65,7 +65,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: ">=24.0.0"
+          node-version: ">=26.0.0"
           check-latest: true
 
       - name: Sync agent skill with docs
