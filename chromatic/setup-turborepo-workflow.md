@@ -58,7 +58,7 @@ jobs:
           exit 1
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           # Refer to: https://www.chromatic.com/docs/github-actions/#recommended-configuration-for-build-events.
@@ -70,12 +70,12 @@ jobs:
           CHROMATIC_SLUG: ${{ github.repository }}
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           run_install: false
 
       - name: Install Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: '>=26.0.0'
           check-latest: true
@@ -87,7 +87,7 @@ jobs:
 
       - name: Restore Turborepo cache
         id: cache-turborepo-restore
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           key: ${{ runner.os }}-turbo-chromatic-${{ github.sha }}
           restore-keys: |
@@ -105,7 +105,7 @@ jobs:
 
       - name: Remove "run chromatic" label after Chromatic completion
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             github.rest.issues.removeLabel({
@@ -118,7 +118,7 @@ jobs:
       - name: Save Turborepo cache
         id: cache-turborepo-save
         if: always() && steps.cache-turborepo-restore.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           key: ${{ steps.cache-turborepo-restore.outputs.cache-primary-key }}
           path: .turbo
