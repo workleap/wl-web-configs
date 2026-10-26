@@ -1,5 +1,11 @@
 # @workleap/eslint-configs
 
+## 2.1.2
+
+### Patch Changes
+
+- [#494](https://github.com/workleap/wl-web-configs/pull/494) [`01d36b8`](https://github.com/workleap/wl-web-configs/commit/01d36b8e9a8ef1c9acbb604dc4a77e9680240842) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Update the CI workflow examples in the bundled agent skill to the latest GitHub Actions versions (`actions/setup-node@v7`, `actions/checkout@v7`, `actions/cache@v6`, `pnpm/action-setup@v6`).
+
 ## 2.1.1
 
 ### Patch Changes
