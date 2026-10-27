@@ -1,9 +1,9 @@
 ---
 name: rsbuild-best-practices
-description: Rsbuild best practices for config, CLI workflow, type checking, bundle optimization, assets, and debugging. Use when writing, reviewing, or troubleshooting Rsbuild projects.
+description: Configure, review, or troubleshoot Rsbuild applications, including build/dev commands, assets, type checking, and bundle optimization.
 ---
 
-# Rsbuild Best Practices
+# Rsbuild best practices
 
 Apply these rules when writing or reviewing Rsbuild projects.
 
@@ -16,7 +16,7 @@ Apply these rules when writing or reviewing Rsbuild projects.
 
 ## CLI
 
-- Use `rsbuild dev` for local development
+- Use `rsbuild` for local development
 - Use `rsbuild build` for production build
 - Use `rsbuild preview` only for local production preview
 - Use `rsbuild inspect` to inspect final Rsbuild/Rspack configs
