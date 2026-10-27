@@ -19,13 +19,13 @@
         "@eslint/js": "9.39.2",
         "@rsbuild/core": "2.2.14",
         "@rspack/core": "2.2.9",
-        "@storybook/addon-a11y": "10.6.2",
-        "@storybook/addon-links": "10.6.2",
-        "@storybook/react": "10.6.2",
+        "@storybook/addon-a11y": "10.6.4",
+        "@storybook/addon-links": "10.6.4",
+        "@storybook/react": "10.6.4",
         "@types/node": "26.6.5",
         "@types/react": "19.3.0",
         "@types/react-dom": "19.3.0",
-        "@typescript-eslint/parser": "8.71.2",
+        "@typescript-eslint/parser": "8.72.0",
         "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/eslint-configs": "workspace:*",
@@ -34,9 +34,9 @@
         "browserslist": "4.29.4",
         "eslint": "9.39.2",
         "http-server": "14.1.1",
-        "storybook": "10.6.2",
+        "storybook": "10.6.4",
         "storybook-react-rsbuild": "3.6.1",
         "typescript": "6.0.3",
-        "typescript-eslint": "8.71.2"
+        "typescript-eslint": "8.72.0"
     }
 }
