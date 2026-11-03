@@ -1,5 +1,11 @@
 # @workleap/rsbuild-configs
 
+## 5.1.1
+
+### Patch Changes
+
+- [#498](https://github.com/workleap/wl-web-configs/pull/498) [`30458b2`](https://github.com/workleap/wl-web-configs/commit/30458b2f164efd6646c8dcb0366e617e34bce323) Thanks [@claude](https://github.com/apps/claude)! - Updated dependencies to their latest versions.
+
 ## 5.1.0
 
 ### Minor Changes
