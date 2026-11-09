@@ -2,11 +2,6 @@ packages:
   - packages/*
   - samples/**
 
-minimumReleaseAge: 1440
-minimumReleaseAgeExclude:
-  - '@workleap/*'
-  - '@typescript/native-preview*'
-
 allowBuilds:
   '@parcel/watcher': true
   '@swc/core': true
