@@ -32,6 +32,32 @@ This project is composed of many packages. Each package is located in the [packa
 
 This project uses PNPM workspace, therefore, you must [install PNPM](https://pnpm.io/installation):
 
+### Setup the GitHub package firewall
+
+npm dependencies are installed through the `gsoft` GitHub package firewall (configured in the repository [.npmrc](.npmrc)). Only members of the `gsoft` enterprise can install the dependencies.
+
+1. Run `gh auth login` and authorize the `gsoft` SSO.
+2. Append the token to your **user-level** `~/.npmrc`:
+
+PowerShell:
+
+```powershell
+Add-Content -Encoding ascii "$HOME\.npmrc" "//package-firewall.githubapp.com/npm/enterprises/gsoft/:_authToken=$(gh auth token)"
+```
+
+bash:
+
+```bash
+echo "//package-firewall.githubapp.com/npm/enterprises/gsoft/:_authToken=$(gh auth token)" >> ~/.npmrc
+```
+
+> [!WARNING]
+> Never put the token in the repository `.npmrc`, pnpm ignores auth tokens set in a repository `.npmrc`.
+
+A `401` from the firewall means that the token is missing or expired. Run `gh auth login` again and replace the line in your `~/.npmrc`.
+
+### Install the dependencies
+
 To install the project, open a terminal at the root of the workspace and execute the following command:
 
 ```bash
