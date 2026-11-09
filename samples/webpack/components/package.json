@@ -11,7 +11,6 @@
         "/dist"
     ],
     "scripts": {
-        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
         "typecheck": "tsgo",
         "test": "jest"
@@ -21,20 +20,16 @@
         "react-dom": "19.3.1"
     },
     "devDependencies": {
-        "@eslint/js": "9.39.2",
         "@swc/core": "1.16.21",
         "@swc/jest": "0.2.39",
         "@testing-library/react": "16.3.3",
         "@types/jest": "30.0.0",
         "@types/react": "19.3.0",
         "@types/react-dom": "19.3.0",
-        "@typescript-eslint/parser": "8.72.1",
         "@typescript/native-preview": "7.0.0-dev.20260707.2",
-        "@workleap/eslint-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
-        "eslint": "9.39.2",
         "identity-obj-proxy": "3.0.0",
         "jest": "30.5.2",
         "jest-environment-jsdom": "30.5.2",
@@ -43,7 +38,6 @@
         "react-dom": "19.3.1",
         "stylelint": "16.26.1",
         "ts-node": "10.9.2",
-        "typescript": "6.0.3",
-        "typescript-eslint": "8.72.1"
+        "typescript": "6.0.3"
     }
 }

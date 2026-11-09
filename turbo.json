@@ -31,19 +31,19 @@
             "cache": false
         },
         "lint": {
-            "dependsOn": ["eslint", "//#eslint", "stylelint", "typecheck", "//#typecheck", "//#syncpack"]
+            "dependsOn": ["//#oxlint", "//#oxfmt:check", "stylelint", "typecheck", "//#typecheck", "//#syncpack"]
         },
-        "//#eslint": {
-            "inputs": ["$TURBO_DEFAULT$", "!packages", "!samples", "!docs", "!README.md", "!CONTRIBUTING.md", "!**/*.css"],
-            "outputs": ["node_modules/.cache/eslint"]
+        "//#oxlint": {
+            "inputs": ["$TURBO_DEFAULT$", "!docs/**", "!**/*.md", "!**/*.css"],
+            "outputs": []
         },
-        "eslint": {
-            "dependsOn": ["transit"],
-            "inputs": ["$TURBO_DEFAULT$", "!README.md", "!src/**/*.css"],
-            "outputs": ["node_modules/.cache/eslint"]
+        "//#oxfmt:check": {
+            "inputs": ["$TURBO_DEFAULT$", "!docs/**"],
+            "outputs": []
         },
         "stylelint": {
             "dependsOn": ["transit"],
+            "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/.prettierrc.json5"],
             "outputs": ["node_modules/.cache/stylelint"]
         },
         "//#typecheck": {

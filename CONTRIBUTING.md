@@ -286,11 +286,26 @@ pnpm test
 
 ### lint
 
-Lint the packages files & the sample application.
+Lint the packages files & the sample application: oxlint, oxfmt (check only), Stylelint, typecheck and syncpack.
 
 ```bash
 pnpm lint
 ```
+
+The repository lints with [oxlint](https://oxc.rs/docs/guide/usage/linter) and formats with [oxfmt](https://oxc.rs/docs/guide/usage/formatter). Both run once at the root, configured by `oxlint.config.ts` and `oxfmt.config.ts`. oxlint is type-aware: it resolves the workspace packages through their `dist` folder, so build the packages first (`pnpm lint` does it).
+
+```bash
+# Lint the whole repository.
+pnpm oxlint
+
+# Format the whole repository.
+pnpm oxfmt
+
+# Check the formatting without writing.
+pnpm oxfmt:check
+```
+
+`@workleap/stylelint-configs` formats CSS through Prettier (`stylelint-prettier`), not oxfmt. The CSS-scoped `.prettierrc.json5` mirrors `oxfmt.config.ts` so both produce the same CSS: keep them in sync.
 
 ### changeset
 
@@ -338,7 +353,7 @@ Some dependencies are deliberately excluded from `update-outdated-deps` with `!<
 
 | Dependency | Why | When to lift |
 | --- | --- | --- |
-| `eslint`, `@eslint/js` | v10 is a breaking change for consumers of `@workleap/eslint-configs` (peer `^9`). Requires a coordinated major release and a migration guide. | When an `@workleap/eslint-configs` major is planned. |
+| `eslint`, `@eslint/js` | The repository no longer lints with ESLint, but `@workleap/eslint-configs` still declares them (peer `^9`), and v10 is a breaking change for its consumers. | When `@workleap/eslint-configs` is removed ([#509](https://github.com/workleap/wl-web-configs/issues/509)). |
 | `stylelint`, `stylelint-config-standard` | `stylelint` v17 is a breaking change for consumers of `@workleap/stylelint-configs` (peer `^16`). `stylelint-config-standard` is a direct dependency (`^39`), so a major silently changes the rule set every consumer inherits. | When an `@workleap/stylelint-configs` major is planned. |
 | `typescript` | `typescript-eslint` 8.x rejects TS 7.0 (`typescript-eslint does not support TS 7.0`), which breaks loading `eslint.config.ts`. `typescript@6` stays for ESLint and VS Code, while `@typescript/native-preview` (`tsgo`) already provides TS 7 for `typecheck`. See [#468](https://github.com/workleap/wl-web-configs/issues/468). | When `typescript-eslint` ships TS 7.0 support ([typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940)). |
 | `webpack-dev-server` | v6 is only safe as a *widening* of the `@workleap/webpack-configs` peer to `"^5.2.4 \|\| ^6.0.0"` (consumers also need `webpack-cli >= 7.2.1`). `syncpack fix` cannot express a multi-range peer, so it narrows the peer to `^6.0.0` and drops wds5 for every consumer. See [#452](https://github.com/workleap/wl-web-configs/issues/452). | When the peer is manually widened to `"^5.2.4 \|\| ^6.0.0"` as part of #452. |

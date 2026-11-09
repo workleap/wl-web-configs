@@ -15,7 +15,6 @@
         "build": "rsbuild build --config rsbuild.build.ts",
         "serve-build": "pnpm http-server dist -p 8080 -P http://localhost:8080? -c-1",
         "deploy": "netlify deploy --dir=samples/rsbuild/app/dist --site=8827a712-4542-4d0d-bbb3-f27cda731327 --prod",
-        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
         "typecheck": "tsgo",
         "test": "vitest --config vitest.config.ts --no-watch"
@@ -28,24 +27,20 @@
         "react-router": "8.5.1"
     },
     "devDependencies": {
-        "@eslint/js": "9.39.2",
         "@rsbuild/core": "2.3.0",
         "@rspack/core": "2.3.0",
         "@testing-library/react": "16.3.3",
         "@types/node": "26.6.6",
         "@types/react": "19.3.0",
         "@types/react-dom": "19.3.0",
-        "@typescript-eslint/parser": "8.72.1",
         "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "@vitejs/plugin-react": "6.2.1",
         "@workleap/browserslist-config": "workspace:*",
-        "@workleap/eslint-configs": "workspace:*",
         "@workleap/rsbuild-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "browserslist": "4.29.5",
         "cross-env": "10.1.0",
-        "eslint": "9.39.2",
         "happy-dom": "21.0.4",
         "http-server": "14.1.1",
         "msw": "3.0.3",
@@ -53,7 +48,6 @@
         "prettier": "3.9.10",
         "stylelint": "16.26.1",
         "typescript": "6.0.3",
-        "typescript-eslint": "8.72.1",
         "vitest": "5.0.5"
     },
     "msw": {

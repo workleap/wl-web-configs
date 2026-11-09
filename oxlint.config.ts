@@ -1,0 +1,97 @@
+import { defineConfig } from "oxlint";
+
+export default defineConfig({
+    // oxlint also honors .gitignore (dist, storybook-static, ...).
+    // - .agents/ holds vendored skills (skills-lock.json): upstream replaces them wholesale.
+    // - .claude/ holds, in a main checkout, the agent worktrees.
+    // - mockServiceWorker.js is MSW's generated worker (`msw init`).
+    ignorePatterns: [".agents/**", ".claude/**", "docs/**", "**/mockServiceWorker.js"],
+    // Setting `plugins` overwrites oxlint's default plugin set (eslint, typescript, unicorn, oxc),
+    // so the defaults must be listed explicitly alongside the extras we want enabled.
+    plugins: ["eslint", "typescript", "unicorn", "oxc", "react", "import", "jsx-a11y", "promise", "vitest"],
+    // Type-aware rules run through oxlint-tsgolint, like the type-checked typescript-eslint rules
+    // @workleap/eslint-configs enabled.
+    options: { typeAware: true },
+    categories: {
+        suspicious: "warn",
+        perf: "warn"
+    },
+    rules: {
+        "oxc/no-barrel-file": "warn",
+        // It replaces a spread by Object.assign which often breaks the behavior since it update the source object rather than cloning.
+        "oxc/no-map-spread": "off",
+        "unicorn/consistent-function-scoping": "off",
+        "eslint/array-callback-return": "warn",
+        "eslint/curly": "warn",
+        "eslint/eqeqeq": ["warn", "smart"],
+        "eslint/no-caller": "warn",
+        "eslint/no-console": "off",
+        "eslint/no-eval": "warn",
+        "eslint/no-extend-native": "warn",
+        "eslint/no-extra-bind": "warn",
+        "eslint/no-lone-blocks": "warn",
+        "eslint/no-loop-func": "warn",
+        "eslint/no-new-wrappers": "warn",
+        "eslint/no-param-reassign": "warn",
+        "eslint/no-script-url": "warn",
+        "eslint/no-self-compare": "warn",
+        "eslint/no-sequences": "warn",
+        "eslint/no-template-curly-in-string": "warn",
+        "eslint/no-throw-literal": "warn",
+        "eslint/no-unneeded-ternary": "warn",
+        "eslint/no-useless-computed-key": "warn",
+        "eslint/no-useless-concat": "warn",
+        "eslint/no-useless-constructor": "warn",
+        "eslint/no-useless-rename": "warn",
+        "eslint/no-var": "warn",
+        "eslint/prefer-const": "warn",
+        "import/no-cycle": "warn",
+        "import/no-duplicates": "warn",
+        "import/no-self-import": "warn",
+        "import/no-unassigned-import": "off",
+        "react/button-has-type": "warn",
+        "react/jsx-key": "warn",
+        "react/jsx-no-constructed-context-values": "warn",
+        "react/jsx-no-duplicate-props": "warn",
+        "react/no-array-index-key": "warn",
+        "react/react-in-jsx-scope": "off",
+        "react/rules-of-hooks": "warn",
+        "react/exhaustive-deps": "warn",
+        "react-perf/jsx-no-new-function-as-prop": "off",
+        "typescript/consistent-type-imports": "warn",
+        "typescript/no-import-type-side-effects": "error",
+        "typescript/no-explicit-any": "warn",
+        "typescript/no-unsafe-type-assertion": "off",
+        "typescript/consistent-return": "off",
+        "typescript/no-misused-promises": ["warn", { checksVoidReturn: { attributes: false } }],
+        "typescript/return-await": "warn",
+        // A `default` branch is a deliberate catch-all; only a switch that can fall through is a finding.
+        "typescript/switch-exhaustiveness-check": ["warn", { considerDefaultExhaustiveForUnions: true }],
+        "typescript/use-unknown-in-catch-callback-variable": "warn",
+        "jsx-a11y/no-autofocus": "off",
+        "jsx-a11y/anchor-is-valid": "warn"
+    },
+    overrides: [
+        {
+            // The webpack samples test with Jest instead of Vitest.
+            files: ["samples/webpack/app/**", "samples/webpack/components/**"],
+            plugins: ["jest"]
+        },
+        {
+            files: ["**/*.stories.tsx", "**/.storybook/**"],
+            rules: {
+                "react-perf/jsx-no-jsx-as-prop": "off",
+                "react-perf/jsx-no-new-object-as-prop": "off"
+            }
+        },
+        {
+            files: ["**/*.test.ts", "**/*.test.tsx"],
+            rules: {
+                "jest/no-conditional-expect": "off",
+                "typescript/no-explicit-any": "off",
+                // `expect(spy.method)` reads the method unbound by design.
+                "typescript/unbound-method": "off"
+            }
+        }
+    ]
+});

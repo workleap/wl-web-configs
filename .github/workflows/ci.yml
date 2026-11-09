@@ -106,14 +106,12 @@ jobs:
                 pnpm build-storybook-rslib
             fi
 
-      - name: ESLint
-        # For a PR, only lint the projects that are diverging from the pull request original baseline.
-        run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm turbo run eslint --continue --filter=...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm turbo run eslint --continue
-            fi
+      - name: oxlint
+        # A single root task over the whole tree: oxlint takes seconds, and type-aware rules see across packages.
+        run: pnpm turbo run //#oxlint
+
+      - name: oxfmt
+        run: pnpm turbo run //#oxfmt:check
 
       - name: Stylelint
         # For a PR, only stylelint the projects that are diverging from the pull request original baseline.
