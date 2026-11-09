@@ -6,26 +6,25 @@ Context on why each Chromatic best practice matters, and additional checks for m
 
 TurboSnap analyzes Git changes to snapshot only affected stories. These patterns disable TurboSnap and trigger full builds (all stories):
 
-| Change Type              | Files                                         |
-| ------------------------ | --------------------------------------------- |
-| Storybook preview        | `.storybook/preview.ts[x]`                    |
-| Barrel file dependencies | Any `index.ts[x]` imported by preview         |
-| Package dependencies     | `**/package.json` (optionally use `untraced`) |
-| Large shared files       | Routes, constants, localization               |
-| Shallow git clone        | Missing `fetch-depth: 0`                      |
+| Change Type | Files |
+|-------------|-------|
+| Storybook preview | `.storybook/preview.ts[x]` |
+| Barrel file dependencies | Any `index.ts[x]` imported by preview |
+| Package dependencies | `**/package.json` (optionally use `untraced`) |
+| Large shared files | Routes, constants, localization |
+| Shallow git clone | Missing `fetch-depth: 0` |
 
 ## Snapshot Cost Multipliers
 
-| Configuration             | Snapshots per Story |
-| ------------------------- | ------------------- |
-| Chrome only               | 1x                  |
-| Chrome + Safari           | 2x                  |
-| Chrome + Safari + Firefox | 3x                  |
+| Configuration | Snapshots per Story |
+|---------------|---------------------|
+| Chrome only | 1x |
+| Chrome + Safari | 2x |
+| Chrome + Safari + Firefox | 3x |
 
 ## CI Trigger Strategy
 
 Running Chromatic on every PR commit wastes snapshots on work-in-progress:
-
 - Use `run chromatic` label to trigger workflow
 - Auto-remove label after completion
 - Make workflow a required status check to remind reviewers

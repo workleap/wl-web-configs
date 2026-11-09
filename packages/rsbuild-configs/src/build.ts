@@ -92,7 +92,8 @@ export function getOptimizationConfig(optimize: OptimizeOption): Optimization | 
         };
     }
 
-    if (!optimize) {
+    // oxlint-disable-next-line typescript/no-unnecessary-boolean-literal-compare -- A plain-JS caller can pass undefined, which must not mean "off".
+    if (optimize === false) {
         // Doesn't turn off everything but is good enough to help with debugging scenarios.
         return {
             chunkIds: "named",

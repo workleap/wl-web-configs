@@ -42,7 +42,6 @@ Output a table:
 Decide what stays in the body, what moves to references, and what gets compressed.
 
 **Body retention criteria** — keep a section in the body only if it meets at least one:
-
 - Complex multi-step pattern requiring coordination across multiple sections or files
 - Non-obvious logic, parameters, or decision rules that agents frequently get wrong without inline guidance
 - A concept unique to this skill with no external documentation
@@ -51,7 +50,6 @@ Decide what stays in the body, what moves to references, and what gets compresse
 Everything else belongs in the appropriate `references/` file. See the [playbook decision tree](references/optimization-playbook.md#body-retention-decision-tree) for concrete examples of what typically stays vs. moves.
 
 **Description compression rules:**
-
 1. Lead with the package/tool name and a one-line identity
 2. Replace enumerations of 4+ specific names (APIs, checks, steps) with category-based phrasing (e.g., "hooks for auth, sessions, tokens" instead of listing each hook name)
 3. Qualify generic keywords with the skill's domain to reduce false positives (e.g., "MyLib integrations with Redis" not "Redis integration")
@@ -61,7 +59,6 @@ Everything else belongs in the appropriate `references/` file. See the [playbook
 **Plan the Reference Guide section** — for each reference file, write a one-line description of when to read it. This section is load-bearing: it tells agents which file to consult.
 
 **Target metrics:**
-
 - Body: under ~250 lines
 - Description: under ~700 characters
 - Duplication with references: 0%
@@ -76,7 +73,6 @@ Apply the plan. Work in this order:
 4. **Bump version** — increment `metadata.version` minor if the skill uses versioning.
 
 Do NOT:
-
 - Move "when to use" triggers from description to body (description is the only field read for triggering)
 - Remove code examples from retained body sections (they are the value)
 - Create new reference files just to move content — use existing files when possible
@@ -85,19 +81,16 @@ Do NOT:
 ### Phase 4: Validate
 
 Use the `Task` tool to spawn a subagent (opus model) to challenge coverage. Provide it:
-
 1. The full SKILL.md (body + frontmatter)
 2. All reference files
 3. A list of 15-25 validation questions. **Prompt the user** (via `AskUserQuestion`) to provide questions the skill must answer. If the user declines or has none, derive them from the description trigger categories — see the [playbook](references/optimization-playbook.md#validation-question-generation) for derivation rules.
 
 The subagent evaluates each question:
-
 - **From SKILL.md alone**: YES / PARTIAL / NO
 - **From SKILL.md + references**: YES / PARTIAL / NO
 - **Gap**: content missing from ALL files
 
 **Pass criteria:**
-
 - 0 regressions (nothing answerable before that isn't answerable after)
 - All trigger categories in the description still present
 - Body under ~250 lines

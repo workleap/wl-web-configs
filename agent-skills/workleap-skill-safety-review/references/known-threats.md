@@ -6,12 +6,12 @@ Use this reference during Phase 1 (provenance check) and when evaluating any ski
 
 Reject any skill authored by these accounts immediately (source: Snyk ToxicSkills study, February 2026).
 
-| Account      | Technique                 | Details                                                                            |
-| ------------ | ------------------------- | ---------------------------------------------------------------------------------- |
-| `zaycv`      | Programmatic generation   | 40+ malicious skills generated programmatically with hidden payloads               |
-| `Aslaep123`  | Credential harvesting     | Skills targeting crypto wallet credentials                                         |
-| `aztr0nutzs` | Pre-built malicious repos | Repositories designed to look like legitimate skill collections                    |
-| `pepe276`    | Unicode obfuscation       | Prompt injection hidden with Unicode direction overrides and zero-width characters |
+| Account | Technique | Details |
+|---|---|---|
+| `zaycv` | Programmatic generation | 40+ malicious skills generated programmatically with hidden payloads |
+| `Aslaep123` | Credential harvesting | Skills targeting crypto wallet credentials |
+| `aztr0nutzs` | Pre-built malicious repos | Repositories designed to look like legitimate skill collections |
+| `pepe276` | Unicode obfuscation | Prompt injection hidden with Unicode direction overrides and zero-width characters |
 
 Update this list as new threat actors are identified. Check the latest Snyk, vett.sh, and security community reports.
 

@@ -38,14 +38,12 @@ Is this section duplicated in a references/ file?
 ```
 
 **Sections that typically stay:**
-
 - Setup/bootstrapping patterns that wire 3+ files together (e.g., config + provider + app entry)
 - Multi-step procedures where skipping or reordering steps causes subtle failures
 - Function signatures or decision rules with documented pitfalls agents frequently miss
 - Patterns with non-obvious required parameters that agents frequently omit
 
 **Sections that typically move to references:**
-
 - API property/option lists or checklist enumerations (bullet-point catalogues)
 - Single-function examples (one import + one call) or single-rule explanations
 - Integration setup steps or straightforward procedural instructions
@@ -68,7 +66,6 @@ For detailed documentation beyond the patterns above, consult:
 ```
 
 Rules:
-
 - Name each file with backtick formatting
 - Use em-dash separator between file name and description
 - List 2-3 specific topics per file so agents can decide whether to read it
@@ -86,27 +83,21 @@ If the user does not provide validation questions, derive them from the descript
 ## Common Anti-Patterns
 
 ### 1. Triggers in the body instead of the description
-
 The body is only loaded after the skill triggers. "When to use" information in the body is invisible during skill selection. All triggers must stay in the YAML description.
 
 ### 2. Duplicating reference content in the body
-
 If content exists in both the body and a reference file, remove it from the body. The whole point of references is on-demand loading.
 
 ### 3. Removing code examples from retained sections
-
 Retained body sections are kept because they are complex. The code examples ARE the value. Compress surrounding prose if needed, never the code.
 
 ### 4. Over-compressing the description
-
 The description is the trigger mechanism. Dropping keywords or merging unrelated categories causes the skill to stop triggering. Always verify 1:1 mapping of trigger categories.
 
 ### 5. Forgetting the Reference Guide section
-
 After removing body sections, agents have no way to discover which reference file covers a topic. The Reference Guide section is load-bearing — without it, removed content becomes undiscoverable.
 
 ### 6. Creating empty reference files preemptively
-
 Only create reference files that contain real content moved from the body or supporting existing body sections.
 
 ## Recording Decisions in an ADR
@@ -125,6 +116,5 @@ If the repository already uses ADRs (e.g., an existing `docs/adr/` or `decisions
 6. The body-line budget for future updates
 
 Then add pointers to the ADR from:
-
 - Any automated sync workflow prompts (for CI agents)
 - The ADR README index

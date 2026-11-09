@@ -131,6 +131,7 @@ Reduce SVG coordinate precision to decrease file size.
 <path d="M 10.3 20.8 L 30.9 40.2" />
 ```
 
+
 ---
 
 ## Use Activity Component for Show/Hide (Experimental)
@@ -258,7 +259,6 @@ function SearchResults() {
 ```
 
 **Benefits:**
-
 - Automatic pending state management
 - Error resilience: pending state correctly resets even if the transition throws
 - Better responsiveness: keeps the UI responsive during updates

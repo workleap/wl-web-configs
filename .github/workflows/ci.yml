@@ -108,7 +108,11 @@ jobs:
 
       - name: oxlint
         # A single root task over the whole tree: oxlint takes seconds, and type-aware rules see across packages.
-        run: pnpm turbo run //#oxlint
+        # Type-aware rules resolve the packages through their dist folder, and a missing one silently weakens them
+        # instead of failing: build every package first (the unchanged ones come from the Turborepo cache).
+        run: |
+          pnpm build-pkg
+          pnpm turbo run //#oxlint
 
       - name: oxfmt
         run: pnpm turbo run //#oxfmt:check

@@ -130,6 +130,7 @@ const [user, config, profile] = await Promise.all([
 
 `config` and `profile` fetch concurrently. `profile` starts as soon as `user` resolves, without waiting for `config`.
 
+
 ---
 
 ## Prevent Waterfall Chains in Async Functions

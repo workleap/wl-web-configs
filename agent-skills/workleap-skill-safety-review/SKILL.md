@@ -35,12 +35,12 @@ Follow these phases in order:
 
 Check these criteria. **Fail any one = REJECT the skill immediately.** Provenance failures indicate high risk regardless of content quality — a well-written skill from an unverifiable source is still dangerous.
 
-| Check                  | Pass criteria                                                                                                                                                                                                                                     |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Author identity        | Verify the author is a known organization (Anthropic, Vercel, Microsoft, Google, etc.) OR a verified individual with established open-source history (account >2 years, >5 public repos with external contributors, visible community engagement) |
-| Source repository      | Confirm the skill source is a public GitHub/GitLab repo with visible commit history, issues, and contributors                                                                                                                                     |
-| Known malicious actors | Confirm the author is NOT on the known threat actor list. See [references/known-threats.md](references/known-threats.md)                                                                                                                          |
-| Age and stability      | Confirm the skill repo was created >30 days ago with >10 commits over at least 2 weeks                                                                                                                                                            |
+| Check | Pass criteria |
+|---|---|
+| Author identity | Verify the author is a known organization (Anthropic, Vercel, Microsoft, Google, etc.) OR a verified individual with established open-source history (account >2 years, >5 public repos with external contributors, visible community engagement) |
+| Source repository | Confirm the skill source is a public GitHub/GitLab repo with visible commit history, issues, and contributors |
+| Known malicious actors | Confirm the author is NOT on the known threat actor list. See [references/known-threats.md](references/known-threats.md) |
+| Age and stability | Confirm the skill repo was created >30 days ago with >10 commits over at least 2 weeks |
 
 **Trusted publishers** (skip the Author identity check only; other checks still apply): `anthropics`, `vercel`, `vercel-labs`, `microsoft`, `google-labs-code`, `google-gemini`, `github`, `antfu`, `addyosmani`, `remotion-dev`.
 
@@ -64,11 +64,11 @@ Look up the skill on [vett.sh](https://vett.sh) and retrieve its risk score. Sea
 
 **Interpret vett.sh results:**
 
-| Vett.sh risk score     | Action                                                                                                                                                                                                                                         |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0-15 (None/Low)        | No additional concerns. PROCEED based on Phase 2 score                                                                                                                                                                                         |
-| 16-40 (Medium)         | Review the specific findings. If findings are example-only patterns (env vars in test code fences, fetch in documentation), acceptable. If findings appear in imperative instructions or executable files (.sh, .py, .js), escalate to Phase 4 |
-| 41+ (Critical/BLOCKED) | **REJECT** regardless of Phase 2 score. For trusted publishers only: review and justify each finding before overriding                                                                                                                         |
+| Vett.sh risk score | Action |
+|---|---|
+| 0-15 (None/Low) | No additional concerns. PROCEED based on Phase 2 score |
+| 16-40 (Medium) | Review the specific findings. If findings are example-only patterns (env vars in test code fences, fetch in documentation), acceptable. If findings appear in imperative instructions or executable files (.sh, .py, .js), escalate to Phase 4 |
+| 41+ (Critical/BLOCKED) | **REJECT** regardless of Phase 2 score. For trusted publishers only: review and justify each finding before overriding |
 
 **Fallback:** If vett.sh is unavailable or has no record of the skill, treat it as Medium risk (16-40) and require Phase 4 behavioral analysis regardless of Phase 2 score.
 

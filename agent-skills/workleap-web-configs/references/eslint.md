@@ -8,12 +8,12 @@
 
 ## Available Configurations
 
-| Function                        | Use Case                            |
-| ------------------------------- | ----------------------------------- |
-| `defineWebApplicationConfig`    | React + TypeScript web applications |
-| `defineReactLibraryConfig`      | TypeScript libraries WITH React     |
-| `defineTypeScriptLibraryConfig` | TypeScript libraries WITHOUT React  |
-| `defineMonorepoWorkspaceConfig` | Monorepo workspace root             |
+| Function | Use Case |
+|----------|----------|
+| `defineWebApplicationConfig` | React + TypeScript web applications |
+| `defineReactLibraryConfig` | TypeScript libraries WITH React |
+| `defineTypeScriptLibraryConfig` | TypeScript libraries WITHOUT React |
+| `defineMonorepoWorkspaceConfig` | Monorepo workspace root |
 
 ## Installation
 
@@ -165,19 +165,19 @@ Default ignored: `node_modules`, `dist`, `storybook-static`, `.git`, `.turbo`
 
 ## Rule Categories
 
-| Category         | Description                                  |
-| ---------------- | -------------------------------------------- |
-| `core`           | ESLint recommended + eslint-plugin-import    |
-| `jest`           | eslint-plugin-jest rules                     |
-| `json`           | eslint-plugin-jsonc rules                    |
-| `jsxAlly`        | eslint-plugin-jsx-a11y rules                 |
-| `packageJson`    | eslint-plugin-package-json rules             |
-| `react`          | eslint-plugin-react + hooks + @stylistic JSX |
-| `storybook`      | eslint-plugin-storybook rules                |
-| `testingLibrary` | eslint-plugin-testing-library rules          |
-| `typescript`     | typescript-eslint + @stylistic rules         |
-| `vitest`         | @vitest/eslint-plugin rules                  |
-| `yaml`           | eslint-plugin-yaml rules                     |
+| Category | Description |
+|----------|-------------|
+| `core` | ESLint recommended + eslint-plugin-import |
+| `jest` | eslint-plugin-jest rules |
+| `json` | eslint-plugin-jsonc rules |
+| `jsxAlly` | eslint-plugin-jsx-a11y rules |
+| `packageJson` | eslint-plugin-package-json rules |
+| `react` | eslint-plugin-react + hooks + @stylistic JSX |
+| `storybook` | eslint-plugin-storybook rules |
+| `testingLibrary` | eslint-plugin-testing-library rules |
+| `typescript` | typescript-eslint + @stylistic rules |
+| `vitest` | @vitest/eslint-plugin rules |
+| `yaml` | eslint-plugin-yaml rules |
 
 ## CLI Scripts
 
@@ -297,6 +297,5 @@ Expect **more** warnings and errors after migrating: the ESLint 8 shared configu
 ### "File not found by the project service"
 
 The file is not included in `tsconfig.json`. Either:
-
 1. Add the file pattern to the `include` field
 2. Remove the `include` field entirely (TypeScript includes all files by default)
