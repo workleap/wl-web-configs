@@ -1,49 +1,37 @@
 {
-    "type": "commonjs",
     "name": "@workleap/stylelint-configs",
-    "author": "Workleap",
-    "description": "Workleap recommended Stylelint configurations.",
     "version": "2.2.0",
+    "description": "Workleap recommended Stylelint configurations.",
     "license": "Apache-2.0",
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/",
-        "provenance": true
+    "author": "Workleap",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/workleap/wl-web-configs.git",
+        "directory": "packages/stylelint-configs"
     },
-    "exports": {
-        ".": {
-            "require": "./dist/index.js",
-            "import": "./dist/index.js"
-        }
-    },
-    "sideEffects": false,
     "files": [
         "src",
         "dist",
         "skills",
         "CHANGELOG.md"
     ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/workleap/wl-web-configs.git",
-        "directory": "packages/stylelint-configs"
+    "type": "commonjs",
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "require": "./dist/index.js",
+            "import": "./dist/index.js"
+        }
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true,
+        "registry": "https://registry.npmjs.org/"
     },
     "scripts": {
         "prebuild": "pnpm rimraf dist",
         "build": "tsc --project tsconfig.build.json",
         "typecheck": "tsgo"
-    },
-    "peerDependencies": {
-        "prettier": "^3.9.10",
-        "stylelint": "^16.26.1"
-    },
-    "peerDependenciesMeta": {
-        "prettier": {
-            "optional": true
-        },
-        "stylelint": {
-            "optional": true
-        }
     },
     "dependencies": {
         "stylelint-config-standard": "^39.0.1",
@@ -57,5 +45,17 @@
         "rimraf": "6.1.3",
         "stylelint": "16.26.1",
         "typescript": "6.0.3"
+    },
+    "peerDependencies": {
+        "prettier": "^3.9.10",
+        "stylelint": "^16.26.1"
+    },
+    "peerDependenciesMeta": {
+        "prettier": {
+            "optional": true
+        },
+        "stylelint": {
+            "optional": true
+        }
     }
 }

@@ -3,8 +3,8 @@ packages:
   - samples/**
 
 allowBuilds:
-  '@parcel/watcher': true
-  '@swc/core': true
+  "@parcel/watcher": true
+  "@swc/core": true
   agent-browser: true
   core-js: true
   core-js-pure: true
@@ -21,6 +21,6 @@ allowBuilds:
 # the SLSA provenance an earlier version had). Pin to a compatible version the firewall serves.
 # Remove an entry once a newer version that the firewall serves is in range.
 overrides:
-  '@workleap/eslint-configs>eslint-plugin-react-hooks': 7.1.0
-  'eslint-plugin-react-hooks>zod-validation-error': 5.0.0
-  'ts-checker-rspack-plugin>chokidar': 4.0.1
+  "@workleap/eslint-configs>eslint-plugin-react-hooks": 7.1.0
+  "eslint-plugin-react-hooks>zod-validation-error": 5.0.0
+  "ts-checker-rspack-plugin>chokidar": 4.0.1

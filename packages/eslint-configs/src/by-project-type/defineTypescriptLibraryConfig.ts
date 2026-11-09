@@ -26,17 +26,7 @@ export interface DefineTypeScriptLibraryConfigOptions {
  * @param options An optional object of options for the ESlint core and plugins rules.
  */
 export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: DefineTypeScriptLibraryConfigOptions = {}) {
-    const {
-        testFramework = "vitest",
-        core,
-        jest,
-        json,
-        packageJson,
-        testingLibrary,
-        typescript,
-        vitest,
-        yaml
-    } = options;
+    const { testFramework = "vitest", core, jest, json, packageJson, testingLibrary, typescript, vitest, yaml } = options;
 
     return defineConfig([
         // node_modules folder is ignored by default.
@@ -69,7 +59,7 @@ export function defineTypeScriptLibraryConfig(tsconfigRootDir: string, options: 
         ...(defineVitestConfig({
             ...vitest,
             enabled: vitest?.enabled ?? testFramework === "vitest"
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
         }) as any),
         ...defineYamlConfig(yaml),
         {

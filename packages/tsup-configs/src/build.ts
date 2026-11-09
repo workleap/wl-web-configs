@@ -5,18 +5,10 @@ export interface DefineBuildConfigOptions extends TsupConfig {
     transformers?: TsupConfigTransformer[];
 }
 
-export const TsupBuildEntryPaths = [
-    "./src",
-    "!src/**/*.css",
-    "!src/**/*.stories.ts(x)",
-    "!src/**/*.test.ts(x)"
-];
+export const TsupBuildEntryPaths = ["./src", "!src/**/*.css", "!src/**/*.stories.ts(x)", "!src/**/*.test.ts(x)"];
 
 export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
-    const {
-        transformers = [],
-        ...rest
-    } = options;
+    const { transformers = [], ...rest } = options;
 
     const config: TsupConfig = {
         clean: true,
@@ -36,4 +28,3 @@ export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
 
     return transformedConfig;
 }
-

@@ -34,11 +34,11 @@ description: |
 
 ## Available Functions
 
-| Function | Use Case |
-|----------|----------|
-| `defineDevConfig` | Watch mode for development |
-| `defineBuildConfig` | Production build for publication |
-| `defineStorybookConfig` | Storybook integration |
+| Function                | Use Case                         |
+| ----------------------- | -------------------------------- |
+| `defineDevConfig`       | Watch mode for development       |
+| `defineBuildConfig`     | Production build for publication |
+| `defineStorybookConfig` | Storybook integration            |
 
 ## Installation
 
@@ -95,19 +95,19 @@ export default defineBuildConfig({
 
 ### Predefined Options
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `entry` | object | `{ index: "./src/**" }` (bundleless) or `{ index: ["./src/index.ts", "./src/index.js"] }` (bundle) | Entry points |
-| `syntax` | string | `esnext` | Output syntax target |
-| `bundle` | boolean | `false` | Single bundle vs bundleless |
-| `tsconfigPath` | string | undefined | Path to tsconfig (required for bundleless) |
-| `dts` | object/false | `true` | Generate .d.ts files |
-| `target` | string | `web` | Output target |
-| `distPath` | object | `{ root: "./dist" }` | Output directory (Rsbuild `output.distPath`) |
-| `plugins` | array | `[]` | Rsbuild plugins |
-| `sourceMap` | false/object | `{ js: "source-map", css: true }` | Source maps |
-| `react` | true/function | disabled | React transformation |
-| `svgr` | true/function | disabled | SVG as React components |
+| Option         | Type          | Default                                                                                            | Description                                  |
+| -------------- | ------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| `entry`        | object        | `{ index: "./src/**" }` (bundleless) or `{ index: ["./src/index.ts", "./src/index.js"] }` (bundle) | Entry points                                 |
+| `syntax`       | string        | `esnext`                                                                                           | Output syntax target                         |
+| `bundle`       | boolean       | `false`                                                                                            | Single bundle vs bundleless                  |
+| `tsconfigPath` | string        | undefined                                                                                          | Path to tsconfig (required for bundleless)   |
+| `dts`          | object/false  | `true`                                                                                             | Generate .d.ts files                         |
+| `target`       | string        | `web`                                                                                              | Output target                                |
+| `distPath`     | object        | `{ root: "./dist" }`                                                                               | Output directory (Rsbuild `output.distPath`) |
+| `plugins`      | array         | `[]`                                                                                               | Rsbuild plugins                              |
+| `sourceMap`    | false/object  | `{ js: "source-map", css: true }`                                                                  | Source maps                                  |
+| `react`        | true/function | disabled                                                                                           | React transformation                         |
+| `svgr`         | true/function | disabled                                                                                           | SVG as React components                      |
 
 ### Examples
 
@@ -180,9 +180,9 @@ export default defineDevConfig({
 
 Same as build config, except:
 
-| Option | Default Difference |
-|--------|-------------------|
-| `dts` | `false` (disabled in dev) |
+| Option      | Default Difference                             |
+| ----------- | ---------------------------------------------- |
+| `dts`       | `false` (disabled in dev)                      |
 | `sourceMap` | `{ js: "cheap-module-source-map", css: true }` |
 
 ### Example
@@ -224,12 +224,12 @@ export default storybookConfig;
 
 ### Predefined Options
 
-| Option | Type | Default |
-|--------|------|---------|
-| `plugins` | array | `[]` |
-| `sourceMap` | false/object | `{ js: "cheap-module-source-map", css: true }` |
-| `react` | false/function | enabled |
-| `svgr` | false/function | enabled |
+| Option      | Type           | Default                                        |
+| ----------- | -------------- | ---------------------------------------------- |
+| `plugins`   | array          | `[]`                                           |
+| `sourceMap` | false/object   | `{ js: "cheap-module-source-map", css: true }` |
+| `react`     | false/function | enabled                                        |
+| `svgr`      | false/function | enabled                                        |
 
 ## Configuration Transformers
 

@@ -18,13 +18,7 @@ export interface DefineMonorepoWorkspaceConfigOptions {
  * @param options An optional object of options for the ESlint core and plugins rules.
  */
 export function defineMonorepoWorkspaceConfig(tsconfigRootDir: string, options: DefineMonorepoWorkspaceConfigOptions = {}) {
-    const {
-        core,
-        json,
-        packageJson,
-        typescript,
-        yaml
-    } = options;
+    const { core, json, packageJson, typescript, yaml } = options;
 
     return defineConfig([
         // node_modules folder is ignored by default.

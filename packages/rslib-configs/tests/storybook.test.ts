@@ -15,10 +15,7 @@ test.concurrent("when additional plugins are provided, append the provided plugi
     };
 
     const result = defineStorybookConfig({
-        plugins: [
-            plugin1,
-            plugin2
-        ]
+        plugins: [plugin1, plugin2]
     });
 
     const pluginsCount = result.plugins!.length;
@@ -88,7 +85,9 @@ test.concurrent("when svgr is a function, the function is executed", ({ expect }
     expect(fct).toHaveBeenCalledTimes(1);
 });
 
-test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rslib config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rslib config", ({
+    expect
+}) => {
     const entryTransformer: RslibConfigTransformer = (config: RslibConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -105,7 +104,9 @@ test.concurrent("when a transformer is provided, and the transformer update the 
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
 });
 
-test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rslib config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rslib config", ({
+    expect
+}) => {
     const entryTransformer: RslibConfigTransformer = (config: RslibConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -148,7 +149,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     expect((result.output!.distPath as Rsbuild.DistPathConfig).js).toBe("a-custom-dist-path-in-a-tranformer");
 });
 
-test.concurrent("transformers context environment is \"storybook\"", ({ expect }) => {
+test.concurrent('transformers context environment is "storybook"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineStorybookConfig({

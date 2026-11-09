@@ -4,12 +4,14 @@ import { defineConfig } from "@rslib/core";
 
 export default defineConfig({
     mode: "production",
-    lib: [{
-        format: "esm",
-        syntax: "esnext",
-        bundle: false,
-        dts: true
-    }],
+    lib: [
+        {
+            format: "esm",
+            syntax: "esnext",
+            bundle: false,
+            dts: true
+        }
+    ],
     source: {
         entry: {
             index: "./src/**"

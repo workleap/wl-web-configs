@@ -1,20 +1,21 @@
 {
     "name": "@workleap/postcss-configs",
-    "author": "Workleap",
-    "description": "Workleap's recommended PostCSS configurations",
     "version": "1.1.14",
+    "description": "Workleap's recommended PostCSS configurations",
     "license": "Apache-2.0",
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/",
-        "provenance": true
-    },
+    "author": "Workleap",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/workleap/wl-web-configs.git",
         "directory": "packages/postcss-configs"
     },
+    "files": [
+        "src",
+        "dist",
+        "CHANGELOG.md"
+    ],
     "type": "module",
+    "sideEffects": false,
     "exports": {
         ".": {
             "import": "./dist/index.js",
@@ -22,19 +23,15 @@
             "default": "./dist/index.js"
         }
     },
-    "sideEffects": false,
-    "files": [
-        "src",
-        "dist",
-        "CHANGELOG.md"
-    ],
+    "publishConfig": {
+        "access": "public",
+        "provenance": true,
+        "registry": "https://registry.npmjs.org/"
+    },
     "scripts": {
         "build": "rslib build -c rslib.config.ts",
         "typecheck": "tsgo",
         "test": "vitest --config vitest.config.ts --no-watch"
-    },
-    "peerDependencies": {
-        "postcss": "^8.5.32"
     },
     "dependencies": {
         "postcss-load-config": "^6.0.1",
@@ -48,5 +45,8 @@
         "@workleap/typescript-configs": "workspace:*",
         "typescript": "6.0.3",
         "vitest": "5.0.5"
+    },
+    "peerDependencies": {
+        "postcss": "^8.5.32"
     }
 }

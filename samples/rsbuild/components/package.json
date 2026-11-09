@@ -1,23 +1,19 @@
 {
     "name": "@rsbuild-sample/components",
-    "author": "Workleap",
     "version": "0.0.0",
-    "description": "React components library to try the web configs.",
     "private": true,
+    "description": "React components library to try the web configs.",
     "license": "Apache-2.0",
-    "type": "module",
-    "exports": "./src/index.ts",
+    "author": "Workleap",
     "files": [
         "/dist"
     ],
+    "type": "module",
+    "exports": "./src/index.ts",
     "scripts": {
         "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
         "typecheck": "tsgo",
         "test": "vitest --config vitest.config.ts --no-watch"
-    },
-    "peerDependencies": {
-        "react": "19.3.1",
-        "react-dom": "19.3.1"
     },
     "devDependencies": {
         "@rsbuild/core": "2.3.0",
@@ -36,5 +32,9 @@
         "stylelint": "16.26.1",
         "typescript": "6.0.3",
         "vitest": "5.0.5"
+    },
+    "peerDependencies": {
+        "react": "19.3.1",
+        "react-dom": "19.3.1"
     }
 }

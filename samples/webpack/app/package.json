@@ -1,10 +1,10 @@
 {
     "name": "@webpack-sample/app",
-    "author": "Workleap",
     "version": "0.0.0",
-    "description": "Application to try the webpack configs.",
     "private": true,
+    "description": "Application to try the webpack configs.",
     "license": "Apache-2.0",
+    "author": "Workleap",
     "type": "module",
     "scripts": {
         "postinstall": "pnpm msw init",

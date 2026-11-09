@@ -18,10 +18,12 @@ Detailed procedures for each check in the audit workflow. Each check includes wh
 **Trade-off:** Adding `package.json` to `untraced` reduces snapshot costs but may cause missed visual regressions when updating NPM packages that include breaking visual changes (e.g., UI library updates like Hopper).
 
 **When to use `untraced`:**
+
 - Projects where dependency updates rarely affect visuals
 - Teams that manually verify visual changes after dependency updates
 
 **When to avoid `untraced`:**
+
 - Projects heavily dependent on UI libraries (Hopper, design systems)
 - When visual regression detection for dependency updates is critical
 
@@ -49,6 +51,7 @@ import { I18nProvider } from "@app/providers/I18nProvider";
 ```
 
 **Detection patterns:**
+
 - Imports from paths ending in `/index` (explicit or implicit)
 - Imports from package-level paths like `@app/utils` or `../src`
 - Multiple named imports from a single module (often indicates barrel)
@@ -137,6 +140,7 @@ jobs:
 ```
 
 **Check for:**
+
 - `onlyChanged: true` - Required for TurboSnap
 - `exitOnceUploaded: true` - Recommended for faster CI
 - `autoAcceptChanges: main` - Recommended to auto-accept baseline on main
@@ -195,6 +199,7 @@ npx chromatic --browsers chrome,firefox
 **Why:** Bot-generated branches (dependency updates, version bumps) rarely introduce visual regressions, and requiring Chromatic runs on them wastes snapshots and slows down automated workflows.
 
 **Action:** Document recommendation to configure branch ruleset to exclude:
+
 - `renovate/*` branches
 - `changeset-release/*` branches
 
@@ -203,6 +208,7 @@ npx chromatic --browsers chrome,firefox
 **Scan files imported by `.storybook/preview.ts[x]`** for problematic patterns:
 
 **Problematic file types:**
+
 - Localization files (`**/resources.json`, `**/translations/*.json`)
 - Route definitions (large route config objects)
 - Environment configs

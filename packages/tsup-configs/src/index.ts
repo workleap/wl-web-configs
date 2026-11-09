@@ -4,4 +4,3 @@ export type { TsupConfigTransformer, TsupConfigTransformerContext } from "./appl
 export * from "./build.ts";
 export * from "./dev.ts";
 export type { TsupConfig };
-

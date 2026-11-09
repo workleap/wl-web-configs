@@ -34,10 +34,10 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v7
         with:
-            node-version: ">=26.0.0"
-            check-latest: true
-            cache: pnpm
-            cache-dependency-path: pnpm-lock.yaml
+          node-version: ">=26.0.0"
+          check-latest: true
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Authenticate to the GitHub package firewall
         # pnpm ignores auth tokens set in a repository .npmrc, so the job token goes in the user-level ~/.npmrc.
@@ -64,47 +64,47 @@ jobs:
       - name: Build packages
         # For a PR, only build the packages that are diverging from the pull request original baseline.
         run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm turbo run build --filter={./packages/*}...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm build-pkg
-            fi
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run build --filter={./packages/*}...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm build-pkg
+          fi
 
       - name: Build webpack sample
         # For a PR, only build the sample if it's diverging from the pull request original baseline.
         run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm turbo run build --filter={./samples/webpack/*}...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm build-webpack
-            fi
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run build --filter={./samples/webpack/*}...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm build-webpack
+          fi
 
       - name: Build Rsbuild sample
         # For a PR, only build the sample if it's diverging from the pull request original baseline.
         run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm turbo run build --filter={./samples/rsbuild/*}...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm build-rsbuild
-            fi
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run build --filter={./samples/rsbuild/*}...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm build-rsbuild
+          fi
 
       - name: Build Storybook Rsbuild sample
         # For a PR, only build the sample if it's diverging from the pull request original baseline.
         run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm turbo run build --filter={./samples/storybook/rsbuild}...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm build-storybook-rsbuild
-            fi
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run build --filter={./samples/storybook/rsbuild}...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm build-storybook-rsbuild
+          fi
 
       - name: Build Storybook Rslib sample
         # For a PR, only build the sample if it's diverging from the pull request original baseline.
         run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm turbo run build --filter={./samples/storybook/rslib}...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm build-storybook-rslib
-            fi
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run build --filter={./samples/storybook/rslib}...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm build-storybook-rslib
+          fi
 
       - name: oxlint
         # A single root task over the whole tree: oxlint takes seconds, and type-aware rules see across packages.
@@ -116,20 +116,20 @@ jobs:
       - name: Stylelint
         # For a PR, only stylelint the projects that are diverging from the pull request original baseline.
         run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm turbo run stylelint --continue --filter=...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm turbo run stylelint --continue
-            fi
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run stylelint --continue --filter=...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm turbo run stylelint --continue
+          fi
 
       - name: Typecheck
         # For a PR, only typecheck the projects that are diverging from the pull request original baseline.
         run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm turbo run typecheck --continue --filter=...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm turbo run typecheck --continue
-            fi
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm turbo run typecheck --continue --filter=...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm turbo run typecheck --continue
+          fi
 
       - name: Syncpack
         run: pnpm turbo run syncpack
@@ -140,11 +140,11 @@ jobs:
       - name: Test packages
         # For a PR, only test the projects that are diverging from the pull request original baseline.
         run: |
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-                pnpm test --filter=...[${{ github.event.pull_request.base.sha }}]
-            else
-                pnpm test
-            fi
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+              pnpm test --filter=...[${{ github.event.pull_request.base.sha }}]
+          else
+              pnpm test
+          fi
 
       - name: Save Turborepo cache
         id: cache-turborepo-save

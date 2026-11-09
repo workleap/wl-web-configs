@@ -1,8 +1,8 @@
 {
     "name": "@storybook-sample/rslib",
-    "description": "Storybook app using Rslib as a bundler.",
     "version": "0.0.0",
     "private": true,
+    "description": "Storybook app using Rslib as a bundler.",
     "type": "module",
     "scripts": {
         "dev": "storybook dev -p 6006",

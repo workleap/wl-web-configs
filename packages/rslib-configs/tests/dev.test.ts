@@ -27,7 +27,7 @@ test.concurrent("when bundle is false and the tsconfigPath option is not provide
     expect(() => defineDevConfig({ bundle: false })).toThrow(/When the "bundle" option is "false", a "tsconfigPath" option must be provided./);
 });
 
-test.concurrent("when bundle is false, the default source.entry option is \"./src/**\"", ({ expect }) => {
+test.concurrent('when bundle is false, the default source.entry option is "./src/**"', ({ expect }) => {
     const result = defineDevConfig({
         bundle: false,
         tsconfigPath: "./build.json"
@@ -48,7 +48,7 @@ test.concurrent("when bundle is true, the lib.bundle option is true", ({ expect 
     expect(result.lib?.[0]?.bundle).toBeTruthy();
 });
 
-test.concurrent("when bundle is true, the default source.entry option is [\"./src/index.ts\", \"./src/index.js\"]", ({ expect }) => {
+test.concurrent('when bundle is true, the default source.entry option is ["./src/index.ts", "./src/index.js"]', ({ expect }) => {
     const result = defineDevConfig({
         bundle: true
     });
@@ -97,10 +97,7 @@ test.concurrent("when additional plugins are provided, append the provided plugi
     };
 
     const result = defineDevConfig({
-        plugins: [
-            plugin1,
-            plugin2
-        ],
+        plugins: [plugin1, plugin2],
         tsconfigPath: "./build.json"
     });
 
@@ -197,7 +194,9 @@ test.concurrent("when svgr is a function, the function is executed", ({ expect }
     expect(fct).toHaveBeenCalledTimes(1);
 });
 
-test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rslib config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rslib config", ({
+    expect
+}) => {
     const entryTransformer: RslibConfigTransformer = (config: RslibConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -215,7 +214,9 @@ test.concurrent("when a transformer is provided, and the transformer update the 
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
 });
 
-test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rslib config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rslib config", ({
+    expect
+}) => {
     const entryTransformer: RslibConfigTransformer = () => {
         return {
             lib: [],
@@ -262,7 +263,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     expect((result.output!.distPath as Rsbuild.DistPathConfig).js).toBe("a-custom-dist-path-in-a-tranformer");
 });
 
-test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
+test.concurrent('transformers context environment is "dev"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineDevConfig({

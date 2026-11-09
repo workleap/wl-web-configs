@@ -16,10 +16,7 @@ import { isObject } from "./utils.ts";
 const require = createRequire(import.meta.url);
 
 export function defineBuildHtmlWebpackPluginConfig(options: HtmlWebpackPlugin.Options = {}): HtmlWebpackPlugin.Options {
-    const {
-        template = path.resolve("./public/index.html"),
-        ...rest
-    } = options;
+    const { template = path.resolve("./public/index.html"), ...rest } = options;
 
     return {
         ...rest,
@@ -30,10 +27,7 @@ export function defineBuildHtmlWebpackPluginConfig(options: HtmlWebpackPlugin.Op
 type MiniCssExtractPluginOptions = NonNullable<ConstructorParameters<typeof MiniCssExtractPlugin>[number]>;
 
 export function defineMiniCssExtractPluginConfig(options: MiniCssExtractPluginOptions = {}): MiniCssExtractPluginOptions {
-    const {
-        filename = "[name].css",
-        ...rest
-    } = options;
+    const { filename = "[name].css", ...rest } = options;
 
     return {
         ...rest,
@@ -144,11 +138,13 @@ export function defineBuildConfig(swcConfig: SwcConfig, options: DefineBuildConf
             assetModuleFilename: "[name][ext][query]"
         },
         optimization: getOptimizationConfig(optimize),
-        infrastructureLogging: verbose ? {
-            appendOnly: true,
-            level: "verbose",
-            debug: /PackFileCache/
-        } : undefined,
+        infrastructureLogging: verbose
+            ? {
+                  appendOnly: true,
+                  level: "verbose",
+                  debug: /PackFileCache/
+              }
+            : undefined,
         module: {
             rules: [
                 {
@@ -173,10 +169,10 @@ export function defineBuildConfig(swcConfig: SwcConfig, options: DefineBuildConf
                             loader: require.resolve("css-loader"),
                             options: cssModules
                                 ? {
-                                    // Must match the number of loaders applied before this one.
-                                    importLoaders: 1,
-                                    modules: true
-                                }
+                                      // Must match the number of loaders applied before this one.
+                                      importLoaders: 1,
+                                      modules: true
+                                  }
                                 : undefined
                         },
                         { loader: require.resolve("postcss-loader") }
@@ -184,22 +180,22 @@ export function defineBuildConfig(swcConfig: SwcConfig, options: DefineBuildConf
                 },
                 ...(svgr
                     ? [
-                        {
-                            test: /\.svg$/i,
-                            loader: require.resolve("@svgr/webpack"),
-                            options: isObject(svgr) ? svgr : undefined
-                        },
-                        {
-                            test: /\.(png|jpe?g|gif)$/i,
-                            type: "asset/resource"
-                        }
-                    ]
+                          {
+                              test: /\.svg$/i,
+                              loader: require.resolve("@svgr/webpack"),
+                              options: isObject(svgr) ? svgr : undefined
+                          },
+                          {
+                              test: /\.(png|jpe?g|gif)$/i,
+                              type: "asset/resource"
+                          }
+                      ]
                     : [
-                        {
-                            test: /\.(png|jpe?g|gif|svg)$/i,
-                            type: "asset/resource"
-                        }
-                    ]),
+                          {
+                              test: /\.(png|jpe?g|gif|svg)$/i,
+                              type: "asset/resource"
+                          }
+                      ]),
                 ...moduleRules
             ]
         },
@@ -218,11 +214,14 @@ export function defineBuildConfig(swcConfig: SwcConfig, options: DefineBuildConf
             // after replacement and cause an undefined var error because the production var doesn't exist.
             // For more information, view: https://webpack.js.org/plugins/define-plugin.
             new DefineEnvironmentPlugin({
-                "process.env": Object.keys(environmentVariables).reduce((acc, key) => {
-                    acc[key] = JSON.stringify(environmentVariables[key]);
+                "process.env": Object.keys(environmentVariables).reduce(
+                    (acc, key) => {
+                        acc[key] = JSON.stringify(environmentVariables[key]);
 
-                    return acc;
-                }, {} as Record<string, string>)
+                        return acc;
+                    },
+                    {} as Record<string, string>
+                )
             }),
             ...plugins
         ].filter(Boolean)

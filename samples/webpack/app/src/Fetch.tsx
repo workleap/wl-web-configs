@@ -24,7 +24,9 @@ export function Fetch() {
         <>
             <h1>Fetch</h1>
             <ul>
-                {pokemons.map(x => <li key={x}>{x}</li>)}
+                {pokemons.map(x => (
+                    <li key={x}>{x}</li>
+                ))}
             </ul>
         </>
     );

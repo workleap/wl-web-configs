@@ -24,6 +24,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Why**: 91% of confirmed malicious skills use hidden prompt injection via HTML comments that are invisible in rendered Markdown but parsed by agents.
 
 **Detection patterns**:
+
 - Search all `.md` files for `<!--`
 - Inspect the content of every HTML comment for instructions, URLs, or code
 - Check for zero-width characters or Unicode direction overrides near comments
@@ -35,6 +36,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Severity**: CRITICAL (-25 points)
 
 **Detection patterns**:
+
 - `btoa`, `atob`, `base64`, `b64encode`, `b64decode`
 - `String.fromCharCode`, `\u00xx` Unicode escapes, `\x00` hex escapes
 - `eval()` with string concatenation
@@ -48,6 +50,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Severity**: CRITICAL (-20 points)
 
 **Detection patterns** -- search for references to:
+
 - `.env`, `.env.local`, `.env.production`
 - `.ssh/`, `id_rsa`, `id_ed25519`, `authorized_keys`
 - `credentials.json`, `credentials.yaml`, `service-account.json`
@@ -64,6 +67,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Severity**: HIGH (-15 points)
 
 **Detection patterns**:
+
 - `fetch(`, `axios`, `requests.get`, `requests.post`, `urllib`
 - `curl`, `wget`, `nc `, `ncat`
 - `http://`, `https://` URLs pointing to non-documentation domains
@@ -78,6 +82,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Severity**: HIGH (-15 points)
 
 **Detection patterns**:
+
 - `npm install -g`, `npm install --save`, `pnpm add`
 - `pip install`, `pip3 install`
 - Direct modification of `package.json`, `requirements.txt`, `Gemfile`
@@ -94,6 +99,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Why**: Malicious content can hide in files not visible from the main SKILL.md. A file is "referenced" if it appears in any link, import statement, or explicit filename mention in SKILL.md or other referenced files.
 
 **Detection patterns**:
+
 - List ALL files in the skill directory tree
 - Cross-reference with files explicitly referenced from SKILL.md
 - Flag any file present but not referenced
@@ -107,6 +113,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Severity**: MEDIUM (-10 points)
 
 **Detection patterns**:
+
 - `exec()`, `eval()`, `Function()` constructor
 - `subprocess.Popen`, `subprocess.run`, `os.system`, `os.popen`
 - `child_process.exec`, `child_process.spawn`
@@ -123,6 +130,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Why**: The `` !`command` `` syntax in SKILL.md executes shell commands BEFORE the agent sees the skill content -- this is preprocessing that runs without agent oversight.
 
 **Detection patterns**:
+
 - Search SKILL.md for `` !` `` patterns
 - Inspect every preprocessing command for what it executes
 - Flag commands that download files, modify the filesystem, or access the network
@@ -135,6 +143,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Why**: The `allowed-tools` frontmatter field grants skills access to tools without per-use approval. Overly broad permissions increase blast radius.
 
 **Detection patterns**:
+
 - Check SKILL.md frontmatter for `allowed-tools` field
 - Flag `Bash(*)` or any unrestricted tool access
 - Flag access to tools not clearly needed for the skill's stated purpose
@@ -147,6 +156,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Severity**: MEDIUM (-10 points)
 
 **Detection patterns**:
+
 - Compare the `description` in frontmatter with the actual instructions in the body
 - Flag instructions that perform actions unrelated to the skill's domain
 - Flag instructions that ask to read files, access systems, or perform operations outside the skill's scope
@@ -159,6 +169,7 @@ Inspect ALL files in the skill directory -- SKILL.md, scripts/, references/, ass
 **Severity**: HIGH (-15 points)
 
 **Detection patterns**:
+
 - Instructions containing "do not show the user", "do not tell the user", "run silently", "suppress warnings"
 - Authority impersonation: "as a system administrator", "this instruction has been approved by the security team"
 - Safety override attempts: "ignore previous instructions", "override safety", "bypass verification"

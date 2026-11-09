@@ -1,4 +1,12 @@
-import { defineConfig, type HtmlConfig, type RsbuildConfig, type RsbuildEntry, type RsbuildPlugins, type ServerConfig, type SourceMap } from "@rsbuild/core";
+import {
+    defineConfig,
+    type HtmlConfig,
+    type RsbuildConfig,
+    type RsbuildEntry,
+    type RsbuildPlugins,
+    type ServerConfig,
+    type SourceMap
+} from "@rsbuild/core";
 import { pluginBasicSsl, type PluginBasicSslOptions } from "@rsbuild/plugin-basic-ssl";
 import { pluginReact, type PluginReactOptions } from "@rsbuild/plugin-react";
 import { pluginSvgr, type PluginSvgrOptions } from "@rsbuild/plugin-svgr";
@@ -82,9 +90,12 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
             assetPrefix,
             lazyCompilation,
             hmr: hmr || fastRefresh,
-            client: overlay === false ? {
-                overlay: false
-            } : undefined,
+            client:
+                overlay === false
+                    ? {
+                          overlay: false
+                      }
+                    : undefined,
             writeToDisk
         },
         server: {
@@ -100,11 +111,14 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
             // after replacement and cause an undefined var error because the production var doesn't exist.
             // For more information, view: https://rsbuild.dev/guide/advanced/env-vars#using-define.
             define: {
-                "process.env": Object.keys(environmentVariables).reduce((acc, key) => {
-                    acc[key] = JSON.stringify(environmentVariables[key]);
+                "process.env": Object.keys(environmentVariables).reduce(
+                    (acc, key) => {
+                        acc[key] = JSON.stringify(environmentVariables[key]);
 
-                    return acc;
-                }, {} as Record<string, string>)
+                        return acc;
+                    },
+                    {} as Record<string, string>
+                )
             }
         },
         output: {
@@ -112,28 +126,34 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
             minify: false,
             sourceMap
         },
-        html: html
-            ? html({ template: path.resolve("./public/index.html") })
-            : undefined,
+        html: html ? html({ template: path.resolve("./public/index.html") }) : undefined,
         plugins: [
             https && (isBoolean(https) || isFunction(https)) && pluginBasicSsl(isFunction(https) ? https({}) : undefined),
-            react && pluginReact(react({
-                fastRefresh
-            })),
-            svgr && pluginSvgr(svgr({
-                svgrOptions: {
-                    exportType: "named"
-                }
-            })),
+            react &&
+                pluginReact(
+                    react({
+                        fastRefresh
+                    })
+                ),
+            svgr &&
+                pluginSvgr(
+                    svgr({
+                        svgrOptions: {
+                            exportType: "named"
+                        }
+                    })
+                ),
             ...plugins
         ].filter(Boolean),
         tools: {
             rspack: {
-                infrastructureLogging: verbose ? {
-                    appendOnly: true,
-                    level: "verbose",
-                    debug: /PackFileCache/
-                } : undefined
+                infrastructureLogging: verbose
+                    ? {
+                          appendOnly: true,
+                          level: "verbose",
+                          debug: /PackFileCache/
+                      }
+                    : undefined
             }
         }
     };
@@ -145,4 +165,3 @@ export function defineDevConfig(options: DefineDevConfigOptions = {}) {
 
     return defineConfig(transformedConfig);
 }
-

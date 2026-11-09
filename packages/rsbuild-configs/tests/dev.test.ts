@@ -22,7 +22,9 @@ test.concurrent("when https is true, the server option is configured with a self
     expect(result.plugins?.find(x => (x as RsbuildPlugin).name === "rsbuild:basic-ssl")).toBeDefined();
 });
 
-test.concurrent("when https is a function, the function is executed and the server option is configured with a self signed certificate", ({ expect }) => {
+test.concurrent("when https is a function, the function is executed and the server option is configured with a self signed certificate", ({
+    expect
+}) => {
     const fct = vi.fn();
 
     const result = defineDevConfig({
@@ -83,10 +85,7 @@ test.concurrent("when additional plugins are provided, append the provided plugi
     };
 
     const result = defineDevConfig({
-        plugins: [
-            plugin1,
-            plugin2
-        ]
+        plugins: [plugin1, plugin2]
     });
 
     const pluginsCount = result.plugins!.length;
@@ -254,7 +253,9 @@ test.concurrent("when svgr is a function, the function is executed", ({ expect }
     expect(fct).toHaveBeenCalledTimes(1);
 });
 
-test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rsbuild config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rsbuild config", ({
+    expect
+}) => {
     const entryTransformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -271,7 +272,9 @@ test.concurrent("when a transformer is provided, and the transformer update the 
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
 });
 
-test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rsbuild config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rsbuild config", ({
+    expect
+}) => {
     const entryTransformer: RsbuildConfigTransformer = () => {
         return {
             source: {
@@ -316,7 +319,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     expect((result.output!.distPath as DistPathConfig).js).toBe("a-custom-dist-path-in-a-tranformer");
 });
 
-test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
+test.concurrent('transformers context environment is "dev"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineDevConfig({
@@ -326,7 +329,7 @@ test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
     expect(mockTransformer).toHaveBeenCalledWith(expect.anything(), { environment: "dev", verbose: false });
 });
 
-test.concurrent("when the verbose option is true, the transformers context verbose value is \"true\"", ({ expect }) => {
+test.concurrent('when the verbose option is true, the transformers context verbose value is "true"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineDevConfig({
@@ -346,4 +349,3 @@ test.concurrent("when setup is provided, the server.setup option is the provided
 
     expect(result.server?.setup).toBe(setup);
 });
-

@@ -6,26 +6,19 @@ export interface YamlConfigOptions {
     rules?: Partial<Linter.RulesRecord>;
 }
 
-export const yamlGlobalIgnores = [
-    "pnpm-lock.yaml"
-];
+export const yamlGlobalIgnores = ["pnpm-lock.yaml"];
 
 export function defineYamlConfig(options: YamlConfigOptions = {}) {
-    const {
-        rules = {}
-    } = options;
+    const { rules = {} } = options;
 
-    const config: ConfigWithExtends[] = [{
-        name: "@workleap/eslint-configs/yaml",
-        files: [
-            "**/*.yaml",
-            "**/*.yml"
-        ],
-        extends: [
-            yamlPlugin.configs.recommended
-        ],
-        rules
-    }];
+    const config: ConfigWithExtends[] = [
+        {
+            name: "@workleap/eslint-configs/yaml",
+            files: ["**/*.yaml", "**/*.yml"],
+            extends: [yamlPlugin.configs.recommended],
+            rules
+        }
+    ];
 
     return config;
-};
+}

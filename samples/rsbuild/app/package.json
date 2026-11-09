@@ -1,10 +1,10 @@
 {
     "name": "@rsbuild-sample/app",
-    "author": "Workleap",
     "version": "0.0.0",
-    "description": "Application to try the Rsbuild configs.",
     "private": true,
+    "description": "Application to try the Rsbuild configs.",
     "license": "Apache-2.0",
+    "author": "Workleap",
     "type": "module",
     "scripts": {
         "postinstall": "pnpm msw init",

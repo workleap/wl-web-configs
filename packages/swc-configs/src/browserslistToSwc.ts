@@ -72,11 +72,11 @@ const SwcSupportedBrowsers = [
 
 // SWC browsers aliases (https://github.com/swc-project/swc/blob/main/crates/preset_env_base/src/lib.rs#L90).
 const SwcMobileBrowserAliases: Record<string, string> = {
-    "and_chr": "chrome",
-    "and_ff": "firefox",
-    "ie_mob": "ie",
-    "ios_saf": "ios",
-    "op_mob": "opera"
+    and_chr: "chrome",
+    and_ff: "firefox",
+    ie_mob: "ie",
+    ios_saf: "ios",
+    op_mob: "opera"
 };
 
 function parseBrowserslistEntry(entry: string) {
@@ -108,30 +108,33 @@ function parseBrowserslistEntry(entry: string) {
 }
 
 export function createSwcTargetsFromBrowserslistEntries(entries: string[]) {
-    return entries.reduce((acc, x: string) => {
-        const { browser, version } = parseBrowserslistEntry(x);
+    return entries.reduce(
+        (acc, x: string) => {
+            const { browser, version } = parseBrowserslistEntry(x);
 
-        // Exclude browsers that are not supported by SWC.
-        if (!((SwcSupportedBrowsers as unknown) as string[]).includes(browser)) {
-            return acc;
-        }
+            // Exclude browsers that are not supported by SWC.
+            if (!(SwcSupportedBrowsers as unknown as string[]).includes(browser)) {
+                return acc;
+            }
 
-        // Let's make TS happy as we are now certain that the browser is part
-        // of the supported browsers list.
-        const _browser = browser as keyof typeof SwcSupportedBrowsers;
+            // Let's make TS happy as we are now certain that the browser is part
+            // of the supported browsers list.
+            const _browser = browser as keyof typeof SwcSupportedBrowsers;
 
-        // SWC "env.targets" only support a single entry per target (browser).
-        // Therefore, we loop through the browser versions to keep only the oldest one.
-        if (acc[_browser]) {
-            if (parseFloat(acc[_browser]) > parseFloat(version)) {
+            // SWC "env.targets" only support a single entry per target (browser).
+            // Therefore, we loop through the browser versions to keep only the oldest one.
+            if (acc[_browser]) {
+                if (parseFloat(acc[_browser]) > parseFloat(version)) {
+                    acc[_browser] = version;
+                }
+            } else {
                 acc[_browser] = version;
             }
-        } else {
-            acc[_browser] = version;
-        }
 
-        return acc;
-    }, {} as Record<keyof typeof SwcSupportedBrowsers, string>);
+            return acc;
+        },
+        {} as Record<keyof typeof SwcSupportedBrowsers, string>
+    );
 }
 
 export interface BrowserslistToSwcOptions extends Omit<browserslist.Options, "path"> {
@@ -139,10 +142,7 @@ export interface BrowserslistToSwcOptions extends Omit<browserslist.Options, "pa
 }
 
 export function browserslistToSwc(options: BrowserslistToSwcOptions = {}) {
-    const {
-        queries,
-        ...browserlistsOptions
-    } = options;
+    const { queries, ...browserlistsOptions } = options;
 
     // Will return the entries matching the "queries" prop when provided, otherwise,
     // the function will load the closest ".browserslistrc" file.

@@ -32,20 +32,7 @@ export interface DefineWebApplicationConfigOptions {
  * @param options An optional object of options for the ESlint core and plugins rules.
  */
 export const defineWebApplicationConfig = (tsconfigRootDir: string, options: DefineWebApplicationConfigOptions = {}) => {
-    const {
-        testFramework = "vitest",
-        core,
-        jest,
-        json,
-        jsxAlly,
-        packageJson,
-        react,
-        storybook,
-        testingLibrary,
-        typescript,
-        vitest,
-        yaml
-    } = options;
+    const { testFramework = "vitest", core, jest, json, jsxAlly, packageJson, react, storybook, testingLibrary, typescript, vitest, yaml } = options;
 
     return defineConfig([
         // node_modules folder is ignored by default.
@@ -85,7 +72,7 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
         ...(defineVitestConfig({
             ...vitest,
             enabled: vitest?.enabled ?? testFramework === "vitest"
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
         }) as any),
         ...defineYamlConfig(yaml),
         {

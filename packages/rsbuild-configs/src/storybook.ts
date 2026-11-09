@@ -51,11 +51,14 @@ export function defineStorybookConfig(options: DefineStorybookConfigOptions = {}
             // after replacement and cause an undefined var error because the production var doesn't exist.
             // For more information, view: https://rsbuild.dev/guide/advanced/env-vars#using-define.
             define: {
-                "process.env": Object.keys(environmentVariables).reduce((acc, key) => {
-                    acc[key] = JSON.stringify(environmentVariables[key]);
+                "process.env": Object.keys(environmentVariables).reduce(
+                    (acc, key) => {
+                        acc[key] = JSON.stringify(environmentVariables[key]);
 
-                    return acc;
-                }, {} as Record<string, string>)
+                        return acc;
+                    },
+                    {} as Record<string, string>
+                )
             }
         },
         output: {
@@ -65,20 +68,25 @@ export function defineStorybookConfig(options: DefineStorybookConfigOptions = {}
         },
         plugins: [
             react && pluginReact(react({})),
-            svgr && pluginSvgr(svgr({
-                svgrOptions: {
-                    exportType: "named"
-                }
-            })),
+            svgr &&
+                pluginSvgr(
+                    svgr({
+                        svgrOptions: {
+                            exportType: "named"
+                        }
+                    })
+                ),
             ...plugins
         ].filter(Boolean),
         tools: {
             rspack: {
-                infrastructureLogging: verbose ? {
-                    appendOnly: true,
-                    level: "verbose",
-                    debug: /PackFileCache/
-                } : undefined,
+                infrastructureLogging: verbose
+                    ? {
+                          appendOnly: true,
+                          level: "verbose",
+                          debug: /PackFileCache/
+                      }
+                    : undefined,
                 optimization: {
                     // Disabling modules concatenation until https://github.com/rstackjs/storybook-rsbuild/issues/403 is fixed.
                     concatenateModules: false

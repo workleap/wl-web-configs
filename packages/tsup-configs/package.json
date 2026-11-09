@@ -1,20 +1,21 @@
 {
     "name": "@workleap/tsup-configs",
-    "author": "Workleap",
-    "description": "Workleap's recommended tsup configurations.",
     "version": "5.0.0",
+    "description": "Workleap's recommended tsup configurations.",
     "license": "Apache-2.0",
+    "author": "Workleap",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/workleap/wl-web-configs.git",
         "directory": "packages/tsup-configs"
     },
+    "files": [
+        "src",
+        "dist",
+        "CHANGELOG.md"
+    ],
     "type": "module",
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/",
-        "provenance": true
-    },
+    "sideEffects": false,
     "exports": {
         ".": {
             "import": "./dist/index.js",
@@ -22,20 +23,15 @@
             "default": "./dist/index.js"
         }
     },
-    "sideEffects": false,
-    "files": [
-        "src",
-        "dist",
-        "CHANGELOG.md"
-    ],
+    "publishConfig": {
+        "access": "public",
+        "provenance": true,
+        "registry": "https://registry.npmjs.org/"
+    },
     "scripts": {
         "build": "rslib build -c rslib.config.ts",
         "typecheck": "tsgo",
         "test": "vitest --config vitest.config.ts --no-watch"
-    },
-    "peerDependencies": {
-        "tsup": "^9.0.0",
-        "typescript": "^6.0.3"
     },
     "devDependencies": {
         "@rsbuild/core": "2.3.0",
@@ -46,5 +42,9 @@
         "@workleap/typescript-configs": "workspace:*",
         "typescript": "6.0.3",
         "vitest": "5.0.5"
+    },
+    "peerDependencies": {
+        "tsup": "^9.0.0",
+        "typescript": "^6.0.3"
     }
 }

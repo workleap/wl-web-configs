@@ -122,10 +122,7 @@ test.concurrent("when additional module rules are provided, append the provided 
     };
 
     const result = defineDevConfig(DefaultSwcConfig, {
-        moduleRules: [
-            newModuleRule1,
-            newModuleRule2
-        ]
+        moduleRules: [newModuleRule1, newModuleRule2]
     });
 
     const rulesCount = result.module!.rules!.length;
@@ -151,10 +148,7 @@ test.concurrent("when additional plugins are provided, append the provided plugi
     const newPlugin2 = new Plugin2();
 
     const result = defineDevConfig(DefaultSwcConfig, {
-        plugins: [
-            newPlugin1,
-            newPlugin2
-        ]
+        plugins: [newPlugin1, newPlugin2]
     });
 
     const pluginsCount = result.plugins!.length;
@@ -163,7 +157,7 @@ test.concurrent("when additional plugins are provided, append the provided plugi
     expect(result.plugins![pluginsCount - 1]).toBe(newPlugin2);
 });
 
-test.concurrent("when htmlWebpackPlugin is \"false\", no html-webpack-plugin instance is added to the plugin array", ({ expect }) => {
+test.concurrent('when htmlWebpackPlugin is "false", no html-webpack-plugin instance is added to the plugin array', ({ expect }) => {
     const config = defineDevConfig(DefaultSwcConfig, {
         htmlWebpackPlugin: false
     });
@@ -173,7 +167,7 @@ test.concurrent("when htmlWebpackPlugin is \"false\", no html-webpack-plugin ins
     expect(result).toBeUndefined();
 });
 
-test.concurrent("when htmlWebpackPlugin is \"true\", an html-webpack-plugin instance is added to the plugin array", ({ expect }) => {
+test.concurrent('when htmlWebpackPlugin is "true", an html-webpack-plugin instance is added to the plugin array', ({ expect }) => {
     const config = defineDevConfig(DefaultSwcConfig, {
         htmlWebpackPlugin: true
     });
@@ -183,7 +177,7 @@ test.concurrent("when htmlWebpackPlugin is \"true\", an html-webpack-plugin inst
     expect(result).toBeDefined();
 });
 
-test.concurrent("the environment variables plugin is discoverable via matchConstructorName(\"DefinePlugin\")", ({ expect }) => {
+test.concurrent('the environment variables plugin is discoverable via matchConstructorName("DefinePlugin")', ({ expect }) => {
     const config = defineDevConfig(DefaultSwcConfig);
 
     const result = findPlugin(config, matchConstructorName("DefinePlugin"));
@@ -294,7 +288,9 @@ test.concurrent("the provided swc config object is set as the swc-loader options
     expect((swcLoader?.moduleRule as RuleSetRule).options).toBe(config);
 });
 
-test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the webpack config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the webpack config", ({
+    expect
+}) => {
     const entryTransformer: WebpackConfigTransformer = (config: Configuration) => {
         config.entry = "a-custom-value-in-a-transformer";
 
@@ -308,7 +304,9 @@ test.concurrent("when a transformer is provided, and the transformer update the 
     expect(result.entry).toBe("a-custom-value-in-a-transformer");
 });
 
-test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the webpack config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the webpack config", ({
+    expect
+}) => {
     const entryTransformer: WebpackConfigTransformer = () => {
         return {
             entry: "a-custom-value-in-a-transformer"
@@ -343,7 +341,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     expect(result.devtool).toBe("custom-module-source-map-in-a-tranformer");
 });
 
-test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
+test.concurrent('transformers context environment is "dev"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineDevConfig(DefaultSwcConfig, {
@@ -353,7 +351,7 @@ test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
     expect(mockTransformer).toHaveBeenCalledWith(expect.anything(), { environment: "dev", verbose: false });
 });
 
-test.concurrent("when the verbose option is true, the transformers context verbose value is \"true\"", ({ expect }) => {
+test.concurrent('when the verbose option is true, the transformers context verbose value is "true"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineDevConfig(DefaultSwcConfig, {
@@ -423,4 +421,3 @@ describe("defineFastRefreshPluginConfig", () => {
         expect(result.exclude).toBe("a-custom-exclude");
     });
 });
-

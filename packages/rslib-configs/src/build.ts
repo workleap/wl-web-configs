@@ -44,7 +44,9 @@ export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
     } = options;
 
     if (!bundle && !tsconfigPath) {
-        throw new Error("[rslib-configs] When the \"bundle\" option is \"false\", a \"tsconfigPath\" option must be provided. We recommend including a tsconfig.build.json file specifically for compiling the library project.");
+        throw new Error(
+            '[rslib-configs] When the "bundle" option is "false", a "tsconfigPath" option must be provided. We recommend including a tsconfig.build.json file specifically for compiling the library project.'
+        );
     }
 
     let entry = entryValue;
@@ -63,12 +65,14 @@ export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
 
     const config = defineConfig({
         mode: "production",
-        lib: [{
-            format: "esm",
-            syntax,
-            bundle,
-            dts
-        }],
+        lib: [
+            {
+                format: "esm",
+                syntax,
+                bundle,
+                dts
+            }
+        ],
         source: {
             entry,
             tsconfigPath
@@ -80,11 +84,13 @@ export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
             minify: false,
             sourceMap
         },
-        plugins: ([
-            react && pluginReact(isFunction(react) ? react({}) : {}),
-            svgr && pluginSvgr(isFunction(svgr) ? svgr(svgrDefaultOptions) : svgrDefaultOptions),
-            ...plugins
-        ] as Rsbuild.RsbuildPlugins).filter(Boolean)
+        plugins: (
+            [
+                react && pluginReact(isFunction(react) ? react({}) : {}),
+                svgr && pluginSvgr(isFunction(svgr) ? svgr(svgrDefaultOptions) : svgrDefaultOptions),
+                ...plugins
+            ] as Rsbuild.RsbuildPlugins
+        ).filter(Boolean)
     });
 
     const transformedConfig = applyTransformers(config, transformers, {

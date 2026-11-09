@@ -1,10 +1,13 @@
 {
     "name": "@webpack-sample/tsup-lib",
-    "author": "Workleap",
     "version": "0.0.0",
-    "description": "tsup library to try the web configs.",
     "private": true,
+    "description": "tsup library to try the web configs.",
     "license": "Apache-2.0",
+    "author": "Workleap",
+    "files": [
+        "/dist"
+    ],
     "type": "module",
     "exports": {
         ".": {
@@ -13,9 +16,6 @@
             "default": "./dist/index.js"
         }
     },
-    "files": [
-        "/dist"
-    ],
     "scripts": {
         "dev": "tsup --config ./tsup.dev.ts",
         "dev-msw": "pnpm dev",

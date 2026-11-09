@@ -28,7 +28,7 @@ test.concurrent("when a matching module rule is found in the rules array, remove
     expect((config.module?.rules![1] as RuleSetRule).type).toBe("asset/resource");
 });
 
-test.concurrent("when a matching module rule is found in a \"oneOf\" prop, remove the module rule", ({ expect }) => {
+test.concurrent('when a matching module rule is found in a "oneOf" prop, remove the module rule', ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -58,17 +58,13 @@ test.concurrent("when a matching module rule is found in a \"oneOf\" prop, remov
     expect(((config.module?.rules![1] as RuleSetRule).oneOf![0] as RuleSetRule).type).toBe("asset/resource");
 });
 
-test.concurrent("when a matching module rule is found in a \"use\" prop, remove the module rule", ({ expect }) => {
+test.concurrent('when a matching module rule is found in a "use" prop, remove the module rule', ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
                 {
                     test: /\.(ts|tsx)/i,
-                    use: [
-                        { loader: "babel-loader" },
-                        { loader: "esbuild-loader" },
-                        { loader: "swc-loader" }
-                    ]
+                    use: [{ loader: "babel-loader" }, { loader: "esbuild-loader" }, { loader: "swc-loader" }]
                 },
                 {
                     test: /\.js/i,
@@ -124,7 +120,7 @@ test.concurrent("when multiple matching module rules are found within the same p
     expect((config.module?.rules![1] as RuleSetRule).type).toBe("asset/resource");
 });
 
-test.concurrent("when multiple matching module rules are found in the rules array and a \"oneOf\" prop, remove all the module rules", ({ expect }) => {
+test.concurrent('when multiple matching module rules are found in the rules array and a "oneOf" prop, remove all the module rules', ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -162,7 +158,7 @@ test.concurrent("when multiple matching module rules are found in the rules arra
     expect((config.module?.rules![2] as RuleSetRule).oneOf!.length).toBe(0);
 });
 
-test.concurrent("when multiple matching module rules are found in the rules array and a \"use\" prop, remove all the module rules", ({ expect }) => {
+test.concurrent('when multiple matching module rules are found in the rules array and a "use" prop, remove all the module rules', ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -180,9 +176,7 @@ test.concurrent("when multiple matching module rules are found in the rules arra
                 },
                 {
                     test: /\.(js|jsx)/i,
-                    use: [
-                        { loader: "swc-loader" }
-                    ]
+                    use: [{ loader: "swc-loader" }]
                 }
             ]
         }

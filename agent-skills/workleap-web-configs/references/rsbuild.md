@@ -28,10 +28,10 @@
 
 ## Available Functions
 
-| Function | Use Case |
-|----------|----------|
-| `defineDevConfig` | Development server |
-| `defineBuildConfig` | Production build |
+| Function                | Use Case              |
+| ----------------------- | --------------------- |
+| `defineDevConfig`       | Development server    |
+| `defineBuildConfig`     | Production build      |
 | `defineStorybookConfig` | Storybook integration |
 
 ## Installation
@@ -85,26 +85,26 @@ export default defineDevConfig();
 
 ### Predefined Options
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `entry` | object | `{ index: "./src/index.tsx" }` | Entry points |
-| `https` | boolean/function/object | `false` | Enable HTTPS. `true` generates a self-signed certificate via `rsbuild-plugin-basic-ssl`; pass a `(defaultOptions: PluginBasicSslOptions) => PluginBasicSslOptions` function to customize it, or an object to set a certificate manually |
-| `host` | string | `localhost` | Dev server host |
-| `port` | number | `8080` | Dev server port |
-| `assetPrefix` | string | `/` | Asset URL prefix |
-| `plugins` | array | `[]` | Rsbuild plugins |
-| `html` | false/function | default template | HTML template config |
-| `lazyCompilation` | boolean | `false` | Enable lazy compilation |
-| `hmr` | boolean | `true` | Enable HMR |
-| `fastRefresh` | boolean | `true` | Enable Fast Refresh |
-| `sourceMap` | false/object | `{ js: "cheap-module-source-map", css: true }` | Source maps |
-| `overlay` | false | undefined | Error overlay |
-| `writeToDisk` | true | undefined | Write output to disk |
-| `setup` | function/array | undefined | `server.setup` hook for custom middleware |
-| `react` | false/function | enabled | React transformation |
-| `svgr` | false/function | enabled | SVG as React components |
-| `verbose` | boolean | `false` | Verbose logging |
-| `environmentVariables` | object | `{}` | App environment variables |
+| Option                 | Type                    | Default                                        | Description                                                                                                                                                                                                                             |
+| ---------------------- | ----------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entry`                | object                  | `{ index: "./src/index.tsx" }`                 | Entry points                                                                                                                                                                                                                            |
+| `https`                | boolean/function/object | `false`                                        | Enable HTTPS. `true` generates a self-signed certificate via `rsbuild-plugin-basic-ssl`; pass a `(defaultOptions: PluginBasicSslOptions) => PluginBasicSslOptions` function to customize it, or an object to set a certificate manually |
+| `host`                 | string                  | `localhost`                                    | Dev server host                                                                                                                                                                                                                         |
+| `port`                 | number                  | `8080`                                         | Dev server port                                                                                                                                                                                                                         |
+| `assetPrefix`          | string                  | `/`                                            | Asset URL prefix                                                                                                                                                                                                                        |
+| `plugins`              | array                   | `[]`                                           | Rsbuild plugins                                                                                                                                                                                                                         |
+| `html`                 | false/function          | default template                               | HTML template config                                                                                                                                                                                                                    |
+| `lazyCompilation`      | boolean                 | `false`                                        | Enable lazy compilation                                                                                                                                                                                                                 |
+| `hmr`                  | boolean                 | `true`                                         | Enable HMR                                                                                                                                                                                                                              |
+| `fastRefresh`          | boolean                 | `true`                                         | Enable Fast Refresh                                                                                                                                                                                                                     |
+| `sourceMap`            | false/object            | `{ js: "cheap-module-source-map", css: true }` | Source maps                                                                                                                                                                                                                             |
+| `overlay`              | false                   | undefined                                      | Error overlay                                                                                                                                                                                                                           |
+| `writeToDisk`          | true                    | undefined                                      | Write output to disk                                                                                                                                                                                                                    |
+| `setup`                | function/array          | undefined                                      | `server.setup` hook for custom middleware                                                                                                                                                                                               |
+| `react`                | false/function          | enabled                                        | React transformation                                                                                                                                                                                                                    |
+| `svgr`                 | false/function          | enabled                                        | SVG as React components                                                                                                                                                                                                                 |
+| `verbose`              | boolean                 | `false`                                        | Verbose logging                                                                                                                                                                                                                         |
+| `environmentVariables` | object                  | `{}`                                           | App environment variables                                                                                                                                                                                                               |
 
 ### Examples
 
@@ -170,23 +170,23 @@ export default defineBuildConfig();
 
 ### Predefined Options
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `entry` | object | `{ index: "./src/index.tsx" }` | Entry points |
-| `distPath` | object | `{ root: "./dist" }` | Output directory (Rsbuild `output.distPath`) |
-| `assetPrefix` | string | `/` | Asset URL prefix |
-| `plugins` | array | `[]` | Rsbuild plugins |
-| `html` | false/function | default template | HTML template config |
-| `minify` | false/object | `true` | Code minification |
-| `optimize` | boolean/"readable" | `true` | Production optimization |
-| `sourceMap` | false/object | `{ js: "source-map", css: true }` | Source maps |
-| `polyfill` | "entry"/"usage"/"off" | `"usage"` | `output.polyfill` mode (core-js polyfills) |
-| `splitChunks` | object/false | `{ preset: "per-package", chunks: "all" }` | `splitChunks` strategy |
-| `react` | false/function | enabled | React transformation |
-| `svgr` | false/function | enabled | SVG as React components |
-| `compressImage` | false/function | enabled | Image compression |
-| `verbose` | boolean | `false` | Verbose logging |
-| `environmentVariables` | object | `{}` | App environment variables |
+| Option                 | Type                  | Default                                    | Description                                  |
+| ---------------------- | --------------------- | ------------------------------------------ | -------------------------------------------- |
+| `entry`                | object                | `{ index: "./src/index.tsx" }`             | Entry points                                 |
+| `distPath`             | object                | `{ root: "./dist" }`                       | Output directory (Rsbuild `output.distPath`) |
+| `assetPrefix`          | string                | `/`                                        | Asset URL prefix                             |
+| `plugins`              | array                 | `[]`                                       | Rsbuild plugins                              |
+| `html`                 | false/function        | default template                           | HTML template config                         |
+| `minify`               | false/object          | `true`                                     | Code minification                            |
+| `optimize`             | boolean/"readable"    | `true`                                     | Production optimization                      |
+| `sourceMap`            | false/object          | `{ js: "source-map", css: true }`          | Source maps                                  |
+| `polyfill`             | "entry"/"usage"/"off" | `"usage"`                                  | `output.polyfill` mode (core-js polyfills)   |
+| `splitChunks`          | object/false          | `{ preset: "per-package", chunks: "all" }` | `splitChunks` strategy                       |
+| `react`                | false/function        | enabled                                    | React transformation                         |
+| `svgr`                 | false/function        | enabled                                    | SVG as React components                      |
+| `compressImage`        | false/function        | enabled                                    | Image compression                            |
+| `verbose`              | boolean               | `false`                                    | Verbose logging                              |
+| `environmentVariables` | object                | `{}`                                       | App environment variables                    |
 
 ### Examples
 
@@ -269,15 +269,15 @@ export default storybookConfig;
 
 ### Predefined Options
 
-| Option | Type | Default |
-|--------|------|---------|
-| `plugins` | array | `[]` |
-| `lazyCompilation` | boolean | `true` |
-| `sourceMap` | false/object | `{ js: "cheap-module-source-map", css: true }` |
-| `react` | false/function | enabled |
-| `svgr` | false/function | enabled |
-| `verbose` | boolean | `false` |
-| `environmentVariables` | object | `{}` |
+| Option                 | Type           | Default                                        |
+| ---------------------- | -------------- | ---------------------------------------------- |
+| `plugins`              | array          | `[]`                                           |
+| `lazyCompilation`      | boolean        | `true`                                         |
+| `sourceMap`            | false/object   | `{ js: "cheap-module-source-map", css: true }` |
+| `react`                | false/function | enabled                                        |
+| `svgr`                 | false/function | enabled                                        |
+| `verbose`              | boolean        | `false`                                        |
+| `environmentVariables` | object         | `{}`                                           |
 
 ## Configuration Transformers
 

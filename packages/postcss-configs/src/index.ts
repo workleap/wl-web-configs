@@ -23,11 +23,7 @@ export interface DefineConfigOptions {
 }
 
 export function defineConfig(options: DefineConfigOptions = {}) {
-    const {
-        browsers,
-        presetEnvOptions = DefaultPresetEnvOptions,
-        transformers = []
-    } = options;
+    const { browsers, presetEnvOptions = DefaultPresetEnvOptions, transformers = [] } = options;
 
     let _options: PostcssPresetEnvOptions = presetEnvOptions;
 

@@ -107,9 +107,9 @@ Use `agent-browser` for all browser interactions in this step. It is installed a
 1. Start the dev server in the background using the shell `&` operator (do NOT use `run_in_background: true`): `pnpm dev-rsbuild > /tmp/rsbuild-dev.log 2>&1 &`
 2. The rsbuild app listens on port **8080**. Wait for it to be ready — do NOT use `sleep`, do NOT write polling loops, do NOT parse the log file for a URL. Instead, immediately run: `curl --retry 30 --retry-delay 5 --retry-connrefused --silent --output /dev/null http://localhost:8080`
 3. Navigate to the following pages and check that each renders without errors:
-   - `/` (Home page)
-   - `/about`
-   - `/fetch`
+    - `/` (Home page)
+    - `/about`
+    - `/fetch`
 4. For each page, use `agent-browser snapshot` to verify the page rendered content, and use `agent-browser console` to check for console errors (ignore warnings and known noise like network errors from `/api/pokemons` when MSW is not enabled)
 5. Stop the dev server process when done: `kill $(lsof -t -i:8080) 2>/dev/null || true; fuser -k 8080/tcp 2>/dev/null || true`
 
@@ -121,9 +121,9 @@ Use `agent-browser` for all browser interactions in this step. It is installed a
 2. Start the dev server in the background using the shell `&` operator (do NOT use `run_in_background: true`): `pnpm dev-webpack > /tmp/webpack-dev.log 2>&1 &`
 3. The webpack app listens on port **8080**. Wait for it to be ready — do NOT use `sleep`, do NOT write polling loops, do NOT parse the log file for a URL. Instead, immediately run: `curl --retry 30 --retry-delay 5 --retry-connrefused --silent --output /dev/null http://localhost:8080`
 4. Navigate to the following pages and check that each renders without errors:
-   - `/` (Home page)
-   - `/about`
-   - `/fetch`
+    - `/` (Home page)
+    - `/about`
+    - `/fetch`
 5. For each page, use `agent-browser snapshot` to verify the page rendered content, and use `agent-browser console` to check for console errors (ignore warnings and known noise like network errors from `/api/pokemons` when MSW is not enabled)
 6. Stop the dev server process when done: `kill $(lsof -t -i:8080) 2>/dev/null || true; fuser -k 8080/tcp 2>/dev/null || true`
 

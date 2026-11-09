@@ -11,12 +11,8 @@ function getAbsolutePath(value: string): any {
 
 const storybookConfig: StorybookConfig = {
     framework: getAbsolutePath("storybook-react-rsbuild"),
-    addons: [
-        getAbsolutePath("@storybook/addon-a11y")
-    ],
-    stories: [
-        "../../../rsbuild/components/src/**/*.stories.(tsx|mdx)"
-    ]
+    addons: [getAbsolutePath("@storybook/addon-a11y")],
+    stories: ["../../../rsbuild/components/src/**/*.stories.(tsx|mdx)"]
 };
 
 export default storybookConfig;

@@ -266,12 +266,14 @@ function TodoList() {
 ```
 
 **When to use functional updates:**
+
 - Any setState that depends on the current state value
 - Inside useCallback/useMemo when state is needed
 - Event handlers that reference state
 - Async operations that update state
 
 **When direct updates are fine:**
+
 - Setting state to a static value: `setCount(0)`
 - Setting state from props/arguments only: `setName(newName)`
 

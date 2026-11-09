@@ -21,13 +21,7 @@ const config: Config = {
         "selector-pseudo-class-no-unknown": [
             true,
             {
-                ignorePseudoClasses: [
-                    "export",
-                    "import",
-                    "global",
-                    "local",
-                    "external"
-                ]
+                ignorePseudoClasses: ["export", "import", "global", "local", "external"]
             }
         ],
 

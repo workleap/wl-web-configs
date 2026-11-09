@@ -1,60 +1,38 @@
 {
     "name": "@workleap/eslint-configs",
-    "author": "Workleap",
-    "description": "Workleap recommended ESLint configurations.",
     "version": "2.1.3",
+    "description": "Workleap recommended ESLint configurations.",
     "license": "Apache-2.0",
+    "author": "Workleap",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/workleap/wl-web-configs.git",
         "directory": "packages/eslint-configs"
     },
-    "type": "module",
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/",
-        "provenance": true,
-        "exports": {
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        }
-    },
-    "exports": "./src/index.ts",
-    "sideEffects": false,
     "files": [
         "src",
         "dist",
         "skills",
         "CHANGELOG.md"
     ],
+    "type": "module",
+    "sideEffects": false,
+    "exports": "./src/index.ts",
+    "publishConfig": {
+        "exports": {
+            ".": {
+                "types": "./dist/index.d.ts",
+                "import": "./dist/index.js",
+                "default": "./dist/index.js"
+            }
+        },
+        "access": "public",
+        "provenance": true,
+        "registry": "https://registry.npmjs.org/"
+    },
     "scripts": {
         "build": "rslib build -c rslib.config.ts",
         "typecheck": "tsgo"
-    },
-    "peerDependencies": {
-        "@eslint/js": "^9.39.2",
-        "@typescript-eslint/parser": "^8.72.1",
-        "eslint": "^9.39.2",
-        "storybook": "^10.6.5",
-        "typescript": "^6.0.3",
-        "typescript-eslint": "^8.72.1"
-    },
-    "peerDependenciesMeta": {
-        "@typescript-eslint/parser": {
-            "optional": true
-        },
-        "storybook": {
-            "optional": true
-        },
-        "typescript-eslint": {
-            "optional": true
-        },
-        "typescript": {
-            "optional": true
-        }
     },
     "dependencies": {
         "@stylistic/eslint-plugin": "^5.10.0",
@@ -83,5 +61,27 @@
         "eslint": "9.39.2",
         "typescript": "6.0.3",
         "typescript-eslint": "8.72.1"
+    },
+    "peerDependencies": {
+        "@eslint/js": "^9.39.2",
+        "@typescript-eslint/parser": "^8.72.1",
+        "eslint": "^9.39.2",
+        "storybook": "^10.6.5",
+        "typescript": "^6.0.3",
+        "typescript-eslint": "^8.72.1"
+    },
+    "peerDependenciesMeta": {
+        "@typescript-eslint/parser": {
+            "optional": true
+        },
+        "storybook": {
+            "optional": true
+        },
+        "typescript-eslint": {
+            "optional": true
+        },
+        "typescript": {
+            "optional": true
+        }
     }
 }

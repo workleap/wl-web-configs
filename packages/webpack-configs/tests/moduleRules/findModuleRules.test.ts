@@ -52,7 +52,7 @@ test.concurrent("when multiple matching rules are found in the rules array, retu
     expect((result![1].moduleRule as RuleSetRule).test?.toString()).toBe(/\.svg/i.toString());
 });
 
-test.concurrent("when multiple matching rules are found in a \"oneOf\" prop, return the module rules", ({ expect }) => {
+test.concurrent('when multiple matching rules are found in a "oneOf" prop, return the module rules', ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -90,15 +90,13 @@ test.concurrent("when multiple matching rules are found in a \"oneOf\" prop, ret
     expect((result![1].moduleRule as RuleSetRule).test?.toString()).toBe(/\.svg/i.toString());
 });
 
-test.concurrent("when multiple matching rules are found in a \"use\" prop, return the module rules", ({ expect }) => {
+test.concurrent('when multiple matching rules are found in a "use" prop, return the module rules', ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
                 {
                     test: /\.(ts|tsx)/i,
-                    use: [
-                        { loader: "swc-loader" }
-                    ]
+                    use: [{ loader: "swc-loader" }]
                 },
                 {
                     test: /\.js/i,
@@ -113,9 +111,7 @@ test.concurrent("when multiple matching rules are found in a \"use\" prop, retur
                 },
                 {
                     test: /\.(js|jsx)/i,
-                    use: [
-                        { loader: "swc-loader" }
-                    ]
+                    use: [{ loader: "swc-loader" }]
                 }
             ]
         }
@@ -127,14 +123,14 @@ test.concurrent("when multiple matching rules are found in a \"use\" prop, retur
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    expect((result![0].moduleRule).loader).toBe("swc-loader");
+    expect(result![0].moduleRule.loader).toBe("swc-loader");
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    expect((result![1].moduleRule).loader).toBe("swc-loader");
+    expect(result![1].moduleRule.loader).toBe("swc-loader");
 });
 
-test.concurrent("when multiple matching rules are found in the rules array and a \"oneOf\" prop, return the module rules", ({ expect }) => {
+test.concurrent('when multiple matching rules are found in the rules array and a "oneOf" prop, return the module rules', ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -172,7 +168,7 @@ test.concurrent("when multiple matching rules are found in the rules array and a
     expect((result![1].moduleRule as RuleSetRule).test?.toString()).toBe(/\.svg/i.toString());
 });
 
-test.concurrent("when multiple matching rules are found in the rules array and a \"use\" prop, return the module rules", ({ expect }) => {
+test.concurrent('when multiple matching rules are found in the rules array and a "use" prop, return the module rules', ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
@@ -189,9 +185,7 @@ test.concurrent("when multiple matching rules are found in the rules array and a
                 },
                 {
                     test: /\.(js|jsx)/i,
-                    use: [
-                        { loader: "swc-loader" }
-                    ]
+                    use: [{ loader: "swc-loader" }]
                 },
                 {
                     test: /\.svg/i,
@@ -207,11 +201,11 @@ test.concurrent("when multiple matching rules are found in the rules array and a
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    expect((result![0].moduleRule).loader).toBe("swc-loader");
+    expect(result![0].moduleRule.loader).toBe("swc-loader");
     // Type inference is broken because RuleSetUseItem can be a string.
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    expect((result![1].moduleRule).loader).toBe("swc-loader");
+    expect(result![1].moduleRule.loader).toBe("swc-loader");
 });
 
 test.concurrent("when there are no matching rule, return an empty array", ({ expect }) => {
@@ -266,7 +260,7 @@ test.concurrent("when a module rule is undefined, do not throw", ({ expect }) =>
     expect(() => findModuleRules(config, matchAssetModuleType("asset/inline"))).not.toThrow();
 });
 
-test.concurrent("when an undefined module rule is nested in a \"oneOf\" prop, do not throw", ({ expect }) => {
+test.concurrent('when an undefined module rule is nested in a "oneOf" prop, do not throw', ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
