@@ -36,7 +36,7 @@ This project uses PNPM workspace, therefore, you must [install PNPM](https://pnp
 
 npm dependencies are installed through the `gsoft` GitHub package firewall (configured in the repository [.npmrc](.npmrc)). Only members of the `gsoft` enterprise can install the dependencies.
 
-1. Run `gh auth login` and authorize the `gsoft` SSO.
+1. Run `gh auth login` and choose "Login with a web browser". On the browser authorization page, under **Organization access**, click **Authorize** next to your Workleap organizations (e.g. `workleap`). `gsoft` is the enterprise slug, so it won't be listed. If there's no **Authorize** button, the GitHub CLI is already authorized.
 2. Append the token to your **user-level** `~/.npmrc`:
 
 PowerShell:
@@ -51,10 +51,26 @@ bash:
 echo "//package-firewall.githubapp.com/npm/enterprises/gsoft/:_authToken=$(gh auth token)" >> ~/.npmrc
 ```
 
+3. Verify that the token was added to your `~/.npmrc`:
+
+PowerShell:
+
+```powershell
+Get-Content "$HOME\.npmrc"
+```
+
+bash:
+
+```bash
+cat ~/.npmrc
+```
+
+The output should include a line like `//package-firewall.githubapp.com/npm/enterprises/gsoft/:_authToken=gho_...`, and only one such line. If there's more than one, delete the older ones.
+
 > [!WARNING]
 > Never put the token in the repository `.npmrc`, pnpm ignores auth tokens set in a repository `.npmrc`.
 
-A `401` from the firewall means that the token is missing or expired. Run `gh auth login` again and replace the line in your `~/.npmrc`.
+A `401` from the firewall means the token is missing, expired, or not SSO-authorized for your Workleap organizations. Check the organization access of the GitHub CLI app at https://github.com/settings/applications, then run `gh auth login` again and replace the line in your `~/.npmrc`.
 
 ### Install the dependencies
 
