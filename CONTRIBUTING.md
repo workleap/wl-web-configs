@@ -343,6 +343,10 @@ Some dependencies are deliberately excluded from `update-outdated-deps` with `!<
 | `typescript` | `typescript-eslint` 8.x rejects TS 7.0 (`typescript-eslint does not support TS 7.0`), which breaks loading `eslint.config.ts`. `typescript@6` stays for ESLint and VS Code, while `@typescript/native-preview` (`tsgo`) already provides TS 7 for `typecheck`. See [#468](https://github.com/workleap/wl-web-configs/issues/468). | When `typescript-eslint` ships TS 7.0 support ([typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940)). |
 | `webpack-dev-server` | v6 is only safe as a *widening* of the `@workleap/webpack-configs` peer to `"^5.2.4 \|\| ^6.0.0"` (consumers also need `webpack-cli >= 7.2.1`). `syncpack fix` cannot express a multi-range peer, so it narrows the peer to `^6.0.0` and drops wds5 for every consumer. See [#452](https://github.com/workleap/wl-web-configs/issues/452). | When the peer is manually widened to `"^5.2.4 \|\| ^6.0.0"` as part of #452. |
 
+### GitHub Actions
+
+[Renovate](./renovate.json) updates the GitHub Actions used by the workflows on a schedule. To bump them on demand, run `/_update-github-actions` with Claude Code (or select GitHub Actions in `/_update-third-parties`).
+
 ## CI
 
 We use [GitHub Actions](https://docs.github.com/en/actions) for this repository.
