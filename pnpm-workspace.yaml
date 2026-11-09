@@ -21,3 +21,11 @@ allowBuilds:
   sharp: true
   unix-dgram: true
   unrs-resolver: true
+
+# The gsoft GitHub package firewall blocks these versions (AttestationDowngradePolicy: published without
+# the SLSA provenance an earlier version had). Pin to the closest version the firewall serves.
+# Remove an entry once a newer version that the firewall serves is in range.
+overrides:
+  '@workleap/eslint-configs>eslint-plugin-react-hooks': 7.1.0
+  'eslint-plugin-react-hooks>zod-validation-error': 3.5.4
+  'ts-checker-rspack-plugin>chokidar': 4.0.1
