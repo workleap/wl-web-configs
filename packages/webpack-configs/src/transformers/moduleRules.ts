@@ -72,6 +72,7 @@ export function matchTest(test: string | RegExp): ModuleRuleMatcher {
         if (typeof moduleRule !== "string" && "test" in moduleRule) {
             if (typeof moduleRule.test === "object" && typeof test === "object") {
                 // Assuming it's regular expressions.
+                // oxlint-disable-next-line typescript/no-base-to-string -- A RegExp stringifies to its source and flags.
                 return moduleRule.test.toString() === test.toString();
             }
 
@@ -125,7 +126,6 @@ function findModuleRulesRecursively(
                     } else if (x.oneOf) {
                         // This error seems to have been introduced by either TS 5.2. or webpack 5.88.1 (https://github.com/webpack/webpack/releases/tag/v5.88.1),
                         // I am not sure what changed thought.
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         findModuleRulesRecursively(x.oneOf, matcher, x.oneOf, matches);
                     }
@@ -238,7 +238,7 @@ export function removeModuleRules(config: WebpackConfig, matcher: ModuleRuleMatc
         const matcherInfo = (matcher as WithModuleRuleMatcherInfo).info;
 
         throw new Error(
-            `[webpack-configs] Didn't remove any module rules because no match has been found.\n[webpack-configs] Matcher: "${matcherInfo}"`
+            `[webpack-configs] Didn't remove any module rules because no match has been found.\n[webpack-configs] Matcher: "${JSON.stringify(matcherInfo)}"`
         );
     }
 }

@@ -25,10 +25,10 @@ export interface DefineConfigOptions {
 export function defineConfig(options: DefineConfigOptions = {}) {
     const { browsers, presetEnvOptions = DefaultPresetEnvOptions, transformers = [] } = options;
 
-    let _options: PostcssPresetEnvOptions = presetEnvOptions;
+    let resolvedPresetEnvOptions: PostcssPresetEnvOptions = presetEnvOptions;
 
     if (browsers) {
-        _options = {
+        resolvedPresetEnvOptions = {
             ...presetEnvOptions,
             browsers
         };
@@ -37,9 +37,8 @@ export function defineConfig(options: DefineConfigOptions = {}) {
     const config: PostCSSConfig = {
         plugins: [
             // Typings are wrong, it's callable.
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            postcssPresetEnv(_options)
+            postcssPresetEnv(resolvedPresetEnvOptions)
         ]
     };
 

@@ -85,7 +85,6 @@ test.concurrent('when a matching module rule is found in a "use" prop, remove th
 
     expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[]).length).toBe(2);
     // Type inference is broken because RuleSetUseItem can be a string.
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     expect(((config.module?.rules![0] as RuleSetRule).use as RuleSetUseItem[])[0].loader).toBe("esbuild-loader");
 });

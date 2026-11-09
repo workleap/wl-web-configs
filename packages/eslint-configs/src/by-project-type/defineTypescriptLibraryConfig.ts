@@ -1,7 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import { type CoreConfigOptions, coreGlobalIgnores, defineCoreConfig } from "../core.ts";
 import { defineJestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
-import { defineJsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
+import { defineJsonConfig, type JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
 import { definePackageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
 import { defineTestingLibraryConfig, type TestingLibraryConfigOptions, testingLibraryGlobalIgnores } from "../testingLibrary.ts";

@@ -343,7 +343,6 @@ test.concurrent("when a module rule is undefined, do not throw", ({ expect }) =>
         module: {
             rules: [
                 // Since Webpack configs are usually untyped, it's preferable to test this.
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 undefined,
                 {
@@ -368,7 +367,6 @@ test.concurrent('when an undefined module rule is nested in a "oneOf" prop, do n
                 {
                     oneOf: [
                         // Since Webpack configs are usually untyped, it's preferable to test this.
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         undefined
                     ]

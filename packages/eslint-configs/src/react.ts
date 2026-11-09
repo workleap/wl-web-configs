@@ -108,7 +108,7 @@ export function defineReactConfig(options: ReactConfigOptions = {}) {
                 "react-hooks/set-state-in-effect": "off",
 
                 // React hooks "compiler" related rules
-                ...(compiler === false
+                ...(!compiler
                     ? {
                           "react-hooks/gating": "off",
                           "react-hooks/incompatible-library": "off",

@@ -69,7 +69,9 @@ export default defineConfig({
         "typescript/switch-exhaustiveness-check": ["warn", { considerDefaultExhaustiveForUnions: true }],
         "typescript/use-unknown-in-catch-callback-variable": "warn",
         "jsx-a11y/no-autofocus": "off",
-        "jsx-a11y/anchor-is-valid": "warn"
+        "jsx-a11y/anchor-is-valid": "warn",
+        // `vi.fn()` without type parameters is fine when the test never reads the mock's arguments back.
+        "vitest/require-mock-type-parameters": "off"
     },
     overrides: [
         {
@@ -90,7 +92,19 @@ export default defineConfig({
                 "jest/no-conditional-expect": "off",
                 "typescript/no-explicit-any": "off",
                 // `expect(spy.method)` reads the method unbound by design.
-                "typescript/unbound-method": "off"
+                "typescript/unbound-method": "off",
+                // Assertions such as `config.module?.rules![1]` assert the shape under test: a crash is a failed test.
+                "eslint/no-unsafe-optional-chaining": "off",
+                // Assertions compare webpack's RuleSetCondition (a RegExp at runtime) through `toString()`.
+                "typescript/no-base-to-string": "off"
+            }
+        },
+        {
+            // The ESLint plugins expose their configs both as a named export and on the default export.
+            // @workleap/eslint-configs is removed in #509.
+            files: ["packages/eslint-configs/**"],
+            rules: {
+                "import/no-named-as-default-member": "off"
             }
         }
     ]

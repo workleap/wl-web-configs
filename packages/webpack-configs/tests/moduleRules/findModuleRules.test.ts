@@ -121,11 +121,9 @@ test.concurrent('when multiple matching rules are found in a "use" prop, return 
 
     expect(result?.length).toBe(2);
     // Type inference is broken because RuleSetUseItem can be a string.
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     expect(result![0].moduleRule.loader).toBe("swc-loader");
     // Type inference is broken because RuleSetUseItem can be a string.
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     expect(result![1].moduleRule.loader).toBe("swc-loader");
 });
@@ -199,11 +197,9 @@ test.concurrent('when multiple matching rules are found in the rules array and a
 
     expect(result?.length).toBe(2);
     // Type inference is broken because RuleSetUseItem can be a string.
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     expect(result![0].moduleRule.loader).toBe("swc-loader");
     // Type inference is broken because RuleSetUseItem can be a string.
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     expect(result![1].moduleRule.loader).toBe("swc-loader");
 });
@@ -242,7 +238,6 @@ test.concurrent("when a module rule is undefined, do not throw", ({ expect }) =>
         module: {
             rules: [
                 // Since Webpack configs are usually untyped, it's preferable to test this.
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 undefined,
                 {
@@ -267,7 +262,6 @@ test.concurrent('when an undefined module rule is nested in a "oneOf" prop, do n
                 {
                     oneOf: [
                         // Since Webpack configs are usually untyped, it's preferable to test this.
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         undefined
                     ]

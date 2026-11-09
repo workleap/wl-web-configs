@@ -202,10 +202,8 @@ test.concurrent("when css modules is enabled, include css modules configuration"
     const cssLoader = findModuleRule(result, matchLoaderName("css-loader"));
 
     // css-loader doesn't provide typings.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect(((cssLoader!.moduleRule as RuleSetRule).options as any).modules).toBeTruthy();
     // css-loader doesn't provide typings.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect(((cssLoader!.moduleRule as RuleSetRule).options as any).importLoaders).toBe(1);
 });
 
@@ -304,6 +302,7 @@ test.concurrent('when the verbose option is true, the transformers context verbo
 });
 
 // TODO: The test do not pass on UNIX system becase of \\, fix this later,
+// oxlint-disable-next-line vitest/no-commented-out-tests -- Kept until the test passes on UNIX.
 // test.concurrent("by default, an svgr rule is added and the assets loader do not handle .svg files", ({ expect }) => {
 //     const result = defineBuildConfig(SwcConfig);
 

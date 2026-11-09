@@ -92,7 +92,7 @@ export function getOptimizationConfig(optimize: OptimizeOption): Optimization | 
         };
     }
 
-    if (optimize === false) {
+    if (!optimize) {
         // Doesn't turn off everything but is good enough to help with debugging scenarios.
         return {
             chunkIds: "named",

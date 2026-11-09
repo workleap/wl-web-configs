@@ -119,16 +119,16 @@ export function createSwcTargetsFromBrowserslistEntries(entries: string[]) {
 
             // Let's make TS happy as we are now certain that the browser is part
             // of the supported browsers list.
-            const _browser = browser as keyof typeof SwcSupportedBrowsers;
+            const supportedBrowser = browser as keyof typeof SwcSupportedBrowsers;
 
             // SWC "env.targets" only support a single entry per target (browser).
             // Therefore, we loop through the browser versions to keep only the oldest one.
-            if (acc[_browser]) {
-                if (parseFloat(acc[_browser]) > parseFloat(version)) {
-                    acc[_browser] = version;
+            if (acc[supportedBrowser]) {
+                if (parseFloat(acc[supportedBrowser]) > parseFloat(version)) {
+                    acc[supportedBrowser] = version;
                 }
             } else {
-                acc[_browser] = version;
+                acc[supportedBrowser] = version;
             }
 
             return acc;

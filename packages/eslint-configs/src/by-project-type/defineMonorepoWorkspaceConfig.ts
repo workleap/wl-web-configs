@@ -1,6 +1,6 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import { type CoreConfigOptions, coreGlobalIgnores, defineCoreConfig } from "../core.ts";
-import { defineJsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
+import { defineJsonConfig, type JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
 import { definePackageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { defineTypeScriptConfig, type TypeScriptConfigOptions, typescriptGlobalIgnores } from "../typescript.ts";
 import { defineYamlConfig, type YamlConfigOptions, yamlGlobalIgnores } from "../yaml.ts";
