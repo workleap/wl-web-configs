@@ -16,6 +16,10 @@ Default tooling configurations for building web applications at [Workleap](https
 | [@workleap/rsbuild-configs](packages/rsbuild-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/rsbuild-configs)](https://www.npmjs.com/package/@workleap/rsbuild-configs) |
 | [@workleap/rslib-configs](packages/rslib-configs/README.md) | [![npm version](https://img.shields.io/npm/v/@workleap/rslib-configs)](https://www.npmjs.com/package/@workleap/rslib-configs) |
 
+### Migrate from ESLint to oxlint and oxfmt
+
+`@workleap/eslint-configs` is deprecated in favor of [oxlint](https://oxc.rs/docs/guide/usage/linter.html) and [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html). Follow the [migration guide](https://workleap.github.io/wl-web-configs/oxlint/migrate-from-eslint-configs/).
+
 ## Have a question or found an issue?
 
 To ask a question or propose an idea, feel free to start a new [discussion](https://github.com/workleap/wl-web-configs/discussions). If you found a bug, please open an [issue](https://github.com/workleap/wl-web-configs/issues).

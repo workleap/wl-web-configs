@@ -7,6 +7,10 @@ toc:
 
 # ESLint
 
+!!!warning
+`@workleap/eslint-configs` is deprecated in favor of oxlint and oxfmt. Follow the [migration guide](../oxlint/migrate-from-eslint-configs.md).
+!!!
+
 ## By project type configurations
 
 Typically, [ESLint](https://eslint.org/) shareable configuration libraries are architectured around the idea that [shared configurations](https://eslint.org/docs/latest/extend/shareable-configs) should be small and composable to accommodate any potential use cases that a development team might encounter.
