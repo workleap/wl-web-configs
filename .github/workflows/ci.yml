@@ -39,6 +39,15 @@ jobs:
             cache: pnpm
             cache-dependency-path: pnpm-lock.yaml
 
+      - name: Check that the lockfile does not bypass the GitHub package firewall
+        # A direct registry.npmjs.org tarball URL in the lockfile makes frozen installs skip the firewall.
+        # .pnpmfile.cjs strips them on every resolution; this catches a lockfile written without the hook.
+        run: |
+          if grep -q "registry.npmjs.org" pnpm-lock.yaml; then
+            echo "::error file=pnpm-lock.yaml::pnpm-lock.yaml contains direct registry.npmjs.org URLs. Run 'pnpm install --no-frozen-lockfile' to regenerate it through .pnpmfile.cjs."
+            exit 1
+          fi
+
       - name: Authenticate to the GitHub package firewall
         # pnpm ignores auth tokens set in a repository .npmrc, so the job token goes in the user-level ~/.npmrc.
         env:

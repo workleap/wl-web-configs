@@ -167,6 +167,8 @@ overrides:
   eslint-plugin-react-hooks>zod-validation-error: 5.0.0
   ts-checker-rspack-plugin>chokidar: 4.0.1
 
+pnpmfileChecksum: sha256-1rtdWrWdCeNy3yjTjnbcJIPE8dlTnRXnwrFCBMBbId4=
+
 importers:
 
   .:
