@@ -16,6 +16,13 @@
     "[html]": {
         "editor.formatOnSave": false
     },
+    // oxfmt doesn't format CSS: Stylelint does, through stylelint-prettier and .prettierrc.json5.
+    "[css]": {
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": "explicit"
+        }
+    },
 
     // Languages
     "typescript.preferences.useAliasesForRenames": false,

@@ -108,7 +108,8 @@ export function defineReactConfig(options: ReactConfigOptions = {}) {
                 "react-hooks/set-state-in-effect": "off",
 
                 // React hooks "compiler" related rules
-                ...(!compiler
+                // oxlint-disable-next-line typescript/no-unnecessary-boolean-literal-compare -- A plain-JS caller can pass a falsy non-boolean, which must not mean "off".
+                ...(compiler === false
                     ? {
                           "react-hooks/gating": "off",
                           "react-hooks/incompatible-library": "off",

@@ -41,7 +41,7 @@
             "outputs": []
         },
         "//#oxfmt:check": {
-            "inputs": ["$TURBO_DEFAULT$", "!docs/**"],
+            "inputs": ["$TURBO_DEFAULT$", "!docs/**", "!**/*.css"],
             "outputs": []
         },
         "stylelint": {

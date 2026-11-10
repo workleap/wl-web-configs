@@ -1,10 +1,10 @@
 // oxfmt formats this repository and reads its options from oxfmt.config.ts.
 //
 // @workleap/stylelint-configs enables stylelint-prettier, which hands CSS to Prettier itself, not oxfmt.
-// Prettier resolves its own config: without this file it falls back to its defaults (printWidth: 80, tabWidth: 2)
-// and fights oxfmt over every CSS file.
+// Prettier resolves its own config: without this file it falls back to its defaults (printWidth: 80, tabWidth: 2).
 //
-// The CSS-scoped override mirrors oxfmt.config.ts so both tools produce the same CSS. Keep them in sync.
+// oxfmt ignores CSS, so Prettier is the only CSS formatter. The CSS-scoped override uses the options of
+// oxfmt.config.ts so CSS looks like the rest of the code. Keep them in sync.
 // It's scoped to CSS because oxfmt owns every other file type.
 {
     $schema: "https://json.schemastore.org/prettierrc",

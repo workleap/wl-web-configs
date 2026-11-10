@@ -306,7 +306,7 @@ pnpm oxfmt
 pnpm oxfmt:check
 ```
 
-`@workleap/stylelint-configs` formats CSS through Prettier (`stylelint-prettier`), not oxfmt. The CSS-scoped `.prettierrc.json5` mirrors `oxfmt.config.ts` so both produce the same CSS: keep them in sync.
+oxfmt ignores CSS: `@workleap/stylelint-configs` formats it through Prettier (`stylelint-prettier`) instead, since the two don't always produce the same CSS. Fix CSS formatting with `pnpm stylelint --fix` in the project, or on save in VS Code. The CSS-scoped `.prettierrc.json5` uses the options of `oxfmt.config.ts`: keep them in sync.
 
 ### changeset
 
