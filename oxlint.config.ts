@@ -8,7 +8,7 @@ export default defineConfig({
     ignorePatterns: [".agents/**", ".claude/**", "docs/**", "**/mockServiceWorker.js"],
     // Setting `plugins` overwrites oxlint's default plugin set (eslint, typescript, unicorn, oxc),
     // so the defaults must be listed explicitly alongside the extras we want enabled.
-    plugins: ["eslint", "typescript", "unicorn", "oxc", "react", "import", "jsx-a11y", "promise", "vitest"],
+    plugins: ["eslint", "typescript", "unicorn", "oxc", "react", "import", "jsx-a11y", "promise", "react-perf"],
     // Type-aware rules run through oxlint-tsgolint, like the type-checked typescript-eslint rules
     // @workleap/eslint-configs enabled.
     options: { typeAware: true },
@@ -69,15 +69,27 @@ export default defineConfig({
         "typescript/switch-exhaustiveness-check": ["warn", { considerDefaultExhaustiveForUnions: true }],
         "typescript/use-unknown-in-catch-callback-variable": "warn",
         "jsx-a11y/no-autofocus": "off",
-        "jsx-a11y/anchor-is-valid": "warn",
-        // `vi.fn()` without type parameters is fine when the test never reads the mock's arguments back.
-        "vitest/require-mock-type-parameters": "off"
+        "jsx-a11y/anchor-is-valid": "warn"
     },
     overrides: [
         {
-            // The webpack samples test with Jest instead of Vitest.
-            files: ["samples/webpack/app/**", "samples/webpack/components/**"],
-            plugins: ["jest"]
+            // Every project tests with Vitest, except the webpack samples, which test with Jest. Each plugin is enabled only
+            // where its runner is used: the two plugins share most rules, so enabling both reports every finding twice.
+            // A plugin's rules can only be configured in the override that enables it: a later override is ignored.
+            files: ["packages/**", "samples/rsbuild/**", "samples/storybook/**"],
+            plugins: ["vitest"],
+            rules: {
+                "vitest/no-conditional-expect": "off",
+                // `vi.fn()` without type parameters is fine when the test never reads the mock's arguments back.
+                "vitest/require-mock-type-parameters": "off"
+            }
+        },
+        {
+            files: ["samples/webpack/**"],
+            plugins: ["jest"],
+            rules: {
+                "jest/no-conditional-expect": "off"
+            }
         },
         {
             files: ["**/*.stories.tsx", "**/.storybook/**"],
@@ -89,7 +101,6 @@ export default defineConfig({
         {
             files: ["**/*.test.ts", "**/*.test.tsx"],
             rules: {
-                "jest/no-conditional-expect": "off",
                 "typescript/no-explicit-any": "off",
                 // `expect(spy.method)` reads the method unbound by design.
                 "typescript/unbound-method": "off",

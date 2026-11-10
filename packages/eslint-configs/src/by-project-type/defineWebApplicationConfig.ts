@@ -72,7 +72,7 @@ export const defineWebApplicationConfig = (tsconfigRootDir: string, options: Def
         ...(defineVitestConfig({
             ...vitest,
             enabled: vitest?.enabled ?? testFramework === "vitest"
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // oxlint-disable-next-line typescript/no-explicit-any
         }) as any),
         ...defineYamlConfig(yaml),
         {

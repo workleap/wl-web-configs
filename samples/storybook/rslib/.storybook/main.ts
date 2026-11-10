@@ -4,7 +4,7 @@ import type { StorybookConfig } from "storybook-react-rsbuild";
 
 const require = createRequire(import.meta.url);
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// oxlint-disable-next-line typescript/no-explicit-any
 function getAbsolutePath(value: string): any {
     return dirname(require.resolve(join(value, "package.json")));
 }
