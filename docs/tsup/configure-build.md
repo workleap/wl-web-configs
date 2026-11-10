@@ -20,7 +20,7 @@ To configure [tsup](https://tsup.egoist.dev/) for a build environment, execute t
 Open a terminal at the root of the project and install the following packages:
 
 ```bash
-pnpm add -D @workleap/tsup-configs tsup typescript
+pnpm add -D @workleap/tsup-configs tsup typescript@6
 ```
 
 ## Configure tsup
