@@ -1,6 +1,6 @@
 {
     "name": "@workleap/typescript-configs",
-    "version": "5.2.0",
+    "version": "5.2.1",
     "description": "Workleap recommended typescript configurations.",
     "license": "Apache-2.0",
     "author": "Workleap",
