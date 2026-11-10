@@ -10,7 +10,7 @@ In every `package.json` that includes `typescript`:
 pnpm add -D typescript@7 @workleap/typescript-configs@latest
 ```
 
-TypeScript 7.0 ships **no JavaScript API**. Projects using a tool that calls the TypeScript API (e.g. tsup) still need TypeScript 6. In a monorepo, install TypeScript 7 at the workspace root and alias TypeScript 6 in the tsup project: `pnpm add -D typescript@npm:@typescript/typescript6`. tsup loads TypeScript 6; the project's `tsc` scripts run the root's TypeScript 7 (the alias only ships `tsc6`). In a single-project repository, stay on TypeScript 6. Rsbuild and Rslib (including Rslib's declaration files) work with TypeScript 7.
+TypeScript 7.0 ships **no JavaScript API**. Projects using a tool that calls the TypeScript API (e.g. tsup) must stay on TypeScript 6. Rsbuild and Rslib (including Rslib's declaration files) work with TypeScript 7.
 
 ### 2. Remove `@typescript/native-preview`
 
