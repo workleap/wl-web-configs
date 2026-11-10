@@ -1,5 +1,11 @@
 # @workleap/typescript-configs
 
+## 5.2.1
+
+### Patch Changes
+
+- [#520](https://github.com/workleap/wl-web-configs/pull/520) [`01c399d`](https://github.com/workleap/wl-web-configs/commit/01c399dcf83141cbc5ff9fe392fa30917dc9dac2) Thanks [@patricklafrance](https://github.com/patricklafrance)! - The `typescript` peer dependency is now `^6.0.0 || ^7.0.0` instead of `^6.0.3 || ^7.0.0`.
+
 ## 5.2.0
 
 ### Minor Changes
