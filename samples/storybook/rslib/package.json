@@ -1,14 +1,13 @@
 {
     "name": "@storybook-sample/rslib",
-    "description": "Storybook app using Rslib as a bundler.",
     "version": "0.0.0",
     "private": true,
+    "description": "Storybook app using Rslib as a bundler.",
     "type": "module",
     "scripts": {
         "dev": "storybook dev -p 6006",
         "build": "storybook build",
         "serve-build": "pnpm http-server storybook-static -p 8080 -P http://localhost:8080? -c-1",
-        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsgo"
     },
     "dependencies": {
@@ -16,7 +15,6 @@
         "react-dom": "19.3.1"
     },
     "devDependencies": {
-        "@eslint/js": "9.39.2",
         "@rsbuild/core": "2.3.0",
         "@rslib/core": "1.0.5",
         "@storybook/addon-a11y": "10.6.5",
@@ -24,19 +22,15 @@
         "@types/node": "26.6.6",
         "@types/react": "19.3.0",
         "@types/react-dom": "19.3.0",
-        "@typescript-eslint/parser": "8.72.1",
         "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "@workleap/browserslist-config": "workspace:*",
-        "@workleap/eslint-configs": "workspace:*",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "browserslist": "4.29.5",
-        "eslint": "9.39.2",
         "http-server": "14.1.1",
         "storybook": "10.6.5",
         "storybook-addon-rslib": "3.6.1",
         "storybook-react-rsbuild": "3.6.1",
-        "typescript": "6.0.3",
-        "typescript-eslint": "8.72.1"
+        "typescript": "6.0.3"
     }
 }

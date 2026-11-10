@@ -4,4 +4,3 @@ export type { WebpackConfigTransformer, WebpackConfigTransformerContext } from "
 export * from "./transformers/moduleRules.ts";
 export * from "./transformers/plugins.ts";
 export * from "./types.ts";
-

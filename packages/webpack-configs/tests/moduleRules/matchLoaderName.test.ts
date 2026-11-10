@@ -76,7 +76,9 @@ test.concurrent("when module rule use item is a string and exactly match name, r
 });
 
 test.concurrent("when module rule use item is a string and a path, return true if the name match an exact path segment", ({ expect }) => {
-    const moduleRule: RuleSetUseItem = path.resolve("/node_modules/.pnpm/postcss-loader@7.3.3_postcss@8.4.24_webpack@5.86.0/node_modules/postcss-loader/dist/cjs.js");
+    const moduleRule: RuleSetUseItem = path.resolve(
+        "/node_modules/.pnpm/postcss-loader@7.3.3_postcss@8.4.24_webpack@5.86.0/node_modules/postcss-loader/dist/cjs.js"
+    );
 
     const matcher1 = matchLoaderName("css-loader");
     const matcher2 = matchLoaderName("postcss-loader");
@@ -92,4 +94,3 @@ test.concurrent("when module rule use item is a string and doesn't match name, r
 
     expect(matcher(moduleRule, 0, [])).toBeFalsy();
 });
-

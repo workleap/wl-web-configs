@@ -13,4 +13,3 @@ export type { ConfigWithExtends, ExtendsElement, InfiniteArray, SimpleExtendsEle
 export { defineTypeScriptConfig, type TypeScriptConfigOptions } from "./typescript.ts";
 export { defineVitestConfig, type VitestConfigOptions } from "./vitest.ts";
 export { defineYamlConfig, type YamlConfigOptions } from "./yaml.ts";
-

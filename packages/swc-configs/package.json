@@ -1,15 +1,22 @@
 {
-    "type": "commonjs",
     "name": "@workleap/swc-configs",
-    "author": "Workleap",
-    "description": "Workleap recommended SWC configurations.",
     "version": "2.3.16",
+    "description": "Workleap recommended SWC configurations.",
     "license": "Apache-2.0",
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/",
-        "provenance": true
+    "author": "Workleap",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/workleap/wl-web-configs.git",
+        "directory": "packages/swc-configs"
     },
+    "files": [
+        "src",
+        "dist",
+        "CHANGELOG.md"
+    ],
+    "type": "commonjs",
+    "sideEffects": false,
+    "types": "./dist/index.d.ts",
     "exports": {
         ".": {
             "require": {
@@ -22,23 +29,25 @@
             }
         }
     },
-    "types": "./dist/index.d.ts",
-    "sideEffects": false,
-    "files": [
-        "src",
-        "dist",
-        "CHANGELOG.md"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/workleap/wl-web-configs.git",
-        "directory": "packages/swc-configs"
+    "publishConfig": {
+        "access": "public",
+        "provenance": true,
+        "registry": "https://registry.npmjs.org/"
     },
     "scripts": {
         "build": "rslib build -c rslib.config.ts",
-        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsgo",
         "test": "vitest --config vitest.config.ts --no-watch"
+    },
+    "devDependencies": {
+        "@rsbuild/core": "2.3.0",
+        "@rslib/core": "1.0.5",
+        "@types/node": "26.6.6",
+        "@typescript/native-preview": "7.0.0-dev.20260707.2",
+        "@workleap/rslib-configs": "workspace:*",
+        "@workleap/typescript-configs": "workspace:*",
+        "typescript": "6.0.3",
+        "vitest": "5.0.5"
     },
     "peerDependencies": {
         "@swc/core": "^1.16.21",
@@ -53,20 +62,5 @@
         "browserslist": {
             "optional": true
         }
-    },
-    "devDependencies": {
-        "@eslint/js": "9.39.2",
-        "@rsbuild/core": "2.3.0",
-        "@rslib/core": "1.0.5",
-        "@types/node": "26.6.6",
-        "@typescript-eslint/parser": "8.72.1",
-        "@typescript/native-preview": "7.0.0-dev.20260707.2",
-        "@workleap/eslint-configs": "workspace:*",
-        "@workleap/rslib-configs": "workspace:*",
-        "@workleap/typescript-configs": "workspace:*",
-        "eslint": "9.39.2",
-        "typescript": "6.0.3",
-        "typescript-eslint": "8.72.1",
-        "vitest": "5.0.5"
     }
 }

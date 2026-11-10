@@ -3,23 +3,13 @@ import { browserslistToSwc, createSwcTargetsFromBrowserslistEntries } from "../s
 
 describe("createSwcTargetsFromBrowserslistEntries", () => {
     test.concurrent("when a browser is not supported, do not include a target for the browser", ({ expect }) => {
-        const result = createSwcTargetsFromBrowserslistEntries([
-            "and_uc 15.5",
-            "baidu 13.18",
-            "firefox 115"
-        ]);
+        const result = createSwcTargetsFromBrowserslistEntries(["and_uc 15.5", "baidu 13.18", "firefox 115"]);
 
         expect(result).toMatchSnapshot();
     });
 
     test.concurrent("when a browser is a mobile alias to a desktop browser, include a target for the desktop browser", ({ expect }) => {
-        const result = createSwcTargetsFromBrowserslistEntries([
-            "and_chr 115",
-            "and_ff 115",
-            "ie_mob 11",
-            "ios_saf 16.5",
-            "op_mob 73"
-        ]);
+        const result = createSwcTargetsFromBrowserslistEntries(["and_chr 115", "and_ff 115", "ie_mob 11", "ios_saf 16.5", "op_mob 73"]);
 
         expect(result).toMatchSnapshot();
     });
@@ -55,43 +45,34 @@ describe("createSwcTargetsFromBrowserslistEntries", () => {
         expect(result).toMatchSnapshot();
     });
 
-    test.concurrent("when a browser is a mobile alias for a desktop browser, and the mobile alias version is older than the oldest desktop browser version, use the alias version", ({ expect }) => {
-        const result = createSwcTargetsFromBrowserslistEntries([
-            "and_chr 115",
-            "chrome 116"
-        ]);
+    test.concurrent("when a browser is a mobile alias for a desktop browser, and the mobile alias version is older than the oldest desktop browser version, use the alias version", ({
+        expect
+    }) => {
+        const result = createSwcTargetsFromBrowserslistEntries(["and_chr 115", "chrome 116"]);
 
         expect(result).toMatchSnapshot();
     });
 
     test.concurrent("when a browser version is a range, only keep the lower value of the range", ({ expect }) => {
-        const result = createSwcTargetsFromBrowserslistEntries([
-            "safari 15.2-15.3"
-        ]);
+        const result = createSwcTargetsFromBrowserslistEntries(["safari 15.2-15.3"]);
 
         expect(result).toMatchSnapshot();
     });
 
     test.concurrent("when a browser version has a 0 digit, remove the digit", ({ expect }) => {
-        const result = createSwcTargetsFromBrowserslistEntries([
-            "samsung 19.0"
-        ]);
+        const result = createSwcTargetsFromBrowserslistEntries(["samsung 19.0"]);
 
         expect(result).toMatchSnapshot();
     });
 
     test.concurrent("when a browser version has an non 0 digit, keep the digit", ({ expect }) => {
-        const result = createSwcTargetsFromBrowserslistEntries([
-            "safari 15.4"
-        ]);
+        const result = createSwcTargetsFromBrowserslistEntries(["safari 15.4"]);
 
         expect(result).toMatchSnapshot();
     });
 
-    test.concurrent("when a browser version is \"all\", keep \"all\"", ({ expect }) => {
-        const result = createSwcTargetsFromBrowserslistEntries([
-            "chrome all"
-        ]);
+    test.concurrent('when a browser version is "all", keep "all"', ({ expect }) => {
+        const result = createSwcTargetsFromBrowserslistEntries(["chrome all"]);
 
         expect(result).toMatchSnapshot();
     });

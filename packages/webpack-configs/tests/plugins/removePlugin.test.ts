@@ -22,11 +22,7 @@ class Plugin3 {
 
 test.concurrent("when a matching plugin is found in the plugins array, remove the plugin", ({ expect }) => {
     const config: Configuration = {
-        plugins: [
-            new Plugin1(),
-            new Plugin2(),
-            new Plugin3()
-        ]
+        plugins: [new Plugin1(), new Plugin2(), new Plugin3()]
     };
 
     removePlugin(config, matchConstructorName(Plugin2.name));
@@ -37,11 +33,7 @@ test.concurrent("when a matching plugin is found in the plugins array, remove th
 
 test.concurrent("when no matching plugin is found, throw an error", ({ expect }) => {
     const config: Configuration = {
-        plugins: [
-            new Plugin1(),
-            new Plugin2(),
-            new Plugin3()
-        ]
+        plugins: [new Plugin1(), new Plugin2(), new Plugin3()]
     };
 
     expect(() => removePlugin(config, matchConstructorName("anything"))).toThrow();

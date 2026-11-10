@@ -72,6 +72,7 @@ export function matchTest(test: string | RegExp): ModuleRuleMatcher {
         if (typeof moduleRule !== "string" && "test" in moduleRule) {
             if (typeof moduleRule.test === "object" && typeof test === "object") {
                 // Assuming it's regular expressions.
+                // oxlint-disable-next-line typescript/no-base-to-string -- A RegExp stringifies to its source and flags.
                 return moduleRule.test.toString() === test.toString();
             }
 
@@ -108,7 +109,12 @@ function isRuleSetRule(value: RuleSetRule | RuleSetUseItem): value is RuleSetRul
     return (value as RuleSetRule).use !== undefined || (value as RuleSetRule).oneOf !== undefined;
 }
 
-function findModuleRulesRecursively(moduleRules: RuleSetRule[] | RuleSetUseItem[], matcher: ModuleRuleMatcher, parent: RuleSetRule[] | RuleSetUseItem[], matches: ModuleRuleMatch[]) {
+function findModuleRulesRecursively(
+    moduleRules: RuleSetRule[] | RuleSetUseItem[],
+    matcher: ModuleRuleMatcher,
+    parent: RuleSetRule[] | RuleSetUseItem[],
+    matches: ModuleRuleMatch[]
+) {
     moduleRules.forEach((x, index, array) => {
         if (x) {
             if (matcher(x, index, array)) {
@@ -120,7 +126,6 @@ function findModuleRulesRecursively(moduleRules: RuleSetRule[] | RuleSetUseItem[
                     } else if (x.oneOf) {
                         // This error seems to have been introduced by either TS 5.2. or webpack 5.88.1 (https://github.com/webpack/webpack/releases/tag/v5.88.1),
                         // I am not sure what changed thought.
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         findModuleRulesRecursively(x.oneOf, matcher, x.oneOf, matches);
                     }
@@ -144,7 +149,9 @@ export function findModuleRule(config: WebpackConfig, matcher: ModuleRuleMatcher
     if (matches.length > 1) {
         const matcherInfo = (matcher as WithModuleRuleMatcherInfo).info;
 
-        throw new Error(`[webpack-configs] Found more than 1 matching module rule.\n[webpack-configs] Matcher: "${JSON.stringify(matcherInfo)}"\n[webpack-configs] Matches: "${JSON.stringify(matches.map(x => x.moduleRule))}"`);
+        throw new Error(
+            `[webpack-configs] Found more than 1 matching module rule.\n[webpack-configs] Matcher: "${JSON.stringify(matcherInfo)}"\n[webpack-configs] Matches: "${JSON.stringify(matches.map(x => x.moduleRule))}"`
+        );
     }
 
     return matches[0];
@@ -172,7 +179,9 @@ export function addBeforeModuleRule(config: WebpackConfig, matcher: ModuleRuleMa
     } else {
         const matcherInfo = (matcher as WithModuleRuleMatcherInfo).info;
 
-        throw new Error(`[webpack-configs] Couldn't add the new module rules because no match has been found.\n[webpack-configs] Matcher: "${JSON.stringify(matcherInfo)}"`);
+        throw new Error(
+            `[webpack-configs] Couldn't add the new module rules because no match has been found.\n[webpack-configs] Matcher: "${JSON.stringify(matcherInfo)}"`
+        );
     }
 }
 
@@ -184,7 +193,9 @@ export function addAfterModuleRule(config: WebpackConfig, matcher: ModuleRuleMat
     } else {
         const matcherInfo = (matcher as WithModuleRuleMatcherInfo).info;
 
-        throw new Error(`[webpack-configs] Couldn't add the new module rules because no match has been found.\n[webpack-configs] Matcher: "${JSON.stringify(matcherInfo)}"`);
+        throw new Error(
+            `[webpack-configs] Couldn't add the new module rules because no match has been found.\n[webpack-configs] Matcher: "${JSON.stringify(matcherInfo)}"`
+        );
     }
 }
 
@@ -196,7 +207,9 @@ export function replaceModuleRule(config: WebpackConfig, matcher: ModuleRuleMatc
     } else {
         const matcherInfo = (matcher as WithModuleRuleMatcherInfo).info;
 
-        throw new Error(`[webpack-configs] Couldn't replace the module rule because no match has been found.\n[webpack-configs] Matcher: "${JSON.stringify(matcherInfo)}"`);
+        throw new Error(
+            `[webpack-configs] Couldn't replace the module rule because no match has been found.\n[webpack-configs] Matcher: "${JSON.stringify(matcherInfo)}"`
+        );
     }
 }
 
@@ -224,6 +237,8 @@ export function removeModuleRules(config: WebpackConfig, matcher: ModuleRuleMatc
     } else {
         const matcherInfo = (matcher as WithModuleRuleMatcherInfo).info;
 
-        throw new Error(`[webpack-configs] Didn't remove any module rules because no match has been found.\n[webpack-configs] Matcher: "${matcherInfo}"`);
+        throw new Error(
+            `[webpack-configs] Didn't remove any module rules because no match has been found.\n[webpack-configs] Matcher: "${JSON.stringify(matcherInfo)}"`
+        );
     }
 }

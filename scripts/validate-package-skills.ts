@@ -17,7 +17,8 @@ interface PackResult {
 }
 
 function listFiles(directory: string): string[] {
-    return fs.readdirSync(directory, { recursive: true, withFileTypes: true })
+    return fs
+        .readdirSync(directory, { recursive: true, withFileTypes: true })
         .filter(x => x.isFile())
         .map(x => path.relative(directory, path.join(x.parentPath, x.name)).replaceAll("\\", "/"));
 }
@@ -34,7 +35,10 @@ function parseFrontmatter(content: string) {
     // where every continuation line must be indented.
     const description = /^description:[ \t]*(?:[|>][+-]?[ \t]*\r?\n((?:[ \t]+.*(?:\r?\n|$))+)|(?![ \t]*[|>][+-]?[ \t]*$)(.+))/m.exec(match[1]);
     // Strips the quotes of an inline quoted description, so an empty quoted string is reported as missing.
-    const value = (description?.[1] ?? description?.[2])?.trim().replace(/^(["'])(.*)\1$/, "$2").trim();
+    const value = (description?.[1] ?? description?.[2])
+        ?.trim()
+        .replace(/^(["'])(.*)\1$/, "$2")
+        .trim();
 
     return {
         name,
@@ -71,7 +75,9 @@ for (const packageName of fs.readdirSync(PackagesPath)) {
         }
 
         if (frontmatter.name !== skillName) {
-            errors.push(`${packageName}: skills/${skillName}/SKILL.md frontmatter name "${frontmatter.name}" must match its folder name "${skillName}".`);
+            errors.push(
+                `${packageName}: skills/${skillName}/SKILL.md frontmatter name "${frontmatter.name}" must match its folder name "${skillName}".`
+            );
         }
 
         if (!NameRegex.test(skillName) || skillName.length > MaxNameLength) {
@@ -85,10 +91,12 @@ for (const packageName of fs.readdirSync(PackagesPath)) {
         }
     }
 
-    const packed = JSON.parse(execSync("pnpm pack --dry-run --json", {
-        cwd: packagePath,
-        encoding: "utf8"
-    })) as PackResult;
+    const packed = JSON.parse(
+        execSync("pnpm pack --dry-run --json", {
+            cwd: packagePath,
+            encoding: "utf8"
+        })
+    ) as PackResult;
 
     const packedFiles = new Set(packed.files.map(x => x.path));
 

@@ -33,7 +33,7 @@ test.concurrent("when a matching module rule is found in the rules array, add af
     expect(config.module!.rules![2]).toBe(newRule);
 });
 
-test.concurrent("when a matching module rule is found in a \"oneOf\" prop, add after the module rule", ({ expect }) => {
+test.concurrent('when a matching module rule is found in a "oneOf" prop, add after the module rule', ({ expect }) => {
     const newRule: RuleSetRule = {
         test: /\.json/i,
         type: "json"
@@ -72,7 +72,7 @@ test.concurrent("when a matching module rule is found in a \"oneOf\" prop, add a
     expect((config.module?.rules![1] as RuleSetRule).oneOf![2]).toBe(newRule);
 });
 
-test.concurrent("when a matching module rule is found in a \"use\" prop, add after the module rule", ({ expect }) => {
+test.concurrent('when a matching module rule is found in a "use" prop, add after the module rule', ({ expect }) => {
     const newRule: RuleSetUseItem = {
         loader: "swc-loader"
     };
@@ -82,10 +82,7 @@ test.concurrent("when a matching module rule is found in a \"use\" prop, add aft
             rules: [
                 {
                     test: /\.(ts|tsx)/i,
-                    use: [
-                        { loader: "babel-loader" },
-                        { loader: "esbuild-loader" }
-                    ]
+                    use: [{ loader: "babel-loader" }, { loader: "esbuild-loader" }]
                 },
                 {
                     test: /\.js/i,

@@ -1,4 +1,15 @@
-import { defineConfig, type DistPathConfig, type HtmlConfig, type Minify, type Polyfill, type RsbuildConfig, type RsbuildEntry, type RsbuildPlugins, type SourceMap, type SplitChunksConfig } from "@rsbuild/core";
+import {
+    defineConfig,
+    type DistPathConfig,
+    type HtmlConfig,
+    type Minify,
+    type Polyfill,
+    type RsbuildConfig,
+    type RsbuildEntry,
+    type RsbuildPlugins,
+    type SourceMap,
+    type SplitChunksConfig
+} from "@rsbuild/core";
 import { pluginImageCompress, type PluginImageCompressOptions } from "@rsbuild/plugin-image-compress";
 import { pluginReact, type PluginReactOptions } from "@rsbuild/plugin-react";
 import { pluginSvgr, type PluginSvgrOptions } from "@rsbuild/plugin-svgr";
@@ -81,6 +92,7 @@ export function getOptimizationConfig(optimize: OptimizeOption): Optimization | 
         };
     }
 
+    // oxlint-disable-next-line typescript/no-unnecessary-boolean-literal-compare -- A plain-JS caller can pass undefined, which must not mean "off".
     if (optimize === false) {
         // Doesn't turn off everything but is good enough to help with debugging scenarios.
         return {
@@ -135,11 +147,14 @@ export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
             // after replacement and cause an undefined var error because the production var doesn't exist.
             // For more information, view: https://rsbuild.dev/guide/advanced/env-vars#using-define.
             define: {
-                "process.env": Object.keys(environmentVariables).reduce((acc, key) => {
-                    acc[key] = JSON.stringify(environmentVariables[key]);
+                "process.env": Object.keys(environmentVariables).reduce(
+                    (acc, key) => {
+                        acc[key] = JSON.stringify(environmentVariables[key]);
 
-                    return acc;
-                }, {} as Record<string, string>)
+                        return acc;
+                    },
+                    {} as Record<string, string>
+                )
             }
         },
         output: {
@@ -152,29 +167,35 @@ export function defineBuildConfig(options: DefineBuildConfigOptions = {}) {
             polyfill
         },
         splitChunks,
-        html: html
-            ? html({ template: path.resolve("./public/index.html") })
-            : undefined,
+        html: html ? html({ template: path.resolve("./public/index.html") }) : undefined,
         plugins: [
-            react && pluginReact(react({
-                fastRefresh: false
-            })),
-            svgr && pluginSvgr(svgr({
-                svgrOptions: {
-                    exportType: "named"
-                }
-            })),
+            react &&
+                pluginReact(
+                    react({
+                        fastRefresh: false
+                    })
+                ),
+            svgr &&
+                pluginSvgr(
+                    svgr({
+                        svgrOptions: {
+                            exportType: "named"
+                        }
+                    })
+                ),
             compressImage && pluginImageCompress(compressImage(["jpeg", "png", "ico", "svg"])),
             ...plugins
         ].filter(Boolean),
         tools: {
             rspack: {
                 optimization: getOptimizationConfig(optimize),
-                infrastructureLogging: verbose ? {
-                    appendOnly: true,
-                    level: "verbose",
-                    debug: /PackFileCache/
-                } : undefined
+                infrastructureLogging: verbose
+                    ? {
+                          appendOnly: true,
+                          level: "verbose",
+                          debug: /PackFileCache/
+                      }
+                    : undefined
             }
         }
     };

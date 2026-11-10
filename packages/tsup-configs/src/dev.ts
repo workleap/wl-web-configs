@@ -5,18 +5,10 @@ export interface DefineDevConfigOptions extends TsupConfig {
     transformers?: TsupConfigTransformer[];
 }
 
-export const TsupDevEntryPaths = [
-    "./src",
-    "!src/**/*.css",
-    "!src/**/*.stories.ts(x)",
-    "!src/**/*.test.ts(x)"
-];
+export const TsupDevEntryPaths = ["./src", "!src/**/*.css", "!src/**/*.stories.ts(x)", "!src/**/*.test.ts(x)"];
 
 export function defineDevConfig(options: DefineDevConfigOptions = {}) {
-    const {
-        transformers = [],
-        ...rest
-    } = options;
+    const { transformers = [], ...rest } = options;
 
     const config: TsupConfig = {
         dts: true,

@@ -35,9 +35,11 @@ export function defineStorybookConfig(options: DefineStorybookConfigOptions = {}
     } = options;
 
     const config = defineConfig({
-        lib: [{
-            dts: false
-        }],
+        lib: [
+            {
+                dts: false
+            }
+        ],
         output: {
             target: "web",
             // Setting the clean option to true breaks the Storybook integration.
@@ -47,11 +49,14 @@ export function defineStorybookConfig(options: DefineStorybookConfigOptions = {}
         },
         plugins: [
             react && pluginReact(react({})),
-            svgr && pluginSvgr(svgr({
-                svgrOptions: {
-                    exportType: "named"
-                }
-            })),
+            svgr &&
+                pluginSvgr(
+                    svgr({
+                        svgrOptions: {
+                            exportType: "named"
+                        }
+                    })
+                ),
             ...plugins
         ]
     });

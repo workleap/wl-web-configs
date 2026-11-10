@@ -1,7 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import { type CoreConfigOptions, coreGlobalIgnores, defineCoreConfig } from "../core.ts";
 import { defineJestConfig, type JestConfigOptions, jestGlobalIgnores } from "../jest.ts";
-import { defineJsonConfig, JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
+import { defineJsonConfig, type JsonConfigOptions, jsonGlobalIgnores } from "../json.ts";
 import { defineJsxAllyConfig, type JsxAllyConfigOptions, jsxAllyGlobalIgnores } from "../jsxAlly.ts";
 import { definePackageJsonConfig, type PackageJsonConfigOptions, packageJsonGlobalIgnores } from "../packageJson.ts";
 import { WorkleapPlugin } from "../plugins/workleapPlugin.ts";
@@ -32,20 +32,7 @@ export interface DefineReactLibraryConfigOptions {
  * @param options An optional object of options for the ESlint core and plugins rules.
  */
 export function defineReactLibraryConfig(tsconfigRootDir: string, options: DefineReactLibraryConfigOptions = {}) {
-    const {
-        testFramework = "vitest",
-        core,
-        jest,
-        json,
-        jsxAlly,
-        packageJson,
-        react,
-        storybook,
-        testingLibrary,
-        typescript,
-        vitest,
-        yaml
-    } = options;
+    const { testFramework = "vitest", core, jest, json, jsxAlly, packageJson, react, storybook, testingLibrary, typescript, vitest, yaml } = options;
 
     return defineConfig([
         // node_modules folder is ignored by default.
@@ -84,7 +71,7 @@ export function defineReactLibraryConfig(tsconfigRootDir: string, options: Defin
         ...(defineVitestConfig({
             ...vitest,
             enabled: vitest?.enabled ?? testFramework === "vitest"
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // oxlint-disable-next-line typescript/no-explicit-any
         }) as any),
         ...defineYamlConfig(yaml),
         {

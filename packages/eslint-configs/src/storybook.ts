@@ -15,17 +15,12 @@ export const storybookGlobalIgnores = [
 ];
 
 export function defineStorybookConfig(options: StorybookConfigOptions = {}) {
-    const {
-        storiesRules = {},
-        mainFileRules = {}
-    } = options;
+    const { storiesRules = {}, mainFileRules = {} } = options;
 
     const config: ConfigWithExtends[] = [
         {
             name: "@workleap/eslint-configs/storybook-stories",
-            files: [
-                "**/*.{stories,storybook,story,chroma}.{js,ts,jsx,tsx}"
-            ],
+            files: ["**/*.{stories,storybook,story,chroma}.{js,ts,jsx,tsx}"],
             extends: [
                 // @ts-expect-error the typings are broken and think there's a ".default" to add.
                 storybookPlugin.configs["flat/recommended"]
@@ -52,4 +47,4 @@ export function defineStorybookConfig(options: StorybookConfigOptions = {}) {
     ];
 
     return config;
-};
+}

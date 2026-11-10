@@ -7,6 +7,8 @@ export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement>, "type" |
 
 export function Button({ children, ...props }: ButtonProps) {
     return (
-        <button type="button" className="sample-button" {...props}>{children}</button>
+        <button type="button" className="sample-button" {...props}>
+            {children}
+        </button>
     );
 }

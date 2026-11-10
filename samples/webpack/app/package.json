@@ -1,10 +1,10 @@
 {
     "name": "@webpack-sample/app",
-    "author": "Workleap",
     "version": "0.0.0",
-    "description": "Application to try the webpack configs.",
     "private": true,
+    "description": "Application to try the webpack configs.",
     "license": "Apache-2.0",
+    "author": "Workleap",
     "type": "module",
     "scripts": {
         "postinstall": "pnpm msw init",
@@ -14,7 +14,6 @@
         "dev-msw-verbose": "cross-env USE_MSW=true VERBOSE=true pnpm dev",
         "build": "webpack --config webpack.build.js",
         "serve-build": "pnpm http-server dist -p 8080 -P http://localhost:8080? -c-1",
-        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
         "typecheck": "tsgo",
         "test": "jest"
@@ -27,7 +26,6 @@
         "react-router": "8.5.1"
     },
     "devDependencies": {
-        "@eslint/js": "9.39.2",
         "@swc/core": "1.16.21",
         "@swc/helpers": "0.5.23",
         "@swc/jest": "0.2.39",
@@ -36,10 +34,8 @@
         "@types/node": "26.6.6",
         "@types/react": "19.3.0",
         "@types/react-dom": "19.3.0",
-        "@typescript-eslint/parser": "8.72.1",
         "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "@workleap/browserslist-config": "workspace:*",
-        "@workleap/eslint-configs": "workspace:*",
         "@workleap/postcss-configs": "workspace:*",
         "@workleap/stylelint-configs": "workspace:*",
         "@workleap/swc-configs": "workspace:*",
@@ -47,7 +43,6 @@
         "@workleap/webpack-configs": "workspace:*",
         "browserslist": "4.29.5",
         "cross-env": "10.1.0",
-        "eslint": "9.39.2",
         "http-server": "14.1.1",
         "identity-obj-proxy": "3.0.0",
         "jest": "30.5.2",
@@ -59,7 +54,6 @@
         "stylelint": "16.26.1",
         "ts-node": "10.9.2",
         "typescript": "6.0.3",
-        "typescript-eslint": "8.72.1",
         "webpack": "5.112.2",
         "webpack-cli": "7.3.1",
         "webpack-dev-server": "5.2.4"

@@ -8,9 +8,6 @@
             "@rsbuild-sample/rslib-lib": ["../rslib-lib/src/index.ts"]
         }
     },
-    "include": [
-        ".",
-        "../**/src/env.d.ts"
-    ],
+    "include": [".", "../**/src/env.d.ts"],
     "exclude": ["public", "dist", "node_modules"]
 }

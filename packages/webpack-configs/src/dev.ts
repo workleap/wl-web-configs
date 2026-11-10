@@ -20,10 +20,7 @@ import type { WebpackConfig } from "./types.ts";
 const require = createRequire(import.meta.url);
 
 export function defineDevHtmlWebpackPluginConfig(options: HtmlWebpackPlugin.Options = {}): HtmlWebpackPlugin.Options {
-    const {
-        template = path.resolve("./public/index.html"),
-        ...rest
-    } = options;
+    const { template = path.resolve("./public/index.html"), ...rest } = options;
 
     return {
         ...rest,
@@ -56,7 +53,7 @@ export interface DefineDevConfigOptions {
 
 function preflight() {
     if (!require.resolve("webpack-dev-server")) {
-        throw new Error("[webpack-configs] To use the \"dev\" config, install https://www.npmjs.com/package/webpack-dev-server as a \"devDependency\".");
+        throw new Error('[webpack-configs] To use the "dev" config, install https://www.npmjs.com/package/webpack-dev-server as a "devDependency".');
     }
 }
 
@@ -111,13 +108,18 @@ export function defineDevConfig(swcConfig: SwcConfig, options: DefineDevConfigOp
             host,
             port,
             historyApiFallback: true,
-            client: (overlay === false || fastRefresh) ? {
-                overlay: false
-            } : undefined,
-            server: https ? {
-                type: "https",
-                options: isObject(https) ? https : undefined
-            } : undefined
+            client:
+                overlay === false || fastRefresh
+                    ? {
+                          overlay: false
+                      }
+                    : undefined,
+            server: https
+                ? {
+                      type: "https",
+                      options: isObject(https) ? https : undefined
+                  }
+                : undefined
         },
         entry,
         output: {
@@ -137,11 +139,13 @@ export function defineDevConfig(swcConfig: SwcConfig, options: DefineDevConfigOp
             removeEmptyChunks: false,
             splitChunks: false
         },
-        infrastructureLogging: verbose ? {
-            appendOnly: true,
-            level: "verbose",
-            debug: /PackFileCache/
-        } : undefined,
+        infrastructureLogging: verbose
+            ? {
+                  appendOnly: true,
+                  level: "verbose",
+                  debug: /PackFileCache/
+              }
+            : undefined,
         module: {
             rules: [
                 {
@@ -166,10 +170,10 @@ export function defineDevConfig(swcConfig: SwcConfig, options: DefineDevConfigOp
                             loader: require.resolve("css-loader"),
                             options: cssModules
                                 ? {
-                                    // Must match the number of loaders applied before this one.
-                                    importLoaders: 1,
-                                    modules: true
-                                }
+                                      // Must match the number of loaders applied before this one.
+                                      importLoaders: 1,
+                                      modules: true
+                                  }
                                 : undefined
                         },
                         { loader: require.resolve("postcss-loader") }
@@ -177,22 +181,22 @@ export function defineDevConfig(swcConfig: SwcConfig, options: DefineDevConfigOp
                 },
                 ...(svgr
                     ? [
-                        {
-                            test: /\.svg$/i,
-                            loader: require.resolve("@svgr/webpack"),
-                            options: isObject(svgr) ? svgr : undefined
-                        },
-                        {
-                            test: /\.(png|jpe?g|gif)$/i,
-                            type: "asset/resource"
-                        }
-                    ]
+                          {
+                              test: /\.svg$/i,
+                              loader: require.resolve("@svgr/webpack"),
+                              options: isObject(svgr) ? svgr : undefined
+                          },
+                          {
+                              test: /\.(png|jpe?g|gif)$/i,
+                              type: "asset/resource"
+                          }
+                      ]
                     : [
-                        {
-                            test: /\.(png|jpe?g|gif|svg)$/i,
-                            type: "asset/resource"
-                        }
-                    ]),
+                          {
+                              test: /\.(png|jpe?g|gif|svg)$/i,
+                              type: "asset/resource"
+                          }
+                      ]),
                 ...moduleRules
             ]
         },
@@ -210,13 +214,19 @@ export function defineDevConfig(swcConfig: SwcConfig, options: DefineDevConfigOp
             // after replacement and cause an undefined var error.
             // For more information, view: https://webpack.js.org/plugins/define-plugin/.
             new DefineEnvironmentPlugin({
-                "process.env": Object.keys(environmentVariables).reduce((acc, key) => {
-                    acc[key] = JSON.stringify(environmentVariables[key]);
+                "process.env": Object.keys(environmentVariables).reduce(
+                    (acc, key) => {
+                        acc[key] = JSON.stringify(environmentVariables[key]);
 
-                    return acc;
-                }, {} as Record<string, string>)
+                        return acc;
+                    },
+                    {} as Record<string, string>
+                )
             }),
-            fastRefresh && new ReactRefreshWebpackPlugin(trySetFastRefreshOverlay(isObject(fastRefresh) ? fastRefresh : defineFastRefreshPluginConfig(), overlay)),
+            fastRefresh &&
+                new ReactRefreshWebpackPlugin(
+                    trySetFastRefreshOverlay(isObject(fastRefresh) ? fastRefresh : defineFastRefreshPluginConfig(), overlay)
+                ),
             ...plugins
         ].filter(Boolean)
     };

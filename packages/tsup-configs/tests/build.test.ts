@@ -6,7 +6,7 @@ import { defineBuildConfig } from "../src/build.ts";
 test.concurrent("when options are provided, options are merged with the default options", ({ expect }) => {
     const result = defineBuildConfig({
         env: {
-            "foo": "bar"
+            foo: "bar"
         }
     });
 
@@ -31,7 +31,9 @@ test.concurrent("when a format array option is provided, do not merge the provid
     expect(result.format![0]).toBe("cjs");
 });
 
-test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the tsup config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the tsup config", ({
+    expect
+}) => {
     const platformTransformer: TsupConfigTransformer = (config: Options) => {
         config.platform = "node";
 
@@ -45,7 +47,9 @@ test.concurrent("when a transformer is provided, and the transformer update the 
     expect(result.platform).toBe("node");
 });
 
-test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the tsup config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the tsup config", ({
+    expect
+}) => {
     const platformTransformer: TsupConfigTransformer = () => {
         return {
             platform: "node"
@@ -80,7 +84,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     expect(result.name).toBe("a-custom-name");
 });
 
-test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
+test.concurrent('transformers context environment is "dev"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineBuildConfig({

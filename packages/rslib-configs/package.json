@@ -1,20 +1,22 @@
 {
     "name": "@workleap/rslib-configs",
-    "author": "Workleap",
-    "description": "Workleap recommended Rslib configurations.",
     "version": "2.1.1",
+    "description": "Workleap recommended Rslib configurations.",
     "license": "Apache-2.0",
+    "author": "Workleap",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/workleap/wl-web-configs.git",
         "directory": "packages/rslib-configs"
     },
+    "files": [
+        "src",
+        "dist",
+        "skills",
+        "CHANGELOG.md"
+    ],
     "type": "module",
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/",
-        "provenance": true
-    },
+    "sideEffects": false,
     "exports": {
         ".": {
             "import": "./dist/index.js",
@@ -22,37 +24,29 @@
             "default": "./dist/index.js"
         }
     },
-    "sideEffects": false,
-    "files": [
-        "src",
-        "dist",
-        "skills",
-        "CHANGELOG.md"
-    ],
+    "publishConfig": {
+        "access": "public",
+        "provenance": true,
+        "registry": "https://registry.npmjs.org/"
+    },
     "scripts": {
         "build": "rslib build -c rslib.config.ts",
-        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsgo",
         "test": "vitest --config vitest.config.ts --no-watch"
-    },
-    "peerDependencies": {
-        "@rslib/core": "^1.0.5"
     },
     "dependencies": {
         "@rsbuild/plugin-react": "^2.1.1",
         "@rsbuild/plugin-svgr": "^2.0.5"
     },
     "devDependencies": {
-        "@eslint/js": "9.39.2",
         "@rslib/core": "1.0.5",
         "@types/node": "26.6.6",
-        "@typescript-eslint/parser": "8.72.1",
         "@typescript/native-preview": "7.0.0-dev.20260707.2",
-        "@workleap/eslint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
-        "eslint": "9.39.2",
         "typescript": "6.0.3",
-        "typescript-eslint": "8.72.1",
         "vitest": "5.0.5"
+    },
+    "peerDependencies": {
+        "@rslib/core": "^1.0.5"
     }
 }

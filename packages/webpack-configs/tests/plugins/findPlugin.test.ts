@@ -30,11 +30,7 @@ test.concurrent("when the matching plugin is the first of the array, return the 
     const target = new Plugin1();
 
     const config: Configuration = {
-        plugins: [
-            target,
-            new Plugin2(),
-            new Plugin3()
-        ]
+        plugins: [target, new Plugin2(), new Plugin3()]
     };
 
     const result = findPlugin(config, matchConstructorName(Plugin1.name));
@@ -52,11 +48,7 @@ test.concurrent("when the matching plugin is the last of the array, return the p
     const target = new Plugin3();
 
     const config: Configuration = {
-        plugins: [
-            new Plugin1(),
-            new Plugin2(),
-            target
-        ]
+        plugins: [new Plugin1(), new Plugin2(), target]
     };
 
     const result = findPlugin(config, matchConstructorName(Plugin3.name));
@@ -72,11 +64,7 @@ test.concurrent("when the matching plugin is the last of the array, return the p
 
 test.concurrent("when there are no matching plugin, return undefined", ({ expect }) => {
     const config: Configuration = {
-        plugins: [
-            new Plugin1(),
-            new Plugin2(),
-            new Plugin3()
-        ]
+        plugins: [new Plugin1(), new Plugin2(), new Plugin3()]
     };
 
     const result = findPlugin(config, matchConstructorName("anything"));
@@ -86,12 +74,7 @@ test.concurrent("when there are no matching plugin, return undefined", ({ expect
 
 test.concurrent("throw an error when multiple module plugins are found", ({ expect }) => {
     const config: Configuration = {
-        plugins: [
-            new Plugin1(),
-            new Plugin2(),
-            new Plugin3(),
-            new Plugin1()
-        ]
+        plugins: [new Plugin1(), new Plugin2(), new Plugin3(), new Plugin1()]
     };
 
     expect(() => findPlugin(config, matchConstructorName(Plugin1.name))).toThrow();
@@ -102,7 +85,6 @@ test.concurrent("when a plugin is undefined, do not throw", ({ expect }) => {
         plugins: [
             new Plugin1(),
             // Since Webpack configs are usually untyped, it's preferable to test this.
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             undefined,
             new Plugin3()
@@ -111,4 +93,3 @@ test.concurrent("when a plugin is undefined, do not throw", ({ expect }) => {
 
     expect(() => findPlugin(config, matchConstructorName(Plugin1.name))).not.toThrow();
 });
-
