@@ -426,7 +426,7 @@ npm _dependencies_ and _peerDependencies_ must be added to the package own _pack
 
 ### TS moduleResolution
 
-Packages compiled for CommonJS (`browserslist-config`, `stylelint-configs`) use `module: "NodeNext"` and `moduleResolution: "NodeNext"`: since their `package.json` has `"type": "commonjs"`, TypeScript emits CommonJS. They used to rely on `moduleResolution: "Node"` (Node v10), which TypeScript 7 removed.
+`browserslist-config`, the only package compiled for CommonJS, uses `module: "NodeNext"` and `moduleResolution: "NodeNext"`: since its `package.json` has `"type": "commonjs"`, TypeScript emits CommonJS. It used to rely on `moduleResolution: "Node"` (Node v10), which TypeScript 7 removed.
 
 Consumers using `moduleResolution: "Node"` don't read the `"exports"` field of a `package.json` file (see this [issue](https://github.com/microsoft/TypeScript/issues/51862#issuecomment-1358049778)), so keep a top-level `"types"` field in the `package.json` file of the projects that are also compiled for CommonJS.
 

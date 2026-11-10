@@ -68,6 +68,4 @@ const config: Config = {
     }
 };
 
-// The package is CommonJS, and "export =" is the only syntax emitting `module.exports = config`.
-// Stylelint loads configs with a dynamic import(), so the config is exposed as its default export.
-export = config;
+export default config;

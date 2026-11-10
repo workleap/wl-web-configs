@@ -3,11 +3,7 @@
     "compilerOptions": {
         "incremental": true,
         "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
-        "types": ["node"],
-        // This package is CommonJS and must use `export =` so the emitted CJS sets `module.exports`
-        // to the config object itself. Stylelint loads configs with a dynamic import(), which exposes
-        // `module.exports` as the default export.
-        "erasableSyntaxOnly": false
+        "types": ["node"]
     },
     "exclude": ["dist", "node_modules"]
 }
