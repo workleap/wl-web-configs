@@ -15,11 +15,11 @@
         "react-dom": "19.3.1"
     },
     "devDependencies": {
-        "@rsbuild/core": "2.3.0",
-        "@rspack/core": "2.3.0",
-        "@storybook/addon-a11y": "10.6.5",
-        "@storybook/addon-links": "10.6.5",
-        "@storybook/react": "10.6.5",
+        "@rsbuild/core": "2.3.1",
+        "@rspack/core": "2.3.1",
+        "@storybook/addon-a11y": "10.6.6",
+        "@storybook/addon-links": "10.6.6",
+        "@storybook/react": "10.6.6",
         "@types/node": "26.6.6",
         "@types/react": "19.3.0",
         "@types/react-dom": "19.3.0",
@@ -28,8 +28,8 @@
         "@workleap/typescript-configs": "workspace:*",
         "browserslist": "4.29.5",
         "http-server": "14.1.1",
-        "storybook": "10.6.5",
-        "storybook-react-rsbuild": "3.6.1",
+        "storybook": "10.6.6",
+        "storybook-react-rsbuild": "3.6.2",
         "typescript": "7.0.2"
     }
 }
