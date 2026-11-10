@@ -9,16 +9,16 @@ The content should be strongly inspired by Vercel’s React Best Practices skill
 
 However, exclude all rules from the following categories:
 
-* Server-Side Performance
-* Client-Side Data Fetching
+- Server-Side Performance
+- Client-Side Data Fetching
 
 Also exclude any rules related to:
 
-* Vercel
-* Next.js
-* SWC
-* SSR
-* Server-side rendering
-* Any server-side specific concepts
+- Vercel
+- Next.js
+- SWC
+- SSR
+- Server-side rendering
+- Any server-side specific concepts
 
 You may spawn up to two subagents to assist, review, and validate the output before finalizing the skill.

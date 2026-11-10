@@ -9,24 +9,20 @@ export interface JsonConfigOptions {
 export const jsonGlobalIgnores = [];
 
 export function defineJsonConfig(options: JsonConfigOptions = {}) {
-    const {
-        rules = {}
-    } = options;
+    const { rules = {} } = options;
 
-    const config: ConfigWithExtends[] = [{
-        name: "@workleap/eslint-configs/json",
-        files: [
-            "**/*.{json,jsonc}"
-        ],
-        extends: [
-            jsoncPlugin.configs["flat/base"]
-        ],
-        rules: {
-            "jsonc/indent": ["warn", 4],
-            // Positioned last to allow the consumer to override any rules.
-            ...rules
+    const config: ConfigWithExtends[] = [
+        {
+            name: "@workleap/eslint-configs/json",
+            files: ["**/*.{json,jsonc}"],
+            extends: [jsoncPlugin.configs["flat/base"]],
+            rules: {
+                "jsonc/indent": ["warn", 4],
+                // Positioned last to allow the consumer to override any rules.
+                ...rules
+            }
         }
-    }];
+    ];
 
     return config;
 }

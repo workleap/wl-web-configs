@@ -9,26 +9,22 @@ export interface DefineBuildConfigOptions {
 }
 
 export function defineBuildConfig(targets: Record<string, string>, options: DefineBuildConfigOptions = {}) {
-    const {
-        baseUrl,
-        parser = "typescript",
-        paths,
-        transformers = []
-    } = options;
+    const { baseUrl, parser = "typescript", paths, transformers = [] } = options;
 
     const config: SwcConfig = {
         jsc: {
             baseUrl,
             paths,
-            parser: parser === "ecmascript"
-                ? {
-                    syntax: "ecmascript",
-                    jsx: true
-                }
-                : {
-                    syntax: "typescript",
-                    tsx: true
-                },
+            parser:
+                parser === "ecmascript"
+                    ? {
+                          syntax: "ecmascript",
+                          jsx: true
+                      }
+                    : {
+                          syntax: "typescript",
+                          tsx: true
+                      },
             // View https://swc.rs/docs/configuration/minification for options.
             minify: {
                 compress: true,

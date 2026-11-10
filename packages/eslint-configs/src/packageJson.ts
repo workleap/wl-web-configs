@@ -9,44 +9,40 @@ export interface PackageJsonConfigOptions {
 export const packageJsonGlobalIgnores = [];
 
 export function definePackageJsonConfig(options: PackageJsonConfigOptions = {}) {
-    const {
-        rules = {}
-    } = options;
+    const { rules = {} } = options;
 
-    const config: ConfigWithExtends[] = [{
-        name: "@workleap/eslint-configs/package-json",
-        files: [
-            "**/package.json"
-        ],
-        extends: [
-            packageJsonPlugin.configs.recommended
-        ],
-        rules: {
-            "package-json/order-properties": "off",
-            "package-json/prefer-repository-shorthand": "off",
-            "package-json/sort-collections": [
-                "warn",
-                [
-                    // Do not sort "scripts".
-                    "devDependencies",
-                    "dependencies",
-                    "peerDependencies",
-                    "config"
-                ]
-            ],
-            // Doesn't support "workspace:*" at the moment.
-            "package-json/valid-package-def": "off",
-            // I am not sure why, this rule is triggering errors for valid paths.
-            "package-json/valid-repository-directory": "off",
-            "package-json/valid-scripts": "off",
-            // Doesn't make sense for our products.
-            "package-json/require-license": "off",
-            // Not useful when using PNPM and syncpack.
-            "package-json/specify-peers-locally": "off",
-            // Positioned last to allow the consumer to override any rules.
-            ...rules
+    const config: ConfigWithExtends[] = [
+        {
+            name: "@workleap/eslint-configs/package-json",
+            files: ["**/package.json"],
+            extends: [packageJsonPlugin.configs.recommended],
+            rules: {
+                "package-json/order-properties": "off",
+                "package-json/prefer-repository-shorthand": "off",
+                "package-json/sort-collections": [
+                    "warn",
+                    [
+                        // Do not sort "scripts".
+                        "devDependencies",
+                        "dependencies",
+                        "peerDependencies",
+                        "config"
+                    ]
+                ],
+                // Doesn't support "workspace:*" at the moment.
+                "package-json/valid-package-def": "off",
+                // I am not sure why, this rule is triggering errors for valid paths.
+                "package-json/valid-repository-directory": "off",
+                "package-json/valid-scripts": "off",
+                // Doesn't make sense for our products.
+                "package-json/require-license": "off",
+                // Not useful when using PNPM and syncpack.
+                "package-json/specify-peers-locally": "off",
+                // Positioned last to allow the consumer to override any rules.
+                ...rules
+            }
         }
-    }];
+    ];
 
     return config;
-};
+}

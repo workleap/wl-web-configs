@@ -82,7 +82,7 @@ test.concurrent("when the matching rule is the last rule of the rules array, ret
     expect(match.type).toBe("asset/inline");
 });
 
-test.concurrent("when the matching rule is nested in a \"oneOf\" prop and is the first rule of the array, return the matching rule", ({ expect }) => {
+test.concurrent('when the matching rule is nested in a "oneOf" prop and is the first rule of the array, return the matching rule', ({ expect }) => {
     const oneOfRule: RuleSetRule = {
         oneOf: [
             {
@@ -123,7 +123,7 @@ test.concurrent("when the matching rule is nested in a \"oneOf\" prop and is the
     expect(match.type).toBe("asset/inline");
 });
 
-test.concurrent("when the matching rule is nested in a \"oneOf\" prop and is the last rule of the array, return the matching rule", ({ expect }) => {
+test.concurrent('when the matching rule is nested in a "oneOf" prop and is the last rule of the array, return the matching rule', ({ expect }) => {
     const oneOfRule: RuleSetRule = {
         oneOf: [
             {
@@ -164,14 +164,10 @@ test.concurrent("when the matching rule is nested in a \"oneOf\" prop and is the
     expect(match.type).toBe("asset/inline");
 });
 
-test.concurrent("when the matching rule is nested in a \"use\" prop and is the first rule of the array, return the matching rule", ({ expect }) => {
+test.concurrent('when the matching rule is nested in a "use" prop and is the first rule of the array, return the matching rule', ({ expect }) => {
     const tsModuleRule = {
         test: /\.(ts|tsx)/i,
-        use: [
-            { loader: "swc-loader" },
-            { loader: "babel-loader" },
-            { loader: "esbuild-loader" }
-        ]
+        use: [{ loader: "swc-loader" }, { loader: "babel-loader" }, { loader: "esbuild-loader" }]
     };
 
     const config: WebpackConfig = {
@@ -205,14 +201,10 @@ test.concurrent("when the matching rule is nested in a \"use\" prop and is the f
     expect(match.loader).toBe("swc-loader");
 });
 
-test.concurrent("when the matching rule is nested in a \"use\" prop and is the last rule of the array, return the matching rule", ({ expect }) => {
+test.concurrent('when the matching rule is nested in a "use" prop and is the last rule of the array, return the matching rule', ({ expect }) => {
     const tsModuleRule = {
         test: /\.(ts|tsx)/i,
-        use: [
-            { loader: "babel-loader" },
-            { loader: "esbuild-loader" },
-            { loader: "swc-loader" }
-        ]
+        use: [{ loader: "babel-loader" }, { loader: "esbuild-loader" }, { loader: "swc-loader" }]
     };
 
     const config: WebpackConfig = {
@@ -246,12 +238,10 @@ test.concurrent("when the matching rule is nested in a \"use\" prop and is the l
     expect(match.loader).toBe("swc-loader");
 });
 
-test.concurrent("when the matching rule is nested in a \"oneOf\" prop then in a \"use\" prop, return the matching rule", ({ expect }) => {
+test.concurrent('when the matching rule is nested in a "oneOf" prop then in a "use" prop, return the matching rule', ({ expect }) => {
     const tsRule = {
         test: /\.(ts|tsx)/i,
-        use: [
-            { loader: "swc-loader" }
-        ]
+        use: [{ loader: "swc-loader" }]
     };
 
     const config: WebpackConfig = {
@@ -353,7 +343,6 @@ test.concurrent("when a module rule is undefined, do not throw", ({ expect }) =>
         module: {
             rules: [
                 // Since Webpack configs are usually untyped, it's preferable to test this.
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 undefined,
                 {
@@ -371,14 +360,13 @@ test.concurrent("when a module rule is undefined, do not throw", ({ expect }) =>
     expect(() => findModuleRule(config, matchAssetModuleType("asset/inline"))).not.toThrow();
 });
 
-test.concurrent("when an undefined module rule is nested in a \"oneOf\" prop, do not throw", ({ expect }) => {
+test.concurrent('when an undefined module rule is nested in a "oneOf" prop, do not throw', ({ expect }) => {
     const config: WebpackConfig = {
         module: {
             rules: [
                 {
                     oneOf: [
                         // Since Webpack configs are usually untyped, it's preferable to test this.
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         undefined
                     ]
@@ -397,4 +385,3 @@ test.concurrent("when an undefined module rule is nested in a \"oneOf\" prop, do
 
     expect(() => findModuleRule(config, matchAssetModuleType("asset/inline"))).not.toThrow();
 });
-

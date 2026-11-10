@@ -24,10 +24,7 @@ test.concurrent("when a matching plugin is found in the plugins array, add after
     const newPlugin = new Plugin3();
 
     const config: Configuration = {
-        plugins: [
-            new Plugin1(),
-            new Plugin2()
-        ]
+        plugins: [new Plugin1(), new Plugin2()]
     };
 
     addAfterPlugin(config, matchConstructorName(Plugin2.name), [newPlugin]);
@@ -40,10 +37,7 @@ test.concurrent("when no matching plugin is found, throw an error", ({ expect })
     const newPlugin = new Plugin3();
 
     const config: Configuration = {
-        plugins: [
-            new Plugin1(),
-            new Plugin2()
-        ]
+        plugins: [new Plugin1(), new Plugin2()]
     };
 
     expect(() => addAfterPlugin(config, matchConstructorName("anything"), [newPlugin])).toThrow();

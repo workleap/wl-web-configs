@@ -1,1 +1,4 @@
+# Prettier only runs through stylelint-prettier, on CSS. "!*/" re-includes the folders, otherwise the CSS files under them stay ignored.
 *
+!*/
+!*.css

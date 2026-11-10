@@ -27,7 +27,7 @@ test.concurrent("when an output path is provided, use the provided ouput path va
     expect(result.output!.path).toBe("./a-new-output-path");
 });
 
-test.concurrent("when a public path is set to \"auto\", should not throw an error", ({ expect }) => {
+test.concurrent('when a public path is set to "auto", should not throw an error', ({ expect }) => {
     expect(() => defineBuildConfig(DefaultSwcConfig, { publicPath: "auto" })).not.toThrow();
 });
 
@@ -51,10 +51,7 @@ test.concurrent("when additional module rules are provided, append the provided 
     };
 
     const result = defineBuildConfig(DefaultSwcConfig, {
-        moduleRules: [
-            newModuleRule1,
-            newModuleRule2
-        ]
+        moduleRules: [newModuleRule1, newModuleRule2]
     });
 
     const rulesCount = result.module!.rules!.length;
@@ -80,10 +77,7 @@ test.concurrent("when additional plugins are provided, append the provided plugi
     const newPlugin2 = new Plugin2();
 
     const result = defineBuildConfig(DefaultSwcConfig, {
-        plugins: [
-            newPlugin1,
-            newPlugin2
-        ]
+        plugins: [newPlugin1, newPlugin2]
     });
 
     const pluginsCount = result.plugins!.length;
@@ -108,7 +102,7 @@ test.concurrent("when optimize is false, minimize is set to false", ({ expect })
     expect(result.optimization!.minimize).toBeFalsy();
 });
 
-test.concurrent("when optimize is \"readable\", minimize is set to true", ({ expect }) => {
+test.concurrent('when optimize is "readable", minimize is set to true', ({ expect }) => {
     const result = defineBuildConfig(DefaultSwcConfig, {
         optimize: "readable"
     });
@@ -116,7 +110,7 @@ test.concurrent("when optimize is \"readable\", minimize is set to true", ({ exp
     expect(result.optimization?.minimize).toBeTruthy();
 });
 
-test.concurrent("when optimize is false, chunkIds is set to \"named\"", ({ expect }) => {
+test.concurrent('when optimize is false, chunkIds is set to "named"', ({ expect }) => {
     const result = defineBuildConfig(DefaultSwcConfig, {
         optimize: false
     });
@@ -124,7 +118,7 @@ test.concurrent("when optimize is false, chunkIds is set to \"named\"", ({ expec
     expect(result.optimization?.chunkIds).toBe("named");
 });
 
-test.concurrent("when optimize is false, moduleIds is set to \"named\"", ({ expect }) => {
+test.concurrent('when optimize is false, moduleIds is set to "named"', ({ expect }) => {
     const result = defineBuildConfig(DefaultSwcConfig, {
         optimize: false
     });
@@ -132,7 +126,7 @@ test.concurrent("when optimize is false, moduleIds is set to \"named\"", ({ expe
     expect(result.optimization!.chunkIds).toBe("named");
 });
 
-test.concurrent("when optimize is \"readable\", chunkIds is set to \"named\"", ({ expect }) => {
+test.concurrent('when optimize is "readable", chunkIds is set to "named"', ({ expect }) => {
     const result = defineBuildConfig(DefaultSwcConfig, {
         optimize: "readable"
     });
@@ -140,7 +134,7 @@ test.concurrent("when optimize is \"readable\", chunkIds is set to \"named\"", (
     expect(result.optimization!.chunkIds).toBe("named");
 });
 
-test.concurrent("when optimize is \"readable\", moduleIds is set to \"named\"", ({ expect }) => {
+test.concurrent('when optimize is "readable", moduleIds is set to "named"', ({ expect }) => {
     const result = defineBuildConfig(DefaultSwcConfig, {
         optimize: "readable"
     });
@@ -164,7 +158,7 @@ test.concurrent("when optimize is false, do not include minify configuration", (
     expect(result.optimization!.minimizer).toBeUndefined();
 });
 
-test.concurrent("when optimize is \"readable\", include minify configuration", ({ expect }) => {
+test.concurrent('when optimize is "readable", include minify configuration', ({ expect }) => {
     const result = defineBuildConfig(DefaultSwcConfig, {
         optimize: "readable"
     });
@@ -172,7 +166,7 @@ test.concurrent("when optimize is \"readable\", include minify configuration", (
     expect(result.optimization!.minimizer).toBeDefined();
 });
 
-test.concurrent("when htmlWebpackPlugin is \"false\", no html-webpack-plugin instance is added to the plugin array", ({ expect }) => {
+test.concurrent('when htmlWebpackPlugin is "false", no html-webpack-plugin instance is added to the plugin array', ({ expect }) => {
     const config = defineBuildConfig(DefaultSwcConfig, {
         htmlWebpackPlugin: false
     });
@@ -182,7 +176,7 @@ test.concurrent("when htmlWebpackPlugin is \"false\", no html-webpack-plugin ins
     expect(result).toBeUndefined();
 });
 
-test.concurrent("when htmlWebpackPlugin is \"true\", an html-webpack-plugin instance is added to the plugin array", ({ expect }) => {
+test.concurrent('when htmlWebpackPlugin is "true", an html-webpack-plugin instance is added to the plugin array', ({ expect }) => {
     const config = defineBuildConfig(DefaultSwcConfig, {
         htmlWebpackPlugin: true
     });
@@ -192,7 +186,7 @@ test.concurrent("when htmlWebpackPlugin is \"true\", an html-webpack-plugin inst
     expect(result).toBeDefined();
 });
 
-test.concurrent("the environment variables plugin is discoverable via matchConstructorName(\"DefinePlugin\")", ({ expect }) => {
+test.concurrent('the environment variables plugin is discoverable via matchConstructorName("DefinePlugin")', ({ expect }) => {
     const config = defineBuildConfig(DefaultSwcConfig);
 
     const result = findPlugin(config, matchConstructorName("DefinePlugin"));
@@ -208,10 +202,8 @@ test.concurrent("when css modules is enabled, include css modules configuration"
     const cssLoader = findModuleRule(result, matchLoaderName("css-loader"));
 
     // css-loader doesn't provide typings.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect(((cssLoader!.moduleRule as RuleSetRule).options as any).modules).toBeTruthy();
     // css-loader doesn't provide typings.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect(((cssLoader!.moduleRule as RuleSetRule).options as any).importLoaders).toBe(1);
 });
 
@@ -235,7 +227,9 @@ test.concurrent("the provided swc config object is set as the swc-loader options
     expect((swcLoader!.moduleRule as RuleSetRule).options).toBe(swcConfig);
 });
 
-test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the webpack config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the webpack config", ({
+    expect
+}) => {
     const entryTransformer: WebpackConfigTransformer = (config: Configuration) => {
         config.entry = "a-custom-value-in-a-transformer";
 
@@ -249,7 +243,9 @@ test.concurrent("when a transformer is provided, and the transformer update the 
     expect(result.entry).toBe("a-custom-value-in-a-transformer");
 });
 
-test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the webpack config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the webpack config", ({
+    expect
+}) => {
     const entryTransformer: WebpackConfigTransformer = () => {
         return {
             entry: "a-custom-value-in-a-transformer"
@@ -284,7 +280,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     expect(result.devtool).toBe("custom-module-source-map-in-a-tranformer");
 });
 
-test.concurrent("transformers context environment is \"build\"", ({ expect }) => {
+test.concurrent('transformers context environment is "build"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineBuildConfig(DefaultSwcConfig, {
@@ -294,7 +290,7 @@ test.concurrent("transformers context environment is \"build\"", ({ expect }) =>
     expect(mockTransformer).toHaveBeenCalledWith(expect.anything(), { environment: "build", verbose: false });
 });
 
-test.concurrent("when the verbose option is true, the transformers context verbose value is \"true\"", ({ expect }) => {
+test.concurrent('when the verbose option is true, the transformers context verbose value is "true"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineBuildConfig(DefaultSwcConfig, {
@@ -306,6 +302,7 @@ test.concurrent("when the verbose option is true, the transformers context verbo
 });
 
 // TODO: The test do not pass on UNIX system becase of \\, fix this later,
+// oxlint-disable-next-line vitest/no-commented-out-tests -- Kept until the test passes on UNIX.
 // test.concurrent("by default, an svgr rule is added and the assets loader do not handle .svg files", ({ expect }) => {
 //     const result = defineBuildConfig(SwcConfig);
 
@@ -373,4 +370,3 @@ describe("defineMiniCssExtractPluginConfig", () => {
         expect(result.filename).toBe("a-custom-filename");
     });
 });
-

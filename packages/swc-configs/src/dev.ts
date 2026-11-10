@@ -10,27 +10,22 @@ export interface DefineDevConfigOptions {
 }
 
 export function defineDevConfig(targets: Record<string, string>, options: DefineDevConfigOptions = {}) {
-    const {
-        baseUrl,
-        fastRefresh = true,
-        parser = "typescript",
-        paths,
-        transformers = []
-    } = options;
+    const { baseUrl, fastRefresh = true, parser = "typescript", paths, transformers = [] } = options;
 
     const config: SwcConfig = {
         jsc: {
             baseUrl,
             paths,
-            parser: parser === "ecmascript"
-                ? {
-                    syntax: "ecmascript",
-                    jsx: true
-                }
-                : {
-                    syntax: "typescript",
-                    tsx: true
-                },
+            parser:
+                parser === "ecmascript"
+                    ? {
+                          syntax: "ecmascript",
+                          jsx: true
+                      }
+                    : {
+                          syntax: "typescript",
+                          tsx: true
+                      },
             transform: {
                 react: {
                     // Use "react/jsx-runtime".

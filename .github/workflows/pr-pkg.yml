@@ -31,10 +31,10 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v7
         with:
-            node-version: ">=26.0.0"
-            check-latest: true
-            cache: pnpm
-            cache-dependency-path: pnpm-lock.yaml
+          node-version: ">=26.0.0"
+          check-latest: true
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Authenticate to the GitHub package firewall
         # pnpm ignores auth tokens set in a repository .npmrc, so the job token goes in the user-level ~/.npmrc.

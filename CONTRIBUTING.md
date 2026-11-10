@@ -111,6 +111,7 @@ pnpm dev-sample-msw
 ## Release the packages
 
 When you are ready to release the packages, you must follow the following steps:
+
 1. Run `pnpm changeset` and follow the prompt. For versioning, always follow the [SemVer standard](https://semver.org/).
 2. Commit the newly generated file in your branch and submit a new Pull Request(PR). Changesets will automatically detect the changes and post a message in your pull request telling you that once the PR closes, the versions will be released.
 3. Find someone to review your PR.
@@ -134,7 +135,7 @@ If the packages failed to compile, it's easier to debug without executing the fu
 pnpm build-pkg
 ```
 
-By default, packages compilation output will be in their respective *dist* directory.
+By default, packages compilation output will be in their respective _dist_ directory.
 
 ## Commands
 
@@ -286,11 +287,26 @@ pnpm test
 
 ### lint
 
-Lint the packages files & the sample application.
+Lint the packages files & the sample application: oxlint, oxfmt (check only), Stylelint, typecheck and syncpack.
 
 ```bash
 pnpm lint
 ```
+
+The repository lints with [oxlint](https://oxc.rs/docs/guide/usage/linter) and formats with [oxfmt](https://oxc.rs/docs/guide/usage/formatter). Both run once at the root, configured by `oxlint.config.ts` and `oxfmt.config.ts`. oxlint is type-aware: it resolves the workspace packages through their `dist` folder, so build the packages first (`pnpm lint` does it).
+
+```bash
+# Lint the whole repository.
+pnpm oxlint
+
+# Format the whole repository.
+pnpm oxfmt
+
+# Check the formatting without writing.
+pnpm oxfmt:check
+```
+
+oxfmt ignores CSS: `@workleap/stylelint-configs` formats it through Prettier (`stylelint-prettier`) instead, since the two don't always produce the same CSS. Fix CSS formatting with `pnpm stylelint --fix` in the project, or on save in VS Code. The CSS-scoped `.prettierrc.json5` uses the options of `oxfmt.config.ts`: keep them in sync.
 
 ### changeset
 
@@ -336,12 +352,16 @@ pnpm update-outdated-deps
 
 Some dependencies are deliberately excluded from `update-outdated-deps` with `!<name>` arguments. `typescript` is excluded from the update scripts only — it stays in `list-outdated-deps`, so the hold-back surfaces whenever a newer version ships. The others are excluded from both scripts, so revisiting them is driven by the "When to lift" column rather than by tooling.
 
-| Dependency | Why | When to lift |
-| --- | --- | --- |
-| `eslint`, `@eslint/js` | v10 is a breaking change for consumers of `@workleap/eslint-configs` (peer `^9`). Requires a coordinated major release and a migration guide. | When an `@workleap/eslint-configs` major is planned. |
-| `stylelint`, `stylelint-config-standard` | `stylelint` v17 is a breaking change for consumers of `@workleap/stylelint-configs` (peer `^16`). `stylelint-config-standard` is a direct dependency (`^39`), so a major silently changes the rule set every consumer inherits. | When an `@workleap/stylelint-configs` major is planned. |
-| `typescript` | `typescript-eslint` 8.x rejects TS 7.0 (`typescript-eslint does not support TS 7.0`), which breaks loading `eslint.config.ts`. `typescript@6` stays for ESLint and VS Code, while `@typescript/native-preview` (`tsgo`) already provides TS 7 for `typecheck`. See [#468](https://github.com/workleap/wl-web-configs/issues/468). | When `typescript-eslint` ships TS 7.0 support ([typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940)). |
-| `webpack-dev-server` | v6 is only safe as a *widening* of the `@workleap/webpack-configs` peer to `"^5.2.4 \|\| ^6.0.0"` (consumers also need `webpack-cli >= 7.2.1`). `syncpack fix` cannot express a multi-range peer, so it narrows the peer to `^6.0.0` and drops wds5 for every consumer. See [#452](https://github.com/workleap/wl-web-configs/issues/452). | When the peer is manually widened to `"^5.2.4 \|\| ^6.0.0"` as part of #452. |
+| Dependency                               | Why                                                                                                                                                                                                                                                                                                                                        | When to lift                                                                                                                                                                                                                                             |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `eslint`, `@eslint/js`                   | The repository no longer lints with ESLint, but `@workleap/eslint-configs` still declares them (peer `^9`), and v10 is a breaking change for its consumers.                                                                                                                                                                                | When `@workleap/eslint-configs` is removed ([#509](https://github.com/workleap/wl-web-configs/issues/509)).                                                                                                                                              |
+| `stylelint`, `stylelint-config-standard` | `stylelint` v17 is a breaking change for consumers of `@workleap/stylelint-configs` (peer `^16`). `stylelint-config-standard` is a direct dependency (`^39`), so a major silently changes the rule set every consumer inherits.                                                                                                            | When an `@workleap/stylelint-configs` major is planned.                                                                                                                                                                                                  |
+| `typescript`                             | The repository no longer lints with ESLint, but `@workleap/eslint-configs` still depends on `typescript-eslint` 8.x, which rejects TS 7.0 (`typescript-eslint does not support TS 7.0`). `@typescript/native-preview` (`tsgo`) already provides TS 7 for `typecheck`. See [#468](https://github.com/workleap/wl-web-configs/issues/468).   | When `@workleap/eslint-configs` is removed ([#509](https://github.com/workleap/wl-web-configs/issues/509)) or `typescript-eslint` ships TS 7.0 support ([typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940)). |
+| `webpack-dev-server`                     | v6 is only safe as a _widening_ of the `@workleap/webpack-configs` peer to `"^5.2.4 \|\| ^6.0.0"` (consumers also need `webpack-cli >= 7.2.1`). `syncpack fix` cannot express a multi-range peer, so it narrows the peer to `^6.0.0` and drops wds5 for every consumer. See [#452](https://github.com/workleap/wl-web-configs/issues/452). | When the peer is manually widened to `"^5.2.4 \|\| ^6.0.0"` as part of #452.                                                                                                                                                                             |
+
+### GitHub Actions
+
+[Renovate](./renovate.json) updates the GitHub Actions used by the workflows on a schedule. To bump them on demand, run `/_update-github-actions` with Claude Code (or select GitHub Actions in `/_update-third-parties`).
 
 ## CI
 
@@ -383,11 +403,11 @@ pnpm init
 
 Answer the CLI questions.
 
-Once the *package.json* is generated, please read again the [GSoft GitHub guidelines](https://github.com/workleap/github-guidelines#npm-package-name) and make sure the package name, author and license are valid.
+Once the _package.json_ is generated, please read again the [GSoft GitHub guidelines](https://github.com/workleap/github-guidelines#npm-package-name) and make sure the package name, author and license are valid.
 
-Don't forget to add the [npm scope](https://docs.npmjs.com/about-scopes) *"@workleap"* before the package name. For example, if the project name is "foo", your package name should be "@workleap/foo".
+Don't forget to add the [npm scope](https://docs.npmjs.com/about-scopes) _"@workleap"_ before the package name. For example, if the project name is "foo", your package name should be "@workleap/foo".
 
-Make sure the package publish access is *public* by adding the following to the *package.json* file:
+Make sure the package publish access is _public_ by adding the following to the _package.json_ file:
 
 ```json
 {
@@ -399,7 +419,7 @@ Make sure the package publish access is *public* by adding the following to the 
 
 ### Dependencies
 
-npm *dependencies* and *peerDependencies* must be added to the package own *package.json* file.
+npm _dependencies_ and _peerDependencies_ must be added to the package own _package.json_ file.
 
 ## Maintainers notes
 
@@ -461,4 +481,3 @@ Dual ESM & CommonJS package:
     "types": "./dist/index.d.ts" (for moduleResolution: "Node")
 }
 ```
-

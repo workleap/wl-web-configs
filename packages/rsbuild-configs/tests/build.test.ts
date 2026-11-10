@@ -43,10 +43,7 @@ test.concurrent("when additional plugins are provided, append the provided plugi
     };
 
     const result = defineBuildConfig({
-        plugins: [
-            plugin1,
-            plugin2
-        ]
+        plugins: [plugin1, plugin2]
     });
 
     const pluginsCount = result.plugins!.length;
@@ -158,7 +155,9 @@ test.concurrent("when compressImage is a function, the function is executed", ({
     expect(fct).toHaveBeenCalledTimes(1);
 });
 
-test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rsbuild config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the Rsbuild config", ({
+    expect
+}) => {
     const entryTransformer: RsbuildConfigTransformer = (config: RsbuildConfig) => {
         config.source = config.source ?? {};
         config.source.entry = {
@@ -175,7 +174,9 @@ test.concurrent("when a transformer is provided, and the transformer update the 
     expect(result.source!.entry!.index).toBe("a-custom-value-in-a-transformer");
 });
 
-test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rsbuild config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the Rsbuild config", ({
+    expect
+}) => {
     const entryTransformer: RsbuildConfigTransformer = () => {
         return {
             source: {
@@ -220,7 +221,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     expect((result.output!.distPath as DistPathConfig).js).toBe("a-custom-dist-path-in-a-tranformer");
 });
 
-test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
+test.concurrent('transformers context environment is "dev"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineBuildConfig({
@@ -230,7 +231,7 @@ test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
     expect(mockTransformer).toHaveBeenCalledWith(expect.anything(), { environment: "build", verbose: false });
 });
 
-test.concurrent("when the verbose option is true, the transformers context verbose value is \"true\"", ({ expect }) => {
+test.concurrent('when the verbose option is true, the transformers context verbose value is "true"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineBuildConfig({
@@ -251,7 +252,7 @@ describe("output.minify", () => {
         expect(defineBuildConfig({ optimize: false, minify: true }).output?.minify).toBe(false);
     });
 
-    test.concurrent("when optimize is \"readable\", output.minify configures SWC with mangle disabled", ({ expect }) => {
+    test.concurrent('when optimize is "readable", output.minify configures SWC with mangle disabled', ({ expect }) => {
         const result = defineBuildConfig({ optimize: "readable" }).output?.minify as Exclude<Minify, boolean>;
         // Since Rsbuild 2.2.0, "jsOptions" accepts either a single options object or an array of them.
         const jsOptions = result.jsOptions as Exclude<typeof result.jsOptions, unknown[]>;
@@ -265,7 +266,7 @@ describe("getOptimizationConfig", () => {
         expect(getOptimizationConfig(true)).toBeUndefined();
     });
 
-    test.concurrent("when optimize is false, chunkIds and moduleIds are set to \"named\"", ({ expect }) => {
+    test.concurrent('when optimize is false, chunkIds and moduleIds are set to "named"', ({ expect }) => {
         const result = getOptimizationConfig(false);
 
         expect(result?.chunkIds).toBe("named");
@@ -279,21 +280,21 @@ describe("getOptimizationConfig", () => {
         expect(result?.usedExports).toBe(false);
     });
 
-    test.concurrent("when optimize is \"readable\", chunkIds and moduleIds are set to \"named\"", ({ expect }) => {
+    test.concurrent('when optimize is "readable", chunkIds and moduleIds are set to "named"', ({ expect }) => {
         const result = getOptimizationConfig("readable");
 
         expect(result?.chunkIds).toBe("named");
         expect(result?.moduleIds).toBe("named");
     });
 
-    test.concurrent("when optimize is \"readable\", mangleExports is disabled", ({ expect }) => {
+    test.concurrent('when optimize is "readable", mangleExports is disabled', ({ expect }) => {
         const result = getOptimizationConfig("readable");
 
         expect(result?.mangleExports).toBe(false);
     });
 });
 
-test.concurrent("by default, the output.polyfill option is set to \"usage\"", ({ expect }) => {
+test.concurrent('by default, the output.polyfill option is set to "usage"', ({ expect }) => {
     const result = defineBuildConfig();
 
     expect(result.output?.polyfill).toBe("usage");
@@ -307,7 +308,7 @@ test.concurrent("when polyfill is provided, the output.polyfill option is the pr
     expect(result.output?.polyfill).toBe("off");
 });
 
-test.concurrent("by default, the splitChunks option uses the \"per-package\" preset", ({ expect }) => {
+test.concurrent('by default, the splitChunks option uses the "per-package" preset', ({ expect }) => {
     const result = defineBuildConfig();
 
     const splitChunks = result.splitChunks as SplitChunksConfig;

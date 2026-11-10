@@ -79,7 +79,9 @@ describe("ecmascript parser", () => {
     });
 });
 
-test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the swc config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the swc config", ({
+    expect
+}) => {
     const minifyTransformer: SwcConfigTransformer = (config: SwcConfig) => {
         config.minify = true;
 
@@ -93,7 +95,9 @@ test.concurrent("when a transformer is provided, and the transformer update the 
     expect(result.minify).toBeTruthy();
 });
 
-test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the swc config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the swc config", ({
+    expect
+}) => {
     const minifyTransformer: SwcConfigTransformer = () => {
         return {
             minify: true
@@ -128,7 +132,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     expect(result.sourceMaps).toBeTruthy();
 });
 
-test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
+test.concurrent('transformers context environment is "dev"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineJestConfig({

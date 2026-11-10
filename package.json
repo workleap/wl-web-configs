@@ -1,15 +1,15 @@
 {
     "name": "workspace-root",
     "version": "0.0.0",
-    "author": "Workleap",
-    "description": "Common configurations for building web apps and libraries at Workleap",
     "private": true,
-    "type": "module",
+    "description": "Common configurations for building web apps and libraries at Workleap",
     "license": "Apache-2.0",
+    "author": "Workleap",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/workleap/wl-web-configs.git"
     },
+    "type": "module",
     "scripts": {
         "dev-webpack": "turbo run dev --filter=./samples/webpack/*",
         "dev-webpack-msw": "turbo run dev-msw --filter=./samples/webpack/*",
@@ -31,7 +31,9 @@
         "deploy-rsbuild": "cross-env NETLIFY=true turbo run deploy --filter=./samples/rsbuild/app",
         "prelint": "turbo run build --filter=./packages/*",
         "lint": "turbo run lint --continue",
-        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
+        "oxlint": "oxlint --deny-warnings --report-unused-disable-directives-severity=error",
+        "oxfmt": "oxfmt",
+        "oxfmt:check": "oxfmt --check",
         "typecheck": "tsgo",
         "syncpack": "syncpack lint",
         "validate-package-skills": "node ./scripts/validate-package-skills.ts",
@@ -46,28 +48,25 @@
         "update-outdated-deps": "pnpm run --sequential \"/^update-outdated-deps:.*/\"",
         "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !eslint !@eslint/js !stylelint !stylelint-config-standard !typescript !webpack-dev-server",
         "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !eslint !@eslint/js !stylelint !stylelint-config-standard !typescript !webpack-dev-server",
-        "update-outdated-deps:update-peers": "syncpack fix",
-        "update-outdated-deps:fix-pkg-json": "eslint --fix --no-cache --no-ignore package.json **/package.json"
+        "update-outdated-deps:update-peers": "syncpack fix"
     },
     "devDependencies": {
         "@changesets/changelog-github": "1.0.1",
         "@changesets/cli": "3.0.3",
-        "@eslint/js": "9.39.2",
         "@types/node": "26.6.6",
-        "@typescript-eslint/parser": "8.72.1",
         "@typescript/native-preview": "7.0.0-dev.20260707.2",
-        "@workleap/eslint-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "agent-browser": "0.41.1",
         "cross-env": "10.1.0",
-        "eslint": "9.39.2",
+        "oxfmt": "0.77.0",
+        "oxlint": "1.92.0",
+        "oxlint-tsgolint": "7.0.2006",
         "pkg-pr-new": "0.0.93",
         "prettier": "3.9.10",
         "retypeapp": "4.6.0",
         "syncpack": "15.3.3",
         "turbo": "2.11.10",
-        "typescript": "6.0.3",
-        "typescript-eslint": "8.72.1"
+        "typescript": "6.0.3"
     },
     "engines": {
         "node": ">=26.0.0",

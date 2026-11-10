@@ -7,7 +7,7 @@ const Targets = {
     chrome: "116"
 };
 
-test.concurrent("provided browsers are set as \"env.targets\"", ({ expect }) => {
+test.concurrent('provided browsers are set as "env.targets"', ({ expect }) => {
     const result = defineDevConfig(Targets);
 
     expect(result.env?.targets).toBe(Targets);
@@ -29,7 +29,7 @@ test.concurrent("when fastRefresh is false, react refresh is false", ({ expect }
     expect(result.jsc?.transform?.react?.refresh).toBeFalsy();
 });
 
-test.concurrent("when parser is \"ecmascript\", the configuration parser is ecmascript", ({ expect }) => {
+test.concurrent('when parser is "ecmascript", the configuration parser is ecmascript', ({ expect }) => {
     const result = defineDevConfig(Targets, {
         parser: "ecmascript"
     });
@@ -37,7 +37,7 @@ test.concurrent("when parser is \"ecmascript\", the configuration parser is ecma
     expect(result.jsc?.parser?.syntax).toBe("ecmascript");
 });
 
-test.concurrent("when parser is \"ecmascript\", jsx parsing is enabled", ({ expect }) => {
+test.concurrent('when parser is "ecmascript", jsx parsing is enabled', ({ expect }) => {
     const result = defineDevConfig(Targets, {
         parser: "ecmascript"
     });
@@ -45,7 +45,7 @@ test.concurrent("when parser is \"ecmascript\", jsx parsing is enabled", ({ expe
     expect((result.jsc?.parser as EsParserConfig).jsx).toBeTruthy();
 });
 
-test.concurrent("when parser is \"typescript\", the configuration parser is typescript", ({ expect }) => {
+test.concurrent('when parser is "typescript", the configuration parser is typescript', ({ expect }) => {
     const result = defineDevConfig(Targets, {
         parser: "typescript"
     });
@@ -53,7 +53,7 @@ test.concurrent("when parser is \"typescript\", the configuration parser is type
     expect(result.jsc?.parser?.syntax).toBe("typescript");
 });
 
-test.concurrent("when parser is \"typescript\", tsx parsing is enabled", ({ expect }) => {
+test.concurrent('when parser is "typescript", tsx parsing is enabled', ({ expect }) => {
     const result = defineDevConfig(Targets, {
         parser: "typescript"
     });
@@ -61,7 +61,9 @@ test.concurrent("when parser is \"typescript\", tsx parsing is enabled", ({ expe
     expect((result.jsc?.parser as TsParserConfig).tsx).toBeTruthy();
 });
 
-test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the swc config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer update the existing configuration object, the transformer is applied on the swc config", ({
+    expect
+}) => {
     const minifyTransformer: SwcConfigTransformer = (config: SwcConfig) => {
         config.minify = true;
 
@@ -75,7 +77,9 @@ test.concurrent("when a transformer is provided, and the transformer update the 
     expect(result.minify).toBeTruthy();
 });
 
-test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the swc config", ({ expect }) => {
+test.concurrent("when a transformer is provided, and the transformer returns a new configuration object, the transformer is applied on the swc config", ({
+    expect
+}) => {
     const minifyTransformer: SwcConfigTransformer = () => {
         return {
             minify: true
@@ -110,7 +114,7 @@ test.concurrent("when multiple transformers are provided, all the transformers a
     expect(result.sourceMaps).toBeTruthy();
 });
 
-test.concurrent("transformers context environment is \"dev\"", ({ expect }) => {
+test.concurrent('transformers context environment is "dev"', ({ expect }) => {
     const mockTransformer = vi.fn();
 
     defineDevConfig(Targets, {

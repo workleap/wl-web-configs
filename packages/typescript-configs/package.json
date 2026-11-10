@@ -1,26 +1,13 @@
 {
-    "type": "commonjs",
     "name": "@workleap/typescript-configs",
-    "author": "Workleap",
-    "description": "Workleap recommended typescript configurations.",
     "version": "5.1.0",
+    "description": "Workleap recommended typescript configurations.",
     "license": "Apache-2.0",
+    "author": "Workleap",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/workleap/wl-web-configs.git",
         "directory": "packages/typescript-configs"
-    },
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/",
-        "provenance": true
-    },
-    "exports": {
-        "./core.json": "./core.json",
-        "./library.json": "./library.json",
-        "./monorepo-workspace.json": "./monorepo-workspace.json",
-        "./react.json": "./react.json",
-        "./web-application.json": "./web-application.json"
     },
     "files": [
         "core.json",
@@ -31,7 +18,20 @@
         "skills",
         "CHANGELOG.md"
     ],
+    "type": "commonjs",
     "sideEffects": false,
+    "exports": {
+        "./core.json": "./core.json",
+        "./library.json": "./library.json",
+        "./monorepo-workspace.json": "./monorepo-workspace.json",
+        "./react.json": "./react.json",
+        "./web-application.json": "./web-application.json"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true,
+        "registry": "https://registry.npmjs.org/"
+    },
     "peerDependencies": {
         "typescript": "^6.0.3"
     }

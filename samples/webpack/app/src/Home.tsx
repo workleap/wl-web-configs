@@ -8,7 +8,10 @@ export function Home() {
             <h1 className="title">Home</h1>
             <p>{helloFrom("the homepage")}</p>
             <p>
-                <span>Here's an SVG icon loaded with <code>@svgr/webpack</code>:</span><AddIcon />
+                <span>
+                    Here's an SVG icon loaded with <code>@svgr/webpack</code>:
+                </span>
+                <AddIcon />
             </p>
         </div>
     );

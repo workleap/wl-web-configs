@@ -6,8 +6,8 @@ import { swcConfig } from "./swc.dev.js";
 export default defineDevConfig(swcConfig, {
     verbose: process.env.VERBOSE === "true",
     environmentVariables: {
-        "USE_MSW": process.env.USE_MSW === "true",
-        "STRING": "STRING_VALUE",
-        "INT": 1
+        USE_MSW: process.env.USE_MSW === "true",
+        STRING: "STRING_VALUE",
+        INT: 1
     }
 });

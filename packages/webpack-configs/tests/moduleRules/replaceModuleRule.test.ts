@@ -29,7 +29,7 @@ test.concurrent("when a matching module rule is found in the rules array, replac
     expect(config.module!.rules![0]).toBe(newRule);
 });
 
-test.concurrent("when a matching module rule is found in a \"oneOf\" prop, replace the module rule", ({ expect }) => {
+test.concurrent('when a matching module rule is found in a "oneOf" prop, replace the module rule', ({ expect }) => {
     const newRule: RuleSetRule = {
         test: /\.(ts|tsx)/i,
         loader: "swc-loader"
@@ -60,7 +60,7 @@ test.concurrent("when a matching module rule is found in a \"oneOf\" prop, repla
     expect((config.module?.rules![1] as RuleSetRule).oneOf![0]).toBe(newRule);
 });
 
-test.concurrent("when a matching module rule is found in a \"use\" prop, replace the module rule", ({ expect }) => {
+test.concurrent('when a matching module rule is found in a "use" prop, replace the module rule', ({ expect }) => {
     const newRule: RuleSetUseItem = {
         loader: "swc-loader"
     };
@@ -70,9 +70,7 @@ test.concurrent("when a matching module rule is found in a \"use\" prop, replace
             rules: [
                 {
                     test: /\.(ts|tsx)/i,
-                    use: [
-                        { loader: "babel-loader" }
-                    ]
+                    use: [{ loader: "babel-loader" }]
                 },
                 {
                     test: /\.js/i,
