@@ -6,7 +6,7 @@ Welcome to `workleap/web-configs`, a collection of **configuration libraries** f
 
 Starting a new web application is still an arduous task. There are so many tools to choose from, learn, install and configure, it can be daunting.
 
-For an organization like Workleap, with a large suite of products, it **doesn't make sense to start over every time** we invest in a new idea or add a new vertical to an existing product. Developers working on a new project shouldn't spend their first day's figuring out which ESLint rules to enable/disable, or how to transpile their React code, they should rather **focus on writing features code**.
+For an organization like Workleap, with a large suite of products, it **doesn't make sense to start over every time** we invest in a new idea or add a new vertical to an existing product. Developers working on a new project shouldn't spend their first day's figuring out which TypeScript options to enable/disable, or how to transpile their React code, they should rather **focus on writing features code**.
 
 ### Filling the gap
 
@@ -35,7 +35,6 @@ The majority of the shared tooling configurations targets [ESM](https://develope
 | Name | NPM | Documentation |
 | --- | --- | --- |
 | ![](../static/browserslist.svg){ class="h-5 w-5 mr-2 -mt-1" }[Browserslist](https://browsersl.ist/) | [![npm version](https://img.shields.io/npm/v/@workleap/browserslist-config)](https://www.npmjs.com/package/@workleap/browserslist-config) | [Getting started](../browserslist/getting-started.md) |
-| ![](../static/eslint.svg){ class="h-5 w-5 mr-2 -mt-1" }[ESLint](https://eslint.org/) | [![npm version](https://img.shields.io/npm/v/@workleap/eslint-configs)](https://www.npmjs.com/package/@workleap/eslint-configs) | [Getting started](../eslint/getting-started.md) |
 | ![](../static/stylelint.svg){ class="h-5 w-5 mr-2 -mt-1" }[Stylelint](https://stylelint.io/) | [![npm version](https://img.shields.io/npm/v/@workleap/stylelint-configs)](https://www.npmjs.com/package/@workleap/stylelint-configs) | [Getting started](../stylelint/getting-started.md) |
 | ![](../static/typescript.svg){ class="h-5 w-5 mr-2 -mt-1" }[Typescript](https://www.typescriptlang.org/) | [![npm version](https://img.shields.io/npm/v/@workleap/typescript-configs)](https://www.npmjs.com/package/@workleap/typescript-configs) | [Getting started](../typescript/getting-started.md) |
 | ![](../static/rsbuild.svg){ class="h-5 w-5 mr-2 -mt-1" }[Rsbuild](https://rsbuild.dev/) | [![npm version](https://img.shields.io/npm/v/@workleap/rsbuild-configs)](https://www.npmjs.com/package/@workleap/rsbuild-configs) | [Getting started](../rsbuild/getting-started.md) |

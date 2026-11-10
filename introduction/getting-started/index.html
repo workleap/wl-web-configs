@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.847591141107">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.847593976106">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,23 +45,17 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.847591141107" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.847593976106" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.847591141107" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.847593976106" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.847591141107" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.847593976106" data-turbo-eval="false" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
     <style>
         .no-bottom-margin {
             margin-bottom: 0 !important;
-        }
-        .eslint-rules-first-column th:first-child {
-            min-width: 180px;
-        }
-        .eslint-rules-first-column th:last-child {
-            min-width: 120px;
         }
     </style>
 
@@ -276,7 +270,7 @@
 <p>Welcome to <code translate="no" v-pre>workleap/web-configs</code>, a collection of <strong>configuration libraries</strong> for building web applications at <a href="https://workleap.com/" class="outbound" target="_blank">Workleap</a>. On this getting started page, you&#x27;ll find an overview of the project and a list of <doc-anchor-trigger to="#supported-tools">supported tools</doc-anchor-trigger>.</p>
 <h2 id="why-we-built-these-libraries">Why we built these libraries?</h2>
 <p>Starting a new web application is still an arduous task. There are so many tools to choose from, learn, install and configure, it can be daunting.</p>
-<p>For an organization like Workleap, with a large suite of products, it <strong>doesn&#x27;t make sense to start over every time</strong> we invest in a new idea or add a new vertical to an existing product. Developers working on a new project shouldn&#x27;t spend their first day&#x27;s figuring out which ESLint rules to enable/disable, or how to transpile their React code, they should rather <strong>focus on writing features code</strong>.</p>
+<p>For an organization like Workleap, with a large suite of products, it <strong>doesn&#x27;t make sense to start over every time</strong> we invest in a new idea or add a new vertical to an existing product. Developers working on a new project shouldn&#x27;t spend their first day&#x27;s figuring out which TypeScript options to enable/disable, or how to transpile their React code, they should rather <strong>focus on writing features code</strong>.</p>
 <h3 id="filling-the-gap">Filling the gap</h3>
 <p>While a collection of common configurations gets us closer to that goal, on their own, configuration libraries are not enough to reach it. There is still a need to install and assemble those configurations correctly in the new application, which can also be a challenge. To fill this gap, we will also invest into a <strong>CLI</strong> to scaffold new web applications and libraries.</p>
 <h3 id="best-of-both-worlds">Best of both worlds</h3>
@@ -292,7 +286,6 @@
 <retype-table copy-text="| Name | NPM | Documentation |
 | --- | --- | --- |
 | ![](../static/browserslist.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Browserslist](https://browsersl.ist/) | [![npm version](https://img.shields.io/npm/v/@workleap/browserslist-config)](https://www.npmjs.com/package/@workleap/browserslist-config) | [Getting started](../browserslist/getting-started.md) |
-| ![](../static/eslint.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[ESLint](https://eslint.org/) | [![npm version](https://img.shields.io/npm/v/@workleap/eslint-configs)](https://www.npmjs.com/package/@workleap/eslint-configs) | [Getting started](../eslint/getting-started.md) |
 | ![](../static/stylelint.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Stylelint](https://stylelint.io/) | [![npm version](https://img.shields.io/npm/v/@workleap/stylelint-configs)](https://www.npmjs.com/package/@workleap/stylelint-configs) | [Getting started](../stylelint/getting-started.md) |
 | ![](../static/typescript.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Typescript](https://www.typescriptlang.org/) | [![npm version](https://img.shields.io/npm/v/@workleap/typescript-configs)](https://www.npmjs.com/package/@workleap/typescript-configs) | [Getting started](../typescript/getting-started.md) |
 | ![](../static/rsbuild.svg){ class=&quot;h-5 w-5 mr-2 -mt-1&quot; }[Rsbuild](https://rsbuild.dev/) | [![npm version](https://img.shields.io/npm/v/@workleap/rsbuild-configs)](https://www.npmjs.com/package/@workleap/rsbuild-configs) | [Getting started](../rsbuild/getting-started.md) |
@@ -318,11 +311,6 @@
 <td><img src="../../static/browserslist.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="256" height="256" /><a href="https://browsersl.ist/" class="outbound" target="_blank">Browserslist</a></td>
 <td><a href="https://www.npmjs.com/package/@workleap/browserslist-config" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/browserslist-config" alt="npm version" class="max-w-full h-auto" /></a></td>
 <td><a href="../../browserslist/getting-started/">Getting started</a></td>
-</tr>
-<tr>
-<td><img src="../../static/eslint.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="256" height="225" /><a href="https://eslint.org/" class="outbound" target="_blank">ESLint</a></td>
-<td><a href="https://www.npmjs.com/package/@workleap/eslint-configs" class="outbound" target="_blank"><img src="https://img.shields.io/npm/v/@workleap/eslint-configs" alt="npm version" class="max-w-full h-auto" /></a></td>
-<td><a href="../../eslint/getting-started/">Getting started</a></td>
 </tr>
 <tr>
 <td><img src="../../static/stylelint.svg" alt="" class="max-w-full h-auto h-5 w-5 mr-2 -mt-1" width="32" height="32" /><a href="https://stylelint.io/" class="outbound" target="_blank">Stylelint</a></td>

@@ -14,16 +14,6 @@
 - [Browserslist](https://workleap.github.io/wl-web-configs/browserslist/getting-started.md): You can find an exhaustive list of the browser versions included with this shared configuration on https://browsersl.ist.
 - [Configure a project](https://workleap.github.io/wl-web-configs/browserslist/configure-project.md): Only setup Browserslist for projects that are emitting application bundles. For example, a library project shouldn't include Browserslist but a web application project should.
 
-## ESLint
-
-- [ESLint](https://workleap.github.io/wl-web-configs/eslint/getting-started.md): Typically, ESLint shareable configuration libraries are architectured around the idea that shared configurations should be small and composable to accommodate any potential use cases that a development team might encounter.
-- [Setup a polyrepo](https://workleap.github.io/wl-web-configs/eslint/setup-polyrepo.md): Execute the following steps to setup ESLint for a polyrepo solution (single project per repository) 👇
-- [Setup with Turborepo](https://workleap.github.io/wl-web-configs/eslint/setup-turborepo.md): Execute the following steps to set up ESLint for a monorepo solution managed with Turborepo 👇
-- [Custom configuration](https://workleap.github.io/wl-web-configs/eslint/custom-configuration.md): If you are in the process of migrating an existing project to use @workleap/eslint-configs or encountering a challenging situation that is not currently handled by this library, you might want to customize the default shared configurations.
-- [Integrate with VS Code](https://workleap.github.io/wl-web-configs/eslint/integrate-vscode.md): ESLint VS Code extension greatly improve the development experience by automatically linting the code as you type and automatically formatting the code according to your ESLint configuration whenever you save.
-- [Troubleshooting](https://workleap.github.io/wl-web-configs/eslint/troubleshooting.md): If the ESLint CLI throws the following error:
-- [Migrate from ESLint 8](https://workleap.github.io/wl-web-configs/eslint/migrate-from-eslint-8.md): More than a year ago, ESLint released version v9, a major update introducing the new flat configuration system, which significantly changed how configurations are defined and consumed.
-
 ## Stylelint
 
 - [Stylelint](https://workleap.github.io/wl-web-configs/stylelint/getting-started.md): While SCSS still offers numerous advantages, as we actively work on improving our build time and minimize the number of tools compiling/transpiling frontend code, we choose to move away from Sass and not provide any Stylelint's rules for Sass.
@@ -39,7 +29,7 @@
 - [Setup with Turborepo](https://workleap.github.io/wl-web-configs/typescript/setup-turborepo.md): Execute the following steps to set up TypeScript for a monorepo solution managed with Turborepo 👇
 - [Custom configuration](https://workleap.github.io/wl-web-configs/typescript/custom-configuration.md): If you are in the process of migrating an existing project to use @workleap/typescript-configs or encountering a challenging situation that is not currently handled by this library, you might want to customize the default shared configurations.
 - [Advanced composition](https://workleap.github.io/wl-web-configs/typescript/advanced-composition.md): If the default by project type configurations doesn't fits your needs, rather than writing your own configuration from scratch, you can compose a new one from the underlying configuration pieces of @workleap/typescript-configs.
-- [Migrate to tsgo](https://workleap.github.io/wl-web-configs/typescript/migrate-to-tsgo.md): TypeScript Go is a reimplementation of the TypeScript compiler written in Go, designed to dramatically improve performance and scalability compared to the current JavaScript-based compiler.
+- [Migrate to TypeScript 7](https://workleap.github.io/wl-web-configs/typescript/migrate-to-typescript-7.md): TypeScript 7 is the TypeScript compiler rewritten in Go. It ships in the regular typescript package and type-checks much faster than TypeScript 6. @workleap/typescript-configs supports both TypeScript 6 and 7.
 
 ## Rsbuild
 

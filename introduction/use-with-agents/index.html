@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/wl-web-configs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.847591141107">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.847593976106">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,24 +39,18 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.847591141107" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.847593976106" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.847591141107" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.847593976106" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.847591141107" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.847591141107" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.847593976106" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.847593976106" defer></script>
 
     <link href="https://workleap.github.io/wl-idp-docs-hub/static/retype-customization.css" rel="stylesheet" />
 
     <style>
         .no-bottom-margin {
             margin-bottom: 0 !important;
-        }
-        .eslint-rules-first-column th:first-child {
-            min-width: 180px;
-        }
-        .eslint-rules-first-column th:last-child {
-            min-width: 120px;
         }
     </style>
 
@@ -342,7 +336,6 @@
 <retype-table copy-text="| Package | Skill |
 | --- | --- |
 | `@workleap/browserslist-config` | `workleap-browserslist-config` |
-| `@workleap/eslint-configs` | `workleap-eslint-configs` |
 | `@workleap/rsbuild-configs` | `workleap-rsbuild-configs` |
 | `@workleap/rslib-configs` | `workleap-rslib-configs` |
 | `@workleap/stylelint-configs` | `workleap-stylelint-configs` |
@@ -359,10 +352,6 @@
 <tr>
 <td><code translate="no" v-pre>@workleap/browserslist-config</code></td>
 <td><code translate="no" v-pre>workleap-browserslist-config</code></td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>@workleap/eslint-configs</code></td>
-<td><code translate="no" v-pre>workleap-eslint-configs</code></td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>@workleap/rsbuild-configs</code></td>
@@ -392,12 +381,12 @@
 <div id="use-the-skills-bundled-with-the-packages-pnpm-workspaceyaml" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">pnpm-workspace.yaml</div>
 <pre translate="no" class="language-yaml"><code v-pre class="language-yaml">permissions:
-  &quot;@workleap/eslint-configs&quot;:
+  &quot;@workleap/rsbuild-configs&quot;:
     skills: true
   &quot;@workleap/typescript-configs&quot;:
     skills: true</code></pre>
 </doc-codeblock></div>
-<p>On the next install, PNPM links the approved skills into the agent skills folders that already exist at the root of the workspace, such as <code translate="no" v-pre>.claude/skills</code>, <code translate="no" v-pre>.cursor/skills</code>, <code translate="no" v-pre>.agents/skills</code> or <code translate="no" v-pre>.github/skills</code>, under names like <code translate="no" v-pre>pnpm-@workleap+eslint-configs-workleap-eslint-configs</code>. The links are ignored by Git and are updated whenever the packages are updated. Use the <a href="https://pnpm.io/agent-skills" class="outbound" target="_blank">skills.dirs</a> setting to choose the folders explicitly.</p>
+<p>On the next install, PNPM links the approved skills into the agent skills folders that already exist at the root of the workspace, such as <code translate="no" v-pre>.claude/skills</code>, <code translate="no" v-pre>.cursor/skills</code>, <code translate="no" v-pre>.agents/skills</code> or <code translate="no" v-pre>.github/skills</code>, under names like <code translate="no" v-pre>pnpm-@workleap+rsbuild-configs-workleap-rsbuild-configs</code>. The links are ignored by Git and are updated whenever the packages are updated. Use the <a href="https://pnpm.io/agent-skills" class="outbound" target="_blank">skills.dirs</a> setting to choose the folders explicitly.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -434,7 +423,7 @@
 <h2 id="try-it-rocket">Try it <span class="docs-emoji">&#x1F680;</span></h2>
 <p>Once the skills are installed, start an agent and ask it to set up a new project or audit an existing Chromatic setup:</p>
 <div id="try-it-rocket-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-none"><code v-pre class="language-none">I'm creating a new React + TypeScript web application from scratch. Set up the project to use Workleap shared configs for ESLint, TypeScript and Rsbuild.</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">I'm creating a new React + TypeScript web application from scratch. Set up the project to use Workleap shared configs for TypeScript and Rsbuild.</code></pre>
 </doc-codeblock></div>
 <div id="try-it-rocket-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">Audit the Chromatic setup in my project and propose improvements based on Workleap's Chromatic best practices.</code></pre>

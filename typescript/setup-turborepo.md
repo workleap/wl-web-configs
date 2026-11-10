@@ -9,7 +9,7 @@ Execute the following steps to set up [TypeScript](https://www.typescriptlang.or
 Open a terminal at the root of the solution's workspace (the **root** of the repository) and install the following packages:
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript @typescript/native-preview turbo
+pnpm add -D @workleap/typescript-configs typescript turbo
 ```
 
 ### Configure Turborepo
@@ -117,7 +117,7 @@ The `typecheck` script will lint the root of the solution's workspace:
 
 ```json package.json
 {
-    "typecheck": "tsgo"
+    "typecheck": "tsc"
 }
 ```
 
@@ -132,7 +132,7 @@ While the `lint` task may seem redundant for now, it's important to note that as
 Open a terminal at the root of the project (`packages/pkg-1` for this example) and install the following packages:
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript @typescript/native-preview
+pnpm add -D @workleap/typescript-configs typescript
 ```
 
 ### Configure TypeScript
@@ -181,7 +181,7 @@ Finally, add the following `typecheck` script to your project `package.json` fil
 
 ```json packages/pkg-1/package.json
 {
-    "typecheck": "tsgo"
+    "typecheck": "tsc"
 }
 ```
 
