@@ -42,17 +42,17 @@
         "core-js": "^3.51.0"
     },
     "devDependencies": {
-        "@rsbuild/core": "2.3.0",
-        "@rslib/core": "1.0.5",
-        "@rspack/core": "2.3.0",
+        "@rsbuild/core": "2.3.1",
+        "@rslib/core": "1.0.6",
+        "@rspack/core": "2.3.1",
         "@types/node": "26.6.6",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "typescript": "7.0.2",
-        "vitest": "5.0.5"
+        "vitest": "5.1.0"
     },
     "peerDependencies": {
-        "@rsbuild/core": "^2.3.0",
-        "@rspack/core": "^2.3.0"
+        "@rsbuild/core": "^2.3.1",
+        "@rspack/core": "^2.3.1"
     }
 }

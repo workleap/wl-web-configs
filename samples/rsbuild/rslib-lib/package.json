@@ -23,7 +23,7 @@
         "typecheck": "tsc"
     },
     "devDependencies": {
-        "@rslib/core": "1.0.5",
+        "@rslib/core": "1.0.6",
         "@types/node": "26.6.6",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",

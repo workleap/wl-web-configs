@@ -26,8 +26,8 @@
         "react-router": "8.5.1"
     },
     "devDependencies": {
-        "@swc/core": "1.16.21",
-        "@swc/helpers": "0.5.23",
+        "@swc/core": "1.16.22",
+        "@swc/helpers": "0.5.24",
         "@swc/jest": "0.2.39",
         "@testing-library/react": "16.3.3",
         "@types/jest": "30.0.0",
@@ -46,7 +46,7 @@
         "identity-obj-proxy": "3.0.0",
         "jest": "30.5.2",
         "jest-environment-jsdom": "30.5.2",
-        "msw": "3.0.3",
+        "msw": "3.0.4",
         "nodemon": "3.1.14",
         "postcss": "8.5.32",
         "prettier": "3.9.10",

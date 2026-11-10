@@ -40,17 +40,17 @@
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "devDependencies": {
-        "@rsbuild/core": "2.3.0",
-        "@rslib/core": "1.0.5",
+        "@rsbuild/core": "2.3.1",
+        "@rslib/core": "1.0.6",
         "@types/node": "26.6.6",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "typescript": "7.0.2",
-        "vitest": "5.0.5"
+        "vitest": "5.1.0"
     },
     "peerDependencies": {
-        "@swc/core": "^1.16.21",
-        "@swc/helpers": "^0.5.23",
+        "@swc/core": "^1.16.22",
+        "@swc/helpers": "^0.5.24",
         "@swc/jest": "^0.2.39",
         "browserslist": "^4.29.5"
     },
