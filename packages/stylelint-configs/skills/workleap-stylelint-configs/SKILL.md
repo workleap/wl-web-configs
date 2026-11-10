@@ -52,14 +52,30 @@ storybook-static
 !.storybook
 ```
 
-### .prettierignore (Required)
+### .prettierrc.json5
 
-Ignore everything except CSS to prevent conflicts with ESLint:
+stylelint-prettier formats CSS with Prettier, while oxfmt formats the rest of the code and ignores CSS. Prettier does not read `oxfmt.config.ts`, so add a CSS-scoped config with the same options at the root (workspace root for Turborepo):
 
-```text
-*
-!**/*.css
+```json5
+// .prettierrc.json5
+{
+    $schema: "https://json.schemastore.org/prettierrc",
+    overrides: [
+        {
+            files: "*.css",
+            options: {
+                printWidth: 150,
+                tabWidth: 4,
+                useTabs: false,
+                singleQuote: false,
+                endOfLine: "lf"
+            }
+        }
+    ]
+}
 ```
+
+Do NOT add a `.prettierignore` that ignores everything except CSS (`*` / `!**/*.css`): oxfmt also reads `.prettierignore` and would skip every file, and `*` also ignores folders, so Prettier skips the CSS files in subfolders. If a project keeps one, it must re-include folders: `*`, `!*/`, `!*.css`.
 
 ## Customization
 
@@ -170,6 +186,9 @@ indent_size = 4
 
 [*.md]
 trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_size = 2
 ```
 
 Install `EditorConfig.EditorConfig` VS Code extension.
@@ -193,4 +212,4 @@ Install `stylelint.vscode-stylelint` extension.
 ## Critical Rules
 
 1. **CSS only** — the config provides no Sass rules; use native CSS nesting instead of SCSS
-2. **Prettier formats CSS only** — keep the `.prettierignore` that ignores everything except `**/*.css` so Prettier does not conflict with ESLint
+2. **Prettier formats CSS only** — configure it with the CSS-scoped `.prettierrc.json5`, never with a `*` / `!**/*.css` `.prettierignore` (it breaks oxfmt and hides CSS in subfolders)
