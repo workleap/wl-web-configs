@@ -1,6 +1,9 @@
 {
     "$schema": "./node_modules/turbo/schema.json",
     "ui": "tui",
+    // .prettierrc.json5 configures stylelint-prettier in every project. As a global dependency, a change to it also
+    // marks every project as changed for the CI's `--filter=...[base]`, which a task input doesn't.
+    "globalDependencies": [".prettierrc.json5"],
     "tasks": {
         "transit": {
             "dependsOn": ["^transit"],
@@ -43,7 +46,7 @@
         },
         "stylelint": {
             "dependsOn": ["transit"],
-            "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/.prettierrc.json5"],
+            "inputs": ["$TURBO_DEFAULT$"],
             "outputs": ["node_modules/.cache/stylelint"]
         },
         "//#typecheck": {
