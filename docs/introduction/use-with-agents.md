@@ -46,7 +46,6 @@ Starting with [PNPM](https://pnpm.io/agent-skills) `12.11`, packages can ship ag
 | Package | Skill |
 | --- | --- |
 | `@workleap/browserslist-config` | `workleap-browserslist-config` |
-| `@workleap/eslint-configs` | `workleap-eslint-configs` |
 | `@workleap/rsbuild-configs` | `workleap-rsbuild-configs` |
 | `@workleap/rslib-configs` | `workleap-rslib-configs` |
 | `@workleap/stylelint-configs` | `workleap-stylelint-configs` |
@@ -62,13 +61,13 @@ The approvals are saved under the `permissions` setting of the `pnpm-workspace.y
 
 ```yaml pnpm-workspace.yaml
 permissions:
-  "@workleap/eslint-configs":
+  "@workleap/rsbuild-configs":
     skills: true
   "@workleap/typescript-configs":
     skills: true
 ```
 
-On the next install, PNPM links the approved skills into the agent skills folders that already exist at the root of the workspace, such as `.claude/skills`, `.cursor/skills`, `.agents/skills` or `.github/skills`, under names like `pnpm-@workleap+eslint-configs-workleap-eslint-configs`. The links are ignored by Git and are updated whenever the packages are updated. Use the [skills.dirs](https://pnpm.io/agent-skills) setting to choose the folders explicitly.
+On the next install, PNPM links the approved skills into the agent skills folders that already exist at the root of the workspace, such as `.claude/skills`, `.cursor/skills`, `.agents/skills` or `.github/skills`, under names like `pnpm-@workleap+rsbuild-configs-workleap-rsbuild-configs`. The links are ignored by Git and are updated whenever the packages are updated. Use the [skills.dirs](https://pnpm.io/agent-skills) setting to choose the folders explicitly.
 
 !!!warning
 Install either the `workleap-web-configs` skill from `skills.sh` **or** the skills bundled with the packages, not both, as they cover the same content.
@@ -83,7 +82,7 @@ PNPM only links the skills of a project's **direct** dependencies. When several 
 Once the skills are installed, start an agent and ask it to set up a new project or audit an existing Chromatic setup:
 
 ```
-I'm creating a new React + TypeScript web application from scratch. Set up the project to use Workleap shared configs for ESLint, TypeScript and Rsbuild.
+I'm creating a new React + TypeScript web application from scratch. Set up the project to use Workleap shared configs for TypeScript and Rsbuild.
 ```
 
 ```

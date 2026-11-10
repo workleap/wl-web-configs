@@ -52,9 +52,8 @@ Use this table to decide which skill files to update for a given docs path. When
 | Primary docs sources                                                                           | Umbrella skill file        | Package skill file                                                                                                     |
 | ---------------------------------------------------------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `docs/introduction/*` (excluding CI workflows)                                                 | `SKILL.md`                 | —                                                                                                                      |
-| `docs/introduction/setup-a-ci-workflow.md`, `docs/introduction/setup-turborepo-ci-workflow.md` | `references/ci.md`         | `packages/eslint-configs/skills/workleap-eslint-configs/references/ci.md`                                              |
+| `docs/introduction/setup-a-ci-workflow.md`, `docs/introduction/setup-turborepo-ci-workflow.md` | `references/ci.md`         | —                                                                                                                      |
 | `docs/browserslist/*`                                                                          | `SKILL.md`                 | `packages/browserslist-config/skills/workleap-browserslist-config/SKILL.md`                                            |
-| `docs/eslint/*`                                                                                | `references/eslint.md`     | `packages/eslint-configs/skills/workleap-eslint-configs/SKILL.md` (migration: `references/migrate-from-eslint-8.md`)   |
 | `docs/rsbuild/*`                                                                               | `references/rsbuild.md`    | `packages/rsbuild-configs/skills/workleap-rsbuild-configs/SKILL.md` (migration: `references/migrate-from-webpack.md`)  |
 | `docs/rslib/*`                                                                                 | `references/rslib.md`      | `packages/rslib-configs/skills/workleap-rslib-configs/SKILL.md` (migration: `references/migrate-from-tsup.md`)         |
 | `docs/stylelint/*`                                                                             | `references/stylelint.md`  | `packages/stylelint-configs/skills/workleap-stylelint-configs/SKILL.md`                                                |
@@ -104,21 +103,17 @@ Use the following prompt for the subagent:
 > 1. What is wl-web-configs and what shared configuration packages does it provide?
 > 2. What is the design philosophy behind the shared configs (ESM/ESNext, no lock-in, by project type)?
 > 3. Which tools are actively supported and which are in maintenance mode?
-> 4. How do I pick the right ESLint configuration for my project type (web app, React library, TS library, monorepo)?
-> 5. How do I install and set up `@workleap/eslint-configs` for a React web application?
-> 6. How do I customize or extend the shared ESLint configuration with additional rules or plugins?
-> 7. What rule categories does `@workleap/eslint-configs` provide, and how do I switch the test framework from Vitest to Jest?
-> 8. Which TypeScript config file should I extend for a web application versus a library versus a monorepo workspace root?
-> 9. How do I override specific TypeScript compiler options while still using the shared config?
-> 10. What are the TypeScript advanced composition configs (`core.json`, `react.json`), and how do I configure monorepo path mappings?
-> 11. How do I set up `@workleap/rsbuild-configs` for development, production builds, and Storybook?
-> 12. How do I set up `@workleap/rslib-configs` for building a library, and what is the difference between bundleless and bundle mode?
-> 13. How do I install and configure `@workleap/stylelint-configs` and integrate it with Prettier?
-> 14. How do I customize Stylelint rules (disable, change severity, add plugins), and what CSS preprocessor limitations exist?
-> 15. How do I set up and customize `@workleap/browserslist-config`, and why should it only be used in applications?
-> 16. How do I use configuration transformers (`RsbuildConfigTransformer` / `RslibConfigTransformer`) for advanced config customization?
-> 17. What type declarations (`env.d.ts`) are needed for SVG imports and CSS Modules in Rsbuild and Rslib projects?
-> 18. What are the differences in configuration between a monorepo (Turborepo) setup and a polyrepo setup?
+> 4. Which TypeScript config file should I extend for a web application versus a library versus a monorepo workspace root?
+> 5. How do I override specific TypeScript compiler options while still using the shared config?
+> 6. What are the TypeScript advanced composition configs (`core.json`, `react.json`), and how do I configure monorepo path mappings?
+> 7. How do I set up `@workleap/rsbuild-configs` for development, production builds, and Storybook?
+> 8. How do I set up `@workleap/rslib-configs` for building a library, and what is the difference between bundleless and bundle mode?
+> 9. How do I install and configure `@workleap/stylelint-configs` and integrate it with Prettier?
+> 10. How do I customize Stylelint rules (disable, change severity, add plugins), and what CSS preprocessor limitations exist?
+> 11. How do I set up and customize `@workleap/browserslist-config`, and why should it only be used in applications?
+> 12. How do I use configuration transformers (`RsbuildConfigTransformer` / `RslibConfigTransformer`) for advanced config customization?
+> 13. What type declarations (`env.d.ts`) are needed for SVG imports and CSS Modules in Rsbuild and Rslib projects?
+> 14. What are the differences in configuration between a monorepo (Turborepo) setup and a polyrepo setup?
 >
 > ## Part B — Accuracy
 >
@@ -128,12 +123,11 @@ Use the following prompt for the subagent:
 >
 > For each package skill, read ONLY the files of that skill and determine whether it can adequately answer the questions from Part A that concern its package. For each, respond PASS or FAIL with a brief explanation.
 >
-> - `packages/eslint-configs/skills/workleap-eslint-configs/`: questions 4, 5, 6, 7
-> - `packages/typescript-configs/skills/workleap-typescript-configs/`: questions 8, 9, 10
-> - `packages/rsbuild-configs/skills/workleap-rsbuild-configs/`: questions 11, 16 (Rsbuild part), 17 (Rsbuild part)
-> - `packages/rslib-configs/skills/workleap-rslib-configs/`: questions 12, 16 (Rslib part), 17 (Rslib part)
-> - `packages/stylelint-configs/skills/workleap-stylelint-configs/`: questions 13, 14
-> - `packages/browserslist-config/skills/workleap-browserslist-config/`: question 15
+> - `packages/typescript-configs/skills/workleap-typescript-configs/`: questions 4, 5, 6
+> - `packages/rsbuild-configs/skills/workleap-rsbuild-configs/`: questions 7, 12 (Rsbuild part), 13 (Rsbuild part)
+> - `packages/rslib-configs/skills/workleap-rslib-configs/`: questions 8, 12 (Rslib part), 13 (Rslib part)
+> - `packages/stylelint-configs/skills/workleap-stylelint-configs/`: questions 9, 10
+> - `packages/browserslist-config/skills/workleap-browserslist-config/`: question 11
 >
 > Then, compare each package skill with the matching umbrella file (see the routing table in `./.github/prompts/sync-agent-skill.md`) and report every code example, option table row, or signature that differs between the two.
 >
@@ -141,7 +135,7 @@ Use the following prompt for the subagent:
 >
 > End with:
 >
-> - `COVERAGE: X/18 PASSED`
+> - `COVERAGE: X/14 PASSED`
 > - `PACKAGE COVERAGE: X/Y PASSED`
 > - `ACCURACY: list of discrepancies (or "No discrepancies found")`
 > - `CONSISTENCY: list of differences between package skills and the umbrella skill (or "No differences found")`
@@ -160,8 +154,8 @@ Package skills only reach consumers when the package is published, which require
 
 ```md
 ---
-"@workleap/eslint-configs": patch
 "@workleap/rsbuild-configs": patch
+"@workleap/stylelint-configs": patch
 ---
 
 Sync the bundled agent skill with the documentation.

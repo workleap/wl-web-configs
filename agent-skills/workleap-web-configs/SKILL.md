@@ -1,14 +1,14 @@
 ---
 name: workleap-web-configs
 description: |
-  Workleap's shared web configuration packages (@workleap/eslint-configs, @workleap/typescript-configs, @workleap/rsbuild-configs, @workleap/rslib-configs, @workleap/stylelint-configs, @workleap/browserslist-config). Use when setting up, customizing, extending, or troubleshooting shared web tooling configs in a Workleap project — including ESLint, TypeScript, Rsbuild, Rslib, Stylelint, Browserslist, and monorepo (Turborepo) strategies. Activate even if only one tool is mentioned, as the packages are designed to work together.
+  Workleap's shared web configuration packages (@workleap/typescript-configs, @workleap/rsbuild-configs, @workleap/rslib-configs, @workleap/stylelint-configs, @workleap/browserslist-config). Use when setting up, customizing, extending, or troubleshooting shared web tooling configs in a Workleap project — including TypeScript, Rsbuild, Rslib, Stylelint, Browserslist, and monorepo (Turborepo) strategies. Activate even if only one tool is mentioned, as the packages are designed to work together.
 metadata:
   version: 1.8
 ---
 
 # wl-web-configs
 
-Workleap's shared configuration library for web tooling. Provides pre-configured packages for ESLint, TypeScript, Rsbuild, Rslib, Stylelint, and Browserslist.
+Workleap's shared configuration library for web tooling. Provides pre-configured packages for TypeScript, Rsbuild, Rslib, Stylelint, and Browserslist.
 
 ## Philosophy
 
@@ -22,7 +22,6 @@ Workleap's shared configuration library for web tooling. Provides pre-configured
 | Tool | Package | Purpose |
 |------|---------|---------|
 | Browserslist | `@workleap/browserslist-config` | Browser targets for apps |
-| ESLint | `@workleap/eslint-configs` | Code linting |
 | Stylelint | `@workleap/stylelint-configs` | CSS linting |
 | TypeScript | `@workleap/typescript-configs` | Type checking (linting only) |
 | Rsbuild | `@workleap/rsbuild-configs` | Web application bundling |
@@ -34,12 +33,12 @@ Workleap's shared configuration library for web tooling. Provides pre-configured
 
 ### Which Configuration to Use?
 
-| Project Type | ESLint | TypeScript | Bundler |
-|--------------|--------|------------|---------|
-| Web app with React | `defineWebApplicationConfig` | `web-application.json` | `@workleap/rsbuild-configs` |
-| React library | `defineReactLibraryConfig` | `library.json` | `@workleap/rslib-configs` |
-| TypeScript library (no React) | `defineTypeScriptLibraryConfig` | `library.json` | `@workleap/rslib-configs` |
-| Monorepo workspace root | `defineMonorepoWorkspaceConfig` | `monorepo-workspace.json` | N/A |
+| Project Type | TypeScript | Bundler |
+|--------------|------------|---------|
+| Web app with React | `web-application.json` | `@workleap/rsbuild-configs` |
+| React library | `library.json` | `@workleap/rslib-configs` |
+| TypeScript library (no React) | `library.json` | `@workleap/rslib-configs` |
+| Monorepo workspace root | `monorepo-workspace.json` | N/A |
 
 ### Browserslist (Apps Only)
 
@@ -67,7 +66,6 @@ last 2 OperaMobile 12.1 versions
 
 For comprehensive setup guides, options, and examples, read the appropriate reference file:
 
-- **ESLint** — [references/eslint.md](references/eslint.md): Installation, `define*Config` functions, rule categories, customization, VS Code integration, and migrating from ESLint 8
 - **TypeScript** — [references/typescript.md](references/typescript.md): Config files by project type, compiler option overrides, path mappings, CLI scripts, and migrating to `tsgo`
 - **Rsbuild** — [references/rsbuild.md](references/rsbuild.md): Dev/build/Storybook configs, predefined options, transformers, Turborepo setup, and migrating from webpack
 - **Rslib** — [references/rslib.md](references/rslib.md): Library build/dev/Storybook configs, bundleless vs bundle, transformers, type declarations, and migrating from tsup

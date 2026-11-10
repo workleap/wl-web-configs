@@ -17,7 +17,7 @@ Since `v15.0.0`, Stylelint's stylistic rules [has been deprecated](https://style
 
 For that reason, `@workleap/stylelint-configs` shared configurations includes the [stylelint-prettier](https://github.com/prettier/stylelint-prettier) plugin. Using this plugin, Prettier changes are exposed as Stylelint's rule violations.
 
-The rest of the code is formatted by [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html), which ignores CSS files (see the [oxlint & oxfmt](../oxlint/migrate-from-eslint-configs.md#oxfmtconfigts) guide). Prettier doesn't read oxfmt's configuration, so a CSS-scoped `.prettierrc.json5` file gives CSS files the same style as the rest of the code. See the setup guides below.
+The rest of the code is formatted by [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html), configured to ignore CSS files. Prettier doesn't read oxfmt's configuration, so a CSS-scoped `.prettierrc.json5` file gives CSS files the same style as the rest of the code. See the setup guides below.
 
 !!!warning
 Don't add a `.prettierignore` file that ignores everything but CSS files: oxfmt also reads `.prettierignore` and would skip every file. A `*` / `!**/*.css` file also stops Prettier from checking the CSS files in subfolders.

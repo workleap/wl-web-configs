@@ -66,7 +66,7 @@ storybook-static
 
 ### .prettierrc.json5
 
-`@workleap/stylelint-configs` formats CSS files with [Prettier](https://prettier.io/), through [stylelint-prettier](https://github.com/prettier/stylelint-prettier), while [oxfmt](../oxlint/migrate-from-eslint-configs.md#oxfmtconfigts) formats the rest of the code. Prettier doesn't read oxfmt's configuration, so give it a CSS-scoped configuration that uses the same options.
+`@workleap/stylelint-configs` formats CSS files with [Prettier](https://prettier.io/), through [stylelint-prettier](https://github.com/prettier/stylelint-prettier), while [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) formats the rest of the code. Prettier doesn't read oxfmt's configuration, so give it a CSS-scoped configuration that uses the same options.
 
 First, create a `.prettierrc.json5` file at the root of the solution:
 
