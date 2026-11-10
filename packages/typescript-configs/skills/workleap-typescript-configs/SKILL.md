@@ -1,7 +1,7 @@
 ---
 name: workleap-typescript-configs
 description: |
-  Workleap's shared TypeScript configs (`@workleap/typescript-configs`): `web-application.json`, `library.json`, `monorepo-workspace.json`, and the `core.json` / `react.json` composition pieces. Use when creating or editing a `tsconfig.json` in a project that uses `@workleap/typescript-configs`, overriding compiler options, setting up monorepo path mappings, adding typecheck scripts or Turborepo tasks, or migrating type-checking to `tsgo` (`@typescript/native-preview`).
+  Workleap's shared TypeScript configs (`@workleap/typescript-configs`): `web-application.json`, `library.json`, `monorepo-workspace.json`, and the `core.json` / `react.json` composition pieces. Use when creating or editing a `tsconfig.json` in a project that uses `@workleap/typescript-configs`, overriding compiler options, setting up monorepo path mappings, adding typecheck scripts or Turborepo tasks, or migrating to TypeScript 7 (including from `tsgo` / `@typescript/native-preview`).
 ---
 
 # @workleap/typescript-configs
@@ -38,13 +38,13 @@ pnpm add -D @workleap/typescript-configs typescript
 ### Turborepo (Workspace Root)
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript @typescript/native-preview turbo
+pnpm add -D @workleap/typescript-configs typescript turbo
 ```
 
 ### Turborepo (Project)
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript @typescript/native-preview
+pnpm add -D @workleap/typescript-configs typescript
 ```
 
 ## Configuration Examples
@@ -193,7 +193,7 @@ For non-React projects:
 ```json
 {
     "lint": "turbo run lint --continue",
-    "typecheck": "tsgo"
+    "typecheck": "tsc"
 }
 ```
 
@@ -201,7 +201,7 @@ For non-React projects:
 
 ```json
 {
-    "typecheck": "tsgo"
+    "typecheck": "tsc"
 }
 ```
 
@@ -222,7 +222,7 @@ For non-React projects:
 
 ## Reference Guide
 
-- **Migrate to tsgo** — [references/migrate-to-tsgo.md](references/migrate-to-tsgo.md): Switching type-checking and the VS Code language service from `tsc` to `tsgo`
+- **Migrate to TypeScript 7** — [references/migrate-to-typescript-7.md](references/migrate-to-typescript-7.md): Upgrading to TypeScript 7, replacing `tsgo` / `@typescript/native-preview`, removed compiler options and VS Code
 
 ## Critical Rules
 

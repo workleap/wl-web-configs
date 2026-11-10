@@ -49,15 +49,15 @@ All other `.md` files under `docs/` are in scope.
 
 Use this table to decide which skill files to update for a given docs path. When a row lists a package skill, update **both** the umbrella file and the package skill file.
 
-| Primary docs sources                                                                           | Umbrella skill file        | Package skill file                                                                                                     |
-| ---------------------------------------------------------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `docs/introduction/*` (excluding CI workflows)                                                 | `SKILL.md`                 | —                                                                                                                      |
-| `docs/introduction/setup-a-ci-workflow.md`, `docs/introduction/setup-turborepo-ci-workflow.md` | `references/ci.md`         | —                                                                                                                      |
-| `docs/browserslist/*`                                                                          | `SKILL.md`                 | `packages/browserslist-config/skills/workleap-browserslist-config/SKILL.md`                                            |
-| `docs/rsbuild/*`                                                                               | `references/rsbuild.md`    | `packages/rsbuild-configs/skills/workleap-rsbuild-configs/SKILL.md` (migration: `references/migrate-from-webpack.md`)  |
-| `docs/rslib/*`                                                                                 | `references/rslib.md`      | `packages/rslib-configs/skills/workleap-rslib-configs/SKILL.md` (migration: `references/migrate-from-tsup.md`)         |
-| `docs/stylelint/*`                                                                             | `references/stylelint.md`  | `packages/stylelint-configs/skills/workleap-stylelint-configs/SKILL.md`                                                |
-| `docs/typescript/*`                                                                            | `references/typescript.md` | `packages/typescript-configs/skills/workleap-typescript-configs/SKILL.md` (migration: `references/migrate-to-tsgo.md`) |
+| Primary docs sources                                                                           | Umbrella skill file        | Package skill file                                                                                                             |
+| ---------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `docs/introduction/*` (excluding CI workflows)                                                 | `SKILL.md`                 | —                                                                                                                              |
+| `docs/introduction/setup-a-ci-workflow.md`, `docs/introduction/setup-turborepo-ci-workflow.md` | `references/ci.md`         | —                                                                                                                              |
+| `docs/browserslist/*`                                                                          | `SKILL.md`                 | `packages/browserslist-config/skills/workleap-browserslist-config/SKILL.md`                                                    |
+| `docs/rsbuild/*`                                                                               | `references/rsbuild.md`    | `packages/rsbuild-configs/skills/workleap-rsbuild-configs/SKILL.md` (migration: `references/migrate-from-webpack.md`)          |
+| `docs/rslib/*`                                                                                 | `references/rslib.md`      | `packages/rslib-configs/skills/workleap-rslib-configs/SKILL.md` (migration: `references/migrate-from-tsup.md`)                 |
+| `docs/stylelint/*`                                                                             | `references/stylelint.md`  | `packages/stylelint-configs/skills/workleap-stylelint-configs/SKILL.md`                                                        |
+| `docs/typescript/*`                                                                            | `references/typescript.md` | `packages/typescript-configs/skills/workleap-typescript-configs/SKILL.md` (migration: `references/migrate-to-typescript-7.md`) |
 
 Umbrella skill files are relative to `agent-skills/workleap-web-configs/`.
 

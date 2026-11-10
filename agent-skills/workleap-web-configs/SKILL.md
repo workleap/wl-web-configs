@@ -66,7 +66,7 @@ last 2 OperaMobile 12.1 versions
 
 For comprehensive setup guides, options, and examples, read the appropriate reference file:
 
-- **TypeScript** — [references/typescript.md](references/typescript.md): Config files by project type, compiler option overrides, path mappings, CLI scripts, and migrating to `tsgo`
+- **TypeScript** — [references/typescript.md](references/typescript.md): Config files by project type, compiler option overrides, path mappings, CLI scripts, and migrating to TypeScript 7
 - **Rsbuild** — [references/rsbuild.md](references/rsbuild.md): Dev/build/Storybook configs, predefined options, transformers, Turborepo setup, and migrating from webpack
 - **Rslib** — [references/rslib.md](references/rslib.md): Library build/dev/Storybook configs, bundleless vs bundle, transformers, type declarations, and migrating from tsup
 - **Stylelint** — [references/stylelint.md](references/stylelint.md): Installation, `.stylelintrc.json` setup, Prettier integration, and VS Code settings

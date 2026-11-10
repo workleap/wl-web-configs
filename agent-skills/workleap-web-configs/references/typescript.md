@@ -32,13 +32,13 @@ pnpm add -D @workleap/typescript-configs typescript
 ### Turborepo (Workspace Root)
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript @typescript/native-preview turbo
+pnpm add -D @workleap/typescript-configs typescript turbo
 ```
 
 ### Turborepo (Project)
 
 ```bash
-pnpm add -D @workleap/typescript-configs typescript @typescript/native-preview
+pnpm add -D @workleap/typescript-configs typescript
 ```
 
 ## Configuration Examples
@@ -187,7 +187,7 @@ For non-React projects:
 ```json
 {
     "lint": "turbo run lint --continue",
-    "typecheck": "tsgo"
+    "typecheck": "tsc"
 }
 ```
 
@@ -195,7 +195,7 @@ For non-React projects:
 
 ```json
 {
-    "typecheck": "tsgo"
+    "typecheck": "tsc"
 }
 ```
 
@@ -214,60 +214,42 @@ For non-React projects:
 }
 ```
 
-## Migrate to tsgo
+## Migrate to TypeScript 7
 
-[TypeScript Go](https://github.com/microsoft/typescript-go) (`tsgo`) is a Go reimplementation of the compiler, meant as a drop-in replacement for `tsc` at the CLI level with much faster type-checking. It is mature enough for **type-checking** and the **VS Code** language service.
+TypeScript 7 is the TypeScript compiler rewritten in Go, shipped in the regular `typescript` package (`tsc`), with much faster type-checking. `@workleap/typescript-configs` supports both TypeScript 6 and 7.
 
-### 1. Exclude packages from minimum release age (PNPM)
+### 1. Update packages
 
-`@typescript/native-preview` is released nightly, so it never meets a `minimumReleaseAge` threshold. Add it to the exclusion list.
-
-Monorepo — `pnpm-workspace.yaml`:
-
-```yaml
-minimumReleaseAge: 1440
-minimumReleaseAgeExclude:
-  - '@workleap*'
-  - '@typescript/native-preview*'
-```
-
-Polyrepo — `.npmrc`:
-
-```ini
-minimum-release-age=1440
-minimum-release-age-exclude=@workleap*,@typescript/native-preview*
-```
-
-The `*` suffix is required because the package installs a platform-specific binary dependency at install time.
-
-### 2. Install the package
-
-Add `@typescript/native-preview` as a dev dependency in **every** `package.json` that already includes `typescript`:
+In every `package.json` that includes `typescript`:
 
 ```bash
-pnpm add -D @typescript/native-preview
+pnpm add -D typescript@7 @workleap/typescript-configs@latest
 ```
 
-### 3. Update typecheck scripts
+TypeScript 7.0 ships **no JavaScript API**. Projects using a tool that calls the TypeScript API (e.g. tsup) must stay on TypeScript 6. Rsbuild and Rslib (including Rslib's declaration files) work with TypeScript 7.
 
-Replace `tsc` with `tsgo`:
+### 2. Remove `@typescript/native-preview`
+
+If the project used `tsgo`, TypeScript 7 replaces it:
+
+```bash
+pnpm remove @typescript/native-preview
+```
+
+Replace `tsgo` with `tsc` in the `typecheck` scripts:
 
 ```json
 {
-    "typecheck": "tsgo"
+    "typecheck": "tsc"
 }
 ```
+
+Remove `@typescript/native-preview*` from `minimumReleaseAgeExclude` (`pnpm-workspace.yaml`) or `minimum-release-age-exclude` (`.npmrc`).
+
+### 3. Update removed compiler options
+
+TypeScript 7 removes options TypeScript 6 deprecated. `"moduleResolution": "node"` / `"node10"` fails with `error TS5108`: replace it with `"NodeNext"` (with `"module": "NodeNext"`, which still emits CommonJS for a `"type": "commonjs"` package) or `"Bundler"`. Remove `ignoreDeprecations`.
 
 ### 4. VS Code
 
-```json
-// .vscode/settings.json
-{
-    // Comment out the existing library path until @typescript/native-preview is merged into typescript.
-    // "typescript.tsdk": "node_modules\\typescript\\lib",
-    "typescript.experimental.useTsgo": true,
-    "typescript.tsdk": "node_modules\\@typescript\\native-preview\\lib"
-}
-```
-
-If CI fails with `Unable to resolve ... platform`, temporarily disable the PNPM `minimumReleaseAge` feature.
+Install the `TypeScriptTeam.native-preview` extension (TypeScript 7 language service, default once installed). Remove `"typescript.experimental.useTsgo"` and a `"typescript.tsdk"` pointing to `@typescript/native-preview`.

@@ -16,7 +16,7 @@
         "serve-build": "pnpm http-server dist -p 8080 -P http://localhost:8080? -c-1",
         "deploy": "netlify deploy --dir=samples/rsbuild/app/dist --site=8827a712-4542-4d0d-bbb3-f27cda731327 --prod",
         "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
-        "typecheck": "tsgo",
+        "typecheck": "tsc",
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "dependencies": {
@@ -33,7 +33,6 @@
         "@types/node": "26.6.6",
         "@types/react": "19.3.0",
         "@types/react-dom": "19.3.0",
-        "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "@vitejs/plugin-react": "6.2.1",
         "@workleap/browserslist-config": "workspace:*",
         "@workleap/rsbuild-configs": "workspace:*",
