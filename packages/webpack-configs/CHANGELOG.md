@@ -1,5 +1,11 @@
 # @workleap/webpack-configs
 
+## 1.6.19
+
+### Patch Changes
+
+- [#515](https://github.com/workleap/wl-web-configs/pull/515) [`1eeb3d7`](https://github.com/workleap/wl-web-configs/commit/1eeb3d7f6d7696552528bd7d5cb5a415c92fc20e) Thanks [@patricklafrance](https://github.com/patricklafrance)! - `removeModuleRules` now prints the matcher in its "no match" error instead of `[object Object]`.
+
 ## 1.6.18
 
 ### Patch Changes
