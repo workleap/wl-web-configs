@@ -34,7 +34,7 @@
         "oxlint": "oxlint --deny-warnings --report-unused-disable-directives-severity=error",
         "oxfmt": "oxfmt",
         "oxfmt:check": "oxfmt --check",
-        "typecheck": "tsgo",
+        "typecheck": "tsc",
         "syncpack": "syncpack lint",
         "validate-package-skills": "node ./scripts/validate-package-skills.ts",
         "test": "turbo run test --continue",
@@ -44,17 +44,17 @@
         "clean": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf dist storybook-static .turbo .rslib node_modules/.cache",
         "reset": "pnpm clean && pnpm reset:modules",
         "reset:modules": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf node_modules pnpm-lock.yaml",
-        "list-outdated-deps": "pnpm outdated -r --filter=!@webpack-sample/* --format list !eslint !@eslint/js !stylelint !stylelint-config-standard",
+        "list-outdated-deps": "pnpm outdated -r --filter=!@webpack-sample/* --format list !stylelint !stylelint-config-standard",
         "update-outdated-deps": "pnpm run --sequential \"/^update-outdated-deps:.*/\"",
-        "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !eslint !@eslint/js !stylelint !stylelint-config-standard !typescript !webpack-dev-server",
-        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !eslint !@eslint/js !stylelint !stylelint-config-standard !typescript !webpack-dev-server",
+        "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --filter=!@workleap/tsup-configs --latest !stylelint !stylelint-config-standard !webpack-dev-server",
+        "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --filter=!@webpack-sample/tsup-lib --latest !stylelint !stylelint-config-standard !webpack-dev-server",
+        "update-outdated-deps:only-tsup": "pnpm update -r --filter=@workleap/tsup-configs --filter=@webpack-sample/tsup-lib --latest !stylelint !stylelint-config-standard !typescript !webpack-dev-server",
         "update-outdated-deps:update-peers": "syncpack fix"
     },
     "devDependencies": {
         "@changesets/changelog-github": "1.0.1",
         "@changesets/cli": "3.0.3",
         "@types/node": "26.6.6",
-        "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "@workleap/typescript-configs": "workspace:*",
         "agent-browser": "0.41.1",
         "cross-env": "10.1.0",
@@ -66,7 +66,7 @@
         "retypeapp": "4.6.0",
         "syncpack": "15.3.3",
         "turbo": "2.11.10",
-        "typescript": "6.0.3"
+        "typescript": "7.0.2"
     },
     "engines": {
         "node": ">=26.0.0",

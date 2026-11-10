@@ -20,11 +20,10 @@
         "dev": "tsup --config ./tsup.dev.ts",
         "dev-msw": "pnpm dev",
         "build": "tsup --config ./tsup.build.ts",
-        "typecheck": "tsgo"
+        "typecheck": "tsc"
     },
     "devDependencies": {
         "@types/node": "26.6.6",
-        "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "@workleap/tsup-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
         "tsup": "9.0.0",

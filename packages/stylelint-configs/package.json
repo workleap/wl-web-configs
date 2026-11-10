@@ -31,7 +31,7 @@
     "scripts": {
         "prebuild": "pnpm rimraf dist",
         "build": "tsc --project tsconfig.build.json",
-        "typecheck": "tsgo"
+        "typecheck": "tsc"
     },
     "dependencies": {
         "stylelint-config-standard": "^39.0.1",
@@ -39,12 +39,11 @@
     },
     "devDependencies": {
         "@types/node": "26.6.6",
-        "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "@workleap/typescript-configs": "workspace:*",
         "prettier": "3.9.10",
         "rimraf": "6.1.3",
         "stylelint": "16.26.1",
-        "typescript": "6.0.3"
+        "typescript": "7.0.2"
     },
     "peerDependencies": {
         "prettier": "^3.9.10",

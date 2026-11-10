@@ -33,15 +33,15 @@ workspace
 ├────── package.json
 ├── package.json
 ├── turbo.json
-├── .eslintrc.json
 ```
 
 Then, open the newly created file and copy/paste the following content:
 
-```json !#5-10 turbo.json
+```json !#4,6-11 turbo.json
 {
     "$schema": "https://turbo.build/schema.json",
     "ui": "tui",
+    "globalDependencies": [".prettierrc.json5"],
     "tasks": {
         "lint": {
             "dependsOn": ["stylelint"]
@@ -53,7 +53,7 @@ Then, open the newly created file and copy/paste the following content:
 }
 ```
 
-The `stylelint` task will execute the `stylelint` script for every project of the solution's workspace.
+The `stylelint` task will execute the `stylelint` script for every project of the solution's workspace. The root `.prettierrc.json5` file (see below) configures Stylelint in every project: as a global dependency, a change to it runs Stylelint again everywhere instead of replaying cached results.
 
 !!!tip
 For additional information, refer to the [Turborepo documentation](https://turborepo.com/docs).
@@ -112,11 +112,11 @@ storybook-static
 !.storybook
 ```
 
-#### .prettierignore
+#### .prettierrc.json5
 
-Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../eslint/getting-started.md#prettier), a `.prettierignore` file must be added at the root of the solution's workspace to ignore everything but CSS files.
+`@workleap/stylelint-configs` formats CSS files with [Prettier](https://prettier.io/), through [stylelint-prettier](https://github.com/prettier/stylelint-prettier), while [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) formats the rest of the code. Prettier doesn't read oxfmt's configuration, so give it a CSS-scoped configuration that uses the same options.
 
-To do so, first, create a `.prettierignore` file at the root of the solution's workspace:
+First, create a `.prettierrc.json5` file at the root of the solution's workspace. Prettier looks for it in the parent folders, so it applies to every project:
 
 ``` !#11
 workspace
@@ -129,21 +129,40 @@ workspace
 ├── turbo.json
 ├── .stylelintrc.json
 ├── .stylelintignore
-├── .prettierignore
+├── .prettierrc.json5
 ```
 
-Then, open the newly created file and paste the following ignore rules:
+Then, open the newly created file and paste the following configuration:
 
-``` .prettierignore
-*
-!**/*.css
+```json5 .prettierrc.json5
+// stylelint-prettier formats CSS with Prettier, which doesn't read oxfmt.config.ts.
+// Keep these options in sync with oxfmt.config.ts.
+{
+    $schema: "https://json.schemastore.org/prettierrc",
+    overrides: [
+        {
+            files: "*.css",
+            options: {
+                printWidth: 150,
+                tabWidth: 4,
+                useTabs: false,
+                singleQuote: false,
+                endOfLine: "lf"
+            }
+        }
+    ]
+}
 ```
+
+!!!warning
+Don't add a `.prettierignore` file that ignores everything but CSS files: oxfmt also reads `.prettierignore` and would skip every file. If a project already has one, remove it (or remove its CSS-only patterns) and rely on the `.prettierrc.json5` file instead.
+!!!
 
 ### Configure the indent style
 
 Prettier offers [built-in rules](https://prettier.io/docs/en/options#tab-width) for configuring the indentation style of a codebase. However, there's a catch: when [VS Code auto-formatting](https://code.visualstudio.com/docs/editor/codebasics#_formatting) feature is enabled, it might conflict with the configured indentation rules if they are set differently.
 
-To guarantee a consistent indentation, we recommend using [EditorConfig](https://editorconfig.org/) on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including ESlint and VS Code.
+To guarantee a consistent indentation, we recommend using [EditorConfig](https://editorconfig.org/) on the consumer side. With EditorConfig, the indent style can be configured in a single file and be applied consistently across various formatting tools, including Prettier and VS Code.
 
 First, create a `.editorconfig` file at the root of the solution's workspace:
 
@@ -176,6 +195,9 @@ indent_size = 4
 
 [*.md]
 trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_size = 2
 ```
 
 ### Add a CLI script
@@ -241,7 +263,7 @@ Then, open the newly created file and extend the default configuration with the 
 
 ### Add a CLI script
 
-Finally, add the following `eslint` script to your project `package.json` file. This script will be executed by Turborepo:
+Finally, add the following `stylelint` script to your project `package.json` file. This script will be executed by Turborepo:
 
 ```json packages/pkg-1/package.json
 {

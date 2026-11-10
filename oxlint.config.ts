@@ -9,8 +9,7 @@ export default defineConfig({
     // Setting `plugins` overwrites oxlint's default plugin set (eslint, typescript, unicorn, oxc),
     // so the defaults must be listed explicitly alongside the extras we want enabled.
     plugins: ["eslint", "typescript", "unicorn", "oxc", "react", "import", "jsx-a11y", "promise", "react-perf"],
-    // Type-aware rules run through oxlint-tsgolint, like the type-checked typescript-eslint rules
-    // @workleap/eslint-configs enabled.
+    // Type-aware rules run through oxlint-tsgolint.
     options: { typeAware: true },
     categories: {
         suspicious: "warn",
@@ -108,14 +107,6 @@ export default defineConfig({
                 "eslint/no-unsafe-optional-chaining": "off",
                 // Assertions compare webpack's RuleSetCondition (a RegExp at runtime) through `toString()`.
                 "typescript/no-base-to-string": "off"
-            }
-        },
-        {
-            // The ESLint plugins expose their configs both as a named export and on the default export.
-            // @workleap/eslint-configs is removed in #509.
-            files: ["packages/eslint-configs/**"],
-            rules: {
-                "import/no-named-as-default-member": "off"
             }
         }
     ]

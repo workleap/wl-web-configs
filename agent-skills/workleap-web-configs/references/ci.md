@@ -132,14 +132,6 @@ jobs:
               pnpm turbo run build --filter=YOUR_FILTER
           fi
 
-      - name: ESLint
-        run: |
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
-              pnpm turbo run eslint --continue --filter=...[${{ github.event.pull_request.base.sha }}]
-          else
-              pnpm turbo run eslint --continue
-          fi
-
       - name: Stylelint
         run: |
           if [ "${{ github.event_name }}" == "pull_request" ]; then

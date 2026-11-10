@@ -84,15 +84,6 @@ jobs:
               pnpm turbo run build --filter=YOUR_FILTER
           fi
 
-      - name: ESLint
-        # For a PR, only lint the projects that are diverging from the pull request original baseline.
-        run: |
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
-              pnpm turbo run eslint --continue --filter=...[${{ github.event.pull_request.base.sha }}]
-          else
-              pnpm turbo run eslint --continue
-          fi
-
       - name: Stylelint
         # For a PR, only lint the projects that are diverging from the pull request original baseline.
         run: |
