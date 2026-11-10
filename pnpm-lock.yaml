@@ -165,6 +165,10 @@ settings:
 overrides:
   ts-checker-rspack-plugin>chokidar: 4.0.1
 
+pnpmfileChecksum: sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+
+untrackedPnpmfileReadPackageHook: false
+
 importers:
 
   .:

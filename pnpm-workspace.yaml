@@ -6,6 +6,10 @@ packages:
 # holds back new releases.
 minimumReleaseAge: 0
 
+# Also loads .pnpmfile.cjs for pnpm dlx / pnpx, which ignore the project pnpmfile. The pnpmfile keeps
+# the package downloads on the GitHub package firewall, see CONTRIBUTING.md.
+globalPnpmfile: .pnpmfile.cjs
+
 allowBuilds:
   "@parcel/watcher": true
   "@swc/core": true
