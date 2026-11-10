@@ -11,7 +11,7 @@ metadata:
 
 Bring the repo's npm dependencies up to date. Do the steps in order; stop and surface any failure.
 
-`stylelint`, `stylelint-config-standard` and `webpack-dev-server`, and `typescript` in the two tsup projects only, are held back on purpose — see "Held-back dependencies" in `CONTRIBUTING.md`. `list-outdated-deps` still lists `webpack-dev-server`, and `typescript` for the tsup projects: report those as held back, not as pending updates. Never bump them manually.
+`webpack-dev-server`, and `typescript` in the two tsup projects only, are held back on purpose — see "Held-back dependencies" in `CONTRIBUTING.md`. `list-outdated-deps` still lists `webpack-dev-server`, and `typescript` for the tsup projects: report those as held back, not as pending updates. Never bump them manually.
 
 ## 1. Ask what to run afterward
 
