@@ -35,3 +35,9 @@ allowBuilds:
 # Remove an entry once a newer version that the firewall serves is in range.
 overrides:
   "ts-checker-rspack-plugin>chokidar": 4.0.1
+
+# Link approved package skills into .claude/skills only, even when another .<agent>/skills dir exists
+# (pnpm's default links into every existing one).
+skills:
+  dirs:
+    - .claude/skills
