@@ -1,5 +1,11 @@
 # @workleap/stylelint-config
 
+## 2.2.1
+
+### Patch Changes
+
+- [#514](https://github.com/workleap/wl-web-configs/pull/514) [`e7c0b6a`](https://github.com/workleap/wl-web-configs/commit/e7c0b6aea7c3d29498a8d270d370ef0396137174) Thanks [@patricklafrance](https://github.com/patricklafrance)! - The bundled agent skill now sets up a CSS-scoped `.prettierrc.json5` instead of the `.prettierignore` that broke oxfmt and hid CSS files in subfolders from Prettier.
+
 ## 2.2.0
 
 ### Minor Changes
