@@ -1,5 +1,11 @@
 # @workleap/typescript-configs
 
+## 5.2.0
+
+### Minor Changes
+
+- [#514](https://github.com/workleap/wl-web-configs/pull/514) [`e7c0b6a`](https://github.com/workleap/wl-web-configs/commit/e7c0b6aea7c3d29498a8d270d370ef0396137174) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Support TypeScript 7: the `typescript` peer dependency is now `^6.0.3 || ^7.0.0`. The bundled agent skill now covers migrating to TypeScript 7 instead of `tsgo` (`@typescript/native-preview`), and no longer mentions ESLint.
+
 ## 5.1.0
 
 ### Minor Changes
