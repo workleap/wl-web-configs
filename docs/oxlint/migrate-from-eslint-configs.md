@@ -11,7 +11,7 @@ toc:
 
 `@workleap/eslint-configs` is deprecated in favor of [oxlint](https://oxc.rs/docs/guide/usage/linter.html) for linting and [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) for formatting. Both tools are part of the [Oxc](https://oxc.rs/) project. They run much faster than ESLint and don't need a stack of plugins and parsers.
 
-There is **no shared Workleap oxlint or oxfmt configuration package**. Each project owns its `oxlint.config.ts` and `oxfmt.config.ts` files. This guide gives you a reference setup to copy and adapt. It reproduces the rules of the `@workleap/eslint-configs` configurations as closely as oxlint allows, and lists the [gaps](#known-gaps).
+There is **no shared Workleap oxlint or oxfmt configuration package**. Each project owns its `oxlint.config.ts` and `oxfmt.config.ts` files. This guide gives you a reference setup to copy and adapt: the one [this repository](https://github.com/workleap/wl-web-configs/blob/main/oxlint.config.ts) uses, without its repository-specific parts. It doesn't reproduce the `@workleap/eslint-configs` rules one by one: it relies on oxlint's rule categories instead, and lists the [gaps](#known-gaps).
 
 To migrate from [@workleap/eslint-configs](https://www.npmjs.com/package/@workleap/eslint-configs), execute the following steps :point_down:
 
@@ -23,13 +23,7 @@ Open a terminal at the root of the project (the root of the repository for a mon
 pnpm add -D oxlint oxfmt oxlint-tsgolint
 ```
 
-`oxlint-tsgolint` runs the type-aware rules (the equivalent of typescript-eslint's `recommendedTypeChecked` configuration). You can skip it if you turn off [type-aware linting](#type-aware-linting).
-
-If the project has [Storybook](https://storybook.js.org/) stories or uses [Testing Library](https://testing-library.com/), also install the ESLint plugins that oxlint loads as [JS plugins](#storybook-and-testing-library):
-
-```bash
-pnpm add -D eslint-plugin-storybook eslint-plugin-testing-library
-```
+`oxlint-tsgolint` runs the type-aware rules (the equivalent of the type-checked typescript-eslint rules). You can skip it if you turn off [type-aware linting](#type-aware-linting).
 
 Then, using the same terminal, remove the following packages:
 
@@ -37,10 +31,10 @@ Then, using the same terminal, remove the following packages:
 pnpm remove @workleap/eslint-configs eslint @eslint/js typescript-eslint @typescript-eslint/parser
 ```
 
-For a monorepo, also remove `@workleap/eslint-configs` and `eslint` from every project of the workspace. Remove any other `eslint-plugin-*` or `@eslint/*` package that you installed yourself, except the two JS plugins above.
+For a monorepo, run the same command in every project of the workspace. Remove any other `eslint-plugin-*` or `@eslint/*` package that you installed yourself, unless you load it as a [JS plugin](#storybook-and-testing-library).
 
 !!!info
-Keep `typescript`. oxlint doesn't need it, but your type checking, build and tests still do.
+Keep `typescript`: oxlint doesn't need it, but your type checking, build and tests still do. If the project uses [@workleap/stylelint-configs](../stylelint/getting-started.md), also keep `prettier`: Stylelint still formats CSS files with it.
 !!!
 
 ## Update files
@@ -51,6 +45,7 @@ project
 ├── oxfmt.config.ts    (new)
 ├── .prettierignore    -->  X
 ├── .prettierrc.json5  (new, only for projects using @workleap/stylelint-configs)
+├── .editorconfig
 ├── .vscode
 ├──── settings.json
 ├──── extensions.json
@@ -66,184 +61,216 @@ The `oxlint.config.ts` and `oxfmt.config.ts` files are ES modules. If the closes
 
 ### `oxlint.config.ts`
 
-Create an `oxlint.config.ts` file at the root of the project and copy/paste the following content. It's the equivalent of `defineWebApplicationConfig` and `defineReactLibraryConfig` with Vitest:
+Create an `oxlint.config.ts` file at the root of the project and copy/paste the following content. It's meant for React projects tested with Vitest, the equivalent of `defineWebApplicationConfig` and `defineReactLibraryConfig`:
 
 ```ts oxlint.config.ts
 import { defineConfig } from "oxlint";
 
 export default defineConfig({
-    ignorePatterns: ["**/dist/**", "**/storybook-static/**", "**/__snapshots__/**", "**/mockServiceWorker.js"],
-    // Setting "plugins" replaces oxlint's default set (eslint, typescript, unicorn, oxc),
-    // so the defaults must be listed alongside the extra plugins.
-    plugins: ["eslint", "typescript", "unicorn", "oxc", "import", "react", "jsx-a11y", "promise", "vitest"],
-    // ESLint plugins without a native oxlint port. JS plugins are in alpha, remove them if you don't need them.
-    jsPlugins: ["eslint-plugin-storybook", "eslint-plugin-testing-library"],
-    options: {
-        // Type-aware rules, the equivalent of typescript-eslint "recommendedTypeChecked". Requires "oxlint-tsgolint".
-        typeAware: true,
-        // Fail on warnings, like ESLint's "--max-warnings=0".
-        denyWarnings: true,
-        reportUnusedDisableDirectives: "error"
-    },
+    // oxlint also honors .gitignore (dist, storybook-static, ...).
+    // - .agents/ holds the vendored agent skills: upstream replaces them wholesale.
+    // - mockServiceWorker.js is MSW's generated worker (`msw init`).
+    ignorePatterns: [".agents/**", "**/mockServiceWorker.js"],
+    // Setting `plugins` overwrites oxlint's default plugin set (eslint, typescript, unicorn, oxc),
+    // so the defaults must be listed explicitly alongside the extras.
+    plugins: ["eslint", "typescript", "unicorn", "oxc", "react", "react-perf", "import", "jsx-a11y", "promise", "vitest"],
+    // Type-aware rules run through oxlint-tsgolint, like the type-checked typescript-eslint rules
+    // @workleap/eslint-configs enabled.
+    options: { typeAware: true },
     categories: {
-        correctness: "error",
         suspicious: "warn",
         perf: "warn"
     },
     rules: {
-        // Core
-        "eslint/array-callback-return": "error",
+        "oxc/no-barrel-file": "warn",
+        // It replaces a spread by Object.assign, which mutates the source object rather than cloning it.
+        "oxc/no-map-spread": "off",
+        "unicorn/consistent-function-scoping": "off",
+        "eslint/array-callback-return": "warn",
         "eslint/curly": "warn",
         "eslint/eqeqeq": ["warn", "smart"],
-        "eslint/no-array-constructor": "warn",
         "eslint/no-caller": "warn",
-        "eslint/no-case-declarations": "error",
-        "eslint/no-cond-assign": ["error", "except-parens"],
-        "eslint/no-empty": "error",
+        "eslint/no-console": "off",
         "eslint/no-eval": "warn",
         "eslint/no-extend-native": "warn",
         "eslint/no-extra-bind": "warn",
-        "eslint/no-extra-label": "warn",
-        "eslint/no-fallthrough": "error",
-        "eslint/no-implied-eval": "warn",
-        "eslint/no-iterator": "warn",
-        "eslint/no-label-var": "warn",
-        "eslint/no-labels": ["warn", { allowLoop: true, allowSwitch: false }],
         "eslint/no-lone-blocks": "warn",
-        "eslint/no-multi-str": "warn",
-        "eslint/no-new-func": "warn",
+        "eslint/no-loop-func": "warn",
         "eslint/no-new-wrappers": "warn",
         "eslint/no-param-reassign": "warn",
-        "eslint/no-redeclare": "error",
-        "eslint/no-regex-spaces": "error",
         "eslint/no-script-url": "warn",
-        "eslint/no-self-compare": "error",
+        "eslint/no-self-compare": "warn",
         "eslint/no-sequences": "warn",
-        // Turned off for TypeScript files in @workleap/eslint-configs.
-        "eslint/no-shadow": "off",
-        "eslint/no-template-curly-in-string": "error",
+        "eslint/no-template-curly-in-string": "warn",
         "eslint/no-throw-literal": "warn",
         "eslint/no-unneeded-ternary": "warn",
-        "eslint/no-unused-expressions": ["error", { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true }],
         "eslint/no-useless-computed-key": "warn",
         "eslint/no-useless-concat": "warn",
+        "eslint/no-useless-constructor": "warn",
         "eslint/no-useless-rename": "warn",
         "eslint/no-var": "warn",
         "eslint/prefer-const": "warn",
-        "eslint/prefer-rest-params": "error",
-        "eslint/prefer-spread": "error",
-        "eslint/unicode-bom": ["warn", "never"],
-
-        // Imports
-        "import/newline-after-import": "warn",
-        "import/no-amd": "error",
+        "import/no-cycle": "warn",
         "import/no-duplicates": "warn",
-        "import/no-self-import": "error",
+        "import/no-self-import": "warn",
         // Flags side-effect imports such as `import "./styles.css";`.
         "import/no-unassigned-import": "off",
-        "import/no-webpack-loader-syntax": "error",
-
-        // TypeScript
-        "typescript/ban-ts-comment": "error",
-        "typescript/no-empty-object-type": ["error", { allowInterfaces: "with-single-extends", allowObjectTypes: "never" }],
-        "typescript/no-explicit-any": "error",
-        "typescript/no-namespace": "error",
-        "typescript/no-require-imports": "error",
-        "typescript/no-unsafe-function-type": "error",
-        "typescript/non-nullable-type-assertion-style": "error",
-        "typescript/prefer-find": "error",
-        "typescript/prefer-includes": "error",
-        "typescript/prefer-regexp-exec": "error",
-        "typescript/prefer-string-starts-ends-with": "error",
-        "typescript/require-await": "error",
-        "typescript/restrict-plus-operands": "error",
-        // Turned off in @workleap/eslint-configs.
-        "typescript/no-base-to-string": "off",
-        "typescript/no-floating-promises": "off",
-        "typescript/restrict-template-expressions": "off",
-        "typescript/unbound-method": "off",
-
-        // React (includes the react-hooks rules)
         "react/button-has-type": "warn",
-        "react/exhaustive-deps": "warn",
-        "react/jsx-boolean-value": ["warn", "never"],
-        "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".tsx"] }],
-        "react/jsx-key": "off",
+        "react/jsx-key": "warn",
+        "react/jsx-no-constructed-context-values": "warn",
         "react/jsx-no-duplicate-props": "warn",
-        "react/jsx-no-target-blank": "error",
-        "react/jsx-pascal-case": ["warn", { allowAllCaps: true }],
         "react/no-array-index-key": "warn",
-        "react/no-unknown-property": "error",
         "react/react-in-jsx-scope": "off",
-        "react/rules-of-hooks": "error",
-        "react/set-state-in-effect": "off",
-        "react/style-prop-object": "warn",
-        // Duplicates of react/exhaustive-deps and react/static-components.
+        "react/rules-of-hooks": "warn",
+        "react/exhaustive-deps": "warn",
+        // They report the same missing dependencies as react/exhaustive-deps.
         "react/exhaustive-effect-dependencies": "off",
         "react/memo-dependencies": "off",
-        "react/no-unstable-nested-components": "off",
-        // React Compiler rules, turn them back on if your project uses the React Compiler.
-        "react/incompatible-library": "off",
-        "react/preserve-manual-memoization": "off",
-
-        // Accessibility
-        "jsx-a11y/label-has-associated-control": "off",
-        "jsx-a11y/media-has-caption": "off",
-        "jsx-a11y/no-autofocus": "off"
+        "react-perf/jsx-no-new-function-as-prop": "off",
+        "typescript/consistent-type-imports": "warn",
+        "typescript/no-import-type-side-effects": "error",
+        "typescript/no-explicit-any": "warn",
+        "typescript/no-unsafe-type-assertion": "off",
+        "typescript/consistent-return": "off",
+        "typescript/no-misused-promises": ["warn", { checksVoidReturn: { attributes: false } }],
+        "typescript/return-await": "warn",
+        // A `default` branch is a deliberate catch-all; only a switch that can fall through is a finding.
+        "typescript/switch-exhaustiveness-check": ["warn", { considerDefaultExhaustiveForUnions: true }],
+        "typescript/use-unknown-in-catch-callback-variable": "warn",
+        // `vi.fn()` without type parameters is fine when the test never reads the mock's arguments back.
+        "vitest/require-mock-type-parameters": "off",
+        "jsx-a11y/no-autofocus": "off",
+        "jsx-a11y/anchor-is-valid": "warn"
     },
     overrides: [
         {
-            files: ["**/*.test.{js,jsx,ts,tsx}", "**/__tests__/**"],
+            files: ["**/*.test.{ts,tsx}"],
             rules: {
-                "vitest/no-commented-out-tests": "off",
-                "vitest/no-focused-tests": "warn",
-                "vitest/no-identical-title": "error",
-                "vitest/no-import-node-test": "error",
-                "vitest/no-interpolation-in-snapshots": "error",
-                "vitest/no-mocks-import": "error",
-                // Not part of the @vitest/eslint-plugin recommended rules.
-                "vitest/require-mock-type-parameters": "off",
-                "vitest/require-to-throw-message": "off",
-                "vitest/warn-todo": "off"
+                "typescript/no-explicit-any": "off",
+                // `expect(spy.method)` reads the method unbound by design.
+                "typescript/unbound-method": "off"
             }
         },
-        // eslint-plugin-testing-library "flat/dom" preset.
         {
-            files: ["**/*.test.{js,jsx,ts,tsx}", "**/__tests__/**"],
+            files: ["**/*.stories.tsx", "**/.storybook/**"],
+            rules: {
+                "react-perf/jsx-no-jsx-as-prop": "off",
+                "react-perf/jsx-no-new-object-as-prop": "off"
+            }
+        }
+    ]
+});
+```
+
+Most rules are warnings. The `oxlint` [script](#packagejson) passes `--deny-warnings`, so a warning fails the lint like an error does, while the editor still shows it as a warning.
+
+The configuration also enables rules that `@workleap/eslint-configs` didn't have: the `suspicious` and `perf` categories, the `react-perf`, `unicorn`, `oxc` and `promise` plugins, and rules such as `import/no-cycle` and `typescript/consistent-type-imports`. Expect new findings, and turn off the rules that don't fit your codebase.
+
+#### Adapt it to your project type
+
+| Old configuration | Changes to the reference `oxlint.config.ts` |
+| --- | --- |
+| `defineWebApplicationConfig` | None. |
+| `defineReactLibraryConfig` | None. |
+| `defineTypeScriptLibraryConfig` | Remove `react`, `react-perf` and `jsx-a11y` from `plugins`, remove the `react/*`, `react-perf/*` and `jsx-a11y/*` rules, and remove the Storybook override. |
+| `defineMonorepoWorkspaceConfig` | Not needed anymore: a single root `oxlint.config.ts` lints the whole workspace. See [Monorepo](#monorepo). |
+
+#### Port your custom rules
+
+If your `eslint.config.ts` file added or changed rules, port them to `rules` or `overrides`. oxlint uses a plugin prefix for every rule:
+
+| ESLint | oxlint |
+| --- | --- |
+| `no-console` (core rules) | `eslint/no-console` |
+| `@typescript-eslint/*` | `typescript/*` |
+| `react-hooks/*` | `react/*` |
+| `import/*`, `jsx-a11y/*`, `vitest/*`, `jest/*` | Unchanged |
+
+#### Jest instead of Vitest
+
+If the project's tests run with [Jest](https://jestjs.io/) (`testFramework: "jest"`), replace `vitest` with `jest` in `plugins`, and remove the `vitest/require-mock-type-parameters` rule.
+
+#### Monorepo
+
+A single root `oxlint.config.ts` lints every project of the workspace. Use `overrides` for the plugins and rules that only apply to some projects. For example, when most projects test with Vitest but a legacy application tests with Jest, remove `vitest` from the root `plugins` and enable each test plugin where its runner is used:
+
+```ts oxlint.config.ts
+overrides: [
+    {
+        files: ["packages/**", "apps/web/**"],
+        plugins: ["vitest"],
+        rules: {
+            "vitest/require-mock-type-parameters": "off"
+        }
+    },
+    {
+        files: ["apps/legacy-app/**"],
+        plugins: ["jest"]
+    }
+]
+```
+
+- Don't enable `vitest` and `jest` for the same files: the two plugins share most rules, so every finding would be reported twice.
+- Configure a plugin's rules in the override that enables it. oxlint ignores the settings of a later override for those rules.
+
+#### Type-aware linting
+
+With `options.typeAware: true`, oxlint runs the type-aware rules through `oxlint-tsgolint`, which reads each project's `tsconfig.json` file. It's slower than the rest of oxlint, but faster than typescript-eslint. To turn it off, remove `options.typeAware` and uninstall `oxlint-tsgolint`: oxlint then skips the type-aware rules.
+
+!!!warning
+In a monorepo, the type-aware rules resolve the workspace packages like a consumer would. When a package's `exports` or `types` point to its `dist` folder and the package isn't built, they silently report less instead of failing. Build the packages before running oxlint, locally and in [CI](#ci).
+!!!
+
+#### Storybook and Testing Library
+
+oxlint has no native port of `eslint-plugin-storybook` and `eslint-plugin-testing-library`, so the reference configuration doesn't include their rules. To keep them, load the original ESLint plugins as [JS plugins](https://oxc.rs/docs/guide/usage/linter/js-plugins.html), which run ESLint rules inside oxlint. JS plugins are in alpha and not subject to semver.
+
+First, install the plugins the project needs:
+
+```bash
+pnpm add -D eslint-plugin-storybook eslint-plugin-testing-library
+```
+
+Then, add them to `jsPlugins` and add the rules of their recommended presets to `overrides`:
+
+```ts !#3,9-49 oxlint.config.ts
+export default defineConfig({
+    plugins: [...],
+    jsPlugins: ["eslint-plugin-storybook", "eslint-plugin-testing-library"],
+    ...
+    overrides: [
+        ...
+        // eslint-plugin-testing-library "flat/react" preset.
+        {
+            files: ["**/*.test.{ts,tsx}"],
             rules: {
                 "testing-library/await-async-events": ["error", { eventModule: "userEvent" }],
                 "testing-library/await-async-queries": "error",
                 "testing-library/await-async-utils": "error",
                 "testing-library/no-await-sync-events": ["error", { eventModules: ["fire-event"] }],
                 "testing-library/no-await-sync-queries": "error",
+                "testing-library/no-container": "error",
+                "testing-library/no-debugging-utils": "warn",
+                "testing-library/no-dom-import": ["error", "react"],
                 "testing-library/no-global-regexp-flag-in-query": "error",
+                "testing-library/no-manual-cleanup": "error",
                 "testing-library/no-node-access": "error",
                 "testing-library/no-promise-in-fire-event": "error",
+                "testing-library/no-render-in-lifecycle": "error",
+                "testing-library/no-unnecessary-act": "error",
                 "testing-library/no-wait-for-multiple-assertions": "error",
                 "testing-library/no-wait-for-side-effects": "error",
                 "testing-library/no-wait-for-snapshot": "error",
                 "testing-library/prefer-find-by": "error",
                 "testing-library/prefer-presence-queries": "error",
                 "testing-library/prefer-query-by-disappearance": "error",
-                "testing-library/prefer-screen-queries": "error"
-            }
-        },
-        // Additional rules of the eslint-plugin-testing-library "flat/react" preset.
-        {
-            files: ["**/*.test.{jsx,tsx}", "**/__tests__/**/*.{jsx,tsx}"],
-            rules: {
-                "testing-library/no-container": "error",
-                "testing-library/no-debugging-utils": "warn",
-                "testing-library/no-dom-import": ["error", "react"],
-                "testing-library/no-manual-cleanup": "error",
-                "testing-library/no-render-in-lifecycle": "error",
-                "testing-library/no-unnecessary-act": "error",
+                "testing-library/prefer-screen-queries": "error",
                 "testing-library/render-result-naming-convention": "error"
             }
         },
         // eslint-plugin-storybook "flat/recommended" preset.
         {
-            files: ["**/*.{stories,story}.{js,jsx,ts,tsx,mjs,cjs}"],
+            files: ["**/*.stories.{ts,tsx}"],
             rules: {
                 "react/rules-of-hooks": "off",
                 "storybook/await-interactions": "error",
@@ -259,7 +286,7 @@ export default defineConfig({
             }
         },
         {
-            files: ["**/.storybook/main.{js,ts,mjs,cjs}"],
+            files: ["**/.storybook/main.{js,ts}"],
             rules: {
                 "storybook/no-uninstalled-addons": "warn"
             }
@@ -268,92 +295,25 @@ export default defineConfig({
 });
 ```
 
-A few rules have a different severity than in `@workleap/eslint-configs`, because their oxlint category sets it. With `denyWarnings`, warnings fail the lint like errors do, so the difference only shows in the output.
-
-#### Adapt it to your project type
-
-| Old configuration | Changes to the reference `oxlint.config.ts` |
-| --- | --- |
-| `defineWebApplicationConfig` | None. |
-| `defineReactLibraryConfig` | None. |
-| `defineTypeScriptLibraryConfig` | Remove `react` and `jsx-a11y` from `plugins` and remove the `react/*` and `jsx-a11y/*` rules. Remove `eslint-plugin-storybook` from `jsPlugins` and remove the Storybook overrides. |
-| `defineMonorepoWorkspaceConfig` | Not needed anymore: a single root `oxlint.config.ts` lints the whole workspace. See [Monorepo](#monorepo). |
-
-#### Port your custom rules
-
-If your `eslint.config.ts` file added or changed rules, port them to `rules` or `overrides`. oxlint uses a plugin prefix for every rule:
-
-| ESLint | oxlint |
-| --- | --- |
-| `no-console` (core rules) | `eslint/no-console` |
-| `@typescript-eslint/*` | `typescript/*` |
-| `react-hooks/*` | `react/*` |
-| `import/*`, `jsx-a11y/*`, `vitest/*`, `jest/*` | Unchanged |
-
-If you passed `react: { compiler: true }`, remove the `react/incompatible-library` and `react/preserve-manual-memoization` lines to turn the React Compiler rules back on.
-
-#### Jest instead of Vitest
-
-If the project's tests run with [Jest](https://jestjs.io/) (`testFramework: "jest"`), replace `vitest` with `jest` in `plugins`, and replace the Vitest override with:
-
-```ts oxlint.config.ts
-{
-    files: ["**/*.test.{js,jsx,ts,tsx}", "**/__tests__/**"],
-    rules: {
-        "jest/no-commented-out-tests": "off",
-        "jest/no-alias-methods": "error",
-        "jest/no-deprecated-functions": "error",
-        "jest/no-done-callback": "error",
-        "jest/no-identical-title": "error",
-        "jest/no-interpolation-in-snapshots": "error",
-        "jest/no-jasmine-globals": "error",
-        "jest/no-mocks-import": "error",
-        "jest/no-test-prefixes": "error",
-        // Gives better failure messages for array checks.
-        "jest/prefer-to-contain": "error",
-        // Prefer spies to allow for automatic restoration.
-        "jest/prefer-spy-on": "error"
-    }
-}
-```
-
-#### Monorepo
-
-A single root `oxlint.config.ts` lints every project of the workspace. Use `overrides` for the rules that only apply to some projects. For example, when one package of the workspace tests with Jest while the others use Vitest:
-
-```ts oxlint.config.ts
-overrides: [
-    {
-        files: ["packages/legacy-lib/**"],
-        plugins: ["jest"],
-        rules: {
-            "jest/prefer-to-contain": "error",
-            "jest/prefer-spy-on": "error"
-        }
-    }
-]
-```
-
-#### Type-aware linting
-
-With `options.typeAware: true`, oxlint runs the type-aware rules through `oxlint-tsgolint`, which reads each project's `tsconfig.json` file. It's slower than the rest of oxlint, but faster than typescript-eslint. To turn it off, remove `options.typeAware` and uninstall `oxlint-tsgolint`: oxlint then skips the type-aware rules.
-
-#### Storybook and Testing Library
-
-oxlint has no native port of `eslint-plugin-storybook` and `eslint-plugin-testing-library`. The reference configuration loads them as [JS plugins](https://oxc.rs/docs/guide/usage/linter/js-plugins.html), which run the original ESLint rules inside oxlint. JS plugins are in alpha and not subject to semver. If the project doesn't have stories or doesn't use Testing Library, remove the plugin from `jsPlugins` and its overrides.
+If the project only has stories or only uses Testing Library, keep only that plugin and its overrides. The Testing Library rules above are those of the React preset: if some tests use `@testing-library/dom` directly, remove `no-dom-import` for those files.
 
 ### `oxfmt.config.ts`
 
-oxfmt replaces the stylistic rules of `@workleap/eslint-configs` (`@stylistic`, `eslint-plugin-jsonc`) and the `package.json` sorting of `eslint-plugin-package-json`. It formats JavaScript, TypeScript, JSON, YAML, Markdown, CSS and HTML files.
+oxfmt replaces the stylistic rules of `@workleap/eslint-configs` (`@stylistic`, `eslint-plugin-jsonc`) and the `package.json` sorting of `eslint-plugin-package-json`. It formats JavaScript, TypeScript, JSON, YAML, Markdown, HTML and CSS files.
 
-Create an `oxfmt.config.ts` file at the root of the project and copy/paste the following content. It matches the style of `@workleap/eslint-configs`: 4 spaces, double quotes, semicolons and no trailing commas:
+Create an `oxfmt.config.ts` file at the root of the project and copy/paste the following content. It keeps the style of `@workleap/eslint-configs`: 4 spaces, double quotes, semicolons and no trailing commas:
 
 ```ts oxfmt.config.ts
 import { defineConfig } from "oxfmt";
 
 export default defineConfig({
-    ignorePatterns: ["pnpm-lock.yaml", "skills-lock.json", "CHANGELOG.md", "**/mockServiceWorker.js"],
-    printWidth: 300,
+    // oxfmt also honors .gitignore (dist, storybook-static, ...) and would honor a .prettierignore.
+    // - CSS is formatted by Prettier through stylelint-prettier (.prettierrc.json5). oxfmt doesn't always produce the
+    //   same CSS (`calc(a*2)` keeps no spaces around `*`), so two formatters would reject each other's output.
+    // - .agents/ and skills-lock.json are the vendored agent skills: upstream replaces them wholesale.
+    // - CHANGELOG.md files are generated by Changesets.
+    ignorePatterns: ["**/*.css", ".agents/", "skills-lock.json", "pnpm-lock.yaml", "**/CHANGELOG.md", "**/mockServiceWorker.js"],
+    printWidth: 150,
     tabWidth: 4,
     useTabs: false,
     singleQuote: false,
@@ -363,61 +323,92 @@ export default defineConfig({
     arrowParens: "avoid",
     bracketSpacing: true,
     bracketSameLine: false,
-    quoteProps: "preserve",
+    quoteProps: "as-needed",
     endOfLine: "lf",
+    sortPackageJson: {
+        sortScripts: false
+    },
     overrides: [
         {
-            // YAML files, such as GitHub workflows, are usually indented with 2 spaces.
-            files: ["**/*.{yml,yaml}"],
-            options: {
-                tabWidth: 2
-            }
+            // YAML files, such as GitHub workflows, are indented with 2 spaces.
+            files: ["**/*.yml", "**/*.yaml"],
+            options: { tabWidth: 2 }
+        },
+        {
+            // Code fences often show other files, such as 2-space GitHub workflows: format the prose only.
+            files: ["**/*.md"],
+            options: { embeddedLanguageFormatting: "off" }
         }
     ]
 });
 ```
 
-- **`printWidth`**: `@workleap/eslint-configs` had no maximum line length. With `300`, oxfmt rarely wraps a line, but it joins multi-line code that fits on one line (objects keep their line breaks). Lower it if your team prefers wrapped lines.
-- **Markdown**: oxfmt also formats Markdown files, which ESLint didn't (`*` lists become `-`, tables are padded, etc.). Add `"**/*.md"` to `ignorePatterns` to leave them alone.
+- **`printWidth`**: `@workleap/eslint-configs` had no maximum line length. With `150`, oxfmt wraps long lines and joins multi-line code that fits on one line (objects keep their line breaks). In this repository, `150`, `200` and `300` changed about as many lines.
+- **CSS**: if the project doesn't use [@workleap/stylelint-configs](../stylelint/getting-started.md), remove `"**/*.css"` from `ignorePatterns` to format CSS files with oxfmt (and from the `//#oxfmt:check` [inputs](#turbojson) in a monorepo).
+- **Markdown**: oxfmt also formats Markdown files, which ESLint didn't (`*` lists become `-`, tables are padded, etc.). Ignore the folders where that doesn't fit: documentation sites with their own syntax, such as [Retype](https://retype.com/) (`!!!` callouts), or agent skills, where padded tables cost context.
 - **Tailwind CSS**: if the project uses [Tailwind CSS](https://tailwindcss.com/), add `sortTailwindcss: {}` to sort the classes.
 
 !!!info
-oxfmt sorts the keys of every `package.json` file, which `@workleap/eslint-configs` didn't do (it only sorted the dependencies), so the first run reorders them. Set `sortPackageJson: false` to opt out.
+oxfmt sorts the keys of every `package.json` file, which `@workleap/eslint-configs` didn't do (it only sorted the dependencies), so the first run reorders them. `sortScripts: false` keeps the scripts in their current order. Set `sortPackageJson: false` to opt out entirely.
 !!!
 
 ### `.prettierignore`
 
 !!!warning
-Delete the `.prettierignore` file. oxfmt reads `.prettierignore` by default, and the file recommended by the [Stylelint guide](../stylelint/getting-started.md) ignores everything but CSS files: oxfmt would then skip every other file and report `Expected at least one target file`.
+Delete the `.prettierignore` file at the root of the project. oxfmt reads it by default, and the file recommended by the [Stylelint guide](../stylelint/getting-started.md) ignores everything but CSS files: oxfmt would then skip every file and report `Expected at least one target file`.
 !!!
 
 Use `ignorePatterns` in `oxfmt.config.ts` instead.
+
+In a monorepo, oxfmt only reads the root `.prettierignore` file. Delete the projects' own `.prettierignore` files too, or, to keep them, make sure they re-include the folders. Otherwise Prettier ignores the CSS files in subfolders and Stylelint silently stops checking their formatting:
+
+```text .prettierignore
+# Prettier only runs through stylelint-prettier, on CSS. "!*/" re-includes the folders, otherwise the CSS files under them stay ignored.
+*
+!*/
+!*.css
+```
 
 ### `.prettierrc.json5`
 
 Skip this step if the project doesn't use [@workleap/stylelint-configs](../stylelint/getting-started.md).
 
-`@workleap/stylelint-configs` includes the [stylelint-prettier](https://github.com/prettier/stylelint-prettier) plugin, which formats CSS files with Prettier, not oxfmt. Prettier reads its own configuration file. Without one, it falls back to Prettier's defaults (2 spaces, 80 characters) and fights with oxfmt over the CSS files.
+`@workleap/stylelint-configs` includes the [stylelint-prettier](https://github.com/prettier/stylelint-prettier) plugin, which formats CSS files with Prettier, not oxfmt. Prettier reads its own configuration file (and `.editorconfig`), not `oxfmt.config.ts`. Without one, it falls back to Prettier's defaults, such as 80 characters per line.
 
-Create a `.prettierrc.json5` file at the root of the project with a CSS-scoped override that mirrors `oxfmt.config.ts`:
+Create a `.prettierrc.json5` file at the root of the project with a CSS-scoped override that uses the options of `oxfmt.config.ts`, so CSS looks like the rest of the code:
 
 ```json5 .prettierrc.json5
-// stylelint-prettier formats CSS with Prettier, which doesn't read oxfmt.config.ts.
-// Keep these options in sync with oxfmt.config.ts so both tools produce the same CSS.
+// @workleap/stylelint-configs enables stylelint-prettier, which hands CSS to Prettier itself, not oxfmt.
+// Prettier resolves its own config: without this file it falls back to its defaults (printWidth: 80, tabWidth: 2).
+//
+// oxfmt ignores CSS, so Prettier is the only CSS formatter. The CSS-scoped override uses the options of
+// oxfmt.config.ts so CSS looks like the rest of the code. Keep them in sync.
 {
     $schema: "https://json.schemastore.org/prettierrc",
     overrides: [
         {
             files: "*.css",
             options: {
-                printWidth: 300,
+                printWidth: 150,
                 tabWidth: 4,
                 useTabs: false,
+                singleQuote: false,
                 endOfLine: "lf"
             }
         }
     ]
 }
+```
+
+To fix the formatting of CSS files, run Stylelint with `--fix`.
+
+### `.editorconfig`
+
+The [Stylelint guide](../stylelint/getting-started.md) sets `indent_size = 4` for every file, while `oxfmt.config.ts` indents YAML files with 2 spaces. Add a YAML section to the `.editorconfig` file so the editor agrees with oxfmt:
+
+```ini .editorconfig
+[*.{yml,yaml}]
+indent_size = 2
 ```
 
 ### `package.json`
@@ -427,57 +418,82 @@ Replace the ESLint script of the project (`eslint` or `lint:eslint`) with the fo
 ```json package.json
 {
     "scripts": {
-        "oxlint": "oxlint",
+        "oxlint": "oxlint --deny-warnings --report-unused-disable-directives-severity=error",
         "oxfmt": "oxfmt",
         "oxfmt:check": "oxfmt --check"
     }
 }
 ```
 
-- `oxlint` reads `denyWarnings` and `reportUnusedDisableDirectives` from `oxlint.config.ts`, so a bare `oxlint` run, in a terminal or in the editor, behaves like CI.
+- `--deny-warnings` fails the lint on warnings, like ESLint's `--max-warnings=0`. `--report-unused-disable-directives-severity=error` fails it on the `eslint-disable` and `oxlint-disable` comments that don't suppress anything.
 - `oxfmt` formats the files in place and `oxfmt:check` only reports the files that aren't formatted, for CI.
 - Formatting isn't part of linting anymore: where you ran `eslint --fix` to format, run `pnpm oxfmt`. `oxlint --fix` still fixes oxlint's own rules.
 
-For a monorepo, add these scripts to the root `package.json` file and delete the ESLint script of every project.
+For a polyrepo, make sure the `lint` script still runs oxlint and `oxfmt:check`: CI runs `pnpm lint`. If it runs every `lint:*` script (e.g. `pnpm run "/^lint:.*/"`), name the scripts `lint:oxlint` and `lint:oxfmt` instead.
+
+For a monorepo, add these scripts to the root `package.json` file and delete the ESLint script of every project. If oxlint is [type-aware](#type-aware-linting), also build the packages before linting. For example, a `prelint` script runs before `pnpm lint` (but not before `pnpm oxlint`):
+
+```json package.json
+{
+    "scripts": {
+        "prelint": "turbo run build --filter=./packages/*"
+    }
+}
+```
 
 Also update the Git hooks (`lint-staged`, husky, etc.) that run ESLint.
 
 ### `turbo.json`
 
-For a monorepo managed with [Turborepo](https://turborepo.com/), replace the `eslint` and `//#eslint` tasks with root tasks. In the `dependsOn` list of the `lint` task, replace `eslint` with `//#oxlint` and `//#oxfmt:check`, and keep the other dependencies (`stylelint`, `typecheck`, etc.):
+For a monorepo managed with [Turborepo](https://turborepo.com/), replace the `eslint` and `//#eslint` tasks with root tasks. In the `dependsOn` list of the `lint` task, replace `eslint` with `//#oxlint` and `//#oxfmt:check`, and keep the other dependencies:
 
-```json !#5,8-13 turbo.json
+```json !#5,7-14 turbo.json
 {
     "$schema": "https://turbo.build/schema.json",
     "tasks": {
         "lint": {
-            "dependsOn": ["//#oxlint", "//#oxfmt:check"]
+            "dependsOn": ["//#oxlint", "//#oxfmt:check", "stylelint", "typecheck"]
         },
         "//#oxlint": {
-            "cache": false
+            "inputs": ["$TURBO_DEFAULT$", "!**/*.md", "!**/*.css"],
+            "outputs": []
         },
         "//#oxfmt:check": {
-            "cache": false
+            "inputs": ["$TURBO_DEFAULT$", "!**/*.css"],
+            "outputs": []
         }
     }
 }
 ```
 
-oxlint and oxfmt process the whole workspace in a single run, so there is no per-project task anymore. The reference turns caching off; to cache the tasks, list the files they read in their `inputs`.
+oxlint and oxfmt process the whole workspace in a single run, so there is no per-project task anymore. The inputs of a root task include the files of every project, so a change anywhere in the workspace runs the tasks again.
+
+If the project uses `@workleap/stylelint-configs`, also add `.prettierrc.json5` to `globalDependencies`: it configures Stylelint in every project, so a change to it should run Stylelint everywhere.
+
+```json turbo.json
+{
+    "globalDependencies": [".prettierrc.json5"]
+}
+```
 
 ### CI
 
-Replace the ESLint step of the CI workflow, including the Turborepo one from the [Turborepo CI workflow](../introduction/setup-turborepo-ci-workflow.md) guide, with:
+For a polyrepo following the [CI workflow](../introduction/setup-a-ci-workflow.md) guide, there is nothing to change: the workflow runs `pnpm lint`.
+
+For a monorepo, replace the ESLint step of the [Turborepo CI workflow](../introduction/setup-turborepo-ci-workflow.md) with the root tasks, so CI uses the Turborepo cache:
 
 ```yaml .github/workflows/ci.yml
 - name: oxlint
-  run: pnpm oxlint
+  run: |
+    pnpm turbo run build --filter=./packages/*
+    pnpm turbo run //#oxlint
 
 - name: oxfmt
-  run: pnpm oxfmt:check
+  run: pnpm turbo run //#oxfmt:check
 ```
 
-Both tools process the whole workspace in a single run, so the `--filter=...[<base sha>]` filter doesn't apply anymore.
+- Both tools process the whole workspace in a single run, so the `--filter=...[<base sha>]` filter doesn't apply anymore.
+- With [type-aware](#type-aware-linting) linting, build **every** package before oxlint, not only the ones that changed: the unchanged ones come from the Turborepo cache. Without type-aware linting, remove the build command.
 
 ### VS Code
 
@@ -490,14 +506,30 @@ Replace the ESLint settings in the project's `.vscode/settings.json` file (`esli
     "oxc.typeAware": true,
     "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
     "editor.codeActionsOnSave": {
-        "source.fixAll.oxc": "always",
-        "source.sortImports": "explicit"
+        "source.fixAll.oxc": "explicit"
+    },
+    // oxfmt doesn't format CSS: Stylelint does, through stylelint-prettier and .prettierrc.json5.
+    "[css]": {
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": "explicit"
+        }
     }
 }
 ```
 
-Remove `oxc.typeAware` if you turned off [type-aware linting](#type-aware-linting). If the project has a `.vscode/extensions.json` file, replace `dbaeumer.vscode-eslint` with `oxc.oxc-vscode` in its `recommendations`.
+Remove `oxc.typeAware` if you turned off [type-aware linting](#type-aware-linting), and remove the `[css]` section if the project doesn't use `@workleap/stylelint-configs`. You can keep `"source.sortImports": "explicit"` in `editor.codeActionsOnSave` if the project had it.
+
+Then, update the recommended extensions in the `.vscode/extensions.json` file:
+
+```json .vscode/extensions.json
+{
+    "recommendations": ["oxc.oxc-vscode", "stylelint.vscode-stylelint"],
+    "unwantedRecommendations": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+}
+```
 
 ### Agent skills
 
@@ -505,15 +537,16 @@ If you followed the [Use with agents](../introduction/use-with-agents.md) guide,
 
 ## Format the codebase
 
-oxfmt doesn't produce the same output as the `@stylistic` rules. For example, it collapses short multi-line arrays, arguments and JSX elements on a single line, and adds a space after anonymous functions (`function () {}`). The first run touches many files, so do it in a dedicated commit:
+oxfmt doesn't produce the same output as the `@stylistic` rules. For example, it wraps lines longer than `printWidth`, collapses short multi-line arrays, arguments and JSX elements on a single line, and adds a space after anonymous functions (`function () {}`). The first run touches many files, so open a dedicated pull request that only formats the code. If the project uses `@workleap/stylelint-configs`, the new `.prettierrc.json5` can also change the CSS formatting (line length, indentation), so fix the CSS files with Stylelint in the same pull request:
 
 ```bash
 pnpm oxfmt
+pnpm exec stylelint "**/*.css" --fix   # Only with @workleap/stylelint-configs, in every project of a monorepo.
 git add -A
 git commit -m "chore: format with oxfmt"
 ```
 
-Then, add the commit hash to a `.git-blame-ignore-revs` file at the root of the repository, so `git blame` and GitHub skip it:
+Once it's merged, add the hash of the formatting commit on the main branch to a `.git-blame-ignore-revs` file at the root of the repository, so `git blame` and GitHub skip it. Don't do it if the formatting was squashed with other changes: their lines would be hidden from `git blame` too.
 
 ```text .git-blame-ignore-revs
 # Format with oxfmt
@@ -524,23 +557,22 @@ Then, add the commit hash to a `.git-blame-ignore-revs` file at the root of the 
 
 Run `pnpm oxlint` and fix the reported issues. A few things to expect:
 
-- oxlint honors the existing `eslint-disable` comments, and understands the `@typescript-eslint/` rule prefix. Directives that don't suppress anything anymore are reported as errors: delete them. This includes directives for rules that don't exist in oxlint (such as `@stylistic/*` rules) and for rules the reference turns off.
-- New findings from the `suspicious` and `perf` categories, such as `promise/always-return`. Fix them, or turn off the rules that don't fit your codebase.
-- New findings from rules that ESLint didn't have, such as `unicorn/*` and `oxc/*` rules.
+- oxlint honors the existing `eslint-disable` comments, and understands the `@typescript-eslint/` rule prefix. Comments that don't suppress anything anymore are reported as errors: delete them. This includes comments for rules that don't exist in oxlint (such as `@stylistic/*` rules) and for rules the reference turns off. Write the remaining ones with oxlint's rule names, for example `oxlint-disable-next-line typescript/no-explicit-any`.
+- New findings from the categories and plugins that `@workleap/eslint-configs` didn't have, such as `promise/always-return`, `unicorn/*` and `react-perf/*` rules. Fix them, or turn off the rules that don't fit your codebase.
 
 ## Rule mapping
 
 | `@workleap/eslint-configs` | oxlint & oxfmt |
 | --- | --- |
-| Core (`@eslint/js` recommended and extra rules) | `eslint` plugin, `correctness` category and the rules of the reference configuration |
+| Core (`@eslint/js` recommended and extra rules) | `eslint` plugin, the default `correctness` rules and the rules of the reference configuration |
 | `eslint-plugin-import` | `import` plugin |
 | `typescript-eslint` `recommendedTypeChecked` and `stylisticTypeCheckedOnly` | `typescript` plugin, with `options.typeAware` and `oxlint-tsgolint` for the type-aware rules |
 | `eslint-plugin-react` and `eslint-plugin-react-hooks` | `react` plugin (the hooks rules are `react/rules-of-hooks`, `react/exhaustive-deps`, etc.) |
 | `eslint-plugin-jsx-a11y` | `jsx-a11y` plugin |
 | `@vitest/eslint-plugin` | `vitest` plugin |
 | `eslint-plugin-jest` | `jest` plugin |
-| `eslint-plugin-storybook` | JS plugin (`jsPlugins`) |
-| `eslint-plugin-testing-library` | JS plugin (`jsPlugins`) |
+| `eslint-plugin-storybook` | None natively, optional [JS plugin](#storybook-and-testing-library) |
+| `eslint-plugin-testing-library` | None natively, optional [JS plugin](#storybook-and-testing-library) |
 | `@stylistic/eslint-plugin` and `eslint-plugin-jsonc` | oxfmt |
 | `eslint-plugin-yaml` | oxfmt (formatting only) |
 | `eslint-plugin-package-json` | oxfmt `sortPackageJson` (sorting only) |
@@ -548,16 +580,13 @@ Run `pnpm oxlint` and fix the reported issues. A few things to expect:
 
 ## Known gaps
 
-Compared with `@workleap/eslint-configs`, oxlint `1.90` doesn't have:
+Compared with `@workleap/eslint-configs`, oxlint `1.92` doesn't have:
 
+- **Native Storybook and Testing Library rules**: the 11 rules of `eslint-plugin-storybook`'s recommended preset and the 22 rules of `eslint-plugin-testing-library`'s React preset only run as [JS plugins](#storybook-and-testing-library), which are in alpha.
 - **`@workleap/strict-css-modules-names`**: there is no equivalent to require CSS Modules files to be named after their component.
-- **`eslint-plugin-package-json` validation rules**: oxfmt sorts `package.json` files but doesn't validate them. [Syncpack](../syncpack/setup-turborepo.md) and [knip](https://knip.dev/) cover part of it.
+- **`package.json`, JSON and YAML lint rules**: only formatting remains. oxfmt sorts `package.json` files but doesn't validate them. [Syncpack](../syncpack/setup-turborepo.md) and [knip](https://knip.dev/) cover part of it.
 - **PropTypes and class component rules** of `eslint-plugin-react`: `react/prop-types`, `react/default-props-match-prop-types`, `react/forbid-foreign-prop-types`, `react/no-typos`, `react/no-unused-prop-types`, `react/no-unused-state`, `react/no-access-state-in-setstate`, `react/destructuring-assignment` and `react/no-deprecated`. TypeScript covers most of them.
-- **Experimental rules**: `typescript/prefer-optional-chain` and `react/require-render-return` exist but are in oxlint's `nursery` category, so the reference leaves them out.
-- **Native Storybook and Testing Library rules**: they run as JS plugins, which are in alpha.
-
-The `strict`, `no-octal-escape` and `no-restricted-syntax` (`with` statements) rules don't need a replacement: ES modules are always in strict mode, where octal escapes and `with` statements are syntax errors.
 
 ## Try it :rocket:
 
-Run `pnpm oxlint` and `pnpm oxfmt:check`. Both commands should complete without errors. Then, restart VS Code, open a TypeScript file, type invalid code (e.g. `var x = 0`), then save. The code should have been fixed and formatted automatically (e.g. `const x = 0;`).
+Run `pnpm oxlint` and `pnpm oxfmt:check`. Both commands should complete without errors. Then, restart VS Code, open a TypeScript file, break its formatting (e.g. remove a semicolon) and save. The file should be formatted again.
