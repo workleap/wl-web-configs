@@ -20,8 +20,16 @@ To configure [tsup](https://tsup.egoist.dev/) for a build environment, execute t
 Open a terminal at the root of the project and install the following packages:
 
 ```bash
-pnpm add -D @workleap/tsup-configs tsup typescript
+pnpm add -D @workleap/tsup-configs tsup typescript@6
 ```
+
+tsup calls the TypeScript compiler API, which TypeScript 7 doesn't ship, so the project needs TypeScript 6. In a monorepo whose workspace root installs TypeScript 7, install TypeScript 6 in the tsup project under the `typescript` alias instead:
+
+```bash
+pnpm add -D @workleap/tsup-configs tsup typescript@npm:@typescript/typescript6
+```
+
+tsup then loads TypeScript 6, while the project's `tsc` scripts still run the workspace root's TypeScript 7, because `@typescript/typescript6` only ships a `tsc6` command.
 
 ## Configure tsup
 
