@@ -47,7 +47,6 @@ const config: Config = {
         // These next rules do not exist in the stylelint-config-recommended config nor the stylelint-config-standard config.
         // We are adding them here because we want to enforce them.
         "max-nesting-depth": 2,
-        "declaration-block-single-line-max-declarations": 1,
         "font-weight-notation": "numeric",
         "unit-allowed-list": [
             "em",
@@ -69,7 +68,6 @@ const config: Config = {
     }
 };
 
-// Using TypeScript "export =" until Stylelint supports ESM configs.
-// It's the only syntax emitting `module.exports = config`, which Stylelint
-// expects since it loads configs via require().
+// The package is CommonJS, and "export =" is the only syntax emitting `module.exports = config`.
+// Stylelint loads configs with a dynamic import(), so the config is exposed as its default export.
 export = config;
