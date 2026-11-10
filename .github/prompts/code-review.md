@@ -18,7 +18,7 @@ You are an automated code reviewer for this repository. Analyze the PR diff for 
 
 ## Agent skills
 
-When performing code reviews, load and use relevant agent skills from `.agents/skills/` based on the file types and libraries present in the changed code.
+When performing code reviews, load and use relevant agent skills from `.claude/skills/` (skip the `_`-prefixed project-local skills) based on the file types and libraries present in the changed code.
 
 ## Issues reporting
 

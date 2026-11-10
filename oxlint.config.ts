@@ -2,10 +2,10 @@ import { defineConfig } from "oxlint";
 
 export default defineConfig({
     // oxlint also honors .gitignore (dist, storybook-static, ...).
-    // - .agents/ holds vendored skills (skills-lock.json): upstream replaces them wholesale.
-    // - .claude/ holds, in a main checkout, the agent worktrees.
+    // - .claude/ holds the vendored skills (skills-lock.json), which upstream replaces wholesale, and, in a main
+    //   checkout, the agent worktrees.
     // - mockServiceWorker.js is MSW's generated worker (`msw init`).
-    ignorePatterns: [".agents/**", ".claude/**", "docs/**", "**/mockServiceWorker.js"],
+    ignorePatterns: [".claude/**", "docs/**", "**/mockServiceWorker.js"],
     // Setting `plugins` overwrites oxlint's default plugin set (eslint, typescript, unicorn, oxc),
     // so the defaults must be listed explicitly alongside the extras we want enabled.
     plugins: ["eslint", "typescript", "unicorn", "oxc", "react", "import", "jsx-a11y", "promise", "react-perf"],
