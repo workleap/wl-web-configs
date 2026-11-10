@@ -30,11 +30,12 @@ export default {
     ],
     versionGroups: [
         {
-            // tsup bundles declarations with rollup-plugin-dts, which needs the TypeScript compiler API. TypeScript 7 doesn't ship it.
+            // tsup calls the TypeScript compiler API, which TypeScript 7 doesn't ship. The tsup sample installs `typescript` as
+            // `npm:@typescript/typescript6`, and @workleap/tsup-configs keeps a `^6` peer while building with TypeScript 7.
             packages: ["@workleap/tsup-configs", "@webpack-sample/tsup-lib"],
             dependencies: ["typescript"],
             isIgnored: true,
-            label: "tsup stays on TypeScript 6."
+            label: "tsup runs on TypeScript 6."
         },
         {
             // The shared tsconfig files work with both TypeScript 6 and 7. syncpack can't keep a multi-range peer.

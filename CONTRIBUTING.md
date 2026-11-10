@@ -348,14 +348,17 @@ Updated outdated dependencies to their latest version. For more information, vie
 pnpm update-outdated-deps
 ```
 
+#### tsup and TypeScript 6
+
+tsup calls the TypeScript compiler API, which TypeScript 7 doesn't ship. The `@webpack-sample/tsup-lib` sample therefore installs `typescript` as `npm:@typescript/typescript6`, a package that re-exports TypeScript 6. `update-outdated-deps` keeps that alias on the latest TypeScript 6 release by itself, and the sample's `typecheck` script still runs the workspace's TypeScript 7 `tsc`. `@workleap/tsup-configs` builds with TypeScript 7 but keeps a `typescript` peer of `^6.0.0` for its consumers.
+
 #### Held-back dependencies
 
-Some dependencies are deliberately excluded from `update-outdated-deps` with `!<name>` arguments. `typescript` is only excluded in the tsup projects, which `update-outdated-deps:only-tsup` updates separately, and it stays in `list-outdated-deps`. `webpack-dev-server` is excluded from both scripts, so revisiting it is driven by the "When to lift" column rather than by tooling.
+`webpack-dev-server` is deliberately excluded from `update-outdated-deps` with a `!webpack-dev-server` argument. It still shows up in `list-outdated-deps`, but revisiting it is driven by the "When to lift" column rather than by tooling.
 
-| Dependency                        | Why                                                                                                                                                                                                                                                                                                                                        | When to lift                                                                 |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| `typescript` (tsup projects only) | `@workleap/tsup-configs` and the `@webpack-sample/tsup-lib` sample stay on TypeScript 6: tsup calls the TypeScript compiler API, which TypeScript 7 doesn't ship. Every other project updates to TypeScript 7.                                                                                                                             | When tsup is removed or supports TypeScript 7.                               |
-| `webpack-dev-server`              | v6 is only safe as a _widening_ of the `@workleap/webpack-configs` peer to `"^5.2.4 \|\| ^6.0.0"` (consumers also need `webpack-cli >= 7.2.1`). `syncpack fix` cannot express a multi-range peer, so it narrows the peer to `^6.0.0` and drops wds5 for every consumer. See [#452](https://github.com/workleap/wl-web-configs/issues/452). | When the peer is manually widened to `"^5.2.4 \|\| ^6.0.0"` as part of #452. |
+| Dependency           | Why                                                                                                                                                                                                                                                                                                                                        | When to lift                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| `webpack-dev-server` | v6 is only safe as a _widening_ of the `@workleap/webpack-configs` peer to `"^5.2.4 \|\| ^6.0.0"` (consumers also need `webpack-cli >= 7.2.1`). `syncpack fix` cannot express a multi-range peer, so it narrows the peer to `^6.0.0` and drops wds5 for every consumer. See [#452](https://github.com/workleap/wl-web-configs/issues/452). | When the peer is manually widened to `"^5.2.4 \|\| ^6.0.0"` as part of #452. |
 
 ### GitHub Actions
 

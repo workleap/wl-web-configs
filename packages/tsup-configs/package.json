@@ -39,11 +39,11 @@
         "@types/node": "26.6.6",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
-        "typescript": "6.0.3",
+        "typescript": "7.0.2",
         "vitest": "5.0.5"
     },
     "peerDependencies": {
         "tsup": "^9.0.0",
-        "typescript": "^6.0.3"
+        "typescript": "^6.0.0"
     }
 }
