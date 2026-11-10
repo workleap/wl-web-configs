@@ -222,7 +222,7 @@ For non-React projects:
 
 ## Reference Guide
 
-- **Migrate to tsgo** — [references/migrate-to-tsgo.md](references/migrate-to-tsgo.md): Switching type-checking from `tsc` to `tsgo` while keeping `typescript@6` for ESLint
+- **Migrate to tsgo** — [references/migrate-to-tsgo.md](references/migrate-to-tsgo.md): Switching type-checking and the VS Code language service from `tsc` to `tsgo`
 
 ## Critical Rules
 

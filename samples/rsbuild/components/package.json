@@ -30,7 +30,7 @@
         "prettier": "3.9.10",
         "storybook-react-rsbuild": "3.6.1",
         "stylelint": "16.26.1",
-        "typescript": "6.0.3",
+        "typescript": "7.0.2",
         "vitest": "5.0.5"
     },
     "peerDependencies": {

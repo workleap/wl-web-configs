@@ -4,9 +4,9 @@
         "outDir": "dist",
         "rootDir": "src",
 
-        "ignoreDeprecations": "6.0",
-        "moduleResolution": "Node",
-        "module": "CommonJS",
+        // NodeNext emits CommonJS for these packages ("type": "commonjs").
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext",
         "target": "ESNext",
         "lib": ["ESNext"],
 

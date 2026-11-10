@@ -9,7 +9,7 @@ toc:
 
 # Migrate to tsgo
 
-[TypeScript Go](https://github.com/microsoft/typescript-go) is a reimplementation of the [TypeScript](https://www.typescriptlang.org/) compiler written in Go, designed to dramatically improve performance and scalability compared to the current JavaScript-based compiler. It aims to be a drop-in replacement for `tsc` at the CLI level, providing much faster type-checking, lower memory usage, and better parallelism, especially on large codebases and in CI environments. While still being experimental, and not yet a full replacement for the JavaScript compiler APIs used by tooling like [ESLint](https://eslint.org/), it is already mature enough to be used reliably for type-checking and VS Code built-in [language service](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide).
+[TypeScript Go](https://github.com/microsoft/typescript-go) is a reimplementation of the [TypeScript](https://www.typescriptlang.org/) compiler written in Go, designed to dramatically improve performance and scalability compared to the current JavaScript-based compiler. It aims to be a drop-in replacement for `tsc` at the CLI level, providing much faster type-checking, lower memory usage, and better parallelism, especially on large codebases and in CI environments. While still being experimental, it is already mature enough to be used reliably for type-checking and VS Code built-in [language service](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide).
 
 ## Typecheck
 
@@ -96,9 +96,3 @@ The built-in language service that powers TypeScript and JavaScript editing feat
     "typescript.tsdk": "node_modules\\@typescript\\native-preview\\lib",
 }
 ```
-
-## ESLint
-
-:red_circle: Not ready yet.
-
-`typescript-eslint` doesn't support the TypeScript 7.0 API yet and fails at load time with `typescript-eslint does not support TS 7.0`. Until it does, keep `typescript@6` installed for ESLint (and the VS Code language service) and let `tsgo` handle `typecheck`. Follow [typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940) for support.

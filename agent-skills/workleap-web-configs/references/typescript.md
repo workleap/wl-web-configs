@@ -216,7 +216,7 @@ For non-React projects:
 
 ## Migrate to tsgo
 
-[TypeScript Go](https://github.com/microsoft/typescript-go) (`tsgo`) is a Go reimplementation of the compiler, meant as a drop-in replacement for `tsc` at the CLI level with much faster type-checking. It is mature enough for **type-checking** and the **VS Code** language service, but **not ready for ESLint** yet.
+[TypeScript Go](https://github.com/microsoft/typescript-go) (`tsgo`) is a Go reimplementation of the compiler, meant as a drop-in replacement for `tsc` at the CLI level with much faster type-checking. It is mature enough for **type-checking** and the **VS Code** language service.
 
 ### 1. Exclude packages from minimum release age (PNPM)
 
@@ -271,7 +271,3 @@ Replace `tsc` with `tsgo`:
 ```
 
 If CI fails with `Unable to resolve ... platform`, temporarily disable the PNPM `minimumReleaseAge` feature.
-
-### 5. ESLint (not ready)
-
-`typescript-eslint` does not support the TypeScript 7.0 API yet and fails at load time with `typescript-eslint does not support TS 7.0`. Keep `typescript@6` installed for ESLint (and the VS Code language service) and let `tsgo` handle `typecheck` only.

@@ -11,7 +11,7 @@ metadata:
 
 Bring the repo's npm dependencies up to date. Do the steps in order; stop and surface any failure.
 
-`eslint`, `@eslint/js`, `stylelint`, `stylelint-config-standard`, `typescript` and `webpack-dev-server` are held back on purpose — see "Held-back dependencies" in `CONTRIBUTING.md`. `update-outdated-deps` excludes all six, but `list-outdated-deps` still lists `typescript` and `webpack-dev-server`: report those as held back, not as pending updates. Never bump them manually.
+`stylelint`, `stylelint-config-standard`, `typescript` and `webpack-dev-server` are held back on purpose — see "Held-back dependencies" in `CONTRIBUTING.md`. `update-outdated-deps` excludes all four, but `list-outdated-deps` still lists `typescript` and `webpack-dev-server`: report those as held back, not as pending updates. Never bump them manually.
 
 ## 1. Ask what to run afterward
 
