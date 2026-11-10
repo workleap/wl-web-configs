@@ -2,8 +2,8 @@ import { defineConfig } from "oxfmt";
 
 export default defineConfig({
     // oxfmt also honors .gitignore (dist, storybook-static, ...) and would honor a .prettierignore.
-    // - .agents/ holds vendored skills (skills-lock.json): upstream replaces them wholesale.
-    // - .claude/ holds local skill prose (reflowing it is churn) and, in a main checkout, the agent worktrees.
+    // - .claude/ holds local skill prose (reflowing it is churn), the vendored skills (skills-lock.json), which upstream
+    //   replaces wholesale, and, in a main checkout, the agent worktrees.
     // - agent-skills/ and packages/*/skills/ are loaded into agents' context: padded Markdown tables triple
     //   their size. The sync-agent-skill workflow also edits them without running oxfmt.
     // - docs/ is Retype markdown, whose components (!!!, +++, [!ref]) a Markdown formatter can mangle.
@@ -12,7 +12,6 @@ export default defineConfig({
     //   same CSS (`calc(a*2)` keeps no spaces around `*`), so two formatters would reject each other's output.
     ignorePatterns: [
         "**/*.css",
-        ".agents/",
         ".claude/",
         "agent-skills/",
         "packages/*/skills/",

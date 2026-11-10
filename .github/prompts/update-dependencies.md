@@ -102,7 +102,7 @@ All tests must pass. If a test fails, run the failing package's tests directly (
 
 ### Step 2c: Validate the rsbuild sample app
 
-Use `agent-browser` for all browser interactions in this step. It is installed as a workspace devDependency. Read the locally installed agent skill at `.agents/skills/agent-browser/` to learn the available commands. **Important**: do NOT use `screenshot` — always use `snapshot` for page verification (it returns an accessibility tree which is faster and more reliable for validation). Running a build is NOT sufficient — you must start the dev server and validate in a real browser.
+Use `agent-browser` for all browser interactions in this step. It is installed as a workspace devDependency. Read the locally installed agent skill at `.claude/skills/agent-browser/` to learn the available commands. **Important**: do NOT use `screenshot` — always use `snapshot` for page verification (it returns an accessibility tree which is faster and more reliable for validation). Running a build is NOT sufficient — you must start the dev server and validate in a real browser.
 
 1. Start the dev server in the background using the shell `&` operator (do NOT use `run_in_background: true`): `pnpm dev-rsbuild > /tmp/rsbuild-dev.log 2>&1 &`
 2. The rsbuild app listens on port **8080**. Wait for it to be ready — do NOT use `sleep`, do NOT write polling loops, do NOT parse the log file for a URL. Instead, immediately run: `curl --retry 30 --retry-delay 5 --retry-connrefused --silent --output /dev/null http://localhost:8080`
@@ -139,9 +139,9 @@ Use `agent-browser` for all browser interactions in this step. It is installed a
 
 ## Step 3: Update agent skills
 
-Run the `_update-skills` skill (`.claude/skills/_update-skills/`) in a subagent. It runs after Step 2 so its version gates read the bumped `package.json` files; a validation failure (Step 5) never gets here, and skills are retried on the next run. It only touches `.agents/skills/` and `skills-lock.json`, so it needs no validation.
+Run the `_update-skills` skill (`.claude/skills/_update-skills/`) in a subagent. It runs after Step 2 so its version gates read the bumped `package.json` files; a validation failure (Step 5) never gets here, and skills are retried on the next run. It only touches the installed skills in `.claude/skills/` and `skills-lock.json`, so it needs no validation.
 
-A skills failure (drift audit stop, `skills add` error) never blocks the dependency PR: discard any partial changes with `git checkout -- .agents/skills skills-lock.json && git clean -fd .agents/skills`, keep the skill's report, and continue.
+A skills failure (drift audit stop, `skills add` error) never blocks the dependency PR: discard any partial changes with `git checkout -- .claude/skills skills-lock.json && git clean -fd -e '_*' -- .claude/skills` (the `-e '_*'` keeps `git clean` away from the `_`-prefixed project-local skills), keep the skill's report, and continue.
 
 Then check whether anything changed at all:
 
