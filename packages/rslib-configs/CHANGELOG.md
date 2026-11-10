@@ -1,5 +1,15 @@
 # @workleap/rslib-configs
 
+## 2.1.2
+
+### Patch Changes
+
+- [#525](https://github.com/workleap/wl-web-configs/pull/525) [`e4fd08c`](https://github.com/workleap/wl-web-configs/commit/e4fd08ce60e64531e716540a1ec137f439084664) Thanks [@patricklafrance](https://github.com/patricklafrance)! - Raised the minimum versions of the peer dependencies to the latest patch releases:
+  
+  - `@workleap/rsbuild-configs`: `@rsbuild/core` `^2.3.1` and `@rspack/core` `^2.3.1`.
+  - `@workleap/rslib-configs`: `@rslib/core` `^1.0.6`.
+  - `@workleap/swc-configs` and `@workleap/webpack-configs`: `@swc/core` `^1.16.22` and `@swc/helpers` `^0.5.24`.
+
 ## 2.1.1
 
 ### Patch Changes
