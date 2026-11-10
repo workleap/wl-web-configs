@@ -75,7 +75,7 @@ stylelint-prettier formats CSS with Prettier, while oxfmt formats the rest of th
 }
 ```
 
-Do NOT add a `.prettierignore` that ignores everything except CSS (`*` / `!**/*.css`): oxfmt also reads `.prettierignore` and would skip every file, and `*` also ignores folders, so Prettier skips the CSS files in subfolders. If a project keeps one, it must re-include folders: `*`, `!*/`, `!*.css`.
+Do NOT add a `.prettierignore` that ignores everything except CSS (`*` / `!**/*.css`): oxfmt also reads `.prettierignore` and would skip every file, and `*` also ignores folders, so Prettier skips the CSS files in subfolders. If a project already has one, remove it (or remove its CSS-only patterns) and rely on `.prettierrc.json5` instead.
 
 ## Customization
 
@@ -161,6 +161,8 @@ Do NOT add a `.prettierignore` that ignores everything except CSS (`*` / `!**/*.
 {
     "$schema": "https://turbo.build/schema.json",
     "ui": "tui",
+    // .prettierrc.json5 configures Stylelint in every project: a change to it must run Stylelint again everywhere.
+    "globalDependencies": [".prettierrc.json5"],
     "tasks": {
         "lint": { "dependsOn": ["stylelint"] },
         "stylelint": { "outputs": ["node_modules/.cache/stylelint"] }

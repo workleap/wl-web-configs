@@ -37,10 +37,11 @@ workspace
 
 Then, open the newly created file and copy/paste the following content:
 
-```json !#5-10 turbo.json
+```json !#4,6-11 turbo.json
 {
     "$schema": "https://turbo.build/schema.json",
     "ui": "tui",
+    "globalDependencies": [".prettierrc.json5"],
     "tasks": {
         "lint": {
             "dependsOn": ["stylelint"]
@@ -52,7 +53,7 @@ Then, open the newly created file and copy/paste the following content:
 }
 ```
 
-The `stylelint` task will execute the `stylelint` script for every project of the solution's workspace.
+The `stylelint` task will execute the `stylelint` script for every project of the solution's workspace. The root `.prettierrc.json5` file (see below) configures Stylelint in every project: as a global dependency, a change to it runs Stylelint again everywhere instead of replaying cached results.
 
 !!!tip
 For additional information, refer to the [Turborepo documentation](https://turborepo.com/docs).
@@ -154,7 +155,7 @@ Then, open the newly created file and paste the following configuration:
 ```
 
 !!!warning
-Don't add a `.prettierignore` file that ignores everything but CSS files: oxfmt also reads `.prettierignore` and would skip every file. If a project has one, make sure it re-includes the folders (`*`, `!*/`, `!*.css`), otherwise Prettier skips the CSS files in subfolders.
+Don't add a `.prettierignore` file that ignores everything but CSS files: oxfmt also reads `.prettierignore` and would skip every file. If a project already has one, remove it (or remove its CSS-only patterns) and rely on the `.prettierrc.json5` file instead.
 !!!
 
 ### Configure the indent style
