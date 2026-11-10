@@ -55,7 +55,7 @@
         "@changesets/cli": "3.0.3",
         "@types/node": "26.6.6",
         "@workleap/typescript-configs": "workspace:*",
-        "agent-browser": "0.41.1",
+        "agent-browser": "0.41.2",
         "cross-env": "10.1.0",
         "oxfmt": "0.77.0",
         "oxlint": "1.92.0",

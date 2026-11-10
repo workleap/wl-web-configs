@@ -5,35 +5,37 @@
       "source": "vercel-labs/agent-browser",
       "sourceType": "github",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "computedHash": "60a9cbe5af176150582c019e16e5d3703a41bb02d88438e881349876120d7944"
+      "computedHash": "c05aa7e4c980954eb67fd89757cff008c9987b0df6a1624338fcfcb4ca4b02d5"
     },
     "git-commit": {
       "source": "github/awesome-copilot",
       "sourceType": "github",
       "skillPath": "skills/git-commit/SKILL.md",
-      "computedHash": "78b6a33700091345cd449f9e3642ddd611b479b341efc9d6c750f7e04d15216a"
+      "computedHash": "8f5a47c99951ec09853abf3231c76f48caac5d6b84ea912dd4997e6996885c0b"
     },
     "pnpm": {
       "source": "antfu/skills",
       "sourceType": "github",
-      "computedHash": "d473204df25defd08a7d47b55c6d124b41ebde440b774995952b65223d0d8d6f"
+      "skillPath": "skills/pnpm/SKILL.md",
+      "computedHash": "be0763bac8890e99e0eebbecedd90ebad6c3baf1ee5ab002f902da99834791c6"
     },
     "rsbuild-best-practices": {
       "source": "rstackjs/agent-skills",
       "sourceType": "github",
       "skillPath": "skills/rsbuild-best-practices/SKILL.md",
-      "computedHash": "370b2405efb009d4bc4b7f009c8ea2661a375abe59a0d873fe9af619bfc80733"
+      "computedHash": "ddccd14661c8a319cdd34c423bc750a373aef280679e25484261ada5c882f4f4"
     },
     "turborepo": {
       "source": "vercel/turborepo",
       "sourceType": "github",
       "skillPath": "skills/turborepo/SKILL.md",
-      "computedHash": "9681d8dfeb5e6cdff767f1bcaba5d7ac55732a9d6c02ee120f44229f8ec25e7e"
+      "computedHash": "c83a6ff75c62092f71da91408164ed3426f11749b032fd23ecc855e27c2fb538"
     },
     "vitest": {
       "source": "antfu/skills",
       "sourceType": "github",
-      "computedHash": "0efd9cf8c56aada060d418d009cfe621a7915d0c73a958fe611985bc0c2fa4b8"
+      "skillPath": "skills/vitest/SKILL.md",
+      "computedHash": "b26b7f8d10e860e944e0334c003207771707c4906514cb96c971faae13fba875"
     }
   }
 }

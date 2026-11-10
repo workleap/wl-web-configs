@@ -15,16 +15,16 @@ Installed skills live in `.agents/skills/` (for Codex, GitHub Copilot and OpenCo
 
 ## Skills
 
-Use `pnpm dlx`, not `pnpx` — `pnpx` fails under this repo's pnpm version. Use `skills add`, not `skills update` — these skills predate the CLI's `skillPath` tracking, so `update` refuses them. The first re-add of each skill adds a `skillPath` field to its `skills-lock.json` entry; that's expected.
+Use `pnpm dlx`, not `pnpx` — `pnpx` fails under this repo's pnpm version. Use `skills@latest`, not bare `skills` — the GitHub package firewall holds back new releases, and a bare spec can make pnpm ask for a version the firewall doesn't serve yet (`ERR_PNPM_NO_MATCHING_VERSION`); `@latest` resolves the firewall's own `latest` tag. Use `skills add`, not `skills update` — these skills predate the CLI's `skillPath` tracking, so `update` refuses them. The first re-add of each skill adds a `skillPath` field to its `skills-lock.json` entry; that's expected.
 
 | Skill | Package gate (grep all `package.json`) | Update command |
 |---|---|---|
-| `agent-browser` | `agent-browser` | `pnpm dlx skills add vercel-labs/agent-browser --skill agent-browser -a codex github-copilot opencode -y` |
-| `git-commit` | — | `pnpm dlx skills add github/awesome-copilot --skill git-commit -a codex github-copilot opencode -y` |
-| `pnpm` | `pnpm` (root `packageManager` field) | `pnpm dlx skills add antfu/skills --skill pnpm -a codex github-copilot opencode -y` |
-| `rsbuild-best-practices` | `@rsbuild/core` | `pnpm dlx skills add rstackjs/agent-skills --skill rsbuild-best-practices -a codex github-copilot opencode -y` |
-| `turborepo` | `turbo` | `pnpm dlx skills add vercel/turborepo --skill turborepo -a codex github-copilot opencode -y` |
-| `vitest` | `vitest` | `pnpm dlx skills add antfu/skills --skill vitest -a codex github-copilot opencode -y` |
+| `agent-browser` | `agent-browser` | `pnpm dlx skills@latest add vercel-labs/agent-browser --skill agent-browser -a codex github-copilot opencode -y` |
+| `git-commit` | — | `pnpm dlx skills@latest add github/awesome-copilot --skill git-commit -a codex github-copilot opencode -y` |
+| `pnpm` | `pnpm` (root `packageManager` field) | `pnpm dlx skills@latest add antfu/skills --skill pnpm -a codex github-copilot opencode -y` |
+| `rsbuild-best-practices` | `@rsbuild/core` | `pnpm dlx skills@latest add rstackjs/agent-skills --skill rsbuild-best-practices -a codex github-copilot opencode -y` |
+| `turborepo` | `turbo` | `pnpm dlx skills@latest add vercel/turborepo --skill turborepo -a codex github-copilot opencode -y` |
+| `vitest` | `vitest` | `pnpm dlx skills@latest add antfu/skills --skill vitest -a codex github-copilot opencode -y` |
 
 ## Process
 
