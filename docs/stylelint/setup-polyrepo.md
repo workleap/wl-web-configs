@@ -64,11 +64,11 @@ storybook-static
 !.storybook
 ```
 
-### .prettierignore
+### .prettierrc.json5
 
-Since we choose to [stick with ESLint for JavaScript and JSON stylistic rules](../eslint/getting-started.md#prettier), a `.prettierignore` file must be added at the root of the solution to ignore everything but CSS files.
+`@workleap/stylelint-configs` formats CSS files with [Prettier](https://prettier.io/), through [stylelint-prettier](https://github.com/prettier/stylelint-prettier), while [oxfmt](../oxlint/migrate-from-eslint-configs.md#oxfmtconfigts) formats the rest of the code. Prettier doesn't read oxfmt's configuration, so give it a CSS-scoped configuration that uses the same options.
 
-To do so, first, create a `.prettierignore` file at the root of the solution:
+First, create a `.prettierrc.json5` file at the root of the solution:
 
 ``` !#7
 root
@@ -77,15 +77,34 @@ root
 ├── package.json
 ├── .stylelintrc.json
 ├── .stylelintignore
-├── .prettierignore
+├── .prettierrc.json5
 ```
 
-Then, open the newly created file and paste the following ignore rules:
+Then, open the newly created file and paste the following configuration:
 
-``` .prettierignore
-*
-!**/*.css
+```json5 .prettierrc.json5
+// stylelint-prettier formats CSS with Prettier, which doesn't read oxfmt.config.ts.
+// Keep these options in sync with oxfmt.config.ts.
+{
+    $schema: "https://json.schemastore.org/prettierrc",
+    overrides: [
+        {
+            files: "*.css",
+            options: {
+                printWidth: 150,
+                tabWidth: 4,
+                useTabs: false,
+                singleQuote: false,
+                endOfLine: "lf"
+            }
+        }
+    ]
+}
 ```
+
+!!!warning
+Don't add a `.prettierignore` file that ignores everything but CSS files: oxfmt also reads `.prettierignore` and would skip every file.
+!!!
 
 ## Configure indent style
 
@@ -100,9 +119,9 @@ root
 ├── src
 ├──── ...
 ├── package.json
-├── .eslintrc.json
-├── .eslintignore
-├── .prettierignore
+├── .stylelintrc.json
+├── .stylelintignore
+├── .prettierrc.json5
 ├── .editorconfig
 ```
 
@@ -121,6 +140,9 @@ indent_size = 4
 
 [*.md]
 trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_size = 2
 ```
 
 Finally, install the [EditorConfig.EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) VS Code extension.
@@ -131,7 +153,7 @@ At times, especially when running the CI build, it's useful to lint the entire s
 
 ```json package.json
 {
-    "lint:stylelint:": "stylelint \"**/*.css\" --cache --cache-location node_modules/.cache/stylelint"
+    "lint:stylelint": "stylelint \"**/*.css\" --cache --cache-location node_modules/.cache/stylelint"
 }
 ```
 

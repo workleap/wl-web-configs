@@ -355,7 +355,7 @@ oxfmt sorts the keys of every `package.json` file, which `@workleap/eslint-confi
 ### `.prettierignore`
 
 !!!warning
-Delete the `.prettierignore` file at the root of the project. oxfmt reads it by default, and the file recommended by the [Stylelint guide](../stylelint/getting-started.md) ignores everything but CSS files: oxfmt would then skip every file and report `Expected at least one target file`.
+Delete the `.prettierignore` file at the root of the project. oxfmt reads it by default, and the file the [Stylelint guide](../stylelint/getting-started.md) used to recommend ignores everything but CSS files: oxfmt would then skip every file and report `Expected at least one target file`.
 !!!
 
 Use `ignorePatterns` in `oxfmt.config.ts` instead.
@@ -375,7 +375,7 @@ Skip this step if the project doesn't use [@workleap/stylelint-configs](../style
 
 `@workleap/stylelint-configs` includes the [stylelint-prettier](https://github.com/prettier/stylelint-prettier) plugin, which formats CSS files with Prettier, not oxfmt. Prettier reads its own configuration file (and `.editorconfig`), not `oxfmt.config.ts`. Without one, it falls back to Prettier's defaults, such as 80 characters per line.
 
-Create a `.prettierrc.json5` file at the root of the project with a CSS-scoped override that uses the options of `oxfmt.config.ts`, so CSS looks like the rest of the code:
+Create (or update) a `.prettierrc.json5` file at the root of the project with a CSS-scoped override that uses the options of `oxfmt.config.ts`, so CSS looks like the rest of the code:
 
 ```json5 .prettierrc.json5
 // @workleap/stylelint-configs enables stylelint-prettier, which hands CSS to Prettier itself, not oxfmt.
@@ -404,7 +404,7 @@ To fix the formatting of CSS files, run Stylelint with `--fix`.
 
 ### `.editorconfig`
 
-The [Stylelint guide](../stylelint/getting-started.md) sets `indent_size = 4` for every file, while `oxfmt.config.ts` indents YAML files with 2 spaces. Add a YAML section to the `.editorconfig` file so the editor agrees with oxfmt:
+Older versions of the [Stylelint guide](../stylelint/getting-started.md) set `indent_size = 4` for every file, while `oxfmt.config.ts` indents YAML files with 2 spaces. Add a YAML section to the `.editorconfig` file so the editor agrees with oxfmt:
 
 ```ini .editorconfig
 [*.{yml,yaml}]
