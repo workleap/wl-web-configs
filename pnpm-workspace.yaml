@@ -2,6 +2,10 @@ packages:
   - packages/*
   - samples/**
 
+# Disables pnpm's default minimum release age of 24 hours. The GitHub package firewall already
+# holds back new releases.
+minimumReleaseAge: 0
+
 allowBuilds:
   "@parcel/watcher": true
   "@swc/core": true
