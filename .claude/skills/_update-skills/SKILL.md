@@ -15,7 +15,7 @@ Installed skills live in `.claude/skills/`, tracked in `skills-lock.json`. Out o
 
 ## Skills
 
-Use `pnpm dlx`, not `pnpx` — `pnpx` fails under this repo's pnpm version. Use `skills@latest`, not bare `skills` — the GitHub package firewall holds back new releases, and a bare spec can make pnpm ask for a version the firewall doesn't serve yet (`ERR_PNPM_NO_MATCHING_VERSION`); `@latest` resolves the firewall's own `latest` tag. Use `skills add`, not `skills update` — these skills predate the CLI's `skillPath` tracking, so `update` refuses them. The first re-add of each skill adds a `skillPath` field to its `skills-lock.json` entry; that's expected. Use `-a claude-code --copy`: it writes real files into `.claude/skills/` only. Never add another agent to `-a` — the CLI would recreate `.agents/skills/`, and pnpm would then link package skills there too.
+Use `pnpm dlx`, not `pnpx` — `pnpx` fails under this repo's pnpm version. Use `skills add`, not `skills update` — these skills predate the CLI's `skillPath` tracking, so `update` refuses them. The first re-add of each skill adds a `skillPath` field to its `skills-lock.json` entry; that's expected. Use `-a claude-code --copy`: it writes real files into `.claude/skills/` only. Never add another agent to `-a` — the CLI would recreate `.agents/skills/`, and pnpm would then link package skills there too.
 
 | Skill | Package gate (grep all `package.json`) | Update command |
 |---|---|---|

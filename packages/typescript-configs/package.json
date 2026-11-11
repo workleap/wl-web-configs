@@ -29,8 +29,7 @@
     },
     "publishConfig": {
         "access": "public",
-        "provenance": true,
-        "registry": "https://registry.npmjs.org/"
+        "provenance": true
     },
     "peerDependencies": {
         "typescript": "^6.0.0 || ^7.0.0"
