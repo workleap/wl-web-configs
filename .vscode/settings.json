@@ -4,8 +4,8 @@
         "**/dist*": true
     },
 
-    // Formatting and linting: oxfmt and oxlint through the oxc extension. Type-aware like `pnpm oxlint`,
-    // the extension picks up the installed oxlint-tsgolint.
+    // Formatting and linting: oxfmt and oxlint through the oxc extension (requires oxc.oxc-vscode).
+    // Type-aware like `pnpm oxlint`, the extension picks up the installed oxlint-tsgolint.
     "oxc.typeAware": true,
     "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
@@ -16,7 +16,8 @@
     "[html]": {
         "editor.formatOnSave": false
     },
-    // oxfmt doesn't format CSS: Stylelint does, through stylelint-prettier and .prettierrc.json5.
+    // oxfmt doesn't format CSS: Stylelint does, through stylelint-prettier and .prettierrc.json5
+    // (requires the stylelint.vscode-stylelint extension).
     "[css]": {
         "editor.formatOnSave": false,
         "editor.codeActionsOnSave": {
@@ -25,7 +26,7 @@
     },
 
     // Languages
-    // TypeScript 7 language service: the TypeScriptTeam.native-preview extension (.vscode/extensions.json).
+    // TypeScript 7 language service: requires the TypeScriptTeam.native-preview extension.
     "typescript.preferences.useAliasesForRenames": false,
 
     "javascript.preferences.useAliasesForRenames": false,
