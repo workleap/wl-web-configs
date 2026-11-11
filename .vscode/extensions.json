@@ -1,4 +1,0 @@
-{
-    "recommendations": ["oxc.oxc-vscode", "stylelint.vscode-stylelint", "TypeScriptTeam.native-preview"],
-    "unwantedRecommendations": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
-}
