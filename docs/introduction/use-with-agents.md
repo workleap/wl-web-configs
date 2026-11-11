@@ -11,20 +11,15 @@ Information about Web Configs libraries can be shared with different agents usin
 
 ## Install agent skills
 
-A few skills are available for this library:
+Two best practices skills are available through [skills.sh](https://skills.sh/):
 
 | Name | Description |
 | --- | --- |
-| [workleap-web-configs](https://skills.sh/workleap/wl-web-configs/workleap-web-configs) | An agent skill that helps developers understand, set up, and customize Workleap's shared web tooling configurations. |
 | [workleap-chromatic-best-practices](https://skills.sh/workleap/wl-web-configs/workleap-chromatic-best-practices) | An agent skill that guides developers on applying Workleap's documented Chromatic best practices. |
 | [workleap-react-best-practices](https://skills.sh/workleap/wl-web-configs/workleap-react-best-practices) | An agent skill that guides developers in applying Workleap’s documented React best practices. It is inspired by [vercel-react-best-practices](https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices), but adapted for a SPA that does not rely on the Vercel ecosystem. |
 
 Open a terminal and install the agent skills by running the following commands:
 
-+++ workleap-web-configs
-```bash
-pnpx skills add https://github.com/workleap/wl-web-configs --skill workleap-web-configs
-```
 +++ workleap-chromatic-best-practices
 ```bash
 pnpx skills add https://github.com/workleap/wl-web-configs --skill workleap-chromatic-best-practices
@@ -69,8 +64,12 @@ permissions:
 
 On the next install, PNPM links the approved skills into the agent skills folders that already exist at the root of the workspace, such as `.claude/skills`, `.cursor/skills`, `.agents/skills` or `.github/skills`, under names like `pnpm-@workleap+rsbuild-configs-workleap-rsbuild-configs`. The links are ignored by Git and are updated whenever the packages are updated. Use the [skills.dirs](https://pnpm.io/agent-skills) setting to choose the folders explicitly.
 
-!!!warning
-Install either the `workleap-web-configs` skill from `skills.sh` **or** the skills bundled with the packages, not both, as they cover the same content.
+!!!tip
+If the `workleap-web-configs` skill was previously installed with `skills.sh`, remove it, as it covers the same content as the skills bundled with the packages:
+
+```bash
+pnpx skills remove workleap-web-configs
+```
 !!!
 
 !!!info
