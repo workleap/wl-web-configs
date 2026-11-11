@@ -38,13 +38,13 @@ At installation, the `skills.sh` CLI will prompt you to choose whether to instal
 
 Starting with [PNPM](https://pnpm.io/agent-skills) `12.11`, packages can ship agent skills. Each active Web Configs package bundles a skill covering that package only, versioned and released with the package itself:
 
-| Package | Skill |
-| --- | --- |
-| `@workleap/browserslist-config` | `workleap-browserslist-config` |
-| `@workleap/rsbuild-configs` | `workleap-rsbuild-configs` |
-| `@workleap/rslib-configs` | `workleap-rslib-configs` |
-| `@workleap/stylelint-configs` | `workleap-stylelint-configs` |
-| `@workleap/typescript-configs` | `workleap-typescript-configs` |
+| Package | Skill | Since |
+| --- | --- | --- |
+| `@workleap/browserslist-config` | `workleap-browserslist-config` | `3.1.0` |
+| `@workleap/rsbuild-configs` | `workleap-rsbuild-configs` | `5.1.0` |
+| `@workleap/rslib-configs` | `workleap-rslib-configs` | `2.1.0` |
+| `@workleap/stylelint-configs` | `workleap-stylelint-configs` | `2.2.0` |
+| `@workleap/typescript-configs` | `workleap-typescript-configs` | `5.1.0` |
 
 PNPM never links a package's skills without approval. After installing the packages, PNPM lists the skills awaiting approval. Open a terminal at the root of the project and approve them by running the following command:
 
@@ -65,10 +65,16 @@ permissions:
 On the next install, PNPM links the approved skills into the agent skills folders that already exist at the root of the workspace, such as `.claude/skills`, `.cursor/skills`, `.agents/skills` or `.github/skills`, under names like `pnpm-@workleap+rsbuild-configs-workleap-rsbuild-configs`. The links are ignored by Git and are updated whenever the packages are updated. Use the [skills.dirs](https://pnpm.io/agent-skills) setting to choose the folders explicitly.
 
 !!!tip
-If the `workleap-web-configs` skill was previously installed with `skills.sh`, remove it, as it covers the same content as the skills bundled with the packages:
+If the `workleap-web-configs` skill was previously installed with `skills.sh`, remove it once the package skills are linked, as it covers the same configurations:
 
 ```bash
 pnpx skills remove workleap-web-configs
+```
+
+If the skill was installed globally, add the `--global` option:
+
+```bash
+pnpx skills remove workleap-web-configs --global
 ```
 !!!
 
@@ -78,10 +84,10 @@ PNPM only links the skills of a project's **direct** dependencies. When several 
 
 ## Try it :rocket:
 
-Once the skills are installed, start an agent and ask it to set up a new project or audit an existing Chromatic setup:
+Once the skills are installed, start an agent and ask it to set up a project or audit an existing Chromatic setup:
 
 ```
-I'm creating a new React + TypeScript web application from scratch. Set up the project to use Workleap shared configs for TypeScript and Rsbuild.
+I've installed @workleap/typescript-configs and @workleap/rsbuild-configs in my React + TypeScript web application. Configure TypeScript and Rsbuild using these shared configs.
 ```
 
 ```
