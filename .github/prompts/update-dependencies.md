@@ -141,9 +141,9 @@ Use `agent-browser` for all browser interactions in this step. It is installed a
 
 Run the `_update-skills` skill (`.claude/skills/_update-skills/`) in a subagent. It runs after Step 2 so its version gates read the bumped `package.json` files; a validation failure (Step 5) never gets here, and skills are retried on the next run. It only touches the installed skills in `.claude/skills/` and `skills-lock.json`, so it needs no validation.
 
-A skills failure (drift audit stop, listing stop, `skills add` error) never blocks the dependency PR: discard any partial changes with `git checkout -- .claude/skills skills-lock.json && git clean -fd -e '_*' -- .claude/skills` (the `-e '_*'` keeps `git clean` away from the `_`-prefixed project-local skills), keep the skill's report, and continue.
+A skills failure (drift audit stop, listing stop, blocked skill, failed pull) never blocks the dependency PR: keep the skill's report and continue with whatever was updated. The skill restores a pull that failed, so nothing of it reaches the PR.
 
-A listing stop also opens an issue — a line in a dependency PR is easy to miss, and no PR is created when nothing else changed. It is the stop the report labels `listing stop:`, from `listSkillPins.ts` exiting non-zero in the `_update-skills` skill, not this prompt's Step 2. A stop can last for weeks, so look for an open issue first:
+A stop, a blocked skill or a failed pull also gets an issue — a line in a dependency PR is easy to miss, and no PR is created when nothing else changed. That is any of: a drift stop (the skill's step 0), a listing stop (the one the report labels `listing stop:`, from `listSkillPins.ts` exiting non-zero in the `_update-skills` skill, not this prompt's Step 2), a skill the report lists as `BLOCKED`, a failed `skills add`. Any of them can last for weeks, so look for an open issue first:
 
 ```bash
 gh issue list --state open --search '"[agent] Cannot update agent skills" in:title' --json number --jq '.[0].number'
@@ -153,7 +153,7 @@ If that prints a number, comment on that issue instead of opening another:
 
 ```bash
 gh issue comment <number> \
-  --body "<the message the listing printed, and a link to: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID>"
+  --body "<what stopped, is blocked or failed, as the report words it, and a link to: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID>"
 ```
 
 Otherwise open one:
@@ -161,7 +161,7 @@ Otherwise open one:
 ```bash
 gh issue create \
   --title "[agent] Cannot update agent skills" \
-  --body "<the message the listing printed, and a link to: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID>"
+  --body "<what stopped, is blocked or failed, as the report words it, and a link to: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID>"
 ```
 
 Then check whether anything changed at all:
@@ -216,7 +216,7 @@ Before writing the summary, run `git diff main -- '**/package.json'` to see the 
 
 #### PR body template
 
-Omit the Summary and Validation checklist sections when there were no dependency updates. Omit the Agent skills section when `_update-skills` changed nothing on disk and reported no cooldown waits, skips or failures.
+Omit the Summary and Validation checklist sections when there were no dependency updates. Omit the Agent skills section when `_update-skills` changed nothing on disk and reported no cooldown waits, blocked skills, skips or failures.
 
 ```markdown
 ## Summary
@@ -225,7 +225,7 @@ Omit the Summary and Validation checklist sections when there were no dependency
 
 ## Agent skills
 
-<from the `_update-skills` report: skills whose files changed with their pin moves, skills in cooldown, skills skipped with their lagging package (installed vs latest), and any failure>
+<from the `_update-skills` report: skills whose files changed with their pin moves, skills in cooldown, skills blocked with their problem, skills skipped with their lagging package (installed vs latest), and any failure>
 
 ## Validation checklist
 - [x] Step 2a: Linting
