@@ -141,7 +141,15 @@ Use `agent-browser` for all browser interactions in this step. It is installed a
 
 Run the `_update-skills` skill (`.claude/skills/_update-skills/`) in a subagent. It runs after Step 2 so its version gates read the bumped `package.json` files; a validation failure (Step 5) never gets here, and skills are retried on the next run. It only touches the installed skills in `.claude/skills/` and `skills-lock.json`, so it needs no validation.
 
-A skills failure (drift audit stop, `skills add` error) never blocks the dependency PR: discard any partial changes with `git checkout -- .claude/skills skills-lock.json && git clean -fd -e '_*' -- .claude/skills` (the `-e '_*'` keeps `git clean` away from the `_`-prefixed project-local skills), keep the skill's report, and continue.
+A skills failure (drift audit stop, step 2 listing stop, `skills add` error) never blocks the dependency PR: discard any partial changes with `git checkout -- .claude/skills skills-lock.json && git clean -fd -e '_*' -- .claude/skills` (the `-e '_*'` keeps `git clean` away from the `_`-prefixed project-local skills), keep the skill's report, and continue.
+
+A step 2 listing stop also opens an issue — a line in a dependency PR is easy to miss, and no PR is created when nothing else changed:
+
+```bash
+gh issue create \
+  --title "[agent] Cannot update agent skills" \
+  --body "<the message the listing printed, and a link to: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID>"
+```
 
 Then check whether anything changed at all:
 
@@ -195,7 +203,7 @@ Before writing the summary, run `git diff main -- '**/package.json'` to see the 
 
 #### PR body template
 
-Omit the Summary and Validation checklist sections when there were no dependency updates. Omit the Agent skills section when `_update-skills` changed nothing on disk and reported no skips or failures.
+Omit the Summary and Validation checklist sections when there were no dependency updates. Omit the Agent skills section when `_update-skills` changed nothing on disk and reported no cooldown waits, skips or failures.
 
 ```markdown
 ## Summary
@@ -204,7 +212,7 @@ Omit the Summary and Validation checklist sections when there were no dependency
 
 ## Agent skills
 
-<from the `_update-skills` report: skills whose files changed, skills skipped with their lagging package (installed vs latest), and any failure>
+<from the `_update-skills` report: skills whose files changed with their pin moves, skills in cooldown, skills skipped with their lagging package (installed vs latest), and any failure>
 
 ## Validation checklist
 - [x] Step 2a: Linting
