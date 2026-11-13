@@ -334,6 +334,29 @@ tsup calls the TypeScript compiler API, which TypeScript 7 doesn't ship. The `@w
 
 [Renovate](./renovate.json) updates the GitHub Actions used by the workflows on a schedule. To bump them on demand, run `/_update-github-actions` with Claude Code (or select GitHub Actions in `/_update-third-parties`).
 
+Renovate merges its updates into `main` without a pull request (`automerge` with `automergeType: "branch"`): it pushes the update to a `renovate/*` branch and, on a later run, fast-forwards `main` to it. Major updates are included on purpose, so the organization's `all-automerge.json` preset, which only covers minor and patch updates, is not used. This depends on two things:
+
+- The [CI](./.github/workflows/ci.yml) workflow runs on pushes to `renovate/**`. Renovate never merges a branch that has no passing check.
+- The `Workleap Renovate` GitHub App can push to `main`: it is a bypass actor of the organization rulesets, and `main` has no repository-level branch protection. Adding one that requires a pull request or an approval stops the auto-merge.
+
+A merge takes at least a day. Renovate runs once a day, merges one branch per run, and only merges a branch that is up to date with `main` and green. A commit on `main` between two runs costs another day.
+
+When a check fails on the branch, or stays pending for a day, Renovate opens a regular pull request instead. That pull request is never auto-merged: a maintainer fixes, approves and merges it.
+
+#### Action pins
+
+Every `uses:` is pinned to a commit hash, with the release it matches in a comment:
+
+```yaml
+uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+```
+
+Never reference an action by a tag (`@v7`, `@latest`) or a branch. A tag picks up a new release on the next workflow run, which skips the 7-day minimum release age of the organization preset. Keep the version comment: Renovate ignores a hash that has none. Renovate pins an action added with a tag on its next run (`helpers:pinGitHubActionDigestsToSemver`).
+
+The CI on the `renovate/*` branch only exercises the actions `ci.yml` uses (checkout, pnpm setup, Node setup, cache). An update to `anthropics/claude-code-action`, `changesets/action` or the Retype actions reaches `main` without having run: the minimum release age is its only guard.
+
+`anthropics/claude-code-action` is released almost daily, so it has its own Renovate group. In the shared group, the other updates would wait behind its releases: Renovate does not merge a branch during the run that changed it. A `schedule` would not throttle it either: off schedule, Renovate keeps updating a branch that exists, so a schedule only delays the merges.
+
 ## CI
 
 We use [GitHub Actions](https://docs.github.com/en/actions) for this repository.
@@ -348,7 +371,7 @@ This action runs on a push on the `main` branch. If there is a file present in t
 
 ### CI
 
-This action will trigger when a commit is done in a PR to `main` or after a push to `main`. The action will run `build`, `lint` and `test` commands on the source code.
+This action will trigger when a commit is done in a PR to `main`, or after a push to `main` or to a `renovate/**` branch (see [GitHub Actions](#github-actions)). The action will run `build`, `lint` and `test` commands on the source code.
 
 ### Retype
 
