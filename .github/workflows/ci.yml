@@ -156,6 +156,8 @@ jobs:
     # The skills in packages/*/skills ship in the npm packages: a skill change is only released with a changeset.
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout
@@ -166,12 +168,11 @@ jobs:
 
       - name: Check that a package skill change has a changeset
         run: |
-          shopt -s nullglob
-
+          # Lists the skill folders of both the base branch and the pull request, so a deleted folder is still checked.
           mappings=()
-          for skills_dir in packages/*/skills; do
+          while IFS= read -r skills_dir; do
               mappings+=("$skills_dir=${skills_dir%/skills}")
-          done
+          done < <({ git ls-tree -d -r --name-only HEAD^1 -- packages; git ls-tree -d -r --name-only HEAD -- packages; } | grep -E '^packages/[^/]+/skills$' | sort -u)
 
           if [ "${#mappings[@]}" -eq 0 ]; then
               echo "::error::No packages/*/skills directory found. Update this check if the package skills moved."
