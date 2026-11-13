@@ -141,7 +141,42 @@ Use `agent-browser` for all browser interactions in this step. It is installed a
 
 Run the `_update-skills` skill (`.claude/skills/_update-skills/`) in a subagent. It runs after Step 2 so its version gates read the bumped `package.json` files; a validation failure (Step 5) never gets here, and skills are retried on the next run. It only touches the installed skills in `.claude/skills/` and `skills-lock.json`, so it needs no validation.
 
-A skills failure (drift audit stop, `skills add` error) never blocks the dependency PR: discard any partial changes with `git checkout -- .claude/skills skills-lock.json && git clean -fd -e '_*' -- .claude/skills` (the `-e '_*'` keeps `git clean` away from the `_`-prefixed project-local skills), keep the skill's report, and continue.
+A skills failure (drift audit stop, listing stop, blocked skill, failed pull) never blocks the dependency PR: keep the skill's report and continue with whatever was updated. The skill restores a pull that failed, and the check below catches one it couldn't.
+
+Once the subagent has returned, check what it left on disk, whatever its report says — it can end in the middle of a pull:
+
+```bash
+git status --short .claude/skills skills-lock.json
+```
+
+For every skill whose folder or `skills-lock.json` entry changed (`git diff skills-lock.json` shows the entries; leave the `_`-prefixed folders out), run:
+
+```bash
+node .claude/skills/_update-skills/scripts/listSkillPins.ts --verify <name>
+```
+
+Anything but `"verified": true`, a non-zero exit included, is a failed pull even when the report lists the skill as updated. Undo it: `git checkout -- .claude/skills/<name>`, `git clean -fd .claude/skills/<name>`, and put the skill's `skills-lock.json` entry back to its committed value with the Edit tool. Then report it as a failed pull below and in the PR body. If an `.agents/` folder appeared, remove it as well with `git clean -fd .agents`: skills install into `.claude/skills/` only.
+
+A stop, a blocked skill or a failed pull also gets an issue — a line in a dependency PR is easy to miss, and no PR is created when nothing else changed. That is any of: a drift stop (the skill's step 0), a listing stop (the one the report labels `listing stop:`, from `listSkillPins.ts` exiting non-zero in the `_update-skills` skill, not this prompt's Step 2), a skill the report lists as `BLOCKED`, a failed `skills add`. Any of them can last for weeks, so look for an open issue first:
+
+```bash
+gh issue list --state open --search '"[agent] Cannot update agent skills" in:title' --json number --jq '.[0].number'
+```
+
+If that prints a number, comment on that issue instead of opening another:
+
+```bash
+gh issue comment <number> \
+  --body "<what stopped, is blocked or failed, as the report words it, and a link to: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID>"
+```
+
+Otherwise open one:
+
+```bash
+gh issue create \
+  --title "[agent] Cannot update agent skills" \
+  --body "<what stopped, is blocked or failed, as the report words it, and a link to: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID>"
+```
 
 Then check whether anything changed at all:
 
@@ -195,7 +230,7 @@ Before writing the summary, run `git diff main -- '**/package.json'` to see the 
 
 #### PR body template
 
-Omit the Summary and Validation checklist sections when there were no dependency updates. Omit the Agent skills section when `_update-skills` changed nothing on disk and reported no skips or failures.
+Omit the Summary and Validation checklist sections when there were no dependency updates. Omit the Agent skills section when `_update-skills` changed nothing on disk and reported no cooldown waits, blocked skills, skips or failures.
 
 ```markdown
 ## Summary
@@ -204,7 +239,7 @@ Omit the Summary and Validation checklist sections when there were no dependency
 
 ## Agent skills
 
-<from the `_update-skills` report: skills whose files changed, skills skipped with their lagging package (installed vs latest), and any failure>
+<from the `_update-skills` report: skills whose files changed with their pin moves, skills in cooldown, skills blocked with their problem, skills skipped with their lagging package (installed vs latest), and any failure>
 
 ## Validation checklist
 - [x] Step 2a: Linting
