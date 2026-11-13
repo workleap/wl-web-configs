@@ -150,7 +150,7 @@ Only if files under `agent-skills/workleap-web-configs/` changed: read the `meta
 
 ### 4b: Add a changeset for the package skills
 
-Package skills only reach consumers when the package is published, which requires a changeset. If files under `packages/*/skills/` changed, create a **single** new changeset file named `.changeset/sync-package-skills-<timestamp>.md` (e.g. `sync-package-skills-20260101-120000.md`) with a `patch` bump for every package whose skill changed. Use the package name from the package's `package.json`:
+Package skills only reach consumers when the package is published, which requires a changeset. The CI fails a pull request that changes a package skill without adding one. If files under `packages/*/skills/` changed, create a **single** new changeset file named `.changeset/sync-package-skills-<timestamp>.md` (e.g. `sync-package-skills-20260101-120000.md`) with a `patch` bump for every package whose skill changed. Use the package name from the package's `package.json`:
 
 ```md
 ---

@@ -6,6 +6,7 @@ The following documentation is only for the maintainers of this repository.
 - [Project overview](#project-overview)
 - [Installation](#installation)
 - [Release the packages](#release-the-packages)
+- [Update the agent skills](#update-the-agent-skills)
 - [Available commands](#commands)
 - [CI](#ci)
 - [Add a new package to the monorepo](#add-a-new-package-to-the-monorepo)
@@ -96,6 +97,15 @@ pnpm build-pkg
 ```
 
 By default, packages compilation output will be in their respective _dist_ directory.
+
+## Update the agent skills
+
+There are two kinds of agent skills in this repository:
+
+- **Package skills**, in `packages/<package>/skills/`: bundled in the matching npm package and linked by pnpm into consumer projects. They are only updated when a new version of the package is released, which is why **every change to a package skill requires a `patch` changeset for that package**. The CI fails a pull request that changes a package skill without adding one (see [check-agent-skill-changeset.sh](./.github/scripts/check-agent-skill-changeset.sh)).
+- **Skills installed with [skills.sh](https://skills.sh/)**, in `agent-skills/` (the best practices skills and the `workleap-web-configs` umbrella skill): sourced directly from the repository files, so merging the pull request is sufficient to update them. They need no changeset.
+
+By default, the [sync-agent-skill](.github/workflows/sync-agent-skill.yml) workflow keeps the `workleap-web-configs` umbrella skill and the package skills in sync with the documentation, and adds the changeset itself.
 
 ## Commands
 
