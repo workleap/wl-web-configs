@@ -141,9 +141,9 @@ Use `agent-browser` for all browser interactions in this step. It is installed a
 
 Run the `_update-skills` skill (`.claude/skills/_update-skills/`) in a subagent. It runs after Step 2 so its version gates read the bumped `package.json` files; a validation failure (Step 5) never gets here, and skills are retried on the next run. It only touches the installed skills in `.claude/skills/` and `skills-lock.json`, so it needs no validation.
 
-A skills failure (drift audit stop, step 2 listing stop, `skills add` error) never blocks the dependency PR: discard any partial changes with `git checkout -- .claude/skills skills-lock.json && git clean -fd -e '_*' -- .claude/skills` (the `-e '_*'` keeps `git clean` away from the `_`-prefixed project-local skills), keep the skill's report, and continue.
+A skills failure (drift audit stop, listing stop, `skills add` error) never blocks the dependency PR: discard any partial changes with `git checkout -- .claude/skills skills-lock.json && git clean -fd -e '_*' -- .claude/skills` (the `-e '_*'` keeps `git clean` away from the `_`-prefixed project-local skills), keep the skill's report, and continue.
 
-A step 2 listing stop also opens an issue — a line in a dependency PR is easy to miss, and no PR is created when nothing else changed:
+A listing stop also opens an issue — a line in a dependency PR is easy to miss, and no PR is created when nothing else changed. It is the stop the report labels `listing stop:`, from `listSkillPins.ts` exiting non-zero in the `_update-skills` skill, not this prompt's Step 2:
 
 ```bash
 gh issue create \
