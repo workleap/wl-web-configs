@@ -151,3 +151,32 @@ jobs:
         with:
           key: ${{ steps.cache-turborepo-restore.outputs.cache-primary-key }}
           path: .turbo
+
+  agent-skill-changeset:
+    # The skills in packages/*/skills ship in the npm packages: a skill change is only released with a changeset.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # The pull request merge commit and its first parent, the base branch.
+          fetch-depth: 2
+
+      - name: Check that a package skill change has a changeset
+        run: |
+          # Lists the skill folders of both the base branch and the pull request, so a deleted folder is still checked.
+          mappings=()
+          while IFS= read -r skills_dir; do
+              mappings+=("$skills_dir=${skills_dir%/skills}")
+          done < <({ git ls-tree -d -r --name-only HEAD^1 -- packages; git ls-tree -d -r --name-only HEAD -- packages; } | grep -E '^packages/[^/]+/skills$' | sort -u)
+
+          if [ "${#mappings[@]}" -eq 0 ]; then
+              echo "::error::No packages/*/skills directory found. Update this check if the package skills moved."
+              exit 1
+          fi
+
+          bash .github/scripts/check-agent-skill-changeset.sh HEAD^1 "${mappings[@]}"
