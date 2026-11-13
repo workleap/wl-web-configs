@@ -318,6 +318,8 @@ Updated outdated dependencies to their latest version. For more information, vie
 pnpm update-outdated-deps
 ```
 
+With Claude Code, run `/_update-third-parties` instead to update the npm dependencies and the installed agent skills together (or either one).
+
 #### tsup and TypeScript 6
 
 tsup calls the TypeScript compiler API, which TypeScript 7 doesn't ship. The `@webpack-sample/tsup-lib` sample therefore installs `typescript` as `npm:@typescript/typescript6`, a package that re-exports TypeScript 6. `update-outdated-deps` keeps that alias on the latest TypeScript 6 release by itself, and the sample's `typecheck` script still runs the workspace's TypeScript 7 `tsc`. `@workleap/tsup-configs` builds with TypeScript 7 but keeps a `typescript` peer of `^6.0.0` for its consumers.
@@ -332,9 +334,7 @@ tsup calls the TypeScript compiler API, which TypeScript 7 doesn't ship. The `@w
 
 ### GitHub Actions
 
-[Renovate](./renovate.json) updates the GitHub Actions used by the workflows on a schedule. To bump them on demand, run `/_update-github-actions` with Claude Code.
-
-Renovate merges its updates into `main` without a pull request (`automerge` with `automergeType: "branch"`): it pushes the update to a `renovate/*` branch and, on a later run, fast-forwards `main` to it. Major updates are included on purpose, so the organization's `all-automerge.json` preset, which only covers minor and patch updates, is not used. This depends on two things:
+[Renovate](./renovate.json) updates the GitHub Actions used by the workflows on a schedule and merges its updates into `main` without a pull request (`automerge` with `automergeType: "branch"`): it pushes the update to a `renovate/*` branch and, on a later run, fast-forwards `main` to it. Major updates are included on purpose, so the organization's `all-automerge.json` preset, which only covers minor and patch updates, is not used. This depends on two things:
 
 - The [CI](./.github/workflows/ci.yml) workflow runs on pushes to `renovate/**`. Renovate never merges a branch that has no passing check.
 - The `Workleap Renovate` GitHub App can push to `main`: it is a bypass actor of the organization rulesets, and `main` has no repository-level branch protection. Adding one that requires a pull request or an approval stops the auto-merge.
@@ -351,7 +351,7 @@ Every `uses:` is pinned to a commit hash, with the release it matches in a comme
 uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 ```
 
-Never reference an action by a tag (`@v7`, `@latest`) or a branch. A tag picks up a new release on the next workflow run, which skips the 7-day minimum release age of the organization preset. Keep the version comment: Renovate ignores a hash that has none. Renovate pins an action added with a tag on its next run (`helpers:pinGitHubActionDigestsToSemver`).
+Never reference an action by a tag (`@v7`, `@latest`) or a branch. A tag picks up a new release on the next workflow run, which skips the 7-day minimum release age of the organization preset. Keep the version comment: Renovate ignores a hash that has none. Renovate pins an action added with a tag on its next run (`helpers:pinGitHubActionDigestsToSemver`). To update an action by hand, change the hash and the version comment together in a regular pull request, to a release that is at least 7 days old.
 
 The CI on the `renovate/*` branch only exercises the actions `ci.yml` uses (checkout, pnpm setup, Node setup, cache). An update to `anthropics/claude-code-action`, `changesets/action` or the Retype actions reaches `main` without having run: the minimum release age is its only guard.
 
