@@ -149,6 +149,11 @@ export function checkPublishWorkflow(source: string) {
                 stepViolations.push("uses a GitHub Actions cache");
             }
 
+            // The action can run the install by itself, for the whole workspace and with the lifecycle scripts.
+            if (step.uses?.startsWith("pnpm/action-setup@") === true && step.with?.run_install !== false) {
+                stepViolations.push("must set `run_install: false`");
+            }
+
             for (const command of commands(step)) {
                 const missingFlags = RequiredInstallFlags.filter(flag => !command.includes(flag));
 

@@ -141,6 +141,32 @@ void describe("checkPublishWorkflow", () => {
         ]);
     });
 
+    void it("rejects an install run by the pnpm setup action", () => {
+        const setup = (input: string) =>
+            `      - name: Install pnpm\n        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1${input}`;
+        const violations = ['release: "Install pnpm" must set `run_install: false`.'];
+
+        deepStrictEqual(
+            checkPublishWorkflow(publishWorkflow(BuildSteps, `${setup("\n        with:\n          run_install: false")}\n${ReleaseSteps}`)),
+            []
+        );
+        deepStrictEqual(
+            checkPublishWorkflow(publishWorkflow(BuildSteps, `${setup("\n        with:\n          run_install: true")}\n${ReleaseSteps}`)),
+            violations
+        );
+        deepStrictEqual(
+            checkPublishWorkflow(
+                publishWorkflow(
+                    BuildSteps,
+                    `${setup("\n        with:\n          run_install: |\n            - args: [--frozen-lockfile]")}\n${ReleaseSteps}`
+                )
+            ),
+            violations
+        );
+        // Without the input, the behavior depends on the default of the action.
+        deepStrictEqual(checkPublishWorkflow(publishWorkflow(BuildSteps, `${setup("")}\n${ReleaseSteps}`)), violations);
+    });
+
     void it("rejects a second job holding the publishing identity", () => {
         deepStrictEqual(checkPublishWorkflow(publishWorkflow("      - run: pnpm build-pkg --force").replace("contents: read", "id-token: write")), [
             'build: "pnpm build-pkg --force" runs `pnpm build-pkg --force`, which is not a command a job with a write permission may run.',
