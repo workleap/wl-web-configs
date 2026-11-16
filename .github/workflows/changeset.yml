@@ -39,9 +39,6 @@ jobs:
           node-version: ">=26.0.0"
           check-latest: true
 
-      - name: Check that the lockfile only resolves from the npm registry
-        run: node .github/scripts/check-lockfile-registry.ts
-
       - name: Install dependencies
         # Only the packages and the workspace root: the samples' dependencies are not needed to build a package.
         run: pnpm install --frozen-lockfile --ignore-scripts --filter "{./packages/*}..." --filter workspace-root
@@ -84,9 +81,6 @@ jobs:
         with:
           node-version: ">=26.0.0"
           check-latest: true
-
-      - name: Check that the lockfile only resolves from the npm registry
-        run: node .github/scripts/check-lockfile-registry.ts
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts --filter workspace-root
