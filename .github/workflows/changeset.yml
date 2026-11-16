@@ -1,15 +1,64 @@
 name: Changesets
 
-# Pnpm setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
+# The packages are built by a job that cannot publish, then published by a job that builds nothing.
+# Read "Changesets" in CONTRIBUTING.md before changing this workflow.
 
 on:
   push:
     branches: ["main"]
 env:
   CI: true
+  # pnpm otherwise reinstalls the whole workspace, with lifecycle scripts, when a script runs on an install it finds out of date.
+  PNPM_CONFIG_VERIFY_DEPS_BEFORE_RUN: "false"
+
+# A job only holds the permissions it declares.
+permissions: {}
 
 jobs:
-  version:
+  # Runs the build tooling, so it gets a read-only token and no npm publishing identity.
+  # No pnpm store or Turborepo cache is restored: another workflow could have filled them.
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ">=26.0.0"
+          check-latest: true
+
+      - name: Install dependencies
+        # Only the packages and the workspace root: the samples' dependencies are not needed to build a package.
+        run: pnpm install --frozen-lockfile --ignore-scripts --filter "{./packages/*}..." --filter workspace-root
+
+      - name: Build packages
+        # --force bypasses the Turborepo cache.
+        run: pnpm build-pkg --force
+
+      - name: Upload the built packages
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: packages-dist
+          path: packages/*/dist
+          if-no-files-found: error
+          retention-days: 7
+
+  # Holds the npm publishing identity, so it runs no build and no dependency lifecycle script.
+  # It only installs the workspace root, for the Changesets CLI.
+  release:
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       id-token: write # OIDC for npm Trusted Publishing
@@ -32,35 +81,22 @@ jobs:
         with:
           node-version: ">=26.0.0"
           check-latest: true
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
 
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts --filter workspace-root
 
-      - name: Restore Turborepo cache
-        id: cache-turborepo-restore
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      - name: Download the built packages
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
-          # Using SHA will usually provide cache hit on subsequent commits in a PR
-          # but will not provide cache hits between PRs, meaning the first run of a PR
-          # will usually only be cache misses.
-          key: ${{ runner.os }}-turbo-changeset-v11-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-changeset-v11-
-            ${{ runner.os }}-turbo-v11-
-          path: .turbo
+          name: packages-dist
+          path: packages
 
-      - name: Build packages
-        run: pnpm build-pkg
-
-      - name: Save Turborepo cache
-        id: cache-turborepo-save
-        if: always() && steps.cache-turborepo-restore.outputs.cache-hit != 'true'
-        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          key: ${{ steps.cache-turborepo-restore.outputs.cache-primary-key }}
-          path: .turbo
+      - name: Check that the artifact only added build outputs
+        # This job installs nothing in packages/, so the dist folders, which Git ignores, must be the only entries listed.
+        # --ignored also lists a file added under another ignored path, like node_modules. Any other entry is printed and fails the job.
+        run: |
+          changes=$(git status --porcelain --ignored -- packages)
+          ! grep -vE '^!! packages/[^/]+/dist/$' <<< "$changes"
 
       - name: Create release Pull Request or publish to NPM
         # v2 is required by @changesets/cli v3, which reports published packages through
@@ -71,5 +107,5 @@ jobs:
         with:
           commit-message: "ci(changesets): version packages"
           pr-title: "Changeset: New Version"
-          # Packages are already built by the step above; publish-pkg only runs changeset publish.
+          # Packages are built by the build job; publish-pkg only runs changeset publish.
           publish-script: pnpm publish-pkg
