@@ -139,9 +139,8 @@ jobs:
       - name: Test agent tooling
         run: node --test .claude/skills/_update-skills/scripts/listSkillPins.test.ts
 
-      - name: Test the workflow rules
-        # Keeps the npm publishing identity of changeset.yml away from caches, install scripts and build tooling.
-        run: node --test .github/scripts/workflow-rules.test.ts
+      - name: Test the lockfile registry check
+        run: node --test .github/scripts/check-lockfile-registry.test.ts
 
       - name: Test packages
         # For a PR, only test the projects that are diverging from the pull request original baseline.

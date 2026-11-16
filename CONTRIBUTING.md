@@ -376,7 +376,7 @@ The workflow holds the npm publishing identity (npm Trusted Publishing, through 
 
 Both jobs install with `--frozen-lockfile --ignore-scripts`, restore no GitHub Actions cache (pnpm store or Turborepo), and first run [check-lockfile-registry.ts](./.github/scripts/check-lockfile-registry.ts), which fails when a dependency resolves from anywhere but the npm registry. `PNPM_CONFIG_VERIFY_DEPS_BEFORE_RUN` is set to `false`: by default, pnpm reinstalls the whole workspace, with the lifecycle scripts, before a script that runs on an install it finds out of date.
 
-These rules are enforced by [workflow-rules.test.ts](./.github/scripts/workflow-rules.test.ts), which the CI runs. The test lists every action and command the `release` job may run: adding one gives that code the publishing identity. For the same reason, a package must not define a script pnpm runs on publish (`prepack`, `prepublishOnly`, ...), and a package that needs an install script to build must not get it by removing `--ignore-scripts`: run that script explicitly in the `build` job.
+No test enforces these rules, so check them when you review a change to the workflow. Every action and command added to the `release` job gets the publishing identity. For the same reason, a package must not define a script pnpm runs on publish (`prepack`, `prepublishOnly`, ...), and a package that needs an install script to build must not get it by removing `--ignore-scripts`: run that script explicitly in the `build` job.
 
 The workflows that run an agent (`claude.yml`, `update-dependencies.yml`) have no step that saves a cache, so their runs do not fill the caches the other workflows restore on `main`.
 

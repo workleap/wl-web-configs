@@ -1,7 +1,7 @@
 name: Changesets
 
 # The packages are built by a job that cannot publish, then published by a job that builds nothing.
-# Read "Changesets" in CONTRIBUTING.md before changing this workflow: .github/scripts/workflow-rules.test.ts enforces its rules.
+# Read "Changesets" in CONTRIBUTING.md before changing this workflow.
 
 on:
   push:
