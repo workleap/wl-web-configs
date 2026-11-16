@@ -369,6 +369,17 @@ We currently have 3 builds configured:
 
 This action runs on a push on the `main` branch. If there is a file present in the `.changeset` folder, it will publish the new package version on npm.
 
+The workflow holds the npm publishing identity (npm Trusted Publishing, through `id-token: write`), so it is split in two jobs:
+
+- `build` builds the packages with a read-only token and uploads their `dist` folders as an artifact. It only installs the dependencies of `packages/*` and of the workspace root.
+- `release` downloads the artifact, then creates the release pull request or publishes. It is the only job with `id-token: write`, it only installs the workspace root (for the Changesets CLI) and it never runs a build. It fails if the artifact changed anything else than the `dist` folders.
+
+Both jobs install with `--frozen-lockfile --ignore-scripts`, restore no GitHub Actions cache (pnpm store or Turborepo), and first run [check-lockfile-registry.ts](./.github/scripts/check-lockfile-registry.ts), which fails when a dependency resolves from anywhere but the npm registry. `PNPM_CONFIG_VERIFY_DEPS_BEFORE_RUN` is set to `false`: by default, pnpm reinstalls the whole workspace, with the lifecycle scripts, before a script that runs on an install it finds out of date.
+
+These rules are enforced by [workflow-rules.test.ts](./.github/scripts/workflow-rules.test.ts), which the CI runs. The test lists every action and command the `release` job may run: adding one gives that code the publishing identity. For the same reason, a package must not define a script pnpm runs on publish (`prepack`, `prepublishOnly`, ...), and a package that needs an install script to build must not get it by removing `--ignore-scripts`: run that script explicitly in the `build` job.
+
+The workflows that run an agent (`claude.yml`, `update-dependencies.yml`) have no step that saves a cache, so their runs do not fill the caches the other workflows restore on `main`.
+
 ### CI
 
 This action will trigger when a commit is done in a PR to `main`, or after a push to `main` or to a `renovate/**` branch (see [GitHub Actions](#github-actions)). The action will run `build`, `lint` and `test` commands on the source code.

@@ -28,13 +28,12 @@ jobs:
         with:
           run_install: false
 
+      # No pnpm store cache: this job runs an agent, and the jobs on main restore the store it would save.
       - name: Install Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: ">=26.0.0"
           check-latest: true
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install workspace dependencies
         run: pnpm install --frozen-lockfile

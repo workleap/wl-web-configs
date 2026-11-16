@@ -35,26 +35,15 @@ jobs:
         with:
           run_install: false
 
+      # No pnpm store or Turborepo cache: this job runs an agent, and the jobs on main restore the caches it would save.
       - name: Install Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: ">=26.0.0"
           check-latest: true
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
-      - name: Restore Turborepo cache
-        id: cache-turborepo-restore
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          key: ${{ runner.os }}-turbo-claude-v11-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-claude-v11-
-            ${{ runner.os }}-turbo-v11-
-          path: .turbo
 
       - name: Run Claude
         uses: anthropics/claude-code-action@4d75e5f390ee76b2e09c1980ecc99ff3a2e088c8 # v1.0.275
@@ -63,11 +52,3 @@ jobs:
         env:
           # Required by gh CLI for interactive GitHub operations (PRs, issues, comments).
           GH_TOKEN: ${{ github.token }}
-
-      - name: Save Turborepo cache
-        id: cache-turborepo-save
-        if: always() && steps.cache-turborepo-restore.outputs.cache-hit != 'true'
-        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          key: ${{ steps.cache-turborepo-restore.outputs.cache-primary-key }}
-          path: .turbo
