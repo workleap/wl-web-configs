@@ -35,7 +35,8 @@ const PublisherActions = new Set(["actions/checkout", "pnpm/action-setup", "acti
 const PublisherCommands = new Set([
     "node .github/scripts/check-lockfile-registry.ts",
     "pnpm install --frozen-lockfile --ignore-scripts --filter workspace-root",
-    "git status --porcelain -- packages | (! grep .)"
+    "changes=$(git status --porcelain --ignored -- packages)",
+    "! grep -vE '^!! packages/[^/]+/dist/$' <<< \"$changes\""
 ]);
 // The root script that only runs `changeset publish`.
 export const PublishScript = "pnpm publish-pkg";

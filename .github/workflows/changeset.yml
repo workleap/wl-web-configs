@@ -98,8 +98,11 @@ jobs:
           path: packages
 
       - name: Check that the artifact only added build outputs
-        # The dist folders are ignored by Git: any other file the artifact adds or changes in a package is listed, and fails the job.
-        run: git status --porcelain -- packages | (! grep .)
+        # This job installs nothing in packages/, so the dist folders, which Git ignores, must be the only entries listed.
+        # --ignored also lists a file added under another ignored path, like node_modules. Any other entry is printed and fails the job.
+        run: |
+          changes=$(git status --porcelain --ignored -- packages)
+          ! grep -vE '^!! packages/[^/]+/dist/$' <<< "$changes"
 
       - name: Create release Pull Request or publish to NPM
         # v2 is required by @changesets/cli v3, which reports published packages through
