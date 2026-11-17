@@ -33,7 +33,7 @@
         "test": "vitest --config vitest.config.ts --no-watch"
     },
     "devDependencies": {
-        "@rsbuild/core": "2.3.1",
+        "@rsbuild/core": "2.3.2",
         "@rslib/core": "1.0.6",
         "@types/node": "26.6.6",
         "@workleap/rslib-configs": "workspace:*",
