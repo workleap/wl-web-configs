@@ -53,7 +53,7 @@ jobs:
           agent-browser close
 
       - name: Update dependencies
-        uses: anthropics/claude-code-action@f3b070c88125d33dbae5653df5f143101d4ea9dc # v1.0.276
+        uses: anthropics/claude-code-action@cc98b3ae241b0fcfb6a42a2690751afffecb4452 # v1.0.278
         with:
           prompt: |
             Read and follow the instructions in .github/prompts/update-dependencies.md
