@@ -41,9 +41,9 @@
         "core-js": "^3.51.0"
     },
     "devDependencies": {
-        "@rsbuild/core": "2.3.2",
-        "@rslib/core": "1.0.6",
-        "@rspack/core": "2.3.2",
+        "@rsbuild/core": "2.3.3",
+        "@rslib/core": "1.0.7",
+        "@rspack/core": "2.3.3",
         "@types/node": "26.6.6",
         "@workleap/rslib-configs": "workspace:*",
         "@workleap/typescript-configs": "workspace:*",
@@ -51,7 +51,7 @@
         "vitest": "5.1.0"
     },
     "peerDependencies": {
-        "@rsbuild/core": "^2.3.2",
-        "@rspack/core": "^2.3.2"
+        "@rsbuild/core": "^2.3.3",
+        "@rspack/core": "^2.3.3"
     }
 }

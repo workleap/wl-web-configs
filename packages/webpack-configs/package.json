@@ -45,8 +45,8 @@
         "terser-webpack-plugin": "^5.6.1"
     },
     "devDependencies": {
-        "@rsbuild/core": "2.3.2",
-        "@rslib/core": "1.0.6",
+        "@rsbuild/core": "2.3.3",
+        "@rslib/core": "1.0.7",
         "@svgr/core": "8.1.0",
         "@types/node": "26.6.6",
         "@workleap/rslib-configs": "workspace:*",
@@ -58,8 +58,8 @@
     "peerDependencies": {
         "@swc/core": "^1.16.22",
         "@swc/helpers": "^0.5.24",
-        "browserslist": "^4.29.5",
-        "postcss": "^8.5.32",
+        "browserslist": "^4.29.6",
+        "postcss": "^8.5.33",
         "webpack": "^5.112.2",
         "webpack-dev-server": "^5.2.4"
     },
