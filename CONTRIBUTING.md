@@ -312,7 +312,7 @@ pnpm list-outdated-deps
 
 ### update-outdated-deps
 
-Updated outdated dependencies to their latest version. For more information, view [PNPM documentation](https://pnpm.io/cli/update).
+Updated outdated dependencies to their latest version. For more information, view [PNPM documentation](https://pnpm.io/cli/update). It also restores the integrity hash of the root `packageManager` field, which `pnpm update` drops when it bumps pnpm.
 
 ```bash
 pnpm update-outdated-deps
