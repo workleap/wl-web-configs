@@ -1,6 +1,6 @@
 {
     "name": "@workleap/rsbuild-configs",
-    "version": "5.1.3",
+    "version": "5.1.4",
     "description": "Workleap recommended Rsbuild configurations.",
     "license": "Apache-2.0",
     "author": "Workleap",

@@ -1,6 +1,6 @@
 {
     "name": "@workleap/postcss-configs",
-    "version": "1.1.14",
+    "version": "1.1.15",
     "description": "Workleap's recommended PostCSS configurations",
     "license": "Apache-2.0",
     "author": "Workleap",
