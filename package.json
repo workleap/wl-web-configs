@@ -48,6 +48,7 @@
         "update-outdated-deps": "pnpm run --sequential \"/^update-outdated-deps:.*/\"",
         "update-outdated-deps:without-webpack-sample": "pnpm update -r --filter=!@webpack-sample/* --latest !webpack-dev-server",
         "update-outdated-deps:only-webpackreact-18-sample": "pnpm update -r --filter=@webpack-sample/* --latest !webpack-dev-server",
+        "update-outdated-deps:pin-package-manager": "node .github/scripts/pinPackageManagerHash.ts",
         "update-outdated-deps:update-peers": "syncpack fix"
     },
     "devDependencies": {
@@ -71,5 +72,5 @@
         "node": ">=26.0.0",
         "pnpm": ">=12.18.0"
     },
-    "packageManager": "pnpm@12.21.0"
+    "packageManager": "pnpm@12.21.0+sha512.66fd8278ee28935ce951792d34367ff3af5c432a2756445823029533835b8da529bbe0be5130afd56ed0713fb8789e47bad82d93bd5ae2fe54b15562d6276ef0"
 }
